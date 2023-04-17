@@ -520,16 +520,7 @@ document.write(`
 <section id="anwendungsfall-einen-gedankenprotokollanten-programmieren">
 <h2><span class="section-number">5.3. </span>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren" title="Permalink to this heading">#</a></h2>
 <p>Beim Anwendungsfall in diesem Notebook wollen wir ein interaktives Programm schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Die Benutzerin soll durch das Programm geführt werden und entscheiden können, wo, d.h. in welchem (externen) Dokument, sie ihre Gedanken festhalten will. Sie soll sowohl neue Dokumente anlegen können, als auch in bestehende reinschreiben. Anschließend soll sie beliebig viele Gedanken in dieses Dokument einfügen können. Das folgende Video zeigt das fertige Programm “in Aktion”:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Führe diese Zelle aus, um das Video einzubetten</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Video</span>
-<span class="n">Video</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Grafiken_und_Videos/Gedankenprotokollant.mov&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Ohne dieses Programm würde die Benutzerin vermutlich ein Microsoft Word-Dokument öffnen, ihre Gedanken reinschreiben, das Dokument speichern und dann wieder schließen. Das Anlegen/Öffnen/Speichern/Schließen des Dokuments wollen wir ihr abnehmen und ihr stattdessen ermöglichen, ihre Gedanken über eine freundliche, aber sehr minimale Benutzeroberfläche (engl.: <em>user interface</em>, abgekürzt: <em>UI</em>) zu protokollieren.</p>
+<video controls src="../3_Dateien/Grafiken_und_Videos/Gedankenprotokollant.mov" width=700/><p>Ohne dieses Programm würde die Benutzerin vermutlich ein Microsoft Word-Dokument öffnen, ihre Gedanken reinschreiben, das Dokument speichern und dann wieder schließen. Das Anlegen/Öffnen/Speichern/Schließen des Dokuments wollen wir ihr abnehmen und ihr stattdessen ermöglichen, ihre Gedanken über eine freundliche, aber sehr minimale Benutzeroberfläche (engl.: <em>user interface</em>, abgekürzt: <em>UI</em>) zu protokollieren.</p>
 <p>Im Folgenden lernen wir die dafür notwendigen Grundlagen kennen.</p>
 </section>
 <hr class="docutils" />
@@ -577,8 +568,7 @@ document.write(`
 <h2><span class="section-number">5.5. </span>Textdateien<a class="headerlink" href="#textdateien" title="Permalink to this heading">#</a></h2>
 <p>Textdateien sind grundlegend nach Zeilen strukturierte Dateien. Das trifft sowohl auf Microsoft Office-Dokumente mit dem Suffix “.docx” zu, als auch auf sog. <em>Plain Text Files</em> (mit dem Suffix “.txt”). Letztere sind <strong>nur</strong> nach Zeilen strukturiert und können von den meisten Programmen auf sämtlichen Betriebssystemen und natürlich auch von Python geöffnet werden. Deshalb beschränken wir uns im Folgenden auf Plain Text Files.</p>
 <p>Am Ende jeder Zeile in einer solchen Textdatei steht ein Zeilenumbruch, der als <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> (ausgesprochen: <em>backslash n</em> oder <em>newline</em>) codiert wird. Wenn wir eine “.txt”-Datei z.B. in Microsoft Word öffnen, werden uns i.d.R. nur die Zeilenumbrüche, nicht aber die dafür verantwortlichen Zeichen angezeigt (links im Screenshot unten). Optional können wir sie uns aber einblenden lassen (rechts im Screenshot unten).</p>
-<p><img alt="Miss_Sara_Sampson.png" src="programming/1_Notebooks/attachment:b9c3bd25-178f-442c-a8ef-9d07707e619e.png" /></p>
-<p>Hier handelt es sich um die ersten paar Zeilen aus Gotthold Ephraim Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/sampson/sampson.html">Miss Sara Sampson</a>.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Miss_Sara_Sampson.png"><p>Hier handelt es sich um die ersten paar Zeilen aus Gotthold Ephraim Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/sampson/sampson.html">Miss Sara Sampson</a>.</p>
 <p>An den sichtbar gemachten Zeichen für Zeilenumbrüche sehen wir, dass die letzten beiden Redebeiträge jeweils nur in einer einzigen Zeile gespeichert sind. Hier werden sie bloß aufgrund der horizontalen Begrenzung des Fensters auf mehreren Zeilen angezeigt.</p>
 <p>Auch bei Python werden Zeilenumbrüche nur in gewissen Fällen als Zeichen angezeigt, wie wir gleich sehen werden. Damit arbeiten können wir aber in jedem Fall, also auch wenn Zeilenumbrüche als Zeichen bei einer Ausgabe mal nicht angezeigt werden.</p>
 <p>Das wollen wir jetzt ausprobieren. Dazu lesen wir den im Screenshot gezeigten Text sowie den Rest des ersten Aufzugs aus dem Trauerspiel in Python ein. Die Datei befindet sich im Ordner “3_Dateien/Miss_Sara_Sampson”. Die simpelste Methode zum Einlesen einer Datei heißt wie oben erwähnt <code class="docutils literal notranslate"><span class="pre">read</span></code>:</p>
@@ -896,11 +886,9 @@ document.write(`
 <section id="tabellarische-dateien">
 <h2><span class="section-number">5.6. </span>Tabellarische Dateien<a class="headerlink" href="#tabellarische-dateien" title="Permalink to this heading">#</a></h2>
 <p>Tabellarische Dateien kennst Du von Microsoft Excel (oder vergleichbaren Programmen). An der Benutzeroberfläche sind sie in Spalten und Zeilen organisiert, wie wir hier am Beispiel einer Tabelle über die <a class="reference external" href="https://de.wikipedia.org/wiki/Liste_der_fl%C3%A4chengr%C3%B6%C3%9Ften_Gemeinden_Deutschlands">zehn flächengrößten Gemeinden Deutschlands</a> sehen:</p>
-<p><img alt="Flächengrösste_Gemeinden_Tabelle.png" src="programming/1_Notebooks/attachment:20e93bff-a7bf-4717-bb17-e30f7bbe720d.png" /></p>
-<p>Der einzige strukturelle Unterschied zu Textdateien ist, dass es neben Zeilen auch eine zweite Strukturdimension gibt, nämlich die Spalten.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_Tabelle.png"><p>Der einzige strukturelle Unterschied zu Textdateien ist, dass es neben Zeilen auch eine zweite Strukturdimension gibt, nämlich die Spalten.</p>
 <p>“Hinter den Kulissen” werden die einzelnen Spalten durch ein Trennzeichen (verwirrenderweise teils <em>separator</em>, teils <em>delimiter</em> auf Englisch) strukturiert. Bei dieser Datei sind dies Semikola (Strichpunkte), wie wir hier sehen:</p>
-<p><img alt="Flächengrösste_Gemeinden_roh.png" src="programming/1_Notebooks/attachment:3cd6c5e1-0540-4a54-9157-ddad9a010e69.png" /></p>
-<p>Die Zeilen wiederum werden wie bei Textdateien durch Zeilenumbrüche strukturiert, wobei die dafür zuständigen Zeichen im Screenshot oben einmal mehr nicht sichtbar sind.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_roh.png"><p>Die Zeilen wiederum werden wie bei Textdateien durch Zeilenumbrüche strukturiert, wobei die dafür zuständigen Zeichen im Screenshot oben einmal mehr nicht sichtbar sind.</p>
 <p>Wenn wir tabellarische Dateien einlesen, müssen wir wissen, mithilfe welchen Trennzeichens sie auf der Spaltenebene strukturiert sind, damit die Daten einer Zeile an den richtigen Orten in Spalten unterteilt werden. Neben Semikola (<code class="docutils literal notranslate"><span class="pre">&quot;;&quot;</span></code>) sind Kommata (<code class="docutils literal notranslate"><span class="pre">&quot;,&quot;</span></code>) oder Tabs (<code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>) übliche Trennzeichen. Wenn, wie oben, Semikola das Trennzeichen sind, können die anderen üblichen Trennzeichen ohne Weiteres zwischen den Semikola vorkommen (siehe z.B. die Kommata in den Flächenangaben). Auch beim Schreiben von tabellarischen Dateien müssen bzw. können wir spezifieren, welches Trennzeichen verwendet werden soll.</p>
 <p>Zur Arbeit mit tabellarischen Daten (sowie generell für fortgeschrittene Datenanalyse) gibt es die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, der das übernächste Notebook gewidmet ist. Hier schauen wir uns das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul an, das sich für den einfachen Umgang mit tabellarischen Daten eignet.</p>
 <section id="das-csv-modul">
@@ -1006,16 +994,7 @@ document.write(`
 <section id="id1">
 <h2><span class="section-number">5.8. </span>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Deine Aufgabe ist es also, ein kleines interaktives Programm zu schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Hier folgt nochmal das gleiche Video vom Anfang:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Führe diese Zelle aus, um das Video einzubetten</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Video</span>
-<span class="n">Video</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Grafiken_und_Videos/Gedankenprotokollant.mov&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Ergänzend zu diesem Video siehst Du unten eine Liste an einfachen Schritten, die – korrekt implementiert – die Aufgabe lösen und das im Video gezeigte Endprodukt verwirklichen. Diese einzelnen Schritte entsprechen dem zweiten Punkt beim algorithmischen Denken (nach der initialen Problemanalyse und vor der konkreten Implementierung).</p>
+<video controls src="../3_Dateien/Grafiken_und_Videos/Gedankenprotokollant.mov" width=700/><p>Ergänzend zu diesem Video siehst Du unten eine Liste an einfachen Schritten, die – korrekt implementiert – die Aufgabe lösen und das im Video gezeigte Endprodukt verwirklichen. Diese einzelnen Schritte entsprechen dem zweiten Punkt beim algorithmischen Denken (nach der initialen Problemanalyse und vor der konkreten Implementierung).</p>
 <p>Überlege Dir für jeden einzelnen Schritt, wie Du ihn konkret implementieren kannst, d.h. welche Funktionen oder Methoden sowie Kontrollstrukturen Du dafür benötigst. Schreibe zu jedem Punkt alle Techniken auf, mithilfe welcher Du den jeweiligen Punkt konkret in Code umsetzen kannst. Ignoriere dabei erst einmal, wie und in welcher Reihenfolge Du die Schritte anschließend miteinander verbindest:</p>
 <ol class="arabic simple">
 <li><p>Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet.</p></li>
@@ -1190,8 +1169,7 @@ document.write(`
 <p>Genau diese Kombination aus digit space und Nachkommastellen kannst Du nun in der letzten Übung einsetzen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 7:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben.</p>
-<p><img alt="Einkaufskorb.png" src="programming/1_Notebooks/attachment:7f21be66-87ec-44e6-b0bd-84a947b7d201.png" /></p>
-<p>Hinweis 1: Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte “Product” soll 25 Stellen betragen, derjenige für “Price” 5.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Einkaufskorb.png"><p>Hinweis 1: Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte “Product” soll 25 Stellen betragen, derjenige für “Price” 5.</p>
 <p>Hinweis 2: Wie erwähnt werden Zahlen innerhalb des digit space standardmäßig rechtsbündig ausgerichtet. Strings werden hingegen innerhalb des digit space standardmäßig linksbündig ausgerichtet (Tabellenkalkulationsprogramme legen das gleiche Verhalten an den Tag, wie Dir vielleicht schon aufgefallen ist). Um die Darstellung im Screenshot umzusetzen, musst Du Dich folglich nicht um das Alignment kümmern, da es dem Standard entspricht.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1204,6 +1182,7 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>Damit wissen wir alles Wichtige rund um In- und Output von Daten. Gute Arbeit!</p>
+<hr class="docutils" />
 </section>
 </section>
 </section>

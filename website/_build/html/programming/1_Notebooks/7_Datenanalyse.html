@@ -433,8 +433,7 @@ document.write(`
 <h1><span class="section-number">7. </span>Datenanalyse<a class="headerlink" href="#datenanalyse" title="Permalink to this heading">#</a></h1>
 <p>In diesem Notebook lernen wir, wie wir in Python große Mengen an strukturierten Daten, allen voran Daten in Form von Tabellen, verarbeiten und analysieren können.</p>
 <p>Im fünften Notebook haben wir mit folgender Tabelle gearbeitet:</p>
-<p><img alt="Flächengrösste_Gemeinden_Tabelle.png" src="programming/1_Notebooks/attachment:ecfa56ea-6264-488c-86d5-0c7110df65a0.png" /></p>
-<p>Wir haben unter Zuhilfenahme des <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Moduls unseren eigenen Code geschrieben, um auszurechnen, wieviele der 100 flächengrößten Gemeinden sich in jedem der sechzehn Bundesländer befinden. In diesem Notebook lernen wir die sehr viel leistungsstärkere Bibliothek <em>pandas</em> kennen, die uns diese Rechnung im Handumdrehen liefern kann. Pandas kann aber viel mehr, wie wir gleich sehen werden.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_Tabelle.png"><p>Wir haben unter Zuhilfenahme des <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Moduls unseren eigenen Code geschrieben, um auszurechnen, wieviele der 100 flächengrößten Gemeinden sich in jedem der sechzehn Bundesländer befinden. In diesem Notebook lernen wir die sehr viel leistungsstärkere Bibliothek <em>pandas</em> kennen, die uns diese Rechnung im Handumdrehen liefern kann. Pandas kann aber viel mehr, wie wir gleich sehen werden.</p>
 <p>Zu Beginn müssen wir pandas natürlich importieren. Folgendes Statement importiert die Bibliothek und verleiht ihr den Namen <code class="docutils literal notranslate"><span class="pre">pd</span></code>. Diese Abkürzung ist eine Konvention.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -531,7 +530,7 @@ document.write(`
 <section id="anwendungsfall-wortverlaufskurven-visualisieren">
 <h2><span class="section-number">7.3. </span>🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈<a class="headerlink" href="#anwendungsfall-wortverlaufskurven-visualisieren" title="Permalink to this heading">#</a></h2>
 <p>Auch in diesem Notebook gibt es einen Anwendungsfall: Wir wollen visualisieren, wie häufig beliebige Wörter in jedem Jahr im vom Songkorpus abgedeckten Zeitraum 1969-2022 vorkommen. Für die Begriffe “ich”, “du”, “er” und “sie” sähe das z.B. so aus:</p>
-<p><img alt="Wortverlaufskurve_Jahr.png" src="programming/1_Notebooks/attachment:da76124d-2ffa-499e-85b6-781d918c53da.png" /></p>
+<img src="../3_Dateien/Grafiken_und_Videos/Wortverlaufskurve_Jahr.png" width="700">
 <p>Es scheint, als sängen die Künstler:innen im Songkorpus bevorzugt über sich selbst. 😅</p>
 <hr class="docutils" />
 <p>Zuallererst wollen wir einen detailierten Blick auf Spalten und Zeilen werfen, aus denen ein DataFrame ja besteht.</p>
@@ -1235,8 +1234,7 @@ document.write(`
 <section id="id1">
 <h2><span class="section-number">7.16. </span>🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Im Anwendungsfall für dieses Notebook wollen wir wie gesagt Wortverlaufskurven visualisieren. Das heißt, wir wollen die Häufigkeit, mit der ein beliebiges Wort auftritt, über die Zeit hinweg darstellen. Für die vier Personalpronomen “ich”, “du”, “er” und “sie” sähe das z.B. wie in der kombinierten Grafik unten aus. Die linke Darstellung visualisiert die Daten nach einzelnen Jahren (wie der originale Datensatz), in der mittleren und rechten Darstellung werden die Daten aggregiert nach Fünfjahresabschnitten bzw. Zehnjahresabschnitten visualisiert. Einzelne Aussschläge nach oben und unten werden so ausgebügelt und Trends sind leichter zu erkennen:</p>
-<p><img alt="Wortverlaufskurve_kombiniert.png" src="programming/1_Notebooks/attachment:3d00a400-d0a9-47a6-8e96-f494ab7fad64.png" /></p>
-<p>Deine Aufgabe ist es erst einmal, Code zu schreiben, der die linke Grafik für beliebige Wörter produziert. Die erforderliche Aggregation für die mittlere und rechte Darstellung schauen wir uns im Anschluss an den Anwendungsfall gemeinsam an.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Wortverlaufskurve_kombiniert.png"><p>Deine Aufgabe ist es erst einmal, Code zu schreiben, der die linke Grafik für beliebige Wörter produziert. Die erforderliche Aggregation für die mittlere und rechte Darstellung schauen wir uns im Anschluss an den Anwendungsfall gemeinsam an.</p>
 <p>Wie im vierten und fünften Notebook hast Du wieder die Wahl, den Anwendungsfall ohne weitere Anleitung in Angriff zu nehmen oder einer Schritt-für-Schritt-Anleitung zu folgen. In letzterem Fall kannst Du jetzt ans Ende der nächsten Code-Zelle springen. Wenn Du es alleine probieren möchstest, dann analysiere das gewünschte Resultat oben links und frage Dich, welche Daten wie und wo visualisiert werden.</p>
 <p>💡 Tipp 1: Die relativen Häufigkeiten pro Wort und Jahr liegen noch nicht in unserem DataFrame vor. Du musst sie also erst ausrechnen. Überleg Dir genau, wie Du von den existierenden, absoluten Häufigkeiten zu den relativen Häufigkeiten pro Jahr kommst. Dazu seien zwei nützliche Methoden erwähnt (klicke auf ihren Namen, um zur offiziellen Dokumentation zu gelangen):</p>
 <ul class="simple">
@@ -1420,6 +1418,7 @@ document.write(`
 </div>
 <p>Neben dem Ausgabepfad können wir das gewünschte Trennzeichen und Encoding spezifizieren. Neben <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> gibt es analog zum Input auch spezifische Output-Methoden für XML (<code class="docutils literal notranslate"><span class="pre">to_xml</span></code>), JSON (<code class="docutils literal notranslate"><span class="pre">to_json</span></code>) und Excel (<code class="docutils literal notranslate"><span class="pre">to_excel</span></code>).</p>
 <p>Damit sind wir am Ende des Notebooks angelangt. Gute Arbeit!</p>
+<hr class="docutils" />
 </section>
 </section>
 
