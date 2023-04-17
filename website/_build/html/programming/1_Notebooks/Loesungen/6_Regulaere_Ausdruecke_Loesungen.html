@@ -1,0 +1,826 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Reguläre Ausdrücke (Lösungen) &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../start_page.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../start_page.html">
+                    Hello!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../about_me/yannick.html">I am Yannick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about_me/cv.html">Curriculum Vitae</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learn programming (🇩🇪)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Input_und_Output.html">5. Input und Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Datenanalyse.html">7. Datenanalyse</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/master?urlpath=lab/tree/website/programming/1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/programming/1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reguläre Ausdrücke (Lösungen)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="regulare-ausdrucke-losungen">
+<h1>Reguläre Ausdrücke (Lösungen)<a class="headerlink" href="#regulare-ausdrucke-losungen" title="Permalink to this heading">#</a></h1>
+<p>☝️ Beachte: es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
+<p>⚠️ Führe folgenden Code aus, bevor du einzelne Lösungen ausführst.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 1:</strong> Finde heraus, wieviele Mal drei aufeinanderfolgende “f” im string <code class="docutils literal notranslate"><span class="pre">text</span></code> vorkommen. <code class="docutils literal notranslate"><span class="pre">regex</span></code> soll Deinen regulären Ausdruck referenzieren. Es handelt sich dabei ebenfalls um einen string, allerdings mit einem dem öffnenden Anführungszeichen vorangestellten “r”/”R”. Wie bei f-strings im fünften Notebook teilen wir Python damit mit, dass der folgende string anders als ein normaler string zu interpretieren ist (wie genau, sind technische Details, die für uns nicht relevant sind).</p>
+<p>Der Rest des Codes ist bereits fertig geschrieben. Grob formuliert, nimmt die <code class="docutils literal notranslate"><span class="pre">findall</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls Deinen regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">regex</span></code>) und sucht <code class="docutils literal notranslate"><span class="pre">text</span></code> von links nach rechts danach ab. Alle Matches landen in einer Liste, die mit <code class="docutils literal notranslate"><span class="pre">matches</span></code> referenziert wird, deren Länge wir uns abschließend ausgeben lassen. Die Ausgabe sollte natürlich “3” sein, sobald du den korrekten regulären Ausdruck bei <code class="docutils literal notranslate"><span class="pre">regex</span></code> ausgefüllt hast.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Schadstofffreie Schifffahrt dank Auspufffilter&quot;</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;f</span><span class="si">{3}</span><span class="s2">&quot;</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>✏️ <strong>Lösung 2:</strong> Kopiere den Text eines beliebigen Artikels einer Online-Zeitung (z.B. von <a class="reference external" href="https://www.zeit.de">ZEIT Online</a>, <a class="reference external" href="https://www.tagesschau.de">tagesschau.de</a> oder den <a class="reference external" href="https://www.dnn.de">Dresdner Neuesten Nachrichten</a>). Einzige Bedingung: der Artikel sollte Zitate beinhalten. Füge den Text als string bei <code class="docutils literal notranslate"><span class="pre">text</span></code> unten ein. Formuliere nun reguläre Ausdrücke für folgende Suchaufträge:</p>
+<ol class="arabic simple">
+<li><p>alle kleingeschriebenen Wörter mit drei Buchstaben</p></li>
+<li><p>alle Wörter mit Großbuchstaben am Anfang</p></li>
+<li><p>alle Zitate (dieser reguläre Ausdruck beinhält vermutlich doppelte Anführungszeichen; umschließe den string zwecks korrekter Abgrenzung daher mit drei einfachen Anführungszeichen)</p></li>
+</ol>
+<p>Lasse Dir anschließend alle Listen schön formatiert ausgeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#zur Lösung verwendeter Text stammt von https://www.mdr.de/nachrichten/sachsen/bautzen/goerlitz-weisswasser-zittau/bahnstrecke-berlin-goerlitz-ice-ausbau-fahrgastverband-wirtschaftsministerium-100.html</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ein ICE von Berlin nach Görlitz: Das ist allenfalls Zukunftsmusik. Auch wenn Sachsens Ministerpräsident Michael Kretschmer (CDU) unlängst mitteilte, die ICE-Strecke zwischen Berlin und Görlitz werde umgesetzt, fährt noch lange kein ICE aus der Bundeshauptstadt in die niederschlesische Metropole. Das SPD-geführte sächsische Wirtschaftsministerium stellt auf Nachfrage von MDR SACHSEN klar: Ziel sei es, &quot;die bestehende Schienenverbindung zwischen Cottbus und Görlitz durchgängig zweigleisig zu elektrifizieren sowie auf eine Geschwindigkeit von bis zu 160 km/h zu ertüchtigen.&quot; Dies sei im Investitionsgesetz für die Kohleregionen aufgelistet.</span>
+<span class="s2">Darüber hinaus soll die Elektrifizierung des Bahnhofes Görlitz als sogenannte Systemtrennstelle mit Anschluss an das polnische Gleichstromsystem umgesetzt werden. Den Begriff der &quot;ICE-Strecke&quot; erachte das Wirtschaftsministerium &quot;dabei als irreführend, da ein Ausbau von Schieneninfrastruktur grundsätzlich allen Verkehrsträgern dient und nicht auf den Einsatz bestimmter Produktgattungen ausgerichtet ist&quot;. Im Klartext: Wenn kein Bedarf besteht, fahren auch künftig nur Regionalzüge zwischen Görlitz und Cottbus mit Umsteigen Richtung Berlin. Warum Kretschmer von einer ICE-Strecke spricht, wollte die Staatskanzlei auf Nachfrage nicht beantworten und verwies auf die Ausführungen des zuständigen Wirtschaftsministeriums.</span>
+<span class="s2">Ausbauplan bis 2038 Aus dem Wirtschaftsministerium hieß es weiter, &quot;nach Angaben der Deutschen Bahn sollen die Bauarbeiten bis Ende 2038 abgeschlossen werden&quot;. Die Investitionssumme werde auf etwa 1,65 Milliarden Euro geschätzt. Über den bestellten Zugverkehr, der nach Ausbau angeboten und von den Ländern bezahlt werden soll, führe man mit Brandenburg Gespräche. Über möglichen Fernverkehr entscheidet die DB selbst. Auch ein anderer Anbieter, wie etwa Flixtrain, könnte theoretisch auf eigene Kosten dort fahren. </span>
+<span class="s2">Deutsche Bahn äußert sich zurückhaltend zu Kosten und Zeitplan Die Deutsche Bahn verweist auf noch laufende Planungen und äußert sich weder zu Zeitplan noch zu Kosten. &quot;Mit dem Investitionsgesetz Kohleregionen (InvKG) hat der Bund die Grundlage für den weiteren Ausbau der Bahnstrecke zwischen Berlin und Görlitz geschaffen.&quot; Im Abschnitt Berlin – Cottbus liege &quot;der Fokus auf Einzelmaßnahmen an der Strecke und den Bahnhöfen. Auf dem Abschnitt Cottbus - Görlitz sind ein durchgehend zweigleisiger Ausbau und die Elektrifizierung der Strecke vorgesehen.&quot; </span>
+<span class="s2">Es gehe darum, die bisherige Braunkohle-Regionen nach dem Ende des Abbaus besser an Metropolregionen anzubinden. &quot;Die mit der schrittweisen Umsetzung der strukturstärkenden Maßnahmen einhergehenden Nachfrageentwicklungen wird die DB bei der Angebotsplanung berücksichtigen&quot;, verspricht der Verkehrskonzern, ohne konkret einen ICE anzukündigen.</span>
+<span class="s2">Fahrgastverband zweifelt an ICE nach Görlitz Vom Fahrgastverband Pro Bahn hieß es: &quot;Das Statement von Ministerpräsident Kretschmer ist in der Tat schwerlich einzuordnen, weil ein ICE-Zug als Besonderheit grundsätzlich nur eine elektrifizierte Trasse braucht.&quot; Frühere Pläne zum Ausbau für Geschwindigkeiten von 200 Stundenkilometer und mehr seien inzwischen Geschichte. Der Fahrgastverband sei skeptisch, dass die DB eigenwirtschaftlich ICE-Züge anbieten wird. Eine Bezahlung von Fernverkehr durch Länder, wie derzeit zwischen Dresden und Chemnitz oder Erfurt und Gera sei aber nur ein Notlösung. Seit der Bahnreform mit Fusion der Deutschen Reichsbahn und der Deutschen Bundesbahn zur Deutschen Bahn AG wird Regionalverkehr von Ländern bezahlt, Fernverkehrszüge betreibt die DB AG unter wirtschaftlichen</span>
+<span class="s2">Fokus auf Eurocity statt Binnenverkehrs-ICE Laut Fahrgastverband ist es &quot;ein generelles Versäumnis der Politik und der Bahn, dass die Fernverkehrsentwicklung auf den ICE fokussiert wurde und nicht die enormen Potentiale einer gemeinsamen Entwicklung des Fernverkehrs der Lausitz mit polnischen und tschechischen Nachbarn in den Blick genommen wurde&quot;. Der ICE ist &quot;nicht polen- und tschechientauglich&quot; - also unter dortiger Oberleitung nicht einsetzbar. Das liegt an unterschiedlichen Stromsystemen der europäischen Eisenbahnen. &quot;DB Fernverkehr hat in seinem Bestand keine einzige Lok, die technisch in der Lage wäre, nach Polen und Tschechien zu fahren&quot;, so der Fahrgastverband. (Im Bestand der DB AG gibt es ICE-Mehrsystemzüge, die planmäßig und täglich nach Frankreich, Belgien, in die Niederlande und in die Schweiz fahren. Anm. der Redaktion)</span>
+<span class="s2">Weiter heißt es: &quot;PKP Intercity würde längst Züge bis in den Görlitzer Hauptbahnhof fahren lassen, wenn die deutsche Seite die 800 Meter Fahrdraht, die zwischen 1923 und 1946 bereits hier hingen, vom Neißeviadukt bis in den Hauptbahnhof Görlitz gezogen hätte.&quot; 2003 hätten sich Polen und Deutschland in einem Staatsvertrag hierzu verpflichtet. &quot;Auf der polnischen Seite wurde dieser Staatsvertrag zeitnah realisiert, auf deutscher Seite nicht.&quot;</span>
+<span class="s2">Lausitz war einst europäisches Schienendrehkreuz Die Lausitz war laut Fahrgastverband &quot;einst ein Drehkreuz des europäischen Schienenverkehrs&quot;. In Cottbus und Görlitz hätten sich Verkehrsströme des Ost-West und des Nord-Süd-Verkehrs gekreuzt. &quot;Würde man den Fokus statt auf ICE-Züge beispielsweise auf Eurocity-Züge Berlin - Cottbus - Wroclaw - Kraków - Przemysl -Lwiw - Kiew oder Frankfurt/Main - Leipzig - Dresden - Görlitz - Wroclaw - Warschau legen, so wären solche Verkehre sicherlich wirtschaftlicher realisierbar als innerdeutsche &#39;Endverkehre&#39; Berlin - Cottbus - Görlitz. Zudem könnte die polnische Seite auch den Flughafen Berlin-Brandenburg BER aus Wroclaw kommend direkt anfahren. &quot;Daran hat sie schon vor Jahren großes Interesse bekundet.&quot;</span>
+<span class="s2">Zwischen Berlin und Cottbus, wo die Bahn ein ICE-Werk plant, ist die Strecke elektrifiziert und wird auch jetzt schon von einzelnen Intercitys befahren. Zwischen Cottbus und Görlitz über Weißwasser fahren Dieseltriebwagen der Ostdeutschen Eisenbahn-Gesellschaft (ODEG). In diesem Abschnitt muss ein Streckenausbau auch um den Tagebau Reichwalde geplant werden.</span>
+<span class="s2">Zugleich fordert der Fahrgastverband von Görlitz weiter bis Zittau die Bahnstrecke zu elektrifizieren, um auf tschechischer Seite über Liberec bis Prag modernen Fernverkehr anbieten zu können. Auch die Trasse Dresden - Bautzen - Görlitz müsse &quot;zeitnah&quot; elektrifiziert und ertüchtigt werden. &quot;Wichtig ist aber, dass diese Strecken finanziell nicht gegeneinander ausgespielt werden&quot;, so Pro Bahn.&quot;&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;whitespace vor und nach den Ausdrücken in regex_1 und regex_2 sind notwendig, </span>
+<span class="sd">da findall sonst auch innerhalb von Wörtern matcht (elegantere Lösung siehe &#39;Weitere Sonderzeichen&#39;)&quot;&quot;&quot;</span>
+<span class="n">regex_1</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot; [a-zäöüß]</span><span class="si">{3}</span><span class="s2"> &quot;</span>
+<span class="n">regex_2</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot; [A-ZÄÖÜ]\w* &quot;</span>
+<span class="sd">&quot;&quot;&quot;beachte, dass regex_3 auf den obigen Text zugeschnitten ist und bei Dir vermutlich anders aussieht&quot;&quot;&quot;</span>
+<span class="n">regex_3</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;&quot;[\wäöüß/,-.\s()]*&quot;&#39;&#39;&#39;</span> <span class="c1">#literal &#39;&quot;&#39;, dann beliebig viele ASCII-Zeichen bzw. &quot;ä&quot;, &quot;ö&quot;, &quot;ü&quot;, &quot;ß&quot;, &quot;/&quot;, &quot;,&quot;, &quot;-&quot;, &quot;.&quot;, whitespace-Zeichen, &quot;(&quot;, &quot;)&quot;, danach literal &#39;&quot;&#39;</span>
+
+<span class="n">three_letter_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="n">capital_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_2</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="n">quotes</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_3</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Konvertieren der Listen in einen string (mittels join, vgl. 2. Notebook), </span>
+<span class="sd">wobei wir erst mittels List Comprehension (vgl. 4. Notebook) trailing und leading whitespace bei jedem Element entfernen&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kleingeschriebene Wörter mit drei Buchstaben: &quot;</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">three_letter_words</span><span class="p">]),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Großgeschriebene Wörter: &quot;</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">capital_words</span><span class="p">]),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zitate:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">quote</span> <span class="ow">in</span> <span class="n">quotes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">quote</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Angelehnt an das Beispiel mit den Links auf <a class="reference external" href="https://tu-dresden.de">tu-dresden.de</a> sollst Du in dieser Übung ebenfalls Links von einer bestimmten Webseite (bzw. aus dessen Quelltext) extrahieren.</p>
+<ol class="arabic">
+<li><p>Öffne dazu den <a class="reference external" href="https://www.weltfussball.de/alle_spiele/bundesliga-2019-2020/">Spielplan der Bundesligasaison 2019-2020 auf weltfussball.de</a>. Nun wollen wir den Quelltext dieser Seite herunterladen. Da wir noch über keine Web-Scraping-Skills verfügen, machen wir es manuell. Gehe dazu je nach Browser wie folgt vor:</p>
+<ul class="simple">
+<li><p>bei Google Chrome im Menü “Anzeigen” &gt; “Entwickler” &gt; “Quelltext anzeigen” wählen</p></li>
+<li><p>bei Safari mittels Rechtsklick “Seitenquelltext einblenden” wählen</p></li>
+<li><p>bei Firefox mittels Rechtsklick “Seitenquelltext anzeigen” wählen</p></li>
+</ul>
+ <br>
+<p>Markiere und kopiere nun den kompletten Quelltext und speichere ihn in einem neuen Dokument, das Du unter dem Namen “quelltext.txt” im Ordner “3_Dateien/Fussball” abspeicherst. Für diesen Vorgang empfiehlt sich das im vierten Notebook erwähnte <a class="reference external" href="https://www.sublimetext.com">Sublime Text</a>.</p>
+</li>
+<li><p>Öffne das Dokument wie im fünften Notebook gelernt, lies es ein und weise es der Variablen <code class="docutils literal notranslate"><span class="pre">source_code</span></code> zu.</p></li>
+<li><p>Gehe nochmal zum <a class="reference external" href="https://www.weltfussball.de/alle_spiele/bundesliga-2019-2020/">Spielplan</a> im Browser und öffne einige Spielberichte, indem Du auf die jeweiligen Spielergebnisse klickst. Schau Dir die Adresszeile an und analysiere, wie die Links aufgebaut sind sowie worin sie sich unterscheiden. Schau ebenfalls im Quelltext nach, wie die Links da aussehen (💡 Tipp: die Links im Quelltext sind abgekürzt).</p></li>
+<li><p>Formuliere darauf aufbauend einen regulären Ausdruck, der sämtliche Links zu allen Spielberichten im Quelltext matcht. Füge ihn als string bei der Variablen <code class="docutils literal notranslate"><span class="pre">regex</span></code> ein. Ist der reguläre Ausdruck korrekt, sollte <code class="docutils literal notranslate"><span class="pre">matches</span></code> 306 Links beinhalten.</p></li>
+<li><p>Erstelle eine Liste mit vollständigen Links zu allen Spielberichten und lasse sie Dir ausgeben. Probiere einige der Links aus.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt </span>
+<span class="c1">#Code funktioniert erst, nachdem Du das Dokument &quot;quelltext.txt&quot; erstellt hast!</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Fussball/quelltext.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">source_code</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;/spielbericht/[\w-]+/&quot;</span> <span class="c1">#literal &quot;/spielbericht/&quot;, ein oder mehrere alphanumerische Zeichen bzw. literal &quot;-&quot;, literal &quot;/&quot;</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">source_code</span><span class="p">)</span>
+
+<span class="n">links</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="n">links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;www.weltfussball.de&quot;</span> <span class="o">+</span> <span class="n">match</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 4:</strong> Lies das Märchen “Des Kaisers neue Kleider” von Hans Christian Andersen aus dem Ordner “3_Dateien” ein und weise es <code class="docutils literal notranslate"><span class="pre">fairytale</span></code> zu. Formuliere nun reguläre Ausdrücke für folgende Suchaufträge:</p>
+<ol class="arabic simple">
+<li><p>das erste Wort des Märchens</p></li>
+<li><p>regelmäßige Verben in der 3. Person Singular/Plural im Präteritum (z.B. “lebte” oder “sagte”; es ist in Ordnung, wenn Du mit diesem regulären Ausdruck auch ein paar falsch positive (vgl. Wahrheitsmatrix im 5. Notebook) matches kriegst 🤫)</p></li>
+<li><p>letzte Wörter von Sätzen, die mit einem Punkt enden (z.B. “einherzugehen”, vgl. erster Satz des Märchens)</p></li>
+<li><p>Wörter mit Doppel-a (z.B. “Saal”)</p></li>
+<li><p>das letzte Wort des Märchens</p></li>
+</ol>
+<p>Da wir bei der ersten und letzten Aufgabe, nicht nach <em>allen</em> matches suchen, sondern nur an einem einzigen interessiert sind (es kann ja auch nur jeweils einen match geben), verwenden wir eine neue Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">search</span></code>, auf die wir unten genauer eingehen. Dabei erhalten wir keine Liste zurück, sondern ein sog. <em>match-Objekt</em>, wobei wir auf den eigentlichen match wie im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement bereits vorgegeben zugreifen können. Überhaupt sollte das <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement das Ergebnis aller fünf Suchaufträge schön formatiert ausgeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Des_Kaisers_neue_Kleider/Des_Kaisers_neue_Kleider.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">fairytale</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">regex_1</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\w+&quot;</span> <span class="c1">#string-Anfang, ein oder mehrere ASCII-Zeichen (noch besser wäre eigene Klasse [A-Za-zÄäÖöÜüß], da sonst ein string-Anfang mit Umlaut/Eszett nicht gematcht würde; gilt auch unten)</span>
+<span class="n">regex_2</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\b[a-zäöüß]+ten?\b&quot;</span> <span class="c1">#Wortgrenze, ein oder mehrere kleingeschriebene Buchstaben, literal &quot;t&quot; und &quot;e&quot;, optional literal &quot;n&quot;, Wortgrenze</span>
+<span class="n">regex_3</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[A-Za-zÄäÖöÜüß]+\.&quot;</span> <span class="c1">#Ein oder mehrere literale Buchstaben, literal &quot;.&quot; (maskiert mit &quot;\&quot;, da sonst Wildcard)</span>
+<span class="n">regex_4</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\b\w*[a]</span><span class="si">{2}</span><span class="s2">\w*\b&quot;</span> <span class="c1">#Wortgrenze, null oder mehrere ASCII-Zeichen, zwei literale &quot;a&quot;, null oder mehrere ASCII-Zeichen, Wortgrenze</span>
+<span class="n">regex_5</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\w+\.$&quot;</span> <span class="c1">#ein oder mehrere ASCII-Zeichen, ein literaler &quot;.&quot; (maskiert), string-Ende</span>
+
+<span class="n">first_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="n">verbs</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_2</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="n">last_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_3</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="n">double_vowel</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_4</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="n">last_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_5</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">first_word</span><span class="o">.</span><span class="n">group</span><span class="p">(),</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">verbs</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">last_words</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">double_vowel</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">last_word</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 5:</strong> Im vierten Notebook in Übung 2 haben wir gesehen, dass das Wort “Klima” viel häufiger im Koalitionsvertrag von 2021 als in demjenigen von 2018 vorkommt. Nun wollen wir herausfinden, in welcher Form das Wort verwendet wird. Neben dem alleinstehenden Auftreten von “Klima” (als sog. <em>Simplex</em>, da es aus nur einem Morphem besteht) ist “Klima” bzw. “klima” häufig Teil von zusammengesetzten Wörtern, also sog. <em>Komposita</em>, wie etwa in”Klimakrise” oder “klimapolitisch”.</p>
+<p>Lies den Koalitionsvertrag von 2021 nochmal ein und weise ihn der Variablen <code class="docutils literal notranslate"><span class="pre">kv21</span></code> zu. Durchsuche ihn nun nach einem regulären Ausdruck, der sämtliche Komposita, in denen “Klima” bzw. “klima” vorkommt, matcht. Hänge alle Komposita der Liste <code class="docutils literal notranslate"><span class="pre">climate_compounds</span></code> an und lasse Dir abschließend die Liste ausgeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">kv21</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[Kk]lima\S*\b&quot;</span>
+
+<span class="n">climate_compounds</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">kv21</span><span class="p">):</span>
+    <span class="n">climate_compounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">climate_compounds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 6:</strong> Finde alle Substantive mit definitem Artikel (z.B. “der” oder “dem”) in <code class="docutils literal notranslate"><span class="pre">text</span></code>, das der Einleitung des <a class="reference external" href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck"> Wikipedia-Artikels zu regulären Ausdrücken</a> entspricht (Stand: 26.10.2022). Der Artikel (des Substantivs) sollte jeweils mitgemacht werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ein regulärer Ausdruck (englisch regular expression, Abkürzung RegExp oder Regex) ist in der theoretischen Informatik eine Zeichenkette, die der Beschreibung von Mengen von Zeichenketten mit Hilfe bestimmter syntaktischer Regeln dient. Reguläre Ausdrücke finden vor allem in der Softwareentwicklung Verwendung. Neben Implementierungen in vielen Programmiersprachen verarbeiten auch viele Texteditoren reguläre Ausdrücke in der Funktion „Suchen und Ersetzen“. Ein einfacher Anwendungsfall von regulären Ausdrücken sind Wildcards.</span>
+<span class="s2">Reguläre Ausdrücke können als Filterkriterien in der Textsuche verwendet werden, indem der Text mit dem Muster des regulären Ausdrucks abgeglichen wird. Dieser Vorgang wird auch Pattern Matching genannt. So ist es beispielsweise möglich, alle Wörter aus einer Wortliste herauszusuchen, die mit S beginnen und auf D enden, ohne die dazwischen liegenden Buchstaben oder deren Anzahl explizit vorgeben zu müssen.</span>
+<span class="s2">Der Begriff des regulären Ausdrucks geht im Wesentlichen auf den Mathematiker Stephen Kleene zurück, der die ähnliche Bezeichnung reguläre Menge verwendete.&quot;&quot;&quot;</span>
+
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\b(D|d)(er|ie|as|es|em|en) [A-ZÄÖÜ][a-zäöüß]*\b)&quot;</span> <span class="c1">#Wortgrenze, literal &quot;D&quot; oder &quot;d&quot;, literal &quot;er&quot;, &quot;ie&quot;, &quot;as&quot;, &quot;es&quot;, &quot;em&quot; oder &quot;en&quot;, Leerzeichen, beliebiger Großbuchstabe, beliebig viele Kleinbuchstaben, Wortgrenze</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="c1">#nur den gesamten match (Hauptgruppe) ausgeben lassen</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">match</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">])</span>
+
+<span class="c1">#den gesamten match (Hauptgruppe) und alle anderen Gruppen ausgeben lassen</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">match</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 7 (fortgeschritten):</strong> Gegeben sind kurze Beschreibungen von fünf Personen in <code class="docutils literal notranslate"><span class="pre">people</span></code>. In jeder Beschreibung findet sich der Vor- und Nachname, das Geburtsdatum sowie die E-Mailadresse der Person. Wir wollen daraus ein kleines Adressbuch in tabellarischer Form schaffen. Ziel ist es, die Daten wie im Screenshot gezeigt in die Datei “address_book.tsv” im Ordner “3_Dateien/Output” zu schreiben:</p>
+<p>Zwischen den Namen und dem Geburtstag sowie dem Geburtstag und der E-Mailadresse soll also ein Tab stehen, da Dateien mit der Endung “.tsv” tabulatorsepariert sind (dem gleichen Prinzip wie kommaseparierte Dateien folgend, vgl. 5. Notebook).</p>
+<p>Formuliere <em>einen</em> regulären Ausdruck, um fünf matches zu erhalten (einen pro Person), und nutze Gruppen, um die Elemente <em>Nachname</em>, <em>Vorname</em>, <em>Geburtstag</em> und <em>E-Mailadresse</em> als Teilmatch separat zu erhalten. Öffne und beschreibe anschließend die Datei “address_book.tsv”, sodass jede Person in einer eigenen Zeile abgespeichert wird sowie jedes Element in einer eigenen Spalte.</p>
+<p>💡 Tipp: <code class="docutils literal notranslate"><span class="pre">findall</span></code> findet stets den längstmöglichen match. Da die Wildcard alle beliebigen Zeichen <em>außer</em> einem Zeilenumbruch matcht, kannst Du sie getrost in Deinen regulären Ausdruck einbauen, z.B. für die erste Gruppe der Vornamen, etwa so <code class="docutils literal notranslate"><span class="pre">(.+)</span></code>. Indem Du danach eine Gruppe für den Nachnamen anhängst, kann die durch den Quantifikator <code class="docutils literal notranslate"><span class="pre">+</span></code> “ungebändigte” Wildcard nicht einfach die ganze Personenbeschreibung matchen (man spricht angesichts dieser Gier auch von <em>fressen</em>). Dies, da sie ja keinen Zeilenumbruch matchen kann und nach dem Zeilenumbruch nun mal nichts kommt, das von Deiner zweiten Gruppe sowie dem restlichen regulären Ausdruck gematcht werden könnte.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Detlef SCHULZ hat am 21.03.1967 Geburtstag, und das ist seine Emailadresse: schulz-detlef@gmail.net </span>
+<span class="s2">Ina SCHULTER wurde am 02.04.1992 geboren und ihre E-Mail-Adresse lautet: inaschulter@gmx.de</span>
+<span class="s2">Katharina Anne LAMAI ist ein Dezemberkind, ihr Geburtstag ist der 08.12.1955 geboren und ihre E-Mail-Adresse lautet: KaAnLa@yahoo.com</span>
+<span class="s2">Anuk MARGA ist am 15.01.1988 auf die Welt gekommen, ihre E-Mail-Adresse lautet: MargAnuk@gmail.com</span>
+<span class="s2">Albus Percival Wulfric Brian DUMBLEDORE hat 17.06.1881 das Licht der Welt erblickt. Er hat sogar eine Emailadresse: fresh-dumbledore@hogwarts.com&quot;&quot;&quot;</span>
+ 
+<span class="s2">&quot;Beachte: mehr denn je können unzählige andere Lösungen auch korrekt sein!&quot;</span>    
+
+<span class="sd">&quot;&quot;&quot;Mindestens ein beliebiges Zeichen (außer Zeilenumbruch), gefolgt von einem Leerschlag, gefolgt von mindestens einem Großbuchstaben,</span>
+<span class="sd">gefolgt von einem Leerschlag, gefolgt von mindestens einem beliebigen Zeichen (außer Zeilenumbruch), gefolgt von einem Leerschlag,</span>
+<span class="sd">gefolgt von zwei Zahlen, einem Punkt (maskiert), zwei Zahlen, einem Punkt (maskiert), vier Zahlen, gefolgt von einem Leerschlag,</span>
+<span class="sd">gefolgt von mindestens einem beliebigen Zeichen (außer Zeilenumbruch), gefolgt von Leerschlag, gefolgt von mindestens einem beliebigen Zeichen, </span>
+<span class="sd">das nicht whitespace ist, gefolgt von literal &#39;@&#39;, gefolgt von mindestens einem beliebigen Zeichen, das nicht whitespace ist;</span>
+<span class="sd">regulärer Ausdruck funktioniert, da die Wildcard keinen Zeilenumbruch matcht und sich von daher nicht die ganze Beschreibung &#39;einverleiben&#39; kann,</span>
+<span class="sd">da sonst der Rest des regulären Ausdrucks nicht mehr zuträfe (vgl. Tipp im zugehörigen Notebook)&quot;&quot;&quot;</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(.+) ([A-Z]+) .+ (\d</span><span class="si">{2}</span><span class="s2">\.\d</span><span class="si">{2}</span><span class="s2">\.\d</span><span class="si">{4}</span><span class="s2">) .+ (\S+@\S+)&quot;</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">people</span><span class="p">)</span>
+
+<span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/address_book.tsv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Name</span><span class="se">\t</span><span class="s2">Birthday</span><span class="se">\t</span><span class="s2">Mail address</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">match</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="n">match</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">match</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">match</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 8:</strong> Bei <code class="docutils literal notranslate"><span class="pre">birth_notices</span></code> handelt es nun um eine Liste mit mehreren Geburtsanzeigen. Deine Aufgabe ist es, die Geburtsdaten der Neugeboreren mithilfe eines regulären Ausdrucks sowie einer geeigneten Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls aus den Anzeigen zu extrahieren und einer Liste namens <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> anzuhängen. Lass dir abschließend <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> ausgeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_notices</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Lena erblickte am 1. September 2022 die Welt.&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Petra kam am 28. Februar 2022 zur Welt.&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Yusuf strahlte uns am 14. Dezember 2022 mit glänzenden Äuglein an.&quot;</span><span class="p">,</span> 
+                 <span class="s2">&quot;Juans Leben begann am sonnigen 19. August 2022.&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Robert bereichert seit dem 5. Mai 2022 unser Leben.&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Mi beglückt uns seit dem 1. März 2022.&quot;</span><span class="p">]</span>
+
+<span class="n">birth_dates</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d{1,2}\. (\w|ä)+ \d</span><span class="si">{4}</span><span class="s2">&quot;</span>
+
+<span class="k">for</span> <span class="n">notice</span> <span class="ow">in</span> <span class="n">birth_notices</span><span class="p">:</span>
+    <span class="n">birth_dates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">notice</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">birth_dates</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 9:</strong> Gegeben sind in <code class="docutils literal notranslate"><span class="pre">people</span></code> nochmal die Personenbeschreibungen aus Übung 7 sowie die Musterlösung für den regulären Ausdruck in <code class="docutils literal notranslate"><span class="pre">regex</span></code>. <code class="docutils literal notranslate"><span class="pre">regex</span></code> beinhaltet Gruppen, auf deren Teilmatches wir zurückgreifen können. Formuliere einen regulären Ausdruck für <code class="docutils literal notranslate"><span class="pre">replacement</span></code>, um anschließend <code class="docutils literal notranslate"><span class="pre">people</span></code> mithilfe von <code class="docutils literal notranslate"><span class="pre">re.sub</span></code> in dasselbe Format wie in Übung 7 zu bringen:</p>
+<p>“Nachname, Vorname \t Geburtsdatum \t E-Mailadresse”</p>
+<p>Es reicht diesmal, wenn Du das Dir das Ergebnis einfach ausgeben lässt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Detlef SCHULZ hat am 21.03.1967 Geburtstag, und das ist seine Emailadresse: schulz-detlef@gmail.net </span>
+<span class="s2">Ina SCHULTER wurde am 02.04.1992 geboren und ihre E-Mail-Adresse lautet: inaschulter@gmx.de</span>
+<span class="s2">Katharina Anne LAMAI ist ein Dezemberkind, ihr Geburtstag ist der 08.12.1955 geboren und ihre E-Mail-Adresse lautet: KaAnLa@yahoo.com</span>
+<span class="s2">Anuk MARGA ist am 15.01.1988 auf die Welt gekommen, ihre E-Mail-Adresse lautet: MargAnuk@gmail.com</span>
+<span class="s2">Albus Percival Wulfric Brian DUMBLEDORE hat 17.06.1881 das Licht der Welt erblickt. Er hat sogar eine Emailadresse: fresh-dumbledore@hogwarts.com&quot;&quot;&quot;</span>
+ 
+<span class="c1">#Erklärung des regulären Ausdrucks siehe Lösung 5</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(.+) ([A-Z]+) .+ (\d</span><span class="si">{2}</span><span class="s2">\.\d</span><span class="si">{2}</span><span class="s2">\.\d</span><span class="si">{4}</span><span class="s2">) .+ (\S+@\S+)&quot;</span>
+<span class="n">replacement</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\2, \1\t\3\t\4&quot;</span>
+
+<span class="n">people_formatted</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">replacement</span><span class="p">,</span> <span class="n">people</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">people_formatted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 10:</strong> <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> von oben ist nun etwas länger und beinhält mehr Geburtsdaten. Ziel ist es, sämtliche Geburtsdaten in das Datumsformat nach <a class="reference external" href="https://de.wikipedia.org/wiki/Datumsformat#ISO_8601_und_EN_28601">ISO 8601</a>, also YYYY/MM/DD, zu bringen.</p>
+<ol class="arabic simple">
+<li><p>Wenn nötig, passe <code class="docutils literal notranslate"><span class="pre">regex</span></code> an, damit auch alle neuen Geburtsdaten gematcht werden.</p></li>
+<li><p>Setze Klammern in <code class="docutils literal notranslate"><span class="pre">regex</span></code>, um relevante Teile eines matches zu gruppieren.</p></li>
+<li><p>Passe die Funktion <code class="docutils literal notranslate"><span class="pre">to_ISO_format</span></code> an, damit jedes einzelne match-Objekt entsprechend IS0 8601 umstrukturiert wird. Hierzu einige Bemerkungen und Tipps:</p>
+<ul class="simple">
+<li><p>Bei zweistelligen Jahreszahlen unter und gleich 22 kannst Du davon ausgehen, dass sie sich auf das 21. Jahrhundert beziehen, ansonsten auf das 20. Jahrhundert.</p></li>
+<li><p>Verwende f-strings zur Formatierung der Teilmatches (vgl. fünftes Notebook).</p></li>
+<li><p>Der Funktionsaufruf innerhalb von <code class="docutils literal notranslate"><span class="pre">re.sub(...)</span></code> ist korrekt, so wie er gegeben ist (es fehlen also keine Klammern!).</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_dates</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ich bin am 09.08.1992 geboren, meine Schwester am 3.4.95 und unser Bruder am 9.10.1998. </span>
+<span class="s2">Unsere Mutter ist am 23.10.1967 geboren und unser Vater am 14.1.68. </span>
+<span class="s2">Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 1.1.2022 geboren wurde.&quot;&quot;&quot;</span>
+
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\d{1,2})\.(\d{1,2})\.((19|20)?\d</span><span class="si">{2}</span><span class="s2">)&quot;</span>
+
+<span class="k">def</span> <span class="nf">to_ISO_format</span><span class="p">(</span><span class="n">match_object</span><span class="p">):</span>
+    
+    <span class="n">two_digit_year</span> <span class="o">=</span> <span class="n">match_object</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+    
+    <span class="n">year</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;19&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">two_digit_year</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">two_digit_year</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;20&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">two_digit_year</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">match_object</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="si">:</span><span class="s2">02</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">match_object</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="si">:</span><span class="s2">02</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="k">return</span> <span class="n">year</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">month</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">day</span>
+     
+<span class="n">iso_dates</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">to_ISO_format</span><span class="p">,</span> <span class="n">birth_dates</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iso_dates</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>🔧 Anwendungsfall (Lösung):</strong></p>
+<p>Die Lösung zu beiden Teilaufgaben befindet sich in den Modulen <code class="docutils literal notranslate"><span class="pre">pizzabot_solved_documented.py</span></code> und <code class="docutils literal notranslate"><span class="pre">pizza_functions_documents</span></code> im Ordner “3_Dateien”. Der verbesserte Pizzabot kann in der folgenden Zelle getestet werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;diese beiden Zeilen kannst Du ignorieren (sie sind nötig, da sich das zu importierende Modul </span>
+<span class="sd">in einem anderen Verzeichnis als das Notebook befindet (vgl. viertes Notebook)&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Module/&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">pizzabot_solved_documented</span> <span class="k">as</span> <span class="nn">pizzabot</span>
+<span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Weiter können die Muster-docstrings über folgende Zelle ausgegeben werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pizzabot_solved_documented</span> <span class="kn">import</span> <span class="n">order_pizza</span>
+<span class="kn">from</span> <span class="nn">pizza_functions_documented</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">order_pizza</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yn_validator</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">choose_pizza</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">remove_ingredient</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add_ingredient</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">request_address</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks/Loesungen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This book is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

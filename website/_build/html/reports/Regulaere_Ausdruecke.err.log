@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "/Users/Yannick/opt/anaconda3/envs/ex/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/Yannick/opt/anaconda3/envs/ex/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/Yannick/opt/anaconda3/envs/ex/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/Yannick/opt/anaconda3/envs/ex/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/Yannick/opt/anaconda3/envs/ex/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/Users/Yannick/opt/anaconda3/envs/ex/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/Users/Yannick/opt/anaconda3/envs/ex/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/Yannick/opt/anaconda3/envs/ex/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+"""diese beiden Zeilen kannst Du ignorieren (sie sind nötig, da sich das zu importierende Modul 
+in einem anderen Verzeichnis als das Notebook befindet (vgl. viertes Notebook)"""
+import sys
+sys.path.append("../3_Dateien/Module")
+
+import pizzabot
+
+#hier aktivieren wir den Pizzabot
+pizzabot.order_pizza()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<cell line: 6>[0;34m()[0m
+[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01msys[39;00m
+[1;32m      4[0m sys[38;5;241m.[39mpath[38;5;241m.[39mappend([38;5;124m"[39m[38;5;124m../3_Dateien/Module[39m[38;5;124m"[39m)
+[0;32m----> 6[0m [38;5;28;01mimport[39;00m [38;5;21;01mpizzabot[39;00m
+[1;32m      8[0m [38;5;66;03m#hier aktivieren wir den Pizzabot[39;00m
+[1;32m      9[0m pizzabot[38;5;241m.[39morder_pizza()
+
+[0;31mModuleNotFoundError[0m: No module named 'pizzabot'
+ModuleNotFoundError: No module named 'pizzabot'
+

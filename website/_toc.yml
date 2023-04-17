@@ -1,0 +1,27 @@
+ # Table of contents
+format: jb-book
+root: start_page
+parts:
+  - caption: About me
+    chapters:
+      - file: about_me/yannick
+        title: I am Yannick
+      - file: about_me/cv
+        title: Curriculum Vitae
+  - caption: Learn programming (🇩🇪)
+    numbered: True
+    chapters:
+      - file: programming/1_Notebooks/1_Einfuehrung
+        title: Einführung
+      - file: programming/1_Notebooks/2_Datentypen
+        title: Datentypen
+      - file: programming/1_Notebooks/3_Kontrollstrukturen
+        title: Kontrollstrukturen
+      - file: programming/1_Notebooks/4_Funktionen_und_Methoden
+        title: Funktionen und Methoden
+      - file: programming/1_Notebooks/5_Input_und_Output
+        title: Input und Output
+      - file: programming/1_Notebooks/6_Regulaere_Ausdruecke
+        title: Reguläre Ausdrücke
+      - file: programming/1_Notebooks/7_Datenanalyse
+        title: Datenanalyse
