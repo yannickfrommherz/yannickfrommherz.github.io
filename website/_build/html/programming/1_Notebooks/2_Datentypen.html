@@ -454,6 +454,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dies ist ein Satz bestehend aus 8 &#39;Wörtern&#39; Dies D  Dieser string wiederum verteilt sich auf drei Zeilen
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="ganzzahlen-integer">
@@ -468,6 +473,11 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">int_number</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">float_number</span> <span class="o">=</span> <span class="mf">20.1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">int_number</span><span class="p">,</span> <span class="s2">&quot;ist ein Objekt vom Datentyp &#39;integer&#39; und&quot;</span><span class="p">,</span> <span class="n">float_number</span><span class="p">,</span> <span class="s2">&quot;ein Objekt vom Datentyp &#39;float&#39;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20 ist ein Objekt vom Datentyp &#39;integer&#39; und 20.1 ein Objekt vom Datentyp &#39;float&#39;.
 </pre></div>
 </div>
 </div>
@@ -509,6 +519,16 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_69327</span><span class="o">/</span><span class="mf">980998546.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;seasons&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p>Indexing schauen wir uns weiter unten im Detail an. Weitere sog. <em>Methoden</em> zum Bearbeiten von Listen lernen wir im vierten Notebook kennen.</p>
 </section>
@@ -541,6 +561,16 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_69327</span><span class="o">/</span><span class="mf">2239285682.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;seasons&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p>Hier greifen wir nicht auf das <em>n</em>-te Element eines dictionary zu, wie bei Indexing für Listen (das ginge auch nicht, da dictionaries im Gegensatz zu Listen keine Reihenfolge “abspeichern”, dazu mehr unter Sequentialität unten). Stattdessen “sprechen” wir einen bestimmten Wert über den zugehörigen Schlüssel “an”. Weitere Methoden, um mit dictionaries zu arbeiten, lernen wir ebenfalls im vierten Notebook.</p>
 </section>
@@ -561,6 +591,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
 </div>
 <p>Die <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion gibt uns bei einer Liste die Anzahl der Elemente in ihr zurück.</p>
 <p>Doch wieviele sog. <em>Types</em>, also nicht einzelne Wortvorkommnisse (Tokens), sondern einzigartige Worttypen, kommen in der Liste vor? Hier kommt <code class="docutils literal notranslate"><span class="pre">set</span></code> ins Spiel. Sets sind wie in der Mathematik Mengen, in denen einzelne Elemente nur einmal vorkommen dürfen. Wie folgt können wir in Python eine Liste mit Tokens zu einem <code class="docutils literal notranslate"><span class="pre">set</span></code> mit Types konvertieren (und damit die wiederholten Elemente [hier das sog. <em>Homonym</em> “Bank”] loswerden):</p>
@@ -571,12 +606,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Vor&#39;, &#39;Bank&#39;, &#39;stand&#39;, &#39;Eingang&#39;, &#39;Holz&#39;, &#39;zur&#39;, &#39;eine&#39;, &#39;dem&#39;, &#39;aus&#39;}
+</pre></div>
+</div>
+</div>
 </div>
 <p>Die Ausgabe zeigt, dass <code class="docutils literal notranslate"><span class="pre">set</span></code>-Objekte wie dictionaries von geschweiften Klammern umrahmt werden. Die einzelnen Elemente sind ebenfalls kommasepariert. Der fehlende Doppelpunkt zwischen Schlüssel-Werte-Paaren unterscheidet <code class="docutils literal notranslate"><span class="pre">set</span></code>- von <code class="docutils literal notranslate"><span class="pre">dict</span></code>-Objekten syntaktisch.</p>
 <p>Die <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion lässt sich auch auf Objekte des Datentyps <code class="docutils literal notranslate"><span class="pre">set</span></code> anwenden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">types</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
 </pre></div>
 </div>
 </div>
@@ -604,6 +649,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Dieser&#39;, &#39;Objektbehälter&#39;, &#39;soll&#39;, &#39;nicht&#39;, &#39;verändert&#39;, &#39;werden&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Tupel sind im Gegensatz zu Listen praktisch, wenn man mehrere Objekte als Schlüssel in einem dictionary verwenden will. Wie erwähnt können nur unveränderliche Objekte dictionary-Schlüssel sein. Ein Beispiel wäre folgendes dictionary bestehend aus Koordinaten und natürlichsprachlichen Labels:</p>
 <div class="cell docutils container">
@@ -620,6 +670,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meeting_location</span> <span class="o">=</span> <span class="p">(</span><span class="mf">51.040826668678115</span><span class="p">,</span> <span class="mf">13.73129036811354</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der geheime Treffpunkt ist:&quot;</span><span class="p">,</span> <span class="n">points_of_interest</span><span class="p">[</span><span class="n">meeting_location</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der geheime Treffpunkt ist: Dresden Hauptbahnhof
 </pre></div>
 </div>
 </div>
@@ -650,6 +705,19 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a is &#39;a&#39;
+b is not &#39;a&#39;
+c is not &#39;a&#39;
+a is &#39;a&#39;
+b is not &#39;a&#39;
+c is not &#39;a&#39;
+a is &#39;a&#39;
+b is not &#39;a&#39;
+c is not &#39;a&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Damit haben wir die wichtigsten Datentypen in Python kennengelernt.</p>
 </section>
@@ -674,6 +742,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;int&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+&lt;class &#39;list&#39;&gt;
+&lt;class &#39;dict&#39;&gt;
+&lt;class &#39;set&#39;&gt;
+&lt;class &#39;tuple&#39;&gt;
+&lt;class &#39;bool&#39;&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Streng genommen sind Datentypen sog. <em>Klassen</em> in Python, daher die Bezeichnung <em>class</em> in der Ausgabe. Klassen können wir selbst auch definieren, d.h. wir könnten auch unsere eigenen Datentypen entwerfen. Das ist aber fortgeschritten und wir werden Klassen in den folgenden Notebooks höchstens am Rande begegnen.</p>
 <p>Den Datentyp zu überprüfen macht immer dann Sinn, wenn wir uns bei einer Variable nicht (mehr) sicher sind, was für ein Objekt durch sie referenziert wird. Viele Funktionen und Methoden (dazu mehr im vierten Notebook) lassen sich nur auf bestimmte Datentypen anwenden, wie Du selbst sehen kannst, indem Du die bereits eingeführte <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion auf Objekte verschiedener Datentypen anwendest. Entferne die Hashtags, um die einzelnen <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle auszuführen:</p>
@@ -687,6 +767,23 @@ document.write(`
 <span class="c1">#print(len(a_set))</span>
 <span class="c1">#print(len(a_tuple))</span>
 <span class="c1">#print(len(a_bool))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_69327</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">an_integer</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print(len(a_float))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#print(len(a_list))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#print(len(a_dict))</span>
+
+<span class="ne">TypeError</span>: object of type &#39;int&#39; has no len()
 </pre></div>
 </div>
 </div>
@@ -710,6 +807,17 @@ document.write(`
 <span class="c1">#interessantes Verhalten beim Casten eines strings in eine Liste (das hat mit der Sequentialität von strings zu tun, siehe unten)</span>
 <span class="n">list_from_string</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a_string</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="n">list_from_string</span><span class="p">,</span> <span class="s2">&quot;ist vom Typ&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">list_from_string</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20 ist vom Typ &lt;class &#39;int&#39;&gt; 
+
+20 ist vom Typ &lt;class &#39;str&#39;&gt; 
+
+(&#39;Dies ist eine Zeichenkette&#39;, 20, 20.3) ist vom Typ &lt;class &#39;tuple&#39;&gt; 
+
+[&#39;D&#39;, &#39;i&#39;, &#39;e&#39;, &#39;s&#39;, &#39; &#39;, &#39;i&#39;, &#39;s&#39;, &#39;t&#39;, &#39; &#39;, &#39;e&#39;, &#39;i&#39;, &#39;n&#39;, &#39;e&#39;, &#39; &#39;, &#39;Z&#39;, &#39;e&#39;, &#39;i&#39;, &#39;c&#39;, &#39;h&#39;, &#39;e&#39;, &#39;n&#39;, &#39;k&#39;, &#39;e&#39;, &#39;t&#39;, &#39;t&#39;, &#39;e&#39;] ist vom Typ &lt;class &#39;list&#39;&gt; 
 </pre></div>
 </div>
 </div>
@@ -749,6 +857,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;März&#39;, &#39;April&#39;, &#39;Mai&#39;]
+e
+2
+</pre></div>
+</div>
+</div>
 </div>
 <p>Um auf ein Element auf der Liste/im Tupel bzw. ein Zeichen in einem string zuzugreifen, setzt man den entsprechenden Index (sozusagen die Straßennummer) in eckige Klammern direkt nach dem Objekt bzw. der auf das Objekt zeigenden Variable. Die Indizes beginnen bei Null (was unsere Straßenmetapher zugegebenermaßen leicht strapaziert). Neben den positiven Indizes gibt es auch negative, die hilfreich sind, um Elemente vom Ende des Objekts her zu indizieren. Hier ein Überblick über die positiven und negativen Indizes für die Elemente auf <code class="docutils literal notranslate"><span class="pre">my_list</span></code>:</p>
 <ul class="simple">
@@ -764,6 +879,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 10
+</pre></div>
+</div>
+</div>
 </div>
 <p>Sinnvoller ist es in diesem Fall jedoch, den negativen Index zu verwenden, da wir andernfalls wissen müssen, wie lange die Liste ist (10), anschließend noch 1 davon abziehen (da die Indizes ja bei 0 beginnen), um den höchsten positiven Index (9) für das letzte Listenelement zu kennen.</p>
 <p>Wenn ein sequentielles Objekt ein zweites sequentielles Objekt beinhält, können wir mit doppeltem Indexing auf das gewünschte Element im zweiten sequentiellen Objekt zugreifen:</p>
@@ -771,6 +891,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Wort&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Liste&quot;</span><span class="p">,</span> <span class="s2">&quot;mit&quot;</span><span class="p">,</span> <span class="s2">&quot;Wörtern&quot;</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mit
 </pre></div>
 </div>
 </div>
@@ -818,6 +943,16 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+[1, 2, 3, 4]
+[2, 3, 4, 5, 6, 7, 8, 9, 10]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[3, 5, 7, 9]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Um nochmals kurz die Straßenmetapher von oben aufzugreifen: Sind wir innerhalb unserer Straße mit den Hausnummern 1-50 (Indizes 0-49) nur an den Häusern 26, 28, 30, 32, 34 und 36 interessiert, da nur dort Werbung akzeptiert wird, können wir die Straße mittels Slicing auf unsere Zwecke “zuschneiden”:</p>
 <div class="cell docutils container">
@@ -826,6 +961,11 @@ document.write(`
 <span class="c1">#street = list(range(1,51)) #dieser viel kürzere Befehl mit der range-Funktion weist &quot;street&quot; eine identische Liste zu, vgl. drittes Notebook</span>
 <span class="n">accepts_advertising</span> <span class="o">=</span> <span class="n">street</span><span class="p">[</span><span class="mi">25</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> 
 <span class="nb">print</span><span class="p">(</span><span class="n">accepts_advertising</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[26, 28, 30, 32, 34, 36]
 </pre></div>
 </div>
 </div>
@@ -863,6 +1003,17 @@ document.write(`
 
 <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">days</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Montag
+Dienstag
+Mittwoch
+Donnerstag
+Freitag
+Samstag
+Sonntag
 </pre></div>
 </div>
 </div>
@@ -920,6 +1071,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False denn 4560739824 ist ungleich 4560111728
+Das list-Objekt ist immer noch das gleiche: True denn 4559359552 ist gleich 4559359552
+</pre></div>
+</div>
+</div>
 </div>
 <p>Führt man eine zweite Variable ein, um auf ein bereits referenziertes <strong>veränderliches</strong> Objekt zu zeigen, so zeigen beide Variablen auf dasselbe Objekt. Wird das Objekt verändert, egal über welche Variable, so zeigt sich die Veränderung auch beim Aufruf über die andere Variable. Konkret:</p>
 <div class="cell docutils container">
@@ -931,6 +1088,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Auch die <code class="docutils literal notranslate"><span class="pre">id</span></code>-Funktion bestätigt hier natürlich, dass es sich um dasselbe Objekt handelt (anders wäre auch nicht zu erklären, warum die Ausgabe von <code class="docutils literal notranslate"><span class="pre">list1</span></code> die Veränderung am durch <code class="docutils literal notranslate"><span class="pre">list2</span></code> referenzierten Objekt widergibt):</p>
 <div class="cell docutils container">
@@ -939,6 +1101,12 @@ document.write(`
 
 <span class="c1">#das is-Statement erfüllt die gleiche Aufgabe</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span> <span class="ow">is</span> <span class="n">list2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
 </pre></div>
 </div>
 </div>
@@ -955,12 +1123,17 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dieselben Werte: True
+Dieselbe ID: False
+</pre></div>
+</div>
+</div>
 </div>
 <p>Im ersten Fall vergleichen wir die Werte der beiden Listen, und das ergibt <code class="docutils literal notranslate"><span class="pre">True</span></code>. Im zweiten Fall schauen wir, ob es sich auch um dasselbe Objekt handelt und dies ergibt <code class="docutils literal notranslate"><span class="pre">False</span></code>. Der Grund dafür: Python erstellt beim Initialisieren einer Variable i.d.R. jeweils ein neues Objekt (selbst wenn ein Objekt mit denselben Werten bereits im Arbeitsspeicher existiert) und so wurden auch hier zwei Objekte erstellt (es gibt wenige Ausnahmen bei kleinen Ganzzahlen und strings ohne Sonderzeichen, die trotz getrennt initialisierter Variablen auf das gleiche Objekt zeigen).</p>
 <p>Den Unterschied zwischen <code class="docutils literal notranslate"><span class="pre">id(object1)</span> <span class="pre">==</span> <span class="pre">id(object2)</span></code>/<code class="docutils literal notranslate"><span class="pre">object1</span> <span class="pre">is</span> <span class="pre">object2</span></code> und <code class="docutils literal notranslate"><span class="pre">object1</span> <span class="pre">==</span> <span class="pre">object2</span></code> gibt es auch im Deutschen: im ersten Fall handelt es sich um dasselbe Objekt, im zweiten Fall nur um das gleiche Objekt. Du hast vielleicht die gleichen Schuhe wie Dein:e Freund:in, aber wohl nicht dieselben. Im Deutschen ist das aber kaum so eineindeutig wie bei Python. 😅</p>
 <p>Wenn <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">is</span> <span class="pre">b</span></code> gilt, dann gilt natürlich immer auch <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code>, aber nicht unbedingt umgekehrt.</p>
 <p>Das war’s zum Thema Datentypen. Im Ordner “2_Cheat_Sheets” gibt es übrigens eine Übersicht über alle Datentypen, die wir hier kennengelernt haben, inklusive ihrer Kurzform, Syntax und Eigenschaften.</p>
-<hr class="docutils" />
 </section>
 </section>
 </section>

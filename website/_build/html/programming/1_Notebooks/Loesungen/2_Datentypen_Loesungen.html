@@ -410,6 +410,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;März&#39;, &#39;April&#39;, &#39;Mai&#39;], [&#39;Juni&#39;, &#39;Juli&#39;, &#39;August&#39;], [&#39;September&#39;, &#39;Oktober&#39;, &#39;November&#39;], [&#39;Dezember&#39;, &#39;Januar&#39;, &#39;Februar&#39;]]
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 2:</strong> Baue auf der Jahreszeitenliste der vorherigen Übung auf und erstelle ein dictionary mit den Jahreszeiten als Schlüssel und einer Liste mit den jeweiligen drei Monaten als Werte. Verwende wieder (d.h. überschreibe) die Variable <code class="docutils literal notranslate"><span class="pre">seasons</span></code>, um das dictionary zu referenzieren.</p>
@@ -417,6 +422,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seasons</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;spring&quot;</span><span class="p">:</span> <span class="n">spring</span><span class="p">,</span> <span class="s2">&quot;summer&quot;</span><span class="p">:</span> <span class="n">summer</span><span class="p">,</span> <span class="s2">&quot;fall&quot;</span><span class="p">:</span> <span class="n">fall</span><span class="p">,</span> <span class="s2">&quot;winter&quot;</span><span class="p">:</span> <span class="n">winter</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="s2">&quot;spring&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;März&#39;, &#39;April&#39;, &#39;Mai&#39;]
 </pre></div>
 </div>
 </div>
@@ -433,6 +443,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Brokkoli&#39;, &#39;Brötchen&#39;, &#39;Brot&#39;, &#39;Pasta&#39;, &#39;Marmelade&#39;, &#39;Hafermilch&#39;}
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 4:</strong> Kombiniere Indexing mit einer weiteren bereits erlernten Technik, um aus den einzelnen Elementen in <code class="docutils literal notranslate"><span class="pre">list_of_words1</span></code> und  <code class="docutils literal notranslate"><span class="pre">list_of_words2</span></code> sowie aus <code class="docutils literal notranslate"><span class="pre">conjunction</span></code> einen String zu generieren, der natürlichsprachlich Sinn ergibt. Denk dabei auch an Leerschläge zwischen den einzelnen Wörtern. Verwende für den fertigen String eine neue Variable und lasse sie Dir am Ende ausgeben.</p>
@@ -443,6 +458,11 @@ document.write(`
 <span class="n">list_of_words2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ende&quot;</span><span class="p">,</span> <span class="s2">&quot;ausgeben&quot;</span><span class="p">,</span> <span class="s2">&quot;lass&quot;</span><span class="p">,</span> <span class="s2">&quot;am&quot;</span><span class="p">,</span> <span class="s2">&quot;Dir&quot;</span><span class="p">,</span> <span class="s2">&quot;ihn&quot;</span><span class="p">]</span>
 <span class="n">meaningful</span> <span class="o">=</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">conjunction</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">meaningful</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mach bitte einen sinnvollen Satz daraus und lass ihn Dir am Ende ausgeben
 </pre></div>
 </div>
 </div>
@@ -465,6 +485,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Füge bitte diesen Satz zusammen .
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 6:</strong> Benutze eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife, um über die Liste <code class="docutils literal notranslate"><span class="pre">wild_mix</span></code> von oben zu iterieren. Lasse Dir für jedes Element den Datentyp ausgeben.</p>
@@ -474,6 +499,14 @@ document.write(`
 
 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">wild_mix</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;int&#39;&gt;
+&lt;class &#39;float&#39;&gt;
+&lt;class &#39;dict&#39;&gt;
 </pre></div>
 </div>
 </div>

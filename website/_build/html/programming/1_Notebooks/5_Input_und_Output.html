@@ -502,6 +502,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuelles Arbeitsverzeichnis: /Users/Yannick/Documents/yfrommherz.ch/website/programming/1_Notebooks
+
+Darin befindliche Unterverzeichnisse und Dateien: 
+7_Datenanalyse.ipynb
+2_Datentypen.ipynb
+4_Funktionen_und_Methoden.ipynb
+5_Input_und_Output.ipynb
+Loesungen
+1_Einfuehrung.ipynb
+.ipynb_checkpoints
+6_Regulaere_Ausdruecke.ipynb
+3_Kontrollstrukturen.ipynb
+</pre></div>
+</div>
+</div>
 </div>
 <p>Denk daran, dass Du ein externes Modul wie <code class="docutils literal notranslate"><span class="pre">os</span></code> am Anfang jedes Notebooks importieren musst, um damit arbeiten zu können.</p>
 <p>Wie im vierten Notebook erklärt, müssen wir vor den Funktionsnamen jeweils den Modulnamen sowie einen Punkt setzen (z.B. <code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code>), damit Python weiß, wo sich die gewünschte Funktion befindet. Alternativ könnten wir auch den <code class="docutils literal notranslate"><span class="pre">import</span></code>-Befehl zu <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">os</span> <span class="pre">import</span> <span class="pre">getcwd,</span> <span class="pre">chdir,</span> <span class="pre">listdir</span></code> ändern und die entsprechenden Funktionen ohne Modulnamen davor aufrufen.</p>
@@ -588,6 +604,21 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erster Aufzug
+
+Erster Auftritt
+
+Der Schauplatz ist ein Saal im Gasthofe.
+
+Sir William Sampson und Waitwell treten in Reisekleidern herein.
+
+Sir William. Hier meine Tochter? Hier in diesem elenden Wirt 
+
+26960
+</pre></div>
+</div>
+</div>
 </div>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">read</span></code> wird die gesamte Textdatei in einen einzigen langen string überführt. Da der erste Aufzug recht lange ist (26960 Zeichen), geben wir hier mithilfe von Slicing nur die ersten 200 Zeichen aus. Indem Du die eckigen Klammern entfernst, kannst Du Dir den gesamten ersten Aufzug zu Gemüte führen (das ist nicht nötig, aber fürs weitere Verständnis lohnt es sich, ihn zumindest zu überfliegen).</p>
 <p>Natürlich wollen wir den Text nicht nur lesen. Dafür hätten wir ein beliebiges Textverarbeitungsprogramm verwenden und uns das Programmieren sparen können. Programmieren bringt erst dann einen Vorteil, wenn wir es mit sinnvoll strukturierten Daten zu tun haben (dieses Merkmal ist hier ja u.a. durch die Zeilenumbrüche gegeben) und wir uns diese Strukturiertheit bei der Verarbeitung und Auswertung der Daten zunutze machen können.</p>
@@ -598,6 +629,11 @@ document.write(`
     <span class="n">miss_sara_sampson</span> <span class="o">=</span> <span class="n">read_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">miss_sara_sampson</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Erster Aufzug\n&#39;, &#39;\n&#39;, &#39;Erster Auftritt\n&#39;, &#39;\n&#39;, &#39;Der Schauplatz ist ein Saal im Gasthofe.\n&#39;]
 </pre></div>
 </div>
 </div>
@@ -618,6 +654,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Erster Aufzug\n&#39;, &#39;Erster Auftritt\n&#39;, &#39;Der Schauplatz ist ein Saal im Gasthofe.\n&#39;, &#39;Sir William Sampson und Waitwell treten in Reisekleidern herein.\n&#39;, &#39;Sir William. Hier meine Tochter? Hier in diesem elenden Wirtshause?\n&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Hat geklappt!</p>
 <p>Wir sehen auch, dass jeder string noch mit einem codierten Zeilenumbruch endet. Dies ist überflüssig, da sich die Struktur, die im Fließtext durch die Zeilenumbrüche entstand, bereits in Form der Elemente auf der Liste widerspiegelt. Die codierten Zeilenumbrüche können wir so entfernen:</p>
@@ -630,6 +671,11 @@ document.write(`
     <span class="n">preprocessed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Erster Aufzug&#39;, &#39;Erster Auftritt&#39;, &#39;Der Schauplatz ist ein Saal im Gasthofe.&#39;, &#39;Sir William Sampson und Waitwell treten in Reisekleidern herein.&#39;, &#39;Sir William. Hier meine Tochter? Hier in diesem elenden Wirtshause?&#39;]
 </pre></div>
 </div>
 </div>
@@ -649,6 +695,15 @@ document.write(`
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">miss_sara_sampson</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sir William Sampson und Waitwell treten in Reisekleidern herein.
+Sir William. Hier meine Tochter? Hier in diesem elenden Wirtshause?
+Waitwell. Ohne Zweifel hat Mellefont mit Fleiß das allerelendeste im ganzen Städtchen zu seinem Aufenthalte gewählt. Böse Leute suchen immer das Dunkle, weil sie böse Leute sind. Aber was hilft es ihnen, wenn sie sich auch vor der ganzen Welt verbergen könnten? Das Gewissen ist doch mehr als eine ganze uns verklagende Welt. – Ach, Sie weinen schon wieder, schon wieder, Sir! – Sir!
+Sir William. Laß mich weinen, alter ehrlicher Diener. Oder verdient sie etwa meine Tränen nicht?
+Waitwell. Ach! sie verdient sie, und wenn es blutige Tränen wären.
 </pre></div>
 </div>
 </div>
@@ -686,6 +741,21 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sara. Meiner Tugend? Nennen Sie mir dieses Wort nicht! – Sonst klang es mir süße, aber itzt schallt mir ein schrecklicher Donner darin! 
+
+Sara. Mit den Augen der Liebe, Mellefont. 
+
+Sara. Einige Tage! Wie ist ein Tag schon so lang! 
+
+Sara. Mit der es Ihnen zuletzt doch wohl noch fehlschlägt. 
+
+Sara. Diese sollen die Zeugen unserer Verbindung sein? – Grausamer! so soll diese Verbindung nicht in meinem Vaterlande geschehen? So soll ich mein Vaterland als eine Verbrecherin verlassen? Und als eine solche, glauben Sie, würde ich Mut genug haben, mich der See zu vertrauen? Dessen Herz muß ruhiger oder muß ruchloser sein als meines, welcher nur einen Augenblick zwischen sich und dem Verderben mit Gleichgültigkeit nichts als ein schwankendes Brett sehen kann. In jeder Welle, die an unser Schiff schlüge, würde mir der Tod entgegenrauschen; jeder Wind würde mir von den väterlichen Küsten Verwünschungen nachbrausen, und der kleinste Sturm würde mich ein Blutgericht über mein Haupt zu sein dünken. – Nein, Mellefont, so ein Barbar können Sie gegen mich nicht sein. Wenn ich noch das Ende Ihres Vergleichs erlebe, so muß es Ihnen auf einen Tag nicht ankommen, den wir hier länger zubringen. Es muß dieses der Tag sein, an dem Sie mich die Martern aller hier verweinten Tage vergessen lehren. Es muß dieses der heilige Tag sein – Ach! welcher wird es denn endlich sein? 
+
+22
+</pre></div>
+</div>
+</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">startswith</span></code> tut ganz klar seinen Dienst.</p>
 <section id="exkurs-die-wahrheitsmatrix">
@@ -710,6 +780,21 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="n">saras_turns</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">saras_turns</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sara. Mellefont. Norton. 
+
+Sara. Ach, Mellefont, wenn es nichts als eine unruhige Nacht wäre – – 
+
+Sara. Mellefont. 
+
+Sara (sie setzt sich). Ich beunruhige Sie sehr früh; und werden Sie mir es vergeben, daß ich meine Klagen wieder mit dem Morgen anfange? 
+
+Sara. Was sollte ich Ihnen nicht vergeben? Sie wissen, was ich Ihnen bereits vergeben habe. Aber die neunte Woche, Mellefont, die neunte Woche fängt heute an, und dieses elende Haus sieht mich noch immer auf eben dem Fuße als den ersten Tag. 
+
+23
 </pre></div>
 </div>
 </div>
@@ -742,6 +827,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Sara. Mellefont. Norton.&#39;, &#39;Sara. Mellefont.&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Ein Blick auf alle Elemente in <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> verrät, dass diese die einzigen beiden <em>false positives</em> sind.</p>
 <p>Wir müssen also eine zweite Bedingung aufstellen, um diese beiden Fälle auszuschließen. Sie haben gemeinsam, dass nach “Sara.” “Mellefont.” steht. Bevor wir eine entsprechende Ausschlussbedingung aufstellen, müssen wir überprüfen, ob dies nicht auch auf wahre Redebeiträge (<em>true positives</em>) zutrifft (es ist ja denkbar, dass Sara einen Beitrag mit “Mellefont.” anfängt). Dies ist aber nicht der Fall.</p>
@@ -760,6 +850,11 @@ document.write(`
 
 <span class="c1">#for turn in saras_turns:</span>
     <span class="c1">#print(turn, &quot;\n&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21
 </pre></div>
 </div>
 </div>
@@ -812,6 +907,35 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daja. 
+Er ist es! Nathan! – Gott sei ewig Dank, 
+Daß Ihr doch endlich einmal wiederkommt. 
+
+Nathan. 
+Ja, Daja; Gott sei Dank! Doch warum endlich? 
+Hab ich denn eher wiederkommen wollen? 
+Und wiederkommen können? Babylon 
+Ist von Jerusalem, wie ich den Weg, 
+Seitab bald rechts, bald links, zu nehmen bin 
+Genötigt worden, gut zweihundert Meilen; 
+Und Schulden einkassieren, ist gewiß 
+Auch kein Geschäft, das merklich födert, das 
+So von der Hand sich schlagen läßt. 
+
+Daja.       O Nathan, 
+Wie elend, elend hättet Ihr indes 
+Hier werden können! Euer Haus ... 
+
+Nathan.       Das brannte. 
+So hab ich schon vernommen. – Gebe Gott, 
+Daß ich nur alles schon vernommen habe! 
+
+Daja. 
+Und wäre leicht von Grund aus abgebrannt. 
+</pre></div>
+</div>
+</div>
 </div>
 <p>Unser Ziel ist es, die Redebeiträge in einheitlicher Formatierung in eine externe Datei zu schreiben. Der folgende Code übernimmt die einheitliche Formatierung. Lies die Kommentare aufmerksam, um den Code nachzuvollziehen.</p>
 <div class="cell docutils container">
@@ -846,6 +970,37 @@ document.write(`
     
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">standardized_turns</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daja:
+Er ist es! Nathan! – Gott sei ewig Dank, 
+Daß Ihr doch endlich einmal wiederkommt. 
+
+Nathan:
+Ja, Daja; Gott sei Dank! Doch warum endlich? 
+Hab ich denn eher wiederkommen wollen? 
+Und wiederkommen können? Babylon 
+Ist von Jerusalem, wie ich den Weg, 
+Seitab bald rechts, bald links, zu nehmen bin 
+Genötigt worden, gut zweihundert Meilen; 
+Und Schulden einkassieren, ist gewiß 
+Auch kein Geschäft, das merklich födert, das 
+So von der Hand sich schlagen läßt. 
+
+Daja:
+O Nathan, 
+Wie elend, elend hättet Ihr indes 
+Hier werden können! Euer Haus ... 
+
+Nathan:
+Das brannte. 
+So hab ich schon vernommen. – Gebe Gott, 
+Daß ich nur alles schon vernommen habe! 
+
+Daja:
+Und wäre leicht von Grund aus abgebrannt. 
 </pre></div>
 </div>
 </div>
@@ -910,6 +1065,16 @@ document.write(`
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">biggest_municipalities</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Rang&#39;, &#39;Fläche in km²&#39;, &#39;Gemeinde&#39;, &#39;Status/Kreiszugehörigkeit&#39;, &#39;Land&#39;]
+[&#39;1&#39;, &#39;891,12&#39;, &#39;Berlin&#39;, &#39;Kreisfreie Stadt&#39;, &#39;Berlin&#39;]
+[&#39;2&#39;, &#39;755,09&#39;, &#39;Hamburg&#39;, &#39;Kreisfreie Stadt&#39;, &#39;Hamburg&#39;]
+[&#39;3&#39;, &#39;632,55&#39;, &#39;Gardelegen&#39;, &#39;Stadt im Altmarkkreis Salzwedel&#39;, &#39;Sachsen-Anhalt&#39;]
+[&#39;4&#39;, &#39;523,95&#39;, &#39;Möckern&#39;, &#39;Stadt im Landkreis Jerichower Land&#39;, &#39;Sachsen-Anhalt&#39;]
+[&#39;5&#39;, &#39;468,03&#39;, &#39;Zerbst/Anhalt&#39;, &#39;Stadt im Landkreis Anhalt-Bitterfeld&#39;, &#39;Sachsen-Anhalt&#39;]
 </pre></div>
 </div>
 </div>
@@ -982,6 +1147,27 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Freut mich, &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;. Du darfst natürlich in den Club! 🎉&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Freut mich, &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;. Du darfst leider nicht in den Club! 😢&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_69418</span><span class="o">/</span><span class="mf">2969257605.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Handelt es sich um einen anderen Datentyp als string muss der Input gecastet werden</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
 </div>
 </div>
@@ -1082,6 +1268,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hier wird ein Objekt ausgegeben
+Hier werden zwei Objekte ausgegeben.
+Hier werden 5 Objekte ausgegeben.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Am dritten und vierten Beispiel sehen wir, dass <code class="docutils literal notranslate"><span class="pre">print</span></code> die einzelnen Objekte mit einem Leerschlag dazwischen konkateniert. Verantwortlich dafür ist der <code class="docutils literal notranslate"><span class="pre">sep</span></code>-Parameter, der standardmäßig einem Leerschlag entspricht, aber natürlich anders spezifiziert werden kann:</p>
 <div class="cell docutils container">
@@ -1089,6 +1282,12 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leer&quot;</span><span class="p">,</span> <span class="s2">&quot;schlag&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1988</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; / &quot;</span><span class="p">)</span> <span class="c1">#deutsche Schreibweise</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1988</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="c1">#US-amerikanische Schreibweise</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Leerschlag
+13.10.1988 / 10-13-1988
 </pre></div>
 </div>
 </div>
@@ -1119,6 +1318,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ein f-string beginnt mit einem kleinen &#39;f&#39; oder großen &#39;F&#39;.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Steht ein “f”/”F” vor dem öffnenden Anführungszeichen eines strings, können wir beliebig viele Werte, jeweils umrahmt von geschweiften Klammern <em>in</em> den string reinpacken. Der Wert kann dabei direkt von einer Variablen kommen (oben <code class="docutils literal notranslate"><span class="pre">letter</span></code>) oder das Ergebnis eines komplexen Ausdrucks sein (oben bei <code class="docutils literal notranslate"><span class="pre">letter.upper()</span></code>).</p>
 <p>Als Erinnerung (vom ersten Notebook): ein komplexer Ausdruck wie eine arithmetische Operation (<code class="docutils literal notranslate"><span class="pre">2*3</span></code>), eine Funktion (<code class="docutils literal notranslate"><span class="pre">sorted</span></code> oder <code class="docutils literal notranslate"><span class="pre">len</span></code>), eine Methode (s.o.), ein Werteabruf in einem dictionary (<code class="docutils literal notranslate"><span class="pre">dictionary[key]</span></code>) etc. gibt immer <em>einen</em> Wert zurück (<code class="docutils literal notranslate"><span class="pre">6</span></code> beim Beispiel für die arithmetische Operation). Genau dieser Wert wird dann an der Stelle der geschweiften Klammern im string eingesetzt.</p>
@@ -1129,6 +1333,26 @@ document.write(`
 <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?&quot;</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Freut mich, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. Du darfst </span><span class="si">{</span><span class="s1">&#39;leider nicht&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;natürlich&#39;</span><span class="si">}</span><span class="s2"> in den Club.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_69418</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Freut mich, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. Du darfst </span><span class="si">{</span><span class="s1">&#39;leider nicht&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;natürlich&#39;</span><span class="si">}</span><span class="s2"> in den Club.&quot;</span><span class="p">)</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
 </div>
 </div>
@@ -1146,6 +1370,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zahl mit nur zwei Nachkommastellen: 23.24
+</pre></div>
+</div>
+</div>
 </div>
 <p>Egal wie ein Wert formatiert werden soll, die Formatierung wird durch einen Doppelpunkt nach dem Wert eingeleitet.</p>
 <p>Danach wird spezifiziert, wie der Wert formatiert werden soll: <code class="docutils literal notranslate"><span class="pre">.2</span></code> definiert im Beispiel oben, dass <code class="docutils literal notranslate"><span class="pre">value</span></code> auf zwei Nachkommastellen gekürzt werden soll, das <code class="docutils literal notranslate"><span class="pre">f</span></code> definiert, als welcher Datentyp der formatierte Wert ausgegeben werden soll (hier als Dezimalzahl, wobei das <em>f</em> von der englischen Bezeichnung <em>float</em> herrührt).</p>
@@ -1159,6 +1388,13 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schön ausgerichtete Zahl: </span><span class="si">{</span><span class="n">value1</span><span class="si">:</span><span class="s2">3</span><span class="si">}</span><span class="s2"> (ohne &#39;Auffüllung&#39;)&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schön ausgerichtete Zahl: </span><span class="si">{</span><span class="n">value1</span><span class="si">:</span><span class="s2">03</span><span class="si">}</span><span class="s2"> (mit Nullen &#39;aufgefüllt&#39;)&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schön ausgerichtete Zahl: </span><span class="si">{</span><span class="n">value2</span><span class="si">:</span><span class="s2">3</span><span class="si">}</span><span class="s2"> (keine &#39;Auffüllung&#39;, da dreiziffrig)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Schön ausgerichtete Zahl:   1 (ohne &#39;Auffüllung&#39;)
+Schön ausgerichtete Zahl: 001 (mit Nullen &#39;aufgefüllt&#39;)
+Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
 </pre></div>
 </div>
 </div>
@@ -1182,7 +1418,6 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>Damit wissen wir alles Wichtige rund um In- und Output von Daten. Gute Arbeit!</p>
-<hr class="docutils" />
 </section>
 </section>
 </section>

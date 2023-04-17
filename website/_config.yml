@@ -3,11 +3,12 @@
 title: "Yannick Frommherz"
 author: Yannick Frommherz
 logo: logo.png
-copyright: 2023
+copyright: "2023"
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "**/in-progress", "**/other_files", "features", "scraps"]
 
 execute:
-  execute_notebooks: off
+  execute_notebooks: force
+  allow_errors: true
 
 # Define the name of the latex output file for PDF builds
 latex:

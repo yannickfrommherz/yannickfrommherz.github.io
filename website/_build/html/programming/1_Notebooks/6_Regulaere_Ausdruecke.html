@@ -482,6 +482,44 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 9&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">pizzabot</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#hier aktivieren wir den Pizzabot</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
+
+<span class="nn">File ~/Documents/yfrommherz.ch/website/programming/1_Notebooks/../3_Dateien/Module/pizzabot.py:28,</span> in <span class="ni">order_pizza</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">def</span> <span class="nf">order_pizza</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> 
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="c1">#------------&gt; CHOOSE PIZZA &lt;------------ </span>
+<span class="ne">---&gt; </span><span class="mi">28</span>     <span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hallo, ich bin der Pizzabot 🍕🤖</span><span class="se">\n</span><span class="s2">Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">first_prompt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Super &quot;</span> <span class="o">+</span> <span class="n">user_name</span> <span class="o">+</span> <span class="s2">&quot;, welche Pizza möchtest Du bestellen?</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/ex/lib/python3.8/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Wie Du siehst, funktioniert der Pizzabot prinzipiell ganz gut. Der Code dafür, der sich bereits fertig in den Modulen <code class="docutils literal notranslate"><span class="pre">pizzabot</span></code> und <code class="docutils literal notranslate"><span class="pre">pizza_functions</span></code> im Ordner “3_Dateien/Module” befindet, tut also seinen Dienst. Einzig störend ist die Tatsache, dass Benutzer:innen genau wissen müssen, welchen Input der Bot verarbeiten kann. Das ist nicht sehr kund:innenfreundlich.</p>
 <p>Der Anwendungsfall in diesem Notebook besteht aus zwei Teilaufgaben: Bei der RegEx-bezogenen Aufgabe, wirst Du Deine in diesem Notebook erlernten Kenntnisse zu regulären Ausdrücken einsetzen. Bei der Dokumentationsaufgabe geht es darum, Code, den jemand anderes geschrieben hat, zu verstehen und zu dokumentieren.</p>
@@ -594,6 +632,11 @@ document.write(`
 <span class="sd">müssen wir den Modulnamen vor den Funktionsnamen setzen (vgl. viertes Notebook)&quot;&quot;&quot;</span>
 <span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>47
 </pre></div>
 </div>
 </div>
@@ -716,6 +759,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [5],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#hier Code zu Schritte 2 einfügen</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#hier regulären Ausdruck (Schritt 4) einfügen</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">source_code</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;source_code&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <hr class="docutils" />
@@ -794,6 +853,20 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [6],</span> in <span class="ni">&lt;cell line: 9&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">regex_4</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">regex_5</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">first_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">verbs</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_2</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">last_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_3</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;fairytale&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 5:</strong> Im vierten Notebook in Übung 2 haben wir gesehen, dass das Wort “Klima” viel häufiger im Koalitionsvertrag von 2021 als in demjenigen von 2018 vorkommt. Nun wollen wir herausfinden, in welcher Form das Wort verwendet wird. Neben dem alleinstehenden Auftreten von “Klima” (als sog. <em>Simplex</em>, da es aus nur einem Morphem besteht) ist “Klima” bzw. “klima” häufig Teil von zusammengesetzten Wörtern, also sog. <em>Komposita</em>, wie etwa in”Klimakrise” oder “klimapolitisch”.</p>
@@ -807,6 +880,19 @@ document.write(`
 <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">kv21</span><span class="p">):</span>
     <span class="k">pass</span>
     
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">kv21</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">pass</span>
+
+<span class="ne">NameError</span>: name &#39;kv21&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -926,6 +1012,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1&#39;, &#39;2022&#39;, &#39;17&#39;, &#39;1&#39;, &#39;3403&#39;, &#39;51&#39;]
+1 (18, 19)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Der erste match befindet sich also zwischen den Indizes 18 und 19 (der Startindex ist wie immer inklusiv und der Endindex exklusiv).</p>
 <hr class="docutils" />
@@ -959,6 +1051,16 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Zahl 1 befindet sich zwischen Index 18 und 19 in der Geburtsanzeige.
+Die Zahl 2022 befindet sich zwischen Index 31 und 35 in der Geburtsanzeige.
+Die Zahl 17 befindet sich zwischen Index 42 und 44 in der Geburtsanzeige.
+Die Zahl 1 befindet sich zwischen Index 65 und 66 in der Geburtsanzeige.
+Die Zahl 3403 befindet sich zwischen Index 104 und 108 in der Geburtsanzeige.
+Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Wie bei <code class="docutils literal notranslate"><span class="pre">re.findall</span></code> landen alle matches in einer Art Liste (aber siehe Randnotiz unten). Die einzelnen Elemente sind wiederum match-Objekte, auf die wir wie bei <code class="docutils literal notranslate"><span class="pre">re.search</span></code> die Methoden <code class="docutils literal notranslate"><span class="pre">group</span></code> und <code class="docutils literal notranslate"><span class="pre">span</span></code> anwenden können, um auf den jeweiligen match bzw. die Indizes zuzugreifen.</p>
 <p>Kurze Randnotiz, die Du auch gerne überlesen kannst: <code class="docutils literal notranslate"><span class="pre">finditer</span></code> gibt keine normale Liste zurück, sondern eine andere Art von iterierbarem Objekt, das nach einer einzigen Iteration leer (engl. <em>exhausted</em>) ist (überprüf es, indem Du eine neue Code-Zelle einfügst und nochmal versuchst über <code class="docutils literal notranslate"><span class="pre">all_matches_with_indices</span></code> zu iterieren). Das bietet effizienztechnische Vorteile (wenn’s Dich interessiert: <a class="reference external" href="https://stackoverflow.com/questions/628903/performance-advantages-to-iterators">hier</a> eine Diskussion zum Thema), ist für gewöhnliche Programmierer:innen aber irritierend. 🙈</p>
@@ -985,6 +1087,38 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="nn">Input In [13],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">reaction_to_invalid_input</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Ich akzeptiere nur ein &#39;Ja&#39;.</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">yes_regex</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das ist die richtige Entscheidung!&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/ex/lib/python3.8/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Je nach Anwendungsfall macht es Sinn, etwas flexibler nur den Anfang eines strings zu matchen (<code class="docutils literal notranslate"><span class="pre">re.match</span></code>), oder strikt den kompletten string (<code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code>). Im Pizzabot wird <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code> eingesetzt, um z.B. den, wenn auch wenig wahrscheinlichen, Input “Ja, wobei nein doch nicht” korrekt zu “handeln”.</p>
 <p>💡 In diesem Code sehen wir außerdem ein Verhalten Pythons, dem wir zwar schon einmal <em>en passant</em> im letzten Notebook begegnet sind, das wir aber noch nicht explizit besprochen haben: Wenn wir uns die bedingte Anweisung <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">re.match(regex,</span> <span class="pre">text)</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">re.fullmatch(regex,</span> <span class="pre">text)</span></code> (vgl. auch Abschnitt zu Miss Sara Sampson im letzten Notebook) angucken, könnte der Eindruck entstehen, dass diese Funktionen die Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> zurückgeben, je nach dem ob ein match vorliegt oder nicht. Tatsächlich geben sie aber ein gewöhnliches match-Objekt zurück, wenn sie einen match finden, ansonsten <code class="docutils literal notranslate"><span class="pre">None</span></code>, also <em>kein</em> Objekt. In der bedingten Anweisung oben machen wir uns den Umstand zunutze, dass <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">object</span> <span class="pre">==</span> <span class="pre">None</span></code> (auf das es ja hinausläuft) für Python immer <code class="docutils literal notranslate"><span class="pre">False</span></code> ergibt und alles andere (also, wenn das Objekt <em>nicht</em> <code class="docutils literal notranslate"><span class="pre">None</span></code> ist) immer <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt. Dieses Verhalten gilt natürlich nicht nur im Zusammenhang mit regulären Ausdrücken. Wir können es produktiv einsetzen, wann immer es Sinn macht, den Ablauf des Codes von der Existenz eines Objekts abhängig zu machen (im Code des Pizzabots kommt es übrigens auch vor).</p>
@@ -1004,6 +1138,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ich bin am ◾◾.◾◾.◾◾◾◾ geboren, meine Schwester am ◾◾.◾◾.◾◾◾◾ und unser Bruder am ◾◾.◾◾.◾◾◾◾
+</pre></div>
+</div>
+</div>
 </div>
 <p>Klappt doch super!</p>
 <p><code class="docutils literal notranslate"><span class="pre">replacement</span></code> kann übrigens auch ein regulärer Ausdruck sein, in dem wir mithilfe von Gruppen separierte Teilmatches des Ausdrucks <code class="docutils literal notranslate"><span class="pre">regex</span></code> referenzieren. Wie oben gelernt, speichern viele Funktionen des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls Teilmatches als Tupel ab, so auch <code class="docutils literal notranslate"><span class="pre">re.sub</span></code>. Innerhalb eines regulären Ausdrucks für <code class="docutils literal notranslate"><span class="pre">replacement</span></code> können wir den Inhalt der einzelnen Teilmatches einbauen. Der erste Teilmatch wird mit der Rückreferenz <code class="docutils literal notranslate"><span class="pre">\1</span></code> eingebaut, der zweite mit <code class="docutils literal notranslate"><span class="pre">\2</span></code>, etc. Die Reihenfolge der Teilmatches enspricht wie gesagt der Reihenfolge der öffnenden Klammern im regulären Ausdruck <code class="docutils literal notranslate"><span class="pre">regex</span></code>.</p>
@@ -1015,6 +1154,11 @@ document.write(`
 <span class="n">replacement</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;EUR \1&quot;</span>
 <span class="n">prices_standardized</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">replacement</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span> <span class="c1">#mit flag</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">prices_standardized</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Apfel kostet EUR 0,99, die Banane EUR 1,49, das Brot EUR 2,49 und die Kaugummipackung EUR 1.
 </pre></div>
 </div>
 </div>
@@ -1074,6 +1218,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ich bin am  geboren, meine Schwester am  und unser Bruder am . 
+Unsere Mutter ist am  geboren und unser Vater am . 
+Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wurde.
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>Toll!</p>
@@ -1088,6 +1239,11 @@ document.write(`
 <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[.?!:]&quot;</span>
 <span class="n">sentences</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">([</span><span class="n">sentence</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Das ist ein Satz&#39;, &#39; Aber ist das ein Satz&#39;, &#39; Das hingegen ist definitiv ein Satz&#39;, &#39; Das ist ein Satz&#39;, &#39;&#39;]
 </pre></div>
 </div>
 </div>
@@ -1142,6 +1298,45 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="nn">Input In [19],</span> in <span class="ni">&lt;cell line: 13&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#falls er schon einmal importiert wurde (sich also unter den lokalen Namen befindet), laden wir ihn erneut mithilfe von reload, um neueste Änderungen ausprobieren zu können, ohne den Kernel neuzustarten</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">reload</span><span class="p">(</span><span class="n">pizzabot</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
+
+<span class="nn">File ~/Documents/yfrommherz.ch/website/programming/1_Notebooks/../3_Dateien/Module/pizzabot.py:28,</span> in <span class="ni">order_pizza</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">def</span> <span class="nf">order_pizza</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> 
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="c1">#------------&gt; CHOOSE PIZZA &lt;------------ </span>
+<span class="ne">---&gt; </span><span class="mi">28</span>     <span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hallo, ich bin der Pizzabot 🍕🤖</span><span class="se">\n</span><span class="s2">Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">first_prompt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Super &quot;</span> <span class="o">+</span> <span class="n">user_name</span> <span class="o">+</span> <span class="s2">&quot;, welche Pizza möchtest Du bestellen?</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/ex/lib/python3.8/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">reload</span></code> sorgt dafür, dass jeweils die neuste gespeicherte Version des Moduls <code class="docutils literal notranslate"><span class="pre">pizzabot</span></code> geladen wird. Standardmäßig geschieht dies aus Arbeitsspeichergründen erst nach einem Neustart des Kernels.</p>
 </section>
@@ -1170,6 +1365,21 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">pizza_functions</span><span class="o">.</span><span class="n">remove_ingredient</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pizza_functions</span><span class="o">.</span><span class="n">add_ingredient</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pizza_functions</span><span class="o">.</span><span class="n">request_address</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None 
+
+None 
+
+None 
+
+None 
+
+None 
+
+None 
 </pre></div>
 </div>
 </div>
@@ -1297,7 +1507,6 @@ document.write(`
 </tr>
 </tbody>
 </table>
-<hr class="docutils" />
 </section>
 </section>
 

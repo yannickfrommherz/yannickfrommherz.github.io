@@ -438,6 +438,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zu erst das,
+dann das
+und am Ende das.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Hier weisen wir Python an, nacheinander (von oben nach unten) einen Satz <em>auszugeben</em>. Dazu nutzen wir die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion, die Python befiehlt, das, was in Klammern steht, auszugeben. Von ihr werden wir ganz oft Gebrauch machen, denn sie erlaubt es uns, Resultate unseres Codes anzuschauen sowie ganz generell zu überprüfen, ob Python das tut, was wir wollen. Python tut immer, was wir schreiben (im Gegensatz zu natürlicher Sprache gibt es keine Mehrdeutigkeit), aber sehr oft schreiben wir schlicht nicht, was wir wollen. 😅</p>
 </section>
@@ -455,6 +462,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das hier wollen wir ausgeben
+</pre></div>
+</div>
+</div>
 </div>
 <p>Variablen zeigen auf (oder: <em>referenzieren</em>) ein beliebiges Objekt, hier eine Zeichenkette. Sobald wir ein Objekt mehr als einmal in unserem Code verwenden, lohnt sich die Einführung einer Variable, die wir dann fortan stellvertretend für das Objekt benutzen können. Dadurch müssen wir das Objekt, hier die doch recht lange Zeichenkette, nicht bei jeder weiteren Verwendung ausschreiben. Überall wo in Python ein Objekt stehen kann, kann auch eine Variable stehen (lies diesen Satz nochmal, er ist sehr wichtig!).</p>
 <p>Variablen müssen <em>zugewiesen</em> (oder: <em>initialisiert</em>) werden. Wie oben ersichtlich, geben wir zur Zuweisung einer Variable links einen Namen an. Es folgt ein <code class="docutils literal notranslate"><span class="pre">=</span></code>-Zeichen und rechts davon, was die Variable referenzieren soll. Handelt es sich um eine Zeichenkette, so verwenden wir wie bereits gesagt Anführungszeichen (doppelte und einfache sind in Ordnung, solange konsistent). Zahlen hingegen können wir einfach so hinschreiben:</p>
@@ -465,11 +477,26 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
 </div>
 <p>Variablennamen dürfen Buchstaben und Zahlen (zusammen sog. <em>alphanumerische Zeichen</em>) sowie Unterstriche enthalten, müssen aber mit einem Buchstaben oder einem Unterstrich beginnen. Sie dürfen nicht gleichlautend mit sog. <em>Python-Schlüsselwörtern</em> sein, also Begriffen, die in Python bereits eine Bedeutung haben (etwa <code class="docutils literal notranslate"><span class="pre">print</span></code>; alle Schlüsselwörter kann man sich über <code class="docutils literal notranslate"><span class="pre">help(&quot;keywords&quot;)</span></code> ausgeben lassen). Letztlich sind Variablen sog. <em>case-sensitive</em>, d.h. Groß- und Kleinschreibung spielen eine Rolle. Folgendes funktioniert also nicht:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Print_out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">Print_out</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Print_out&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -496,12 +523,23 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.49134948096886
+22.49134948096886
+</pre></div>
+</div>
+</div>
 </div>
 <p>Das Ergebnis ist natürlich dasselbe. Bei so einem kurzen Code könnte man argumentieren, dass einfach ersichtlich ist, was mit <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> gemeint ist. Bei längeren Codes, wo wir die gleichen Variablen immer wieder einsetzen (und genau aus diesem Grund verwenden wir ja erst Variablen), verliert man aber schnell den Überblick. Wollen wir zum Beispiel an späterer Stelle den sog. Area Mass Index, ein anderes anthropometrisches Maß, ausrechnen, zeigt sich bereits, wie sinnvoll sprechende Variablen sind:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ami_f</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.865</span> <span class="o">*</span> <span class="p">(</span><span class="n">weight_kg</span><span class="o">/</span><span class="p">(</span><span class="n">height_m</span><span class="o">*</span><span class="n">height_m</span><span class="p">)))</span><span class="o">+</span><span class="mf">18.56</span> <span class="c1">#Zusatz &quot;_f&quot; aufgrund separater AMI-Formeln für Frauen und Männer</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ami_f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>38.015017301038064
 </pre></div>
 </div>
 </div>
@@ -536,6 +574,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17
+17
+17
+17
+</pre></div>
+</div>
+</div>
 </div>
 <p>Zuunterst sehen wir außerdem, dass auf der rechten Seite einer Variablenzuweisung nicht bloß <em>ein</em> Objekt stehen kann, sondern auch ein sog. <em>komplexer Ausdruck</em>, wie eine Addition. Dies trifft übrigens überall in Python zu: wo ein einzelnes Objekt stehen kann, kann auch ein Ausdruck stehen (der, wenn ausgerechnet, ja wieder <em>einen</em> Wert annimmt).</p>
 <hr class="docutils" />
@@ -565,6 +611,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+15
+</pre></div>
+</div>
+</div>
 </div>
 <p>Bei dieser erweiterten Zuweisung mittels <code class="docutils literal notranslate"><span class="pre">+=</span></code> wird das Objekt, auf das die Variable <code class="docutils literal notranslate"><span class="pre">number</span></code> zeigt, also die Zahl <code class="docutils literal notranslate"><span class="pre">8</span></code>, mit der Zahl rechts des Operators verrechnet. Die erweiterte Zuweisung gibt es auch für Subtraktion, Multiplikation und Divison: <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>.</p>
 <hr class="docutils" />
@@ -584,6 +636,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;Am&quot;</span><span class="p">,</span> <span class="s2">&quot;Anfang&quot;</span><span class="p">,</span> <span class="s2">&quot;war&quot;</span><span class="p">,</span> <span class="s2">&quot;das&quot;</span><span class="p">,</span> <span class="s2">&quot;Wort.&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Am Anfang war das Wort.
 </pre></div>
 </div>
 </div>
@@ -636,6 +693,11 @@ Di </br></p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 4:</strong> Bei Variablennamen haben wir ja schon gelernt, dass diese case-sensitive sind. Finde nun heraus, ob dies auch bei Zeichenketten der Fall ist, indem Du zwei Variablen mit zwei Zeichenketten definierst, die sich nur in punkto Groß-/Kleinschreibung unterscheiden. Lass Dir anschließend ausgeben, ob die Werte der beiden Variablen für Python gleich sind oder nicht.</p>
@@ -662,6 +724,14 @@ Di </br></p>
 <span class="c1">#Hier überprüfen wir ob alphabet gleich ist mit &quot;abc&quot; und wenn ja, wird der eingerückte print-Befehl ausgeführt</span>
 <span class="k">if</span> <span class="n">alphabet</span> <span class="o">==</span> <span class="s2">&quot;abc&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="s2">&quot;ist gleich abc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+b
+c
+abc ist gleich abc
 </pre></div>
 </div>
 </div>
@@ -697,6 +767,11 @@ Di </br></p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;hier haben  \nwir einen\n&quot;langen&quot;\nKommentar&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Rückblickend auf das, was wir im Video über algorithmisches Denken gelernt haben, empfiehlt es sich übrigens, das grobe “Code-Gerüst” (also die einzelnen Schritte, die zur Lösung eines Problems führen sollen) erst einmal in Form von Kommentaren festzuhalten. Dadurch verliert man sich nicht gleich in der Umsetzung eines einzelnen Schrittes, sondern investiert aktiv Zeit in einen durchdachten Code-Aufbau. 💡</p>
 <hr class="docutils" />
@@ -709,7 +784,7 @@ Di </br></p>
 </div>
 </div>
 <hr class="docutils" />
-</section>
+<br></section>
 </section>
 
     <script type="text/x-thebe-config">

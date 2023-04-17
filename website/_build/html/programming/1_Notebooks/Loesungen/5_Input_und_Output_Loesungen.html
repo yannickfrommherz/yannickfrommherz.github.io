@@ -432,6 +432,20 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nathan 105
+Daja 85
+Tempelherr 68
+Derwisch 44
+Recha 39
+Klosterbruder 35
+Sultan Saladin 1
+Sittah 0
+Patriarch von Jerusalem 0
+Emir 0
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 4:</strong> Im Gegensatz zu Miss Sara Sampson ist Nathan der Weise etwas anders formatiert, z.B. verteilen sich Redebeiträge z.T. über mehrere Zeilen.</p>
@@ -457,6 +471,35 @@ document.write(`
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">actual_turns</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daja. 
+Er ist es! Nathan! – Gott sei ewig Dank, 
+Daß Ihr doch endlich einmal wiederkommt. 
+
+Nathan. 
+Ja, Daja; Gott sei Dank! Doch warum endlich? 
+Hab ich denn eher wiederkommen wollen? 
+Und wiederkommen können? Babylon 
+Ist von Jerusalem, wie ich den Weg, 
+Seitab bald rechts, bald links, zu nehmen bin 
+Genötigt worden, gut zweihundert Meilen; 
+Und Schulden einkassieren, ist gewiß 
+Auch kein Geschäft, das merklich födert, das 
+So von der Hand sich schlagen läßt. 
+
+Daja.       O Nathan, 
+Wie elend, elend hättet Ihr indes 
+Hier werden können! Euer Haus ... 
+
+Nathan.       Das brannte. 
+So hab ich schon vernommen. – Gebe Gott, 
+Daß ich nur alles schon vernommen habe! 
+
+Daja. 
+Und wäre leicht von Grund aus abgebrannt. 
 </pre></div>
 </div>
 </div>
@@ -516,6 +559,26 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Baden-Württemberg 1
+Bayern 5
+Berlin 1
+Brandenburg 30
+Bremen 1
+Hamburg 1
+Hessen 2
+Mecklenburg-Vorpommern 0
+Niedersachsen 15
+Nordrhein-Westfalen 13
+Rheinland-Pfalz 0
+Saarland 0
+Sachsen 5
+Sachsen-Anhalt 24
+Schleswig-Holstein 1
+Thüringen 1
+</pre></div>
+</div>
+</div>
 </div>
 <p>🔧 <strong>Anwendungsfall (Lösung):</strong> Deine Aufgabe ist es also, ein kleines interaktives Programm zu schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Konkret müssen folgende Schritte umgesetzt werden:</p>
 <ol class="arabic simple">
@@ -560,6 +623,27 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_69520</span><span class="o">/</span><span class="mf">805338919.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">if</span> <span class="n">first_time</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">9</span>         <span class="n">file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Hallo! Bitte gib den Namen der Datei an, in der Du Deinen Gedanken festhalten willst.</span><span class="se">\n\n</span><span class="s2">Sollte die Datei noch nicht existieren, lege ich sie für Dich an.</span><span class="se">\n\n</span><span class="s2">An das Dateisuffix musst Du nicht denken.</span><span class="se">\n\n</span><span class="s2">⇥&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file_name</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 7:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben.</p>
@@ -577,6 +661,15 @@ document.write(`
 <span class="sd">    &#39;value&#39; erhält einen digit space von 5 Stellen, die rechtsbündig befüllt werden (da es sich um Zahlen handelt);</span>
 <span class="sd">    &#39;value&#39; wird auf zwei Dezimalstellen gerundet als float ausgegeben&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">25</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">5.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Product                   Price
+Apple                      0.77
+Banana                     1.23
+Oat Milk                   1.94
+Olive Oil Extra Vergine   11.17
 </pre></div>
 </div>
 </div>

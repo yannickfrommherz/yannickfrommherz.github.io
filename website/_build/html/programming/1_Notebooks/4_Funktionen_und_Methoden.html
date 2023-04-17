@@ -439,6 +439,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
 </div>
 <p>Dieser Code sieht vergleichsweise simpel aus. Dennoch wäre es sehr mühselig, diese paar Zeilen jedes einzelne Mal schreiben zu müssen, wenn wir die Länge eines strings herausfinden wollen. Wie wir wissen, ist das aber nicht nötig, denn es gibt eine vordefinierte <em>Funktion</em> bei Python, auf die wir für diese Art von Operation zurückgreifen können.</p>
 <p>Funktionen und Methoden sind im Grunde nichts anderes als Code, der eine öfter verwendete Operation (und sei sie noch so trivial) definiert. Um wiederverwendet werden zu können, sind Funktionen/Methoden abstrakt formuliert: Anstelle konkreter Objekte stehen in ihrem Code Variablen, die, wenn wir eine Funktion/Methode <em>aufrufen</em>, mit dem Objekt <em>ausgefüllt</em> werden, auf das wir die Funktion/Methode anwenden. Anders formuliert: Wenn wir <code class="docutils literal notranslate"><span class="pre">len(string)</span></code> ausführen, <em>übergeben</em> wir der <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion unseren string. Im Code der <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion gibt es eine Variable, an deren Stelle nun unser string eingesetzt wird. Der Code wird also spezifisch für unseren string ausgerechnet.</p>
@@ -469,6 +474,25 @@ document.write(`
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">2021:</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">kv21</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2018:
+
+ Ein neuer Aufbruch für Europa Eine neue Dynamik für Deutschland Ein neuer Zusammenhalt für unser Lan
+
+
+2021:
+
+ 
+Mehr Fortschritt wagen 
+
+
+Bündnis für Freiheit, Gerechtigkeit und Nachhaltigkeit 
+
+
+Koalitionsvertr
 </pre></div>
 </div>
 </div>
@@ -522,11 +546,21 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
 </div>
 <p>Dabei erhalten wir ganz einfach den Boolschen Wert <code class="docutils literal notranslate"><span class="pre">True</span></code> zurück. In Kombination mit dem logischen Operator <code class="docutils literal notranslate"><span class="pre">not</span></code> (vgl. drittes Notebook), können wir auch das Gegenteil überprüfen und kriegen wieder einen Boolschen Wert zurück:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;getan&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -546,6 +580,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gesagt ist gesagt.
 </pre></div>
 </div>
 </div>
@@ -570,6 +609,17 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alles Großbuchstaben: HEUTE WIRD ES SCHNEIEN. 
+
+Nur der Anfangsbuchstabe großgeschrieben: Heute wird es schneien. 
+
+Wie ein englischsprachiger Titel: Heute Wird 
+
+Und den Titel umgekehrt: hEUTE wIRD
+</pre></div>
+</div>
+</div>
 </div>
 <p>Als kurze Erinnerung: strings sind unveränderlich (vgl. zweites Notebook). Deswegen weisen wir das Resultat einer auf einen string angewandten Methode jeweils einer neuen Variable zu (oder überschreiben die alte, wie oben bei <code class="docutils literal notranslate"><span class="pre">lower</span></code>). Führe den Code unten aus, um Dich selbst davon zu überzeugen, dass das <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekt zwar im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl modifiziert ausgegeben wird, das Objekt an sich aber nicht geändert wird:</p>
 <div class="cell docutils container">
@@ -580,12 +630,23 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>testwort
+Testwort
+</pre></div>
+</div>
+</div>
 </div>
 <p>Zurück zu unserem Anwendungsfall. Als nächstes wollen wir den Satz <em>tokenisieren</em>, also in einzelne Wörter unterteilen. Dafür gibt es die <code class="docutils literal notranslate"><span class="pre">split</span></code>-Methode. Sie nimmt einen string und unterteilt ihn standardmäßig bei jedem whitespace-Zeichen (die wichtigsten darunter: Leerschläge: <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code>, Zeilenumbrüche: <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>, Tabulatoren: <code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>). Die Methode gibt eine Liste mit den unterteilten Einheiten (beim standardmäßigen whitespace: Wörtern) zurück:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gesagt&#39;, &#39;ist&#39;, &#39;gesagt.&#39;]
 </pre></div>
 </div>
 </div>
@@ -615,6 +676,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gesagt&#39;, &#39;ist&#39;, &#39;gesagt&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Nun haben wir eine Liste mit bereinigten Wörtern.</p>
 <hr class="docutils" />
@@ -637,6 +703,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Links entfernt: ganz viele komische Zeichen/%§..§//§§.... 
+Rechts entfernt: ...ganz viele komische Zeichen
+</pre></div>
+</div>
+</div>
 </div>
 <p>Weiter gibt es die Methode <code class="docutils literal notranslate"><span class="pre">find</span></code> zum Finden bestimmter Zeichen(ketten) innerhalb eines strings. Die Methode nimmt einen string sowie die zu findende Zeichenkette als Parameter und gibt den Index des ersten Zeichens des ersten Vorkommens der zu findenden Zeichenkette zurück.</p>
 <div class="cell docutils container">
@@ -650,6 +722,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+Freiheit des einen ist die Freiheit des 
+26
+</pre></div>
+</div>
+</div>
 </div>
 <p>Da die <code class="docutils literal notranslate"><span class="pre">find</span></code>-Methode nur jeweils den Index des ersten Vorkommens einer Zeichenkette zurückgibt, ist sie von begrenztem Nutzen. Im sechsten Notebook zu regulären Ausdrücken (RegEx) lernen wir sinnvollere Funktionen/Methoden kennen, die Python nicht direkt mitliefert, sondern erst importiert werden müssen.</p>
 <p>Neben dem Finden von bestimmten Zeichen(ketten), können wir auch Substrings in strings ersetzen. Dies geht mit der <code class="docutils literal notranslate"><span class="pre">replace</span></code>-Methode, die sogar zwei Parameter in Klammern verlangt: Erstens den zu ersetzenden Substring und zweitens den Substring, der als Ersatz genommen werden soll:</p>
@@ -658,6 +737,11 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;New York ist die Hauptstadt der USA.&quot;</span>
 <span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;Washington DC&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Washington DC ist die Hauptstadt der USA.
 </pre></div>
 </div>
 </div>
@@ -674,6 +758,14 @@ document.write(`
 <span class="c1">#Methoden können übrigens aneinander gehängt werden. Python wendet erst lower an, dann startswith; ohne lower ergäbe dieses if-Statement False</span>
 <span class="k">if</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;der&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem maskulinen Artikel an.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+False
+Der Satz fängt mit einem maskulinen Artikel an.
 </pre></div>
 </div>
 </div>
@@ -717,6 +809,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gesagt&#39;, &#39;ist&#39;, &#39;gesagt&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Klappt ausgezeichnet.</p>
 <p>Überleg Dir für einen Augenblick, warum wir bei den strings das Resultat der Methoden <code class="docutils literal notranslate"><span class="pre">lower</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">strip</span></code> einer Variablen zuweisen (besser gesagt: die Variable <code class="docutils literal notranslate"><span class="pre">word</span></code> damit jeweils <em>überschreiben</em>). Das Resultat von <code class="docutils literal notranslate"><span class="pre">append</span></code>, also die Liste mit dem neu angehängten Wort, weisen wir dagegen keiner Variablen zu.</p>
@@ -726,6 +823,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessed_words</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nicht&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gesagt&#39;, &#39;ist&#39;, &#39;nicht&#39;, &#39;gesagt&#39;]
 </pre></div>
 </div>
 </div>
@@ -745,12 +847,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Bananen&#39;, &#39;Orangen&#39;, &#39;Kiwis&#39;, &#39;Gurke&#39;, &#39;Tomate&#39;, &#39;Avokado&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">append</span></code> behandelt die Liste <code class="docutils literal notranslate"><span class="pre">vegetables</span></code> einfach als <em>ein</em> Element. Wir wollen aber keine Liste in der Liste, weswegen hier <code class="docutils literal notranslate"><span class="pre">extend</span></code> sinnvoller ist.</p>
 <p>Wie oben erwähnt kann man sich die Häufigkeit eines Worts (genauer gesagt: eines Elements) auf einer Liste auszählen lassen. Die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode für Listen hat den gleichen Namen und die gleiche Funktion wie bei strings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;gesagt&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -765,12 +877,23 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pretoria&#39;, &#39;Buenos Aires&#39;, &#39;Malaga&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">pop</span></code> dagegen geben wir nicht das zu entfernende Element an, sondern dessen Index. Geben wir keinen Index an, so wird standardmäßig das letzte Element auf der Liste (also dasjenige mit dem Index <code class="docutils literal notranslate"><span class="pre">-1</span></code>) entfernt. Bevor ein Element aus der Liste entfernt wird, gibt <code class="docutils literal notranslate"><span class="pre">pop</span></code> das betreffende Element noch zurück. Um dies zu verstehen, führe die folgende Zelle solange aus, bis Du eine Fehlermeldung erhältst:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das letzte Element der Liste wird nun entfernt:&quot;</span><span class="p">,</span> <span class="n">cities</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Die Liste beinhaltet nun noch:&quot;</span><span class="p">,</span> <span class="n">cities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das letzte Element der Liste wird nun entfernt: Malaga
+Die Liste beinhaltet nun noch: [&#39;Pretoria&#39;, &#39;Buenos Aires&#39;]
 </pre></div>
 </div>
 </div>
@@ -815,6 +938,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Noch nicht genügend Teilnehmer:innen, wir brauchen noch 3 😬
+Aktuell auf der Liste: [&#39;Max&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 2 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 1 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;] 
+
+Leider ist das Spiel voll 🥲
+Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>Mit dem hier verwendeten Know-How können wir ohne allzu viel Modifikationen auch ein sog. n-gram-Skript schreiben. N-gramme sind u.a. in der Korpuslinguistik sehr beliebte Analyseeinheiten. Anstatt einzelne Wörter (oder andere Einheiten, siehe unten) zu betrachten, schaut man sich z.B. immer zwei aufeinanderfolgende Wörter an, oder aber drei aufeinanderfolgende, etc. Im ersten Fall spricht man von Wort-Bigrammen, im zweiten von Wort-Trigrammen.</p>
@@ -853,6 +1000,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ich gehe&#39;, &#39;gehe am&#39;, &#39;am Abend&#39;, &#39;Abend noch&#39;, &#39;noch spazieren&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Die ersten paar Zeilen des Codes sind die gleichen wie in der ersten Variante. Der Unterschied spielt sich in der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ab: In der ersten Variante wird grob formuliert in jeder Iteration ein neues n-gram (<code class="docutils literal notranslate"><span class="pre">current_ngram</span></code>) geschaffen, indem das bisher erste Wort vom letzten n-gram entfernt wird und ein neues hinten angehängt wird. Jedes n-gram wird dann <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> angehängt. In der zweiten Variante hier “schieben” wir hingegen eine Art “Fenster” über <code class="docutils literal notranslate"><span class="pre">words</span></code>: Mittels Slicing schneiden wir uns eine neue Liste von der Länge <code class="docutils literal notranslate"><span class="pre">n</span></code> aus <code class="docutils literal notranslate"><span class="pre">words</span></code> heraus und rücken bei jeder Iteration den Start- und Endindex für das Slicing um eine Position vor. Die neue Liste fügen wir jeweils mit der uns aus dem zweiten Notebook bekannten <code class="docutils literal notranslate"><span class="pre">join</span></code>-Methode zu einem string zusammen und hängen den als n-gram <code class="docutils literal notranslate"><span class="pre">ngrams</span></code> an. Das Resultat ist natürlich dasselbe wie bei der ersten Variante.</p>
 <p>Zurück zu den Operationen bei Listen: Wie bei strings mit der <code class="docutils literal notranslate"><span class="pre">find</span></code>-Methode, kann man auch in Listen nach einem bestimmten Element suchen und kriegt den Index (des ersten Vorkommens) zurück. Bei Listen nennt sich die entsprechende Methode allerdings <code class="docutils literal notranslate"><span class="pre">index</span></code>:</p>
@@ -863,12 +1015,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
 </div>
 <p>Probier gerne aus, was passiert, wenn Du nach einem Element suchst, das nicht in der Liste enthalten ist.</p>
 <p>Um zu überprüfen, ob ein Element in einer Liste enthalten ist (und wenn nein, um einer Fehlermeldung vorzubeugen), kann man wie bei strings das <code class="docutils literal notranslate"><span class="pre">in</span></code>-Statement einsetzen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erdbeeren&quot;</span> <span class="ow">in</span> <span class="n">shopping_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
@@ -899,6 +1061,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Alpha&#39;, &#39;Beta&#39;, &#39;Delta&#39;, &#39;Gamma&#39;] [1, 2, 3, 4, 5, 6]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Handelt es sich bei den Listenelementen um strings, so wird alphabetisch sortiert (und nicht etwa nach dem griechischen Alphabet 😉).</p>
 <p><code class="docutils literal notranslate"><span class="pre">sort</span></code> nimmt optional Parameter. Zum Beispiel kann spezifiziert werden, dass in absteigender Reihenfolge sortiert werden soll:</p>
@@ -909,12 +1076,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6, 5, 4, 3, 2, 1]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Ebenso kann man mit dem <code class="docutils literal notranslate"><span class="pre">key</span></code>-Parameter angeben, nach welchem benutzerdefinierten Kriterium sortiert werden soll. Wir könnten eine Liste von strings z.B. nach der Länge der strings sortieren. Dazu brauchen wir eine etwas komplizierte sog. lambda-Funktion (noch so ein griechischer Buchstabe…). Ohne die Details genauer zu erläutern, der hier verwendete <code class="docutils literal notranslate"><span class="pre">key</span></code>-Parameter geht Element (<code class="docutils literal notranslate"><span class="pre">x</span></code>) für Element auf der Liste durch und rechnet für jedes Element seine Länge aus und sortiert anschließend die Liste nach den jeweils errechneten Längen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_strings</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list_of_strings</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Beta&#39;, &#39;Alpha&#39;, &#39;Delta&#39;, &#39;Gamma&#39;]
 </pre></div>
 </div>
 </div>
@@ -933,6 +1110,14 @@ document.write(`
 
 <span class="nb">print</span><span class="p">(</span><span class="n">a_list_sorted</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dictionary_sorted</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">string_sorted</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dictionary_sorted</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.41, 1.42, 1.43, 1.44] 
+ [(&#39;sein&#39;, 35), (&#39;haben&#39;, 28)] 
+ [&#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+&lt;class &#39;list&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -958,12 +1143,17 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;, &#39;j&#39;, &#39;k&#39;, &#39;l&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;p&#39;, &#39;q&#39;, &#39;r&#39;, &#39;s&#39;, &#39;t&#39;, &#39;u&#39;, &#39;v&#39;, &#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>In diesem Beispiel hätte <code class="docutils literal notranslate"><span class="pre">sort</span></code> natürlich den gleichen Effekt gehabt. Soviel zum Thema Listen.</p>
 <p>Bevor wir zu dictionaries übergehen, werfen wir noch einen Blick auf die Technik <em>List Comprehension</em>. Es handelt sich dabei um eine fortgeschrittene Technik, mit der Listen auf sehr elegante Weise erzeugt werden können. Alles, was wir gleich mithilfe einer List Comprehension angehen, kannst Du bereits mithilfe anderer Techniken lösen. Der Vorteil von List Comprehensions besteht darin, dass wir viele Schritte auf eine einzige Zeile Code komprimieren können. Ob Du zukünftig List Comprehension verwendest oder nicht, steht Dir frei. In jedem Fall macht es Sinn, dass Du die Technik gesehen hast und weißt, wozu sie eingesetzt wird.</p>
 <section id="exkurs-list-comprehension">
 <h3><span class="section-number">4.5.1. </span>Exkurs: List Comprehension<a class="headerlink" href="#exkurs-list-comprehension" title="Permalink to this heading">#</a></h3>
-<p>Am Anfang des Abschnitts <span class="xref myst">Operationen bei Listen</span> haben wir die bis dahin erlernten Schritte des Preprocessing wie folgt zusammengefasst:</p>
+<p>Am Anfang des Abschnitts <em>Operationen bei Listen</em> (s.o.) haben wir die bis dahin erlernten Schritte des Preprocessing wie folgt zusammengefasst:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Gesagt ist gesagt.&quot;</span>
@@ -980,6 +1170,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gesagt&#39;, &#39;ist&#39;, &#39;gesagt&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Dieser Code eignet sich wunderbar, um aus einem string eine Liste mit bereinigten Wörtern zu erstellen. Er besteht aus sechs Zeilen Code und ließe sich zwar auf drei Zeilen komprimieren (probier’s aus!), nicht jedoch auf eine einzige Zeile wie hier:</p>
 <div class="cell docutils container">
@@ -987,6 +1182,11 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gesagt&#39;, &#39;ist&#39;, &#39;gesagt&#39;]
 </pre></div>
 </div>
 </div>
@@ -1021,6 +1221,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Die&#39;, &#39;des&#39;, &#39;ist&#39;, &#39;Sie&#39;, &#39;zu&#39;, &#39;und&#39;, &#39;zu&#39;, &#39;ist&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Wie oben erwähnt, kann, wie hier, bei <code class="docutils literal notranslate"><span class="pre">expression</span></code> nur die Variable für <code class="docutils literal notranslate"><span class="pre">element</span></code> stehen. So verwenden wir die List Comprehension schlicht zum Erstellen einer gefilterten Liste, ohne dabei die Elemente, die es “in die Liste schaffen” zusätzlich zu modifizieren.</p>
 <p>Natürlich lässt sich das Filtern auch mit der Anwendung eines komplexen Ausdrucks kombinieren:</p>
@@ -1028,6 +1233,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">constitution</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">long_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;unantastbar&#39;, &#39;Verpflichtung&#39;, &#39;staatlichen&#39;]
 </pre></div>
 </div>
 </div>
@@ -1049,6 +1259,12 @@ document.write(`
 
 <span class="c1">#Überprüfen, ob das Resultat dasselbe wie bei der swapcase-Methode ist</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">swapped_case_string</span> <span class="o">==</span> <span class="n">constitution</span><span class="o">.</span><span class="n">swapcase</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dIE wÜRDE DES mENSCHEN IST UNANTASTBAR. sIE ZU ACHTEN UND ZU SCHÜTZEN IST vERPFLICHTUNG ALLER STAATLICHEN gEWALT.
+True
 </pre></div>
 </div>
 </div>
@@ -1095,11 +1311,26 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graz
+</pre></div>
+</div>
+</div>
 </div>
 <p>Was passiert, wenn wir den Wert zu einem Schlüssel erfragen, der nicht im dictionary ist?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">Input In [46],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
+
+<span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
 </pre></div>
 </div>
 </div>
@@ -1111,11 +1342,21 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Schlüssel nicht vorhanden
+</pre></div>
+</div>
+</div>
 </div>
 <p>Der zweite Parameter ist optional. Geben wir nichts an, so erhalten wir im Falle eines inexistenten Schlüssels <code class="docutils literal notranslate"><span class="pre">None</span></code> zurück. Wie bei strings und Listen können wir die Existenz eines Schlüssels in einem dictionary auch mittels <code class="docutils literal notranslate"><span class="pre">in</span></code> überprüfen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Oberösterreich&quot;</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
@@ -1125,6 +1366,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Linz&quot;</span> <span class="c1">#definieren eines neuen Schlüssel-Werte-Paars</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span> <span class="c1">#überprüfen wir dies gleich</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Linz
 </pre></div>
 </div>
 </div>
@@ -1138,6 +1384,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Tirol&#39;: &#39;Innsbruck&#39;, &#39;Kärnten&#39;: &#39;Klagenfurt&#39;, &#39;Steiermark&#39;: &#39;Graz&#39;, &#39;Oberösterreich&#39;: &#39;Linz&#39;}
+</pre></div>
+</div>
+</div>
 </div>
 <p>Genau wie bei Listen gibt es auch für dictionaries eine <code class="docutils literal notranslate"><span class="pre">pop</span></code>-Methode, bei der allerdings nicht ein Index angegeben wird (dictionaries haben keine Reihenfolge!), sondern ein Schlüssel:</p>
 <div class="cell docutils container">
@@ -1146,11 +1397,21 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Linz&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Wie Du siehst, gibt <code class="docutils literal notranslate"><span class="pre">pop</span></code> bei dictionaries ebenfalls den Wert zurück, bevor es das Schlüssel-Werte-Paar aus dem dictionary entfernt, wie sich wie folgt überprüfen lässt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Tirol&#39;: &#39;Innsbruck&#39;, &#39;Kärnten&#39;: &#39;Klagenfurt&#39;, &#39;Steiermark&#39;: &#39;Graz&#39;}
 </pre></div>
 </div>
 </div>
@@ -1170,12 +1431,30 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Vorarlberg&#39;: &#39;Bregenz&#39;, &#39;Tirol&#39;: &#39;Innsbruck&#39;, &#39;Kärnten&#39;: &#39;Klagenfurt&#39;, &#39;Steiermark&#39;: &#39;Graz&#39;, &#39;Wien&#39;: &#39;Wien&#39;, &#39;Niederösterreich&#39;: &#39;Sankt Pölten&#39;, &#39;Oberösterreich&#39;: &#39;Linz&#39;, &#39;Salzburg&#39;: &#39;Salzburg&#39;, &#39;Burgenland&#39;: &#39;Eisenstadt&#39;}
+</pre></div>
+</div>
+</div>
 </div>
 <p>Anstatt alle Schlüssel-Werte-Paare auf einmal zurückzubekommen, ist es wie bei Listen in der Regel sinnvoller, über ein dictionary zu iterieren und Schlüssel-Werte-Paare nacheinander einzeln zurückzukriegen. Dazu gibt es die bereits verwendete <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode, die wir direkt im Schleifenkopf anwenden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Vorarlberg&#39;, &#39;Bregenz&#39;)
+(&#39;Tirol&#39;, &#39;Innsbruck&#39;)
+(&#39;Kärnten&#39;, &#39;Klagenfurt&#39;)
+(&#39;Steiermark&#39;, &#39;Graz&#39;)
+(&#39;Wien&#39;, &#39;Wien&#39;)
+(&#39;Niederösterreich&#39;, &#39;Sankt Pölten&#39;)
+(&#39;Oberösterreich&#39;, &#39;Linz&#39;)
+(&#39;Salzburg&#39;, &#39;Salzburg&#39;)
+(&#39;Burgenland&#39;, &#39;Eisenstadt&#39;)
 </pre></div>
 </div>
 </div>
@@ -1188,12 +1467,38 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bregenz liegt in Vorarlberg
+Innsbruck liegt in Tirol
+Klagenfurt liegt in Kärnten
+Graz liegt in Steiermark
+Wien liegt in Wien
+Sankt Pölten liegt in Niederösterreich
+Linz liegt in Oberösterreich
+Salzburg liegt in Salzburg
+Eisenstadt liegt in Burgenland
+</pre></div>
+</div>
+</div>
 </div>
 <p>Manchmal interessieren uns nur die Werte. Dann können wir stattdessen die <code class="docutils literal notranslate"><span class="pre">values</span></code>-Methode benutzen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">capital</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">capital</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bregenz
+Innsbruck
+Klagenfurt
+Graz
+Wien
+Sankt Pölten
+Linz
+Salzburg
+Eisenstadt
 </pre></div>
 </div>
 </div>
@@ -1208,6 +1513,31 @@ document.write(`
     
 <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vorarlberg
+Tirol
+Kärnten
+Steiermark
+Wien
+Niederösterreich
+Oberösterreich
+Salzburg
+Burgenland
+
+und das gleiche nochmal:
+
+Vorarlberg
+Tirol
+Kärnten
+Steiermark
+Wien
+Niederösterreich
+Oberösterreich
+Salzburg
+Burgenland
 </pre></div>
 </div>
 </div>
@@ -1408,6 +1738,32 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>werden kommt 1032 oft vor.
+wollen kommt 905 oft vor.
+ist kommt 263 oft vor.
+stärken kommt 215 oft vor.
+deutschland kommt 194 oft vor.
+wird kommt 186 oft vor.
+sind kommt 178 oft vor.
+insbesondere kommt 162 oft vor.
+unterstützen kommt 143 oft vor.
+dazu kommt 137 oft vor.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>werden kommt 985 oft vor.
+wollen kommt 492 oft vor.
+stärken kommt 236 oft vor.
+ist kommt 169 oft vor.
+unterstützen kommt 166 oft vor.
+wird kommt 159 oft vor.
+setzen kommt 156 oft vor.
+sind kommt 128 oft vor.
+deutschland kommt 121 oft vor.
+schaffen kommt 120 oft vor.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Interessanterweise sind die Schlüsselwörter ziemlich ähnlich, trotz der Tatsache, dass sie von unterschiedlichen Parteien kommen. Vielleicht gibt es so was wie genrespezifische Wörter bei Koalitionstexten?</p>
 <p>Wir haben in dieser Zelle übrigens keine <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle benutzt, denn die sind bereits im Funktionscode.</p>
@@ -1465,6 +1821,20 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KV18: werden               KV21: werden
+KV18: wollen               KV21: wollen
+KV18: ist                  KV21: stärken
+KV18: stärken              KV21: ist
+KV18: deutschland          KV21: unterstützen
+KV18: wird                 KV21: wird
+KV18: sind                 KV21: setzen
+KV18: insbesondere         KV21: sind
+KV18: unterstützen         KV21: deutschland
+KV18: dazu                 KV21: schaffen
+</pre></div>
+</div>
+</div>
 </div>
 <p>Probier Deine Funktion gerne an einem anderen Text aus. Du kannst dazu eine neue <code class="docutils literal notranslate"><span class="pre">.txt</span></code>-Datei in den Arbeitsspeicher laden (indem Du den Dateipfad  zum Koalitionsvertrag im Einlese-Befehl von oben durch den Pfad zur neuen Datei ersetzt, alle Details zum Input von Dateien im nächsten Notebook) oder alternativ den Text als string einer Variable zuweist und diese dann <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> übergibst.</p>
 <p>Wie wir bereits bei Funktionen der Grundausstattung (etwa <code class="docutils literal notranslate"><span class="pre">sorted</span></code>) gesehen haben und unten bei einer modifizierten Version von <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> sehen werden, ist es möglich, mehrere obligatorische und auch optionale Argumente bei einer Funktion zu definieren. Optional bedeutet, dass es einen Standardwert gibt, mit dem die Funktion rechnet, wenn ihr kein Wert für dieses Argument übergeben wird. Die einzelnen Argumente werden im <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement kommasepariert. Beim Funktionsaufruf muss die Reihenfolge der zu übergebenden Argumente der Reihenfolge in der Funktionsdefinition entsprechen.</p>
@@ -1480,6 +1850,16 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sum_div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [74],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sum_div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span>
+
+<span class="ne">NameError</span>: name &#39;sum_div&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1534,12 +1914,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;werden&#39;, 1032), (&#39;wollen&#39;, 905), (&#39;ist&#39;, 263), (&#39;stärken&#39;, 215), (&#39;deutschland&#39;, 194), (&#39;wird&#39;, 186), (&#39;sind&#39;, 178), (&#39;insbesondere&#39;, 162), (&#39;unterstützen&#39;, 143), (&#39;dazu&#39;, 137)]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Wie erwähnt, müssen wir hier im Unterschied zu oben <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> zusätzlich zu <code class="docutils literal notranslate"><span class="pre">kv18</span></code> (für das Argument <code class="docutils literal notranslate"><span class="pre">text</span></code>) auch <code class="docutils literal notranslate"><span class="pre">stopwords_list</span></code> (für <code class="docutils literal notranslate"><span class="pre">stopwords</span></code>) übergeben.</p>
 <p>Welche Argumente unsere Funktion erwartet und was sie im Gegenzug zurückgibt, können wir uns übrigens über das <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-Attribut ausgeben lassen. Dazu hängt man einen Punkt, zwei Unterschriche, dann “doc” und noch einmal zwei Unterstriche an den Funktionsnamen an:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">get_freqs</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Takes in text as string and stopwords as list, returns frequency for all types in text, excluding stopwords.
 </pre></div>
 </div>
 </div>
@@ -1556,6 +1946,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;werden&#39;, 1032), (&#39;wollen&#39;, 905), (&#39;ist&#39;, 263), (&#39;stärken&#39;, 215), (&#39;deutschland&#39;, 194), (&#39;wird&#39;, 186), (&#39;sind&#39;, 178), (&#39;insbesondere&#39;, 162), (&#39;unterstützen&#39;, 143), (&#39;dazu&#39;, 137)]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Wenn wir so vorgehen, wird <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> nicht im Namespace etabliert. Deswegen müssen wir beim Funktionsaufruf erst den Modulnamen gefolgt von einem Punkt angeben. Nur so weiß Python, wo sich die Funktion befindet, auf die wir uns beziehen (es handelt sich also um eine Art <em>Adresse</em> zur Funktion). Der Punkt zwischen Modul- und Funktionsnamen könnte den Eindruck erwecken, dass es sich bei <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> um eine Methode handelt (s.o.), das ist aber natürlich nicht der Fall.</p>
 <p>Um die obige Syntax zu vereinfachen, können wir dem Modul beim Import übrigens auch einen Namen geben:</p>
@@ -1566,6 +1961,11 @@ document.write(`
 <span class="n">bottom_ten</span> <span class="o">=</span> <span class="n">kw</span><span class="o">.</span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="o">-</span><span class="mi">11</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">bottom_ten</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ausbildungszusage&#39;, 1), (&#39;ersatzbaustoffe&#39;, 1), (&#39;baurecht&#39;, 1), (&#39;hinein&#39;, 1), (&#39;gebündelte&#39;, 1), (&#39;meilenstein&#39;, 1), (&#39;endlose&#39;, 1), (&#39;handwerksbetrieben&#39;, 1), (&#39;mittelosteuropa&#39;, 1), (&#39;bmel&#39;, 1)]
 </pre></div>
 </div>
 </div>
@@ -1599,6 +1999,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[20, 33, 62, 43, 60, 61, 81, 71, 52, 38]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">randint</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> generiert zufällige Zahlen innerhalb des angegebenen Bereichs (0-99). Entsprechend schaut <code class="docutils literal notranslate"><span class="pre">random_numbers</span></code> bei jeder Ausführung der Zelle anders aus. Bei <code class="docutils literal notranslate"><span class="pre">random</span></code> handelt es sich übrigens um ein Modul aus der <a class="reference external" href="https://docs.python.org/3/library/">Standardbibliothek</a> von Python.</p>
 <p>Abschließend noch ein paar Worte zur Terminologie: Neben <em>Modulen</em> hört man oft auch die Begriffe <em>Package</em> und <em>Bibliothek</em> (engl. <em>library</em>). Die Begriffe werden gerne vermischt, was nicht weiter schlimm ist. Falls Dich die Unterschiede interessieren: Wenn mehrere <em>Module</em> zusammengefasst werden, entsteht ein <em>Package</em> (praktisch handelt es sich um nichts anderes als ein Verzeichnis, das mehrere Module beinhält). Genau wie man eine Funktion aus einem Modul importieren kann, kann man ein spezifisches Modul innerhalb eines Packages importieren: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">module</span></code>. <em>Bibliotheken</em> wiederum umfassen mehrere Packages und Module.</p>
@@ -1618,7 +2023,6 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>Damit sind wir am Ende des Notebooks angelangt. 🎉</p>
-<hr class="docutils" />
 </section>
 </section>
 

@@ -416,6 +416,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Koalitionsvertrag von 2018 ist länger.
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 2:</strong> Die unten bereitgestellte Liste <code class="docutils literal notranslate"><span class="pre">buzzwords</span></code> enthält heuristisch zusammengetragene Schlagwörter aus der Politik – erweitere die Liste gerne um eigene Begriffe, die Dich interessieren. Um einen ersten inhaltlichen Eindruck der Koalitionsverträge zu bekommen, wollen wir herausfinden, wie oft diese Begriffe in ihnen vorkommen und wie sich ihre Frequenz zwischen den Texten entwickelt. Zu diesem Zweck können wir <code class="docutils literal notranslate"><span class="pre">count</span></code> für strings verwenden (<code class="docutils literal notranslate"><span class="pre">kv18</span></code> und <code class="docutils literal notranslate"><span class="pre">kv21</span></code> sind ja wie gesagt string-Objekte). <code class="docutils literal notranslate"><span class="pre">count</span></code> erlaubt es uns, das Vorkommen einer bestimmten Zeichenkette innerhalb einer anderen Zeichenkette auszuzählen. <code class="docutils literal notranslate"><span class="pre">count</span></code> hat folgende Syntax:</p>
@@ -423,8 +428,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">&quot;Schifffahrtsgesellschaft&quot;.count(&quot;f&quot;)</span></code> ergäbe etwa 4.</p>
 <p>Was bei einem Wort funktioniert, geht auch bei langen strings wie bei unseren Koalitionsverträgen.</p>
 <p>Berechne nun wie oft jeder Begriff  auf <code class="docutils literal notranslate"><span class="pre">buzzwords</span></code> in den beiden Verträgen vorkommt und verwende einen geeigneten Datentypen, um deine Ergebnisse (separat für jeden Vertrag) abzuspeichern. Lasse Dir anschließend für jeden Begriff die beiden Frequenzen sowie einen Trend über die Zeit (z.B. mittels der Emojis 📈, 📉, 🟰) ausgeben. Das Ergebnis für “Corona” sollte z.B. so aussehen:</p>
-<p><img alt="Frequenz_Corona.png" src="programming/1_Notebooks/Loesungen/attachment:61eedf97-f89e-4918-bd92-17c251d398f3.png" /></p>
-<div class="cell docutils container">
+<img src="../../3_Dateien/Grafiken_und_Videos/Frequenz_Corona.png"/><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buzzwords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sozial&quot;</span><span class="p">,</span> <span class="s2">&quot;Klima&quot;</span><span class="p">,</span> <span class="s2">&quot;Europa&quot;</span><span class="p">,</span> <span class="s2">&quot;Verkehr&quot;</span><span class="p">,</span> <span class="s2">&quot;Landwirtschaft&quot;</span><span class="p">,</span> <span class="s2">&quot;Umwelt&quot;</span><span class="p">,</span> <span class="s2">&quot;Corona&quot;</span><span class="p">]</span>
 
@@ -451,6 +455,44 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>word:  Sozial
+2018:  71
+2021:  41
+trend: 📉 
+
+word:  Klima
+2018:  65
+2021:  157
+trend: 📈 
+
+word:  Europa
+2018:  98
+2021:  53
+trend: 📉 
+
+word:  Verkehr
+2018:  43
+2021:  24
+trend: 📉 
+
+word:  Landwirtschaft
+2018:  23
+2021:  12
+trend: 📉 
+
+word:  Umwelt
+2018:  33
+2021:  28
+trend: 📉 
+
+word:  Corona
+2018:  0
+2021:  18
+trend: 📈 
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 3:</strong> Die beiden Koalitionsverträge stammen von unterschiedlichen Parteien (CDU, CSU, SPD resp. SPD, Grüne, FDP). Finde heraus, welche beiden Parteien es mit ihrem Kurznamen in beide Verträge geschafft haben. Stelle sicher, dass die Zelle mit dem Dateiinput oben ausgeführt ist, damit die Variablen <code class="docutils literal notranslate"><span class="pre">kv18</span></code> und <code class="docutils literal notranslate"><span class="pre">kv21</span></code> mit dem jeweiligen Text initialisiert sind.</p>
@@ -460,6 +502,12 @@ document.write(`
 <span class="k">for</span> <span class="n">party</span> <span class="ow">in</span> <span class="n">parties</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">party</span> <span class="ow">in</span> <span class="n">kv18</span> <span class="ow">and</span> <span class="n">party</span> <span class="ow">in</span> <span class="n">kv21</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">party</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SPD
+Grüne
 </pre></div>
 </div>
 </div>
@@ -478,6 +526,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Es war einmal ein Hase und ein Fuchs. Die beiden verliebten sich ineinander. Und wenn sie nicht gestorben sind, kann&#39;s sein dass, sie sich heute noch küssen&quot;
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 5:</strong> Selbstverständlich kann man das Vorkommen eines Wortes auf einer Liste auszählen lassen (das lernen wir bei den Methoden für Listen). Hier wollen wir aber die oben bereits kennengelernte <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode für strings noch einmal anwenden. Dazu müssen wir die Listenelemente wieder zu einem string konkatenieren. Verwende eine Dir bereits bekannte <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methode, um aus <code class="docutils literal notranslate"><span class="pre">words</span></code> wieder einen string zu kreieren. Eine Variable namens <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> soll auf diesen string zeigen.</p>
@@ -487,6 +540,11 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gesagt&#39;</span><span class="p">,</span> <span class="s1">&#39;ist&#39;</span><span class="p">,</span> <span class="s1">&#39;gesagt&#39;</span><span class="p">]</span>
 <span class="n">sentence_again</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
 <span class="n">sentence_again</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;gesagt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -509,6 +567,12 @@ document.write(`
 <span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;nAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span>
 <span class="n">single_names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; Name: &quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">single_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Martin Berger&#39;, &#39;Kirsten Hauser&#39;, &#39;Michaela Kircher&#39;, &#39;Fritz Hofer&#39;]
+[&#39;Martin Berger&#39;, &#39;Kirsten Hauser&#39;, &#39;Michaela Kircher&#39;, &#39;Fritz Hofer&#39;]
 </pre></div>
 </div>
 </div>
@@ -544,6 +608,47 @@ document.write(`
     
     <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Noch nicht genügend Teilnehmer:innen, wir brauchen noch 3 😬
+Aktuell auf der Liste: [&#39;Max&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 2 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 1 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;] 
+
+Leider muss uns nun Max verlassen
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;] 
+
+Leider muss uns nun Moritz verlassen
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;] 
+
+Leider muss uns nun Janine verlassen
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;, &#39;Yin&#39;] 
+
+Leider muss uns nun Hussein verlassen
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;, &#39;Yin&#39;, &#39;Margareth&#39;] 
+
+Leider muss uns nun Fritz verlassen
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;, &#39;Yin&#39;, &#39;Margareth&#39;, &#39;Benni&#39;] 
 </pre></div>
 </div>
 </div>
@@ -587,6 +692,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ich gehe&#39;, &#39;gehe am&#39;, &#39;am Abend&#39;, &#39;Abend noch&#39;, &#39;noch spazieren&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 9:</strong> Erinnerst Du Dich an die Übung mit den beiden Einkaufslisten, die zu einer zusammengeführt werden sollten, aus dem zweiten Notebook? Damals haben wir mithilfe von <code class="docutils literal notranslate"><span class="pre">set</span></code> sichergestellt, dass keine doppelten Elemente auf der zusammengeführten Einkaufsliste vorkommen. In dieser Übung wollen wir es etwas manueller machen (zu Übungszwecken sehen wir vom oben verkündeten Code-Reuse-Mantra ab). Iteriere über eine der beiden Listen und füge der anderen Liste sämtliche Lebensmittel an, sofern sie nicht bereits auf dieser anderen Liste stehen. Gib Dir anschließend die andere Liste aus. Diese sollte dann einer zusammengeführten Liste entsprechen.</p>
@@ -600,6 +710,11 @@ document.write(`
         <span class="n">my_shopping_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">my_shopping_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Brot&#39;, &#39;Orangen&#39;, &#39;Feldsalat&#39;, &#39;Hafermilch&#39;, &#39;Kekse&#39;, &#39;Mehl&#39;]
 </pre></div>
 </div>
 </div>
@@ -635,6 +750,13 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturen ohne fehlende Werte: [18.6, 23.4, 12.2, -3.1, 33.7, -10.9, -17.8, 7.0, 9.1, -0.2, 0.0, 8.6, 39.4, -29.8]
+Positive Messwerte genullt: [0.0, 0.0, 0.0, -3.1, 0.0, -10.9, -17.8, 0.0, 0.0, -0.2, 0.0, 0.0, 0.0, -29.8]
+Nur positive Messwerte: [18.6, 23.4, 12.2, 33.7, 7.0, 9.1, 8.6, 39.4]
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 11:</strong> Eine Funktion zum Sortieren von dictionaries kennst Du bereits von oben. Sortiere <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> alphabetisch nach ihren Haupstädten. Das Resultat sollte eine Liste mit Tupeln bestehend aus Bundesland und Hauptstadt sein.</p>
@@ -644,6 +766,11 @@ document.write(`
 
 <span class="n">federal_states_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">federal_states</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">federal_states_sorted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Vorarlberg&#39;, &#39;Bregenz&#39;), (&#39;Burgenland&#39;, &#39;Eisenstadt&#39;), (&#39;Steiermark&#39;, &#39;Graz&#39;), (&#39;Tirol&#39;, &#39;Innsbruck&#39;), (&#39;Kärnten&#39;, &#39;Klagenfurt&#39;), (&#39;Oberösterreich&#39;, &#39;Linz&#39;), (&#39;Salzburg&#39;, &#39;Salzburg&#39;), (&#39;Niederösterreich&#39;, &#39;Sankt Pölten&#39;), (&#39;Wien&#39;, &#39;Wien&#39;)]
 </pre></div>
 </div>
 </div>
@@ -691,6 +818,20 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>werden kommt 1032 oft vor.
+wollen kommt 905 oft vor.
+ist kommt 263 oft vor.
+stärken kommt 215 oft vor.
+deutschland kommt 194 oft vor.
+wird kommt 186 oft vor.
+sind kommt 178 oft vor.
+insbesondere kommt 162 oft vor.
+unterstützen kommt 143 oft vor.
+dazu kommt 137 oft vor.
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
 <p>🔧 <strong>Anwendungsfall (Schritt-für-Schritt-Lösung):</strong></p>
@@ -724,6 +865,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Nur&#39;, &#39;so&#39;, &#39;können&#39;, &#39;wir&#39;, &#39;das&#39;, &#39;Erreichte&#39;, &#39;sichern&#39;, &#39;und&#39;, &#39;ausbauen.&#39;, &#39;Unsere&#39;, &#39;Ausgangslage&#39;, &#39;ist&#39;, &#39;gut.&#39;, &#39;Die&#39;, &#39;Wirtschaft&#39;, &#39;boomt,&#39;, &#39;noch&#39;, &#39;nie&#39;, &#39;waren&#39;, &#39;so&#39;]
+</pre></div>
+</div>
+</div>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>Schritt:</p></li>
@@ -740,6 +886,11 @@ document.write(`
     <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">[</span><span class="mi">99</span><span class="p">:</span><span class="mi">119</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;deutschland&#39;, &#39;mobilisieren&#39;, &#39;chancen&#39;, &#39;digitalisierung&#39;, &#39;nutzen&#39;, &#39;deutschland&#39;, &#39;braucht&#39;, &#39;wirtschaftlichen&#39;, &#39;sozialen&#39;, &#39;fortschritt&#39;, &#39;teilhaben&#39;, &#39;wollen&#39;, &#39;wohlstand&#39;, &#39;menschen&#39;, &#39;ankommt&#39;, &#39;wahlergebnis&#39;, &#39;hat&#39;, &#39;gezeigt&#39;, &#39;menschen&#39;, &#39;unzufrieden&#39;]
 </pre></div>
 </div>
 </div>
@@ -786,6 +937,20 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>werden kommt 1032 oft vor.
+wollen kommt 905 oft vor.
+ist kommt 263 oft vor.
+stärken kommt 215 oft vor.
+deutschland kommt 194 oft vor.
+wird kommt 186 oft vor.
+sind kommt 178 oft vor.
+insbesondere kommt 162 oft vor.
+unterstützen kommt 143 oft vor.
+dazu kommt 137 oft vor.
+</pre></div>
+</div>
+</div>
 </div>
 <ol class="arabic simple" start="10">
 <li><p>Schritt siehe komplette Lösung oben.</p></li>
@@ -798,6 +963,11 @@ document.write(`
     <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">c</span>
 
 <span class="n">sum_div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -855,6 +1025,14 @@ document.write(`
     <span class="n">all_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">all_counts</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">all_counts</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>108.222
 </pre></div>
 </div>
 </div>

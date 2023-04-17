@@ -447,6 +447,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="logische-operatoren">
@@ -461,12 +466,22 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
 </div>
 <p>Hier werden zwei Vergleich durch den logischen Operator <code class="docutils literal notranslate"><span class="pre">and</span></code> verknüpft. Python rechnet erst die beiden einzelnen Vergleiche aus, die in beiden Fällen <code class="docutils literal notranslate"><span class="pre">True</span></code> ergeben (<code class="docutils literal notranslate"><span class="pre">small</span></code> ist kleiner als <code class="docutils literal notranslate"><span class="pre">big</span></code> und das Umgekehrte ist ebenfalls wahr). Danach rechnet es die Verknüpfung aus. Bei <code class="docutils literal notranslate"><span class="pre">and</span></code> kommt <code class="docutils literal notranslate"><span class="pre">True</span></code> raus, einzig wenn alle miteinander verknüpften Vergleiche einzeln auch <code class="docutils literal notranslate"><span class="pre">True</span></code> ergeben.</p>
 <p>Daneben gibt es den logischen Operator <code class="docutils literal notranslate"><span class="pre">or</span></code>, der <code class="docutils literal notranslate"><span class="pre">True</span></code> immer dann ergibt, wenn mindestens einer der miteinander verknüpften Vergleiche einzeln <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">small</span> <span class="o">==</span> <span class="n">big</span> <span class="ow">or</span> <span class="n">big</span> <span class="o">&gt;</span> <span class="n">small</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -512,6 +527,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
 </div>
 <p>Dies ergibt <code class="docutils literal notranslate"><span class="pre">True</span></code>, denn <code class="docutils literal notranslate"><span class="pre">small</span></code> ist <em>nicht</em> größer als <code class="docutils literal notranslate"><span class="pre">big</span></code>. <code class="docutils literal notranslate"><span class="pre">not</span></code> mag in diesem Beispiel wenig hilfreich erscheinen, im Zusammenhang mit bedingten Anweisungen, die wir nachher kennenlernen, kann <code class="docutils literal notranslate"><span class="pre">not</span></code> aber sehr praktisch sein.</p>
 </section>
@@ -544,6 +564,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Satz fängt mit einem Artikel im Maskulinum an.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Natürlichsprachlich formuliert liest sich der obige Code: “Wenn der Satz mit ‘Der’ anfängt, dann geben wir ‘…’ zurück”.</p>
 <p>Übrigens haben wir gerade eine sog. string-Methode kennengelernt, nämlich <code class="docutils literal notranslate"><span class="pre">startswith</span></code>, die überprüft, ob ein string (hier: <code class="docutils literal notranslate"><span class="pre">sentence</span></code>) mit der in der Klammer definierten Zeichenkette beginnt. Diese und andere Methoden besprechen wir im Detail im nächsten Notebook.</p>
@@ -552,6 +577,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Der&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Maskulinum an.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Satz fängt mit einem Artikel im Maskulinum an.
 </pre></div>
 </div>
 </div>
@@ -575,6 +605,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Satz fängt mit einem Artikel im Femininum an.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Was wir hier gemacht haben, ist allerdings ineffizient, denn angenommen, der Satz würde immer noch mit “Der” anfangen, dann träfe die erste Bedingung zu. Python würde nichtsdestotrotz im Anschluß die zweite Bedingung prüfen, die aber nicht mehr zutreffen kann. Anstatt eines zweiten <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statements können wir das Statement <code class="docutils literal notranslate"><span class="pre">elif</span></code> (kurz für <em>else if</em>) benutzen, das die Bedingung nur prüft, <em>falls nicht</em> bereits die Bedingung davor zutraf:</p>
 <div class="cell docutils container">
@@ -583,6 +618,11 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Maskulinum an.&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Die&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Femininum an.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Satz fängt mit einem Artikel im Femininum an.
 </pre></div>
 </div>
 </div>
@@ -607,6 +647,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Satz fängt mit einem Artikel im Neutrum an.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Diese Verkettung von Bedingungen kann nun beliebig erweitert werden, z.B. wie folgt:</p>
 <div class="cell docutils container">
@@ -621,6 +666,11 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Neutrum an.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Damit bin ich überfordert.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Damit bin ich überfordert.
 </pre></div>
 </div>
 </div>
@@ -639,6 +689,11 @@ document.write(`
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch arbeitet vermutlich&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span> 
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch arbeitet vermutlich nicht&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mensch arbeitet vermutlich
 </pre></div>
 </div>
 </div>
@@ -701,6 +756,51 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Montag
+Dienstag
+Mittwoch
+Donnerstag
+Freitag
+Samstag
+Sonntag
+
+
+Berlin ist die Hauptstadt des folgenden Landes: Deutschland
+Wien ist die Hauptstadt des folgenden Landes: Österreich
+Bern ist die Hauptstadt des folgenden Landes: Schweiz
+(Nicht ganz wahr, die Schweiz hat de jure keine Hauptstadt, vgl. https://de.wikipedia.org/wiki/Schweiz)
+
+
+Der Buchstabe 1 im deutschen Alphabet ist: a
+Der Buchstabe 2 im deutschen Alphabet ist: b
+Der Buchstabe 3 im deutschen Alphabet ist: c
+Der Buchstabe 4 im deutschen Alphabet ist: d
+Der Buchstabe 5 im deutschen Alphabet ist: e
+Der Buchstabe 6 im deutschen Alphabet ist: f
+Der Buchstabe 7 im deutschen Alphabet ist: g
+Der Buchstabe 8 im deutschen Alphabet ist: h
+Der Buchstabe 9 im deutschen Alphabet ist: i
+Der Buchstabe 10 im deutschen Alphabet ist: j
+Der Buchstabe 11 im deutschen Alphabet ist: k
+Der Buchstabe 12 im deutschen Alphabet ist: l
+Der Buchstabe 13 im deutschen Alphabet ist: m
+Der Buchstabe 14 im deutschen Alphabet ist: n
+Der Buchstabe 15 im deutschen Alphabet ist: o
+Der Buchstabe 16 im deutschen Alphabet ist: p
+Der Buchstabe 17 im deutschen Alphabet ist: q
+Der Buchstabe 18 im deutschen Alphabet ist: r
+Der Buchstabe 19 im deutschen Alphabet ist: s
+Der Buchstabe 20 im deutschen Alphabet ist: t
+Der Buchstabe 21 im deutschen Alphabet ist: u
+Der Buchstabe 22 im deutschen Alphabet ist: v
+Der Buchstabe 23 im deutschen Alphabet ist: w
+Der Buchstabe 24 im deutschen Alphabet ist: x
+Der Buchstabe 25 im deutschen Alphabet ist: y
+Der Buchstabe 26 im deutschen Alphabet ist: z
+</pre></div>
+</div>
+</div>
 </div>
 <p>Im letzten Beispiel haben wir außerhalb der Schleife einen sog. Zähler (<code class="docutils literal notranslate"><span class="pre">i</span></code>) definiert, der bei jeder Iteration um 1 erhöht wird. Den Zähler selbst haben wir dann im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement eingesetzt.</p>
 <p>Zu diesem Zweck können wir auch die <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion benutzen, sie hat folgende Syntax:</p>
@@ -710,6 +810,36 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Buchstabe&quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;im deutschen Alphabet ist:&quot;</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Buchstabe 1 im deutschen Alphabet ist: a
+Der Buchstabe 2 im deutschen Alphabet ist: b
+Der Buchstabe 3 im deutschen Alphabet ist: c
+Der Buchstabe 4 im deutschen Alphabet ist: d
+Der Buchstabe 5 im deutschen Alphabet ist: e
+Der Buchstabe 6 im deutschen Alphabet ist: f
+Der Buchstabe 7 im deutschen Alphabet ist: g
+Der Buchstabe 8 im deutschen Alphabet ist: h
+Der Buchstabe 9 im deutschen Alphabet ist: i
+Der Buchstabe 10 im deutschen Alphabet ist: j
+Der Buchstabe 11 im deutschen Alphabet ist: k
+Der Buchstabe 12 im deutschen Alphabet ist: l
+Der Buchstabe 13 im deutschen Alphabet ist: m
+Der Buchstabe 14 im deutschen Alphabet ist: n
+Der Buchstabe 15 im deutschen Alphabet ist: o
+Der Buchstabe 16 im deutschen Alphabet ist: p
+Der Buchstabe 17 im deutschen Alphabet ist: q
+Der Buchstabe 18 im deutschen Alphabet ist: r
+Der Buchstabe 19 im deutschen Alphabet ist: s
+Der Buchstabe 20 im deutschen Alphabet ist: t
+Der Buchstabe 21 im deutschen Alphabet ist: u
+Der Buchstabe 22 im deutschen Alphabet ist: v
+Der Buchstabe 23 im deutschen Alphabet ist: w
+Der Buchstabe 24 im deutschen Alphabet ist: x
+Der Buchstabe 25 im deutschen Alphabet ist: y
+Der Buchstabe 26 im deutschen Alphabet ist: z
 </pre></div>
 </div>
 </div>
@@ -723,6 +853,36 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Buchstabe 1 im deutschen Alphabet ist: a
+Der Buchstabe 2 im deutschen Alphabet ist: b
+Der Buchstabe 3 im deutschen Alphabet ist: c
+Der Buchstabe 4 im deutschen Alphabet ist: d
+Der Buchstabe 5 im deutschen Alphabet ist: e
+Der Buchstabe 6 im deutschen Alphabet ist: f
+Der Buchstabe 7 im deutschen Alphabet ist: g
+Der Buchstabe 8 im deutschen Alphabet ist: h
+Der Buchstabe 9 im deutschen Alphabet ist: i
+Der Buchstabe 10 im deutschen Alphabet ist: j
+Der Buchstabe 11 im deutschen Alphabet ist: k
+Der Buchstabe 12 im deutschen Alphabet ist: l
+Der Buchstabe 13 im deutschen Alphabet ist: m
+Der Buchstabe 14 im deutschen Alphabet ist: n
+Der Buchstabe 15 im deutschen Alphabet ist: o
+Der Buchstabe 16 im deutschen Alphabet ist: p
+Der Buchstabe 17 im deutschen Alphabet ist: q
+Der Buchstabe 18 im deutschen Alphabet ist: r
+Der Buchstabe 19 im deutschen Alphabet ist: s
+Der Buchstabe 20 im deutschen Alphabet ist: t
+Der Buchstabe 21 im deutschen Alphabet ist: u
+Der Buchstabe 22 im deutschen Alphabet ist: v
+Der Buchstabe 23 im deutschen Alphabet ist: w
+Der Buchstabe 24 im deutschen Alphabet ist: x
+Der Buchstabe 25 im deutschen Alphabet ist: y
+Der Buchstabe 26 im deutschen Alphabet ist: z
+</pre></div>
+</div>
+</div>
 </div>
 <p>Weiter ist es reine Konvention, <code class="docutils literal notranslate"><span class="pre">i</span></code> als Variable bei <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktionen in <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen zu benutzen, es ist aber kein syntaktisches Muss.</p>
 <p>Zur Veranschaulichung des <code class="docutils literal notranslate"><span class="pre">step</span></code>-Parameters, geben wir unten nur jeweils den dritten Buchstaben aus. Außerdem ersetzen wir den <code class="docutils literal notranslate"><span class="pre">end</span></code>-Parameter durch die Länge von <code class="docutils literal notranslate"><span class="pre">alphabet</span></code>:</p>
@@ -730,6 +890,19 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">alphabet</span><span class="p">),</span> <span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">alphabet</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+d
+g
+j
+m
+p
+s
+v
+y
 </pre></div>
 </div>
 </div>
@@ -771,6 +944,17 @@ document.write(`
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/cP7Jwe7HO10"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -802,6 +986,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Benzo Corp.&#39;, &#39;Zoalie Corp.&#39;, &#39;Berghain, Anne&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="while-schleifen">
@@ -813,6 +1005,39 @@ document.write(`
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">alphabet</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Buchstabe&quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;im deutschen Alphabet ist:&quot;</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Buchstabe 1 im deutschen Alphabet ist: a
+Der Buchstabe 2 im deutschen Alphabet ist: b
+Der Buchstabe 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 im deutschen Alphabet ist: c
+Der Buchstabe 4 im deutschen Alphabet ist: d
+Der Buchstabe 5 im deutschen Alphabet ist: e
+Der Buchstabe 6 im deutschen Alphabet ist: f
+Der Buchstabe 7 im deutschen Alphabet ist: g
+Der Buchstabe 8 im deutschen Alphabet ist: h
+Der Buchstabe 9 im deutschen Alphabet ist: i
+Der Buchstabe 10 im deutschen Alphabet ist: j
+Der Buchstabe 11 im deutschen Alphabet ist: k
+Der Buchstabe 12 im deutschen Alphabet ist: l
+Der Buchstabe 13 im deutschen Alphabet ist: m
+Der Buchstabe 14 im deutschen Alphabet ist: n
+Der Buchstabe 15 im deutschen Alphabet ist: o
+Der Buchstabe 16 im deutschen Alphabet ist: p
+Der Buchstabe 17 im deutschen Alphabet ist: q
+Der Buchstabe 18 im deutschen Alphabet ist: r
+Der Buchstabe 19 im deutschen Alphabet ist: s
+Der Buchstabe 20 im deutschen Alphabet ist: t
+Der Buchstabe 21 im deutschen Alphabet ist: u
+Der Buchstabe 22 im deutschen Alphabet ist: v
+Der Buchstabe 23 im deutschen Alphabet ist: w
+Der Buchstabe 24 im deutschen Alphabet ist: x
+Der Buchstabe 25 im deutschen Alphabet ist: y
+Der Buchstabe 26 im deutschen Alphabet ist: z
 </pre></div>
 </div>
 </div>
@@ -835,6 +1060,27 @@ document.write(`
         <span class="k">break</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nein, das sind zu viele.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_69334</span><span class="o">/</span><span class="mf">2209010033.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie viele Arme hat ein Oktopus? Gib bitte eine Zahl an.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
 </div>
 </div>
@@ -863,6 +1109,33 @@ document.write(`
     
     <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Noch nicht genügend Teilnehmer:innen, wir brauchen noch 3 😬
+Aktuell auf der Liste: [&#39;Max&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 2 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 1 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;] 
 </pre></div>
 </div>
 </div>
@@ -895,6 +1168,33 @@ document.write(`
     
     <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Noch nicht genügend Teilnehmer:innen, wir brauchen noch 3 😬
+Aktuell auf der Liste: [&#39;Max&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 2 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 1 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;] 
 </pre></div>
 </div>
 </div>
@@ -942,7 +1242,6 @@ document.write(`
 <p>Neben dem Frage-Antwort-basierten Forum Stack Overflow gibt es natürlich die <a class="reference external" href="https://docs.python.org/3/index.html">offizielle Dokumentation von Python</a>. Insbesondere das <a class="reference external" href="https://docs.python.org/3/tutorial/">Tutorial</a> ist empfehlenswert. Es deckt sämtliche wichtigen Themen ab und ist (im Gegensatz zum Community-betriebenen Stack Overflow und erst recht anderen Google-Suchergebnissen, etwa den oft inakkuraten Webseiten w3schools oder geeksforgeeks) garantiert korrekt.</p>
 <hr class="docutils" />
 <p>Wunderbar! Damit sind wir am Ende dieses Notebooks.</p>
-<hr class="docutils" />
 </section>
 </section>
 
