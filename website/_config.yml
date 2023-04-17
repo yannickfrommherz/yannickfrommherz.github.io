@@ -27,6 +27,7 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
+  home_page_in_navbar: false
   use_repository_button: true
   use_issues_button: true
   extra_navbar: Gracefully powered by <a href="https://jupyterbook.org">Jupyter Book</a>  #Will be displayed underneath the left navbar.
