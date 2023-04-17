@@ -1,0 +1,1137 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Funktionen und Methoden (Lösungen) &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../start_page.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../start_page.html">
+                    Hello!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../about_me/yannick.html">I am Yannick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about_me/cv.html">Curriculum Vitae</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learn programming (🇩🇪)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Input_und_Output.html">5. Input und Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Datenanalyse.html">7. Datenanalyse</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/master?urlpath=lab/tree/website/programming/1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/programming/1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Funktionen und Methoden (Lösungen)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="funktionen-und-methoden-losungen">
+<h1>Funktionen und Methoden (Lösungen)<a class="headerlink" href="#funktionen-und-methoden-losungen" title="Permalink to this heading">#</a></h1>
+<p>☝️ Beachte: es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
+<p>✏️ <strong>Lösung 1:</strong> Finde heraus, welcher der beiden Koalitionsverträge länger ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderere Pfade als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+<span class="c1">#die zwei Punkte im Pfadnamen bedeuten &quot;eine Ebene zurück im Pfad&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2018.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">kv18</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+    <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kv18</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">kv21</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Koalitionsvertrag von 2018 ist länger.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Koalitionsvertrag von 2021 ist länger.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Koalitionsvertrag von 2018 ist länger.
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 2:</strong> Die unten bereitgestellte Liste <code class="docutils literal notranslate"><span class="pre">buzzwords</span></code> enthält heuristisch zusammengetragene Schlagwörter aus der Politik – erweitere die Liste gerne um eigene Begriffe, die Dich interessieren. Um einen ersten inhaltlichen Eindruck der Koalitionsverträge zu bekommen, wollen wir herausfinden, wie oft diese Begriffe in ihnen vorkommen und wie sich ihre Frequenz zwischen den Texten entwickelt. Zu diesem Zweck können wir <code class="docutils literal notranslate"><span class="pre">count</span></code> für strings verwenden (<code class="docutils literal notranslate"><span class="pre">kv18</span></code> und <code class="docutils literal notranslate"><span class="pre">kv21</span></code> sind ja wie gesagt string-Objekte). <code class="docutils literal notranslate"><span class="pre">count</span></code> erlaubt es uns, das Vorkommen einer bestimmten Zeichenkette innerhalb einer anderen Zeichenkette auszuzählen. <code class="docutils literal notranslate"><span class="pre">count</span></code> hat folgende Syntax:</p>
+<p><code class="docutils literal notranslate"><span class="pre">string.count(&quot;to_be_counted&quot;)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;Schifffahrtsgesellschaft&quot;.count(&quot;f&quot;)</span></code> ergäbe etwa 4.</p>
+<p>Was bei einem Wort funktioniert, geht auch bei langen strings wie bei unseren Koalitionsverträgen.</p>
+<p>Berechne nun wie oft jeder Begriff  auf <code class="docutils literal notranslate"><span class="pre">buzzwords</span></code> in den beiden Verträgen vorkommt und verwende einen geeigneten Datentypen, um deine Ergebnisse (separat für jeden Vertrag) abzuspeichern. Lasse Dir anschließend für jeden Begriff die beiden Frequenzen sowie einen Trend über die Zeit (z.B. mittels der Emojis 📈, 📉, 🟰) ausgeben. Das Ergebnis für “Corona” sollte z.B. so aussehen:</p>
+<img src="../../3_Dateien/Grafiken_und_Videos/Frequenz_Corona.png"/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buzzwords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sozial&quot;</span><span class="p">,</span> <span class="s2">&quot;Klima&quot;</span><span class="p">,</span> <span class="s2">&quot;Europa&quot;</span><span class="p">,</span> <span class="s2">&quot;Verkehr&quot;</span><span class="p">,</span> <span class="s2">&quot;Landwirtschaft&quot;</span><span class="p">,</span> <span class="s2">&quot;Umwelt&quot;</span><span class="p">,</span> <span class="s2">&quot;Corona&quot;</span><span class="p">]</span>
+
+<span class="n">count18</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">count21</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">buzzwords</span><span class="p">:</span>
+    <span class="n">count18</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">kv18</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">count21</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">buzzwords</span><span class="p">:</span>
+    
+    <span class="k">if</span> <span class="n">count18</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">count21</span><span class="p">[</span><span class="n">word</span><span class="p">]:</span>
+        <span class="n">trend</span> <span class="o">=</span> <span class="s2">&quot;📉&quot;</span>
+    <span class="k">elif</span> <span class="n">count18</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">count21</span><span class="p">[</span><span class="n">word</span><span class="p">]:</span>
+        <span class="n">trend</span> <span class="o">=</span> <span class="s2">&quot;📈&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">trend</span> <span class="o">=</span> <span class="s2">&quot;🟰&quot;</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;word: &quot;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2018: &quot;</span><span class="p">,</span> <span class="n">count18</span><span class="p">[</span><span class="n">word</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2021: &quot;</span><span class="p">,</span> <span class="n">count21</span><span class="p">[</span><span class="n">word</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;trend:&quot;</span><span class="p">,</span> <span class="n">trend</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>word:  Sozial
+2018:  71
+2021:  41
+trend: 📉 
+
+word:  Klima
+2018:  65
+2021:  157
+trend: 📈 
+
+word:  Europa
+2018:  98
+2021:  53
+trend: 📉 
+
+word:  Verkehr
+2018:  43
+2021:  24
+trend: 📉 
+
+word:  Landwirtschaft
+2018:  23
+2021:  12
+trend: 📉 
+
+word:  Umwelt
+2018:  33
+2021:  28
+trend: 📉 
+
+word:  Corona
+2018:  0
+2021:  18
+trend: 📈 
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 3:</strong> Die beiden Koalitionsverträge stammen von unterschiedlichen Parteien (CDU, CSU, SPD resp. SPD, Grüne, FDP). Finde heraus, welche beiden Parteien es mit ihrem Kurznamen in beide Verträge geschafft haben. Stelle sicher, dass die Zelle mit dem Dateiinput oben ausgeführt ist, damit die Variablen <code class="docutils literal notranslate"><span class="pre">kv18</span></code> und <code class="docutils literal notranslate"><span class="pre">kv21</span></code> mit dem jeweiligen Text initialisiert sind.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parties</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CDU&quot;</span><span class="p">,</span> <span class="s2">&quot;CSU&quot;</span><span class="p">,</span> <span class="s2">&quot;SPD&quot;</span><span class="p">,</span> <span class="s2">&quot;Grüne&quot;</span><span class="p">,</span> <span class="s2">&quot;FDP&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">party</span> <span class="ow">in</span> <span class="n">parties</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">party</span> <span class="ow">in</span> <span class="n">kv18</span> <span class="ow">and</span> <span class="n">party</span> <span class="ow">in</span> <span class="n">kv21</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">party</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SPD
+Grüne
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 4:</strong> Anstelle von whitespace, das standardmäßig als Trennzeichen von <code class="docutils literal notranslate"><span class="pre">split</span></code> verwendet wird (und deswegen auch nicht angegeben werden muss), können wir strings auch bei anderen Trennzeichen aufsplitten. Dazu geben wir das gewünschte Trennzeichen in den Klammern an, etwa <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code>, wenn wir einen string in Sätze aufsplitten wollen.</p>
+<p>Bringe die Geschichte, die in <code class="docutils literal notranslate"><span class="pre">sentence</span></code> in komischer Reihenfolge erzählt wird, in die richtige Reihenfolge. Das Resultat sollte ein string mit drei richtig geordneten Sätzen sein.</p>
+<p>💡 Tipp: Auf dem Weg dorthin solltest Du <code class="docutils literal notranslate"><span class="pre">split</span></code>, Indexing und Konkatenation mithilfe des <code class="docutils literal notranslate"><span class="pre">+</span></code>-Operators verwenden (beide Techniken haben wir in den vorigen Notebooks kennengelernt).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Die beiden verliebten sich ineinander. Und wenn sie nicht gestorben sind, kann&#39;s sein dass, sie sich heute noch küssen.Es war einmal ein Hase und ein Fuchs.&quot;&quot;&quot;</span>
+
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">newtext</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;. &quot;</span> <span class="o">+</span> <span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">sentences</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">newtext</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;Es war einmal ein Hase und ein Fuchs. Die beiden verliebten sich ineinander. Und wenn sie nicht gestorben sind, kann&#39;s sein dass, sie sich heute noch küssen&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 5:</strong> Selbstverständlich kann man das Vorkommen eines Wortes auf einer Liste auszählen lassen (das lernen wir bei den Methoden für Listen). Hier wollen wir aber die oben bereits kennengelernte <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode für strings noch einmal anwenden. Dazu müssen wir die Listenelemente wieder zu einem string konkatenieren. Verwende eine Dir bereits bekannte <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methode, um aus <code class="docutils literal notranslate"><span class="pre">words</span></code> wieder einen string zu kreieren. Eine Variable namens <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> soll auf diesen string zeigen.</p>
+<p>Benutze anschließend die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode, um “gesagt” in <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> zu zählen.  Das Resultat sollte natürlich zwei sein.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gesagt&#39;</span><span class="p">,</span> <span class="s1">&#39;ist&#39;</span><span class="p">,</span> <span class="s1">&#39;gesagt&#39;</span><span class="p">]</span>
+<span class="n">sentence_again</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="n">sentence_again</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;gesagt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 6:</strong> Verwende <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methoden, um aus <code class="docutils literal notranslate"><span class="pre">names</span></code> eine Liste mit Namen wie folgt zu kreieren: <code class="docutils literal notranslate"><span class="pre">['Martin</span> <span class="pre">Berger',</span> <span class="pre">'Kirsten</span> <span class="pre">Hauser',</span> <span class="pre">'Michaela</span> <span class="pre">Kircher',</span> <span class="pre">'Fritz</span> <span class="pre">Hofer']</span></code>. Die Namen sollen vollkommen von leading und trailing whitespace bereingt und mit korrekter Groß-/Kleinschreibung vorliegen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="s2">&quot;Name: Martin Berger name: Kirsten Hauser NAME: Michaela Kircher nAME: Fritz Hofer&quot;</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">)</span>
+<span class="n">names_list</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; name: &quot;</span><span class="p">)</span>
+<span class="n">names_list_title</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names_list</span><span class="p">:</span>
+    <span class="n">names_list_title</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">names_list_title</span><span class="p">)</span>
+
+<span class="c1">#alternative Lösung</span>
+<span class="n">names</span> <span class="o">=</span> <span class="s2">&quot;Name: Martin Berger name: Kirsten Hauser NAME: Michaela Kircher nAME: Fritz Hofer&quot;</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">)</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;nAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span>
+<span class="n">single_names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; Name: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">single_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Martin Berger&#39;, &#39;Kirsten Hauser&#39;, &#39;Michaela Kircher&#39;, &#39;Fritz Hofer&#39;]
+[&#39;Martin Berger&#39;, &#39;Kirsten Hauser&#39;, &#39;Michaela Kircher&#39;, &#39;Fritz Hofer&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 7:</strong> Modifiziere den Code nun derart, dass bei sechs Teilnehmer:innen diejenige Person aus dem Spiel “gekickt” wird, die bereits am längsten daran teilnimmt (bzw. sich bereits am längsten auf der Teilnehmer:innenliste befindet). Im gleichen Zug soll die nächste Person aus <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> ins Spiel gelassen werden. Wie beim letzten Mal auch, möchten wir bei jeder Iteration informiert werden, wer gerade im Spiel ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">participants_pool</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Janine&quot;</span><span class="p">,</span> <span class="s2">&quot;Hussein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Mia&quot;</span><span class="p">,</span> <span class="s2">&quot;Marianne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dolores&quot;</span><span class="p">,</span> <span class="s2">&quot;Yin&quot;</span><span class="p">,</span> <span class="s2">&quot;Margareth&quot;</span><span class="p">,</span> <span class="s2">&quot;Benni&quot;</span><span class="p">]</span>
+
+<span class="n">participants_game</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">min_participants</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">max_participants</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">participants_pool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_participants</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Noch nicht genügend Teilnehmer:innen, wir brauchen noch&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">),</span> <span class="s2">&quot;😬&quot;</span><span class="p">)</span>
+        
+        <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">continue</span>
+        
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_participants</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leider muss uns nun&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;verlassen&quot;</span><span class="p">)</span>
+        <span class="n">participants_game</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        
+    <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Spiel läuft 😍&quot;</span><span class="p">)</span>
+    
+    <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Noch nicht genügend Teilnehmer:innen, wir brauchen noch 3 😬
+Aktuell auf der Liste: [&#39;Max&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 2 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 1 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;] 
+
+Leider muss uns nun Max verlassen
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;] 
+
+Leider muss uns nun Moritz verlassen
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;] 
+
+Leider muss uns nun Janine verlassen
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;, &#39;Yin&#39;] 
+
+Leider muss uns nun Hussein verlassen
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;, &#39;Yin&#39;, &#39;Margareth&#39;] 
+
+Leider muss uns nun Fritz verlassen
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;, &#39;Yin&#39;, &#39;Margareth&#39;, &#39;Benni&#39;] 
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 8:</strong> Deine Aufgabe ist es nun, ein Skript zu schreiben, dass den den oben im Beispiel verwendeten Satz nimmt und die darin vorkommenden Wort-Bigramme auf der Liste <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> speichert. Neben <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> wirst Du als Zwischenschritt beim Zusammentragen der Wort-Bigramme eine zweite Liste namens <code class="docutils literal notranslate"><span class="pre">current_ngrams</span></code> brauchen. Beide Listen sind bereits im Code gegeben und werden leer initialisiert.</p>
+<p>Wie erwähnt ist dieses Problem dem obigen im Gesellschaftsspiel-Skript sehr ähnlich. Denk daran, so wenig wie möglich zu hardcoden. Konkret: Verwende, wo möglich, Variablen, sodass Dein Skript problemlos auch für andere Sätze oder zum Errechnen von Tri-, Quadrigrammen etc. benutzt werden kann.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Ich gehe am Abend noch spazieren&quot;</span>
+
+<span class="n">all_ngrams</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">current_ngram</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_ngram</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">current_ngram</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Da wir an Bigrammen interessiert sind, und len(current_ngram) noch &lt; 2 ist </span>
+<span class="sd">        (also noch keine zwei Wörter auf der Liste sind), überspringen wir den </span>
+<span class="sd">        Rest dieser Iteration mithilfe von &#39;continue&#39;&quot;&quot;&quot;</span>
+        <span class="k">continue</span> 
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;hier hängen wir das Bigramm an die Liste aller Bigramme&quot;&quot;&quot;</span>
+    <span class="n">all_ngrams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_ngram</span><span class="p">))</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;hier entfernen wir das erste Wort im Bigramm auf der Liste des gegenwärtigen Bigramms&quot;&quot;&quot;</span>
+    <span class="n">current_ngram</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;und hängen sogleich das nächste Wort an die Liste des gegenwärtigen Bigramms, wodurch wir wieder ein Bigramm erhalten, </span>
+<span class="sd">    welches zu Beginn der nächsten Iteration an die Liste aller Bigramme angehängt werden wird.&quot;&quot;&quot;</span>
+    <span class="n">current_ngram</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> 
+
+<span class="sd">&quot;&quot;&quot;nach der letzten Iteration der for-Schleife müssen wir noch das letzte Bigramm an die Liste aller Bigramme anhängen, da</span>
+<span class="sd">es sonst verloren geht (es würde ja erst zu Beginn der nächsten Iteration angehängt, nur gibt es keine nächste Iteration)&quot;&quot;&quot;</span>
+<span class="n">all_ngrams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_ngram</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">all_ngrams</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ich gehe&#39;, &#39;gehe am&#39;, &#39;am Abend&#39;, &#39;Abend noch&#39;, &#39;noch spazieren&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 9:</strong> Erinnerst Du Dich an die Übung mit den beiden Einkaufslisten, die zu einer zusammengeführt werden sollten, aus dem zweiten Notebook? Damals haben wir mithilfe von <code class="docutils literal notranslate"><span class="pre">set</span></code> sichergestellt, dass keine doppelten Elemente auf der zusammengeführten Einkaufsliste vorkommen. In dieser Übung wollen wir es etwas manueller machen (zu Übungszwecken sehen wir vom oben verkündeten Code-Reuse-Mantra ab). Iteriere über eine der beiden Listen und füge der anderen Liste sämtliche Lebensmittel an, sofern sie nicht bereits auf dieser anderen Liste stehen. Gib Dir anschließend die andere Liste aus. Diese sollte dann einer zusammengeführten Liste entsprechen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_shopping_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Brot&quot;</span><span class="p">,</span> <span class="s2">&quot;Orangen&quot;</span><span class="p">,</span> <span class="s2">&quot;Feldsalat&quot;</span><span class="p">,</span> <span class="s2">&quot;Hafermilch&quot;</span><span class="p">]</span>
+<span class="n">partner_shopping_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hafermilch&quot;</span><span class="p">,</span> <span class="s2">&quot;Kekse&quot;</span><span class="p">,</span> <span class="s2">&quot;Mehl&quot;</span><span class="p">,</span> <span class="s2">&quot;Brot&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">partner_shopping_list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">my_shopping_list</span><span class="p">:</span>
+        <span class="n">my_shopping_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_shopping_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Brot&#39;, &#39;Orangen&#39;, &#39;Feldsalat&#39;, &#39;Hafermilch&#39;, &#39;Kekse&#39;, &#39;Mehl&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 10:</strong> <code class="docutils literal notranslate"><span class="pre">temperatures</span></code> ist eine Liste mit unterschiedlichen Messtemperaturen in Grad Celsius. Sie beinhält positive und negative Werte sowie fehlende Werte, die mit “NA” gekennzeichnet sind (für <em>not available</em>, etwa weil das Thermometer ausfiel). Erstelle nun mittels List Comprehension folgende neuen Listen. Überlege Dir jeweils genau, an welcher Stelle in der List Comprehension Du die bedingte Anweisung einbauen musst.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">temperatures_preprocessed</span></code> soll eine Liste referenzieren, die nur numerische Werte enthält.</p></li>
+</ol>
+<p>Erstelle ausgehend von <code class="docutils literal notranslate"><span class="pre">temperatures_preprocessed</span></code> diese zwei weiteren Listen.</p>
+<ol class="arabic simple" start="2">
+<li><p><code class="docutils literal notranslate"><span class="pre">positives_replaced</span></code> soll eine Liste referenzieren, auf der sämtliche positiven Werte durch 0.0 ersetzt werden.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">only_positives</span></code> soll eine Liste referenzieren, die nur positive Werte beinhält.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mf">18.6</span><span class="p">,</span> <span class="mf">23.4</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="mf">12.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">33.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">17.8</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">9.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="mf">39.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">29.8</span><span class="p">]</span>
+
+<span class="n">temperatures_preprocessed</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">temperatures</span> <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;NA&quot;</span><span class="p">]</span>
+
+<span class="c1">#alternativer Code</span>
+<span class="c1">#temperatures_preprocessed = [value for value in temperatures if type(value) == float]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperaturen ohne fehlende Werte:&quot;</span><span class="p">,</span> <span class="n">temperatures_preprocessed</span><span class="p">)</span>
+
+<span class="n">positives_replaced</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">temperatures_preprocessed</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Positive Messwerte genullt:&quot;</span><span class="p">,</span> <span class="n">positives_replaced</span><span class="p">)</span>
+
+<span class="n">only_positives</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">temperatures_preprocessed</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nur positive Messwerte:&quot;</span><span class="p">,</span> <span class="n">only_positives</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Temperaturen ohne fehlende Werte: [18.6, 23.4, 12.2, -3.1, 33.7, -10.9, -17.8, 7.0, 9.1, -0.2, 0.0, 8.6, 39.4, -29.8]
+Positive Messwerte genullt: [0.0, 0.0, 0.0, -3.1, 0.0, -10.9, -17.8, 0.0, 0.0, -0.2, 0.0, 0.0, 0.0, -29.8]
+Nur positive Messwerte: [18.6, 23.4, 12.2, 33.7, 7.0, 9.1, 8.6, 39.4]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 11:</strong> Eine Funktion zum Sortieren von dictionaries kennst Du bereits von oben. Sortiere <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> alphabetisch nach ihren Haupstädten. Das Resultat sollte eine Liste mit Tupeln bestehend aus Bundesland und Hauptstadt sein.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">federal_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Vorarlberg&#39;</span><span class="p">:</span> <span class="s1">&#39;Bregenz&#39;</span><span class="p">,</span> <span class="s1">&#39;Tirol&#39;</span><span class="p">:</span> <span class="s1">&#39;Innsbruck&#39;</span><span class="p">,</span> <span class="s1">&#39;Kärnten&#39;</span><span class="p">:</span> <span class="s1">&#39;Klagenfurt&#39;</span><span class="p">,</span> <span class="s1">&#39;Steiermark&#39;</span><span class="p">:</span> <span class="s1">&#39;Graz&#39;</span><span class="p">,</span> <span class="s1">&#39;Wien&#39;</span><span class="p">:</span> <span class="s1">&#39;Wien&#39;</span><span class="p">,</span> <span class="s1">&#39;Niederösterreich&#39;</span><span class="p">:</span> <span class="s1">&#39;Sankt Pölten&#39;</span><span class="p">,</span> <span class="s1">&#39;Oberösterreich&#39;</span><span class="p">:</span> <span class="s1">&#39;Linz&#39;</span><span class="p">,</span> <span class="s1">&#39;Salzburg&#39;</span><span class="p">:</span> <span class="s1">&#39;Salzburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Burgenland&#39;</span><span class="p">:</span> <span class="s1">&#39;Eisenstadt&#39;</span><span class="p">}</span>
+
+<span class="n">federal_states_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">federal_states</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">federal_states_sorted</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Vorarlberg&#39;, &#39;Bregenz&#39;), (&#39;Burgenland&#39;, &#39;Eisenstadt&#39;), (&#39;Steiermark&#39;, &#39;Graz&#39;), (&#39;Tirol&#39;, &#39;Innsbruck&#39;), (&#39;Kärnten&#39;, &#39;Klagenfurt&#39;), (&#39;Oberösterreich&#39;, &#39;Linz&#39;), (&#39;Salzburg&#39;, &#39;Salzburg&#39;), (&#39;Niederösterreich&#39;, &#39;Sankt Pölten&#39;), (&#39;Wien&#39;, &#39;Wien&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>🔧 <strong>Anwendungsfall (komplette Lösung):</strong> Gegeben sind die Koalitionsverträge von 2018 und 2021 in <code class="docutils literal notranslate"><span class="pre">kv18</span></code> resp. <code class="docutils literal notranslate"><span class="pre">kv21</span></code>. Zusätzlich ist <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> gegeben, eine Liste mit sog. Stopwörtern, also hochfrequenten Wörtern wie <em>und</em>, <em>der</em>, <em>die</em>, <em>das</em> etc., die wir von der Berechnung von Schlüsselwörtern ausschließen wollen.</p>
+<p>Bereinige sämtliche Wörter und entferne alle Stopwörter. Errechne anschließend für jeden Wort<em>type</em> (vgl. zweites Notebook), wie oft er vorkommt und speichere diese paarweise Information in einem geeigneten Objekt ab. Sortiere dieses Objekt in absteigender Reihenfolge und lasse Dir die zehn häufigsten Schlüsselwörter ausgeben. Wiederhole diese Schritte für den zweiten Text, um die Schlüsselwörter vergleichen zu können.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Lösung für kv18 </span>
+
+<span class="c1">#Achtung: anderere Pfade als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+<span class="c1">#die zwei Punkte im Pfadnamen bedeuten &quot;eine Ebene zurück im Pfad&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2018.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">kv18</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="n">stopwords</span> <span class="o">=</span> <span class="p">[]</span>
+        
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
+        <span class="n">stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+    
+<span class="n">words</span> <span class="o">=</span> <span class="n">kv18</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+<span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> 
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,():&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+<span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span>
+
+<span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> 
+
+<span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
+    <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
+
+<span class="n">freq_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">freq_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;kommt&quot;</span><span class="p">,</span> <span class="n">freq_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;oft vor.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>werden kommt 1032 oft vor.
+wollen kommt 905 oft vor.
+ist kommt 263 oft vor.
+stärken kommt 215 oft vor.
+deutschland kommt 194 oft vor.
+wird kommt 186 oft vor.
+sind kommt 178 oft vor.
+insbesondere kommt 162 oft vor.
+unterstützen kommt 143 oft vor.
+dazu kommt 137 oft vor.
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>🔧 <strong>Anwendungsfall (Schritt-für-Schritt-Lösung):</strong></p>
+<ol class="arabic simple">
+<li><p>Schritt (bereits gegeben):</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2018.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">kv18</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+    <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="n">stopwords</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
+        <span class="n">stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Schritt:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">kv18</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">99</span><span class="p">:</span><span class="mi">119</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Nur&#39;, &#39;so&#39;, &#39;können&#39;, &#39;wir&#39;, &#39;das&#39;, &#39;Erreichte&#39;, &#39;sichern&#39;, &#39;und&#39;, &#39;ausbauen.&#39;, &#39;Unsere&#39;, &#39;Ausgangslage&#39;, &#39;ist&#39;, &#39;gut.&#39;, &#39;Die&#39;, &#39;Wirtschaft&#39;, &#39;boomt,&#39;, &#39;noch&#39;, &#39;nie&#39;, &#39;waren&#39;, &#39;so&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Schritt:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> 
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,():&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">[</span><span class="mi">99</span><span class="p">:</span><span class="mi">119</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;deutschland&#39;, &#39;mobilisieren&#39;, &#39;chancen&#39;, &#39;digitalisierung&#39;, &#39;nutzen&#39;, &#39;deutschland&#39;, &#39;braucht&#39;, &#39;wirtschaftlichen&#39;, &#39;sozialen&#39;, &#39;fortschritt&#39;, &#39;teilhaben&#39;, &#39;wollen&#39;, &#39;wohlstand&#39;, &#39;menschen&#39;, &#39;ankommt&#39;, &#39;wahlergebnis&#39;, &#39;hat&#39;, &#39;gezeigt&#39;, &#39;menschen&#39;, &#39;unzufrieden&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Schritt:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>5., 6. und 7. Schritt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> 
+
+<span class="c1">#der Unterstrich nach &quot;type&quot; dient der Unterscheidung zum Python-Schlüsselwort &quot;type&quot;</span>
+<span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
+    <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Schritt:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Schritt:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">freq_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;kommt&quot;</span><span class="p">,</span> <span class="n">freq_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;oft vor.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>werden kommt 1032 oft vor.
+wollen kommt 905 oft vor.
+ist kommt 263 oft vor.
+stärken kommt 215 oft vor.
+deutschland kommt 194 oft vor.
+wird kommt 186 oft vor.
+sind kommt 178 oft vor.
+insbesondere kommt 162 oft vor.
+unterstützen kommt 143 oft vor.
+dazu kommt 137 oft vor.
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>Schritt siehe komplette Lösung oben.</p></li>
+</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 12:</strong> Definiere eine Funktion <code class="docutils literal notranslate"><span class="pre">sum_div</span></code>, die drei Argumente nimmt. Das erste soll mit dem zweiten addiert werden. Das Ergebnis davon soll durch das dritte Argument geteilt werden. Dieses Ergebnis soll zurückgegeben werden. Führe anschließend die Zeile darunter aus. Wenn Du <code class="docutils literal notranslate"><span class="pre">True</span></code> erhältst, hast Du alles richtig gemacht!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">c</span>
+
+<span class="n">sum_div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 13:</strong> Importiere die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls. <code class="docutils literal notranslate"><span class="pre">sample</span></code> generiert eine zufällige Auswahl von Elementen, z.B. zehn zufällige Elemente, aus einer Grundgesamtheit mit allen Elementen. Die Funktion erwartet als erstes Argument die Grundgesamtheit in Form einer Liste und als zweites eine Ganzzahl, mit der die Anzahl der zufällig auszuwählenden Elemente definiert wird. Die Grundgesamtheit in dieser Übung ist das<code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> von der Übung von oben bzw. aus dem letzten Notebook. Die Anzahl der zufällig auszuwählenden Elemente beträgt in diesem Fall vier. Wir wollen also zufällige Spielzusammensetzungen mit jeweils vier Teilnehmer:innen erhalten.</p>
+<p>Deine Aufgabe besteht nun darin, so viele zufällige Spielzusammensetzungen zu genererieren, bis eine Zusammensetzung doppelt vorkommt. Verwende dazu eine passende Kontrollstruktur, die Deinen Code so oft wiederholt, bis die Bedingung, dass eine zufällige Zusammensetzung bereits einmal zuvor generiert wurde, zutrifft. In diesem Fall soll die Iteration abbrechen und die Anzahl der notwendigen Wiederholungen bis zur identischen Zusammensetzung ausgegeben werden.</p>
+<p>Beachte, dass es für diese Anzahl der notwendigen Wiederholungen keine richtige Antwort gibt, da es in der Natur der zufälligen Auswahl liegt, dass es manchmal etwas mehr und manchmal etwas weniger Wiederholungen braucht.</p>
+<p>Fortgeschritten: Wenn Du Dich herausfordern möchtest, kannst Du Deinen gesamten Code in eine (andere) Kontrollstruktur verpacken, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl bis zwei Zusammensetzungen doppelt vorkommen auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code class="docutils literal notranslate"><span class="pre">sum</span></code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+
+<span class="n">participants_pool</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Janine&quot;</span><span class="p">,</span> <span class="s2">&quot;Hussein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Mia&quot;</span><span class="p">,</span> <span class="s2">&quot;Marianne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dolores&quot;</span><span class="p">,</span> <span class="s2">&quot;Yin&quot;</span><span class="p">,</span> <span class="s2">&quot;Margareth&quot;</span><span class="p">,</span> <span class="s2">&quot;Benni&quot;</span><span class="p">]</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">all_compositions</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    
+    <span class="n">current_composition</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">participants_pool</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">current_composition</span> <span class="ow">in</span> <span class="n">all_compositions</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+        <span class="k">break</span>
+    
+    <span class="n">all_compositions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_composition</span><span class="p">)</span>
+    
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+<span class="c1">#Fortgeschritten</span>
+
+<span class="n">all_counts</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">all_compositions</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+        <span class="n">current_composition</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">participants_pool</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">current_composition</span> <span class="ow">in</span> <span class="n">all_compositions</span><span class="p">:</span>
+            <span class="k">break</span>
+
+        <span class="n">all_compositions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_composition</span><span class="p">)</span>
+
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="n">all_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">all_counts</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">all_counts</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>44
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>110.335
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks/Loesungen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

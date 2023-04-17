@@ -1,0 +1,1383 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Kontrollstrukturen &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/3_Kontrollstrukturen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/3_Kontrollstrukturen.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Funktionen und Methoden" href="4_Funktionen_und_Methoden.html" />
+    <link rel="prev" title="2. Datentypen" href="2_Datentypen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../start_page.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../start_page.html">
+                    Hello!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../about_me/yannick.html">I am Yannick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about_me/cv.html">Curriculum Vitae</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learn programming (🇩🇪)</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Input_und_Output.html">5. Input und Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Datenanalyse.html">7. Datenanalyse</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/master?urlpath=lab/tree/website/programming/1_Notebooks/3_Kontrollstrukturen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/3_Kontrollstrukturen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/programming/1_Notebooks/3_Kontrollstrukturen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kontrollstrukturen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekapitulation-operatoren">3.1. Rekapitulation Operatoren</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleichsoperatoren">3.1.1. Vergleichsoperatoren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logische-operatoren">3.1.2. Logische Operatoren</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-kalender-erstellen">3.2. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen">3.3. Bedingte Anweisungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">3.4. Schleifen (Loops)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-schleifen">3.4.1. <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-trial-and-error-coding">3.4.2. Exkurs: Trial-and-error-Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleifen">3.4.3. <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.5. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-hilfe-holen">3.6. Exkurs: Hilfe holen</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="kontrollstrukturen">
+<h1><span class="section-number">3. </span>Kontrollstrukturen<a class="headerlink" href="#kontrollstrukturen" title="Permalink to this heading">#</a></h1>
+<p>Bislang haben wir mit Code gearbeitet, der Zeile für Zeile von oben bis unten ausgeführt wird. Wirklich spannend wird es jetzt, da wir lernen, wie wir den Ablauf des Codes derart <em>kontrollieren</em> können, dass gewisse Codeteile nur unter bestimmten Bedingungen ausgeführt werden, oder aber gewisse Teile eine bestimmte Anzahl Mal wiederholt ausgeführt werden. Dazu gibt es <em>Kontroll</em>strukturen in Python und zwar zwei verschiedene: Bedingte Anweisungen (auch “Fallunterscheidungen” und engl. <em>conditionals</em> genannt) und Schleifen (engl. <em>loops</em>). Beiden sind wir auf dem Weg hierhin schon ein paar Mal begegnet.</p>
+<p>Im Falle von <em>bedingten</em> Anweisungen werden Codeblöcke nur unter bestimmten <em>Bedingungen</em> ausgeführt, bei Schleifen hingegen werden Codeblöcke solange wiederholt ausgeführt, wie eine bestimmte Bedingung zutrifft. Wie bei Python üblich, steuern Einrückungen, welcher Teil des Codes von einer solchen Struktur kontrolliert wird.</p>
+<p>Im Zusammenhang mit Bedingungen sind die beiden Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> relevant: Trifft die Bedingung, die die Ausführung eines Codeblocks kontrolliert, zu, dann nimmt sie den Boolschen Wert <code class="docutils literal notranslate"><span class="pre">True</span></code> an und der darunter eingerückte Anweisungskörper wird ausgeführt. Trifft die Bedingung nicht zu, dann nimmt sie den Boolschen Wert <code class="docutils literal notranslate"><span class="pre">False</span></code> an und der darunter eingerückte Anweisungskörper wird nicht ausgeführt, d.h. Python springt direkt zur Zeile nach der Einrückung und macht dort weiter.</p>
+<section id="rekapitulation-operatoren">
+<h2><span class="section-number">3.1. </span>Rekapitulation Operatoren<a class="headerlink" href="#rekapitulation-operatoren" title="Permalink to this heading">#</a></h2>
+<p>Die Bedingungen ihrerseits werden mithilfe von Vergleichsoperatoren und logischen Operatoren definiert. Erstere rekapitulieren wir nochmal kurz, bevor wir letztere kennenlernen.</p>
+<section id="vergleichsoperatoren">
+<h3><span class="section-number">3.1.1. </span>Vergleichsoperatoren<a class="headerlink" href="#vergleichsoperatoren" title="Permalink to this heading">#</a></h3>
+<p>Ein Vergleichsoperator vergleicht den Wert, der links vom Operator steht, mit dem Wert zu seiner Rechten. Ergebnis ist immer ein Boolscher Wert, entweder <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code>: ist gleich</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code>: ist ungleich</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>:  kleiner</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code>:  größer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>: kleiner gleich</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>: größer gleich</p></li>
+</ul>
+<p>Damit können wir z.B. überprüfen, ob 20 kleiner 100 ist. Da dies zutrifft, erhalten wir <code class="docutils literal notranslate"><span class="pre">True</span></code> zurück.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">20</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="logische-operatoren">
+<h3><span class="section-number">3.1.2. </span>Logische Operatoren<a class="headerlink" href="#logische-operatoren" title="Permalink to this heading">#</a></h3>
+<p>Logische Operatoren ermöglichen es nun, Vergleiche miteinander zu verknüpfen. Das sieht dann z.B. so aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">small</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">big</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">small</span> <span class="o">&lt;</span> <span class="n">big</span> <span class="ow">and</span> <span class="n">big</span> <span class="o">&gt;</span> <span class="n">small</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier werden zwei Vergleich durch den logischen Operator <code class="docutils literal notranslate"><span class="pre">and</span></code> verknüpft. Python rechnet erst die beiden einzelnen Vergleiche aus, die in beiden Fällen <code class="docutils literal notranslate"><span class="pre">True</span></code> ergeben (<code class="docutils literal notranslate"><span class="pre">small</span></code> ist kleiner als <code class="docutils literal notranslate"><span class="pre">big</span></code> und das Umgekehrte ist ebenfalls wahr). Danach rechnet es die Verknüpfung aus. Bei <code class="docutils literal notranslate"><span class="pre">and</span></code> kommt <code class="docutils literal notranslate"><span class="pre">True</span></code> raus, einzig wenn alle miteinander verknüpften Vergleiche einzeln auch <code class="docutils literal notranslate"><span class="pre">True</span></code> ergeben.</p>
+<p>Daneben gibt es den logischen Operator <code class="docutils literal notranslate"><span class="pre">or</span></code>, der <code class="docutils literal notranslate"><span class="pre">True</span></code> immer dann ergibt, wenn mindestens einer der miteinander verknüpften Vergleiche einzeln <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">small</span> <span class="o">==</span> <span class="n">big</span> <span class="ow">or</span> <span class="n">big</span> <span class="o">&gt;</span> <span class="n">small</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der erste Vergleich ergibt natürlich <code class="docutils literal notranslate"><span class="pre">False</span></code>, denn die Werte von <code class="docutils literal notranslate"><span class="pre">small</span></code> und <code class="docutils literal notranslate"><span class="pre">big</span></code> sind nicht gleich. Der zweite Vergleich ergibt immer noch <code class="docutils literal notranslate"><span class="pre">True</span></code>, weswegen die Verknüpfung durch <code class="docutils literal notranslate"><span class="pre">or</span></code> ebenfalls <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt.</p>
+<p>Daraus ergibt sich folgende Wahrheitstabelle für die Verknüpfung zweier Vergleiche (es können aber beliebig viele Vergleiche miteinander verknüpft werden). <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> stehen jeweils für einen ausgerechneten Vergleich:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x</p></th>
+<th class="head"><p>y</p></th>
+<th class="head"><p>x and y</p></th>
+<th class="head"><p>x or y</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+<p>Wann immer Du Dir unsicher bist, wie <code class="docutils literal notranslate"><span class="pre">and</span></code> und <code class="docutils literal notranslate"><span class="pre">or</span></code> funktionieren, kannst Du in dieser Tabelle nachschauen.</p>
+<p>Darüber hinaus gibt es noch den logischen Operator <code class="docutils literal notranslate"><span class="pre">not</span></code>, der ganz einfach den ihm folgenden   Ausdruck negiert, etwa:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">small</span> <span class="o">&gt;</span> <span class="n">big</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dies ergibt <code class="docutils literal notranslate"><span class="pre">True</span></code>, denn <code class="docutils literal notranslate"><span class="pre">small</span></code> ist <em>nicht</em> größer als <code class="docutils literal notranslate"><span class="pre">big</span></code>. <code class="docutils literal notranslate"><span class="pre">not</span></code> mag in diesem Beispiel wenig hilfreich erscheinen, im Zusammenhang mit bedingten Anweisungen, die wir nachher kennenlernen, kann <code class="docutils literal notranslate"><span class="pre">not</span></code> aber sehr praktisch sein.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="anwendungsfall-einen-kalender-erstellen">
+<h2><span class="section-number">3.2. </span>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#anwendungsfall-einen-kalender-erstellen" title="Permalink to this heading">#</a></h2>
+<p>Erinnerst Du Dich an die Übung im ersten Notebook, wo wir die sieben Wochentage für alle 52 Wochen ausgegeben haben? Viel praktischer wäre es, wenn wir zusätzlich auch den Tag und Monat für jedes Datum ausgeben lassen könnten, also etwa so:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Samstag,</span> <span class="pre">1.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
+<code class="docutils literal notranslate"><span class="pre">Sonntag,</span> <span class="pre">2.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
+<code class="docutils literal notranslate"><span class="pre">Montag,</span> <span class="pre">3.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br></p>
+<p>Dazu müssen wir die Ausgabe dynamisch kontrollieren und mit welchen Techniken das möglich ist, lernen wir in diesem Notebook. Überlege Dir schon an dieser Stelle, wie Du das Problem angehen könntest, sodass Du im Folgenden auf mögliche Lösungswege aufmerksam wirst. 💡</p>
+</section>
+<hr class="docutils" />
+<section id="bedingte-anweisungen">
+<h2><span class="section-number">3.3. </span>Bedingte Anweisungen<a class="headerlink" href="#bedingte-anweisungen" title="Permalink to this heading">#</a></h2>
+<p>Wir widmen uns als Erstes den bedingten Anweisungen und definieren dafür einen simplen string. Führe wie immer die Zelle aus, um <code class="docutils literal notranslate"><span class="pre">sentence</span></code> zu initialisieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Der morgige Tag wird schön.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eine bedingte Anweisung wird mit <code class="docutils literal notranslate"><span class="pre">if</span></code> eingeleitet, z.B.:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Der&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Maskulinum an.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Satz fängt mit einem Artikel im Maskulinum an.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Natürlichsprachlich formuliert liest sich der obige Code: “Wenn der Satz mit ‘Der’ anfängt, dann geben wir ‘…’ zurück”.</p>
+<p>Übrigens haben wir gerade eine sog. string-Methode kennengelernt, nämlich <code class="docutils literal notranslate"><span class="pre">startswith</span></code>, die überprüft, ob ein string (hier: <code class="docutils literal notranslate"><span class="pre">sentence</span></code>) mit der in der Klammer definierten Zeichenkette beginnt. Diese und andere Methoden besprechen wir im Detail im nächsten Notebook.</p>
+<p>Wie gesagt, bei bedingten Anweisungen geht es immer um <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>. Die obige Bedingung ist eigentlich abgekürzt formuliert. Ausformuliert lautet sie:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Der&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Maskulinum an.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Satz fängt mit einem Artikel im Maskulinum an.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nur wenn die angegebene Bedingung zutrifft (also den Wert <code class="docutils literal notranslate"><span class="pre">True</span></code> annimmt), wird der im Anweisungskörper geschriebene Code ausgeführt. In der Praxis verwendet man stets die Abkürzung, die, wie oben gezeigt, auch natürlichsprachlich intuitiv Sinn ergibt.</p>
+<p>Nun ändern wir den Satz (genauer gesagt: wir referenzieren mit der Variablen <code class="docutils literal notranslate"><span class="pre">sentence</span></code> ein neues Objekt, das alte Objekt verliert seine Referenz):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Die morgige Nacht wird schön.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Verwenden wir nun die gleiche bedingte Anweisung, so geschieht nichts, denn sie ergibt <code class="docutils literal notranslate"><span class="pre">False</span></code> und folglich wird die Anweisung im Körper nicht ausgeführt. Wir brauchen also eine zweite Bedingung, zusätzlich zur ersten, die wir beibehalten möchten:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Der&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Maskulinum an.&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Die&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Femininum an.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Satz fängt mit einem Artikel im Femininum an.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Was wir hier gemacht haben, ist allerdings ineffizient, denn angenommen, der Satz würde immer noch mit “Der” anfangen, dann träfe die erste Bedingung zu. Python würde nichtsdestotrotz im Anschluß die zweite Bedingung prüfen, die aber nicht mehr zutreffen kann. Anstatt eines zweiten <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statements können wir das Statement <code class="docutils literal notranslate"><span class="pre">elif</span></code> (kurz für <em>else if</em>) benutzen, das die Bedingung nur prüft, <em>falls nicht</em> bereits die Bedingung davor zutraf:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Der&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Maskulinum an.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Die&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Femininum an.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Satz fängt mit einem Artikel im Femininum an.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um das dritte und letzte Statement für bedingte Anweisungen, <code class="docutils literal notranslate"><span class="pre">else</span></code>, einzuführen, verändern wir den Satz noch einmal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Das morgige Wetter wird schön.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unter <code class="docutils literal notranslate"><span class="pre">else</span></code> fällt alles, das keine der vorangehenden Bedingungen erfüllt, sprich die Anweisung unter <code class="docutils literal notranslate"><span class="pre">else</span></code> wird ausgeführt, wenn alle vorherigen bedingten Anweisungen <code class="docutils literal notranslate"><span class="pre">False</span></code> ergaben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Der&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Maskulinum an.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Die&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Femininum an.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Neutrum an.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Satz fängt mit einem Artikel im Neutrum an.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Diese Verkettung von Bedingungen kann nun beliebig erweitert werden, z.B. wie folgt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Ein morgiger Tag wird schön.&quot;</span>
+
+<span class="k">if</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Der&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Maskulinum an.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Die&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Femininum an.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">sentence</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Das&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Satz fängt mit einem Artikel im Neutrum an.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Damit bin ich überfordert.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Damit bin ich überfordert.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wichtig: Es wird immer nur einer der Codeblöcke ausgeführt: sobald entweder das erste <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement oder eines der folgenden <code class="docutils literal notranslate"><span class="pre">elif</span></code>-Statements <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt, wird der darunter eingerückte Codeblock ausgeführt und alle weiteren <code class="docutils literal notranslate"><span class="pre">elif</span></code>-Statements sowie das finale <code class="docutils literal notranslate"><span class="pre">else</span></code>-Statement werden gar nicht mehr <em>evaluiert</em>. Nur wenn keines der Statements vor dem finalen <code class="docutils literal notranslate"><span class="pre">else</span></code>-Statement zutrifft, wird der darunter eingerückte Codeblock ausgeführt.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 1:</strong> Simplifiziere den folgenden Code auf zwei verschiedene Arten, einmal unter Einsatz des logischen Operators <code class="docutils literal notranslate"><span class="pre">and</span></code>, einmal mithilfe von <code class="docutils literal notranslate"><span class="pre">or</span></code>. Das Resultat Deiner Simplifizierung sollte sein, dass der Code nur noch um eine Ebene eingerückt ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">age</span> <span class="o">=</span> <span class="mi">28</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">65</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch arbeitet vermutlich&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch arbeitet vermutlich nicht&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mensch arbeitet vermutlich
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Mit <code class="docutils literal notranslate"><span class="pre">größe</span></code> soll die Körpergröße eines erwachsenen Menschen in Zentimetern referenziert werden. Schreibe einen Code, der je nach dem, wie groß <code class="docutils literal notranslate"><span class="pre">größe</span></code> ist, auf sehr brachiale Art über die Körpergröße Folgendes verlauten lässt:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">größe</span></code> größer als 180cm ist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">durchschnittlich</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">größe</span></code> zwischen 170cm und 180cm ist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">kleiner</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">größe</span></code> kleiner als 170cm ist</p></li>
+</ul>
+<p>Der Code soll zudem überprüfen, ob die Zahl in <code class="docutils literal notranslate"><span class="pre">größe</span></code> sinnvoll ist. Sie muss dafür mindestens dreistellig sein, darf aber auch nicht mehr als 200 betragen. Ist dies nicht der Fall, soll eine Fehlermeldung zurückgegeben werden.</p>
+<p>Wenn Du fertig bist, probiere Deinen Code aus, indem Du verschiedene Werte bei <code class="docutils literal notranslate"><span class="pre">größe</span></code> einsetzt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+<span class="n">größe</span> <span class="o">=</span> <span class="mi">182</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>In der letzten Übung ist Dir vermutlich bewusst geworden, dass die Reihenfolge, in der bedingte Anweisungen formuliert werden, sehr zentral ist. In der Musterlösung haben wir uns den Umstand zunutze gemacht, dass immer nur eine Bedingung innerhalb einer Sequenz von <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code>-Statements wahr sein kann (alles andere wäre ja auch un<em>logisch</em>). Entsprechend mussten wir in der zweiten bedingten Anweisung (<code class="docutils literal notranslate"><span class="pre">elif</span> <span class="pre">größe</span> <span class="pre">&gt;=</span> <span class="pre">170:</span></code>) nicht mehr überprüfen, ob <code class="docutils literal notranslate"><span class="pre">größe</span></code> nicht bloß größer gleich 170, <strong>sondern auch kleiner 180</strong> ist. Letztere Teilbedingung für den Fall “durchschnittlich groß” zu überprüfen war überflüßig, denn sie kann gar nicht mehr wahr sein (wäre sie wahr, so hätte die erste bedingte Anweisung <code class="docutils literal notranslate"><span class="pre">True</span></code> ergeben und Python wäre nie zur zweiten bedingten Anweisung vorgedrungen). Diese Logik trifft natürlich auch umgekehrt zu, falls Du in Deiner Lösung die Bedingungen von unten her überprüft hast.</p>
+<p>Nun wissen wir alles Relevante über bedingte Anweisungen. Kommen wir zu den Schleifen.</p>
+</section>
+<section id="schleifen-loops">
+<h2><span class="section-number">3.4. </span>Schleifen (Loops)<a class="headerlink" href="#schleifen-loops" title="Permalink to this heading">#</a></h2>
+<p>Es gibt zwei Arten von Schleifen in Python:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen (engl. <em>for-loops</em>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen (engl. <em>while-loops</em>)</p></li>
+</ul>
+<section id="for-schleifen">
+<h3><span class="section-number">3.4.1. </span><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen<a class="headerlink" href="#for-schleifen" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen werden zum Ausgeben der einzelnen Elemente eines iterierbaren Objekts benutzt (vgl. Iterierbarkeit im zweiten Notebook). Ein Element nach dem anderen wird einzeln ausgegeben, bis das Objekt aufgebraucht (engl. <em>exhausted</em>) ist. Die Syntax lautet:</p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">element</span> <span class="pre">in</span> <span class="pre">iterable_object:</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">element</span></code> ist wie bereits erwähnt eine Variable für das einzelne Element bei der Iteration über <code class="docutils literal notranslate"><span class="pre">iterable_object</span></code> und kann beliebig (aber bitte sprechend) benannt werden. Diese Variable wird dann im Anweisungskörper wiederverwendet, etwa um die Elemente nacheinander auszugeben (Beispiel für Liste unten), eine Bedingung an ihnen zu überprüfen (Beispiel für dictionary unten) oder um sie zu manipulieren (siehe viertes Notebook).</p>
+<p>Unten finden sich Beispiele für <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen über Listen, dictionaries und strings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Montag&quot;</span><span class="p">,</span> <span class="s2">&quot;Dienstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Mittwoch&quot;</span><span class="p">,</span> <span class="s2">&quot;Donnerstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Freitag&quot;</span><span class="p">,</span> <span class="s2">&quot;Samstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonntag&quot;</span><span class="p">]</span>
+<span class="n">capitals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">,</span> <span class="s2">&quot;Österreich&quot;</span><span class="p">:</span> <span class="s2">&quot;Wien&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweiz&quot;</span><span class="p">:</span> <span class="s2">&quot;Bern&quot;</span><span class="p">}</span>
+<span class="n">alphabet</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
+
+<span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">days</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">#wie genau die Iteration bei dictionaries funktioniert, lernen wir im nächsten Notebook</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">capitals</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;ist die Hauptstadt des folgenden Landes:&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;Bern&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(Nicht ganz wahr, die Schweiz hat de jure keine Hauptstadt, vgl. https://de.wikipedia.org/wiki/Schweiz)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>   
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">alphabet</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Buchstabe&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;im deutschen Alphabet ist:&quot;</span><span class="p">,</span> <span class="n">letter</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Montag
+Dienstag
+Mittwoch
+Donnerstag
+Freitag
+Samstag
+Sonntag
+
+
+Berlin ist die Hauptstadt des folgenden Landes: Deutschland
+Wien ist die Hauptstadt des folgenden Landes: Österreich
+Bern ist die Hauptstadt des folgenden Landes: Schweiz
+(Nicht ganz wahr, die Schweiz hat de jure keine Hauptstadt, vgl. https://de.wikipedia.org/wiki/Schweiz)
+
+
+Der Buchstabe 1 im deutschen Alphabet ist: a
+Der Buchstabe 2 im deutschen Alphabet ist: b
+Der Buchstabe 3 im deutschen Alphabet ist: c
+Der Buchstabe 4 im deutschen Alphabet ist: d
+Der Buchstabe 5 im deutschen Alphabet ist: e
+Der Buchstabe 6 im deutschen Alphabet ist: f
+Der Buchstabe 7 im deutschen Alphabet ist: g
+Der Buchstabe 8 im deutschen Alphabet ist: h
+Der Buchstabe 9 im deutschen Alphabet ist: i
+Der Buchstabe 10 im deutschen Alphabet ist: j
+Der Buchstabe 11 im deutschen Alphabet ist: k
+Der Buchstabe 12 im deutschen Alphabet ist: l
+Der Buchstabe 13 im deutschen Alphabet ist: m
+Der Buchstabe 14 im deutschen Alphabet ist: n
+Der Buchstabe 15 im deutschen Alphabet ist: o
+Der Buchstabe 16 im deutschen Alphabet ist: p
+Der Buchstabe 17 im deutschen Alphabet ist: q
+Der Buchstabe 18 im deutschen Alphabet ist: r
+Der Buchstabe 19 im deutschen Alphabet ist: s
+Der Buchstabe 20 im deutschen Alphabet ist: t
+Der Buchstabe 21 im deutschen Alphabet ist: u
+Der Buchstabe 22 im deutschen Alphabet ist: v
+Der Buchstabe 23 im deutschen Alphabet ist: w
+Der Buchstabe 24 im deutschen Alphabet ist: x
+Der Buchstabe 25 im deutschen Alphabet ist: y
+Der Buchstabe 26 im deutschen Alphabet ist: z
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im letzten Beispiel haben wir außerhalb der Schleife einen sog. Zähler (<code class="docutils literal notranslate"><span class="pre">i</span></code>) definiert, der bei jeder Iteration um 1 erhöht wird. Den Zähler selbst haben wir dann im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement eingesetzt.</p>
+<p>Zu diesem Zweck können wir auch die <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion benutzen, sie hat folgende Syntax:</p>
+<p><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">end,</span> <span class="pre">step)</span></code></p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion ermöglicht es, von der als <code class="docutils literal notranslate"><span class="pre">start</span></code> angegebenen Zahl zur (aber nicht inklusive der) als <code class="docutils literal notranslate"><span class="pre">end</span></code> angegebenen Zahl zu iterieren, optional mit einem Schritt (<code class="docutils literal notranslate"><span class="pre">step</span></code>) &gt; 1 (Standard ist 1), z.B. 2, wobei dann von <code class="docutils literal notranslate"><span class="pre">start</span></code> aus jede zweite Zahl übersprungen wird. In unserem Beispiel wird <code class="docutils literal notranslate"><span class="pre">i</span></code> in jedem Durchgang um 1 erhöht, ausgehend von 0 und bis und mit 25 (da <code class="docutils literal notranslate"><span class="pre">end</span></code> nicht inklusive ist!):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Buchstabe&quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;im deutschen Alphabet ist:&quot;</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Buchstabe 1 im deutschen Alphabet ist: a
+Der Buchstabe 2 im deutschen Alphabet ist: b
+Der Buchstabe 3 im deutschen Alphabet ist: c
+Der Buchstabe 4 im deutschen Alphabet ist: d
+Der Buchstabe 5 im deutschen Alphabet ist: e
+Der Buchstabe 6 im deutschen Alphabet ist: f
+Der Buchstabe 7 im deutschen Alphabet ist: g
+Der Buchstabe 8 im deutschen Alphabet ist: h
+Der Buchstabe 9 im deutschen Alphabet ist: i
+Der Buchstabe 10 im deutschen Alphabet ist: j
+Der Buchstabe 11 im deutschen Alphabet ist: k
+Der Buchstabe 12 im deutschen Alphabet ist: l
+Der Buchstabe 13 im deutschen Alphabet ist: m
+Der Buchstabe 14 im deutschen Alphabet ist: n
+Der Buchstabe 15 im deutschen Alphabet ist: o
+Der Buchstabe 16 im deutschen Alphabet ist: p
+Der Buchstabe 17 im deutschen Alphabet ist: q
+Der Buchstabe 18 im deutschen Alphabet ist: r
+Der Buchstabe 19 im deutschen Alphabet ist: s
+Der Buchstabe 20 im deutschen Alphabet ist: t
+Der Buchstabe 21 im deutschen Alphabet ist: u
+Der Buchstabe 22 im deutschen Alphabet ist: v
+Der Buchstabe 23 im deutschen Alphabet ist: w
+Der Buchstabe 24 im deutschen Alphabet ist: x
+Der Buchstabe 25 im deutschen Alphabet ist: y
+Der Buchstabe 26 im deutschen Alphabet ist: z
+</pre></div>
+</div>
+</div>
+</div>
+<p>Achtung: Wir iterieren nun nicht mehr wie oben über die Zeichenkette <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> direkt, deshalb müssen wir im Schleifenkörper den jeweiligen Buchstaben in <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> über Indexing “ansprechen”. Da Indizes bei 0 beginnen, iterieren wir über eine <code class="docutils literal notranslate"><span class="pre">range</span></code>  von 0 bis 25 anstatt von 1 bis 26. Für die natürlichsprachliche Zahl im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl erhöhen wir <code class="docutils literal notranslate"><span class="pre">i</span></code> um 1 (schließlich gibt es keinen nullten Buchstaben).</p>
+<p>0 für <code class="docutils literal notranslate"><span class="pre">start</span></code> sowie 1 für <code class="docutils literal notranslate"><span class="pre">step</span></code> sind übrigens die Standardwerte bei der <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion, d.h. es reicht, <code class="docutils literal notranslate"><span class="pre">end</span></code> zu definieren:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Buchstabe&quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;im deutschen Alphabet ist:&quot;</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Buchstabe 1 im deutschen Alphabet ist: a
+Der Buchstabe 2 im deutschen Alphabet ist: b
+Der Buchstabe 3 im deutschen Alphabet ist: c
+Der Buchstabe 4 im deutschen Alphabet ist: d
+Der Buchstabe 5 im deutschen Alphabet ist: e
+Der Buchstabe 6 im deutschen Alphabet ist: f
+Der Buchstabe 7 im deutschen Alphabet ist: g
+Der Buchstabe 8 im deutschen Alphabet ist: h
+Der Buchstabe 9 im deutschen Alphabet ist: i
+Der Buchstabe 10 im deutschen Alphabet ist: j
+Der Buchstabe 11 im deutschen Alphabet ist: k
+Der Buchstabe 12 im deutschen Alphabet ist: l
+Der Buchstabe 13 im deutschen Alphabet ist: m
+Der Buchstabe 14 im deutschen Alphabet ist: n
+Der Buchstabe 15 im deutschen Alphabet ist: o
+Der Buchstabe 16 im deutschen Alphabet ist: p
+Der Buchstabe 17 im deutschen Alphabet ist: q
+Der Buchstabe 18 im deutschen Alphabet ist: r
+Der Buchstabe 19 im deutschen Alphabet ist: s
+Der Buchstabe 20 im deutschen Alphabet ist: t
+Der Buchstabe 21 im deutschen Alphabet ist: u
+Der Buchstabe 22 im deutschen Alphabet ist: v
+Der Buchstabe 23 im deutschen Alphabet ist: w
+Der Buchstabe 24 im deutschen Alphabet ist: x
+Der Buchstabe 25 im deutschen Alphabet ist: y
+Der Buchstabe 26 im deutschen Alphabet ist: z
+</pre></div>
+</div>
+</div>
+</div>
+<p>Weiter ist es reine Konvention, <code class="docutils literal notranslate"><span class="pre">i</span></code> als Variable bei <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktionen in <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen zu benutzen, es ist aber kein syntaktisches Muss.</p>
+<p>Zur Veranschaulichung des <code class="docutils literal notranslate"><span class="pre">step</span></code>-Parameters, geben wir unten nur jeweils den dritten Buchstaben aus. Außerdem ersetzen wir den <code class="docutils literal notranslate"><span class="pre">end</span></code>-Parameter durch die Länge von <code class="docutils literal notranslate"><span class="pre">alphabet</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">alphabet</span><span class="p">),</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">alphabet</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a
+d
+g
+j
+m
+p
+s
+v
+y
+</pre></div>
+</div>
+</div>
+</div>
+<p>In diesem Beispiel ist uns natürlich klar, dass das deutsche Alphabet 26 Buchstaben hat, in anderen Fällen ist uns die Länge eines Objekts aber vielleicht nicht bekannt. Aber selbst hier macht es Sinn, die Zahl 26 nicht zu “hardcoden”, es könnte ja sein, dass wir die Variable <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> überschreiben und “ä, ö, ü” anhängen. Ganz grundsätzlich sollte man so wenig wie möglich hardcoden, um den Code robust gegenüber späteren Veränderungen zu machen.</p>
+<p>Die Verwendung der <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion innerhalb einer <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife macht verglichen mit der direkten Iteration über ein Objekt immer dann Sinn, wenn wir nur über bestimmte Elemente iterieren wollen (durch Modifikation von <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code> und <code class="docutils literal notranslate"><span class="pre">step</span></code>) sowie, wenn wir innerhalb des Schleifenkörpers zusätzlich einen Zähler einsetzen wollen (etwa in den <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehlen oben).</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Im Isländischen setzen sich Nachnamen aus dem Vornamen eines Elternteils (traditionell, aber nicht immer, des Vaters) und der binären Bezeichnung “son” bzw. “dottir” zusammen (i.d.R. mit Genitiv-s dazwischen). “Johannsdottir” ist also z.B. die Tochter von Johann. Lasse Dir für jeden Namen auf <code class="docutils literal notranslate"><span class="pre">surnames</span></code> ausgeben, ob es sich um eine Person vermutlich isländischer Abstammung handelt, oder nicht. Wenn ja, lasse Dir zudem ausgeben, ob es sich aufgrund des Nachnamens um eine Frau oder einen Mann handelt.</p>
+<p>In der Ausgabe sollte der betreffende Name vorkommen, also z.B. für einen nicht-isländischen Namen: <code class="docutils literal notranslate"><span class="pre">Mensch</span> <span class="pre">Müller</span> <span class="pre">kommt</span> <span class="pre">vermutlich</span> <span class="pre">nicht</span> <span class="pre">aus</span> <span class="pre">Island</span></code>.</p>
+<p>In der bedingten Anweisung kannst Du das Pendant zum bereits bekannten <code class="docutils literal notranslate"><span class="pre">startswith</span></code>, nämlich <code class="docutils literal notranslate"><span class="pre">endswith</span></code> benutzen, das für einen string überprüft, ob er mit der in Klammern angegebenen Zeichenkette endet oder nicht. <code class="docutils literal notranslate"><span class="pre">&quot;string&quot;.endswith(&quot;g&quot;)</span></code> überprüft etwa, ob “string” mit “g” endet. Wie immer kannst Du anstatt der Zeichenketten auch Variablen verwenden, die einen string referenzieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">surnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jonsdottir&quot;</span><span class="p">,</span> <span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Johannsson&quot;</span><span class="p">,</span> <span class="s2">&quot;Einarsdottir&quot;</span><span class="p">,</span> <span class="s2">&quot;Fischer&quot;</span><span class="p">,</span> <span class="s2">&quot;Suarez&quot;</span><span class="p">,</span> <span class="s2">&quot;Johannsdottir&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exkurs-trial-and-error-coding">
+<h3><span class="section-number">3.4.2. </span>Exkurs: Trial-and-error-Coding<a class="headerlink" href="#exkurs-trial-and-error-coding" title="Permalink to this heading">#</a></h3>
+<p>Unsere Codes werden zunehmend komplexer: In der letzten Übung hast Du etwa eine Schleife so wie mehrere bedingte Anweisungen verwendet. Wie wir ganz am Anfang im Video zu algorithmischem Denken gelernt haben, ist es wichtig, sich stets zu überlegen, in welche einzelnen Schritte ein Problem zerlegt werden kann, bevor man loslegt. Die Bedeutung dieser Herangehensweise nimmt mit zunehmender Komplexität der Aufgaben natürlich zu.</p>
+<p>Die einzelnen Schritte jedoch löst man dann meistens durch “trial and error”. Oft hat man eine Idee, wie man einen Schritt lösen kann, probiert es aus und schaut dann, ob der Code das tut, was man erwartet. Manchmal klappt’s, manchmal nicht.</p>
+<p>Konkret heißt das für Dich: führe Deinen Code immer wieder aus, lasse Dir einzelne Zwischenschritte über <code class="docutils literal notranslate"><span class="pre">print</span></code> ausgeben und taste Dich so (Zwischen-)Schritt für (Zwischen-)Schritt an die Lösung heran.</p>
+<p>Führe die folgende Zelle aus, um ein Video zu Trial-and-error-Coding einzubetten oder schaue dir das <a class="reference external" href="https://www.youtube.com/watch?v=cP7Jwe7HO10">Video</a> bei YouTube an.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Führe diese Zelle aus, um das Video einzubetten</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;cP7Jwe7HO10&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/cP7Jwe7HO10"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#der Code aus dem Video</span>
+<span class="n">customers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;corporate&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;Benzo Corp.&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Hampton Drive&quot;</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">9332783746</span><span class="p">,</span> <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Smith, Adrian&quot;</span><span class="p">,</span> <span class="s2">&quot;Gullivan, Jane&quot;</span><span class="p">]}},</span>
+                           <span class="p">{</span><span class="s2">&quot;Solar Ltd.&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">3947473847</span><span class="p">,</span> <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Bergh, Donald&quot;</span><span class="p">,</span> <span class="s2">&quot;Merriot, Barbara&quot;</span><span class="p">]}},</span>
+                           <span class="p">{</span><span class="s2">&quot;Zoalie Corp.&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Hampton Drive&quot;</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">9338473849</span><span class="p">,</span> <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Fink, Hugh&quot;</span><span class="p">]}}],</span> 
+             <span class="s2">&quot;public&quot;</span><span class="p">:</span>    <span class="p">[{</span><span class="s2">&quot;Alazona State Agency&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Main Road&quot;</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">8374829383</span><span class="p">,</span> <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}},</span>
+                           <span class="p">{</span><span class="s2">&quot;South Kentucky Gov.&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Union Square&quot;</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">8374837282</span><span class="p">,</span> <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ferguson, Mary&quot;</span><span class="p">,</span> <span class="s2">&quot;Lewinsky, Robert&quot;</span><span class="p">,</span> <span class="s2">&quot;Pitt, Margareth&quot;</span><span class="p">]}}],</span>
+             <span class="s2">&quot;private&quot;</span><span class="p">:</span>   <span class="p">[{</span><span class="s2">&quot;Berghain, Anne&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Milton Road&quot;</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">9334828189</span><span class="p">}}]}</span> 
+
+<span class="n">customers_local</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">customers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="c1">#print(key, value, &quot;\n&quot;)</span>
+    
+    <span class="k">for</span> <span class="n">customer</span> <span class="ow">in</span> <span class="n">customers</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+        <span class="c1">#print(customer)</span>
+        
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">metadata</span> <span class="ow">in</span> <span class="n">customer</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1">#print(metadata[&quot;phone&quot;], &quot;\n&quot;)</span>
+            
+            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;phone&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;933&quot;</span><span class="p">):</span>
+                <span class="c1">#print(metadata[&quot;phone&quot;])</span>
+                
+                <span class="n">customers_local</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                
+<span class="nb">print</span><span class="p">(</span><span class="n">customers_local</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Benzo Corp.&#39;, &#39;Zoalie Corp.&#39;, &#39;Berghain, Anne&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="while-schleifen">
+<h3><span class="section-number">3.4.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen<a class="headerlink" href="#while-schleifen" title="Permalink to this heading">#</a></h3>
+<p>Neben <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen gibt es <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen. Sie führen den in ihrem Anweisungskörper definierten Codeblock solange aus, wie die im Anweisungskopf definierte Bedingung zutrifft. Um dies zu veranschaulichen, bemühen wir noch mal das Alphabetbeispiel mit dem Zähler von oben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">alphabet</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Buchstabe&quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;im deutschen Alphabet ist:&quot;</span><span class="p">,</span> <span class="n">alphabet</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Buchstabe 1 im deutschen Alphabet ist: a
+Der Buchstabe 2 im deutschen Alphabet ist: b
+Der Buchstabe 3 im deutschen Alphabet ist: c
+Der Buchstabe 4 im deutschen Alphabet ist: d
+Der Buchstabe 5 im deutschen Alphabet ist: e
+Der Buchstabe 6 im deutschen Alphabet ist: f
+Der Buchstabe 7 im deutschen Alphabet ist: g
+Der Buchstabe 8 im deutschen Alphabet ist: h
+Der Buchstabe 9 im deutschen Alphabet ist: i
+Der Buchstabe 10 im deutschen Alphabet ist: j
+Der Buchstabe 11 im deutschen Alphabet ist: k
+Der Buchstabe 12 im deutschen Alphabet ist: l
+Der Buchstabe 13 im deutschen Alphabet ist: m
+Der Buchstabe 14 im deutschen Alphabet ist: n
+Der Buchstabe 15 im deutschen Alphabet ist: o
+Der Buchstabe 16 im deutschen Alphabet ist: p
+Der Buchstabe 17 im deutschen Alphabet ist: q
+Der Buchstabe 18 im deutschen Alphabet ist: r
+Der Buchstabe 19 im deutschen Alphabet ist: s
+Der Buchstabe 20 im deutschen Alphabet ist: t
+Der Buchstabe 21 im deutschen Alphabet ist: u
+Der Buchstabe 22 im deutschen Alphabet ist: v
+Der Buchstabe 23 im deutschen Alphabet ist: w
+Der Buchstabe 24 im deutschen Alphabet ist: x
+Der Buchstabe 25 im deutschen Alphabet ist: y
+Der Buchstabe 26 im deutschen Alphabet ist: z
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Verwendung von <code class="docutils literal notranslate"><span class="pre">while</span></code> mit einem Zähler ist eine von zwei gängingen Verwendungsweisen von <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen. Wir verwenden sie, wenn wir von vornerein wissen, wann die Schleife nicht mehr ausgeführt werden soll (in diesem Beispiel, wenn <code class="docutils literal notranslate"><span class="pre">i</span></code> gleich mit der Länge von <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> ist).</p>
+<p>Es gibt aber auch Situationen, wo wir nicht von Anfang an wissen, wie oft eine Schleife wiederholt werden soll. Ein Beispiel wäre ein Ratespiel mit User-Input, das so oft wiederholt werden soll, bis die Userin die Antwort errät. Für User-Input gibt es die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion, die wir im Code unten einfach mal benutzen, ohne sie im Detail einzuführen.</p>
+<p>Diese Schleife soll also ganz grundsätzlich unendlich oft wiederholt werden. Theoretisch ist es ja möglich, dass die Userin unedlich oft falsch rät. Dafür schreiben wir im Schleifenkopf <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>, eigentlich eine Kurzform für <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span> <span class="pre">==</span> <span class="pre">True</span></code>, was also immer zutrifft und die Schleife endlos laufen lässt.</p>
+<p>Nun brauchen wir zusätzlich das Statement <code class="docutils literal notranslate"><span class="pre">break</span></code>, das wir innerhalb des Schleifenkörpers platzieren können (in unserem Beispiel, in dem Fall, sobald die Userin richtig rät). Sobald Python zu diesem Statement gelangt, wird die Schleife endgültig abgebrochen. Das sieht dann wie im folgenden Code aus.</p>
+<p>Die User:innenrolle übernimmst übrigens Du, wenn Du diese Zelle ausführst. 😉 Deine Antwort kannst Du direkt im Anschluß an die Frage eingeben und mit <code class="docutils literal notranslate"><span class="pre">Enter</span></code> abschicken. Eventuell musst Du erst ins Antwortfeld unter der Frage klicken, sodass der Cursor blinkt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie viele Arme hat ein Oktopus? Gib bitte eine Zahl an.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Falsch, es sind mehr.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ganz richtig!&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nein, das sind zu viele.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1769</span><span class="o">/</span><span class="mf">2209010033.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie viele Arme hat ein Oktopus? Gib bitte eine Zahl an.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1174</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1175</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie Du siehst, geht das Ratespiel endlos weiter, solange Du falsch rätst und hört sofort auf, wenn Du richtig rätst. Ersteres hat auch zur Folge, dass Du keine andere Code-Zelle in diesem Notebook ausführen kannst, bis Du richtig rätst und damit die Ausführung der Zelle mit dem Input beendest. Wenn Du dennoch versuchst, gleichzeitig eine andere Code-Zelle auszuführen, kommt die Fehlermeldung: <code class="docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">not</span> <span class="pre">executed</span> <span class="pre">due</span> <span class="pre">to</span> <span class="pre">pending</span> <span class="pre">input</span></code>.</p>
+<p>Neben <code class="docutils literal notranslate"><span class="pre">break</span></code> gibt es auch <code class="docutils literal notranslate"><span class="pre">continue</span></code>, das nicht gleich die gesamte Schleife abbricht, sondern nur den einzelnen Durchlauf. Python kehrt damit zum Schleifenkopf zurück und prüft, ob die darin definierte Bedingung noch zutrifft.</p>
+<p>Der folgende, etwas komplexere Code veranschaulicht dieses Verhalten. Stellen wir uns vor, wir haben ein Gesellschaftsspiel, an dem mindestens vier Leute teilnehmen müssen. Es können aber unbegrenzt viele Leute teilnehmen. Wir haben ein Pool mit Leuten, die sich nach und nach zum Mitspielen bereit erklären  (<code class="docutils literal notranslate"><span class="pre">participants_pool</span></code>). Erst tritt Max ins Spiel ein, danach Moritz, es folgt Janine, etc. Der Code wird unten im Detail erläutert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">participants_pool</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Janine&quot;</span><span class="p">,</span> <span class="s2">&quot;Hussein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Mia&quot;</span><span class="p">,</span> <span class="s2">&quot;Marianne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dolores&quot;</span><span class="p">]</span>
+
+<span class="n">participants_game</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">participants_pool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Noch nicht genügend Teilnehmer:innen, wir brauchen noch&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">),</span> <span class="s2">&quot;😬&quot;</span><span class="p">)</span>
+        
+        <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">continue</span>
+        
+    <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Spiel läuft 😍&quot;</span><span class="p">)</span>
+    
+    <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Noch nicht genügend Teilnehmer:innen, wir brauchen noch 3 😬
+Aktuell auf der Liste: [&#39;Max&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 2 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 1 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tritt ein:e Spieler:in bei, kommt diese Person auf die Liste <code class="docutils literal notranslate"><span class="pre">participants_game</span></code>. Dies geschieht mithilfe der <code class="docutils literal notranslate"><span class="pre">append</span></code>-Methode, die einer Liste ein neues Element anhängt (mehr dazu im nächsten Notebook). Da das Spiel aber erst bei vier Teilnehmer:innen losgehen kann, müssen wir bei jeder Iteration anfangs überprüfen, wieviele Leute bereits dabei sind (daher das <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement).</p>
+<p>Sind es weniger als drei, hängen wir den neuen Name an <code class="docutils literal notranslate"><span class="pre">participants_game</span></code> an, gehen aber mithilfe von <code class="docutils literal notranslate"><span class="pre">continue</span></code> direkt zum nächsten Durchlauf, denn das Spiel kann ja aufgrund zu weniger Teilnehmer:innen nicht laufen.</p>
+<p>Beim dritten Durchlauf will nun Janine beitreten. Mit Max und Moritz sind vor ihrem Beitritt zwei Leute auf der Liste, daher wird die Bedingung noch erfüllt: Janine tritt innerhalb des Anweisungskörpers bei und Python geht wegen des <code class="docutils literal notranslate"><span class="pre">continue</span></code>-Statements wieder direkt zum nächsten Durchlauf. Nun kommt Hussein und da bereits drei Leute auf der Liste sind, wird die Bedingung nicht mehr erfüllt. Python überspringt also den eingerückten Code und macht direkt nach der Einrückung weiter. Dort tritt Hussein dem Spiel bei. Nun läuft das Spiel.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> In der Zelle unten steht noch einmal der gleiche Code. Modifiziere ihn derart, dass bei sechs Teilnehmer:innen Schluss ist. Die Iteration soll abbrechen. Vorher wollen wir aber darüber informiert werden, dass das Spiel bereits voll besetzt ist sowie darüber, wer daran teilnimmt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">participants_pool</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Janine&quot;</span><span class="p">,</span> <span class="s2">&quot;Hussein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Mia&quot;</span><span class="p">,</span> <span class="s2">&quot;Marianne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dolores&quot;</span><span class="p">]</span>
+
+<span class="n">participants_game</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">participants_pool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Noch nicht genügend Teilnehmer:innen, wir brauchen noch&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">),</span> <span class="s2">&quot;😬&quot;</span><span class="p">)</span>
+        
+        <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">continue</span>
+        
+    <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Spiel läuft 😍&quot;</span><span class="p">)</span>
+    
+    <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Noch nicht genügend Teilnehmer:innen, wir brauchen noch 3 😬
+Aktuell auf der Liste: [&#39;Max&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 2 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 1 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;] 
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Kommen wir zu unserem Anwendungsfall, dem Erstellen eines Kalenders, zurück. Mit dem erlernten Wissen über bedingte Anweisungen und Schleifen solltest Du nun in der Lage sein, aus dem extrem simplen, statischen Wochentage-Kalender aus dem ersten Notebook einen dynamischen Kalender inklusive Tag und Monat zu kreieren.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h2><span class="section-number">3.5. </span>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Deine Aufgabe ist es also, 365 vollständige Daten vom Format “Wochentag, Tag. Monat Jahr” auszugeben:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Samstag,</span> <span class="pre">1.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
+<code class="docutils literal notranslate"><span class="pre">Sonntag,</span> <span class="pre">2.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
+<code class="docutils literal notranslate"><span class="pre">Montag,</span> <span class="pre">3.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br></p>
+<p>Als Ausgangspunkt stehen Dir ein dictionary mit allen Monaten und der jeweiligen Anzahl Tage als Schlüssel-Werte-Paare und ebenfalls eine Liste mit allen Wochentagen zur Verfügung. Wie Du über Listen iterierst, weißt Du ja bereits. Zum Iterieren über dictionaries kannst Du wie oben im Video die <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode verwenden (mehr dazu im nächsten Notebook), sie steht Dir ebenfalls bereits im Code zur Verfügung. Die Variablen <code class="docutils literal notranslate"><span class="pre">month</span></code> und <code class="docutils literal notranslate"><span class="pre">days</span></code> stehen dabei stellvertretend für den Schlüssel (Monatsnamen) und Wert (Anzahl Tage) des jeweiligen Schlüssel-Werte-Paars im dictionary. Verwende diese Variablen im Schleifenkörper, um auf den jeweiligen Schlüssel bzw. Wert zuzugreifen.</p>
+<p>Diese Übung ist durchaus komplex. Überlege Dir deshalb erst, in welche kleineren Schritte Du die Aufgabe zerlegen kannst und vergewissere Dich dann bei jedem (Zwischen-)Schritt, dass Dein Code das tut, was er soll (trial and error!).</p>
+<p>Letzte Bemerkung: <code class="docutils literal notranslate"><span class="pre">pass</span></code> steht als Platzhalter für Deinen Code da. Ein leerer Anweisungskörper erzeugt bei Python nämlich eine Fehlermeldung. Ersetze <code class="docutils literal notranslate"><span class="pre">pass</span></code> durch Deinen Code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">months</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Januar&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;Februar&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;März&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Mai&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;Juni&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Juli&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;September&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Oktober&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;November&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Dezember&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">}</span>
+<span class="n">weekdays</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Montag&quot;</span><span class="p">,</span> <span class="s2">&quot;Dienstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Mittwoch&quot;</span><span class="p">,</span> <span class="s2">&quot;Donnerstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Freitag&quot;</span><span class="p">,</span> <span class="s2">&quot;Samstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonntag&quot;</span><span class="p">]</span>
+
+<span class="n">j</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">month</span><span class="p">,</span> <span class="n">days</span> <span class="ow">in</span> <span class="n">months</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Abschließend noch ein paar Tipps, wo Du Hilfe findest, wenn Du mal bei einem Programmierproblem nicht weiterkommst.</p>
+</section>
+<section id="exkurs-hilfe-holen">
+<h2><span class="section-number">3.6. </span>Exkurs: Hilfe holen<a class="headerlink" href="#exkurs-hilfe-holen" title="Permalink to this heading">#</a></h2>
+<p>Bis zu diesem Punkt im Notebook bist Du sicherlich auf das ein oder andere Problem gestoßen, das Du nicht selbst lösen konntest. Vermutlich hast Du in diesen Fällen Hilfe bei Google gesucht. Das ist genau die richtige Strategie, denn in den seltensten Fällen bist Du mit Deinem Programmierproblem alleine. Ein sehr beliebtes Forum für Fragen rund um Python, das zumeist auch das erste Suchergebnis bei Google ist, heißt <a class="reference external" href="https://stackoverflow.com/questions/tagged/python">Stack Overflow</a>.</p>
+<p>Angenommen Du stündest vor der Herausforderung, Duplikate aus einer Liste zu entfernen und kämst nicht weiter, so würdest du über die Suchanfrage “remove duplicates in lists” (oder so ähnlich) zu diesem <a class="reference external" href="https://stackoverflow.com/questions/7961363/removing-duplicates-in-lists">Beitrag</a> gelangen. Die Frage des Nutzers steht auch im Screenshot unten:</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Stack_Overflow1.png"><p>Fragen bei Stack Overflow bestehen i.d.R. aus einer Erklärung des Problems sowie Codeausschnitten und ggf. Output (z.B. eine Fehlermeldung). Hier handelt es sich jedoch um eine einfache Frage, die aber sehr viele Programmierer:innen als nützlich (bzw. gut recherchiert und klar formuliert) bewertet haben, was wir an den 1297 sog. <em>Upvotes</em> erkennen.</p>
+<p>Insgesamt 57 Antworten wurden gegeben, wobei wir uns auch hier an den Upvotes orientieren können. Die nützlichste Antwort mit 2053 Upvotes erklärt, wie im nächsten Screenshot ersichtlich, dass der Nutzer für sein Problem <code class="docutils literal notranslate"><span class="pre">set</span></code> benutzen kann (vgl. zweites Notebook). Das grüne Häkchen bedeutet zudem, dass der Fragesteller diese Antwort als beste ausgewählt hat.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Stack_Overflow2.png"><p>Wenn Du den Link zum Beitrag öffnest, siehst Du, dass die Erklärung noch weiter geht. Unter der Antwort gibt es zudem Kommentare auf die Antwort, die z.T. auch sehr nützlich sind.</p>
+<p>Um relevante Lösungen für Dein Programmierproblem zu erhalten, lohnt es sich, auf Englisch zu suchen. Wie im ersten Notebook erwähnt, ist Englisch die Lingua Franca unter Programmierer:innen. Formulierungen mit <em>how to…</em> (<em>how to remove duplicates in list</em>) oder eine Aneinanderreihung von Schlüsselwörtern (<em>remove duplicates list python</em>) sind empfehlenswert. Bei Fehlermeldungen kannst Du auch einfach die Meldung copy-pasten und danach suchen.</p>
+<p>Wie gesagt, in den allermeisten Fällen hatten andere vor Dir bereits dasselbe Problem und es gibt schon einen, oft sogar mehrere Beiträge dazu. Solltest Du nach eingehender (!) Recherche aber keinen relevanten Beitrag für Dein Problem gefunden haben, kannst Du natürlich eine eigene Frage bei Stack Overflow stellen. <a class="reference external" href="https://stackoverflow.com/help/how-to-ask">Hier</a> findest Du Tipps, wie Du Deine Frage formulierst, damit Du möglichst rasch eine sinnvolle Antwort erhältst (und nicht zuweilen patzig auf Duplikatbeiträge oder andere Regelmissachtungen hingewiesen wirst).</p>
+<p>Neben dem Frage-Antwort-basierten Forum Stack Overflow gibt es natürlich die <a class="reference external" href="https://docs.python.org/3/index.html">offizielle Dokumentation von Python</a>. Insbesondere das <a class="reference external" href="https://docs.python.org/3/tutorial/">Tutorial</a> ist empfehlenswert. Es deckt sämtliche wichtigen Themen ab und ist (im Gegensatz zum Community-betriebenen Stack Overflow und erst recht anderen Google-Suchergebnissen, etwa den oft inakkuraten Webseiten w3schools oder geeksforgeeks) garantiert korrekt.</p>
+<hr class="docutils" />
+<p>Wunderbar! Damit sind wir am Ende dieses Notebooks.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2_Datentypen.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Datentypen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="4_Funktionen_und_Methoden.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Funktionen und Methoden</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekapitulation-operatoren">3.1. Rekapitulation Operatoren</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleichsoperatoren">3.1.1. Vergleichsoperatoren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logische-operatoren">3.1.2. Logische Operatoren</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-kalender-erstellen">3.2. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen">3.3. Bedingte Anweisungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">3.4. Schleifen (Loops)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-schleifen">3.4.1. <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-trial-and-error-coding">3.4.2. Exkurs: Trial-and-error-Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleifen">3.4.3. <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.5. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-hilfe-holen">3.6. Exkurs: Hilfe holen</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
