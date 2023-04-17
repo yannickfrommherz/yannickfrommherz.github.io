@@ -1,0 +1,834 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Einführung &#8212; Hello Humanities</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Einführung';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Datentypen" href="Datentypen.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="About%20me.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="Hello.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Hello.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="About%20me.html">Welcome to your Jupyter Book</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Datentypen.html">Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Kontrollstrukturen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Funktionen_und_Methoden.html">Funktionen und Methoden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Input_und_Output.html">Input und Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regulaere_Ausdruecke.html">Reguläre Ausdrücke / RegEx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Datenanalyse.html">Datenanalyse</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FEinführung.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Einführung.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Einführung</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#von-oben-nach-unten">Von oben nach unten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte">Objekte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen">Variablen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operatoren">Operatoren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einruckungen">Einrückungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kommentare">Kommentare</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="einfuhrung">
+<h1>Einführung<a class="headerlink" href="#einfuhrung" title="Permalink to this headline">#</a></h1>
+<p>Dies ist unser erstes Notebook. Hier lernen wir ganz grundsätzliche Dinge übers Programmieren und die Programmiersprache Python. Zuerst beantworten wir die Frage, warum Programmierkenntnisse überhaupt sinnvoll sind:</p>
+<p><strong>Programmieren lohnt sich immer dann, wenn wir es mit repetitiven Aufgaben zu tun haben, die eine gewisse Regelhaftigkeit aufweisen.</strong></p>
+<p>Machen wir’s konkret: Stell Dir vor, Du möchtest für ein Forschungsprojekt Bildunterschriften von sämtlichen Artikeln auf ZEIT Online im Jahr 2022 sammeln. Du müsstest jeden einzelnen Artikel im Browser aufrufen und die paar Wörter unter den (oftmals mehreren) Bildern in einem Artikel markieren,  kopieren und, sagen wir, in eine Excel-Tabelle einfügen. Damit nicht genug: Du müsstest jeweils auch noch den Artikellink, -titel und das Publikationsdatum ablegen. Das würde Ewigkeiten in Anspruch nehmen! 🤯</p>
+<p>Da es sich aber um eine repetitive, regelhafte Aufgabe handelt (also ein sehr ähnlicher Ablauf stets wiederholt wird), ist dies ein Paradebeispiel dafür, wie wir uns das Leben mit Programmierkenntnissen leichter machen können. Gewiss, wenn Du das erste Mal einen Web Scraping-Code schreibst, so nennt sich diese Herangehensweise, dann wird das auch einige Stunden oder Tage dauern. Aber selbst das steht in keinem Verhältnis zur Zeit, die Du bei einer manuellen Bewältigung dieser Aufgabe benötigen würdest. Und beim nächsten Mal codest Du dann auch bereits schneller! 😎</p>
+<p>Hier noch ein paar weitere Beispiele für repetitive, regelhafte Aufgaben, bei denen Du von Programmierkenntnissen profitieren wirst:</p>
+<ul class="simple">
+<li><p>Aufbereiten und Bearbeiten von Daten, z.B. alle Wörter in einem bestimmten Text sollen großgeschrieben werden</p></li>
+<li><p>Anreichern von Daten, z.B. alle Eigennamen in einem Text sollen getaggt werden, je nach dem, ob es sich um eine Person, einen Ort oder eine Institution handelt</p></li>
+<li><p>Filtern von Daten, z.B. alle Bilder, die einen R-Mittelwert (im RGB-Farbraum) von über 150 aufweisen</p></li>
+<li><p>Auswerten von Daten, z.B. Zählen des Vorkommens bestimmter Formulierungen in einem Text, Errechnen von Schlüsselwörtern für einen Text</p></li>
+</ul>
+<p>Darüber hinaus lassen sich Daten mithilfe von Programmierkenntnissen auch sehr gut statistisch auswerten sowie visualisieren. All diese Techniken werden wir im Verlauf des Kurses kennenlernen.</p>
+<p>Python ist nun eine Sprache, mit der wir programmieren können. Sie hat eine Syntax, ähnlich wie bei einer natürlichen Sprache, die wir lernen und befolgen müssen, um <em>Programme</em> in ihr schreiben zu können. Programme, die wir in Python schreiben, enthalten Code. Etwas grob formuliert weist dieser Code den Computer an, was er zu tun hat.</p>
+<div class="section" id="von-oben-nach-unten">
+<h2>Von oben nach unten<a class="headerlink" href="#von-oben-nach-unten" title="Permalink to this headline">#</a></h2>
+<p>Wenn wir ein Programm <em>ausführen</em>, dann werden unsere Anweisungen <strong>von oben nach unten</strong> durchgegangen. Hier ein Beispiel. Führe den Code aus, indem Du in die Zelle klickst und dann <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> drückst:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zu erst das,&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dann das&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;und am Ende das.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zu erst das,
+dann das
+und am Ende das.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier weisen wir Python an, nacheinander (von oben nach unten) einen Satz <em>auszugeben</em>. Dazu nutzen wir die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion, die Python befiehlt, das, was in Klammern steht, auszugeben. Von ihr werden wir ganz oft Gebrauch machen, denn sie erlaubt es uns, Resultate unseres Codes anzuschauen sowie ganz generell zu überprüfen, ob Python das tut, was wir wollen. Python tut immer, was wir schreiben (im Gegensatz zu natürlicher Sprache gibt es keine Mehrdeutigkeit), aber sehr oft schreiben wir schlicht nicht, was wir wollen. 😅</p>
+</div>
+<div class="section" id="objekte">
+<h2>Objekte<a class="headerlink" href="#objekte" title="Permalink to this headline">#</a></h2>
+<p>Das elementarste aller Konzepte in Python ist dasjenige des <em>Objekts</em>. Jeder Datenpunkt, mit dem wir in Python arbeiten, ist ein Objekt. Das klingt etwas abstrakt und oft sprechen wir gar nicht von “Objekten”, sondern eher von “Zeichenketten” oder “Listen”. Was wir damit meinen, ist ein Objekt des Datentyps <em>Zeichenkette</em> bzw. <em>Liste</em>. Die drei Sätze, die wir uns oben mittels <code class="docutils literal notranslate"><span class="pre">print</span></code> ausgeben lassen haben, sind etwa Objekte des Typs Zeichenkette. Es gibt noch weitere wichtige Datentypen mit jeweils unterschiedlichen Eigenschaften, die wir im zweiten Notebook im Detail kennenlernen. Fürs Erste reicht es, dass wir ganz grob wissen, was ein Objekt ist.</p>
+</div>
+<div class="section" id="variablen">
+<h2>Variablen<a class="headerlink" href="#variablen" title="Permalink to this headline">#</a></h2>
+<p>Im obigen Beispiel haben wir der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion eine Zeichenkette Wort für Wort <em>übergeben</em> (umrahmt von Anführungszeichen, was Pflicht ist bei diesem Datentyp, dazu später mehr). Stattdessen könnten wir auch Variablen benutzen, ein sehr wichtiges Konzept beim Programmieren. Das sieht dann folgendermaßen aus. Führe auch hier die Zelle aus, um Dich selbst vom Code zu überzeugen (das gilt für alle kommenden Code-Zellen).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_out</span> <span class="o">=</span> <span class="s2">&quot;Das hier wollen wir ausgeben&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">print_out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das hier wollen wir ausgeben
+</pre></div>
+</div>
+</div>
+</div>
+<p>Variablen zeigen auf (oder: <em>referenzieren</em>) ein beliebiges Objekt, hier eine Zeichenkette. Sobald wir ein Objekt mehr als einmal in unserem Code verwenden, lohnt sich die Einführung einer Variable, die wir dann fortan stellvertretend für das Objekt benutzen können. Dadurch müssen wir das Objekt, hier die doch recht lange Zeichenkette, nicht bei jeder weiteren Verwendung ausschreiben. Überall wo in Python ein Objekt stehen kann, kann auch eine Variable stehen (lies diesen Satz nochmal, er ist sehr wichtig!).</p>
+<p>Variablen müssen <em>zugewiesen</em> (oder: <em>initialisiert</em>) werden. Wie oben ersichtlich, geben wir zur Zuweisung einer Variable links einen Namen an. Es folgt ein <code class="docutils literal notranslate"><span class="pre">=</span></code>-Zeichen und rechts davon, was die Variable referenzieren soll. Handelt es sich um eine Zeichenkette, so verwenden wir wie bereits gesagt Anführungszeichen (doppelte und einfache sind in Ordnung, solange konsistent). Zahlen hingegen können wir einfach so hinschreiben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Variablennamen dürfen Buchstaben und Zahlen (zusammen sog. <em>alphanumerische Zeichen</em>) sowie Unterstriche enthalten, müssen aber mit einem Buchstaben oder einem Unterstrich beginnen. Sie dürfen nicht gleichlautend mit sog. <em>Python-Schlüsselwörtern</em> sein, also Begriffen, die in Python bereits eine Bedeutung haben (etwa <code class="docutils literal notranslate"><span class="pre">print</span></code>; alle Schlüsselwörter kann man sich über <code class="docutils literal notranslate"><span class="pre">help(&quot;keywords&quot;)</span></code> ausgeben lassen). Letztlich sind Variablen sog. <em>case-sensitive</em>, d.h. Groß- und Kleinschreibung spielen eine Rolle. Folgendes funktioniert also nicht:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Print_out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">Print_out</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Print_out&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier sehen wir eine Fehlermeldung, von denen uns noch ganz viele begegnen werden. Erstens sehen wir, über welche Zeile Python gestolpert ist. Da es hier nur eine Zeile gibt, steht hinter dem <code class="docutils literal notranslate"><span class="pre">–––&gt;</span></code> eine <code class="docutils literal notranslate"><span class="pre">1</span></code>. Bei längeren Codes ist diese Angabe aber natürlich hilfreicher. Zweitens steht zuunterst jeweils ein (teils nützlicher, teils kryptischer) Hinweis darauf, was schief gelaufen ist. Dieser <code class="docutils literal notranslate"><span class="pre">NameError</span></code> bedeutet, dass Python die Variable <code class="docutils literal notranslate"><span class="pre">Print_out</span></code> nicht kennt. Durch Korrigieren des Variablennamens sollte der Befehl klappen (probier’s aus!), unter der Voraussetzung, dass die Code-Zelle oben bereits einmal ausgeführt wurde, d.h. die Variable <code class="docutils literal notranslate"><span class="pre">print_out</span></code> mit kleinem “p” <em>initialisiert</em> ist.</p>
+<p>Noch eine letzte, dafür umso zentralere Bemerkung zu Variablennamen: Sie sollten möglichst sprechend sein, d.h. es sollte einem direkt klar werden, was durch sie referenziert wird. Um dies zu veranschaulichen, vergleiche folgende zwei Codes, die beide den Body-Mass-Index errechnen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#nichtssagende Variablen</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">65</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">1.70</span>
+
+<span class="n">bmi</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span>
+
+<span class="c1">#sprechende Variablen</span>
+<span class="n">weight_kg</span> <span class="o">=</span> <span class="mi">65</span>
+<span class="n">height_m</span> <span class="o">=</span> <span class="mf">1.70</span>
+
+<span class="n">bmi</span> <span class="o">=</span> <span class="n">weight_kg</span><span class="o">/</span><span class="p">(</span><span class="n">height_m</span><span class="o">*</span><span class="n">height_m</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Ergebnis ist natürlich dasselbe. Bei so einem kurzen Code könnte man argumentieren, dass einfach ersichtlich ist, was mit <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> gemeint ist. Bei längeren Codes, wo wir die gleichen Variablen immer wieder einsetzen (und genau aus diesem Grund verwenden wir ja erst Variablen), verliert man aber schnell den Überblick. Wollen wir zum Beispiel an späterer Stelle den sog. Area Mass Index, ein anderes anthropometrisches Maß, ausrechnen, zeigt sich bereits, wie sinnvoll sprechende Variablen sind:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ami_f</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.865</span> <span class="o">*</span> <span class="p">(</span><span class="n">weight_kg</span><span class="o">/</span><span class="p">(</span><span class="n">height_m</span><span class="o">*</span><span class="n">height_m</span><span class="p">)))</span><span class="o">+</span><span class="mf">18.56</span> <span class="c1">#Zusatz &quot;_f&quot; aufgrund separater AMI-Formeln für Frauen und Männer</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ami_f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um die Formel zu verstehen, hilft es ungemein, wenn die einzelnen Variablen sich durch ihren Namen “selbst erklären”. Generell helfen sprechende Variablen <em>Dir</em>, den Überblick zu behalten, und erst recht <em>anderen</em>, die Deinen Code nachvollziehen sollen.</p>
+<p>In diesen Notebooks werden übrigens durchgängig englischsprachige Variablennamen benutzt, das ist aber natürlich kein Muss. Wenn wir schon bei Englisch sind: bei allen wichtigen Konzepten wird in diesen Notebooks jeweils auch der englische Name eingeführt. Dies da, Englisch in der Programmiercommunity die <em>Lingua Franca</em> ist. Wenn man sich mal mit einer Frage an die Community wenden oder ein Problem googeln will, so hat man am ehesten Erfolg, wenn man dies auf Englisch tut (vgl. drittes Notebook zum Thema <em>Hilfe holen</em>)</p>
+</div>
+<div class="section" id="operatoren">
+<h2>Operatoren<a class="headerlink" href="#operatoren" title="Permalink to this headline">#</a></h2>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">=</span></code> haben wir schon einen <em>Operator</em> kennengelernt. Er gehört zu den <em>Zuweisungsoperatoren</em>, von denen wir gleich noch mehr kennenlernen. Erst schauen wir uns <em>arithmetische Operatoren</em> an, die wir bereits aus der Mathematik kennen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> für Addition</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> für Subtraktion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> für Multiplikation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> für Division</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**</span></code> für Potenzieren (“2 hoch 3”)</p></li>
+</ul>
+<p>Der folgende Code illustriert, dass es wirklich keine Rolle spielt, ob wir direkt mit Objekten (hier Zahlen) oder mit stellvertretenden Variablen rechnen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number1</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">number2</span> <span class="o">=</span> <span class="mi">9</span>
+
+<span class="c1">#Objekte und Variablen sind austauschbar</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">8</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number1</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number1</span> <span class="o">+</span> <span class="n">number2</span><span class="p">)</span>
+
+<span class="c1">#noch ein Weg</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">number1</span> <span class="o">+</span> <span class="n">number2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zuunterst sehen wir außerdem, dass auf der rechten Seite einer Variablenzuweisung nicht bloß <em>ein</em> Objekt stehen kann, sondern auch ein sog. <em>komplexer Ausdruck</em>, wie eine Addition. Dies trifft übrigens überall in Python zu: wo ein einzelnes Objekt stehen kann, kann auch ein Ausdruck stehen (der, wenn ausgerechnet, ja wieder <em>einen</em> Wert annimmt).</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 1:</strong> Definiere zwei numerische Variablen sowie eine dritte, die die erste Variable von der zweiten subtrahiert. Lass Dir anschließend diese dritte Variable multipliziert mit sich selbst ausgeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Übrigens, wie bereits im Einführungsvideo erwähnt, musst Du einmal definierte Variablen nicht immer bis zum letzten Buchstaben ausschreiben, sondern kannst Dir das Leben mit der Autovervollständigungsfunktion erleichtern. Schreibe die ersten paar Zeichen und drücke dann <code class="docutils literal notranslate"><span class="pre">tab</span></code>. Kommt nur noch eine Vervollständigung in Frage, wird die Variable automatisch fertig geschrieben. Kommen mehrere Vervollständigungen in Frage, kannst Du aus einem Drop-Down-Menü die richtige wählen.</p>
+<p>Autovervollständigung funktioniert nicht nur bei selbst definierten Namen, sondern auch bei solchen, die in Python bereits eine Bedeutung haben, z.B. bei <code class="docutils literal notranslate"><span class="pre">print</span></code>. Probier’s aus, z.B. in Deiner eigenen neuen Code-Zelle, die Du über das <code class="docutils literal notranslate"><span class="pre">+</span></code>-Symbol in der Kopfleiste hinzufügst.</p>
+<p>Zurück zu den Operatoren: <em>Erweiterte Zuweisungsoperatoren</em> kombinieren nun den Zuweisungsoperator <code class="docutils literal notranslate"><span class="pre">=</span></code> mit den arithmetischen Operatoren. Damit können wir den nachfolgend oberen Code wie unten gezeigt vereinfachen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#komplizierte Herangehensweise</span>
+<span class="n">number</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">7</span> <span class="c1">#&quot;number&quot; wird in dieser Anweisung überschrieben</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+<span class="c1">#simple Herangehensweise mithilfe erweiterter Zuweisung</span>
+<span class="n">number</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">number</span> <span class="o">+=</span> <span class="mi">7</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bei dieser erweiterten Zuweisung mittels <code class="docutils literal notranslate"><span class="pre">+=</span></code> wird das Objekt, auf das die Variable <code class="docutils literal notranslate"><span class="pre">number</span></code> zeigt, also die Zahl <code class="docutils literal notranslate"><span class="pre">8</span></code>, mit der Zahl rechts des Operators verrechnet. Die erweiterte Zuweisung gibt es auch für Subtraktion, Multiplikation und Divison: <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Überleg Dir einen kurzen Satz und definiere eine Variable für jedes einzelne Wort, denk dabei an die Anführungszeichen. Mit welchem Operator kannst Du die einzelnen Wörter wieder zu einem Satz zusammenfügen? Verwende eine weitere Variable für den ganzen Satz und lass sie Dir am Ende ausgeben. Stelle sicher, dass sich Leerschläge zwischen den einzelnen Wörtern befinden.</p>
+<p>Tipp: Ein Leerschlag ist ein Zeichen wie jeder Buchstabe, jede Zahl und jedes Sonderzeichen und muss ebenfalls von Anführungszeichen umrahmt werden: <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Was Du eben gemacht hast, wird <em>Konkatenation</em> (dt.: <em>Verkettung</em>) genannt. Der <code class="docutils literal notranslate"><span class="pre">+</span></code>-Operator, den Du vermutlich benutzt hast, hat also abhängig davon, ob es sich um den Datentypen Zahlen oder Zeichenketten handelt, eine andere Funktion (Addition bzw. Konkatenation).</p>
+<p>Nun war es Deine Aufgabe, für den konkatenierten Satz eine neue Variable einzuführen und diese anschließend auszugeben. Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ermöglicht es aber auch, mehrere Objekte direkt bei der Ausgabe zu konkatenieren:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="s2">&quot;Am&quot;</span><span class="p">,</span> <span class="s2">&quot;Anfang&quot;</span><span class="p">,</span> <span class="s2">&quot;war&quot;</span><span class="p">,</span> <span class="s2">&quot;das&quot;</span><span class="p">,</span> <span class="s2">&quot;Wort.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir lernen zwei Sachen hier:</p>
+<ul class="simple">
+<li><p>Wir können kommasepariert mehrere Variablen auf einmal zuweisen (wobei die Anzahl Variablennamen und zuzuweisende Objekte natürlich gleich sein muss).</p></li>
+<li><p>Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion konkateniert die einzelnen <em>Argumente</em>, die wir ihr übergeben, automatisch mit einem Leerschlag dazwischen (im fünften Notebook besprechen wir die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail).</p></li>
+</ul>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Für einen Kalender möchtest Du alle sieben Wochentage 52 Mal ausdrucken, für jede Woche des Jahres einmal. Das Ergebnis soll also wie folgt aussehen:</p>
+<p>Mo </br>
+Di </br>
+Mi </br>
+Do </br>
+Fr </br>
+Sa </br>
+So </br>
+Mo </br>
+Di </br></p>
+<p>und so weiter, bis die zweiundfünfzigste Woche mit “So” aufhört (unser Jahr hat der Einfachheit halber nur 364 Tage (52*7)).</p>
+<p>Definiere erst eine Variable mit allen Wochentagen hintereinander (einfach eine Zeichenkette), wobei Du zwischen die Tage jeweils einen Zeilenumbruch mittels <code class="docutils literal notranslate"><span class="pre">\n</span></code> schreibst. Dadurch wird jeder Tag bei der Ausgabe auf einer eigenen Zeile ausgegeben.</p>
+<p>Überlege Dir nun, mithilfe welchen Operators, Du Dir diese Variable 52 Mal ausgeben lassen kannst.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Was Du hier gemacht hast, nennt sich <em>Replikation</em> und es zeigt sich, dass auch hier der <code class="docutils literal notranslate"><span class="pre">*</span></code>-Operator unterschliedlich funktioniert, je nach dem, ob in einem Ausdruck nur Zahlen oder eine Zeichenkette und eine Zahl verwendet werden (schau gerne nach was passiert, wenn Du versuchst, zwei Zeichenketten miteinander zu multiplizieren).</p>
+<p>Schon hier sehen wir: Manuelles copy-pasting hätte länger gedauert und Du hättest genau mitzählen müssen, um auch wirklich 52 Mal zu kopieren. Nun haben wir eine statische Zeichenkette repliziert, bald lernen wir auch, wie sich die Zeichenkette bei jeder Wiederholung dynamisch anpassen lässt. So, dass wir z.B. jeweils das Datum mitausgeben können: “Samstag, 1. Januar 2022, Sonntag, 2. Januar 2022, …”.</p>
+<p>Nun schneiden wir noch eine weitere Art von Operatoren an: <em>Vergleichsoperatoren</em>. Vergleichoperatoren vergleichen den Wert zweier Objekte und schauen, ob der erste Wert</p>
+<ul class="simple">
+<li><p>gleich: <code class="docutils literal notranslate"><span class="pre">==</span></code></p></li>
+<li><p>ungleich: <code class="docutils literal notranslate"><span class="pre">!=</span></code></p></li>
+<li><p>größer als: <code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></li>
+<li><p>kleiner als: <code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></li>
+<li><p>größer gleich: <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></li>
+<li><p>kleiner gleich: <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></li>
+</ul>
+<p>der zweite Wert ist. Ergebnis ist immer <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> (sog. <em>Boolsche</em> Werte, bald mehr dazu), also wahr oder falsch.</p>
+<p>Konkret:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">small</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">large</span> <span class="o">=</span> <span class="mi">999</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">small</span> <span class="o">&lt;</span> <span class="n">large</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> Bei Variablennamen haben wir ja schon gelernt, dass diese case-sensitive sind. Finde nun heraus, ob dies auch bei Zeichenketten der Fall ist, indem Du zwei Variablen mit zwei Zeichenketten definierst, die sich nur in punkto Groß-/Kleinschreibung unterscheiden. Lass Dir anschließend ausgeben, ob die Werte der beiden Variablen für Python gleich sind oder nicht.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="einruckungen">
+<h2>Einrückungen<a class="headerlink" href="#einruckungen" title="Permalink to this headline">#</a></h2>
+<p>Ein weiteres grundlegendes Konzept bei Python sind sog. <em>Einrückungen</em> (<em>indentations</em> auf Englisch). Indem wir bestimmte Teile unseres Codes einrücken (also von der standardmäßigen Linksbündigkeit nach rechts rücken), geben wir Python eine Handlungsanweisung, die den Teil des Codes betrifft, der eingerückt ist. Unten sehen wir zwei Beispiele für solche Einrückungen, einmal eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife (zur sog. <em>Iteration</em>) und eine bedingte Anweisung mit <code class="docutils literal notranslate"><span class="pre">if</span></code> – zwei sog. <em>Kontrollstrukturen</em>, die wir im dritten Notebook genauer kennenlernen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alphabet</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+
+<span class="c1">#Hier geben wir jeden einzelnen Buchstaben in alphabet nacheinander einzeln aus</span>
+<span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">alphabet</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+
+<span class="c1">#Hier überprüfen wir ob alphabet gleich ist mit &quot;abc&quot; und wenn ja, wird der eingerückte print-Befehl ausgeführt</span>
+<span class="k">if</span> <span class="n">alphabet</span> <span class="o">==</span> <span class="s2">&quot;abc&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="s2">&quot;ist gleich abc&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die nicht eingerückte Zeile wird <em>Anweisungskopf</em> genannt, sie endet <strong>immer</strong> mit einem Doppelpunkt. Die darunter eingerückten Zeilen heißen <em>Anweisungskörper</em>.</p>
+<p>Ganz wichtig: Wir müssen immer konsistent einrücken. Grundsätzlich kann man selbst festlegen, ob man stets um einen, vier oder sonst eine beliebige Anzahl Leerschläge einrücken will. Standard ist jedoch, mittels der Tabulatortaste <code class="docutils literal notranslate"><span class="pre">tab</span></code> einzurücken, was vier Leerschlägen entspricht. Bei inkonsistenter Einrückung liegt ein Syntaxfehler vor und der Code crasht. JupyterLab sowie viele andere Editoren helfen einem beim konsistenten Einrücken, etwa indem nach dem Schreiben eines Anweisungskopfs (inkl. Doppelpunkt) beim Drücken von <code class="docutils literal notranslate"><span class="pre">Enter</span></code> (für einen Zeilenumbruch) automatisch um ein Tab eingerückt wird, sowie indem inkonsistente Einrückungen farblich hervorgehoben werden (probier’s aus, indem Du oben um nur drei Leerschläge einrückst).</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 5:</strong> In einem eingerückten Anweisungskörper kann sich wiederum eine Anweisung befinden (und im zugehörigen Anweisungskörper wiederum die nächste Anweisung etc.). Dafür wird einfach jeweils um ein weiteres <code class="docutils literal notranslate"><span class="pre">tab</span></code> eingerückt. Auch wenn wir die beiden Kontrollstrukturen <code class="docutils literal notranslate"><span class="pre">for</span></code> und <code class="docutils literal notranslate"><span class="pre">if</span></code> noch nicht eingeführt haben: Versuche den obigen Code so anzupassen, dass bei jedem <code class="docutils literal notranslate"><span class="pre">character</span></code> in <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> überprüft wird, ob es sich um ein “a” handelt. Nur falls diese Bedingung zutrifft, soll der jeweilige <code class="docutils literal notranslate"><span class="pre">character</span></code> mittels der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ausgegeben werden. Wenn Du den Code richtig schreibst,  sollte Dir also ein einziges “a” ausgegeben werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="kommentare">
+<h2>Kommentare<a class="headerlink" href="#kommentare" title="Permalink to this headline">#</a></h2>
+<p>Schauen wir noch kurz das Konzept der Kommentare an, das sich bereits in viele der obigen Codes eingeschlichen hat.</p>
+<p>Kommentare sind Teile des Codes, die für uns als Codeschreibende und -lesende von Interesse sind, Python jedoch überliest sie komplett. Kommentare werden einerseits dazu verwendet, Codeteile zu erläutern (für einen selbst oder andere in einem kollaborativen Projekt), wobei die Devise lautet, besser zu viel zu erklären, als zu wenig. Man selbst und andere werden es einem später danken. Das sog. <em>Eagleson’s Law</em> beschreibt, dass Code von einem selbst nach sechs Monaten genau so gut von jemand anderem stammen könnte, so wenig nachvollziehbar findet man ihn auf den ersten Blick. In Wahrheit handelt es sich vermutlich um weniger als sechs Monate (vgl. <a class="reference external" href="https://learning.oreilly.com/library/view/weniger-schlecht-programmieren/9783955615697/?ar">Passig/Jander 2013</a>).</p>
+<p>Andererseits werden Kommentare dazu verwendet, bestimmte Teile des Codes zwischenzeitlich “auszuschalten”, d.h. Python übergeht diese Teile dann einfach. Das ist z.B. beim <em>Debugging</em> nützlich, also wenn sich ein Fehler (<em>Bug</em>) eingeschlichen hat und es darum geht, herauszufinden, welcher Codeteil den Fehler verursacht. Code temporär “auszuschalten” wird <em>comment out</em> genannt.</p>
+<p>Kommentare, die nur eine Zeile umfassen, werden mit einem Hashtag <code class="docutils literal notranslate"><span class="pre">#</span></code> begonnen. Für mehrzeilige Kommentare werden drei Anführungszeichen, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;Kommentar&quot;&quot;&quot;</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">'''Kommentar'''</span></code>, verwendet (das jeweils andere Anführungszeichen kann dann auch im Kommentar verwendet werden):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#dies ist ein einzeiliger Kommentar</span>
+<span class="n">alphabet</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span> <span class="c1">#Kommentare können auch in der gleichen Zeile wie Code stehen (sog. &quot;in-line comment&quot;)</span>
+
+<span class="sd">&#39;&#39;&#39;hier haben  </span>
+<span class="sd">wir einen</span>
+<span class="sd">&quot;langen&quot;</span>
+<span class="sd">Kommentar&#39;&#39;&#39;</span> <span class="c1">#JupyterLab gibt diesen Kommentar verwirrenderweise aus, da JuypterLab stets die letzte Zeile zurückgibt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;hier haben  \nwir einen\n&quot;langen&quot;\nKommentar&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Rückblickend auf das, was wir im Video über algorithmisches Denken gelernt haben, empfiehlt es sich übrigens, das grobe “Code-Gerüst” (also die einzelnen Schritte, die zur Lösung eines Problems führen sollen) erst einmal in Form von Kommentaren festzuhalten. Dadurch verliert man sich nicht gleich in der Umsetzung eines einzelnen Schrittes, sondern investiert aktiv Zeit in einen durchdachten Code-Aufbau. 💡</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 6:</strong> Definiere zwei Variablen, eine Zeichenkette (z.B. “Boeing”) und eine Zahl (z.B. 747). Führe nun eine dritte Variable ein, die die beiden Objekte miteinander konkateniert (also “Boeing 747”). Funktioniert das mithilfe des <code class="docutils literal notranslate"><span class="pre">+</span></code>-Operators? Wenn nein, lies die Fehlermeldung und überleg Dir, wie Du den Code dennoch zum laufen bringen könntest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "exdimed"
+        },
+        kernelOptions: {
+            name: "exdimed",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'exdimed'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="About%20me.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Datentypen.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Datentypen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#von-oben-nach-unten">Von oben nach unten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte">Objekte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen">Variablen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operatoren">Operatoren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einruckungen">Einrückungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kommentare">Kommentare</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
