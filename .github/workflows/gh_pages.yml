@@ -5,6 +5,9 @@ on:
   push:
     branches:
     - main
+    
+permissions:
+  contents: write
 
 # This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
@@ -23,11 +26,10 @@ jobs:
       run: |
         pip install -r website/requirements.txt
 
-
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build website
+        jupyter-book build website+
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
