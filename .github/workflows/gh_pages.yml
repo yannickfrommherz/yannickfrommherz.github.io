@@ -11,23 +11,23 @@ jobs:
   deploy-book:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     # Install dependencies
     - name: Set up Python 3.7
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v3
       with:
         python-version: 3.7
 
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r website/requirements.txt
 
 
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build .
+        jupyter-book build website
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
