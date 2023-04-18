@@ -17,6 +17,7 @@ latex:
 launch_buttons:
   notebook_interface: jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url: https://mybinder.org 
+  thebe: true
 
 repository:
   url: https://github.com/yannickfrommherz/yfrommherz.ch
