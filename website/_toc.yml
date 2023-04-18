@@ -27,17 +27,17 @@ parts:
         title: Reguläre Ausdrücke
       - file: programming/1_Notebooks/7_Datenanalyse
         title: Datenanalyse
-      - caption: Cheat Sheets
-        chapters: 
-          - file: programming/2_Cheat_sheets/2_Datentypen
-            title: Datentypen
-          - file: programming/2_Cheat_sheets/Strings
-            title: Strings
-          - file: programming/2_Cheat_sheets/Listen
-            title: Listen
-          - file: programming/2_Cheat_sheets/Dictionaries
-            title: Dictionaries
-          - file: programming/2_Cheat_sheets/f-strings
-            title: f-strings
+      - file: other_content/cheat_sheets
+        sections: 
+        - file: programming/2_Cheat_sheets/2_Datentypen
+          title: Datentypen
+        - file: programming/2_Cheat_sheets/Strings
+          title: Strings
+        - file: programming/2_Cheat_sheets/Listen
+          title: Listen
+        - file: programming/2_Cheat_sheets/Dictionaries
+          title: Dictionaries
+        - file: programming/2_Cheat_sheets/f-strings
+          title: f-strings
 
   
