@@ -1,6 +1,7 @@
 # Book settings
 
 title: "Yannick Frommherz"
+author: "Yannick Frommherz"
 logo: logo.png
 copyright: "2023"
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
@@ -40,3 +41,9 @@ html:
     </div>
 
   baseurl: "https://github.com/yannickfrommherz/yfrommherz.ch"
+
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - html_admonition
+
+
