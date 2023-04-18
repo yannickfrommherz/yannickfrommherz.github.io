@@ -12,10 +12,9 @@ Klicke auf das <i class="fa fa-rocket" aria-hidden="true"></i>-Symbol oben recht
 
 Installiere Python sowie die Programmierumgebung *JupyterLab* auf Deinem eigenen Rechner. Folge dazu [dieser Anleitung](https://youtu.be/7kc7IjJ731g). Starte anschließend wie im Video beschrieben einen JupyterLab Server. Lade nun [über diesen Link](https://github.com/yannickfrommherz/exdimed-student/archive/refs/heads/main.zip) sämtliche Jupyter Notebooks herunter, entpacke die Dateien und speichere sie an einem sinnvollen Ort ab. Greife anschließend über den in JupyterLab integrierten Dateimanager (linke Spalte) auf das gewünschte Notebook zu. 
 
-:::{admonition} Welche Option soll ich wählen?
-:class: tip
+```{admonition} Welche Option soll ich wählen?
 Führe die Notebooks auf Deinem eigenen Rechner aus (und nicht bei Binder), wenn Du den ganzen Kurs machen möchtest. Binder lohnt sich hingegen, um einzelne Notebooks (mal eben) auszuführen.
-:::
+```
 
 ## Übungen & Anwendungsfälle
 
