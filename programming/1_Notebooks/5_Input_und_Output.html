@@ -234,6 +234,24 @@ const thebe_selector_output = ".output, .cell_output"
 </a>
 </li>
       
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
   </ul>
 </div>
 
@@ -1146,7 +1164,7 @@ Und wäre leicht von Grund aus abgebrannt.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1868</span><span class="o">/</span><span class="mf">2969257605.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1887</span><span class="o">/</span><span class="mf">2969257605.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Handelt es sich um einen anderen Datentyp als string muss der Input gecastet werden</span>
@@ -1332,7 +1350,7 @@ Hier werden 5 Objekte ausgegeben.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1868</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1887</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?&quot;</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
@@ -1419,8 +1437,8 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1522,7 +1540,7 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
   <div class="footer-item">
     
 <p class="component-author">
-Durch Yannick Frommherz
+Durch The Jupyter Book community
 </p>
 
   </div>

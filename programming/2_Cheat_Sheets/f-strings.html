@@ -232,6 +232,24 @@ const thebe_selector_output = ".output, .cell_output"
 </a>
 </li>
       
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
   </ul>
 </div>
 
@@ -525,8 +543,8 @@ f&quot;{value:.2f}&quot; #Wert wird auf zwei Nachkommastellen gerundet
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -586,7 +604,7 @@ f&quot;{value:.2f}&quot; #Wert wird auf zwei Nachkommastellen gerundet
   <div class="footer-item">
     
 <p class="component-author">
-Durch Yannick Frommherz
+Durch The Jupyter Book community
 </p>
 
   </div>

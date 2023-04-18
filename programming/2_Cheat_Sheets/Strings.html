@@ -62,8 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/2_Cheat_Sheets/Listen';</script>
-    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/2_Cheat_Sheets/Listen.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/2_Cheat_Sheets/Strings';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/2_Cheat_Sheets/Strings.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -217,7 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/2_Cheat_Sheets/Listen.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/2_Cheat_Sheets/Strings.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/2_Cheat_Sheets/Listen.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/2_Cheat_Sheets/Strings.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Öffnen Sie ein Problem"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +313,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/programming/2_Cheat_Sheets/Listen.ipynb" target="_blank"
+      <li><a href="../../_sources/programming/2_Cheat_Sheets/Strings.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Quelldatei herunterladen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -419,28 +419,49 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">script</span> echo 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">script</span> echo
 
-liste.append(element) #hängt das Element ans Ende der Liste; gleichbedeutend mit:
-liste += [element] #beachte die eckigen Klammern!
-liste.insert(index, element) #fügt das Element an der Stelle des angegebenen Index auf der Liste ein 
-liste.extend(element) #hängt die Element eines iterierbaren Objekts einzeln an die Liste an (z.B. alle Elemente einer Liste oder alle Zeichen eines strings als einzelne Listenelemente, anstatt die Liste/den string als ein einziges Listenelement)
-liste[start:end] = [new_element1, new_element2] #ersetzt die Werte zwischen Start- und Endindex auf der Liste mit neuen Werten
-liste.remove(element) #entfernt das (erste) angegenene Element von der Liste
-liste.pop() #gibt das letzte Element der Liste zurück und entfernt es gleichzeitig von der Liste
-liste.pop(index) #gibt das Element an der Stelle des angegebenen Index zurück und entfernt es gleichzeitig von der Liste
-liste2 = liste1[:] #kopiert die Elemente von liste1 auf eine neue Liste liste2 (anstatt nur eine zweite Variable einzuführen, die auf das gleiche Objekt zeigt), Änderungen an liste2 verändern nichts an liste1 (vgl. Datentypen/Veränderlichkeit)
-liste.index(&quot;value&quot;) #gibt den Index des ersten Vorkommens des angegebenen Werts zurück
-liste.reverse() #kehrt die Reihenfolge der Liste um
-liste.sort(key=... [, reverse=True]) #sortiert die Liste (in place, d.h. das Objekt wird dadurch verändert); key definiert wonach sortiert wird (z.B. len, oder eine lambda-Funktion); der optionale Parameter reverse=True bedeutet absteigende Reihenfolge
-liste2 = sorted(liste1, key=... [, reverse=True]) #gibt die Liste sortiert zurück (nicht in place, d.h. das Objekt wird dadurch nicht verändert, daher auf neue Variable schreiben, um weiter mit sortierter Liste zu arbeiten); key definiert wonach sortiert wird (z.B. len, oder eine lambda-Funktion); der optionale Parameter reverse=True bedeutet absteigende Reihenfolge
-liste.count(&quot;value&quot;) #zählt das Vorkommen des angegebenen Werts auf der Liste
+#Sequenzoperationen
+word in string #gibt True zurück, falls sich word in string befindet
+word not in string #gibt True zurück, falls sich word nicht in string befindet
+len(string) #gibt die Länge in Zeichen des strings zurück
+string = string1 + string2 #konkateniert die beiden strings (d.h., sie werden aneinander gehängt) 
+string[1] #gibt das Zeichen mit Index 1 zurück (d.h. in natürlicher Sprache das zweite Zeichen), vgl. Indexing
+string[2:4] #gibt die Zeichen mit Indizes 2 und 3 zurück, vgl. Slicing
 
-#erstellt eine Frequenzliste basierend auf dem Vorkommen von Elementen auf einer Liste
-freq_dict = {}
-for element in set(liste):
-    freq_dict[element] = liste.count(element)
-freq_dict = sorted(freq_dict.items(), key = lambda: x: x[1])
+#Groß- und Kleinbuchstaben (casing)
+string = string.lower() #ändert alle Zeichen in Kleinbuchstaben (lowercasing)
+string = string.upper() #ändert alle Zeichen in Großbuchstaben (uppercasing) 
+string = string.capitalize() #ändert das erste Zeichen in Großbuchstaben (capitalizing)
+string = string.title() #ändert alle Buchstaben an jedem Wortanfang in Großbuchstaben (wie üblich in englischsprachigen Titel)
+string = string.swapcase() #ändert sämtliche großgeschriebenen Buchstaben in Kleinbuchstaben und umgekehrt
+string.islower() #gibt True zurück, falls alle Zeichen Kleinbuchstaben sind
+string.isupper() #gibt True zurück, falls alle Zeichen Großbuchstaben sind
+string.istitle() #gibt True zurück, falls alle Buchstaben am Wortanfang Großbuchstaben sind
+
+#whitespace
+string = string.strip() #entfernt whitespace am Anfang und Ende vom string
+string = string.strip(&quot;.&quot;) #entfernt . am Anfang und Ende vom string; beliebige andere Zeichen (auch mehrere) können dadurch entfernt werden
+string = string.lstrip() #entfernt whitespace am Anfang vom string
+string = string.rstrip() #entfernt whitespace am Ende vom string
+string.isspace() #gibt True zurück, falls der string nur whitespace enthält 
+
+#split 
+string = string.split(sep [, maxsplit]) #spaltet den string bei jedem Separator (sep) und gibt eine Liste zurück; Standardseparator ist whitespace; optional kann eine maximale Anzahl von splits (gerechnet von links) angegeben werden (maxsplit), alles danach kommt ins letzte Element auf der Liste
+string = string.partition(sep) #partitioniert den string beim Separator (sep) und gibt einen 3-Tuple zurück mit dem Part vor dem Separator, dem Separator selbst und dem Part danach
+
+#Zählen, finden, ersetzen
+string.count(&quot;x&quot;) # zählt das Vorkommen von x im string
+string = string.find(&quot;x&quot;) #gibt den Index des ersten Vorkommens von x im string zurück
+string.index(&quot;x&quot; [, start, end]) #gibt Index des ersten Vorkommens von x innerhalb von (optionalen) Start- und Endindizes im string zurück
+string = string.replace(&quot;to_be_replaced&quot;, &quot;replace_by&quot;) #ersetzt alle &quot;to_be_replaced&quot; mit &quot;replace_by&quot; im string
+
+#startswith, endswith
+string.startswith(&quot;word&quot;) #gibt True zurück, wenn der string mit word anfängt, wird i.d.R. in if-statements eingesetzt
+string.endsswith(&quot;word&quot;) #gibt True zurück, wenn der string mit word aufhört, wird i.d.R. in if-statements eingesetzt
+
+#von einer Liste (oder einem anderen iterierbaren Objekt) zu einem string
+string = &quot; &quot;.join(list) #gibt einen string zurück, indem sämtliche Elemente auf der Liste mit einem Leerschlag (andere Zwischenzeichen möglich) konkateniert werden
 </pre></div>
 </div>
 </div>
