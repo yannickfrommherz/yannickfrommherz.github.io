@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5. Input und Output &#8212; Yannick Frommherz</title>
+    <title>6. Input und Output &#8212; Yannick Frommherz</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/5_Input_und_Output.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="6. Reguläre Ausdrücke / RegEx" href="6_Regulaere_Ausdruecke.html" />
-    <link rel="prev" title="4. Funktionen und Methoden" href="4_Funktionen_und_Methoden.html" />
+    <link rel="next" title="7. Reguläre Ausdrücke / RegEx" href="6_Regulaere_Ausdruecke.html" />
+    <link rel="prev" title="5. Funktionen und Methoden" href="4_Funktionen_und_Methoden.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -133,7 +133,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="../../start_page.html">
+<a class="navbar-brand logo" href="../../other_content/start_page.html">
   
   
   
@@ -155,15 +155,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../about_me/yannick.html">I am Yannick</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about_me/cv.html">Curriculum Vitae</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learn programming (🇩🇪)</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Programmieren für Geistes- und Sozialwissenschaftler:innen</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">1. Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Datentypen.html">2. Datentypen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Input und Output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l1"><a class="reference internal" href="7_Datenanalyse.html">7. Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_content/lets_get_started.html">1. Legen wir los!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">2. Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Datentypen.html">3. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Kontrollstrukturen.html">4. Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Funktionen_und_Methoden.html">5. Funktionen und Methoden</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Input und Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">7. Reguläre Ausdrücke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Datenanalyse.html">8. Datenanalyse</a></li>
 </ul>
 
     </div>
@@ -388,30 +389,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dateipfade">5.1. Dateipfade</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-dateipfade">5.1.1. Absolute Dateipfade</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-dateipfade">5.1.2. Relative Dateipfade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dateipfade">6.1. Dateipfade</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-dateipfade">6.1.1. Absolute Dateipfade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-dateipfade">6.1.2. Relative Dateipfade</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-os-modul">5.2. Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren">5.3. 🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-open-funktion">5.4. Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">5.4.1. Input</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">5.4.2. Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-os-modul">6.2. Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren">6.3. 🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-open-funktion">6.4. Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">6.4.1. Input</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">6.4.2. Output</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textdateien">5.5. Textdateien</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-die-wahrheitsmatrix">5.5.1. Exkurs: Die Wahrheitsmatrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textdateien">6.5. Textdateien</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-die-wahrheitsmatrix">6.5.1. Exkurs: Die Wahrheitsmatrix</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabellarische-dateien">5.6. Tabellarische Dateien</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-csv-modul">5.6.1. Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabellarische-dateien">6.6. Tabellarische Dateien</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-csv-modul">6.6.1. Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-fur-interaktive-programme">5.7. User-Input für interaktive Programme</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.8. 🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-print-funktion-im-detail">5.9. Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">5.9.1. f-strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-fur-interaktive-programme">6.7. User-Input für interaktive Programme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">6.8. 🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-print-funktion-im-detail">6.9. Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">6.9.1. f-strings</a></li>
 </ul>
 </li>
 </ul>
@@ -426,7 +427,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="input-und-output">
-<h1><span class="section-number">5. </span>Input und Output<a class="headerlink" href="#input-und-output" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Input und Output<a class="headerlink" href="#input-und-output" title="Permalink to this heading">#</a></h1>
 <p>In den ersten Notebooks haben wir gelernt, dass wir in Python effizient mit Objekten verschiedenster Datentypen arbeiten, indem wir sie Variablen zuweisen. Am Anfang hatten wir es bloß mit kleinen Objekten zu tun – etwa mit einzelnen Wörtern oder, wenn’s hoch kam, mit Sätzen. Diese haben wir bei der Variablenzuweisung jeweils komplett ausgeschrieben:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sentence</span> <span class="pre">=</span> <span class="pre">&quot;Am</span> <span class="pre">Anfang</span> <span class="pre">haben</span> <span class="pre">wir</span> <span class="pre">eine</span> <span class="pre">Zeichenkette</span> <span class="pre">noch</span> <span class="pre">ausgeschrieben.&quot;</span></code></p>
 <p>Im letzten Notebook haben wir dann zum ersten Mal mit größeren Objekten gearbeitet, nämlich mit den Koalitionsverträgen. Aufgrund der Größe (und der Tatsache, dass wir die Texte bereits extern in einer Datei vorliegen hatten) haben wir uns die Texte vom externen Speicherort in den Arbeitsspeicher geladen und einer Variablen zugewiesen.</p>
@@ -435,11 +436,11 @@ document.write(`
 <p>Auch in diesem Notebook gibt es einen Anwendungsfall, den wir am Ende unter Einbezug der meisten hier erlernten Techniken lösen können. Mehr dazu weiter unten.</p>
 <p>Dieses Notebook ist recht umfangreich und es ist empfehlenswert, sich die Inhalte verteilt über zwei oder mehr Lernsesssions anzuschauen.</p>
 <section id="dateipfade">
-<h2><span class="section-number">5.1. </span>Dateipfade<a class="headerlink" href="#dateipfade" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.1. </span>Dateipfade<a class="headerlink" href="#dateipfade" title="Permalink to this heading">#</a></h2>
 <p>Um Dateien von einem bestimmten Ort auf dem Laufwerk einzulesen bzw. an einem bestimmten Ort auszugeben, müssen wir uns mit Dateipfaden vertraut machen. Jede Datei auf Deinem Computer hat bekanntlich einen Namen, ein Dateisuffix (etwa „.txt“, wird z.T. ausgeblendet) und die Datei befindet sich in einem bestimmten Verzeichnis (auch <em>Ordner</em> genannt). Dieses Verzeichnis befindet sich wiederum in einem Verzeichnis, und so weiter, bis zum obersten Verzeichnis, dem Stamm des Laufwerks. Jede Datei hat also eine einzigartige Adresse und diese Adresse wird <em>Dateipfad</em> genannt.</p>
 <p>Wie Du gleich sehen wirst, gibt es zwei Arten, einen Dateipfad anzugeben, nämlich absolut und relativ. Zusätzlich unterscheiden sich Dateipfade zwischen macOS und Windows. Dateipfade zu verstehen, ist überaus wichtig, um frustrierenden <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>-Fehlern vorzubeugen.</p>
 <section id="absolute-dateipfade">
-<h3><span class="section-number">5.1.1. </span>Absolute Dateipfade<a class="headerlink" href="#absolute-dateipfade" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.1.1. </span>Absolute Dateipfade<a class="headerlink" href="#absolute-dateipfade" title="Permalink to this heading">#</a></h3>
 <p>Ein Dateipfad kann immer absolut, d.h. vollständig vom Stamm des Laufwerks bis zur gewünschten Datei, angegeben werden. Um an den absoluten Pfad einer beliebigen Datei heranzukommen, gibt es folgende Tricks:</p>
 <ul class="simple">
 <li><p>Unter macOS: Navigiere im Finder zur gewünschten Datei und klicke die Datei mit zwei Fingern an (Rechtsklick), es öffnet sich ein Menüfenster. Drücke die Taste <em>Option ⌥</em>, wodurch sich einige Menüoptionen ändern. Wähle <em>„Datei“ als Pfadname kopieren</em>. Ein vollständiger Pfad unter macOS sieht z.B. so aus: „/Users/Name/Documents/Project/Folder/Notebook.ipynb“, beachte, dass Schrägstriche „/“ verwendet werden sowie, dass der absolute Pfad mit einem Schrägstrich beginnt.</p></li>
@@ -465,7 +466,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="relative-dateipfade">
-<h3><span class="section-number">5.1.2. </span>Relative Dateipfade<a class="headerlink" href="#relative-dateipfade" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.1.2. </span>Relative Dateipfade<a class="headerlink" href="#relative-dateipfade" title="Permalink to this heading">#</a></h3>
 <p>Ein Dateipfad kann stets auch relativ, d.h. vom aktuellen Arbeitsverzeichnis aus gesehen, angegeben werden. Am einfachsten ist das natürlich bei einer Datei, die sich im aktuellen Arbeitsverzeichnis befindet. Um auf diese zuzugreifen, geben wir bloß ihren Namen als Pfad an.</p>
 <p>Weiter können wir vom aktuellen Arbeitsverzeichnis aus in ein (darin befindliches) Unterverzeichnis navigieren. Dazu beginnt der relative Pfad mit dem Namen des Unterverzeichnis, gefolgt von einem Schrägstrich sowie dem Namen der Datei. Diese Schreibweise mit dem Schrägstrich funktioniert innerhalb Pythons auf allen Betriebssystemen. Unsere Schnittstelle zu externen Dateien, die weiter unten vorgestellte <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion, kümmert sich bei relativen Pfaden wenn nötig um die Konversion von Schrägstrich zu Backslash.</p>
 <p>Letztlich können wir vom aktuellen Arbeitsverzeichnis aus auch aufwärts (zum Stamm des Laufwerks hin) navigieren. Indem wir zwei Punkte und einen Schrägstrich, also „../“, an den Anfang des relativen Pfads stellen, rücken wir eine Ebene nach oben (und durch „../../“ zwei Ebenen, etc.). Im Anschluss an den Schrägstrich folgt der Name der Datei, die sich im Oberverzeichnis befindet. Natürlich können wir vom Oberverzeichnis aus auch in ein <em>anderes</em> Unterverzeichnis als das aktuelle Arbeitsverzeichnis (eine Art „Schwesterverzeichnis“) navigieren.</p>
@@ -474,7 +475,7 @@ document.write(`
 </section>
 </section>
 <section id="das-os-modul">
-<h2><span class="section-number">5.2. </span>Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul<a class="headerlink" href="#das-os-modul" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul<a class="headerlink" href="#das-os-modul" title="Permalink to this heading">#</a></h2>
 <p>Im Zusammenhang mit Dateien auf Deinem Laufwerk ist das Modul <code class="docutils literal notranslate"><span class="pre">os</span></code> mit den Funktionen <code class="docutils literal notranslate"><span class="pre">getcwd</span></code>, <code class="docutils literal notranslate"><span class="pre">chdir</span></code> und <code class="docutils literal notranslate"><span class="pre">listdir</span></code> äußerst hilfreich. Sie werden in der folgenden Zelle angewandt und mithilfe von Kommentaren beschrieben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -526,14 +527,14 @@ Loesungen
 </section>
 <hr class="docutils" />
 <section id="anwendungsfall-einen-gedankenprotokollanten-programmieren">
-<h2><span class="section-number">5.3. </span>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren" title="Permalink to this heading">#</a></h2>
 <p>Beim Anwendungsfall in diesem Notebook wollen wir ein interaktives Programm schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Die Benutzerin soll durch das Programm geführt werden und entscheiden können, wo, d.h. in welchem (externen) Dokument, sie ihre Gedanken festhalten will. Sie soll sowohl neue Dokumente anlegen können, als auch in bestehende reinschreiben. Anschließend soll sie beliebig viele Gedanken in dieses Dokument einfügen können. Das folgende Video zeigt das fertige Programm „in Aktion“:</p>
 <video controls src="../3_Dateien/Grafiken_und_Videos/Gedankenprotokollant.mov" width=700/><p>Ohne dieses Programm würde die Benutzerin vermutlich ein Microsoft Word-Dokument öffnen, ihre Gedanken reinschreiben, das Dokument speichern und dann wieder schließen. Das Anlegen/Öffnen/Speichern/Schließen des Dokuments wollen wir ihr abnehmen und ihr stattdessen ermöglichen, ihre Gedanken über eine freundliche, aber sehr minimale Benutzeroberfläche (engl.: <em>user interface</em>, abgekürzt: <em>UI</em>) zu protokollieren.</p>
 <p>Im Folgenden lernen wir die dafür notwendigen Grundlagen kennen.</p>
 </section>
 <hr class="docutils" />
 <section id="die-open-funktion">
-<h2><span class="section-number">5.4. </span>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion<a class="headerlink" href="#die-open-funktion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.4. </span>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion<a class="headerlink" href="#die-open-funktion" title="Permalink to this heading">#</a></h2>
 <p>Die Schnittstelle zu externen Dateien bietet in Python die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion. Sie öffnet externe Dateien mittels folgender grundlegender Syntax:</p>
 <p><code class="docutils literal notranslate"><span class="pre">open(file,</span> <span class="pre">mode)</span></code></p>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">file</span></code> setzen wir den absoluten oder relativen Dateipfad zur zu öffnenden Datei ein, und zwar als Zeichenkette, inklusive des Dateisuffixes und natürlich umrahmt von Anführungszeichen. Über den Parameter <code class="docutils literal notranslate"><span class="pre">mode</span></code> müssen bzw. können wir spezifizieren, was wir mit der zu öffnenden Datei machen wollen. <code class="docutils literal notranslate"><span class="pre">open</span></code> stellt drei verschiedene Modi zur Verfügung:</p>
@@ -549,7 +550,7 @@ Loesungen
 </ul>
 <p>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion akzeptiert neben <code class="docutils literal notranslate"><span class="pre">file</span></code> und <code class="docutils literal notranslate"><span class="pre">mode</span></code> weitere Parameter, z.B. <code class="docutils literal notranslate"><span class="pre">encoding</span></code>, wo wir spezifizieren können, <em>wie</em> eine Datei enkodiert ist. Das Encoding einer Datei legt fest, nach welchem Schlüssel sämtliche Zeichen (Buchstaben in lateinischer Schrift sowie den allermeisten anderen Sprachen, Zahlen, Emojis…) in Nullen und Einsen übersetzt werden. Natürlich geht nichts ohne den korrekten Schlüssel. <a class="reference external" href="https://de.wikipedia.org/wiki/UTF-8">UTF-8</a> von <a class="reference external" href="https://de.wikipedia.org/wiki/Unicode">Unicode</a> ist Standard, sodass wir uns i.d.R. nicht den Kopf darüber zerbrechen müssen. Um Problemen vorzubeugen, lohnt es sich trotzdem, standardmäßig <code class="docutils literal notranslate"><span class="pre">encoding=utf-8</span></code> zu spezifizieren, und zwar beim Input sowie beim Output.</p>
 <section id="input">
-<h3><span class="section-number">5.4.1. </span>Input<a class="headerlink" href="#input" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.4.1. </span>Input<a class="headerlink" href="#input" title="Permalink to this heading">#</a></h3>
 <p>Wie wir bei den Koalitionsverträgen im letzten Notebook bereits gesehen haben, wird die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion zum Lesen von externen Dateien wie folgt syntaktisch eingebunden:</p>
 <p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(file)</span> <span class="pre">as</span> <span class="pre">read_file:</span></code><br>
           <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">=</span> <span class="pre">read_file.read()</span></code></p>
@@ -563,7 +564,7 @@ Loesungen
 <p>In der ersten Zeile wird die externe Datei geöffnet und in der zweiten gelesen. Anschließend muss die Datei wieder <em>manuell</em> geschlossen werden. Oft wird jedoch genau dieser letzte Schritt vergessen. Gewöhne Dir also an, stets den <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager im Umgang mit externen Dateien zu benutzen.</p>
 </section>
 <section id="output">
-<h3><span class="section-number">5.4.2. </span>Output<a class="headerlink" href="#output" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.4.2. </span>Output<a class="headerlink" href="#output" title="Permalink to this heading">#</a></h3>
 <p>Für den Output von Dateien verwenden wir ebenfalls den <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager sowie die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion, aber wie oben erwähnt mit dem zusätzlichen Parameter <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> oder <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(file,</span> <span class="pre">&quot;w&quot;)</span> <span class="pre">as</span> <span class="pre">write_file:</span></code><br>
           <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span> <span class="pre">data:</span></code><br>
@@ -573,7 +574,7 @@ Loesungen
 </section>
 </section>
 <section id="textdateien">
-<h2><span class="section-number">5.5. </span>Textdateien<a class="headerlink" href="#textdateien" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.5. </span>Textdateien<a class="headerlink" href="#textdateien" title="Permalink to this heading">#</a></h2>
 <p>Textdateien sind grundlegend nach Zeilen strukturierte Dateien. Das trifft sowohl auf Microsoft Office-Dokumente mit dem Suffix „.docx“ zu, als auch auf sog. <em>Plain Text Files</em> (mit dem Suffix „.txt“). Letztere sind <strong>nur</strong> nach Zeilen strukturiert und können von den meisten Programmen auf sämtlichen Betriebssystemen und natürlich auch von Python geöffnet werden. Deshalb beschränken wir uns im Folgenden auf Plain Text Files.</p>
 <p>Am Ende jeder Zeile in einer solchen Textdatei steht ein Zeilenumbruch, der als <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> (ausgesprochen: <em>backslash n</em> oder <em>newline</em>) codiert wird. Wenn wir eine „.txt“-Datei z.B. in Microsoft Word öffnen, werden uns i.d.R. nur die Zeilenumbrüche, nicht aber die dafür verantwortlichen Zeichen angezeigt (links im Screenshot unten). Optional können wir sie uns aber einblenden lassen (rechts im Screenshot unten).</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Miss_Sara_Sampson.png"><p>Hier handelt es sich um die ersten paar Zeilen aus Gotthold Ephraim Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/sampson/sampson.html">Miss Sara Sampson</a>.</p>
@@ -751,7 +752,7 @@ Sara. Diese sollen die Zeugen unserer Verbindung sein? – Grausamer! so soll di
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">startswith</span></code> tut ganz klar seinen Dienst.</p>
 <section id="exkurs-die-wahrheitsmatrix">
-<h3><span class="section-number">5.5.1. </span>Exkurs: Die Wahrheitsmatrix<a class="headerlink" href="#exkurs-die-wahrheitsmatrix" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.5.1. </span>Exkurs: Die Wahrheitsmatrix<a class="headerlink" href="#exkurs-die-wahrheitsmatrix" title="Permalink to this heading">#</a></h3>
 <p>An dieser Stelle lohnt sich nochmal ein Blick in <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>, zur Vergewisserung, dass wir mit obiger Bedingung auch wirklich alle Redebeiträge von Sara extrahiert haben. Es könnte ja z.B. sein, dass ihr Name vor einem Redebeitrag aus welchem Grund auch immer kleingeschrieben ist („sara.“) oder aber, dass zwischen ihrem Namen und dem Punkt eine Klammer mit Metakommentaren steht.</p>
 <p>Und tatsächlich: ein Redebeitrag beginnt so: „Sara (sie setzt sich).“ (Index 71 in <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>). Nach eingehender Prüfung wissen wir, dass dies auch der einzige Redebeitrag ist, der nicht von <code class="docutils literal notranslate"><span class="pre">turn.startswith(&quot;Sara.&quot;)</span></code> „eingefangen“ wird. Wir könnten nun etwas unelegant die zusätzliche Bedingung <code class="docutils literal notranslate"><span class="pre">or</span> <span class="pre">turn.startswith(&quot;Sara</span> <span class="pre">(sie</span> <span class="pre">setzt</span> <span class="pre">sich).&quot;)</span></code> aufstellen.</p>
 <p>Um sicherzustellen, dass der Code wiederverwendbar ist (z.B. beim zweiten Aufzug), wählen wir den eleganteren Weg der regulären Ausdrücke (engl.: <em>regular expressions</em>, abgekürzt: <em>RegEx</em>). Reguläre Ausdrücke sind ein äußerst praktisches Werkzeug, das wir uns im nächsten Notebooks im Detail anschauen. Kurz gesagt: Wir definieren hier <em>einen</em> regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">pattern</span></code>), der sowohl Redebeiträge mit als auch solche ohne Metakommentar abdeckt. Lässt sich der definierte reguläre Ausdruck wie eine Schablone über den Anfang eines Elements in  <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code> legen, dann haben wir einen sog. <em>match</em> und wir hängen das Element an <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> an. Wie wir sehen, erhalten wir dadurch 23 statt bisher 22 Redebeiträge zurück:</p>
@@ -1031,7 +1032,7 @@ Und wäre leicht von Grund aus abgebrannt.
 </section>
 </section>
 <section id="tabellarische-dateien">
-<h2><span class="section-number">5.6. </span>Tabellarische Dateien<a class="headerlink" href="#tabellarische-dateien" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.6. </span>Tabellarische Dateien<a class="headerlink" href="#tabellarische-dateien" title="Permalink to this heading">#</a></h2>
 <p>Tabellarische Dateien kennst Du von Microsoft Excel (oder vergleichbaren Programmen). An der Benutzeroberfläche sind sie in Spalten und Zeilen organisiert, wie wir hier am Beispiel einer Tabelle über die <a class="reference external" href="https://de.wikipedia.org/wiki/Liste_der_fl%C3%A4chengr%C3%B6%C3%9Ften_Gemeinden_Deutschlands">zehn flächengrößten Gemeinden Deutschlands</a> sehen:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_Tabelle.png"><p>Der einzige strukturelle Unterschied zu Textdateien ist, dass es neben Zeilen auch eine zweite Strukturdimension gibt, nämlich die Spalten.</p>
 <p>„Hinter den Kulissen“ werden die einzelnen Spalten durch ein Trennzeichen (verwirrenderweise teils <em>separator</em>, teils <em>delimiter</em> auf Englisch) strukturiert. Bei dieser Datei sind dies Semikola (Strichpunkte), wie wir hier sehen:</p>
@@ -1039,7 +1040,7 @@ Und wäre leicht von Grund aus abgebrannt.
 <p>Wenn wir tabellarische Dateien einlesen, müssen wir wissen, mithilfe welchen Trennzeichens sie auf der Spaltenebene strukturiert sind, damit die Daten einer Zeile an den richtigen Orten in Spalten unterteilt werden. Neben Semikola (<code class="docutils literal notranslate"><span class="pre">&quot;;&quot;</span></code>) sind Kommata (<code class="docutils literal notranslate"><span class="pre">&quot;,&quot;</span></code>) oder Tabs (<code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>) übliche Trennzeichen. Wenn, wie oben, Semikola das Trennzeichen sind, können die anderen üblichen Trennzeichen ohne Weiteres zwischen den Semikola vorkommen (siehe z.B. die Kommata in den Flächenangaben). Auch beim Schreiben von tabellarischen Dateien müssen bzw. können wir spezifieren, welches Trennzeichen verwendet werden soll.</p>
 <p>Zur Arbeit mit tabellarischen Daten (sowie generell für fortgeschrittene Datenanalyse) gibt es die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, der das übernächste Notebook gewidmet ist. Hier schauen wir uns das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul an, das sich für den einfachen Umgang mit tabellarischen Daten eignet.</p>
 <section id="das-csv-modul">
-<h3><span class="section-number">5.6.1. </span>Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul<a class="headerlink" href="#das-csv-modul" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.6.1. </span>Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul<a class="headerlink" href="#das-csv-modul" title="Permalink to this heading">#</a></h3>
 <p>Wie üblich importieren wir das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul zu Beginn. Ebenfalls setzen wir stets „csv.“ vor den Namen von Funktionen aus diesem Modul (vgl. oben zum <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul).</p>
 <p>Die Datei mit den flächengrößten Gemeinden lesen wir natürlich auch mittels <code class="docutils literal notranslate"><span class="pre">open</span></code>, eingebettet in ein <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement, ein. Das <code class="docutils literal notranslate"><span class="pre">read_file</span></code> übergeben wir zusammen mit dem korrekten Trennzeichen (<code class="docutils literal notranslate"><span class="pre">delimiter=&quot;;&quot;</span></code>) der <code class="docutils literal notranslate"><span class="pre">reader</span></code>-Funktion (beachte die „agentive“ Benennung von Funktionen im <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul). Standardtrennzeichen ist übrigens das Komma (der Name des Moduls ist nämlich eine Abkürzung für <em>comma-separated values</em>), das wie immer nicht angegeben werden muss.</p>
 <p>Die <code class="docutils literal notranslate"><span class="pre">reader</span></code>-Funktion gibt uns nun nicht ein gewöhnliches Python-Objekt zurück (etwa einen string oder eine Liste wie beim Textinput), sondern ein <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code>, das wir mit <code class="docutils literal notranslate"><span class="pre">data</span></code> referenzieren. Über dieses <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code> können wir wie gewohnt iterieren und die einzelnen Zeilen einer Liste anhängen. Wir müssen das innerhalb der Einrückung machen, da  das <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code> zusammen mit <code class="docutils literal notranslate"><span class="pre">read_file</span></code> wieder geschlossen wird, sobald wir die Einrückung verlassen:</p>
@@ -1123,7 +1124,7 @@ Und wäre leicht von Grund aus abgebrannt.
 </section>
 </section>
 <section id="user-input-fur-interaktive-programme">
-<h2><span class="section-number">5.7. </span>User-Input für interaktive Programme<a class="headerlink" href="#user-input-fur-interaktive-programme" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.7. </span>User-Input für interaktive Programme<a class="headerlink" href="#user-input-fur-interaktive-programme" title="Permalink to this heading">#</a></h2>
 <p>Wie wir bereits im dritten Notebook gesehen haben, ist es ganz einfach, User-Input in Programme einzubauen. Wir verwenden dafür die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion und übergeben ihr einen sog. <em>prompt</em> als string. Dieser <em>prompt</em> ist die Aufforderung, die der Benutzerin angezeigt wird, sobald Python die Code-Zeile mit der <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion erreicht. Das, was die Benutzerin nun eingibt (und durch Drücken von Enter „abschickt“), weisen wir direkt einer Variablen zu.</p>
 <p>Python interpretiert den Input standardmäßig als string. Wenn wir z.B. eine Ganzzahl erwarten (und der anschließende Code darauf ausgerichtet ist), müssen wir den Input vor der Variablenzuweisung entsprechend casten (s.u.).</p>
 <p>Führe die folgende Zelle aus und agiere im Anschluss als Benutzer:in. Eventuell musst Du erst ins Antwortfeld unter der Frage klicken, sodass der Cursor blinkt.</p>
@@ -1145,7 +1146,7 @@ Und wäre leicht von Grund aus abgebrannt.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1836</span><span class="o">/</span><span class="mf">2969257605.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1967</span><span class="o">/</span><span class="mf">2969257605.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Handelt es sich um einen anderen Datentyp als string muss der Input gecastet werden</span>
@@ -1170,7 +1171,7 @@ Und wäre leicht von Grund aus abgebrannt.
 </section>
 <hr class="docutils" />
 <section id="id1">
-<h2><span class="section-number">5.8. </span>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.8. </span>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Deine Aufgabe ist es also, ein kleines interaktives Programm zu schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Hier folgt nochmal das gleiche Video vom Anfang:</p>
 <video controls src="../3_Dateien/Grafiken_und_Videos/Gedankenprotokollant.mov" width=700/><p>Ergänzend zu diesem Video siehst Du unten eine Liste an einfachen Schritten, die – korrekt implementiert – die Aufgabe lösen und das im Video gezeigte Endprodukt verwirklichen. Diese einzelnen Schritte entsprechen dem zweiten Punkt beim algorithmischen Denken (nach der initialen Problemanalyse und vor der konkreten Implementierung).</p>
 <p>Überlege Dir für jeden einzelnen Schritt, wie Du ihn konkret implementieren kannst, d.h. welche Funktionen oder Methoden sowie Kontrollstrukturen Du dafür benötigst. Schreibe zu jedem Punkt alle Techniken auf, mithilfe welcher Du den jeweiligen Punkt konkret in Code umsetzen kannst. Ignoriere dabei erst einmal, wie und in welcher Reihenfolge Du die Schritte anschließend miteinander verbindest:</p>
@@ -1247,7 +1248,7 @@ Und wäre leicht von Grund aus abgebrannt.
 <p>Abschließend schauen wir uns noch die vermutlich am häufigsten benutzte Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">print</span></code>, genauer an.</p>
 </section>
 <section id="die-print-funktion-im-detail">
-<h2><span class="section-number">5.9. </span>Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail<a class="headerlink" href="#die-print-funktion-im-detail" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.9. </span>Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail<a class="headerlink" href="#die-print-funktion-im-detail" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">print</span></code> gibt bekanntlich null, ein oder mehrere Objekte als string aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1300,7 +1301,7 @@ Hier werden 5 Objekte ausgegeben.
 </div>
 <p>Wenn Du diese Zelle mehrfach ausführst, schreibst Du jedes Mal eine weitere Zelle in die externe Datei. Dies liegt natürlich am <em>append</em>-Modus.</p>
 <section id="f-strings">
-<h3><span class="section-number">5.9.1. </span>f-strings<a class="headerlink" href="#f-strings" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.9.1. </span>f-strings<a class="headerlink" href="#f-strings" title="Permalink to this heading">#</a></h3>
 <p>Im Zusammenhang mit <code class="docutils literal notranslate"><span class="pre">print</span></code> sind auch die sog. <em>f-strings</em> (abgekürzt für <em>formatted string literals</em>) zu erwähnen. Gleich wie <code class="docutils literal notranslate"><span class="pre">print</span></code> (für die Ausgabe) und die Zeichenketten-Konkatenation mithilfe von <code class="docutils literal notranslate"><span class="pre">+</span></code> (vgl. erstes Notebook) können wir f-strings dazu nutzen, beliebig viele Werte zu einem string zusammenzusetzen. Das sieht syntaktisch so aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1331,7 +1332,7 @@ Hier werden 5 Objekte ausgegeben.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1836</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1967</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?&quot;</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
@@ -1451,7 +1452,7 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Funktionen und Methoden</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Funktionen und Methoden</p>
       </div>
     </a>
     <a class="right-next"
@@ -1459,7 +1460,7 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Reguläre Ausdrücke / RegEx</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Reguläre Ausdrücke / RegEx</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1481,30 +1482,30 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dateipfade">5.1. Dateipfade</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-dateipfade">5.1.1. Absolute Dateipfade</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-dateipfade">5.1.2. Relative Dateipfade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dateipfade">6.1. Dateipfade</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-dateipfade">6.1.1. Absolute Dateipfade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-dateipfade">6.1.2. Relative Dateipfade</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-os-modul">5.2. Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren">5.3. 🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-open-funktion">5.4. Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">5.4.1. Input</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">5.4.2. Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-os-modul">6.2. Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren">6.3. 🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-open-funktion">6.4. Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">6.4.1. Input</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">6.4.2. Output</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textdateien">5.5. Textdateien</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-die-wahrheitsmatrix">5.5.1. Exkurs: Die Wahrheitsmatrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textdateien">6.5. Textdateien</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-die-wahrheitsmatrix">6.5.1. Exkurs: Die Wahrheitsmatrix</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabellarische-dateien">5.6. Tabellarische Dateien</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-csv-modul">5.6.1. Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabellarische-dateien">6.6. Tabellarische Dateien</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-csv-modul">6.6.1. Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-fur-interaktive-programme">5.7. User-Input für interaktive Programme</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.8. 🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-print-funktion-im-detail">5.9. Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">5.9.1. f-strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-fur-interaktive-programme">6.7. User-Input für interaktive Programme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">6.8. 🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-print-funktion-im-detail">6.9. Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">6.9.1. f-strings</a></li>
 </ul>
 </li>
 </ul>

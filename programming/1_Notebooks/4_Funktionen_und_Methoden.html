@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>4. Funktionen und Methoden &#8212; Yannick Frommherz</title>
+    <title>5. Funktionen und Methoden &#8212; Yannick Frommherz</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/4_Funktionen_und_Methoden.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="5. Input und Output" href="5_Input_und_Output.html" />
-    <link rel="prev" title="3. Kontrollstrukturen" href="3_Kontrollstrukturen.html" />
+    <link rel="next" title="6. Input und Output" href="5_Input_und_Output.html" />
+    <link rel="prev" title="4. Kontrollstrukturen" href="3_Kontrollstrukturen.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -133,7 +133,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="../../start_page.html">
+<a class="navbar-brand logo" href="../../other_content/start_page.html">
   
   
   
@@ -155,15 +155,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../about_me/yannick.html">I am Yannick</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about_me/cv.html">Curriculum Vitae</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learn programming (🇩🇪)</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Programmieren für Geistes- und Sozialwissenschaftler:innen</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">1. Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Datentypen.html">2. Datentypen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Funktionen und Methoden</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_Input_und_Output.html">5. Input und Output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l1"><a class="reference internal" href="7_Datenanalyse.html">7. Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_content/lets_get_started.html">1. Legen wir los!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">2. Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Datentypen.html">3. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Kontrollstrukturen.html">4. Kontrollstrukturen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Funktionen und Methoden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Input_und_Output.html">6. Input und Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">7. Reguläre Ausdrücke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Datenanalyse.html">8. Datenanalyse</a></li>
 </ul>
 
     </div>
@@ -388,18 +389,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-reuse">4.1. Code Reuse</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-vs-methoden">4.2. Funktionen vs. Methoden</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-errechnen-von-schlusselwortern">4.3. 🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-zeichenketten-strings">4.4. Operationen bei Zeichenketten / strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-listen">4.5. Operationen bei Listen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-list-comprehension">4.5.1. Exkurs: List Comprehension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-reuse">5.1. Code Reuse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-vs-methoden">5.2. Funktionen vs. Methoden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-errechnen-von-schlusselwortern">5.3. 🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-zeichenketten-strings">5.4. Operationen bei Zeichenketten / strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-listen">5.5. Operationen bei Listen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-list-comprehension">5.5.1. Exkurs: List Comprehension</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-dictionaries">4.6. Operationen bei dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.7. 🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-selbst-definieren">4.8. Funktionen selbst definieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module">4.9. Module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-dictionaries">5.6. Operationen bei dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.7. 🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-selbst-definieren">5.8. Funktionen selbst definieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module">5.9. Module</a></li>
 </ul>
             </nav>
         </div>
@@ -412,10 +413,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="funktionen-und-methoden">
-<h1><span class="section-number">4. </span>Funktionen und Methoden<a class="headerlink" href="#funktionen-und-methoden" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5. </span>Funktionen und Methoden<a class="headerlink" href="#funktionen-und-methoden" title="Permalink to this heading">#</a></h1>
 <p>In diesem Notebook lernen wir Funktionen und Methoden kennen. Nach einer Einführung in <em>Code Reuse</em> schauen wir uns Funktionen und Methoden besonders wichtiger Datentypen anhand eines konkreten Anwendungsfalls an. Wir lernen, wie wir selbst Funktionen schreiben können und abschließend, wie wir von fertigem Code für spezifische Anwendungsfelder in Form von Modulen profitieren können.</p>
 <section id="code-reuse">
-<h2><span class="section-number">4.1. </span>Code Reuse<a class="headerlink" href="#code-reuse" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.1. </span>Code Reuse<a class="headerlink" href="#code-reuse" title="Permalink to this heading">#</a></h2>
 <p>Die allermeisten Operationen, die wir beim Programmieren unternehmen, haben andere (und ab einem gewissen Zeitpunkt meist wir selbst auch) schon unzählige Male vorher ausgeführt. Nun sind wir erst beim vierten Notebook und dennoch haben wir uns bereits mehrfach die Länge von einem Objekt ausgeben lassen (mithilfe der <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion), oder überhaupt, uns Objekte mit der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ausgeben lassen.</p>
 <p>Ohne zu überlegen, haben wir vorgefertigte „Bausteine“ von Python eingesetzt. Wenn man darüber nachdenkt, macht etwa die <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion nichts außergewöhnliches. Wir könnten sie einfach nachbilden, indem wir zum Beispiel bei einem <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekt über dessen einzelne Zeichen iterieren und bei jedem Zeichen einen Zähler um 1 erhöhen. Der finale Stand des Zählers entspräche dann der Länge des strings:</p>
 <div class="cell docutils container">
@@ -444,7 +445,7 @@ document.write(`
 <p>Wir lernen ja programmieren, weil wir damit gewisse Aufgaben effizienter ausführen können (oder sie gar erst in Angriff nehmen können, wie beim Web-Scraping-Beispiel im ersten Notebook). Mit Funktionen, Methoden und Modulen können wir bereits geschriebenen Code (wieder)verwenden, weshalb man auch von <em>Code Reuse</em> spricht. Indem wir lernen, diese vorgefertigten Bausteine miteinander zu kombinieren, je nach dem, was wir mit unserem Code erreichen wollen, lernen wir (effizient) zu programmieren.</p>
 </section>
 <section id="funktionen-vs-methoden">
-<h2><span class="section-number">4.2. </span>Funktionen vs. Methoden<a class="headerlink" href="#funktionen-vs-methoden" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.2. </span>Funktionen vs. Methoden<a class="headerlink" href="#funktionen-vs-methoden" title="Permalink to this heading">#</a></h2>
 <p>Bevor wir uns konkrete Funktionen und Methoden anhand eines Anwendungsfalls anschauen, folgen ein paar grundsätzliche Bemerkungen. Funktionen haben stets folgende Syntax:</p>
 <p><code class="docutils literal notranslate"><span class="pre">function(object)</span></code></p>
 <p>Anstelle von <em>function</em> steht der Funktionsname, z.B. <code class="docutils literal notranslate"><span class="pre">len</span></code> und bei <em>object</em> wird der Funktion ein Objekt übergeben, etwa ein string. Wie wir bei der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion gesehen haben, können bei einigen Funktionen kommasepariert auch mehrere Objekte angegeben werden. Weiter können je nach Funktion optional kommasepariert Parameter (also eine [von den Standardwerten abweichende] Spezifierung, wie die Funktion ausgeführt werden soll) angegeben werden (z.B. den <code class="docutils literal notranslate"><span class="pre">sep</span></code>-Parameter bei der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion, siehe zweites Notebook).</p>
@@ -456,7 +457,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="anwendungsfall-errechnen-von-schlusselwortern">
-<h2><span class="section-number">4.3. </span>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#anwendungsfall-errechnen-von-schlusselwortern" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3. </span>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#anwendungsfall-errechnen-von-schlusselwortern" title="Permalink to this heading">#</a></h2>
 <p>Stellen wir uns vor, wir haben einen langen Text und würden gerne wissen, welche Wörter darin besonders oft vorkommen, sog. <em>Schlüsselwörter</em>. Gehen wir noch einen Schritt weiter und stellen uns vor, wir hätten zwei Texte, die wir gerne im Hinblick auf Schlüsselwörter vergleichen wollen. Ein solcher Vergleich wäre z.B. bei Parteiprogrammen oder Koalitionsverträgen spannend, um zu sehen, worauf die jeweiligen Texte ihren Fokus legen und worin sie sich unterscheiden. Sagen wir, wir wollen die deutschen Koalitionsverträge von 2018 (CDU, CSU, SPD) und 2021 (SPD, Grüne, FDP) miteinander vergleichen. Die beiden Texte sind im Ordner „Dateien“ gespeichert. Mit folgendem Code können wir sie in den Arbeitsspeicher laden und uns mittels Slicing jeweils die ersten 100 Zeichen ausgeben lassen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -523,7 +524,7 @@ Koalitionsvertr
 <p>Eine Übersicht aller wichtigen Funktionen und Methoden findet sich in den jeweiligen Cheat Sheets.</p>
 </section>
 <section id="operationen-bei-zeichenketten-strings">
-<h2><span class="section-number">4.4. </span>Operationen bei Zeichenketten / strings<a class="headerlink" href="#operationen-bei-zeichenketten-strings" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span>Operationen bei Zeichenketten / strings<a class="headerlink" href="#operationen-bei-zeichenketten-strings" title="Permalink to this heading">#</a></h2>
 <p>Bei einem langen Text verliert man schnell den Überblick darüber, was beim Ausführen von Code genau geschieht. Deswegen wollen wir erst mit einem simplen string arbeiten, um die Funktionsweise der einzelnen Operationen genau zu verstehen. Das erlernte Wissen übertragen wir später einfach auf die beiden Koalitionstexte. Der Beispielstring lautet:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -776,7 +777,7 @@ Der Satz fängt mit einem maskulinen Artikel an.
 </section>
 <hr class="docutils" />
 <section id="operationen-bei-listen">
-<h2><span class="section-number">4.5. </span>Operationen bei Listen<a class="headerlink" href="#operationen-bei-listen" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.5. </span>Operationen bei Listen<a class="headerlink" href="#operationen-bei-listen" title="Permalink to this heading">#</a></h2>
 <p>Machen wir weiter mit dem Datentyp <code class="docutils literal notranslate"><span class="pre">list</span></code>. Oben hatten wir es ja kurzzeitig mit einer Liste zu tun, die wir dann aber pro forma wieder in einen string konvertierten. Wenn man Wörter in einem Text bereinigen will, etwa mit dem Ziel, Schlüsselwörter zu errechnen, ist es tatsächlich aber viel praktischer, mit einer Liste weiterzuarbeiten. Während ein string einfach <em>eine</em> lange Aneinanderkettung von Zeichen ist, liegen uns die Wörter auf einer Liste in <em>diskreten Einheiten</em> vor. Mittels Iteration können wir dann bestimmte Schritte des <em>preprocessing</em> (so nennt sich diese Technik) Wort für Wort vornehmen.</p>
 <p>Das typische Vorgehen beim preprocessing ist also</p>
 <ol class="arabic simple">
@@ -1140,12 +1141,15 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;, &#39;j&#39;, &#39;k&#39;, &#39;l&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;p&#39;, &#39;q&#39;, &#39;r&#39;, &#39;s&#39;, &#39;t&#39;, &#39;u&#39;, &#39;v&#39;, &#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>In diesem Beispiel hätte <code class="docutils literal notranslate"><span class="pre">sort</span></code> natürlich den gleichen Effekt gehabt. Soviel zum Thema Listen.</p>
 <p>Bevor wir zu dictionaries übergehen, werfen wir noch einen Blick auf die Technik <em>List Comprehension</em>. Es handelt sich dabei um eine fortgeschrittene Technik, mit der Listen auf sehr elegante Weise erzeugt werden können. Alles, was wir gleich mithilfe einer List Comprehension angehen, kannst Du bereits mithilfe anderer Techniken lösen. Der Vorteil von List Comprehensions besteht darin, dass wir viele Schritte auf eine einzige Zeile Code komprimieren können. Ob Du zukünftig List Comprehension verwendest oder nicht, steht Dir frei. In jedem Fall macht es Sinn, dass Du die Technik gesehen hast und weißt, wozu sie eingesetzt wird.</p>
 <section id="exkurs-list-comprehension">
-<h3><span class="section-number">4.5.1. </span>Exkurs: List Comprehension<a class="headerlink" href="#exkurs-list-comprehension" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.5.1. </span>Exkurs: List Comprehension<a class="headerlink" href="#exkurs-list-comprehension" title="Permalink to this heading">#</a></h3>
 <p>Am Anfang des Abschnitts <em>Operationen bei Listen</em> (s.o.) haben wir die bis dahin erlernten Schritte des Preprocessing wie folgt zusammengefasst:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1165,6 +1169,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gesagt&#39;, &#39;ist&#39;, &#39;gesagt&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1216,6 +1223,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Die&#39;, &#39;des&#39;, &#39;ist&#39;, &#39;Sie&#39;, &#39;zu&#39;, &#39;und&#39;, &#39;zu&#39;, &#39;ist&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1287,7 +1297,7 @@ True
 </section>
 <hr class="docutils" />
 <section id="operationen-bei-dictionaries">
-<h2><span class="section-number">4.6. </span>Operationen bei dictionaries<a class="headerlink" href="#operationen-bei-dictionaries" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6. </span>Operationen bei dictionaries<a class="headerlink" href="#operationen-bei-dictionaries" title="Permalink to this heading">#</a></h2>
 <p>Um abschließend Operationen bei dictionaries kennenzulernen, verwenden wir folgendes dictionary mit österreichischen Bundesländern:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1320,7 +1330,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1804</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1930</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -1511,9 +1521,7 @@ Eisenstadt
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vorarlberg
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tirol
+Tirol
 Kärnten
 Steiermark
 Wien
@@ -1553,7 +1561,7 @@ Burgenland
 </section>
 <hr class="docutils" />
 <section id="id1">
-<h2><span class="section-number">4.7. </span>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.7. </span>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Gegeben sind die Koalitionsverträge von 2018 und 2021 in <code class="docutils literal notranslate"><span class="pre">kv18</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">kv21</span></code>. Zusätzlich ist <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> gegeben, eine Liste mit sog. Stopwörtern, also hochfrequenten Wörtern wie <em>und</em>, <em>der</em>, <em>die</em>, <em>das</em> etc., die wir von der Berechnung von Schlüsselwörtern ausschließen wollen.</p>
 <p>Bereinige sämtliche Wörter und entferne alle Stopwörter. Errechne anschließend für jeden Wort<em>type</em> (vgl. zweites Notebook), wie oft er vorkommt und speichere diese paarweise Information in einem geeigneten Objekt ab. Sortiere dieses Objekt in absteigender Reihenfolge und lasse Dir die zehn häufigsten Schlüsselwörter ausgeben. Wiederhole diese Schritte für den zweiten Text, um die Schlüsselwörter vergleichen zu können.</p>
 <div class="cell docutils container">
@@ -1681,7 +1689,7 @@ Burgenland
 <p>Hier haben wir es also mit Code zu tun, den wir mehr als einmal ausführen wollen. Ein klassischer Fall für <em>Code Reuse</em>, und konkreter: für unsere erste eigene Funktion.</p>
 </section>
 <section id="funktionen-selbst-definieren">
-<h2><span class="section-number">4.8. </span>Funktionen selbst definieren<a class="headerlink" href="#funktionen-selbst-definieren" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.8. </span>Funktionen selbst definieren<a class="headerlink" href="#funktionen-selbst-definieren" title="Permalink to this heading">#</a></h2>
 <p>Funktionen selbst definieren lohnt sich immer dann, wenn wir (fast) den gleichen Code für strukturell ähnliche Objekte mehrfach ausführen müssen (und nicht bereits eine eingebaute bzw. über ein Modul importierbare Funktion/Methode dafür besteht, vgl. unten).</p>
 <p>Wie bei Kontrollstrukturen verwenden wir Variablen im Code einer Funktionsdefinition. Anstatt <code class="docutils literal notranslate"><span class="pre">kv18</span></code> werden wir also einen Platzhalter, z.B. namens <code class="docutils literal notranslate"><span class="pre">text</span></code> in den Code schreiben (<code class="docutils literal notranslate"><span class="pre">text</span></code> ist keine schlechte Idee, denn tatsächlich lässt sich unser Code ja nicht nur auf Koalitionsverträge anwenden, sondern auf strings jeglicher Art). Bei jedem Funktionsaufruf übergeben wir unserer Funktion ein Objekt, das bei der Variablen <code class="docutils literal notranslate"><span class="pre">text</span></code> im Funktionscode eingesetzt werden soll. Damit unterscheidet sich unsere Funktion in keiner Weise von eingebauten Funktionen wie <code class="docutils literal notranslate"><span class="pre">print</span></code> oder <code class="docutils literal notranslate"><span class="pre">len</span></code>, denen wir ja auch in Klammern ein Objekt übergeben.</p>
 <p>Um nun eine Funktion zu definieren, brauchen wir das <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement mit folgender Syntax:</p>
@@ -1851,7 +1859,7 @@ KV18: dazu                 KV21: schaffen
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1804</span><span class="o">/</span><span class="mf">537028797.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1930</span><span class="o">/</span><span class="mf">537028797.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sum_div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span>
 
 <span class="ne">NameError</span>: name &#39;sum_div&#39; is not defined
@@ -1863,7 +1871,7 @@ KV18: dazu                 KV21: schaffen
 <p>Abschließend schauen wir uns Module an. Da noch einmal einiges an Informationen auf Dich zukommt, lohnt es sich, mit einem „frischen Kopf“ an diesen letzten Teil des Notebooks heranzugehen.</p>
 </section>
 <section id="module">
-<h2><span class="section-number">4.9. </span>Module<a class="headerlink" href="#module" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.9. </span>Module<a class="headerlink" href="#module" title="Permalink to this heading">#</a></h2>
 <p>Bis zu diesem Punkt haben wir mit Funktionen/Methoden aus der Grundausstattung von Python gearbeitet. Diese haben zweifelsohne einiges drauf. Dennoch kommt man als Programmier:in bald an einen Punkt, an dem sich bestimmte Anwendungsfälle effizienter lösen lassen, wenn man über die Funktionen/Methoden der Grundausstattung hinaus anwendungsspezifischeren Code verwendet. Für viele Anwendungsfelder – etwa für den Umgang mit Text, zum Scrapen von Webseiten oder zur Visualisierung von Daten – gibt es sog. <em>Module</em> (oder <em>Packages</em> bzw. <em>Bibliotheken</em>, siehe Bemerkung zum Schluss), mit denen wir diese spezifischen Probleme wesentlich effizienter angehen können.</p>
 <p>Solche Module stammen entweder von Python selbst oder von Entwickler:innen aus der Python-Community. Mit Modulen von Python sind Module gemeint, die Teil der sog. <em>Standardbibliothek</em> sind, nicht aber der Grundausstattung. In der Praxis bedeutet das Folgendes: Wenn wir Python installieren werden die Module der Standardbibliothek automatisch mitinstalliert. Sobald wir ein solches Modul in unserem Code verwenden wollen, müssen wir es jedoch importieren, da es nicht zur Grundausstattung gehört. Module von anderen Entwickler:innen müssen wir immer zuerst (zusätzlich zu Python) installieren, bevor wir sie importieren und verwenden können.</p>
 <p>Ein Modul an sich ist ganz simpel aufgebaut: Es handelt sich schlicht um eine Python-Datei mit dem Dateisuffix „.py“, die Code enthält. Machen wir es konkret, und zwar vorerst an einem eigenen Modul. Denn auch wir können unsere eigenen Module erstellen.</p>
@@ -1960,7 +1968,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;jugendgerechte&#39;, 1), (&#39;biologie&#39;, 1), (&#39;zwanzig&#39;, 1), (&#39;jüngere&#39;, 1), (&#39;einwirken&#39;, 1), (&#39;aufenthaltszeit&#39;, 1), (&#39;bürgerschaftlichen&#39;, 1), (&#39;sicherheitsüberprüfungen&#39;, 1), (&#39;geprägt&#39;, 1), (&#39;wirkungsorientierung&#39;, 1)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;investitionsfinanzierung&#39;, 1), (&#39;herstellerhaftung&#39;, 1), (&#39;schnelligkeit&#39;, 1), (&#39;gekennzeichnet&#39;, 1), (&#39;vorlesepaten&#39;, 1), (&#39;interoperabilitätsverpflichtung&#39;, 1), (&#39;ceta-abkommen&#39;, 1), (&#39;denkmalschutzzentrum&#39;, 1), (&#39;gesamtwirtschaftlicher&#39;, 1), (&#39;moscheen&#39;, 1)]
 </pre></div>
 </div>
 </div>
@@ -1995,7 +2003,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[99, 24, 95, 14, 91, 76, 53, 59, 44, 43]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[93, 10, 80, 86, 58, 77, 7, 13, 8, 44]
 </pre></div>
 </div>
 </div>
@@ -2058,7 +2066,7 @@ KV18: dazu                 KV21: schaffen
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Kontrollstrukturen</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Kontrollstrukturen</p>
       </div>
     </a>
     <a class="right-next"
@@ -2066,7 +2074,7 @@ KV18: dazu                 KV21: schaffen
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Input und Output</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Input und Output</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2088,18 +2096,18 @@ KV18: dazu                 KV21: schaffen
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-reuse">4.1. Code Reuse</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-vs-methoden">4.2. Funktionen vs. Methoden</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-errechnen-von-schlusselwortern">4.3. 🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-zeichenketten-strings">4.4. Operationen bei Zeichenketten / strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-listen">4.5. Operationen bei Listen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-list-comprehension">4.5.1. Exkurs: List Comprehension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-reuse">5.1. Code Reuse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-vs-methoden">5.2. Funktionen vs. Methoden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-errechnen-von-schlusselwortern">5.3. 🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-zeichenketten-strings">5.4. Operationen bei Zeichenketten / strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-listen">5.5. Operationen bei Listen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-list-comprehension">5.5.1. Exkurs: List Comprehension</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-dictionaries">4.6. Operationen bei dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.7. 🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-selbst-definieren">4.8. Funktionen selbst definieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module">4.9. Module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-dictionaries">5.6. Operationen bei dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.7. 🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-selbst-definieren">5.8. Funktionen selbst definieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module">5.9. Module</a></li>
 </ul>
   </nav></div>
 

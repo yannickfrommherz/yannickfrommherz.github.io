@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3. Kontrollstrukturen &#8212; Yannick Frommherz</title>
+    <title>4. Kontrollstrukturen &#8212; Yannick Frommherz</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/3_Kontrollstrukturen.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="4. Funktionen und Methoden" href="4_Funktionen_und_Methoden.html" />
-    <link rel="prev" title="2. Datentypen" href="2_Datentypen.html" />
+    <link rel="next" title="5. Funktionen und Methoden" href="4_Funktionen_und_Methoden.html" />
+    <link rel="prev" title="3. Datentypen" href="2_Datentypen.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -133,7 +133,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="../../start_page.html">
+<a class="navbar-brand logo" href="../../other_content/start_page.html">
   
   
   
@@ -155,15 +155,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../about_me/yannick.html">I am Yannick</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../about_me/cv.html">Curriculum Vitae</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learn programming (🇩🇪)</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Programmieren für Geistes- und Sozialwissenschaftler:innen</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">1. Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Datentypen.html">2. Datentypen</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Kontrollstrukturen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_Input_und_Output.html">5. Input und Output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l1"><a class="reference internal" href="7_Datenanalyse.html">7. Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_content/lets_get_started.html">1. Legen wir los!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">2. Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Datentypen.html">3. Datentypen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Funktionen_und_Methoden.html">5. Funktionen und Methoden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Input_und_Output.html">6. Input und Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">7. Reguläre Ausdrücke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Datenanalyse.html">8. Datenanalyse</a></li>
 </ul>
 
     </div>
@@ -388,21 +389,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekapitulation-operatoren">3.1. Rekapitulation Operatoren</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleichsoperatoren">3.1.1. Vergleichsoperatoren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logische-operatoren">3.1.2. Logische Operatoren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekapitulation-operatoren">4.1. Rekapitulation Operatoren</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleichsoperatoren">4.1.1. Vergleichsoperatoren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logische-operatoren">4.1.2. Logische Operatoren</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-kalender-erstellen">3.2. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen">3.3. Bedingte Anweisungen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">3.4. Schleifen (Loops)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-schleifen">3.4.1. <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-trial-and-error-coding">3.4.2. Exkurs: Trial-and-error-Coding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleifen">3.4.3. <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-kalender-erstellen">4.2. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen">4.3. Bedingte Anweisungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">4.4. Schleifen (Loops)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-schleifen">4.4.1. <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-trial-and-error-coding">4.4.2. Exkurs: Trial-and-error-Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleifen">4.4.3. <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.5. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-hilfe-holen">3.6. Exkurs: Hilfe holen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.5. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-hilfe-holen">4.6. Exkurs: Hilfe holen</a></li>
 </ul>
             </nav>
         </div>
@@ -415,15 +416,15 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="kontrollstrukturen">
-<h1><span class="section-number">3. </span>Kontrollstrukturen<a class="headerlink" href="#kontrollstrukturen" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Kontrollstrukturen<a class="headerlink" href="#kontrollstrukturen" title="Permalink to this heading">#</a></h1>
 <p>Bislang haben wir mit Code gearbeitet, der Zeile für Zeile von oben bis unten ausgeführt wird. Wirklich spannend wird es jetzt, da wir lernen, wie wir den Ablauf des Codes derart <em>kontrollieren</em> können, dass gewisse Codeteile nur unter bestimmten Bedingungen ausgeführt werden, oder aber gewisse Teile eine bestimmte Anzahl Mal wiederholt ausgeführt werden. Dazu gibt es <em>Kontroll</em>strukturen in Python und zwar zwei verschiedene: Bedingte Anweisungen (auch „Fallunterscheidungen“ und engl. <em>conditionals</em> genannt) und Schleifen (engl. <em>loops</em>). Beiden sind wir auf dem Weg hierhin schon ein paar Mal begegnet.</p>
 <p>Im Falle von <em>bedingten</em> Anweisungen werden Codeblöcke nur unter bestimmten <em>Bedingungen</em> ausgeführt, bei Schleifen hingegen werden Codeblöcke solange wiederholt ausgeführt, wie eine bestimmte Bedingung zutrifft. Wie bei Python üblich, steuern Einrückungen, welcher Teil des Codes von einer solchen Struktur kontrolliert wird.</p>
 <p>Im Zusammenhang mit Bedingungen sind die beiden Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> relevant: Trifft die Bedingung, die die Ausführung eines Codeblocks kontrolliert, zu, dann nimmt sie den Boolschen Wert <code class="docutils literal notranslate"><span class="pre">True</span></code> an und der darunter eingerückte Anweisungskörper wird ausgeführt. Trifft die Bedingung nicht zu, dann nimmt sie den Boolschen Wert <code class="docutils literal notranslate"><span class="pre">False</span></code> an und der darunter eingerückte Anweisungskörper wird nicht ausgeführt, d.h. Python springt direkt zur Zeile nach der Einrückung und macht dort weiter.</p>
 <section id="rekapitulation-operatoren">
-<h2><span class="section-number">3.1. </span>Rekapitulation Operatoren<a class="headerlink" href="#rekapitulation-operatoren" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.1. </span>Rekapitulation Operatoren<a class="headerlink" href="#rekapitulation-operatoren" title="Permalink to this heading">#</a></h2>
 <p>Die Bedingungen ihrerseits werden mithilfe von Vergleichsoperatoren und logischen Operatoren definiert. Erstere rekapitulieren wir nochmal kurz, bevor wir letztere kennenlernen.</p>
 <section id="vergleichsoperatoren">
-<h3><span class="section-number">3.1.1. </span>Vergleichsoperatoren<a class="headerlink" href="#vergleichsoperatoren" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.1. </span>Vergleichsoperatoren<a class="headerlink" href="#vergleichsoperatoren" title="Permalink to this heading">#</a></h3>
 <p>Ein Vergleichsoperator vergleicht den Wert, der links vom Operator steht, mit dem Wert zu seiner Rechten. Ergebnis ist immer ein Boolscher Wert, entweder <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">==</span></code>: ist gleich</p></li>
@@ -448,7 +449,7 @@ document.write(`
 </div>
 </section>
 <section id="logische-operatoren">
-<h3><span class="section-number">3.1.2. </span>Logische Operatoren<a class="headerlink" href="#logische-operatoren" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.1.2. </span>Logische Operatoren<a class="headerlink" href="#logische-operatoren" title="Permalink to this heading">#</a></h3>
 <p>Logische Operatoren ermöglichen es nun, Vergleiche miteinander zu verknüpfen. Das sieht dann z.B. so aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -531,7 +532,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="anwendungsfall-einen-kalender-erstellen">
-<h2><span class="section-number">3.2. </span>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#anwendungsfall-einen-kalender-erstellen" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#anwendungsfall-einen-kalender-erstellen" title="Permalink to this heading">#</a></h2>
 <p>Erinnerst Du Dich an die Übung im ersten Notebook, wo wir die sieben Wochentage für alle 52 Wochen ausgegeben haben? Viel praktischer wäre es, wenn wir zusätzlich auch den Tag und Monat für jedes Datum ausgeben lassen könnten, also etwa so:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Samstag,</span> <span class="pre">1.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">Sonntag,</span> <span class="pre">2.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
@@ -540,7 +541,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="bedingte-anweisungen">
-<h2><span class="section-number">3.3. </span>Bedingte Anweisungen<a class="headerlink" href="#bedingte-anweisungen" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Bedingte Anweisungen<a class="headerlink" href="#bedingte-anweisungen" title="Permalink to this heading">#</a></h2>
 <p>Wir widmen uns als Erstes den bedingten Anweisungen und definieren dafür einen simplen string. Führe wie immer die Zelle aus, um <code class="docutils literal notranslate"><span class="pre">sentence</span></code> zu initialisieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -713,14 +714,14 @@ document.write(`
 <p>Nun wissen wir alles Relevante über bedingte Anweisungen. Kommen wir zu den Schleifen.</p>
 </section>
 <section id="schleifen-loops">
-<h2><span class="section-number">3.4. </span>Schleifen (Loops)<a class="headerlink" href="#schleifen-loops" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>Schleifen (Loops)<a class="headerlink" href="#schleifen-loops" title="Permalink to this heading">#</a></h2>
 <p>Es gibt zwei Arten von Schleifen in Python:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen (engl. <em>for-loops</em>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen (engl. <em>while-loops</em>)</p></li>
 </ul>
 <section id="for-schleifen">
-<h3><span class="section-number">3.4.1. </span><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen<a class="headerlink" href="#for-schleifen" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.1. </span><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen<a class="headerlink" href="#for-schleifen" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen werden zum Ausgeben der einzelnen Elemente eines iterierbaren Objekts benutzt (vgl. Iterierbarkeit im zweiten Notebook). Ein Element nach dem anderen wird einzeln ausgegeben, bis das Objekt aufgebraucht (engl. <em>exhausted</em>) ist. Die Syntax lautet:</p>
 <p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">element</span> <span class="pre">in</span> <span class="pre">iterable_object:</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">element</span></code> ist wie bereits erwähnt eine Variable für das einzelne Element bei der Iteration über <code class="docutils literal notranslate"><span class="pre">iterable_object</span></code> und kann beliebig (aber bitte sprechend) benannt werden. Diese Variable wird dann im Anweisungskörper wiederverwendet, etwa um die Elemente nacheinander auszugeben (Beispiel für Liste unten), eine Bedingung an ihnen zu überprüfen (Beispiel für dictionary unten) oder um sie zu manipulieren (siehe viertes Notebook).</p>
@@ -918,7 +919,7 @@ y
 </section>
 <hr class="docutils" />
 <section id="exkurs-trial-and-error-coding">
-<h3><span class="section-number">3.4.2. </span>Exkurs: Trial-and-error-Coding<a class="headerlink" href="#exkurs-trial-and-error-coding" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.2. </span>Exkurs: Trial-and-error-Coding<a class="headerlink" href="#exkurs-trial-and-error-coding" title="Permalink to this heading">#</a></h3>
 <p>Unsere Codes werden zunehmend komplexer: In der letzten Übung hast Du etwa eine Schleife so wie mehrere bedingte Anweisungen verwendet. Wie wir ganz am Anfang im Video zu algorithmischem Denken gelernt haben, ist es wichtig, sich stets zu überlegen, in welche einzelnen Schritte ein Problem zerlegt werden kann, bevor man loslegt. Die Bedeutung dieser Herangehensweise nimmt mit zunehmender Komplexität der Aufgaben natürlich zu.</p>
 <p>Die einzelnen Schritte jedoch löst man dann meistens durch „trial and error“. Oft hat man eine Idee, wie man einen Schritt lösen kann, probiert es aus und schaut dann, ob der Code das tut, was man erwartet. Manchmal klappt’s, manchmal nicht.</p>
 <p>Konkret heißt das für Dich: führe Deinen Code immer wieder aus, lasse Dir einzelne Zwischenschritte über <code class="docutils literal notranslate"><span class="pre">print</span></code> ausgeben und taste Dich so (Zwischen-)Schritt für (Zwischen-)Schritt an die Lösung heran.</p>
@@ -987,7 +988,7 @@ y
 </div>
 </section>
 <section id="while-schleifen">
-<h3><span class="section-number">3.4.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen<a class="headerlink" href="#while-schleifen" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.4.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen<a class="headerlink" href="#while-schleifen" title="Permalink to this heading">#</a></h3>
 <p>Neben <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen gibt es <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen. Sie führen den in ihrem Anweisungskörper definierten Codeblock solange aus, wie die im Anweisungskopf definierte Bedingung zutrifft. Um dies zu veranschaulichen, bemühen wir noch mal das Alphabetbeispiel mit dem Zähler von oben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1053,7 +1054,7 @@ Der Buchstabe 26 im deutschen Alphabet ist: z
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1784</span><span class="o">/</span><span class="mf">2209010033.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1909</span><span class="o">/</span><span class="mf">2209010033.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie viele Arme hat ein Oktopus? Gib bitte eine Zahl an.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
@@ -1192,7 +1193,7 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
 </section>
 <hr class="docutils" />
 <section id="id1">
-<h2><span class="section-number">3.5. </span>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5. </span>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Deine Aufgabe ist es also, 365 vollständige Daten vom Format „Wochentag, Tag. Monat Jahr“ auszugeben:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Samstag,</span> <span class="pre">1.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">Sonntag,</span> <span class="pre">2.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
@@ -1218,7 +1219,7 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
 <p>Abschließend noch ein paar Tipps, wo Du Hilfe findest, wenn Du mal bei einem Programmierproblem nicht weiterkommst.</p>
 </section>
 <section id="exkurs-hilfe-holen">
-<h2><span class="section-number">3.6. </span>Exkurs: Hilfe holen<a class="headerlink" href="#exkurs-hilfe-holen" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.6. </span>Exkurs: Hilfe holen<a class="headerlink" href="#exkurs-hilfe-holen" title="Permalink to this heading">#</a></h2>
 <p>Bis zu diesem Punkt im Notebook bist Du sicherlich auf das ein oder andere Problem gestoßen, das Du nicht selbst lösen konntest. Vermutlich hast Du in diesen Fällen Hilfe bei Google gesucht. Das ist genau die richtige Strategie, denn in den seltensten Fällen bist Du mit Deinem Programmierproblem alleine. Ein sehr beliebtes Forum für Fragen rund um Python, das zumeist auch das erste Suchergebnis bei Google ist, heißt <a class="reference external" href="https://stackoverflow.com/questions/tagged/python">Stack Overflow</a>.</p>
 <p>Angenommen Du stündest vor der Herausforderung, Duplikate aus einer Liste zu entfernen und kämst nicht weiter, so würdest du über die Suchanfrage „remove duplicates in lists“ (oder so ähnlich) zu diesem <a class="reference external" href="https://stackoverflow.com/questions/7961363/removing-duplicates-in-lists">Beitrag</a> gelangen. Die Frage des Nutzers steht auch im Screenshot unten:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Stack_Overflow1.png"><p>Fragen bei Stack Overflow bestehen i.d.R. aus einer Erklärung des Problems sowie Codeausschnitten und ggf. Output (z.B. eine Fehlermeldung). Hier handelt es sich jedoch um eine einfache Frage, die aber sehr viele Programmierer:innen als nützlich (bzw. gut recherchiert und klar formuliert) bewertet haben, was wir an den 1297 sog. <em>Upvotes</em> erkennen.</p>
@@ -1269,7 +1270,7 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Datentypen</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Datentypen</p>
       </div>
     </a>
     <a class="right-next"
@@ -1277,7 +1278,7 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Funktionen und Methoden</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Funktionen und Methoden</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1299,21 +1300,21 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekapitulation-operatoren">3.1. Rekapitulation Operatoren</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleichsoperatoren">3.1.1. Vergleichsoperatoren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logische-operatoren">3.1.2. Logische Operatoren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekapitulation-operatoren">4.1. Rekapitulation Operatoren</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleichsoperatoren">4.1.1. Vergleichsoperatoren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logische-operatoren">4.1.2. Logische Operatoren</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-kalender-erstellen">3.2. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen">3.3. Bedingte Anweisungen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">3.4. Schleifen (Loops)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-schleifen">3.4.1. <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-trial-and-error-coding">3.4.2. Exkurs: Trial-and-error-Coding</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleifen">3.4.3. <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-kalender-erstellen">4.2. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen">4.3. Bedingte Anweisungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">4.4. Schleifen (Loops)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-schleifen">4.4.1. <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-trial-and-error-coding">4.4.2. Exkurs: Trial-and-error-Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleifen">4.4.3. <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.5. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-hilfe-holen">3.6. Exkurs: Hilfe holen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.5. 🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-hilfe-holen">4.6. Exkurs: Hilfe holen</a></li>
 </ul>
   </nav></div>
 
