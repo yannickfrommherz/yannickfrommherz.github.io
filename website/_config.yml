@@ -24,6 +24,10 @@ repository:
   path_to_book: "website" 
   branch: "main" 
 
+sphinx:
+  config:
+    language: de
+
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
