@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="de" >
 
   <head>
     <meta charset="utf-8" />
@@ -53,6 +53,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -63,11 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/7_Datenanalyse';</script>
     <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/7_Datenanalyse.html" />
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
     <link rel="prev" title="6. Reguläre Ausdrücke / RegEx" href="6_Regulaere_Ausdruecke.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="de"/>
   </head>
   
   
@@ -243,7 +244,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
+   title="Quell-Repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -260,7 +261,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/7_Datenanalyse.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
+   title="Öffnen Sie ein Problem"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -281,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -290,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="../../_sources/programming/1_Notebooks/7_Datenanalyse.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
+   title="Quelldatei herunterladen"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -308,7 +309,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
+  title="In PDF drucken"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -328,7 +329,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
+  title="Vollbildmodus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -352,7 +353,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
@@ -376,7 +377,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contents </h2>
+                <h2> Inhalt </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -432,7 +433,7 @@ document.write(`
 <p>Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, nämlich dem <a class="reference external" href="https://songkorpus.de/index.html">Songkorpus</a>. Das Songkorpus beinhält Lieder von bekannten deutschen Künstler:innen, u.a. von Udo Lindenberg und Fettes Brot und umspannt die Jahre 1969-2022. Öffentlich herunterladbar sind unter anderem Worthäufigkeiten pro Jahr und zwar als Tabelle (auf der Webseite selbst finden sich weitere spannende Daten und Analysen). Jedes Wort, das in einem oder mehreren Songs in einem bestimmten Jahr vorkommt, steht in einer eigenen Zeile, zusammen mit dem entsprechenden Jahr und der Häufigkeit, mit der es in diesem Jahr bei allen Künstler:innen auftritt (s.u.). Insgesamt handelt es sich um über 380.000 Wörter. Solch eine tabellarische Datei, zumal derart groß, ist prädestiniert dazu, mit pandas verarbeitet zu werden.</p>
 <section id="input">
 <h2><span class="section-number">7.1. </span>Input<a class="headerlink" href="#input" title="Permalink to this heading">#</a></h2>
-<p>In der folgenden Zelle öffnen wir die Datei, die sich bereits in “3_Dateien/Songkorpus” befindet, und lesen sie mit der pandas-Funktion <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> ein, die neben dem Dateipfad u.a. auch das Trennzeichen (<code class="docutils literal notranslate"><span class="pre">sep</span></code>, in diesem Fall der Tabulator “\t”) als Argument nimmt:</p>
+<p>In der folgenden Zelle öffnen wir die Datei, die sich bereits in „3_Dateien/Songkorpus“ befindet, und lesen sie mit der pandas-Funktion <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> ein, die neben dem Dateipfad u.a. auch das Trennzeichen (<code class="docutils literal notranslate"><span class="pre">sep</span></code>, in diesem Fall der Tabulator „\t“) als Argument nimmt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#vor read_csv steht wie gewohnt der Modulname, damit Python weiß, wo sich die Funktion befindet</span>
@@ -460,7 +461,7 @@ document.write(`
 </section>
 <section id="uberblick-bekommen">
 <h2><span class="section-number">7.2. </span>Überblick bekommen<a class="headerlink" href="#uberblick-bekommen" title="Permalink to this heading">#</a></h2>
-<p>Hier bietet sich insbesondere die Methode <code class="docutils literal notranslate"><span class="pre">head</span></code> an, die standardmäßig die ersten fünf Zeilen (also den “Kopf”) des DataFrames ausgibt:</p>
+<p>Hier bietet sich insbesondere die Methode <code class="docutils literal notranslate"><span class="pre">head</span></code> an, die standardmäßig die ersten fünf Zeilen (also den „Kopf“) des DataFrames ausgibt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#head nimmt optional eine Ganzzahl als Argument, die definiert, wieviele der ersten Zeilen ausgegeben werden sollen</span>
@@ -526,8 +527,8 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Eher komische Wörter in der Spalte “CO_TOKEN”. Wie wir an Spalte “CO_COUNT” erkennen können, kamen sie aber auch nur jeweils einmal (im angegeben Jahr in “CO_YEAR”) vor.</p>
-<p>Das Gegenstück zu <code class="docutils literal notranslate"><span class="pre">head</span></code> ist <code class="docutils literal notranslate"><span class="pre">tail</span></code> (also der “Schwanz”), wodurch wir die letzten fünf Zeilen des DataFrames erhalten:</p>
+<p>Eher komische Wörter in der Spalte „CO_TOKEN“. Wie wir an Spalte „CO_COUNT“ erkennen können, kamen sie aber auch nur jeweils einmal (im angegeben Jahr in „CO_YEAR“) vor.</p>
+<p>Das Gegenstück zu <code class="docutils literal notranslate"><span class="pre">head</span></code> ist <code class="docutils literal notranslate"><span class="pre">tail</span></code> (also der „Schwanz“), wodurch wir die letzten fünf Zeilen des DataFrames erhalten:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span> <span class="c1">#auch tail nimmt optional eine Ganzzahl als Argument, die definiert, wieviele der letzten Zeilen ausgegeben werden sollen</span>
@@ -612,7 +613,7 @@ RangeIndex(start=0, stop=386510, step=1)
 </div>
 </div>
 <p>Unser DataFrame besteht also aus 386.510 Zeilen und drei Spalten. Die Anzahl an Zeilen, also die Länge des DataFrames, speichern wir in einer separaten Variablen ab, wir werden sie später noch brauchen.</p>
-<p>Die Spaltennamen sind “CO_TOKEN”, “CO_YEAR” und “CO_COUNT” und die Zeilen sind mit Indizes von 0 (inklusive) bis 386510 (exklusive) durchnummeriert.</p>
+<p>Die Spaltennamen sind „CO_TOKEN“, „CO_YEAR“ und „CO_COUNT“ und die Zeilen sind mit Indizes von 0 (inklusive) bis 386510 (exklusive) durchnummeriert.</p>
 <p>Die etwas kryptischen Spaltennamen können wir ändern, indem wir das Attribut <code class="docutils literal notranslate"><span class="pre">columns</span></code> unseres DataFrames ganz einfach mit einer Liste an neuen Spaltennamen überschreiben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -628,10 +629,10 @@ RangeIndex(start=0, stop=386510, step=1)
 </div>
 </div>
 <p>Die Länge der Liste muss natürlich der Anzahl an Spalten entsprechen.</p>
-<p>Um eine spezifische Spalte zu überschreiben, können wir die <code class="docutils literal notranslate"><span class="pre">rename</span></code>-Methode verwenden, derer wir ein dictionary mit Schlüssel-Werte-Paaren ({“jetziger Name”: “neuer Name”}) übergeben. Im Allgemeinen haben wir beim Bearbeiten eines DataFrames zwei Möglichkeiten, um die Bearbeitung wirksam zu machen:</p>
+<p>Um eine spezifische Spalte zu überschreiben, können wir die <code class="docutils literal notranslate"><span class="pre">rename</span></code>-Methode verwenden, derer wir ein dictionary mit Schlüssel-Werte-Paaren ({„jetziger Name“: „neuer Name“}) übergeben. Im Allgemeinen haben wir beim Bearbeiten eines DataFrames zwei Möglichkeiten, um die Bearbeitung wirksam zu machen:</p>
 <ol class="arabic simple">
 <li><p>Wir können immer das alte DataFrame mit der bearbeiteten Version überschreiben. So haben wir das auch in der Zelle obendran gehandhabt.</p></li>
-<li><p>Bei der Bearbeitung mithilfe einer Methode, hier <code class="docutils literal notranslate"><span class="pre">rename</span></code>, können wir auch den Parameter <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> spezifizieren, um die Bearbeitung “an Ort und Stelle” vorzunehmen.</p></li>
+<li><p>Bei der Bearbeitung mithilfe einer Methode, hier <code class="docutils literal notranslate"><span class="pre">rename</span></code>, können wir auch den Parameter <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> spezifizieren, um die Bearbeitung „an Ort und Stelle“ vorzunehmen.</p></li>
 </ol>
 <p>In der nächsten Zelle sehen wir beide Alternativen. Im Folgenden beschränken wir uns aber auf die erste Möglichkeit, da diese auch abseits von Methoden funktioniert.</p>
 <div class="cell docutils container">
@@ -706,7 +707,7 @@ RangeIndex(start=0, stop=386510, step=1)
 <hr class="docutils" />
 <section id="anwendungsfall-wortverlaufskurven-visualisieren">
 <h2><span class="section-number">7.3. </span>🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈<a class="headerlink" href="#anwendungsfall-wortverlaufskurven-visualisieren" title="Permalink to this heading">#</a></h2>
-<p>Auch in diesem Notebook gibt es einen Anwendungsfall: Wir wollen visualisieren, wie häufig beliebige Wörter in jedem Jahr im vom Songkorpus abgedeckten Zeitraum 1969-2022 vorkommen. Für die Begriffe “ich”, “du”, “er” und “sie” sähe das z.B. so aus:</p>
+<p>Auch in diesem Notebook gibt es einen Anwendungsfall: Wir wollen visualisieren, wie häufig beliebige Wörter in jedem Jahr im vom Songkorpus abgedeckten Zeitraum 1969-2022 vorkommen. Für die Begriffe „ich“, „du“, „er“ und „sie“ sähe das z.B. so aus:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Wortverlaufskurve_Jahr.png" width="700">
 <p>Es scheint, als sängen die Künstler:innen im Songkorpus bevorzugt über sich selbst. 😅</p>
 <hr class="docutils" />
@@ -738,7 +739,7 @@ Name: Token, Length: 386510, dtype: object
 </div>
 </div>
 </div>
-<p>An dieser Stelle ist es natürlich wichtig, dass die Spalte aktuell wirklich “Token” und nicht mehr “CO_TOKEN” oder “Wort” heißt. Dies würde, wie bei inexistenten Schlüsseln in einem dictionary auch, zu einem <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> führen.</p>
+<p>An dieser Stelle ist es natürlich wichtig, dass die Spalte aktuell wirklich „Token“ und nicht mehr „CO_TOKEN“ oder „Wort“ heißt. Dies würde, wie bei inexistenten Schlüsseln in einem dictionary auch, zu einem <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> führen.</p>
 <p>Weiter funktioniert für den Spaltenzugriff auch die sog. dot-Notation nach dem Schema <code class="docutils literal notranslate"><span class="pre">DataFrame.column</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1030,7 +1031,7 @@ Name: 777, dtype: object
 </table>
 </div></div></div>
 </div>
-<p>Im Gegensatz zu gewöhnlichem Slicing bei Listen wird der letzte Index bei Pandas miteingerechnet (“inklusiv”, vgl. zweites Notebook).</p>
+<p>Im Gegensatz zu gewöhnlichem Slicing bei Listen wird der letzte Index bei Pandas miteingerechnet („inklusiv“, vgl. zweites Notebook).</p>
 <p>Abschließend sei erwähnt, dass Zeilen nicht zwingend mit <em>numerischen</em> Indizes durchnummeriert sein müssen. Zeilen können wie Spalten ebenfalls Namen haben. Dieses Szenario wollen wir in der nächsten Übung mit denselben Daten durchspielen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 2:</strong></p>
@@ -1049,8 +1050,8 @@ Name: 777, dtype: object
 <hr class="docutils" />
 <p>Im Gegensatz zu Spaltennamen (und Schlüsseln bei dictionaries) dürfen Zeilennamen mehrfach vorkommen. Der Zugriff auf eine oder mehrere Zeilen funktioniert ungeachtet dessen gleich wie bei DataFrames, die mit numerischen Indizes durchnummeriert sind, also mittels <code class="docutils literal notranslate"><span class="pre">.loc[index]</span></code>.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 3:</strong> Setze die Tatsache, dass Zeilennamen mehrfach vorkommen dürfen, produktiv ein und finde heraus, wie oft “Dresden” in <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> vorkommt, indem Du die Häufigkeiten in allen Jahren, in denen das Wort gesungen wird, zusammenzählst.</p>
-<p>💡 Tipp: Der erste Schritt besteht darin, aus dem gesamten DataFrame <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> ein kleineres, sog. <em>Sub-DataFrame</em> zu erstellen, das mit einer neuen Variablen referenziert wird. Der zweite Schritt besteht darin, eine Series aus diesem Sub-DataFrame “herauszuschneiden”, die Du anschließend wie eine Liste behandeln kannst, um schließlich zur Anzahl der Nennungen von “Dresden” zu gelangen.</p>
+<p>✏️ <strong>Übung 3:</strong> Setze die Tatsache, dass Zeilennamen mehrfach vorkommen dürfen, produktiv ein und finde heraus, wie oft „Dresden“ in <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> vorkommt, indem Du die Häufigkeiten in allen Jahren, in denen das Wort gesungen wird, zusammenzählst.</p>
+<p>💡 Tipp: Der erste Schritt besteht darin, aus dem gesamten DataFrame <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> ein kleineres, sog. <em>Sub-DataFrame</em> zu erstellen, das mit einer neuen Variablen referenziert wird. Der zweite Schritt besteht darin, eine Series aus diesem Sub-DataFrame „herauszuschneiden“, die Du anschließend wie eine Liste behandeln kannst, um schließlich zur Anzahl der Nennungen von „Dresden“ zu gelangen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
@@ -1079,7 +1080,7 @@ Name: 777, dtype: object
 </div>
 </div>
 </div>
-<p>Neben der Herangehensweise über <code class="docutils literal notranslate"><span class="pre">loc</span></code> besteht auch die Möglichkeit erst wie oben gelernt auf eine spezifische Spalte bzw. eine spezifische Zeile zuzugreifen, was in einer Series resultiert, und in dieser Series anschließend auf eine bestimmte Zeile bzw. eine bestimmte Spalte zuzugreifen (z.B. <code class="docutils literal notranslate"><span class="pre">songkorpus[&quot;Token&quot;][22]</span></code>). Obige Syntax mit <code class="docutils literal notranslate"><span class="pre">loc</span></code> ist diesen sog. “chained assignments” (etwa: Kettenaufgabe) jedoch vorzuziehen.</p>
+<p>Neben der Herangehensweise über <code class="docutils literal notranslate"><span class="pre">loc</span></code> besteht auch die Möglichkeit erst wie oben gelernt auf eine spezifische Spalte bzw. eine spezifische Zeile zuzugreifen, was in einer Series resultiert, und in dieser Series anschließend auf eine bestimmte Zeile bzw. eine bestimmte Spalte zuzugreifen (z.B. <code class="docutils literal notranslate"><span class="pre">songkorpus[&quot;Token&quot;][22]</span></code>). Obige Syntax mit <code class="docutils literal notranslate"><span class="pre">loc</span></code> ist diesen sog. „chained assignments“ (etwa: Kettenaufgabe) jedoch vorzuziehen.</p>
 <p>Wie immer können wir auch Listen übergeben, um auf mehrere Spalten und/oder mehrere Zeilen gleichzeitig zuzugreifen. Beim Zeilenzugriff funktioniert sowohl eine Liste einzelner Indizes…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1201,7 +1202,7 @@ Name: 777, dtype: object
 <h2><span class="section-number">7.7. </span>Spalten hinzufügen<a class="headerlink" href="#spalten-hinzufugen" title="Permalink to this heading">#</a></h2>
 <p>Eine einzelne Spalte entspricht ja einer Series und Series wiederum kommen Listen sehr nahe. Deshalb können wir zur Definition einer neuen Spalte ganz einfach eine Liste übergeben, deren Länge natürlich der Anzahl an Zeilen des DataFrames entsprechen muss.</p>
 <p>Sagen wir, wir hätten gerne eine neue Spalte, in der das Jahrzehnt gespeichert wird, in der das jeweilige Token gesungen wurde. Die einzelnen Jahre haben wir schon, nun wollen wir aber jeweils zehn Jahre zu einem Jahrzehnt bündeln.</p>
-<p>Dazu können wir in gewohnter Python-Manier über die Spalte “Jahr” in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> iterieren (auch bei der Iteration zieht die Analogie Series – Liste!), auf den jeweiligen Wert in der Spalte “Jahr” zugreifen, ihn in einen string casten und das Jahr reduziert auf das Jahrzehnt einer neuen Liste anhängen:</p>
+<p>Dazu können wir in gewohnter Python-Manier über die Spalte „Jahr“ in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> iterieren (auch bei der Iteration zieht die Analogie Series – Liste!), auf den jeweiligen Wert in der Spalte „Jahr“ zugreifen, ihn in einen string casten und das Jahr reduziert auf das Jahrzehnt einer neuen Liste anhängen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">decades</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1290,7 +1291,7 @@ Name: 777, dtype: object
 <p>Recht simpel.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 4:</strong></p>
-<p>Füge <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> eine weitere Spalte mit dem Namen “Länge” hinzu, in der die Anzahl Buchstaben je Token steht.</p>
+<p>Füge <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> eine weitere Spalte mit dem Namen „Länge“ hinzu, in der die Anzahl Buchstaben je Token steht.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
@@ -1299,8 +1300,8 @@ Name: 777, dtype: object
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 5:</strong> Vereinfache den Code von oben, mit dessen Hilfe wir die Spalte “Jahrzehnt” hinzugefügt haben, indem Du ihn mittels List Comprehension (vgl. viertes Notebook) auf eine einzige Zeile reduzierst. Hole den Abschnitt zu List Comprehensions nach, falls Du ihn damals ausgelassen hast, da er als fortgeschritten markiert war.</p>
-<p>Hinweis: <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> verfügt ja bereits über eine Spalte mit dem Namen “Jahrzehnt”. Indem Du das Resultat Deiner List Comprehension <code class="docutils literal notranslate"><span class="pre">songkorpus[&quot;Jahrzehnt&quot;]</span></code> zuweist, überschreibst du die befindliche Spalte ganz einfach.</p>
+<p>✏️ <strong>Übung 5:</strong> Vereinfache den Code von oben, mit dessen Hilfe wir die Spalte „Jahrzehnt“ hinzugefügt haben, indem Du ihn mittels List Comprehension (vgl. viertes Notebook) auf eine einzige Zeile reduzierst. Hole den Abschnitt zu List Comprehensions nach, falls Du ihn damals ausgelassen hast, da er als fortgeschritten markiert war.</p>
+<p>Hinweis: <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> verfügt ja bereits über eine Spalte mit dem Namen „Jahrzehnt“. Indem Du das Resultat Deiner List Comprehension <code class="docutils literal notranslate"><span class="pre">songkorpus[&quot;Jahrzehnt&quot;]</span></code> zuweist, überschreibst du die befindliche Spalte ganz einfach.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
@@ -1315,7 +1316,7 @@ Name: 777, dtype: object
 <section id="zeilen-hinzufugen">
 <h2><span class="section-number">7.8. </span>Zeilen hinzufügen<a class="headerlink" href="#zeilen-hinzufugen" title="Permalink to this heading">#</a></h2>
 <p>Auch neue Zeilen können wir einem DataFrame als Liste hinzufügen. Die Länge der Liste muss wiederum der Anzahl an Spalten entsprechen.</p>
-<p>Dies ist bei <code class="docutils literal notranslate"><span class="pre">new_row</span></code> in der nächsten Zelle nur der Fall, wenn Du in der Übung oben eine fünfte Spalte namens “Länge” hinzugefügt hast. Um sicherzustellen, dass <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> im Weiteren alle notwendigen Spalten umfasst, fügt die erste Zeile die Spalte “Länge” mittels List Comprension hinzu (bzw. überschreibt eine bereits vorhandene).</p>
+<p>Dies ist bei <code class="docutils literal notranslate"><span class="pre">new_row</span></code> in der nächsten Zelle nur der Fall, wenn Du in der Übung oben eine fünfte Spalte namens „Länge“ hinzugefügt hast. Um sicherzustellen, dass <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> im Weiteren alle notwendigen Spalten umfasst, fügt die erste Zeile die Spalte „Länge“ mittels List Comprension hinzu (bzw. überschreibt eine bereits vorhandene).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">))</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]]</span>
@@ -1424,9 +1425,9 @@ Name: 777, dtype: object
 </section>
 <section id="deskriptive-statistiken">
 <h2><span class="section-number">7.10. </span>Deskriptive Statistiken<a class="headerlink" href="#deskriptive-statistiken" title="Permalink to this heading">#</a></h2>
-<p>Einige der Spalten in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> enthalten ja numerische Werte, konkret die Spalten “Jahr”, “Häufigkeit” und “Länge” (die Werte in “Jahrzehnt” haben wir als string abgespeichert, s.o.). Numerischen Werten nähern wir uns am besten über despriptive Statistiken, also etwa über Minimal- und Maximalwerte.</p>
+<p>Einige der Spalten in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> enthalten ja numerische Werte, konkret die Spalten „Jahr“, „Häufigkeit“ und „Länge“ (die Werte in „Jahrzehnt“ haben wir als string abgespeichert, s.o.). Numerischen Werten nähern wir uns am besten über despriptive Statistiken, also etwa über Minimal- und Maximalwerte.</p>
 <p>Pandas bietet dafür eine Reihe nützlicher Methoden: Angewandt auf eine Spalte, gibt <code class="docutils literal notranslate"><span class="pre">min</span></code> den kleinsten Wert darin zurück, <code class="docutils literal notranslate"><span class="pre">max</span></code> den größten, <code class="docutils literal notranslate"><span class="pre">mean</span></code> den Durchschnitt, <code class="docutils literal notranslate"><span class="pre">median</span></code> den Median und <code class="docutils literal notranslate"><span class="pre">sum</span></code> die Summe aller Werte.</p>
-<p>Bevor wir dies tun, stellen wir noch sicher, dass die oben hinzugefügten Zeilen auch wirklich nicht mehr vorhanden sind, schließlich soll das achthundertfach vorkommende “Fantasiewort” unsere Statistiken nicht verzerren. Anstatt mit der <code class="docutils literal notranslate"><span class="pre">drop</span></code>-Methode von oben, wählen wir hier einen anderen Weg, nämlich Slicing:</p>
+<p>Bevor wir dies tun, stellen wir noch sicher, dass die oben hinzugefügten Zeilen auch wirklich nicht mehr vorhanden sind, schließlich soll das achthundertfach vorkommende „Fantasiewort“ unsere Statistiken nicht verzerren. Anstatt mit der <code class="docutils literal notranslate"><span class="pre">drop</span></code>-Methode von oben, wählen wir hier einen anderen Weg, nämlich Slicing:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[:</span><span class="n">original_len</span><span class="p">]</span>
@@ -1449,8 +1450,8 @@ Name: 777, dtype: object
 </div>
 </div>
 </div>
-<p>Wenig überraschend ist 1 der kleinste Wert in der Spalte “Häufigkeit”. Wörter, die gar nie vorkommen, befinden sich ja nicht im Datensatz.</p>
-<p>Spannend ist jedoch, zu erfahren, dass das meistgesungene Token 2007 Mal in einen bestimmten Jahr vorkommt. Interessant ist auch, dass der Durchschnitt zwar bei fast 6 Nennungen liegt, mindestens die Hälfte aller Werte jedoch genau 1 sind. Der Median ist ja der Wert, der genau in der Mitte aller “aufgereihten” Werte steht: links von ihm können also nur weitere Einsen stehen, in der Mitte steht selbst auch eine 1. Diese Logik funktioniert natürlich nur, weil wir wissen, dass alle Werte in dieser Spalte Ganzzahlen sind.</p>
+<p>Wenig überraschend ist 1 der kleinste Wert in der Spalte „Häufigkeit“. Wörter, die gar nie vorkommen, befinden sich ja nicht im Datensatz.</p>
+<p>Spannend ist jedoch, zu erfahren, dass das meistgesungene Token 2007 Mal in einen bestimmten Jahr vorkommt. Interessant ist auch, dass der Durchschnitt zwar bei fast 6 Nennungen liegt, mindestens die Hälfte aller Werte jedoch genau 1 sind. Der Median ist ja der Wert, der genau in der Mitte aller „aufgereihten“ Werte steht: links von ihm können also nur weitere Einsen stehen, in der Mitte steht selbst auch eine 1. Diese Logik funktioniert natürlich nur, weil wir wissen, dass alle Werte in dieser Spalte Ganzzahlen sind.</p>
 <p>Einen kompakten Überblick über diese und ein paar weitere Statistiken liefert auch <code class="docutils literal notranslate"><span class="pre">describe</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1610,7 +1611,7 @@ Name: Jahrzehnt, dtype: float64
 </div>
 </div>
 <hr class="docutils" />
-<p>Zwei weitere hilfreiche Methoden sind <code class="docutils literal notranslate"><span class="pre">nlargest</span></code> und <code class="docutils literal notranslate"><span class="pre">nsmallest</span></code>, die das DataFrame nach einer bestimmten Spalte (spezifiziert als zweites Argument) sortieren und die <em>n</em> (spezifiziert als erstes Argument) obersten bzw. untersten Zeilen ausgibt. Folgender Code liefert also die obersten zehn Zeilen eines nach der Spalte “Häufigkeit” absteigend sortierten DataFrames:</p>
+<p>Zwei weitere hilfreiche Methoden sind <code class="docutils literal notranslate"><span class="pre">nlargest</span></code> und <code class="docutils literal notranslate"><span class="pre">nsmallest</span></code>, die das DataFrame nach einer bestimmten Spalte (spezifiziert als zweites Argument) sortieren und die <em>n</em> (spezifiziert als erstes Argument) obersten bzw. untersten Zeilen ausgibt. Folgender Code liefert also die obersten zehn Zeilen eines nach der Spalte „Häufigkeit“ absteigend sortierten DataFrames:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Häufigkeit&quot;</span><span class="p">)</span>
@@ -1734,7 +1735,7 @@ Name: Jahrzehnt, dtype: float64
 <section id="werte-sortieren">
 <h2><span class="section-number">7.11. </span>Werte sortieren<a class="headerlink" href="#werte-sortieren" title="Permalink to this heading">#</a></h2>
 <p>Dazu benutzen wir die Methode <code class="docutils literal notranslate"><span class="pre">sort_values</span></code>, der wir als erstes Argument die Spalte übergeben, anhand derer wir sortieren wollen, und als zweites Argument die Richtung der Sortierung, wobei <code class="docutils literal notranslate"><span class="pre">ascending=True</span></code> für aufsteigend (Standardwert) und <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> für absteigend steht.</p>
-<p>Folgender Code sortiert <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> aufsteigend nach der Spalte “Jahr”:</p>
+<p>Folgender Code sortiert <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> aufsteigend nach der Spalte „Jahr“:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1932,7 +1933,7 @@ Name: Jahrzehnt, dtype: float64
 <p><code class="docutils literal notranslate"><span class="pre">filter</span></code> wiederum kann unterschiedlich ausschauen, je nach dem, wie wir unser DataFrame filtern wollen. Ein einfaches Beispiel für <code class="docutils literal notranslate"><span class="pre">filter</span></code> sieht so aus:</p>
 <p><code class="docutils literal notranslate"><span class="pre">DataFrame[column]</span> <span class="pre">==</span> <span class="pre">value</span></code></p>
 <p>Dieser Filter verlangt, dass bei <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> in der Spalte <code class="docutils literal notranslate"><span class="pre">column</span></code> exakt der Wert <code class="docutils literal notranslate"><span class="pre">value</span></code> steht.</p>
-<p>Fügen wir diesen Filter in der obigen Syntax ein und schaffen ein Sub-DataFrame, das alle Zeilen des <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> beinhält, in denen in der Spalte <code class="docutils literal notranslate"><span class="pre">Token</span></code> das Wort “Liebe” steht:</p>
+<p>Fügen wir diesen Filter in der obigen Syntax ein und schaffen ein Sub-DataFrame, das alle Zeilen des <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> beinhält, in denen in der Spalte <code class="docutils literal notranslate"><span class="pre">Token</span></code> das Wort „Liebe“ steht:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liebe</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Liebe&quot;</span><span class="p">]</span>
@@ -2158,7 +2159,7 @@ Name: Jahrzehnt, dtype: float64
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 10:</strong> Erstelle das gleiche Sub-DataFrame wie in Übung 9 (also eines, das nur Tokens beinhält, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte “Länge” zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stelle sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
+<p>✏️ <strong>Übung 10:</strong> Erstelle das gleiche Sub-DataFrame wie in Übung 9 (also eines, das nur Tokens beinhält, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stelle sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
@@ -2318,7 +2319,7 @@ Name: Jahrzehnt, dtype: float64
 </div>
 </div>
 </div>
-<p>Wir filtern also das DataFrame (“alle Zeilen, in denen ‘Wunderkind’ in der Spalte ‘Token’ steht”) und lassen uns ganz einfach seine Länge (sprich die Anzahl an Zeilen) ausgeben.</p>
+<p>Wir filtern also das DataFrame („alle Zeilen, in denen ‚Wunderkind‘ in der Spalte ‚Token‘ steht“) und lassen uns ganz einfach seine Länge (sprich die Anzahl an Zeilen) ausgeben.</p>
 </section>
 <section id="werte-bearbeiten">
 <h2><span class="section-number">7.15. </span>Werte bearbeiten<a class="headerlink" href="#werte-bearbeiten" title="Permalink to this heading">#</a></h2>
@@ -2455,7 +2456,7 @@ Name: Jahrzehnt, dtype: float64
 <p>386510 rows × 5 columns</p>
 </div></div></div>
 </div>
-<p>Diese einzeilige Syntax hat es in sich: Man kann sie sich in gewohnter Python-Logik wie eine Iteration vorstellen: Im vorliegenden Fall wird Wort für Wort (in der Spalte “Token”) kleingeschrieben. Mit dem Resultat wird die Spalte überschrieben. Sie ist dennoch nicht mit einer List Comprehension, die ja auch nur eine einzige Zeile benötigt, zu verwechseln. Denn im Gegensatz zu pythonischen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops und ihre simplifizierte Version List Comprehension, wird der Code mit der pandas-eigenen Syntax oft wesentlich schneller berechnet (teils über 1000 Mal schneller!). Grund dafür ist die sog. <em>Vektorisierung</em>. Ganz einfach forumuliert wird dabei dieselbe Operation nicht auf ein Element nach dem anderen angewandt (wie bei <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops), sondern auf mehrere gleichzeitig. Außerdem sind pandas-Operationen im Gegensatz zu nativem Python-Code (<code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops) speziell auf Effizienz ausgelegt. Wenn Du Dich dafür interessierst, findest Du u.a. in <a class="reference external" href="https://medium.com/analytics-vidhya/understanding-vectorization-in-numpy-and-pandas-188b6ebc5398">diesem Artikel</a> und <a class="reference external" href="https://www.youtube.com/watch?v=nxWginnBklU">diesem Video</a> Anknüpfungspunkte. Weiter unten folgen Übungen zum Vergleich von nativem Python-Code und pandas-Code.</p>
+<p>Diese einzeilige Syntax hat es in sich: Man kann sie sich in gewohnter Python-Logik wie eine Iteration vorstellen: Im vorliegenden Fall wird Wort für Wort (in der Spalte „Token“) kleingeschrieben. Mit dem Resultat wird die Spalte überschrieben. Sie ist dennoch nicht mit einer List Comprehension, die ja auch nur eine einzige Zeile benötigt, zu verwechseln. Denn im Gegensatz zu pythonischen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops und ihre simplifizierte Version List Comprehension, wird der Code mit der pandas-eigenen Syntax oft wesentlich schneller berechnet (teils über 1000 Mal schneller!). Grund dafür ist die sog. <em>Vektorisierung</em>. Ganz einfach forumuliert wird dabei dieselbe Operation nicht auf ein Element nach dem anderen angewandt (wie bei <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops), sondern auf mehrere gleichzeitig. Außerdem sind pandas-Operationen im Gegensatz zu nativem Python-Code (<code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops) speziell auf Effizienz ausgelegt. Wenn Du Dich dafür interessierst, findest Du u.a. in <a class="reference external" href="https://medium.com/analytics-vidhya/understanding-vectorization-in-numpy-and-pandas-188b6ebc5398">diesem Artikel</a> und <a class="reference external" href="https://www.youtube.com/watch?v=nxWginnBklU">diesem Video</a> Anknüpfungspunkte. Weiter unten folgen Übungen zum Vergleich von nativem Python-Code und pandas-Code.</p>
 <p>Zusätzlich zu den bisher verwendeten string-Methoden <code class="docutils literal notranslate"><span class="pre">lower</span></code>, <code class="docutils literal notranslate"><span class="pre">startswith</span></code>, <code class="docutils literal notranslate"><span class="pre">endswith</span></code> und <code class="docutils literal notranslate"><span class="pre">len</span></code> bietet pandas u.a. folgende an, die allesamt wie ihre nativen Python-Pendants funktionieren (vgl. viertes Notebook):</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">upper</span></code>, <code class="docutils literal notranslate"><span class="pre">capitalize</span></code>, <code class="docutils literal notranslate"><span class="pre">swapcase</span></code>, <code class="docutils literal notranslate"><span class="pre">isupper</span></code> und <code class="docutils literal notranslate"><span class="pre">islower</span></code> zur Bearbeitung/Überprüfung von Groß-/Kleinschreibung der strings.</p></li>
@@ -2860,7 +2861,7 @@ Name: Jahrzehnt, dtype: float64
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 11:</strong> Oben haben wir die Spalte “Jahrzehnt” basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Gehe abermals von der Spalte “Jahr” aus, um eine neue Spalte “Jahrzehnt_ohne_Loop” zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst Pandas-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>✏️ <strong>Übung 11:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Gehe abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst Pandas-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <p>💡 Tipp: Es sind dieselben einzelnen Schritte wie im <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop oben nötig, allerdings formuliert in pandas-Syntax. Gegebenfalls musst Du in der <a class="reference external" href="https://pandas.pydata.org/docs/">pandas-Dokumentation</a> nachschlagen, wie die jeweilige Syntax der pandas-Pendants ausschaut.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2887,8 +2888,8 @@ Name: Jahrzehnt, dtype: float64
 </div>
 <p>Die Funktion heißt <code class="docutils literal notranslate"><span class="pre">where</span></code> und hat folgende Syntax:</p>
 <p><code class="docutils literal notranslate"><span class="pre">where(if,</span> <span class="pre">then,</span> <span class="pre">else)</span></code></p>
-<p>Als erstes Argument (“if”) spezifizieren wir eine bedingte Anweisung, die bei jedem Wert entweder <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> ergibt. Im Falle von <code class="docutils literal notranslate"><span class="pre">True</span></code> wird der Wert wie im zweiten Argument (“then”) angegeben eingetragen bzw. bearbeitet. Andernfalls greift, was wir als drittes Argument (“else”) definiert haben.</p>
-<p>Angenommen wir möchten zusätzlich zur Spalte “Jahrzehnt” eine Spalte “Jahrhundert”, können wir <code class="docutils literal notranslate"><span class="pre">where</span></code> folgendermaßen dazu einsetzen:</p>
+<p>Als erstes Argument („if“) spezifizieren wir eine bedingte Anweisung, die bei jedem Wert entweder <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> ergibt. Im Falle von <code class="docutils literal notranslate"><span class="pre">True</span></code> wird der Wert wie im zweiten Argument („then“) angegeben eingetragen bzw. bearbeitet. Andernfalls greift, was wir als drittes Argument („else“) definiert haben.</p>
+<p>Angenommen wir möchten zusätzlich zur Spalte „Jahrzehnt“ eine Spalte „Jahrhundert“, können wir <code class="docutils literal notranslate"><span class="pre">where</span></code> folgendermaßen dazu einsetzen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#vor where steht wie gewohnt der Modulname, damit Python weiß, wo sich die Funktion befindet</span>
@@ -3030,9 +3031,9 @@ Name: Jahrzehnt, dtype: float64
 </div></div></div>
 </div>
 <p>Sehr gut! Bedenke, dass die Begriffe <code class="docutils literal notranslate"><span class="pre">if</span></code> und <code class="docutils literal notranslate"><span class="pre">else</span></code>, die wir bei bedingten Anweisungen in normalem Python verwenden, nicht benötigt werden. Die Logik ergibt sich einzig über die Reihenfolge der Argumente in <code class="docutils literal notranslate"><span class="pre">where</span></code>.</p>
-<p>In diesem Fall haben wir als “then” bzw. “else” ganz einfach strings übergeben, die je nach dem in der neuen Spalte “Jahrhundert” eingetragen wurden. In der folgenden Übung wollen wir bei “then” und “else” bestimmte Werte in der jeweilige Zeile bearbeiten.</p>
+<p>In diesem Fall haben wir als „then“ bzw. „else“ ganz einfach strings übergeben, die je nach dem in der neuen Spalte „Jahrhundert“ eingetragen wurden. In der folgenden Übung wollen wir bei „then“ und „else“ bestimmte Werte in der jeweilige Zeile bearbeiten.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 12:</strong> Bearbeite die Werte in der Spalte “Token” so, dass jedes Wort, das aus genau fünf Buchstaben besteht, großgeschrieben wird. Einfach weil wir’s können! 😉</p>
+<p>✏️ <strong>Übung 12:</strong> Bearbeite die Werte in der Spalte „Token“ so, dass jedes Wort, das aus genau fünf Buchstaben besteht, großgeschrieben wird. Einfach weil wir’s können! 😉</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
@@ -3049,7 +3050,7 @@ Name: Jahrzehnt, dtype: float64
 <p>Wie erwähnt ist die vektorisierte Art der Datenbearbeitung in pandas meistens äußerst effizient. Es gibt aber Fälle, in denen wir dennoch eine Funktion mit nativem Python-Code anwenden wollen. Entweder, weil pandas die benötigen Operationen nicht implementiert, oder weil es mit nativem Python-Code trotz allem effizienter ist (dazu gleich mehr).</p>
 <p>In jedem Fall bieten die Methoden <code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code> die Möglichkeit, jede beliebige Funktion (und in der Verlängerung auch jede beliebige Methode) auf eine Series oder gleich ein ganzes DataFrame anzuwenden. <code class="docutils literal notranslate"><span class="pre">apply</span></code> verwenden wir bei einer Series, <code class="docutils literal notranslate"><span class="pre">applymap</span></code> bei einem ganzen DataFrame. Angehängt an die Series bzw. das DataFrame übergeben wir ihnen schlicht den Namen der gewünschten Funktion. Es spielt keine Rolle, ob die Funktion aus der Grundausstattung von Python stammt, importiert wurde oder von Dir selbst geschrieben ist.</p>
 <p>Machen wir es konkret, und zwar in zwei kleinen Experimenten. Wir wollen die gleiche Art der Datenbearbeitung je einmal vektorisiert implementieren, und einmal über eine eigene Funktion, die wir mithilfe von <code class="docutils literal notranslate"><span class="pre">apply</span></code> auf die Daten <em>appli</em>zieren. Zum Verständnis: Rufen wir eine Funktion über <code class="docutils literal notranslate"><span class="pre">apply</span></code> (oder <code class="docutils literal notranslate"><span class="pre">applymap</span></code>) auf, wird dieser wie bei einem <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop <em>Wert für Wert</em> übergeben. Will heißen: Bei <code class="docutils literal notranslate"><span class="pre">apply</span></code> können wir nicht von der Verarbeitung mehrerer Daten auf einmal profitieren.</p>
-<p>Für das erste Experiment rufen wir ein DataFrame ins Leben, das aus einer Million Zeilen und zwei Spalten, “A” und “B”, besteht. Das DataFrame befüllen wir mit zufälligen Zahlen zwischen 0 und 100 (unter Verwendung der numpy-Funktion <code class="docutils literal notranslate"><span class="pre">random.randint</span></code>). Insgesamt also ein ziemlich großes DataFrame:</p>
+<p>Für das erste Experiment rufen wir ein DataFrame ins Leben, das aus einer Million Zeilen und zwei Spalten, „A“ und „B“, besteht. Das DataFrame befüllen wir mit zufälligen Zahlen zwischen 0 und 100 (unter Verwendung der numpy-Funktion <code class="docutils literal notranslate"><span class="pre">random.randint</span></code>). Insgesamt also ein ziemlich großes DataFrame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">])</span>
@@ -3083,34 +3084,34 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>45</td>
-      <td>8</td>
+      <td>58</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>16</td>
-      <td>6</td>
+      <td>90</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>7</td>
-      <td>18</td>
+      <td>99</td>
+      <td>57</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>36</td>
-      <td>68</td>
+      <td>4</td>
+      <td>31</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>36</td>
-      <td>0</td>
+      <td>28</td>
+      <td>56</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Nun wollen wir eine dritte Spalte “C” schaffen, die ganz einfach das jeweilige Produkt der Werte in den Spalten “A” und “B” enthält. In der ersten Zelle unten tun wir dies auf vektorisierte Weise, in der zweiten mithilfe einer eigenen Funktion und <code class="docutils literal notranslate"><span class="pre">apply</span></code>. Um zu messen, wie lange das jeweils dauert, verwenden wir das <code class="docutils literal notranslate"><span class="pre">time</span></code>-Modul aus der Grundausstattung von Python:</p>
+<p>Nun wollen wir eine dritte Spalte „C“ schaffen, die ganz einfach das jeweilige Produkt der Werte in den Spalten „A“ und „B“ enthält. In der ersten Zelle unten tun wir dies auf vektorisierte Weise, in der zweiten mithilfe einer eigenen Funktion und <code class="docutils literal notranslate"><span class="pre">apply</span></code>. Um zu messen, wie lange das jeweils dauert, verwenden wir das <code class="docutils literal notranslate"><span class="pre">time</span></code>-Modul aus der Grundausstattung von Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vektorisiert</span>
@@ -3151,33 +3152,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>45</td>
-      <td>8</td>
-      <td>360</td>
+      <td>58</td>
+      <td>7</td>
+      <td>406</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>16</td>
-      <td>6</td>
-      <td>96</td>
+      <td>90</td>
+      <td>11</td>
+      <td>990</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>7</td>
-      <td>18</td>
-      <td>126</td>
+      <td>99</td>
+      <td>57</td>
+      <td>5643</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>36</td>
-      <td>68</td>
-      <td>2448</td>
+      <td>4</td>
+      <td>31</td>
+      <td>124</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>36</td>
-      <td>0</td>
-      <td>0</td>
+      <td>28</td>
+      <td>56</td>
+      <td>1568</td>
     </tr>
   </tbody>
 </table>
@@ -3227,33 +3228,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>45</td>
-      <td>8</td>
-      <td>360</td>
+      <td>58</td>
+      <td>7</td>
+      <td>406</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>16</td>
-      <td>6</td>
-      <td>96</td>
+      <td>90</td>
+      <td>11</td>
+      <td>990</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>7</td>
-      <td>18</td>
-      <td>126</td>
+      <td>99</td>
+      <td>57</td>
+      <td>5643</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>36</td>
-      <td>68</td>
-      <td>2448</td>
+      <td>4</td>
+      <td>31</td>
+      <td>124</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>36</td>
-      <td>0</td>
-      <td>0</td>
+      <td>28</td>
+      <td>56</td>
+      <td>1568</td>
     </tr>
   </tbody>
 </table>
@@ -3267,15 +3268,15 @@ Name: Jahrzehnt, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.009795904159545898 
-for-Loop 16.215952396392822 
-Faktor: 1655.380874729233
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.009749174118041992 
+for-Loop 12.560844421386719 
+Faktor: 1288.400870607224
 </pre></div>
 </div>
 </div>
 </div>
 <p>Sehr eindrucksvoll!</p>
-<p>Gehen wir zum zweiten Experiment über, indem wir wieder ein DataFrame mit einer Million Zeilen, aber nur einer Spalte, “Satz”, schaffen. Diesmal befüllen wir das DataFrame mit dem immergleichen string (unter Verwendung der numpy-Funktion <code class="docutils literal notranslate"><span class="pre">repeat</span></code>):</p>
+<p>Gehen wir zum zweiten Experiment über, indem wir wieder ein DataFrame mit einer Million Zeilen, aber nur einer Spalte, „Satz“, schaffen. Diesmal befüllen wir das DataFrame mit dem immergleichen string (unter Verwendung der numpy-Funktion <code class="docutils literal notranslate"><span class="pre">repeat</span></code>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">&quot;Dies ist ein nicht besonders langer Satz.&quot;</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Satz&quot;</span><span class="p">])</span>
@@ -3330,7 +3331,7 @@ Faktor: 1655.380874729233
 </table>
 </div></div></div>
 </div>
-<p>Hier wollen wir ebenfalls eine weitere Spalte schaffen. Sie soll ganz unspektakulär die Anzahl an Wörtern des jeweiligen strings in der Spalte “Satz” enthalten. In diesem konstruierten Beispiel ergibt dies selbstverständlich immer sieben. Die erste Zelle enthält wieder die vektorisierte pandas-Variante, während die zweite über <code class="docutils literal notranslate"><span class="pre">apply</span></code> eine selbst geschriebene Funktion mit Python-Code aufruft.</p>
+<p>Hier wollen wir ebenfalls eine weitere Spalte schaffen. Sie soll ganz unspektakulär die Anzahl an Wörtern des jeweiligen strings in der Spalte „Satz“ enthalten. In diesem konstruierten Beispiel ergibt dies selbstverständlich immer sieben. Die erste Zelle enthält wieder die vektorisierte pandas-Variante, während die zweite über <code class="docutils literal notranslate"><span class="pre">apply</span></code> eine selbst geschriebene Funktion mit Python-Code aufruft.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vektorisiert</span>
@@ -3474,9 +3475,9 @@ Faktor: 1655.380874729233
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.6075472831726074 
-for-Loop 0.8850293159484863 
-Faktor: 2.9462835142111623
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.415816068649292 
+for-Loop 0.6821997165679932 
+Faktor: 3.5412152922061697
 </pre></div>
 </div>
 </div>
@@ -3496,16 +3497,16 @@ Faktor: 2.9462835142111623
 <hr class="docutils" />
 <section id="id1">
 <h2><span class="section-number">7.16. </span>🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>Im Anwendungsfall für dieses Notebook wollen wir wie gesagt Wortverlaufskurven visualisieren. Das heißt, wir wollen die Häufigkeit, mit der ein beliebiges Wort auftritt, über die Zeit hinweg darstellen. Für die vier Personalpronomen “ich”, “du”, “er” und “sie” sähe das z.B. wie in der kombinierten Grafik unten aus. Die linke Darstellung visualisiert die Daten nach einzelnen Jahren (wie der originale Datensatz), in der mittleren und rechten Darstellung werden die Daten aggregiert nach Fünfjahresabschnitten bzw. Zehnjahresabschnitten visualisiert. Einzelne Aussschläge nach oben und unten werden so ausgebügelt und Trends sind leichter zu erkennen:</p>
+<p>Im Anwendungsfall für dieses Notebook wollen wir wie gesagt Wortverlaufskurven visualisieren. Das heißt, wir wollen die Häufigkeit, mit der ein beliebiges Wort auftritt, über die Zeit hinweg darstellen. Für die vier Personalpronomen „ich“, „du“, „er“ und „sie“ sähe das z.B. wie in der kombinierten Grafik unten aus. Die linke Darstellung visualisiert die Daten nach einzelnen Jahren (wie der originale Datensatz), in der mittleren und rechten Darstellung werden die Daten aggregiert nach Fünfjahresabschnitten bzw. Zehnjahresabschnitten visualisiert. Einzelne Aussschläge nach oben und unten werden so ausgebügelt und Trends sind leichter zu erkennen:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Wortverlaufskurve_kombiniert.png"><p>Deine Aufgabe ist es erst einmal, Code zu schreiben, der die linke Grafik für beliebige Wörter produziert. Die erforderliche Aggregation für die mittlere und rechte Darstellung schauen wir uns im Anschluss an den Anwendungsfall gemeinsam an.</p>
 <p>Wie im vierten und fünften Notebook hast Du wieder die Wahl, den Anwendungsfall ohne weitere Anleitung in Angriff zu nehmen oder einer Schritt-für-Schritt-Anleitung zu folgen. In letzterem Fall kannst Du jetzt ans Ende der nächsten Code-Zelle springen. Wenn Du es alleine probieren möchstest, dann analysiere das gewünschte Resultat oben links und frage Dich, welche Daten wie und wo visualisiert werden.</p>
 <p>💡 Tipp 1: Die relativen Häufigkeiten pro Wort und Jahr liegen noch nicht in unserem DataFrame vor. Du musst sie also erst ausrechnen. Überleg Dir genau, wie Du von den existierenden, absoluten Häufigkeiten zu den relativen Häufigkeiten pro Jahr kommst. Dazu seien zwei nützliche Methoden erwähnt (klicke auf ihren Namen, um zur offiziellen Dokumentation zu gelangen):</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a>: Nach dem Motto “split-apply-combine” erlaubt Dir diese Methode, das DataFrame nach den Werten der Spalte “Jahr” zu gruppieren (aufzu<em>split</em>ten). Indem Du im gleichen Statement die <code class="docutils literal notranslate"><span class="pre">sum</span></code>-Methode auf die Spalte “Häufigkeit” jedes durch <code class="docutils literal notranslate"><span class="pre">groupby</span></code> entstehenden Sub-DataFrame anwendest (<em>apply</em>), erhältst Du eine zusammengeführte Series (<em>combine</em>), die für jedes Jahr die Summe aller Häufigkeiten aller Tokens enthält. Schau Dir diese Series genau an.</p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a>: Nach dem Motto „split-apply-combine“ erlaubt Dir diese Methode, das DataFrame nach den Werten der Spalte „Jahr“ zu gruppieren (aufzu<em>split</em>ten). Indem Du im gleichen Statement die <code class="docutils literal notranslate"><span class="pre">sum</span></code>-Methode auf die Spalte „Häufigkeit“ jedes durch <code class="docutils literal notranslate"><span class="pre">groupby</span></code> entstehenden Sub-DataFrame anwendest (<em>apply</em>), erhältst Du eine zusammengeführte Series (<em>combine</em>), die für jedes Jahr die Summe aller Häufigkeiten aller Tokens enthält. Schau Dir diese Series genau an.</p></li>
 <li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.replace.html"><code class="docutils literal notranslate"><span class="pre">replace</span></code></a>: Diese Methode lässt sich auf eine Series (etwa eine Spalte in unserem DataFrame) anwenden und nimmt u.a. eine zweite Series als Argument (etwa eine durch <code class="docutils literal notranslate"><span class="pre">groupby([...])[...].sum()</span></code> entstandene). <code class="docutils literal notranslate"><span class="pre">replace</span></code> schaut dann, ob sich Indizes der zweiten Series als Werte in der ersten Series befinden und wenn ja, ersetzt sie diese durch die dazugehörigen Werte aus der zweiten Series. Die dictionary-Analogie von oben macht den Prozess greifbarer: <code class="docutils literal notranslate"><span class="pre">replace</span></code> ersetzt in der Series, auf die sie angewandt wird, Schlüssel durch ihre jeweiligen Werte aus der als Argument übergebenen Series.</p></li>
 </ul>
 <p>💡 Tipp 2: Mach Dich in der <a class="reference external" href="https://matplotlib.org/stable/users/index.html">Dokumentation</a> von matplotlib, der Bibliothek zum Visualisieren von Daten, schlau, wie Du die errechneten Werte visualisieren kannst.</p>
-<p>Beginne in jedem Fall damit, die Datei “songkorpus.tsv” neu einzulesen und die Spalten wie am Anfang des Notebooks umzubenennen. Dadurch stellst Du sicher, dass Du auch wirklich mit den ursprünglichen Daten arbeitest.</p>
+<p>Beginne in jedem Fall damit, die Datei „songkorpus.tsv“ neu einzulesen und die Spalten wie am Anfang des Notebooks umzubenennen. Dadurch stellst Du sicher, dass Du auch wirklich mit den ursprünglichen Daten arbeitest.</p>
 <p>Viel Erfolg! 🙌</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3517,7 +3518,7 @@ Faktor: 2.9462835142111623
 <hr class="docutils" />
 <p><strong>Schritt-für-Schritt-Anleitung</strong></p>
 <ol class="arabic simple">
-<li><p>Um sicherzugehen, dass wir wirklich mit den originalen Daten arbeiten, lies die Datei “songkorpus_token.tsv” abermals ein.</p></li>
+<li><p>Um sicherzugehen, dass wir wirklich mit den originalen Daten arbeiten, lies die Datei „songkorpus_token.tsv“ abermals ein.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3527,7 +3528,7 @@ Faktor: 2.9462835142111623
 </div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>Benenne die Spalten in “Token”, “Jahr” und “Häufigkeit” um.</p></li>
+<li><p>Benenne die Spalten in „Token“, „Jahr“ und „Häufigkeit“ um.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3537,9 +3538,9 @@ Faktor: 2.9462835142111623
 </div>
 </div>
 <ol class="arabic" start="3">
-<li><p>Im DataFrame verfügen wir bislang nur über absolute Häufigkeiten. Um die Werte zwischen einzelnen Jahren besser vergleichbar zu machen, wollen wir aber relative Häufigkeiten für die Visualisierung verwenden. Schaffe dazu eine Spalte “Relative Häufigkeit”, die für jedes Token vermerkt, wie häufig es in Relation zur Summe aller Häufigkeiten aller Tokens im gegebenen Jahr vorkommt. Für diese Berechnung brauchst Du jeweils zwei Werte: erstens die absolute Häufigkeit (bereits in der Spalte “Häufigkeit”) und zweitens die Summe aller Häufigkeiten aller Tokens im gegebenen Jahr.</p>
-<p>Verwende die Methode <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a> zur Berechnung der Summe aller Häufigkeiten pro Jahr. Nach dem Motto “split-apply-combine” erlaubt Dir diese Methode, das DataFrame nach den Werten der Spalte “Jahr” zu gruppieren (aufzu<em>split</em>ten). Indem Du im gleichen Statement die <code class="docutils literal notranslate"><span class="pre">sum</span></code>-Methode auf die Spalte “Häufigkeit” jedes durch <code class="docutils literal notranslate"><span class="pre">groupby</span></code> entstehenden Sub-DataFrame anwendest (<em>apply</em>), erhältst Du eine zusammengeführte Series (<em>combine</em>), die für jedes Jahr die Summe aller Häufigkeiten aller Tokens enthält. Weise die Series der Variablen <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code> zu und inspiziere sie.</p>
-<p>Um nun zur relativen Häufigkeit zu gelangen, musst Du für jedes Token in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> den Wert in der Spalte “Häufigkeit” durch die jeweilige Summe an Häufigkeiten im gegebenen Jahr teilen. Da wir letzteren Wert in einer anderen Series (nämlich in <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code>) vorliegen haben, müssen wir zu einem Trick greifen: Wende die <code class="docutils literal notranslate"><span class="pre">replace</span></code>-Methode auf die Spalte “Jahr” an und übergib ihr <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code>. Wir machen uns hier den Umstand zunutze, dass eine Series wie ein dictionary funktioniert. Will heißen: <code class="docutils literal notranslate"><span class="pre">replace</span></code> ersetzt kurzerhand jedes Jahr (Schlüssel) durch die jeweilige Summe der Häufigkeiten pro Jahr (Wert).</p>
+<li><p>Im DataFrame verfügen wir bislang nur über absolute Häufigkeiten. Um die Werte zwischen einzelnen Jahren besser vergleichbar zu machen, wollen wir aber relative Häufigkeiten für die Visualisierung verwenden. Schaffe dazu eine Spalte „Relative Häufigkeit“, die für jedes Token vermerkt, wie häufig es in Relation zur Summe aller Häufigkeiten aller Tokens im gegebenen Jahr vorkommt. Für diese Berechnung brauchst Du jeweils zwei Werte: erstens die absolute Häufigkeit (bereits in der Spalte „Häufigkeit“) und zweitens die Summe aller Häufigkeiten aller Tokens im gegebenen Jahr.</p>
+<p>Verwende die Methode <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a> zur Berechnung der Summe aller Häufigkeiten pro Jahr. Nach dem Motto „split-apply-combine“ erlaubt Dir diese Methode, das DataFrame nach den Werten der Spalte „Jahr“ zu gruppieren (aufzu<em>split</em>ten). Indem Du im gleichen Statement die <code class="docutils literal notranslate"><span class="pre">sum</span></code>-Methode auf die Spalte „Häufigkeit“ jedes durch <code class="docutils literal notranslate"><span class="pre">groupby</span></code> entstehenden Sub-DataFrame anwendest (<em>apply</em>), erhältst Du eine zusammengeführte Series (<em>combine</em>), die für jedes Jahr die Summe aller Häufigkeiten aller Tokens enthält. Weise die Series der Variablen <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code> zu und inspiziere sie.</p>
+<p>Um nun zur relativen Häufigkeit zu gelangen, musst Du für jedes Token in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> den Wert in der Spalte „Häufigkeit“ durch die jeweilige Summe an Häufigkeiten im gegebenen Jahr teilen. Da wir letzteren Wert in einer anderen Series (nämlich in <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code>) vorliegen haben, müssen wir zu einem Trick greifen: Wende die <code class="docutils literal notranslate"><span class="pre">replace</span></code>-Methode auf die Spalte „Jahr“ an und übergib ihr <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code>. Wir machen uns hier den Umstand zunutze, dass eine Series wie ein dictionary funktioniert. Will heißen: <code class="docutils literal notranslate"><span class="pre">replace</span></code> ersetzt kurzerhand jedes Jahr (Schlüssel) durch die jeweilige Summe der Häufigkeiten pro Jahr (Wert).</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -3572,9 +3573,9 @@ Faktor: 2.9462835142111623
 <ol class="arabic simple" start="6">
 <li><p>Plotte nun nacheinander eine Verlaufskurve für jedes Wort auf der Liste. Gehe dazu für jedes Wort wie folgt vor:</p>
 <ul class="simple">
-<li><p>Schaffe ein Sub-DataFrame, in dem in der Spalte “Token” nur das gegebene Wort steht.</p></li>
-<li><p>Sortiere das Sub-DataFrame aufsteigend nach der Spalte “Jahr” und setze den Index anschließend zurück.</p></li>
-<li><p>Übergib der <code class="docutils literal notranslate"><span class="pre">plot</span></code>-Funktion die relevanten Spalten des Sub-DataFrames an Stelle von <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code>. Übergib als drittes Argument den string “o-”, der den Stil des Graphen (Linie mit Punkten) definiert.</p></li>
+<li><p>Schaffe ein Sub-DataFrame, in dem in der Spalte „Token“ nur das gegebene Wort steht.</p></li>
+<li><p>Sortiere das Sub-DataFrame aufsteigend nach der Spalte „Jahr“ und setze den Index anschließend zurück.</p></li>
+<li><p>Übergib der <code class="docutils literal notranslate"><span class="pre">plot</span></code>-Funktion die relevanten Spalten des Sub-DataFrames an Stelle von <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code>. Übergib als drittes Argument den string „o-“, der den Stil des Graphen (Linie mit Punkten) definiert.</p></li>
 </ul>
 </li>
 </ol>
@@ -3598,7 +3599,7 @@ Faktor: 2.9462835142111623
 <hr class="docutils" />
 <p>Super! 🤩</p>
 <p>Bevor wir uns zum Abschluss noch den Output von DataFrames anschauen, wollen wir die Daten wie gesagt zu größeren Zeiteinheiten aggregieren, und zwar zu Zehn- und Fünfjahresabschnitten.</p>
-<p>Auch hier laden wir zur Sicherheit nochmal die originale Datei, benennen die Spalten um und schaffen zusätzlich die Spalten “Jahrzehnt” und “Relative Häufigkeit”. Letztere wird nach wie vor relativ zur Häufigkeit aller Tokens in <em>einem</em> Jahr berechnet.</p>
+<p>Auch hier laden wir zur Sicherheit nochmal die originale Datei, benennen die Spalten um und schaffen zusätzlich die Spalten „Jahrzehnt“ und „Relative Häufigkeit“. Letztere wird nach wie vor relativ zur Häufigkeit aller Tokens in <em>einem</em> Jahr berechnet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Songkorpus/songkorpus_token.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> 
@@ -3686,7 +3687,7 @@ Faktor: 2.9462835142111623
 </table>
 </div></div></div>
 </div>
-<p>Eine Spalte mit sog. <em>Jahrfünften</em> können wir nun unter Verwendung von numpys <code class="docutils literal notranslate"><span class="pre">select</span></code> erstellen. Dazu definieren wir zwei Listen, eine mit “if”-Bedingungen (etwa “Wert in Spalte ‘Jahr’ kleiner als 1970…”) und eine mit “then”-Statements (”…dann setze den Wert 1965 ein”). Diese Listen übergeben wir der Funktion zusammen mit dem dritten Argument, das ganz einfach im “else”-Fall greift. Bedenke, dass die Reihenfolge der Elemente auf den beiden Listen ebenso wie die Reihenfolge von <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">elif</span></code>-…-Statements in normalem Python-Code entscheidend ist.</p>
+<p>Eine Spalte mit sog. <em>Jahrfünften</em> können wir nun unter Verwendung von numpys <code class="docutils literal notranslate"><span class="pre">select</span></code> erstellen. Dazu definieren wir zwei Listen, eine mit „if“-Bedingungen (etwa „Wert in Spalte ‚Jahr‘ kleiner als 1970…“) und eine mit „then“-Statements (“…dann setze den Wert 1965 ein“). Diese Listen übergeben wir der Funktion zusammen mit dem dritten Argument, das ganz einfach im „else“-Fall greift. Bedenke, dass die Reihenfolge der Elemente auf den beiden Listen ebenso wie die Reihenfolge von <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">elif</span></code>-…-Statements in normalem Python-Code entscheidend ist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]</span>
@@ -3776,7 +3777,7 @@ Faktor: 2.9462835142111623
 </div>
 <p>Nun fehlt nur noch der Aggregationsschritt. Bei den jahresbasierten relativen Häufigkeiten konnten wir uns ja darauf verlassen, dass jedes Wort nur ein einziges Mal pro Jahr in unserem DataFrame steht, so sind unsere Daten ganz einfach strukturiert.</p>
 <p>Bei den Jahrfünften und Jahrzehnten kann ein einzelnes Wort hingegen bis zu fünf bzw. zehn Mal vorkommen. Da wir aber nur einen Wert pro Zeitabschnitt plotten wollen, müssen wir sämtliche relativen Häufigkeiten in einem Jahrfünft bzw. Jahrzehnt aufsummieren und anschließend durch 5 resp. 10 teilen. Dadurch erhalten wir die durchschnittliche relative Häufigkeit pro Wort und Zeitabschnitt.</p>
-<p>Genau dies tun wir im neu eingefügten Aggregationsschritt unten: Wir gruppieren das Sub-DataFrame <code class="docutils literal notranslate"><span class="pre">word_df</span></code> abermals mithilfe von <code class="docutils literal notranslate"><span class="pre">groupby</span></code> nach dem gewünschten Zeitabschnitt (wahlweise Jahrzehnt oder Jahrfünft) und aggregieren die Werte in der Spalte “Relative Häufigkeit”, indem wir sie pro Zeitabschnitt aufsummieren. Anschließend teilen wir die Summe durch die Anzahl an Jahre des Zeitabschnitts (10 oder 5), um den Durchschnitt zu errechnen. Um wirklich nur mit kompletten Jahrfünften bzw. Jahrzehnten zu rechnen, exkludieren wir zu Beginn noch sämtliche Tokens in den Jahren 1969, 2020, 2021 und 2022 (die Division durch 5 bzw. 10 würde ja sonst zu zu kleinen Durchschnitten führen).</p>
+<p>Genau dies tun wir im neu eingefügten Aggregationsschritt unten: Wir gruppieren das Sub-DataFrame <code class="docutils literal notranslate"><span class="pre">word_df</span></code> abermals mithilfe von <code class="docutils literal notranslate"><span class="pre">groupby</span></code> nach dem gewünschten Zeitabschnitt (wahlweise Jahrzehnt oder Jahrfünft) und aggregieren die Werte in der Spalte „Relative Häufigkeit“, indem wir sie pro Zeitabschnitt aufsummieren. Anschließend teilen wir die Summe durch die Anzahl an Jahre des Zeitabschnitts (10 oder 5), um den Durchschnitt zu errechnen. Um wirklich nur mit kompletten Jahrfünften bzw. Jahrzehnten zu rechnen, exkludieren wir zu Beginn noch sämtliche Tokens in den Jahren 1969, 2020, 2021 und 2022 (die Division durch 5 bzw. 10 würde ja sonst zu zu kleinen Durchschnitten führen).</p>
 <p>Abgesehen vom Aggregationsschritt und dem Ausschluss inkompletter Jahrfünfte bzw. Jahrzehnte, wurde im Code unten die Variable <code class="docutils literal notranslate"><span class="pre">span</span></code> für die Zeiteinheit eingesetzt, sodass diese neben zu den zu plottenden Wörtern initial definiert werden kann:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3810,7 +3811,7 @@ Faktor: 2.9462835142111623
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2d5ad69690&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f74352e6e10&gt;
 </pre></div>
 </div>
 <img alt="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" src="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" />
@@ -3872,7 +3873,7 @@ Faktor: 2.9462835142111623
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-subtitle">zurück</p>
         <p class="prev-next-title"><span class="section-number">6. </span>Reguläre Ausdrücke / RegEx</p>
       </div>
     </a>
@@ -3890,7 +3891,7 @@ Faktor: 2.9462835142111623
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    <i class="fa-solid fa-list"></i> Inhalt
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -3932,7 +3933,7 @@ Faktor: 2.9462835142111623
   <div class="footer-item">
     
 <p class="component-author">
-By Yannick Frommherz
+Durch Yannick Frommherz
 </p>
 
   </div>

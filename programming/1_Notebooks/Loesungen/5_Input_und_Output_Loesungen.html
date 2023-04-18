@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="de" >
 
   <head>
     <meta charset="utf-8" />
@@ -53,6 +53,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -63,10 +64,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/Loesungen/5_Input_und_Output_Loesungen';</script>
     <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/Loesungen/5_Input_und_Output_Loesungen.html" />
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="de"/>
   </head>
   
   
@@ -242,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
+   title="Quell-Repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -259,7 +260,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/Loesungen/5_Input_und_Output_Loesungen.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
+   title="Öffnen Sie ein Problem"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -280,7 +281,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -289,7 +290,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="../../../_sources/programming/1_Notebooks/Loesungen/5_Input_und_Output_Loesungen.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
+   title="Quelldatei herunterladen"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -307,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
+  title="In PDF drucken"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -327,7 +328,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
+  title="Vollbildmodus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -351,7 +352,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
@@ -387,7 +388,7 @@ document.write(`
 <p>✏️ <strong>Lösung 1:</strong> Navigiere in Deinem Dateimanager zu fünf beliebigen Dateien in fünf verschiedenen Verzeichnissen. Kopiere die absoluten Dateipfade wie oben beschrieben und weise je einen Dateipfad einer der folgenden Variablen zu (innerhalb der Anführungszeichen).</p>
 <p><em>keine Lösung</em></p>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 2:</strong> Das aktuelle Arbeitsverzeichnis auf einem Windows-Rechner sei “C:\Users\Name\Documents\Project\Folder”. Du möchtest auf eine Datei zugreifen, die folgenden absoluten Dateipfad besitzt: “C:\Users\Name\Documents\Resources\file.csv”. Mithilfe welchen relativen Pfads können wir in Python auf “file.csv” zugreifen?</p>
+<p>✏️ <strong>Lösung 2:</strong> Das aktuelle Arbeitsverzeichnis auf einem Windows-Rechner sei „C:\Users\Name\Documents\Project\Folder“. Du möchtest auf eine Datei zugreifen, die folgenden absoluten Dateipfad besitzt: „C:\Users\Name\Documents\Resources\file.csv“. Mithilfe welchen relativen Pfads können wir in Python auf „file.csv“ zugreifen?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">relative_path</span> <span class="o">=</span> <span class="s2">&quot;../../Resources/file.csv&quot;</span> <span class="c1">#mit Schrägstrichen auf allen Betriebssystemen (r&quot;\..\..\Resources\file.csv&quot; würde bei Windows aber auch funktionieren)</span>
@@ -396,7 +397,7 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 3:</strong> Lies den ersten Aufzug aus Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/nathan/chap002.html">Nathan der Weise</a> ein. Die Datei befindet sich am gleichen Ort wie Miss Sara Sampson, allerdings eine Verzeichnisebene tiefer in “Nathan_der_Weise”. Finde heraus, welche der Figuren des Stücks (bereitgestellt in <code class="docutils literal notranslate"><span class="pre">characters</span></code>) am häufigsten erwähnt wird (wir unterscheiden nicht zwischen Erwähnungen in Redebeiträgen und sonst wo im Text, z.B. in der Sprecherkennzeichung).</p>
+<p>✏️ <strong>Lösung 3:</strong> Lies den ersten Aufzug aus Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/nathan/chap002.html">Nathan der Weise</a> ein. Die Datei befindet sich am gleichen Ort wie Miss Sara Sampson, allerdings eine Verzeichnisebene tiefer in „Nathan_der_Weise“. Finde heraus, welche der Figuren des Stücks (bereitgestellt in <code class="docutils literal notranslate"><span class="pre">characters</span></code>) am häufigsten erwähnt wird (wir unterscheiden nicht zwischen Erwähnungen in Redebeiträgen und sonst wo im Text, z.B. in der Sprecherkennzeichung).</p>
 <p>Um Deine Fertigkeiten aus dem letzten Notebook gleich wieder einzusetzen, könntest Du dazu auch eine sortierte Frequenzliste mit allen Figuren und ihren jeweiligen Erwähnungshäufigkeiten erstellen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -436,7 +437,7 @@ Emir 0
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 4:</strong> Im Gegensatz zu Miss Sara Sampson ist Nathan der Weise etwas anders formatiert, z.B. verteilen sich Redebeiträge z.T. über mehrere Zeilen.</p>
 <p>Lies den ersten Aufzug aus Nathan der Weise abermals ein. Schaue Dir die Formatierung des Textes genau an, um ein strukturelles Merkmal zu finden, anhand dessen Du eine Liste mit zusammengehörigen Redebeiträgen und Metakommentaren erstellen kannst. Ein über mehrere Zeilen verteilter Redebeitrag oder Metakommentar soll jeweils in ein Element einfließen.</p>
-<p>Bereinige anschließend die Liste von allem, was kein Redebeitrag darstellt. Auch hierfür musst Du Dir die Liste gut anschauen, um ein strukturelles Merkmal zu identifizieren, anhand dessen Du die “Spreu vom Weizen” trennen kannst. Sollte sich ein Metakommentar innerhalb eines Redebeitrags befinden, kannst Du dies ignorieren. Stelle durch einen iterativen Ansatz sicher, dass Du am Ende wirklich alle Redebeiträge und nur Redebeiträge auf der Liste hast (also die <em>true positives</em>).</p>
+<p>Bereinige anschließend die Liste von allem, was kein Redebeitrag darstellt. Auch hierfür musst Du Dir die Liste gut anschauen, um ein strukturelles Merkmal zu identifizieren, anhand dessen Du die „Spreu vom Weizen“ trennen kannst. Sollte sich ein Metakommentar innerhalb eines Redebeitrags befinden, kannst Du dies ignorieren. Stelle durch einen iterativen Ansatz sicher, dass Du am Ende wirklich alle Redebeiträge und nur Redebeiträge auf der Liste hast (also die <em>true positives</em>).</p>
 <p>Dir steht wiederum eine Liste mit Figuren zur Verfügung.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -492,7 +493,7 @@ Und wäre leicht von Grund aus abgebrannt.
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 5:</strong> Bisher haben wir nur mit dem ersten Aufzug aus Miss Sara Sampson gearbeitet. Das Trauerspiel besteht aber aus fünf Aufzügen, die sich allesamt im gleichen Verzeichnis wie der erste Aufzug befinden.</p>
-<p>Öffne eine neue Textdatei mit Namen “Miss_Sara_Sampson_komplett.txt” im Verzeichnis “Output” und schreibe alle fünf Aufzüge in der richtigen Reihenfolge in diese Datei.</p>
+<p>Öffne eine neue Textdatei mit Namen „Miss_Sara_Sampson_komplett.txt“ im Verzeichnis „Output“ und schreibe alle fünf Aufzüge in der richtigen Reihenfolge in diese Datei.</p>
 <p>Anstatt jede Datei über ihren Pfad einzeln zu öffnen, kannst Du die oben bereits vorgestellte <code class="docutils literal notranslate"><span class="pre">listdir</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">os</span></code>-Moduls verwenden. Als Argument übergibst Du ihr den Pfad zum betreffenden Verzeichnis. Du kriegst eine Liste mit den darin befindlichen Dateien und Unterverzeichnissen (jeweils als string) zurück. Über diese Liste kannst Du dann wie gewohnt iterieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -612,7 +613,7 @@ Thüringen 1
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2100</span><span class="o">/</span><span class="mf">805338919.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2073</span><span class="o">/</span><span class="mf">805338919.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> 
 <span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">if</span> <span class="n">first_time</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
 <span class="ne">----&gt; </span><span class="mi">9</span>         <span class="n">file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Hallo! Bitte gib den Namen der Datei an, in der Du Deinen Gedanken festhalten willst.</span><span class="se">\n\n</span><span class="s2">Sollte die Datei noch nicht existieren, lege ich sie für Dich an.</span><span class="se">\n\n</span><span class="s2">An das Dateisuffix musst Du nicht denken.</span><span class="se">\n\n</span><span class="s2">⇥&quot;&quot;&quot;</span><span class="p">)</span>
@@ -633,7 +634,7 @@ Thüringen 1
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 7:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben.</p>
-<p>Hinweis 1: Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte “Product” soll 25 Stellen betragen, derjenige für “Price” 5.</p>
+<p>Hinweis 1: Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ 5.</p>
 <p>Hinweis 2: Wie erwähnt werden Zahlen innerhalb des digit space standardmäßig rechtsbündig ausgerichtet. Strings werden hingegen innerhalb des digit space standardmäßig linksbündig ausgerichtet (Tabellenkalkulationsprogramme legen das gleiche Verhalten an den Tag, wie Dir vielleicht schon aufgefallen ist). Um die Darstellung im Screenshot umzusetzen musst Du Dich folglich nicht um das alignment kümmern, da es dem Standard entspricht.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -712,7 +713,7 @@ Olive Oil Extra Vergine   11.17
   <div class="footer-item">
     
 <p class="component-author">
-By Yannick Frommherz
+Durch Yannick Frommherz
 </p>
 
   </div>

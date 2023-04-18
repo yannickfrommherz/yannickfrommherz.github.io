@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="de" >
 
   <head>
     <meta charset="utf-8" />
@@ -53,6 +53,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -63,12 +64,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/4_Funktionen_und_Methoden';</script>
     <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/4_Funktionen_und_Methoden.html" />
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
     <link rel="next" title="5. Input und Output" href="5_Input_und_Output.html" />
     <link rel="prev" title="3. Kontrollstrukturen" href="3_Kontrollstrukturen.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="de"/>
   </head>
   
   
@@ -244,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
+   title="Quell-Repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -261,7 +262,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/4_Funktionen_und_Methoden.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
+   title="Öffnen Sie ein Problem"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -282,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -291,7 +292,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="../../_sources/programming/1_Notebooks/4_Funktionen_und_Methoden.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
+   title="Quelldatei herunterladen"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -309,7 +310,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
+  title="In PDF drucken"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -329,7 +330,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
+  title="Vollbildmodus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -353,7 +354,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
@@ -377,7 +378,7 @@ document.write(`
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contents </h2>
+                <h2> Inhalt </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
@@ -410,7 +411,7 @@ document.write(`
 <section id="code-reuse">
 <h2><span class="section-number">4.1. </span>Code Reuse<a class="headerlink" href="#code-reuse" title="Permalink to this heading">#</a></h2>
 <p>Die allermeisten Operationen, die wir beim Programmieren unternehmen, haben andere (und ab einem gewissen Zeitpunkt meist wir selbst auch) schon unzählige Male vorher ausgeführt. Nun sind wir erst beim vierten Notebook und dennoch haben wir uns bereits mehrfach die Länge von einem Objekt ausgeben lassen (mithilfe der <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion), oder überhaupt, uns Objekte mit der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ausgeben lassen.</p>
-<p>Ohne zu überlegen, haben wir vorgefertigte “Bausteine” von Python eingesetzt. Wenn man darüber nachdenkt, macht etwa die <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion nichts außergewöhnliches. Wir könnten sie einfach nachbilden, indem wir zum Beispiel bei einem <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekt über dessen einzelne Zeichen iterieren und bei jedem Zeichen einen Zähler um 1 erhöhen. Der finale Stand des Zählers entspräche dann der Länge des strings:</p>
+<p>Ohne zu überlegen, haben wir vorgefertigte „Bausteine“ von Python eingesetzt. Wenn man darüber nachdenkt, macht etwa die <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion nichts außergewöhnliches. Wir könnten sie einfach nachbilden, indem wir zum Beispiel bei einem <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekt über dessen einzelne Zeichen iterieren und bei jedem Zeichen einen Zähler um 1 erhöhen. Der finale Stand des Zählers entspräche dann der Länge des strings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;testwort&quot;</span>
@@ -450,7 +451,7 @@ document.write(`
 <hr class="docutils" />
 <section id="anwendungsfall-errechnen-von-schlusselwortern">
 <h2><span class="section-number">4.3. </span>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#anwendungsfall-errechnen-von-schlusselwortern" title="Permalink to this heading">#</a></h2>
-<p>Stellen wir uns vor, wir haben einen langen Text und würden gerne wissen, welche Wörter darin besonders oft vorkommen, sog. <em>Schlüsselwörter</em>. Gehen wir noch einen Schritt weiter und stellen uns vor, wir hätten zwei Texte, die wir gerne im Hinblick auf Schlüsselwörter vergleichen wollen. Ein solcher Vergleich wäre z.B. bei Parteiprogrammen oder Koalitionsverträgen spannend, um zu sehen, worauf die jeweiligen Texte ihren Fokus legen und worin sie sich unterscheiden. Sagen wir, wir wollen die deutschen Koalitionsverträge von 2018 (CDU, CSU, SPD) und 2021 (SPD, Grüne, FDP) miteinander vergleichen. Die beiden Texte sind im Ordner “Dateien” gespeichert. Mit folgendem Code können wir sie in den Arbeitsspeicher laden und uns mittels Slicing jeweils die ersten 100 Zeichen ausgeben lassen.</p>
+<p>Stellen wir uns vor, wir haben einen langen Text und würden gerne wissen, welche Wörter darin besonders oft vorkommen, sog. <em>Schlüsselwörter</em>. Gehen wir noch einen Schritt weiter und stellen uns vor, wir hätten zwei Texte, die wir gerne im Hinblick auf Schlüsselwörter vergleichen wollen. Ein solcher Vergleich wäre z.B. bei Parteiprogrammen oder Koalitionsverträgen spannend, um zu sehen, worauf die jeweiligen Texte ihren Fokus legen und worin sie sich unterscheiden. Sagen wir, wir wollen die deutschen Koalitionsverträge von 2018 (CDU, CSU, SPD) und 2021 (SPD, Grüne, FDP) miteinander vergleichen. Die beiden Texte sind im Ordner „Dateien“ gespeichert. Mit folgendem Code können wir sie in den Arbeitsspeicher laden und uns mittels Slicing jeweils die ersten 100 Zeichen ausgeben lassen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2018.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -498,7 +499,7 @@ Koalitionsvertr
 <p><code class="docutils literal notranslate"><span class="pre">string.count(&quot;to_be_counted&quot;)</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;Schifffahrtsgesellschaft&quot;.count(&quot;f&quot;)</span></code> ergäbe etwa 4.</p>
 <p>Was bei einem Wort funktioniert, geht auch bei langen strings wie bei unseren Koalitionsverträgen.</p>
-<p>Berechne nun wie oft jeder Begriff  auf <code class="docutils literal notranslate"><span class="pre">buzzwords</span></code> in den beiden Verträgen vorkommt und verwende einen geeigneten Datentypen, um Deine Ergebnisse (separat für jeden Vertrag) abzuspeichern. Lasse Dir anschließend für jeden Begriff die beiden Frequenzen sowie einen Trend über die Zeit (z.B. mittels der Emojis 📈, 📉, 🟰) ausgeben. Das Ergebnis für “Corona” sollte z.B. so aussehen:</p>
+<p>Berechne nun wie oft jeder Begriff  auf <code class="docutils literal notranslate"><span class="pre">buzzwords</span></code> in den beiden Verträgen vorkommt und verwende einen geeigneten Datentypen, um Deine Ergebnisse (separat für jeden Vertrag) abzuspeichern. Lasse Dir anschließend für jeden Begriff die beiden Frequenzen sowie einen Trend über die Zeit (z.B. mittels der Emojis 📈, 📉, 🟰) ausgeben. Das Ergebnis für „Corona“ sollte z.B. so aussehen:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Frequenz_Corona.png"><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -510,7 +511,7 @@ Koalitionsvertr
 </div>
 <hr class="docutils" />
 <p>An der Syntax hast Du es vermutlich bereits erkannt: bei <code class="docutils literal notranslate"><span class="pre">count</span></code> handelt es sich um die erste string-Methode, die wir in diesem Notebook kennenlernen.</p>
-<p>Wie wir sehen, unterscheidet sich die Frequenz der Schlagwörter markant. Im Vergleich zu 2018 scheint neben “Corona” insbesondere “Klima” an Bedeutung hinzugewonnen zu haben. Alle andere Schlagwörter dagegen kommen seltener vor. Um diese “impressionistischen” Ergebnisse belastbar zu machen, müssten wir im nächsten Schritt natürlich auch die in Übung 1 festgestellte unterschiedliche Textlänge berücksichtigen, schließlich sind absolute Frequenzen abhängig von der Gesamttextlänge.</p>
+<p>Wie wir sehen, unterscheidet sich die Frequenz der Schlagwörter markant. Im Vergleich zu 2018 scheint neben „Corona“ insbesondere „Klima“ an Bedeutung hinzugewonnen zu haben. Alle andere Schlagwörter dagegen kommen seltener vor. Um diese „impressionistischen“ Ergebnisse belastbar zu machen, müssten wir im nächsten Schritt natürlich auch die in Übung 1 festgestellte unterschiedliche Textlänge berücksichtigen, schließlich sind absolute Frequenzen abhängig von der Gesamttextlänge.</p>
 <p>Beim Anwendungsfall in diesem Notebook wollen wir einen Schritt weiter gehen und für <em>jedes</em> einzelne Wort in den beiden Koalitionsverträgen herausfinden, wie oft es jeweils vorkommt. Anstatt Begriffe wie in Übung 2 als relevant vorauszusetzen, erhalten wir so induktiv einen fundierten Blick auf die Texte und finden vielleicht Wörter, mit deren Vorkommen wir nicht gerechnet hätten. Die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode wird auch da zum Einsatz kommen. Im Folgenden lernen wir alle weiteren wichtigen Funktionen und Methoden für die drei Datentypen <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> und <code class="docutils literal notranslate"><span class="pre">dict</span></code> kennen, die es uns schließlich in Kombination ermöglichen, Schlüsselwörter für die Koalitionsverträge zu errechnen.</p>
 <hr class="docutils" />
 <p>Eine Übersicht aller wichtigen Funktionen und Methoden findet sich in den jeweiligen Cheat Sheets.</p>
@@ -525,7 +526,7 @@ Koalitionsvertr
 </div>
 </div>
 </div>
-<p>Auch wollen wir fürs Erste nur ein spezifisches Wort zählen, nämlich “gesagt”. Wir wissen natürlich, dass “gesagt” in <code class="docutils literal notranslate"><span class="pre">sentence</span></code> vorkommt, hätten wir aber einen längeren Text, bei dem wir uns nicht sicher sind, ob ein bestimmtes Wort vorkommt, so könnten wird dies mit dem <code class="docutils literal notranslate"><span class="pre">in</span></code>-Statement überprüfen:</p>
+<p>Auch wollen wir fürs Erste nur ein spezifisches Wort zählen, nämlich „gesagt“. Wir wissen natürlich, dass „gesagt“ in <code class="docutils literal notranslate"><span class="pre">sentence</span></code> vorkommt, hätten wir aber einen längeren Text, bei dem wir uns nicht sicher sind, ob ein bestimmtes Wort vorkommt, so könnten wird dies mit dem <code class="docutils literal notranslate"><span class="pre">in</span></code>-Statement überprüfen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;gesagt&quot;</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">)</span>
@@ -561,7 +562,7 @@ Koalitionsvertr
 </div>
 </div>
 <hr class="docutils" />
-<p>Zurück zu unserem Anwendungsfall. Bei der Wortzählung soll Groß-/Kleinschreibung keine Rolle spielen (“Gesagt” und “gesagt” sollen also zusammengezählt werden). Zu diesem Zweck bietet es sich an, sämtliche Zeichen kleinzuschreiben. Dazu verwenden wir die <code class="docutils literal notranslate"><span class="pre">lower</span></code>-Methode, die einen kompletten string in Kleinbuchstaben konvertiert.</p>
+<p>Zurück zu unserem Anwendungsfall. Bei der Wortzählung soll Groß-/Kleinschreibung keine Rolle spielen („Gesagt“ und „gesagt“ sollen also zusammengezählt werden). Zu diesem Zweck bietet es sich an, sämtliche Zeichen kleinzuschreiben. Dazu verwenden wir die <code class="docutils literal notranslate"><span class="pre">lower</span></code>-Methode, die einen kompletten string in Kleinbuchstaben konvertiert.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -654,7 +655,7 @@ Testwort
 </div>
 </div>
 <hr class="docutils" />
-<p>Kehren wir zu unserem Anwendungsfall zurück. Bevor wir uns die Wortfrequenzen auszählen lassen können, haben wir noch ein Problem: Beim zweiten “gesagt” hängt am Ende ein Punkt dran, der nicht zum Wort gehört. Um diesen loszuwerden können wir die <code class="docutils literal notranslate"><span class="pre">strip</span></code>-Methode verwenden. Sie nimmt einen string und entfernt standardmäßig sämtliche whitespace-Zeichen am Anfang (leading) und Ende (trailing) eines strings. Sie ermöglicht aber auch das Entfernen von benutzerdefinierten Zeichen. So können wir den Punkt beim dritten Element (mit Index 2!) auf der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> enfternen:</p>
+<p>Kehren wir zu unserem Anwendungsfall zurück. Bevor wir uns die Wortfrequenzen auszählen lassen können, haben wir noch ein Problem: Beim zweiten „gesagt“ hängt am Ende ein Punkt dran, der nicht zum Wort gehört. Um diesen loszuwerden können wir die <code class="docutils literal notranslate"><span class="pre">strip</span></code>-Methode verwenden. Sie nimmt einen string und entfernt standardmäßig sämtliche whitespace-Zeichen am Anfang (leading) und Ende (trailing) eines strings. Sie ermöglicht aber auch das Entfernen von benutzerdefinierten Zeichen. So können wir den Punkt beim dritten Element (mit Index 2!) auf der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> enfternen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
@@ -671,7 +672,7 @@ Testwort
 <p>Nun haben wir eine Liste mit bereinigten Wörtern.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 5:</strong> Selbstverständlich kann man das Vorkommen eines Wortes auf einer Liste auszählen lassen (das lernen wir bei den Methoden für Listen). Hier wollen wir aber die oben bereits kennengelernte <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode für strings noch einmal anwenden. Dazu müssen wir die Listenelemente wieder zu einem string konkatenieren. Verwende eine Dir bereits bekannte <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methode, um aus <code class="docutils literal notranslate"><span class="pre">words</span></code> wieder einen string zu kreieren. Eine Variable namens <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> soll auf diesen string zeigen.</p>
-<p>Benutze anschließend die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode, um “gesagt” in <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> zu zählen.  Das Resultat sollte natürlich zwei sein.</p>
+<p>Benutze anschließend die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode, um „gesagt“ in <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> zu zählen.  Das Resultat sollte natürlich zwei sein.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -732,7 +733,7 @@ Freiheit des einen ist die Freiheit des
 </div>
 </div>
 </div>
-<p>Würde “New York” mehrfach in <code class="docutils literal notranslate"><span class="pre">sentence</span></code> vorkommen, so würden alle Vorkommen durch “Washington DC” ersetzt werden.</p>
+<p>Würde „New York“ mehrfach in <code class="docutils literal notranslate"><span class="pre">sentence</span></code> vorkommen, so würden alle Vorkommen durch „Washington DC“ ersetzt werden.</p>
 <p>Den beiden letzten Methoden <code class="docutils literal notranslate"><span class="pre">startswith</span></code> und <code class="docutils literal notranslate"><span class="pre">endswith</span></code> sind wir schon im letzten Notebook begegnet. Sie überprüfen, ob ein string mit einer bestimmten Zeichenkette beginnt oder endet und liefern Boolsche Werte zurück. Von daher kann man sie gut in bedingten Anweisungen einsetzen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -819,7 +820,7 @@ Der Satz fängt mit einem maskulinen Artikel an.
 </div>
 </div>
 <p>Schau was passiert, wenn Du diese Zelle mehrfach ausführst.</p>
-<p>Auch dieses Verhalten geht auf die Veränderlichkeit von Listen zurück. Nach einmal Ausführen referenziert <code class="docutils literal notranslate"><span class="pre">words</span></code> folgende Liste [‘Gesagt’, ‘ist’, ‘nicht’, ‘gesagt.’] im Arbeitsspeicher. Bei der nächsten Ausführung wird <code class="docutils literal notranslate"><span class="pre">insert</span></code> auf das nun veränderte <code class="docutils literal notranslate"><span class="pre">words</span></code> angewandt, etc. Dieser und der oben geschilderte Umstand sind fortgeschrittenes theoretisches Wissen, sie zeigen aber, dass die (Un)veränderlichkeit von Objekten durchaus einen Effekt haben kann.</p>
+<p>Auch dieses Verhalten geht auf die Veränderlichkeit von Listen zurück. Nach einmal Ausführen referenziert <code class="docutils literal notranslate"><span class="pre">words</span></code> folgende Liste [‚Gesagt‘, ‚ist‘, ‚nicht‘, ‚gesagt.‘] im Arbeitsspeicher. Bei der nächsten Ausführung wird <code class="docutils literal notranslate"><span class="pre">insert</span></code> auf das nun veränderte <code class="docutils literal notranslate"><span class="pre">words</span></code> angewandt, etc. Dieser und der oben geschilderte Umstand sind fortgeschrittenes theoretisches Wissen, sie zeigen aber, dass die (Un)veränderlichkeit von Objekten durchaus einen Effekt haben kann.</p>
 <p>Es gibt noch eine dritte Methode, um eine Liste zu erweitern. Sie heißt <code class="docutils literal notranslate"><span class="pre">extend</span></code> und wird dann verwendet, wenn wir die Elemente eines iterierbaren Objekts einzeln an eine Liste anhängen wollen. Schau, was passiert, wenn Du den folgenden Code mit <code class="docutils literal notranslate"><span class="pre">extend</span></code> ausführst vs. was passiert, wenn Du stattdessen <code class="docutils literal notranslate"><span class="pre">append</span></code> verwendest. Der Unteschied ist subtil, aber durchaus bedeutend. Welche Methode macht hier mehr Sinn?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -884,10 +885,10 @@ Die Liste beinhaltet nun noch: [&#39;Pretoria&#39;, &#39;Buenos Aires&#39;]
 </div>
 </div>
 </div>
-<p>Als erstes wird “Malaga” zurückgegeben und anschließend von der Liste entfernt, danach “Buenos Aires” und schließlich “Pretoria”. Dann erhalten wir eine Fehlermeldung, denn Python kann natürlich kein “letztes Element” auf einer <em>leeren</em> Liste finden. <code class="docutils literal notranslate"><span class="pre">pop</span></code> ist immer dann interessant, wenn wir Elemente an einer bestimmten Position in der Liste entfernen wollen, unabhängig davon, um was für ein Element es sich handelt (da würden wir <code class="docutils literal notranslate"><span class="pre">remove</span></code> benutzen).</p>
+<p>Als erstes wird „Malaga“ zurückgegeben und anschließend von der Liste entfernt, danach „Buenos Aires“ und schließlich „Pretoria“. Dann erhalten wir eine Fehlermeldung, denn Python kann natürlich kein „letztes Element“ auf einer <em>leeren</em> Liste finden. <code class="docutils literal notranslate"><span class="pre">pop</span></code> ist immer dann interessant, wenn wir Elemente an einer bestimmten Position in der Liste entfernen wollen, unabhängig davon, um was für ein Element es sich handelt (da würden wir <code class="docutils literal notranslate"><span class="pre">remove</span></code> benutzen).</p>
 <p>Bemühen wir dafür noch mal das Gesellschaftsspiel-Skript aus dem letzten Notebook. In der Übung dazu hast Du ein Skript geschrieben, bei dem der Beitritt ins Spiel nicht mehr möglich ist (die Iteration wird mit <code class="docutils literal notranslate"><span class="pre">break</span></code> abgebrochen), sobald sechs Teilnehmer:innen im Spiel sind. In der Zelle unten steht die Musterlösung zu jener Aufgabe, neu mit einer längeren Liste an Spielanwärter:innen und einer nicht mehr hardgecodeten Mindest- und Maximalanzahl Teilnehmer:innen.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 7:</strong> Modifiziere den Code nun derart, dass bei sechs Teilnehmer:innen diejenige Person aus dem Spiel “gekickt” wird, die bereits am längsten daran teilnimmt (bzw. sich bereits am längsten auf der Teilnehmer:innenliste befindet). Im gleichen Zug soll die nächste Person aus <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> ins Spiel gelassen werden. Wie beim letzten Mal auch, möchten wir bei jeder Iteration informiert werden, wer gerade im Spiel ist.</p>
+<p>✏️ <strong>Übung 7:</strong> Modifiziere den Code nun derart, dass bei sechs Teilnehmer:innen diejenige Person aus dem Spiel „gekickt“ wird, die bereits am längsten daran teilnimmt (bzw. sich bereits am längsten auf der Teilnehmer:innenliste befindet). Im gleichen Zug soll die nächste Person aus <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> ins Spiel gelassen werden. Wie beim letzten Mal auch, möchten wir bei jeder Iteration informiert werden, wer gerade im Spiel ist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -925,7 +926,10 @@ Die Liste beinhaltet nun noch: [&#39;Pretoria&#39;, &#39;Buenos Aires&#39;]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Noch nicht genügend Teilnehmer:innen, wir brauchen noch 3 😬
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Noch nicht genügend Teilnehmer:innen, wir brauchen noch
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 3 😬
 Aktuell auf der Liste: [&#39;Max&#39;] 
 
 Noch nicht genügend Teilnehmer:innen, wir brauchen noch 2 😬
@@ -951,7 +955,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <hr class="docutils" />
 <p>Mit dem hier verwendeten Know-How können wir ohne allzu viel Modifikationen auch ein sog. n-gram-Skript schreiben. N-gramme sind u.a. in der Korpuslinguistik sehr beliebte Analyseeinheiten. Anstatt einzelne Wörter (oder andere Einheiten, siehe unten) zu betrachten, schaut man sich z.B. immer zwei aufeinanderfolgende Wörter an, oder aber drei aufeinanderfolgende, etc. Im ersten Fall spricht man von Wort-Bigrammen, im zweiten von Wort-Trigrammen.</p>
-<p>Der Satz “Ich gehe am Abend noch spazieren” enthält also folgende Wort-Bigramme: “Ich gehe”, “gehe am”, “am Abend”, “Abend noch”, “noch spazieren”. Da Sprachproduktion in vielerlei Hinsicht regelhaft ist, kann man solche Wort-Bigramme u.a. heranziehen, um Texte in bestimmte Textsorten zu klassifizieren (der Annahme folgend, dass bestimmte Wort-Bigramme überdurchschnittlich häufig in bestimmten Textsorten auftreten) oder um Fragen der Autorschaft eines Textes zu klären (der Annahme folgend, dass bestimmte Wort-Bigramme von bestimmten Autor:innen überdurschnittlich häufig verwendet werden).</p>
+<p>Der Satz „Ich gehe am Abend noch spazieren“ enthält also folgende Wort-Bigramme: „Ich gehe“, „gehe am“, „am Abend“, „Abend noch“, „noch spazieren“. Da Sprachproduktion in vielerlei Hinsicht regelhaft ist, kann man solche Wort-Bigramme u.a. heranziehen, um Texte in bestimmte Textsorten zu klassifizieren (der Annahme folgend, dass bestimmte Wort-Bigramme überdurchschnittlich häufig in bestimmten Textsorten auftreten) oder um Fragen der Autorschaft eines Textes zu klären (der Annahme folgend, dass bestimmte Wort-Bigramme von bestimmten Autor:innen überdurschnittlich häufig verwendet werden).</p>
 <p>Allgemein formuliert erhalten wir n-gramme, indem wir einen Text (oder sonst eine sequentielle Datei) in kleinere Einheiten unterteilen (oftmals eben Wörter, aber auch Sätze, Phrasen oder Buchstaben etc. sind möglich) und dann <em>n</em> aufeinanderfolgende (also in der Sequenz konsekutiv auftretende) Einheiten als ein n-gram zusammenfassen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 8:</strong> Deine Aufgabe ist es nun, ein Skript zu schreiben, dass den oben im Beispiel verwendeten Satz nimmt und die darin vorkommenden Wort-Bigramme auf der Liste <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> speichert. Neben <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> wirst Du als Zwischenschritt beim Zusammentragen der Wort-Bigramme eine zweite Liste namens <code class="docutils literal notranslate"><span class="pre">current_ngrams</span></code> brauchen. Beide Listen sind bereits im Code gegeben und werden leer initialisiert.</p>
@@ -992,7 +996,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 </div>
 </div>
-<p>Die ersten paar Zeilen des Codes sind die gleichen wie in der ersten Variante. Der Unterschied spielt sich in der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ab: In der ersten Variante wird grob formuliert in jeder Iteration ein neues n-gram (<code class="docutils literal notranslate"><span class="pre">current_ngram</span></code>) geschaffen, indem das bisher erste Wort vom letzten n-gram entfernt wird und ein neues hinten angehängt wird. Jedes n-gram wird dann <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> angehängt. In der zweiten Variante hier “schieben” wir hingegen eine Art “Fenster” über <code class="docutils literal notranslate"><span class="pre">words</span></code>: Mittels Slicing schneiden wir uns eine neue Liste von der Länge <code class="docutils literal notranslate"><span class="pre">n</span></code> aus <code class="docutils literal notranslate"><span class="pre">words</span></code> heraus und rücken bei jeder Iteration den Start- und Endindex für das Slicing um eine Position vor. Die neue Liste fügen wir jeweils mit der uns aus dem zweiten Notebook bekannten <code class="docutils literal notranslate"><span class="pre">join</span></code>-Methode zu einem string zusammen und hängen den als n-gram <code class="docutils literal notranslate"><span class="pre">ngrams</span></code> an. Das Resultat ist natürlich dasselbe wie bei der ersten Variante.</p>
+<p>Die ersten paar Zeilen des Codes sind die gleichen wie in der ersten Variante. Der Unterschied spielt sich in der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ab: In der ersten Variante wird grob formuliert in jeder Iteration ein neues n-gram (<code class="docutils literal notranslate"><span class="pre">current_ngram</span></code>) geschaffen, indem das bisher erste Wort vom letzten n-gram entfernt wird und ein neues hinten angehängt wird. Jedes n-gram wird dann <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> angehängt. In der zweiten Variante hier „schieben“ wir hingegen eine Art „Fenster“ über <code class="docutils literal notranslate"><span class="pre">words</span></code>: Mittels Slicing schneiden wir uns eine neue Liste von der Länge <code class="docutils literal notranslate"><span class="pre">n</span></code> aus <code class="docutils literal notranslate"><span class="pre">words</span></code> heraus und rücken bei jeder Iteration den Start- und Endindex für das Slicing um eine Position vor. Die neue Liste fügen wir jeweils mit der uns aus dem zweiten Notebook bekannten <code class="docutils literal notranslate"><span class="pre">join</span></code>-Methode zu einem string zusammen und hängen den als n-gram <code class="docutils literal notranslate"><span class="pre">ngrams</span></code> an. Das Resultat ist natürlich dasselbe wie bei der ersten Variante.</p>
 <p>Zurück zu den Operationen bei Listen: Wie bei strings mit der <code class="docutils literal notranslate"><span class="pre">find</span></code>-Methode, kann man auch in Listen nach einem bestimmten Element suchen und kriegt den Index (des ersten Vorkommens) zurück. Bei Listen nennt sich die entsprechende Methode allerdings <code class="docutils literal notranslate"><span class="pre">index</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1115,7 +1119,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <li><p>Großbuchstaben stehen im Alphabet vor Kleinbuchstaben (das gilt übrigens auch für die Listenmethode <code class="docutils literal notranslate"><span class="pre">sort</span></code>).</p></li>
 <li><p>Der <code class="docutils literal notranslate"><span class="pre">key</span></code>-Parameter kann ebenfalls benutzerdefiniert werden. Im Falle des dictionary geht Python Schlüssel-Werte-Paar (<code class="docutils literal notranslate"><span class="pre">x</span></code>) für Schlüssel-Werte-Paar durch, nimmt den Wert (<code class="docutils literal notranslate"><span class="pre">x[1]</span></code>; <code class="docutils literal notranslate"><span class="pre">x[0]</span></code> wäre der zugehörige Schlüssel) und sortiert nach den Werten. Zur verwendeten <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode für dictionaries siehe unten.</p></li>
 <li><p>Das Resultat von <code class="docutils literal notranslate"><span class="pre">sorted</span></code> weisen wir <em>immer</em> einer Variable zu, unabhängig von der (Un)veränderlichkeit des betreffenden Objekts. Grund dafür ist, dass Funktionen, im Gegensatz zu Methoden, immer nur Werte zurückgeben, nie aber etwas an den ihnen übergegeben Objekten verändern.</p></li>
-<li><p>Sortieren wir ein dictionary, so erhalten wir eine Liste zurück. Alles andere würde keinen Sinn ergeben, denn dictionaries “speichern” ihre Schlüssel-Werte-Paare nicht in einer bestimmten Reihenfolge “ab”.</p></li>
+<li><p>Sortieren wir ein dictionary, so erhalten wir eine Liste zurück. Alles andere würde keinen Sinn ergeben, denn dictionaries „speichern“ ihre Schlüssel-Werte-Paare nicht in einer bestimmten Reihenfolge „ab“.</p></li>
 </ul>
 <p>Abschließend schauen wir uns noch <code class="docutils literal notranslate"><span class="pre">reverse</span></code> an. Wie der Name sagt, kehrt diese Methode ganz einfach die Reihenfolge einer Liste um:</p>
 <div class="cell docutils container">
@@ -1160,6 +1164,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gesagt&#39;, &#39;ist&#39;, &#39;gesagt&#39;]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Dieser Code eignet sich wunderbar, um aus einem string eine Liste mit bereinigten Wörtern zu erstellen. Er besteht aus sechs Zeilen Code und ließe sich zwar auf drei Zeilen komprimieren (probier’s aus!), nicht jedoch auf eine einzige Zeile wie hier:</p>
@@ -1184,7 +1191,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <p>Eine List Comprehension wird <strong>immer</strong> von eckigen Klammern umrahmt (die eckigen Klammern machen auch deutlich, dass das Result der List Comprehension stets eine Liste ist). Innerhalb der Klammern gibt es stets folgende drei Bestandteile:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">iterable</span></code> definiert das Objekt, über das wir iterieren.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">element</span></code> ist die Variable für das einzelne Element bei der Iteration über <code class="docutils literal notranslate"><span class="pre">iterable</span></code> (im Beispiel oben, in der ersten Iteration “Gesagt”, in der zweiten “ist”, in der dritten “gesagt.”). Die Variable kann wie immer frei benannt werden.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">element</span></code> ist die Variable für das einzelne Element bei der Iteration über <code class="docutils literal notranslate"><span class="pre">iterable</span></code> (im Beispiel oben, in der ersten Iteration „Gesagt“, in der zweiten „ist“, in der dritten „gesagt.“). Die Variable kann wie immer frei benannt werden.</p></li>
 </ul>
 <p>Bis hierhin entspricht die Syntax dem Anweisungskopf einer <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife. Was nun bei einer <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife im  Anweisungskörper steht (im Beispiel oben die Methoden <code class="docutils literal notranslate"><span class="pre">lower</span></code>, <code class="docutils literal notranslate"><span class="pre">strip</span></code> und <code class="docutils literal notranslate"><span class="pre">append</span></code>), wird bei einer List Comprehension in die <code class="docutils literal notranslate"><span class="pre">expression</span></code> verpackt:</p>
 <ul class="simple">
@@ -1211,9 +1218,12 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Die&#39;, &#39;des&#39;, &#39;ist&#39;, &#39;Sie&#39;, &#39;zu&#39;, &#39;und&#39;, &#39;zu&#39;, &#39;ist&#39;]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </div>
-<p>Wie oben erwähnt, kann, wie hier, bei <code class="docutils literal notranslate"><span class="pre">expression</span></code> nur die Variable für <code class="docutils literal notranslate"><span class="pre">element</span></code> stehen. So verwenden wir die List Comprehension schlicht zum Erstellen einer gefilterten Liste, ohne dabei die Elemente, die es “in die Liste schaffen” zusätzlich zu modifizieren.</p>
+</div>
+<p>Wie oben erwähnt, kann, wie hier, bei <code class="docutils literal notranslate"><span class="pre">expression</span></code> nur die Variable für <code class="docutils literal notranslate"><span class="pre">element</span></code> stehen. So verwenden wir die List Comprehension schlicht zum Erstellen einer gefilterten Liste, ohne dabei die Elemente, die es „in die Liste schaffen“ zusätzlich zu modifizieren.</p>
 <p>Natürlich lässt sich das Filtern auch mit der Anwendung eines komplexen Ausdrucks kombinieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1228,7 +1238,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 </div>
 </div>
-<p>Hier entfernen wir mittels <code class="docutils literal notranslate"><span class="pre">strip</span></code> bei <code class="docutils literal notranslate"><span class="pre">expression</span></code> den Punkt am Ende von “unantastbar.”.</p>
+<p>Hier entfernen wir mittels <code class="docutils literal notranslate"><span class="pre">strip</span></code> bei <code class="docutils literal notranslate"><span class="pre">expression</span></code> den Punkt am Ende von „unantastbar.“.</p>
 <ol class="arabic" start="2">
 <li><p>Wir können die Anwendung von <code class="docutils literal notranslate"><span class="pre">expression</span></code> an eine bedingte Anweisung knüpfen. Konkret können wir zwei verschiedene <code class="docutils literal notranslate"><span class="pre">expressions</span></code> definieren, die abhängig davon, ob die Bedingung auf das jeweilige <code class="docutils literal notranslate"><span class="pre">element</span></code> zutrifft, angewandt werden. Die grundlegende Syntax sieht so aus:</p>
 <p><code class="docutils literal notranslate"><span class="pre">new_list</span> <span class="pre">=</span> <span class="pre">[expression1</span> <span class="pre">if</span> <span class="pre">condition</span> <span class="pre">else</span> <span class="pre">expression2</span> <span class="pre">for</span> <span class="pre">element</span> <span class="pre">in</span> <span class="pre">iterable]</span></code></p>
@@ -1258,7 +1268,7 @@ True
 <p>Bei jedem <code class="docutils literal notranslate"><span class="pre">letter</span></code> wird überprüft, ob es sich um einen Großbuchstaben handelt, und wenn ja, wird <code class="docutils literal notranslate"><span class="pre">letter.lower()</span></code> darauf angewandet (<code class="docutils literal notranslate"><span class="pre">expression1</span></code>), andernfalls <code class="docutils literal notranslate"><span class="pre">letter.upper()</span></code> (<code class="docutils literal notranslate"><span class="pre">expression2</span></code>). In jedem Fall wird der modifizierte Buchstabe an die neue Liste <code class="docutils literal notranslate"><span class="pre">swapped_case_list</span></code> angehängt. Mit <code class="docutils literal notranslate"><span class="pre">join</span></code> fügen wir die einzelnen Listenelemente wieder zu einem string zusammen.</p>
 <p>Die beiden Varianten der Einbindung von bedingten Anweisungen in List Comprehensions lassen sich auch miteinander kombinieren. Das führt jedoch zu ziemlich langen, schwierig zu lesenden Codezeilen, weswegen davon i.d.R. abgesehen wird.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 10:</strong> <code class="docutils literal notranslate"><span class="pre">temperatures</span></code> ist eine Liste mit unterschiedlichen Messtemperaturen in Grad Celsius. Sie beinhält positive und negative Werte sowie fehlende Werte, die mit “NA” gekennzeichnet sind (für <em>not available</em>, etwa weil das Thermometer ausfiel). Erstelle nun mittels List Comprehension folgende neuen Listen. Überlege Dir jeweils genau, an welcher Stelle in der List Comprehension Du die bedingte Anweisung einbauen musst.</p>
+<p>✏️ <strong>Übung 10:</strong> <code class="docutils literal notranslate"><span class="pre">temperatures</span></code> ist eine Liste mit unterschiedlichen Messtemperaturen in Grad Celsius. Sie beinhält positive und negative Werte sowie fehlende Werte, die mit „NA“ gekennzeichnet sind (für <em>not available</em>, etwa weil das Thermometer ausfiel). Erstelle nun mittels List Comprehension folgende neuen Listen. Überlege Dir jeweils genau, an welcher Stelle in der List Comprehension Du die bedingte Anweisung einbauen musst.</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">temperatures_preprocessed</span></code> soll eine Liste referenzieren, die nur numerische Werte enthält.</p></li>
 </ol>
@@ -1313,7 +1323,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1835</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1826</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -1343,9 +1353,6 @@ True
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1602,7 +1609,7 @@ Burgenland
 </div>
 </div>
 </div>
-<p>Wie Du weißt (und vermutlich auch anhand der ausgegebenen Wörter sehen kannst), müssen wir die Wörter nun bereinigen, um sie anschließend “fair” auszählen zu können:</p>
+<p>Wie Du weißt (und vermutlich auch anhand der ausgegebenen Wörter sehen kannst), müssen wir die Wörter nun bereinigen, um sie anschließend „fair“ auszählen zu können:</p>
 <ol class="arabic simple" start="3">
 <li><p>Ändere sämtliche Wörter in Kleinbuchstaben und entferne alle Satz- und Sonderzeichen an den Wortenden (hier ist ein iterativer Ansatz nötig, indem Du Dir das Resultat mehrfach ausgeben lässt [trial and error!] und schaust, welche weiteren Zeichen entfernt werden müssen, bis alle weg sind). Überprüfe anschließend für jedes bereinigte Wort, ob es in <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> ist. Wenn ja, überspringe es, wenn nein, hänge es einer Liste namens <code class="docutils literal notranslate"><span class="pre">preprocessed_words</span></code> an.</p></li>
 </ol>
@@ -1845,7 +1852,7 @@ KV18: dazu                 KV21: schaffen
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1835</span><span class="o">/</span><span class="mf">537028797.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1826</span><span class="o">/</span><span class="mf">537028797.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sum_div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span>
 
 <span class="ne">NameError</span>: name &#39;sum_div&#39; is not defined
@@ -1854,14 +1861,14 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <hr class="docutils" />
-<p>Abschließend schauen wir uns Module an. Da noch einmal einiges an Informationen auf Dich zukommt, lohnt es sich, mit einem “frischen Kopf” an diesen letzten Teil des Notebooks heranzugehen.</p>
+<p>Abschließend schauen wir uns Module an. Da noch einmal einiges an Informationen auf Dich zukommt, lohnt es sich, mit einem „frischen Kopf“ an diesen letzten Teil des Notebooks heranzugehen.</p>
 </section>
 <section id="module">
 <h2><span class="section-number">4.9. </span>Module<a class="headerlink" href="#module" title="Permalink to this heading">#</a></h2>
 <p>Bis zu diesem Punkt haben wir mit Funktionen/Methoden aus der Grundausstattung von Python gearbeitet. Diese haben zweifelsohne einiges drauf. Dennoch kommt man als Programmier:in bald an einen Punkt, an dem sich bestimmte Anwendungsfälle effizienter lösen lassen, wenn man über die Funktionen/Methoden der Grundausstattung hinaus anwendungsspezifischeren Code verwendet. Für viele Anwendungsfelder – etwa für den Umgang mit Text, zum Scrapen von Webseiten oder zur Visualisierung von Daten – gibt es sog. <em>Module</em> (oder <em>Packages</em> bzw. <em>Bibliotheken</em>, siehe Bemerkung zum Schluss), mit denen wir diese spezifischen Probleme wesentlich effizienter angehen können.</p>
 <p>Solche Module stammen entweder von Python selbst oder von Entwickler:innen aus der Python-Community. Mit Modulen von Python sind Module gemeint, die Teil der sog. <em>Standardbibliothek</em> sind, nicht aber der Grundausstattung. In der Praxis bedeutet das Folgendes: Wenn wir Python installieren werden die Module der Standardbibliothek automatisch mitinstalliert. Sobald wir ein solches Modul in unserem Code verwenden wollen, müssen wir es jedoch importieren, da es nicht zur Grundausstattung gehört. Module von anderen Entwickler:innen müssen wir immer zuerst (zusätzlich zu Python) installieren, bevor wir sie importieren und verwenden können.</p>
-<p>Ein Modul an sich ist ganz simpel aufgebaut: Es handelt sich schlicht um eine Python-Datei mit dem Dateisuffix “.py”, die Code enthält. Machen wir es konkret, und zwar vorerst an einem eigenen Modul. Denn auch wir können unsere eigenen Module erstellen.</p>
-<p>Der Code der Schlüsselwortfunktion von oben befindet sich bereits als Modul mit dem Namen <code class="docutils literal notranslate"><span class="pre">keywords</span></code> im Verzeichnis (Ordner) “3_Dateien/Module/”. Öffne die Datei und schaue Dir den Code an. Wie Du sehen wirst, gibt es einen Unterschied zum Code von oben: Die Funktion erwartet neben <code class="docutils literal notranslate"><span class="pre">text</span></code> auch <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> als zweites Argument. <code class="docutils literal notranslate"><span class="pre">text</span></code> soll weiterhin als string übergeben werden, <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> hingegen als Liste. Mit der Ausklammerung der Stopwortdatei aus dem Funktionscode im Modul wird Letzteres überall einsetzbar. Der Pfad zur Stopwortdatei ändert sich nämlich in Abhängigkeit des Speicherorts des Moduls. Dieses Problem umgehen wir, indem wir die Stopwörter beim Funktionsaufruf übergeben. Diese Abstraktion macht es uns auch möglich, bei Bedarf andere Stopwortlisten zu verwenden. Im nächsten Notebook lernen wir mehr über Dateipfade, erst einmal ist nur wichtig, dass die Funktion im Modul neu auch Stopwörter als zweites Argument erwartet.</p>
+<p>Ein Modul an sich ist ganz simpel aufgebaut: Es handelt sich schlicht um eine Python-Datei mit dem Dateisuffix „.py“, die Code enthält. Machen wir es konkret, und zwar vorerst an einem eigenen Modul. Denn auch wir können unsere eigenen Module erstellen.</p>
+<p>Der Code der Schlüsselwortfunktion von oben befindet sich bereits als Modul mit dem Namen <code class="docutils literal notranslate"><span class="pre">keywords</span></code> im Verzeichnis (Ordner) „3_Dateien/Module/“. Öffne die Datei und schaue Dir den Code an. Wie Du sehen wirst, gibt es einen Unterschied zum Code von oben: Die Funktion erwartet neben <code class="docutils literal notranslate"><span class="pre">text</span></code> auch <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> als zweites Argument. <code class="docutils literal notranslate"><span class="pre">text</span></code> soll weiterhin als string übergeben werden, <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> hingegen als Liste. Mit der Ausklammerung der Stopwortdatei aus dem Funktionscode im Modul wird Letzteres überall einsetzbar. Der Pfad zur Stopwortdatei ändert sich nämlich in Abhängigkeit des Speicherorts des Moduls. Dieses Problem umgehen wir, indem wir die Stopwörter beim Funktionsaufruf übergeben. Diese Abstraktion macht es uns auch möglich, bei Bedarf andere Stopwortlisten zu verwenden. Im nächsten Notebook lernen wir mehr über Dateipfade, erst einmal ist nur wichtig, dass die Funktion im Modul neu auch Stopwörter als zweites Argument erwartet.</p>
 <p>Bevor wir unser Modul importieren, laden wir uns die Koalitionstexte sowie die Stopwörter zur Sicherheit noch einmal in den Arbeitsspeicher. Führe dazu die folgende Zelle aus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1893,7 +1900,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 </div>
-<p>Nach <code class="docutils literal notranslate"><span class="pre">from</span></code> geben wir den Namen des Moduls (d.h. der “.py”-Datei, aber ohne Suffix) an, gefolgt von <code class="docutils literal notranslate"><span class="pre">import</span></code> und dem Namen der zur importierenden Funktion.</p>
+<p>Nach <code class="docutils literal notranslate"><span class="pre">from</span></code> geben wir den Namen des Moduls (d.h. der „.py“-Datei, aber ohne Suffix) an, gefolgt von <code class="docutils literal notranslate"><span class="pre">import</span></code> und dem Namen der zur importierenden Funktion.</p>
 <p>Indem wir hier eine spezifische Funktion importieren, etablieren wir <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> im sog. <em>Namespace</em> von Python. Der Namespace umfasst alle Namen, die Python in der aktuellen Sitzung kennt und zuordnen kann. Neben den vordefinierten Namen wie z.B. <code class="docutils literal notranslate"><span class="pre">len</span></code> für die entsprechende Funktion sind dies alle Namen, die wir selbst im Laufe einer Sitzung einführen, etwa als Variablennamen, um irgendein Objekt zu referenzieren, oder, um eine Funktion zu bezeichnen. <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> wird hier also unter diesem Namen eingeführt und wenn wir fortan <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> aufrufen, weiß Python, worauf wir uns beziehen.</p>
 <p>Dadurch gibt es denn auch keinen syntaktischen Unterschied zwischen dem Aufruf einer importierten Funktion und einer aus der Grundausstattung:</p>
 <div class="cell docutils container">
@@ -1910,7 +1917,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <p>Wie erwähnt, müssen wir hier im Unterschied zu oben <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> zusätzlich zu <code class="docutils literal notranslate"><span class="pre">kv18</span></code> (für das Argument <code class="docutils literal notranslate"><span class="pre">text</span></code>) auch <code class="docutils literal notranslate"><span class="pre">stopwords_list</span></code> (für <code class="docutils literal notranslate"><span class="pre">stopwords</span></code>) übergeben.</p>
-<p>Welche Argumente unsere Funktion erwartet und was sie im Gegenzug zurückgibt, können wir uns übrigens über das <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-Attribut ausgeben lassen. Dazu hängt man einen Punkt, zwei Unterschriche, dann “doc” und noch einmal zwei Unterstriche an den Funktionsnamen an:</p>
+<p>Welche Argumente unsere Funktion erwartet und was sie im Gegenzug zurückgibt, können wir uns übrigens über das <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-Attribut ausgeben lassen. Dazu hängt man einen Punkt, zwei Unterschriche, dann „doc“ und noch einmal zwei Unterstriche an den Funktionsnamen an:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">get_freqs</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
@@ -1954,13 +1961,13 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;hochschulisches&#39;, 1), (&#39;kontrollregime&#39;, 1), (&#39;urteils&#39;, 1), (&#39;filmförderfonds&#39;, 1), (&#39;grundsicherungsämtern&#39;, 1), (&#39;„technische&#39;, 1), (&#39;ausreisen&#39;, 1), (&#39;verlaufsstatistik&#39;, 1), (&#39;gefundenen&#39;, 1), (&#39;freihandelszone&#39;, 1)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ressourceneffizienz&#39;, 1), (&#39;klarer&#39;, 1), (&#39;erwerbsbiografien&#39;, 1), (&#39;lebenserfahrung&#39;, 1), (&#39;immerwährende&#39;, 1), (&#39;entwicklungsprinzips&#39;, 1), (&#39;verhandeln&#39;, 1), (&#39;entfaltet&#39;, 1), (&#39;regionalprojekten&#39;, 1), (&#39;front&#39;, 1)]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Wenn Du in Zukunft Schlüsselwörter ausrechnen willst, kannst Du ganz einfach unser selbst geschriebenes Modul <code class="docutils literal notranslate"><span class="pre">keywords</span></code> importieren. Das <code class="docutils literal notranslate"><span class="pre">import</span></code>-Statement funktioniert problemlos, wenn sich die entsprechende “.py”-Datei im selben Verzeichnis wie das Python-Skript, in das Du das Modul importieren willst, befindet.</p>
-<p>Um weitere eigene Module zu erstellen, musst Du lediglich fertigen Code (i.d.R. eine oder mehrere Funktionen) in eine leere Datei packen und diese mit dem Suffix “.py” abspeichern. Der Texteditor <a class="reference external" href="https://www.sublimetext.com">Sublime Text</a>, der auf macOS und Windows läuft, ist hierfür zu empfehlen. Neben dem Abspeichern von Modulen eignet sich Sublime Text auch zum Programmieren mit Python (wie genau, sehen wir am Ende der Grundlagenmodule).</p>
+<p>Wenn Du in Zukunft Schlüsselwörter ausrechnen willst, kannst Du ganz einfach unser selbst geschriebenes Modul <code class="docutils literal notranslate"><span class="pre">keywords</span></code> importieren. Das <code class="docutils literal notranslate"><span class="pre">import</span></code>-Statement funktioniert problemlos, wenn sich die entsprechende „.py“-Datei im selben Verzeichnis wie das Python-Skript, in das Du das Modul importieren willst, befindet.</p>
+<p>Um weitere eigene Module zu erstellen, musst Du lediglich fertigen Code (i.d.R. eine oder mehrere Funktionen) in eine leere Datei packen und diese mit dem Suffix „.py“ abspeichern. Der Texteditor <a class="reference external" href="https://www.sublimetext.com">Sublime Text</a>, der auf macOS und Windows läuft, ist hierfür zu empfehlen. Neben dem Abspeichern von Modulen eignet sich Sublime Text auch zum Programmieren mit Python (wie genau, sehen wir am Ende der Grundlagenmodule).</p>
 <p>Nun haben wir gesehen, dass das Speichern und Importieren eines eigenen Moduls wirklich simpel ist. Bei längerem Code lohnt sich das sog. <em>Modularisieren</em>, also das Aufteilen und Auslagern des Codes in sinnvollen Einheiten als Module, um diese dann, wo benötigt, zu importieren. Am Anfang einer Programmierkarriere ist das aber noch nicht relevant. Viel wichtiger als eigene Module sind im Moment noch die oben angesprochenen Module aus der Standardbibliothek von Python bzw. der Community für spezifische Anwendungsfelder. Ab dem nächsten Notebook werden wir immer mehr von solchen Modulen Gebrauch machen.</p>
 <p>Wie wir unten am Beispiel des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls zur Generierung zufälliger Zahlen sehen, werden solche Module gleich importiert wie unser eigenes Modul oben:</p>
 <div class="cell docutils container">
@@ -1989,7 +1996,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[61, 92, 6, 77, 97, 67, 9, 47, 79, 42]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[94, 23, 12, 66, 74, 29, 57, 13, 62, 38]
 </pre></div>
 </div>
 </div>
@@ -2051,7 +2058,7 @@ KV18: dazu                 KV21: schaffen
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-subtitle">zurück</p>
         <p class="prev-next-title"><span class="section-number">3. </span>Kontrollstrukturen</p>
       </div>
     </a>
@@ -2059,7 +2066,7 @@ KV18: dazu                 KV21: schaffen
        href="5_Input_und_Output.html"
        title="next page">
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title"><span class="section-number">5. </span>Input und Output</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
@@ -2078,7 +2085,7 @@ KV18: dazu                 KV21: schaffen
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    <i class="fa-solid fa-list"></i> Inhalt
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -2108,7 +2115,7 @@ KV18: dazu                 KV21: schaffen
   <div class="footer-item">
     
 <p class="component-author">
-By Yannick Frommherz
+Durch Yannick Frommherz
 </p>
 
   </div>
