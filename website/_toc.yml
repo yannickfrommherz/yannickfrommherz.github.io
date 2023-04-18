@@ -27,7 +27,6 @@ parts:
         title: Reguläre Ausdrücke
       - file: programming/1_Notebooks/7_Datenanalyse
         title: Datenanalyse
-
   - caption: Cheat Sheets
     chapters:
       - file: programming/2_Cheat_sheets/2_Datentypen
