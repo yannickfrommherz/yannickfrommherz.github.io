@@ -9,7 +9,6 @@ parts:
       - file: about_me/cv
         title: Curriculum Vitae
   - caption: Programmieren für Geistes- & Sozialwissenschaftler:innen
-    numbered: True
     chapters:
       - file: other_content/lets_get_started
         title: Legen wir los!
