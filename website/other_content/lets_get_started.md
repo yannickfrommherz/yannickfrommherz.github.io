@@ -6,7 +6,7 @@ Es stehen Dir deshalb zwei Optionen zur Verfügung, um die Jupyter Notebooks zum
 
 ## In der Cloud 
 
-Klicke auf das <i class="fa fa-rocket" aria-hidden="true"></i>-Symbol oben rechts auf der Seite "1. Einführung" (oder irgendeiner anderen Seite mit Code) und anschließend auf *Binder*. Binder erlaubt es Dir, die Jupyter Notebooks in der Cloud zu öffnen und den Code nach Belieben zu ändern und auszuführen. Auf Deinem Rechner musst Du dafür nichts installieren. Binder lädt am Anfang eine Weile, funktioniert danach aber tadellos.
+Klicke auf das <i class="fa fa-rocket" aria-hidden="true"></i>-Symbol oben rechts auf der Seite "Einführung" (oder irgendeiner anderen Seite mit Code) und anschließend auf *Binder*. Binder erlaubt es Dir, die Jupyter Notebooks in der Cloud zu öffnen und den Code nach Belieben zu ändern und auszuführen. Auf Deinem Rechner musst Du dafür nichts installieren. Binder lädt am Anfang eine Weile, funktioniert danach aber tadellos.
 
 ## Auf Deinem Rechner
 
