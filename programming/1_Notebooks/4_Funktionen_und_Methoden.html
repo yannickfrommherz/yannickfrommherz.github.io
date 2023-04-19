@@ -165,6 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="5_Input_und_Output.html">Input und Output</a></li>
 <li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">Reguläre Ausdrücke</a></li>
 <li class="toctree-l1"><a class="reference internal" href="7_Datenanalyse.html">Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_content/cheat_sheets.html">Cheat Sheets</a></li>
 </ul>
 
     </div>
@@ -1016,6 +1017,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ich gehe&#39;, &#39;gehe am&#39;, &#39;am Abend&#39;, &#39;Abend noch&#39;, &#39;noch spazieren&#39;]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Die ersten paar Zeilen des Codes sind die gleichen wie in der ersten Variante. Der Unterschied spielt sich in der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ab: In der ersten Variante wird grob formuliert in jeder Iteration ein neues n-gram (<code class="docutils literal notranslate"><span class="pre">current_ngram</span></code>) geschaffen, indem das bisher erste Wort vom letzten n-gram entfernt wird und ein neues hinten angehängt wird. Jedes n-gram wird dann <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> angehängt. In der zweiten Variante hier „schieben“ wir hingegen eine Art „Fenster“ über <code class="docutils literal notranslate"><span class="pre">words</span></code>: Mittels Slicing schneiden wir uns eine neue Liste von der Länge <code class="docutils literal notranslate"><span class="pre">n</span></code> aus <code class="docutils literal notranslate"><span class="pre">words</span></code> heraus und rücken bei jeder Iteration den Start- und Endindex für das Slicing um eine Position vor. Die neue Liste fügen wir jeweils mit der uns aus dem zweiten Notebook bekannten <code class="docutils literal notranslate"><span class="pre">join</span></code>-Methode zu einem string zusammen und hängen den als n-gram <code class="docutils literal notranslate"><span class="pre">ngrams</span></code> an. Das Resultat ist natürlich dasselbe wie bei der ersten Variante.</p>
@@ -1237,9 +1241,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Die&#39;, &#39;des&#39;, &#39;ist&#39;, &#39;Sie&#39;, &#39;zu&#39;, &#39;und&#39;, &#39;zu&#39;, &#39;ist&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Wie oben erwähnt, kann, wie hier, bei <code class="docutils literal notranslate"><span class="pre">expression</span></code> nur die Variable für <code class="docutils literal notranslate"><span class="pre">element</span></code> stehen. So verwenden wir die List Comprehension schlicht zum Erstellen einer gefilterten Liste, ohne dabei die Elemente, die es „in die Liste schaffen“ zusätzlich zu modifizieren.</p>
@@ -1342,7 +1343,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1845</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1966</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -1871,7 +1872,7 @@ KV18: dazu                 KV21: schaffen
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1845</span><span class="o">/</span><span class="mf">537028797.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1966</span><span class="o">/</span><span class="mf">537028797.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sum_div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span>
 
 <span class="ne">NameError</span>: name &#39;sum_div&#39; is not defined
@@ -1980,7 +1981,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;-chefs&#39;, 1), (&#39;solide&#39;, 1), (&#39;demonstration&#39;, 1), (&#39;eu-recht&#39;, 1), (&#39;of&#39;, 1), (&#39;baldmöglichst&#39;, 1), (&#39;anti&#39;, 1), (&#39;tarifverträge&#39;, 1), (&#39;relativierung&#39;, 1), (&#39;co2-bepreisungssytem&#39;, 1)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;fettleibigkeit&#39;, 1), (&#39;abkehr&#39;, 1), (&#39;sportereignissen&#39;, 1), (&#39;eilfällen&#39;, 1), (&#39;überlegungen&#39;, 1), (&#39;recycelte&#39;, 1), (&#39;weltraumorganisation&#39;, 1), (&#39;beinhalten&#39;, 1), (&#39;kreislauf&#39;, 1), (&#39;kerngeschäft&#39;, 1)]
 </pre></div>
 </div>
 </div>
@@ -2015,7 +2016,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[86, 87, 30, 28, 47, 26, 53, 38, 86, 59]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[37, 11, 86, 55, 67, 27, 46, 9, 66, 79]
 </pre></div>
 </div>
 </div>
