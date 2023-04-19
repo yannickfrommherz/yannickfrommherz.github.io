@@ -31,8 +31,3 @@ Ob auf Deinem Rechner oder in einer cloudbasierten Version von JupyterLab, Du so
 ## Credit
 
 Die Notebooks sind im Rahmen des Projekts *Experimentierraum Digitale Medienkompetenz* im Projektverbund [*Virtuelles Lehren und Lernen an der TU Dresden im Open Source-Kontext*](https://tu-dresden.de/gsw/virtuos) entstanden. Die Seite ist inspieriert von Melanie Walsh's [Intro to Cultural Analytics](https://melaniewalsh.github.io/Intro-Cultural-Analytics/How-To-Interact-With-This-Book.html), einer sehr englischsprachigen Seiten zum Programmierenlernen.
-
-
-```python
-
-```

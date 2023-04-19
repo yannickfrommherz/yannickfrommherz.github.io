@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>3. Datentypen &#8212; Yannick Frommherz</title>
+    <title>Datentypen &#8212; Yannick Frommherz</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/2_Datentypen.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="4. Kontrollstrukturen" href="3_Kontrollstrukturen.html" />
-    <link rel="prev" title="2. Einführung" href="1_Einfuehrung.html" />
+    <link rel="next" title="Kontrollstrukturen" href="3_Kontrollstrukturen.html" />
+    <link rel="prev" title="Einführung" href="1_Einfuehrung.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -157,14 +157,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programmieren für Geistes- &amp; Sozialwissenschaftler:innen</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../other_content/lets_get_started.html">1. Legen wir los!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">2. Einführung</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Datentypen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_Kontrollstrukturen.html">4. Kontrollstrukturen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_Funktionen_und_Methoden.html">5. Funktionen und Methoden</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_Input_und_Output.html">6. Input und Output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">7. Reguläre Ausdrücke</a></li>
-<li class="toctree-l1"><a class="reference internal" href="7_Datenanalyse.html">8. Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_content/lets_get_started.html">Legen wir los!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">Einführung</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Kontrollstrukturen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Funktionen_und_Methoden.html">Funktionen und Methoden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Input_und_Output.html">Input und Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">Reguläre Ausdrücke</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Datenanalyse.html">Datenanalyse</a></li>
 </ul>
 
     </div>
@@ -407,26 +407,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenketten-strings">3.1. Zeichenketten / strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ganzzahlen-integer">3.2. Ganzzahlen / integer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dezimalzahlen-float">3.3. Dezimalzahlen / float</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-list">3.4. Listen / list</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">3.5. Dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengen-set">3.6. Mengen / set</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tupel-tuple">3.7. Tupel / tuple</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolsche-werte-boolean-values">3.8. Boolsche Werte / Boolean values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-uberprufen">3.9. Datentyp überprüfen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern-casting">3.10. Datentyp ändern / casting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentialitat">3.11. Sequentialität</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">3.11.1. Indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">3.11.2. Slicing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenketten-strings">Zeichenketten / strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ganzzahlen-integer">Ganzzahlen / integer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dezimalzahlen-float">Dezimalzahlen / float</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-list">Listen / list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengen-set">Mengen / set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tupel-tuple">Tupel / tuple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolsche-werte-boolean-values">Boolsche Werte / Boolean values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-uberprufen">Datentyp überprüfen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern-casting">Datentyp ändern / casting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentialitat">Sequentialität</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterierbarkeit">3.12. Iterierbarkeit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderlichkeit-fortgeschritten">3.13. Veränderlichkeit (fortgeschritten)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unveranderliche-datentypen">3.13.1. Unveränderliche Datentypen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderliche-datentypen">3.13.2. Veränderliche Datentypen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-zur-identitat-von-objekten">3.13.3. Exkurs zur Identität von Objekten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterierbarkeit">Iterierbarkeit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderlichkeit-fortgeschritten">Veränderlichkeit (fortgeschritten)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unveranderliche-datentypen">Unveränderliche Datentypen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderliche-datentypen">Veränderliche Datentypen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-zur-identitat-von-objekten">Exkurs zur Identität von Objekten</a></li>
 </ul>
 </li>
 </ul>
@@ -441,7 +441,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="datentypen">
-<h1><span class="section-number">3. </span>Datentypen<a class="headerlink" href="#datentypen" title="Permalink to this heading">#</a></h1>
+<h1>Datentypen<a class="headerlink" href="#datentypen" title="Permalink to this heading">#</a></h1>
 <p>Im ersten Notebook haben wir gelernt, dass sämtliche Datenpunkte in Python Objekte sind. Wie bereits erwähnt, hat jedes Objekt einen Datentyp. Zwei Datentypen sind uns schon begegnet:</p>
 <ul class="simple">
 <li><p>Zeichenketten, in Python <code class="docutils literal notranslate"><span class="pre">string</span></code> genannt (Kurzform: <code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
@@ -450,7 +450,7 @@ document.write(`
 <p>Diese beiden und weitere wichtige Datentypen sowie ihre Eigenschaften lernen wir in diesem Notebook kennen. Die meisten Datentypen in Python haben eine Entsprechung in unserem alltäglichen (nicht-computationellen) Leben, sie werden Dir also vermutlich nicht besonders abwegig vorkommen. Was wir jedoch lernen müssen, ist, welche Konventionen für die einzelnen Datentypen bei Python gelten, also etwa, wie sie syntaktisch eingeführt werden müssen, oder was man mit ihnen (nicht) machen kann.</p>
 <p>In diesem Notebook kommt nochmal einiges an Theorie auf Dich zu, bereits im nächsten Notebook wird es jedoch angewandter. Dieses Notebook ist auch als Nachschlageort gedacht, wo Du alles Relevante zu Datentypen findest. Viele Fehler beim Programmieren fußen auf einem fehlenden Verständnis von Datentypen. Dem möchten wir hiermit vorbeugen, und wenn es doch zu Fehlern kommt (und das wird es sehr oft 😅), kannst Du hier nachschlagen.</p>
 <section id="zeichenketten-strings">
-<h2><span class="section-number">3.1. </span>Zeichenketten / strings<a class="headerlink" href="#zeichenketten-strings" title="Permalink to this heading">#</a></h2>
+<h2>Zeichenketten / strings<a class="headerlink" href="#zeichenketten-strings" title="Permalink to this heading">#</a></h2>
 <p>Zeichenketten sind, wie es der Name sagt, grundlegend Ketten von Zeichen, primär alphanumerischen Zeichen, also etwa Wörter, Sätze oder ganze Texte. Sie werden stets umrahmt von Anführungszeichen, also <code class="docutils literal notranslate"><span class="pre">&quot;...&quot;</span></code>oder <code class="docutils literal notranslate"><span class="pre">'...'</span></code> (beide Varianten sind in Ordnung, solange konsistent):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -474,11 +474,11 @@ document.write(`
 </div>
 </section>
 <section id="ganzzahlen-integer">
-<h2><span class="section-number">3.2. </span>Ganzzahlen / integer<a class="headerlink" href="#ganzzahlen-integer" title="Permalink to this heading">#</a></h2>
+<h2>Ganzzahlen / integer<a class="headerlink" href="#ganzzahlen-integer" title="Permalink to this heading">#</a></h2>
 <p>Ganzzahlen sind schlicht ganze Zahlen, also Zahlen ohne Nachkommastellen. Wie wir bereits gesehen haben, bedarf es keiner Anführungs- oder sonstiger Zeichen bei der Verwendung von Ganzzahlen (im Gegenteil: eine Ganzzahl umrahmt von Anführungszeichen interpretiert Python als string, vgl. letzte Übung im ersten Notebook).</p>
 </section>
 <section id="dezimalzahlen-float">
-<h2><span class="section-number">3.3. </span>Dezimalzahlen / float<a class="headerlink" href="#dezimalzahlen-float" title="Permalink to this heading">#</a></h2>
+<h2>Dezimalzahlen / float<a class="headerlink" href="#dezimalzahlen-float" title="Permalink to this heading">#</a></h2>
 <p>Neben Ganzzahlen gibt es auch Dezimalzahlen, die in Python <code class="docutils literal notranslate"><span class="pre">float</span></code> heißen. Wichtig: das Dezimalzeichen ist ein <code class="docutils literal notranslate"><span class="pre">.</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -496,7 +496,7 @@ document.write(`
 </div>
 </section>
 <section id="listen-list">
-<h2><span class="section-number">3.4. </span>Listen / list<a class="headerlink" href="#listen-list" title="Permalink to this heading">#</a></h2>
+<h2>Listen / list<a class="headerlink" href="#listen-list" title="Permalink to this heading">#</a></h2>
 <p>Ein weiterer äußerst nützlicher Datentyp in Python sind Listen, genannnt <code class="docutils literal notranslate"><span class="pre">list</span></code>, die wir im Alltag z.B. in Form von To-Do-Listen oder Einkaufslisten kennen. Nachfolgend ein Beispiel für eine Liste mit allen Wochentagen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -534,7 +534,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1822</span><span class="o">/</span><span class="mf">980998546.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1807</span><span class="o">/</span><span class="mf">980998546.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="ne">NameError</span>: name &#39;seasons&#39; is not defined
@@ -545,7 +545,7 @@ document.write(`
 <p>Indexing schauen wir uns weiter unten im Detail an. Weitere sog. <em>Methoden</em> zum Bearbeiten von Listen lernen wir im vierten Notebook kennen.</p>
 </section>
 <section id="dictionaries">
-<h2><span class="section-number">3.5. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h2>
+<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h2>
 <p>Das vierte Element in <code class="docutils literal notranslate"><span class="pre">wild_mix</span></code> oben ist also ein Objekt des Datentyps <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, kurz <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Dictionaries funktionieren wie Wörterbücher im alltäglichen Leben. Sie bestehen aus Schlüsseln, in Python <code class="docutils literal notranslate"><span class="pre">key</span></code> genannt, und zugehörigen Werten, in Python <code class="docutils literal notranslate"><span class="pre">value</span></code> genannt. Zusammen ergeben Schlüssel und Wert sog. <em>Schlüssel-Werte-Paare</em> (<em>key-value pairs</em>). Ein Schlüssel entspricht dem Suchbegriff, den wir in einem Sprachwörterbuch nachschlagen. Der zugehörige Wert entspricht dem Eintrag, den wir beim betreffenden Suchbegriff vorfinden.</p>
 <p>Ein dictionary wird von geschweiften Klammern umrahmt. Zwischen Schlüssel und Wert befindet sich ein Doppelpunkt und zwischen den Schlüssel-Werte-Paaren jeweils ein Komma:</p>
 <div class="cell docutils container">
@@ -576,7 +576,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1822</span><span class="o">/</span><span class="mf">2239285682.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1807</span><span class="o">/</span><span class="mf">2239285682.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">])</span>
 
 <span class="ne">NameError</span>: name &#39;seasons&#39; is not defined
@@ -587,7 +587,7 @@ document.write(`
 <p>Hier greifen wir nicht auf das <em>n</em>-te Element eines dictionary zu, wie bei Indexing für Listen (das ginge auch nicht, da dictionaries im Gegensatz zu Listen keine Reihenfolge „abspeichern“, dazu mehr unter Sequentialität unten). Stattdessen „sprechen“ wir einen bestimmten Wert über den zugehörigen Schlüssel „an“. Weitere Methoden, um mit dictionaries zu arbeiten, lernen wir ebenfalls im vierten Notebook.</p>
 </section>
 <section id="mengen-set">
-<h2><span class="section-number">3.6. </span>Mengen / set<a class="headerlink" href="#mengen-set" title="Permalink to this heading">#</a></h2>
+<h2>Mengen / set<a class="headerlink" href="#mengen-set" title="Permalink to this heading">#</a></h2>
 <p>Um den nächsten Datentyp, die Menge, in Python <code class="docutils literal notranslate"><span class="pre">set</span></code> genannt, einzuführen, stellen wir uns vor, wir hätten einen Satz <em>tokenisiert</em>, also in einzelne Wörter zerlegt und dabei eine Liste mit Wörtern zurückgekriegt. Führe die Zelle unten aus, um <code class="docutils literal notranslate"><span class="pre">tokens</span></code> zu initialisieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -619,7 +619,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;zur&#39;, &#39;stand&#39;, &#39;Bank&#39;, &#39;Vor&#39;, &#39;Holz&#39;, &#39;aus&#39;, &#39;Eingang&#39;, &#39;eine&#39;, &#39;dem&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;aus&#39;, &#39;Holz&#39;, &#39;Eingang&#39;, &#39;eine&#39;, &#39;stand&#39;, &#39;Vor&#39;, &#39;dem&#39;, &#39;zur&#39;, &#39;Bank&#39;}
 </pre></div>
 </div>
 </div>
@@ -652,7 +652,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="tupel-tuple">
-<h2><span class="section-number">3.7. </span>Tupel / tuple<a class="headerlink" href="#tupel-tuple" title="Permalink to this heading">#</a></h2>
+<h2>Tupel / tuple<a class="headerlink" href="#tupel-tuple" title="Permalink to this heading">#</a></h2>
 <p>Neben <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code> und <code class="docutils literal notranslate"><span class="pre">set</span></code> gibt es noch einen vierten Datentyp bei Python, der in sich mehrere Objekte enthält: <code class="docutils literal notranslate"><span class="pre">tuple</span></code>. Tupel sind wie Listen, mit einem einzigen Unterschied: sie sind unveränderlich, was kurz formuliert bedeutet, dass sie einmal initialisiert ihren Wert, also die Elemente in ihnen, nicht mehr ändern können (mehr zur (Un-)veränderlichkeit von Objekten wie gesagt weiter unten). Tupel werden durch runde Klammern definiert und die einzelnen Elemente in ihnen sind kommasepariert:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -694,7 +694,7 @@ document.write(`
 <p>Wie Listen können Tupel Objekte jeglichen Datentyps enthalten.</p>
 </section>
 <section id="boolsche-werte-boolean-values">
-<h2><span class="section-number">3.8. </span>Boolsche Werte / Boolean values<a class="headerlink" href="#boolsche-werte-boolean-values" title="Permalink to this heading">#</a></h2>
+<h2>Boolsche Werte / Boolean values<a class="headerlink" href="#boolsche-werte-boolean-values" title="Permalink to this heading">#</a></h2>
 <p>Als letzten wichtigen Datentypen lernen wir Boolsche Werte kennen. Sie werden in Python mit <code class="docutils literal notranslate"><span class="pre">bool</span></code> abgekürzt. Um genau zu sein, hatten Boolsche Werte bereits einen kleinen Gastauftritt im ersten Notebook. Es gibt genau zwei Boolsche Werte: <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> (beachte die Großschreibung!), also „wahr“ und „falsch“.</p>
 <p>Wie erwähnt gibt es in Python keine Mehrdeutigkeit und genau das können wir uns zunutze machen, wenn wir den Ablauf unseres Codes steuern wollen. Zum Beispiel bei Ausdrücken mit Vergleichoperatoren (vgl. erstes Notebook), die immer nur entweder <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> ergeben können. Gepaart mit den Kontrollstrukturen <em>bedingte Anweisungen</em> („wenn dieser Ausdruck <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt, dann mache x, sonst y“) und <em>Schleifen</em> („solange diese Bedingung <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt, mache x“), die wir bereits gestreift haben und im nächsten Notebook eingehend kennenlernen, können wir unseren Code kontrollieren.</p>
 <p>Bei der Übung zu den Einrückungen im ersten Notebook haben wir das schon angewendet. Hier ein leicht erweiterter Code, bei dem wir die Details noch nicht verstehen müssen.</p>
@@ -734,7 +734,7 @@ c is not &#39;a&#39;
 <p>Damit haben wir die wichtigsten Datentypen in Python kennengelernt.</p>
 </section>
 <section id="datentyp-uberprufen">
-<h2><span class="section-number">3.9. </span>Datentyp überprüfen<a class="headerlink" href="#datentyp-uberprufen" title="Permalink to this heading">#</a></h2>
+<h2>Datentyp überprüfen<a class="headerlink" href="#datentyp-uberprufen" title="Permalink to this heading">#</a></h2>
 <p>Um herauszufinden, welchen Datentyp ein Objekt hat, können wir die <code class="docutils literal notranslate"><span class="pre">type</span></code>-Funktion benutzen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -788,7 +788,7 @@ c is not &#39;a&#39;
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1822</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1807</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">an_integer</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print(len(a_float))</span>
@@ -803,7 +803,7 @@ c is not &#39;a&#39;
 <p>Die Fehlermeldung <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> kriegen wir zurück, wenn wir eine Operation auf einen Datentyp anwenden wollen, der nicht dafür vorgesehen ist.</p>
 </section>
 <section id="datentyp-andern-casting">
-<h2><span class="section-number">3.10. </span>Datentyp ändern / casting<a class="headerlink" href="#datentyp-andern-casting" title="Permalink to this heading">#</a></h2>
+<h2>Datentyp ändern / casting<a class="headerlink" href="#datentyp-andern-casting" title="Permalink to this heading">#</a></h2>
 <p>Selbstverständlich ist es auch möglich, Objekte von einem Datentyp in einen anderen zu konvertieren, dies nennt sich <em>Casting</em>. Oben haben wir bereits eine Liste in ein <code class="docutils literal notranslate"><span class="pre">set</span></code> gecastet. Für jeden eingebauten Datentyp gibt es eine entsprechende Casting-Funktion mit folgender Syntax am Beispiel von <code class="docutils literal notranslate"><span class="pre">set</span></code>: <br><br> <code class="docutils literal notranslate"><span class="pre">set(object)</span></code><br><br> Ersetze <code class="docutils literal notranslate"><span class="pre">set</span></code> durch den jeweiligen Kurznamen des gewünschten Datentyps und <code class="docutils literal notranslate"><span class="pre">object</span></code> durch das zu konvertierende Objekt. Hier einige Beispiele anhand der oben initialisierten Objekte:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -837,7 +837,7 @@ c is not &#39;a&#39;
 <p>Abschließend lernen wir drei grundlegende Eigenschaften von Datentypen kennen: <em>Sequentialität</em>, <em>Iterierbarkeit</em> und <em>Veränderlichkeit</em>. Die letzte Eigenschaft ist schon fortgeschritteneres Wissen, es schadet aber nicht, schon mal davon gehört zu haben.</p>
 </section>
 <section id="sequentialitat">
-<h2><span class="section-number">3.11. </span>Sequentialität<a class="headerlink" href="#sequentialitat" title="Permalink to this heading">#</a></h2>
+<h2>Sequentialität<a class="headerlink" href="#sequentialitat" title="Permalink to this heading">#</a></h2>
 <p>Datentypen unterscheiden sich erstens hinsichtlich ihrer <em>Sequentialität</em> (engl. <em>sequentiality</em>). Sequentielle Objekte „speichern“ die in ihnen enthaltenen Elemente in einer bestimmten Reihenfolge „ab“. Als Metapher kann man sich eine Straße vorstellen, entlang welcher einzelne Häuser mit einer jeweils eigenen Hausnummer stehen. Das Haus mit Hausnummer 3 steht immer am gleichen Ort in der Straße zwischen den Häusern 2 und 4 (wir gehen der Einfachheit halber von einer einseitig bebauten Straße aus).</p>
 <p>Zu den sequentiellen Datentypen gehören:</p>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
@@ -845,7 +845,7 @@ c is not &#39;a&#39;
 <p>Man könnte annehmen, dass <code class="docutils literal notranslate"><span class="pre">dict</span></code>- und <code class="docutils literal notranslate"><span class="pre">set</span></code>-Objekte ebenfalls sequentielle Objekte sind. Sie „speichern“ die in ihnen enthaltenen Schlüssel-Werte-Paare bzw. Elemente aber nicht in einer bestimmten Reihenfolge (Sequenz) „ab“ und zählen von daher nicht zu den sequentiellen Datentypen.</p>
 <p>Auf alle sequentiellen Objekte können zwei sehr hilfreiche Techniken angewandt werden: <em>Indexing</em> und <em>Slicing</em>.</p>
 <section id="indexing">
-<h3><span class="section-number">3.11.1. </span>Indexing<a class="headerlink" href="#indexing" title="Permalink to this heading">#</a></h3>
+<h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this heading">#</a></h3>
 <p>Bei Indexing „sprechen“ wir ein bestimmtes Element innerhalb der Sequenz „an“. Das ist praktisch, wenn wir nur an einem bestimmten Element und nicht an der ganzen Sequenz interessiert sind. Bei der Liste <code class="docutils literal notranslate"><span class="pre">seasons</span></code> von oben etwa haben wir uns nur die Sommermonate ausgeben lassen, vielleicht um uns zu vergewissern, welche Monate nach meteorologischen Kriterien zum Sommer gehören?</p>
 <p>Oft verwenden wir Indexing auch, um <em>nach und nach</em> ein einzelnes Element in der Sequenz „anzusprechen“, zum Beispiel <em>jedes</em> einzelne (das entspräche dann einer vollständigen Iteration, vgl. Iterierbarkeit unten), oder aber nur jedes <em>x</em>-te. In unsere Straßenmetapher umgemünzt wäre das ein Szenario, wo wir von Haus zu Haus gehen und etwa einen Flyer in <em>jeden</em> Briefkasten werfen (vollständige Iteration) oder aber nur in jeden zweiten im Abschnitt der Hausnummern 26-37, vielleicht, weil wir bereits wissen, dass die anderen Häuser keine Werbung wünschen. Im ersten Fall gehen wir erst zu Haus Nummer 1, dann Nummer 2 etc.; im zweiten Fall erst zu Haus Nummer 26, dann Nummer 28, etc., bis wir mit Haus Nummer 36 abschließen.</p>
 <p>Für dieses „Nacheinander-Ansprechen“ von bestimmten Elementen (in bestimmten Abschnitten) verwendet man Schleifen, die wir uns aber erst im nächsten Notebook anschauen. Für den Moment lernen wir, wie man mit Indexing ein einzelnes Element „ansprechen“ kann und behalten im Hinterkopf, dass Indexing eingebaut in Schleifen eine mächtige Technik darstellt.</p>
@@ -929,7 +929,7 @@ e
 </section>
 <hr class="docutils" />
 <section id="slicing">
-<h3><span class="section-number">3.11.2. </span>Slicing<a class="headerlink" href="#slicing" title="Permalink to this heading">#</a></h3>
+<h3>Slicing<a class="headerlink" href="#slicing" title="Permalink to this heading">#</a></h3>
 <p>Mit Slicing (übersetzt so viel wie <em>Herausschneiden</em>) können wir nicht nur ein einzelnes Element in einem sequentiellen Objekt „ansprechen“, sondern mehrere aufeinanderfolgende. Dabei können wir definieren, wo in der Sequenz, also bei welchem Index, wir anfangen wollen (<code class="docutils literal notranslate"><span class="pre">start</span></code> in der Syntax unten), wo wir aufhören wollen (<code class="docutils literal notranslate"><span class="pre">end</span></code>) sowie einen Schrittparameter, falls wir jeweils <em>n</em> Elemente überspringen wollen (<code class="docutils literal notranslate"><span class="pre">step</span></code>). Die Syntax sieht wie folgt aus:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">my_list[start:end:step]</span></code></p></li>
@@ -1004,7 +1004,7 @@ e
 </section>
 <hr class="docutils" />
 <section id="iterierbarkeit">
-<h2><span class="section-number">3.12. </span>Iterierbarkeit<a class="headerlink" href="#iterierbarkeit" title="Permalink to this heading">#</a></h2>
+<h2>Iterierbarkeit<a class="headerlink" href="#iterierbarkeit" title="Permalink to this heading">#</a></h2>
 <p>Datentypen unterscheiden sich zweitens hinsichtlich ihrer <em>Iterierbarkeit</em> (engl. <em>iterability</em>). Iterierbare Objekte sind Objekte, die die in ihnen enthaltenen Elemente einzeln ausgeben können. Dazu zählen folgende Datentypen:</p>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code></p>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code> und <code class="docutils literal notranslate"><span class="pre">dict</span></code> sind mit den einzelnen Elementen natürlich die Elemente auf der Liste, im Tupel, im Set bzw. Schlüssel-Werte-Paare im dictionary gemeint (wobei bei dictionaries auch nur auf die Schlüssel oder nur auf die Werte einzeln zugegriffen werden kann, wie wir im vierten Notebook lernen werden). Bei <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekten sind wie schon beim Thema Sequentialität die einzelnen Zeichen gemeint.</p>
@@ -1044,22 +1044,22 @@ Sonntag
 </section>
 <hr class="docutils" />
 <section id="veranderlichkeit-fortgeschritten">
-<h2><span class="section-number">3.13. </span>Veränderlichkeit (fortgeschritten)<a class="headerlink" href="#veranderlichkeit-fortgeschritten" title="Permalink to this heading">#</a></h2>
+<h2>Veränderlichkeit (fortgeschritten)<a class="headerlink" href="#veranderlichkeit-fortgeschritten" title="Permalink to this heading">#</a></h2>
 <p>Drittens unterscheiden sich Datentypen hinsichtlich ihrer <em>Veränderlichtkeit</em> (engl. <em>mutability</em>). Das haben wir bereits beim Thema dictionaries angeschnitten.</p>
 <section id="unveranderliche-datentypen">
-<h3><span class="section-number">3.13.1. </span>Unveränderliche Datentypen<a class="headerlink" href="#unveranderliche-datentypen" title="Permalink to this heading">#</a></h3>
+<h3>Unveränderliche Datentypen<a class="headerlink" href="#unveranderliche-datentypen" title="Permalink to this heading">#</a></h3>
 <p>Zu den <em>unveränderlichen Datentypen</em> (<em>immutable data types</em>) gehören:</p>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
 <p>Unveränderliche Objekte können ihren Wert nicht ändern. Bei einem string oder Tupel etwa ist es also nicht möglich, weitere Zeichen bzw. Elemente anzuhängen, Zeichen/Elemente auszutauschen oder zu entfernen. Das ist nicht wirklich offensichtlich, denn wenn man versucht, einen string zu verlängern (mittels <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">+=</span> <span class="pre">&quot;verlängerung&quot;</span></code>), erhält man keine Fehlermeldung. Das liegt daran, dass Python im Hintergrund einfach ein neues Objekt schafft. Das alte Objekt verliert seine Referenz und <em>verwaist</em>.</p>
 </section>
 <section id="veranderliche-datentypen">
-<h3><span class="section-number">3.13.2. </span>Veränderliche Datentypen<a class="headerlink" href="#veranderliche-datentypen" title="Permalink to this heading">#</a></h3>
+<h3>Veränderliche Datentypen<a class="headerlink" href="#veranderliche-datentypen" title="Permalink to this heading">#</a></h3>
 <p>Zu den <em>veränderlichen Datentypen</em> (<em>mutable data types</em>) gehören:</p>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code></p>
 <p>Veränderliche Objekte können ihren Wert ändern. Es ist also möglich, weitere Elemente anzuhängen, auszutauschen oder zu entfernen. Wendet man also den <code class="docutils literal notranslate"><span class="pre">+=</span></code>-Operator auf eine Liste an, so handelt es sich nachher immer noch um das gleiche Objekt.</p>
 </section>
 <section id="exkurs-zur-identitat-von-objekten">
-<h3><span class="section-number">3.13.3. </span>Exkurs zur Identität von Objekten<a class="headerlink" href="#exkurs-zur-identitat-von-objekten" title="Permalink to this heading">#</a></h3>
+<h3>Exkurs zur Identität von Objekten<a class="headerlink" href="#exkurs-zur-identitat-von-objekten" title="Permalink to this heading">#</a></h3>
 <p>Die <code class="docutils literal notranslate"><span class="pre">id</span></code>-Funktion, die die einzigartige „Adresse“ eines Objekts im Arbeitsspeicher zurückgibt, macht dieses unterschiedliche Verhalten bei unveränderlichen vs. veränderlichen Objekten sichtbar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1084,8 +1084,8 @@ Sonntag
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False denn 140130898802992 ist ungleich 140130898397488
-Das list-Objekt ist immer noch das gleiche: True denn 140130898924400 ist gleich 140130898924400
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False denn 140708910787952 ist ungleich 140708909954416
+Das list-Objekt ist immer noch das gleiche: True denn 140708910477056 ist gleich 140708910477056
 </pre></div>
 </div>
 </div>
@@ -1187,7 +1187,7 @@ Dieselbe ID: False
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Einführung</p>
+        <p class="prev-next-title">Einführung</p>
       </div>
     </a>
     <a class="right-next"
@@ -1195,7 +1195,7 @@ Dieselbe ID: False
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Kontrollstrukturen</p>
+        <p class="prev-next-title">Kontrollstrukturen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1217,26 +1217,26 @@ Dieselbe ID: False
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenketten-strings">3.1. Zeichenketten / strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ganzzahlen-integer">3.2. Ganzzahlen / integer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dezimalzahlen-float">3.3. Dezimalzahlen / float</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-list">3.4. Listen / list</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">3.5. Dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengen-set">3.6. Mengen / set</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tupel-tuple">3.7. Tupel / tuple</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolsche-werte-boolean-values">3.8. Boolsche Werte / Boolean values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-uberprufen">3.9. Datentyp überprüfen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern-casting">3.10. Datentyp ändern / casting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentialitat">3.11. Sequentialität</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">3.11.1. Indexing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">3.11.2. Slicing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenketten-strings">Zeichenketten / strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ganzzahlen-integer">Ganzzahlen / integer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dezimalzahlen-float">Dezimalzahlen / float</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-list">Listen / list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengen-set">Mengen / set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tupel-tuple">Tupel / tuple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolsche-werte-boolean-values">Boolsche Werte / Boolean values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-uberprufen">Datentyp überprüfen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern-casting">Datentyp ändern / casting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentialitat">Sequentialität</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterierbarkeit">3.12. Iterierbarkeit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderlichkeit-fortgeschritten">3.13. Veränderlichkeit (fortgeschritten)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unveranderliche-datentypen">3.13.1. Unveränderliche Datentypen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderliche-datentypen">3.13.2. Veränderliche Datentypen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-zur-identitat-von-objekten">3.13.3. Exkurs zur Identität von Objekten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterierbarkeit">Iterierbarkeit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderlichkeit-fortgeschritten">Veränderlichkeit (fortgeschritten)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unveranderliche-datentypen">Unveränderliche Datentypen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderliche-datentypen">Veränderliche Datentypen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-zur-identitat-von-objekten">Exkurs zur Identität von Objekten</a></li>
 </ul>
 </li>
 </ul>

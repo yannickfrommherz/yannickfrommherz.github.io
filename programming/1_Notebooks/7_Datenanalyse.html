@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>8. Datenanalyse &#8212; Yannick Frommherz</title>
+    <title>Datenanalyse &#8212; Yannick Frommherz</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/7_Datenanalyse.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="prev" title="7. Reguläre Ausdrücke / RegEx" href="6_Regulaere_Ausdruecke.html" />
+    <link rel="prev" title="Reguläre Ausdrücke / RegEx" href="6_Regulaere_Ausdruecke.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -156,14 +156,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Programmieren für Geistes- &amp; Sozialwissenschaftler:innen</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../other_content/lets_get_started.html">1. Legen wir los!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">2. Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2_Datentypen.html">3. Datentypen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="3_Kontrollstrukturen.html">4. Kontrollstrukturen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4_Funktionen_und_Methoden.html">5. Funktionen und Methoden</a></li>
-<li class="toctree-l1"><a class="reference internal" href="5_Input_und_Output.html">6. Input und Output</a></li>
-<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">7. Reguläre Ausdrücke</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_content/lets_get_started.html">Legen wir los!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1_Einfuehrung.html">Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Datentypen.html">Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Kontrollstrukturen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Funktionen_und_Methoden.html">Funktionen und Methoden</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Input_und_Output.html">Input und Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">Reguläre Ausdrücke</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Datenanalyse</a></li>
 </ul>
 
     </div>
@@ -406,30 +406,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">8.1. Input</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uberblick-bekommen">8.2. Überblick bekommen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-wortverlaufskurven-visualisieren">8.3. 🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-spalten-zugreifen">8.4. Auf Spalten zugreifen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-zeilen-zugreifen">8.5. Auf Zeilen zugreifen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-spalten-und-zeilen-zugreifen">8.6. Auf Spalten <em>und</em> Zeilen zugreifen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-hinzufugen">8.7. Spalten hinzufügen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeilen-hinzufugen">8.8. Zeilen hinzufügen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-und-zeilen-entfernen">8.9. Spalten und Zeilen entfernen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskriptive-statistiken">8.10. Deskriptive Statistiken</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-sortieren">8.11. Werte sortieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einzigartige-werte">8.12. Einzigartige Werte</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-filtern">8.13. DataFrame filtern</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-zahlen">8.14. Werte zählen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-bearbeiten">8.15. Werte bearbeiten</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">8.15.1. Strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-werte">8.15.2. Numerische Werte</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern">8.15.3. Datentyp ändern</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-bearbeitung">8.15.4. Bedingte Bearbeitung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-und-applymap">8.15.5. <code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uberblick-bekommen">Überblick bekommen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-wortverlaufskurven-visualisieren">🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-spalten-zugreifen">Auf Spalten zugreifen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-zeilen-zugreifen">Auf Zeilen zugreifen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-spalten-und-zeilen-zugreifen">Auf Spalten <em>und</em> Zeilen zugreifen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-hinzufugen">Spalten hinzufügen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeilen-hinzufugen">Zeilen hinzufügen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-und-zeilen-entfernen">Spalten und Zeilen entfernen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskriptive-statistiken">Deskriptive Statistiken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-sortieren">Werte sortieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einzigartige-werte">Einzigartige Werte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-filtern">DataFrame filtern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-zahlen">Werte zählen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-bearbeiten">Werte bearbeiten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-werte">Numerische Werte</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern">Datentyp ändern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-bearbeitung">Bedingte Bearbeitung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-und-applymap"><code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8.16. 🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">8.17. Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
 </ul>
             </nav>
         </div>
@@ -442,7 +442,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="datenanalyse">
-<h1><span class="section-number">8. </span>Datenanalyse<a class="headerlink" href="#datenanalyse" title="Permalink to this heading">#</a></h1>
+<h1>Datenanalyse<a class="headerlink" href="#datenanalyse" title="Permalink to this heading">#</a></h1>
 <p>In diesem Notebook lernen wir, wie wir in Python große Mengen an strukturierten Daten, allen voran Daten in Form von Tabellen, verarbeiten und analysieren können.</p>
 <p>Im fünften Notebook haben wir mit folgender Tabelle gearbeitet:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_Tabelle.png"><p>Wir haben unter Zuhilfenahme des <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Moduls unseren eigenen Code geschrieben, um auszurechnen, wieviele der 100 flächengrößten Gemeinden sich in jedem der sechzehn Bundesländer befinden. In diesem Notebook lernen wir die sehr viel leistungsstärkere Bibliothek <em>pandas</em> kennen, die uns diese Rechnung im Handumdrehen liefern kann. Pandas kann aber viel mehr, wie wir gleich sehen werden.</p>
@@ -457,7 +457,7 @@ document.write(`
 <p>Solltest Du einen <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> erhalten, musst Du <code class="docutils literal notranslate"><span class="pre">pandas</span></code> erst über die Command Line installieren. Öffne dazu das Terminal (macOS) bzw. die Eingabeaufforderung (Windows) in einem neuen Fenster, gib <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pandas</span></code> (macOS) bzw. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code> (Windows) ein und drücke auf Enter. Sobald der Prozess abgeschlossen ist, sollte der Import oben klappen.</p>
 <p>Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, nämlich dem <a class="reference external" href="https://songkorpus.de/index.html">Songkorpus</a>. Das Songkorpus beinhält Lieder von bekannten deutschen Künstler:innen, u.a. von Udo Lindenberg und Fettes Brot und umspannt die Jahre 1969-2022. Öffentlich herunterladbar sind unter anderem Worthäufigkeiten pro Jahr und zwar als Tabelle (auf der Webseite selbst finden sich weitere spannende Daten und Analysen). Jedes Wort, das in einem oder mehreren Songs in einem bestimmten Jahr vorkommt, steht in einer eigenen Zeile, zusammen mit dem entsprechenden Jahr und der Häufigkeit, mit der es in diesem Jahr bei allen Künstler:innen auftritt (s.u.). Insgesamt handelt es sich um über 380.000 Wörter. Solch eine tabellarische Datei, zumal derart groß, ist prädestiniert dazu, mit pandas verarbeitet zu werden.</p>
 <section id="input">
-<h2><span class="section-number">8.1. </span>Input<a class="headerlink" href="#input" title="Permalink to this heading">#</a></h2>
+<h2>Input<a class="headerlink" href="#input" title="Permalink to this heading">#</a></h2>
 <p>In der folgenden Zelle öffnen wir die Datei, die sich bereits in „3_Dateien/Songkorpus“ befindet, und lesen sie mit der pandas-Funktion <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> ein, die neben dem Dateipfad u.a. auch das Trennzeichen (<code class="docutils literal notranslate"><span class="pre">sep</span></code>, in diesem Fall der Tabulator „\t“) als Argument nimmt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -485,7 +485,7 @@ document.write(`
 <p>DataFrames sind ein eigener Datentyp von pandas, auf dem wir eine Vielzahl nützlicher Operationen ausführen können, etwa um einen Überblick über die Daten zu bekommen.</p>
 </section>
 <section id="uberblick-bekommen">
-<h2><span class="section-number">8.2. </span>Überblick bekommen<a class="headerlink" href="#uberblick-bekommen" title="Permalink to this heading">#</a></h2>
+<h2>Überblick bekommen<a class="headerlink" href="#uberblick-bekommen" title="Permalink to this heading">#</a></h2>
 <p>Hier bietet sich insbesondere die Methode <code class="docutils literal notranslate"><span class="pre">head</span></code> an, die standardmäßig die ersten fünf Zeilen (also den „Kopf“) des DataFrames ausgibt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -731,7 +731,7 @@ RangeIndex(start=0, stop=386510, step=1)
 </section>
 <hr class="docutils" />
 <section id="anwendungsfall-wortverlaufskurven-visualisieren">
-<h2><span class="section-number">8.3. </span>🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈<a class="headerlink" href="#anwendungsfall-wortverlaufskurven-visualisieren" title="Permalink to this heading">#</a></h2>
+<h2>🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈<a class="headerlink" href="#anwendungsfall-wortverlaufskurven-visualisieren" title="Permalink to this heading">#</a></h2>
 <p>Auch in diesem Notebook gibt es einen Anwendungsfall: Wir wollen visualisieren, wie häufig beliebige Wörter in jedem Jahr im vom Songkorpus abgedeckten Zeitraum 1969-2022 vorkommen. Für die Begriffe „ich“, „du“, „er“ und „sie“ sähe das z.B. so aus:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Wortverlaufskurve_Jahr.png" width="700">
 <p>Es scheint, als sängen die Künstler:innen im Songkorpus bevorzugt über sich selbst. 😅</p>
@@ -739,7 +739,7 @@ RangeIndex(start=0, stop=386510, step=1)
 <p>Zuallererst wollen wir einen detailierten Blick auf Spalten und Zeilen werfen, aus denen ein DataFrame ja besteht.</p>
 </section>
 <section id="auf-spalten-zugreifen">
-<h2><span class="section-number">8.4. </span>Auf Spalten zugreifen<a class="headerlink" href="#auf-spalten-zugreifen" title="Permalink to this heading">#</a></h2>
+<h2>Auf Spalten zugreifen<a class="headerlink" href="#auf-spalten-zugreifen" title="Permalink to this heading">#</a></h2>
 <p>Wenn wir an einer bestimmten Spalte eines DataFrames interessiert sind, können wir auf diese mit der gleichen Syntax wie bei dictionaries zugreifen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -911,7 +911,7 @@ Name: Token, dtype: object
 <p>Nun wissen wir, wie wir auf Spalten zugreifen können.</p>
 </section>
 <section id="auf-zeilen-zugreifen">
-<h2><span class="section-number">8.5. </span>Auf Zeilen zugreifen<a class="headerlink" href="#auf-zeilen-zugreifen" title="Permalink to this heading">#</a></h2>
+<h2>Auf Zeilen zugreifen<a class="headerlink" href="#auf-zeilen-zugreifen" title="Permalink to this heading">#</a></h2>
 <p>Um auf Zeilen zuzugreifen, hängen wir <code class="docutils literal notranslate"><span class="pre">.loc[index]</span></code> an das DataFrame an und übergeben den Index der gewünschten Zeile anstelle von <code class="docutils literal notranslate"><span class="pre">index</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1087,7 +1087,7 @@ Name: 777, dtype: object
 </section>
 <hr class="docutils" />
 <section id="auf-spalten-und-zeilen-zugreifen">
-<h2><span class="section-number">8.6. </span>Auf Spalten <em>und</em> Zeilen zugreifen<a class="headerlink" href="#auf-spalten-und-zeilen-zugreifen" title="Permalink to this heading">#</a></h2>
+<h2>Auf Spalten <em>und</em> Zeilen zugreifen<a class="headerlink" href="#auf-spalten-und-zeilen-zugreifen" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">loc</span></code> können wir ebenfalls verwenden, um gleichzeitig anzugeben, auf welche Spalte(n) und Zeile(n) wir bei einem DataFrame zugreifen möchten. Auf den Zeilenindex folgt nach einem Komma der gewünschte Spaltenname:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1224,7 +1224,7 @@ Name: 777, dtype: object
 <p>Nun wissen wir, wie wir auf beliebige (Kombinationen) von Spalte(n) und Zeile(n) zugreifen können. Als Nächstes möchten wir unseren Daten erweitern, indem wir eine Spalte hinzufügen:</p>
 </section>
 <section id="spalten-hinzufugen">
-<h2><span class="section-number">8.7. </span>Spalten hinzufügen<a class="headerlink" href="#spalten-hinzufugen" title="Permalink to this heading">#</a></h2>
+<h2>Spalten hinzufügen<a class="headerlink" href="#spalten-hinzufugen" title="Permalink to this heading">#</a></h2>
 <p>Eine einzelne Spalte entspricht ja einer Series und Series wiederum kommen Listen sehr nahe. Deshalb können wir zur Definition einer neuen Spalte ganz einfach eine Liste übergeben, deren Länge natürlich der Anzahl an Zeilen des DataFrames entsprechen muss.</p>
 <p>Sagen wir, wir hätten gerne eine neue Spalte, in der das Jahrzehnt gespeichert wird, in der das jeweilige Token gesungen wurde. Die einzelnen Jahre haben wir schon, nun wollen wir aber jeweils zehn Jahre zu einem Jahrzehnt bündeln.</p>
 <p>Dazu können wir in gewohnter Python-Manier über die Spalte „Jahr“ in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> iterieren (auch bei der Iteration zieht die Analogie Series – Liste!), auf den jeweiligen Wert in der Spalte „Jahr“ zugreifen, ihn in einen string casten und das Jahr reduziert auf das Jahrzehnt einer neuen Liste anhängen:</p>
@@ -1339,7 +1339,7 @@ Name: 777, dtype: object
 <p>Schauen wir uns nun an, wie wir Zeilen zu einem DataFrame hinzufügen können.</p>
 </section>
 <section id="zeilen-hinzufugen">
-<h2><span class="section-number">8.8. </span>Zeilen hinzufügen<a class="headerlink" href="#zeilen-hinzufugen" title="Permalink to this heading">#</a></h2>
+<h2>Zeilen hinzufügen<a class="headerlink" href="#zeilen-hinzufugen" title="Permalink to this heading">#</a></h2>
 <p>Auch neue Zeilen können wir einem DataFrame als Liste hinzufügen. Die Länge der Liste muss wiederum der Anzahl an Spalten entsprechen.</p>
 <p>Dies ist bei <code class="docutils literal notranslate"><span class="pre">new_row</span></code> in der nächsten Zelle nur der Fall, wenn Du in der Übung oben eine fünfte Spalte namens „Länge“ hinzugefügt hast. Um sicherzustellen, dass <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> im Weiteren alle notwendigen Spalten umfasst, fügt die erste Zeile die Spalte „Länge“ mittels List Comprension hinzu (bzw. überschreibt eine bereits vorhandene).</p>
 <div class="cell docutils container">
@@ -1433,7 +1433,7 @@ Name: 777, dtype: object
 <p>Anstatt eine Zeile am Ende eines DataFrames hinzuzufügen, kannst Du die gleiche Syntax verwenden, um eine bestimmte, bereits existierende Zeile zu überschreiben. Das tun wir hier aber nicht, da wir mit den originalen Daten weiterarbeiten möchten. Entsprechend wollen wir die letzte(n) Zeile(n) mit Fantasiewörtern auch wieder entfernen.</p>
 </section>
 <section id="spalten-und-zeilen-entfernen">
-<h2><span class="section-number">8.9. </span>Spalten und Zeilen entfernen<a class="headerlink" href="#spalten-und-zeilen-entfernen" title="Permalink to this heading">#</a></h2>
+<h2>Spalten und Zeilen entfernen<a class="headerlink" href="#spalten-und-zeilen-entfernen" title="Permalink to this heading">#</a></h2>
 <p>Zu diesem Zweck gibt es die <code class="docutils literal notranslate"><span class="pre">drop</span></code>-Methode, die wir sowohl zum Entfernen von Spalten als auch Zeilen benutzen können. Als erstes Argument übergeben wir ihr den Namen der zu entfernenden Spalte bzw. den numerischen Index (oder Namen, s.o.) der zu entfernenden Zeile. Um mehrere Spalten oder Zeilen zu entfernen, können jeweils auch Listen übergeben werden. Anschließend spezifizieren wir mithilfe des <code class="docutils literal notranslate"><span class="pre">axis</span></code>-Parameters, ob es sich um eine Spalte oder eine Zeile handelt, die entfernt werden soll. <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> steht für Spalten und <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> für Zeilen (was der Standardwert ist und nicht zwingend angegeben werden muss). Die Syntax mit Standardwerten lautet also folgendermaßen:</p>
 <p><code class="docutils literal notranslate"><span class="pre">DataFrame.drop(index_or_name,</span> <span class="pre">axis=0)</span></code></p>
 <hr class="docutils" />
@@ -1449,7 +1449,7 @@ Name: 777, dtype: object
 <p>Wunderbar!</p>
 </section>
 <section id="deskriptive-statistiken">
-<h2><span class="section-number">8.10. </span>Deskriptive Statistiken<a class="headerlink" href="#deskriptive-statistiken" title="Permalink to this heading">#</a></h2>
+<h2>Deskriptive Statistiken<a class="headerlink" href="#deskriptive-statistiken" title="Permalink to this heading">#</a></h2>
 <p>Einige der Spalten in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> enthalten ja numerische Werte, konkret die Spalten „Jahr“, „Häufigkeit“ und „Länge“ (die Werte in „Jahrzehnt“ haben wir als string abgespeichert, s.o.). Numerischen Werten nähern wir uns am besten über despriptive Statistiken, also etwa über Minimal- und Maximalwerte.</p>
 <p>Pandas bietet dafür eine Reihe nützlicher Methoden: Angewandt auf eine Spalte, gibt <code class="docutils literal notranslate"><span class="pre">min</span></code> den kleinsten Wert darin zurück, <code class="docutils literal notranslate"><span class="pre">max</span></code> den größten, <code class="docutils literal notranslate"><span class="pre">mean</span></code> den Durchschnitt, <code class="docutils literal notranslate"><span class="pre">median</span></code> den Median und <code class="docutils literal notranslate"><span class="pre">sum</span></code> die Summe aller Werte.</p>
 <p>Bevor wir dies tun, stellen wir noch sicher, dass die oben hinzugefügten Zeilen auch wirklich nicht mehr vorhanden sind, schließlich soll das achthundertfach vorkommende „Fantasiewort“ unsere Statistiken nicht verzerren. Anstatt mit der <code class="docutils literal notranslate"><span class="pre">drop</span></code>-Methode von oben, wählen wir hier einen anderen Weg, nämlich Slicing:</p>
@@ -1758,7 +1758,7 @@ Name: Jahrzehnt, dtype: float64
 <p>Natürlich können wir ein DataFrame auch als Ganzes sortieren, anstatt bloß die <em>n</em> obersten bzw. untersten Zeilen zurückzukriegen.</p>
 </section>
 <section id="werte-sortieren">
-<h2><span class="section-number">8.11. </span>Werte sortieren<a class="headerlink" href="#werte-sortieren" title="Permalink to this heading">#</a></h2>
+<h2>Werte sortieren<a class="headerlink" href="#werte-sortieren" title="Permalink to this heading">#</a></h2>
 <p>Dazu benutzen wir die Methode <code class="docutils literal notranslate"><span class="pre">sort_values</span></code>, der wir als erstes Argument die Spalte übergeben, anhand derer wir sortieren wollen, und als zweites Argument die Richtung der Sortierung, wobei <code class="docutils literal notranslate"><span class="pre">ascending=True</span></code> für aufsteigend (Standardwert) und <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> für absteigend steht.</p>
 <p>Folgender Code sortiert <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> aufsteigend nach der Spalte „Jahr“:</p>
 <div class="cell docutils container">
@@ -1922,7 +1922,7 @@ Name: Jahrzehnt, dtype: float64
 <p>Wenn wir weder an der Häufigkeitsverteilung aller Werte in einer bestimmten Spalte (<code class="docutils literal notranslate"><span class="pre">value_counts</span></code>), noch an deren Reihenfolge (<code class="docutils literal notranslate"><span class="pre">nlargest</span></code>, <code class="docutils literal notranslate"><span class="pre">nsmallest</span></code> und <code class="docutils literal notranslate"><span class="pre">sort_values</span></code>) interessiert sind, sondern an der bloßen Existenz eines Wertes (egal wie oft er auftritt), gibt es eine weitere praktische Methode.</p>
 </section>
 <section id="einzigartige-werte">
-<h2><span class="section-number">8.12. </span>Einzigartige Werte<a class="headerlink" href="#einzigartige-werte" title="Permalink to this heading">#</a></h2>
+<h2>Einzigartige Werte<a class="headerlink" href="#einzigartige-werte" title="Permalink to this heading">#</a></h2>
 <p>Nämlich <code class="docutils literal notranslate"><span class="pre">unique</span></code>, das ähnlich wie die Python-Funktion <code class="docutils literal notranslate"><span class="pre">set</span></code> (vgl. zweites Notebook) alle einzigartigen Werte in einer bestimmten Spalte zurückgibt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1952,7 +1952,7 @@ Name: Jahrzehnt, dtype: float64
 </section>
 <hr class="docutils" />
 <section id="dataframe-filtern">
-<h2><span class="section-number">8.13. </span>DataFrame filtern<a class="headerlink" href="#dataframe-filtern" title="Permalink to this heading">#</a></h2>
+<h2>DataFrame filtern<a class="headerlink" href="#dataframe-filtern" title="Permalink to this heading">#</a></h2>
 <p>Als nächstes wollen wir herausfinden, wie wir ein DataFrame filtern können. Die grundlegende Syntax sieht wie folgt aus:</p>
 <p><code class="docutils literal notranslate"><span class="pre">DataFrame[filter]</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">filter</span></code> wiederum kann unterschiedlich ausschauen, je nach dem, wie wir unser DataFrame filtern wollen. Ein einfaches Beispiel für <code class="docutils literal notranslate"><span class="pre">filter</span></code> sieht so aus:</p>
@@ -2330,7 +2330,7 @@ Name: Jahrzehnt, dtype: float64
 <p>Nun wissen wir, wie wir ein DataFrame filtern können.</p>
 </section>
 <section id="werte-zahlen">
-<h2><span class="section-number">8.14. </span>Werte zählen<a class="headerlink" href="#werte-zahlen" title="Permalink to this heading">#</a></h2>
+<h2>Werte zählen<a class="headerlink" href="#werte-zahlen" title="Permalink to this heading">#</a></h2>
 <p>Dieses Wissen können wir auch einsetzen, um spezifische Werte – im Gegensatz zu allen Werten wie bei <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> oben – in einer Spalte auszuzählen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2347,12 +2347,12 @@ Name: Jahrzehnt, dtype: float64
 <p>Wir filtern also das DataFrame („alle Zeilen, in denen ‚Wunderkind‘ in der Spalte ‚Token‘ steht“) und lassen uns ganz einfach seine Länge (sprich die Anzahl an Zeilen) ausgeben.</p>
 </section>
 <section id="werte-bearbeiten">
-<h2><span class="section-number">8.15. </span>Werte bearbeiten<a class="headerlink" href="#werte-bearbeiten" title="Permalink to this heading">#</a></h2>
+<h2>Werte bearbeiten<a class="headerlink" href="#werte-bearbeiten" title="Permalink to this heading">#</a></h2>
 <p>Auch zum Bearbeiten von Werten benötigen wir nur bereits erlerntes Wissen. Grundsätzlich können wir alles von einem kompletten DataFrame, über eine Series (in Form einer Spalte oder Zeile) bis hin zu einzelnen, spezifischen Werten bearbeiten.</p>
 <p>Die Möglichkeiten der Bearbeitung hängen natürlich vom Datentyp der Werte ab. In unserem DataFrame haben wir einerseits strings und andererseits numerische Werte und Spalten weisen jeweils einen homogen Datentyp auf.</p>
 <p>Die Logik ist unabhängig davon, was wir wie bearbeiten, immer die gleiche: Wir greifen auf den gewünschten Ausschnitt des DataFrames zu (s.o.) und überschreiben ihn mit demselben Ausschnitt in bearbeiteter Form. Anstatt Überschreiben können wir die bearbeiteten Werte natürlich immer auch einer neuen Spalte oder Zeile (desgleichen oder eines neuen DataFrames) zuweisen, sofern die jeweiligen Dimensionen übereinstimmen  (s.o.).</p>
 <section id="strings">
-<h3><span class="section-number">8.15.1. </span>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
 <p>Auf strings angewandt, sieht das so aus, wenn wir etwa alle Tokens kleinschreiben wollen. Auch hier setzen wir <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die pandas-string-Methode:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2495,7 +2495,7 @@ Name: Jahrzehnt, dtype: float64
 <p>Eine letzte praktische Methode ist <code class="docutils literal notranslate"><span class="pre">isin(list)</span></code>. Sie überprüft, ob ein Wert Element der übergebenen Liste ist und gibt eine Series mit Boolschen Werten zurück. <code class="docutils literal notranslate"><span class="pre">isin</span></code> lässt nicht nur bei strings anwenden, deshalb hängen wir auch kein <code class="docutils literal notranslate"><span class="pre">str</span></code> davor.</p>
 </section>
 <section id="numerische-werte">
-<h3><span class="section-number">8.15.2. </span>Numerische Werte<a class="headerlink" href="#numerische-werte" title="Permalink to this heading">#</a></h3>
+<h3>Numerische Werte<a class="headerlink" href="#numerische-werte" title="Permalink to this heading">#</a></h3>
 <p>Bei numerischen Werten wiederum können wir ganz einfach arithmetische Operatoren (vgl. erstes Notebook) verwenden, etwa um alle Werte einer Spalte zu verdoppeln:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2628,7 +2628,7 @@ Name: Jahrzehnt, dtype: float64
 <p>Hierfür funktionieren auch die anderen uns bekannten arithmetischen Operatoren: <code class="docutils literal notranslate"><span class="pre">+</span></code> für Addition (eignet sich überdies zur Konkatenation von strings), <code class="docutils literal notranslate"><span class="pre">-</span></code> für Subtraktion,  <code class="docutils literal notranslate"><span class="pre">/</span></code> für Division und <code class="docutils literal notranslate"><span class="pre">**</span></code> fürs Potenzieren.</p>
 </section>
 <section id="datentyp-andern">
-<h3><span class="section-number">8.15.3. </span>Datentyp ändern<a class="headerlink" href="#datentyp-andern" title="Permalink to this heading">#</a></h3>
+<h3>Datentyp ändern<a class="headerlink" href="#datentyp-andern" title="Permalink to this heading">#</a></h3>
 <p>Sollten Werte mal im falschen Datentyp vorliegen, kann man (sofern sinnvoll) die Methode <code class="docutils literal notranslate"><span class="pre">astype</span></code> verwenden, um Werte in den gewünschten Datentyp zu casten. Wenn wir z.B. die Häufigkeiten wieder in den Originalzustand versetzen wollen, können wir erst alle Werte in der entsprechenden Spalte halbieren…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2902,7 +2902,7 @@ Name: Jahrzehnt, dtype: float64
 <p>Sehr gut! Die simple Iteration von oben, die sämtliche Werte nacheinander auf dieselbe Weise bearbeitet, können wir also auch ganz einfach in vektorisierter Form nachbilden.</p>
 </section>
 <section id="bedingte-bearbeitung">
-<h3><span class="section-number">8.15.4. </span>Bedingte Bearbeitung<a class="headerlink" href="#bedingte-bearbeitung" title="Permalink to this heading">#</a></h3>
+<h3>Bedingte Bearbeitung<a class="headerlink" href="#bedingte-bearbeitung" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops bieten aber natürlich viel mehr Funktionalität. Etwa können wir bedingte Anweisungen einbauen, sodass die Werte je nach Bedingung unterschiedlich bearbeitet werden. Aber auch dafür bietet pandas, oder besser gesagt <em>numpy</em> (eine weitere Bibliothek, die eng mit pandas verwoben ist) eine Funktion, die sich Vektorisierung zunutze macht. Auch numpy müssen wir erst importieren (ggf. sogar noch zuerst installieren, s.o.), gängigerweise weisen wir der Bibliothek den Namen <code class="docutils literal notranslate"><span class="pre">np</span></code> zu:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3071,7 +3071,7 @@ Name: Jahrzehnt, dtype: float64
 <p>Für den Fall, dass Du mehrere bedingte Anweisungen aneinanderhängen willst (<code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">elif</span></code>-…-<code class="docutils literal notranslate"><span class="pre">else</span></code>) kannst Du statt <code class="docutils literal notranslate"><span class="pre">where</span></code> die Numpy-Funktion <code class="docutils literal notranslate"><span class="pre">select</span></code> benutzen. Wir setzen sie weiter unten noch ein.</p>
 </section>
 <section id="apply-und-applymap">
-<h3><span class="section-number">8.15.5. </span><code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code><a class="headerlink" href="#apply-und-applymap" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code><a class="headerlink" href="#apply-und-applymap" title="Permalink to this heading">#</a></h3>
 <p>Wie erwähnt ist die vektorisierte Art der Datenbearbeitung in pandas meistens äußerst effizient. Es gibt aber Fälle, in denen wir dennoch eine Funktion mit nativem Python-Code anwenden wollen. Entweder, weil pandas die benötigen Operationen nicht implementiert, oder weil es mit nativem Python-Code trotz allem effizienter ist (dazu gleich mehr).</p>
 <p>In jedem Fall bieten die Methoden <code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code> die Möglichkeit, jede beliebige Funktion (und in der Verlängerung auch jede beliebige Methode) auf eine Series oder gleich ein ganzes DataFrame anzuwenden. <code class="docutils literal notranslate"><span class="pre">apply</span></code> verwenden wir bei einer Series, <code class="docutils literal notranslate"><span class="pre">applymap</span></code> bei einem ganzen DataFrame. Angehängt an die Series bzw. das DataFrame übergeben wir ihnen schlicht den Namen der gewünschten Funktion. Es spielt keine Rolle, ob die Funktion aus der Grundausstattung von Python stammt, importiert wurde oder von Dir selbst geschrieben ist.</p>
 <p>Machen wir es konkret, und zwar in zwei kleinen Experimenten. Wir wollen die gleiche Art der Datenbearbeitung je einmal vektorisiert implementieren, und einmal über eine eigene Funktion, die wir mithilfe von <code class="docutils literal notranslate"><span class="pre">apply</span></code> auf die Daten <em>appli</em>zieren. Zum Verständnis: Rufen wir eine Funktion über <code class="docutils literal notranslate"><span class="pre">apply</span></code> (oder <code class="docutils literal notranslate"><span class="pre">applymap</span></code>) auf, wird dieser wie bei einem <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop <em>Wert für Wert</em> übergeben. Will heißen: Bei <code class="docutils literal notranslate"><span class="pre">apply</span></code> können wir nicht von der Verarbeitung mehrerer Daten auf einmal profitieren.</p>
@@ -3109,28 +3109,28 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>83</td>
-      <td>88</td>
+      <td>92</td>
+      <td>55</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>50</td>
-      <td>16</td>
+      <td>17</td>
+      <td>42</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>15</td>
-      <td>9</td>
+      <td>64</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>32</td>
-      <td>64</td>
+      <td>20</td>
+      <td>61</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>93</td>
-      <td>59</td>
+      <td>29</td>
+      <td>36</td>
     </tr>
   </tbody>
 </table>
@@ -3177,33 +3177,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>83</td>
-      <td>88</td>
-      <td>7304</td>
+      <td>92</td>
+      <td>55</td>
+      <td>5060</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>50</td>
-      <td>16</td>
-      <td>800</td>
+      <td>17</td>
+      <td>42</td>
+      <td>714</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>15</td>
-      <td>9</td>
-      <td>135</td>
+      <td>64</td>
+      <td>8</td>
+      <td>512</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>32</td>
-      <td>64</td>
-      <td>2048</td>
+      <td>20</td>
+      <td>61</td>
+      <td>1220</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>93</td>
-      <td>59</td>
-      <td>5487</td>
+      <td>29</td>
+      <td>36</td>
+      <td>1044</td>
     </tr>
   </tbody>
 </table>
@@ -3253,33 +3253,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>83</td>
-      <td>88</td>
-      <td>7304</td>
+      <td>92</td>
+      <td>55</td>
+      <td>5060</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>50</td>
-      <td>16</td>
-      <td>800</td>
+      <td>17</td>
+      <td>42</td>
+      <td>714</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>15</td>
-      <td>9</td>
-      <td>135</td>
+      <td>64</td>
+      <td>8</td>
+      <td>512</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>32</td>
-      <td>64</td>
-      <td>2048</td>
+      <td>20</td>
+      <td>61</td>
+      <td>1220</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>93</td>
-      <td>59</td>
-      <td>5487</td>
+      <td>29</td>
+      <td>36</td>
+      <td>1044</td>
     </tr>
   </tbody>
 </table>
@@ -3293,9 +3293,9 @@ Name: Jahrzehnt, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.007790088653564453 
-for-Loop 12.563039064407349 
-Faktor: 1612.6952622880578
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.007894277572631836 
+for-Loop 12.501121044158936 
+Faktor: 1583.5674549243454
 </pre></div>
 </div>
 </div>
@@ -3500,9 +3500,9 @@ Faktor: 1612.6952622880578
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.975618600845337 
-for-Loop 0.6550354957580566 
-Faktor: 3.01604815867116
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.1890206336975098 
+for-Loop 0.6805660724639893 
+Faktor: 3.2164704093640184
 </pre></div>
 </div>
 </div>
@@ -3521,7 +3521,7 @@ Faktor: 3.01604815867116
 </section>
 <hr class="docutils" />
 <section id="id1">
-<h2><span class="section-number">8.16. </span>🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Im Anwendungsfall für dieses Notebook wollen wir wie gesagt Wortverlaufskurven visualisieren. Das heißt, wir wollen die Häufigkeit, mit der ein beliebiges Wort auftritt, über die Zeit hinweg darstellen. Für die vier Personalpronomen „ich“, „du“, „er“ und „sie“ sähe das z.B. wie in der kombinierten Grafik unten aus. Die linke Darstellung visualisiert die Daten nach einzelnen Jahren (wie der originale Datensatz), in der mittleren und rechten Darstellung werden die Daten aggregiert nach Fünfjahresabschnitten bzw. Zehnjahresabschnitten visualisiert. Einzelne Aussschläge nach oben und unten werden so ausgebügelt und Trends sind leichter zu erkennen:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Wortverlaufskurve_kombiniert.png"><p>Deine Aufgabe ist es erst einmal, Code zu schreiben, der die linke Grafik für beliebige Wörter produziert. Die erforderliche Aggregation für die mittlere und rechte Darstellung schauen wir uns im Anschluss an den Anwendungsfall gemeinsam an.</p>
 <p>Wie im vierten und fünften Notebook hast Du wieder die Wahl, den Anwendungsfall ohne weitere Anleitung in Angriff zu nehmen oder einer Schritt-für-Schritt-Anleitung zu folgen. In letzterem Fall kannst Du jetzt ans Ende der nächsten Code-Zelle springen. Wenn Du es alleine probieren möchstest, dann analysiere das gewünschte Resultat oben links und frage Dich, welche Daten wie und wo visualisiert werden.</p>
@@ -3836,7 +3836,7 @@ Faktor: 3.01604815867116
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8da9502d90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3705bd7950&gt;
 </pre></div>
 </div>
 <img alt="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" src="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" />
@@ -3848,7 +3848,7 @@ Faktor: 3.01604815867116
 <p>Damit sind wir fast am Ende des Notebooks angelangt.</p>
 </section>
 <section id="output">
-<h2><span class="section-number">8.17. </span>Output<a class="headerlink" href="#output" title="Permalink to this heading">#</a></h2>
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this heading">#</a></h2>
 <p>Übrig bleibt noch, die Methode <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> vorzustellen, die wir verwenden können, um ein DataFrame als kommaseparierte Datei extern zu speichern:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3899,7 +3899,7 @@ Faktor: 3.01604815867116
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">7. </span>Reguläre Ausdrücke / RegEx</p>
+        <p class="prev-next-title">Reguläre Ausdrücke / RegEx</p>
       </div>
     </a>
 </div></div>
@@ -3920,30 +3920,30 @@ Faktor: 3.01604815867116
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">8.1. Input</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uberblick-bekommen">8.2. Überblick bekommen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-wortverlaufskurven-visualisieren">8.3. 🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-spalten-zugreifen">8.4. Auf Spalten zugreifen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-zeilen-zugreifen">8.5. Auf Zeilen zugreifen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-spalten-und-zeilen-zugreifen">8.6. Auf Spalten <em>und</em> Zeilen zugreifen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-hinzufugen">8.7. Spalten hinzufügen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeilen-hinzufugen">8.8. Zeilen hinzufügen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-und-zeilen-entfernen">8.9. Spalten und Zeilen entfernen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskriptive-statistiken">8.10. Deskriptive Statistiken</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-sortieren">8.11. Werte sortieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einzigartige-werte">8.12. Einzigartige Werte</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-filtern">8.13. DataFrame filtern</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-zahlen">8.14. Werte zählen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-bearbeiten">8.15. Werte bearbeiten</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">8.15.1. Strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-werte">8.15.2. Numerische Werte</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern">8.15.3. Datentyp ändern</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-bearbeitung">8.15.4. Bedingte Bearbeitung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-und-applymap">8.15.5. <code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uberblick-bekommen">Überblick bekommen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-wortverlaufskurven-visualisieren">🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-spalten-zugreifen">Auf Spalten zugreifen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-zeilen-zugreifen">Auf Zeilen zugreifen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#auf-spalten-und-zeilen-zugreifen">Auf Spalten <em>und</em> Zeilen zugreifen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-hinzufugen">Spalten hinzufügen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeilen-hinzufugen">Zeilen hinzufügen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-und-zeilen-entfernen">Spalten und Zeilen entfernen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskriptive-statistiken">Deskriptive Statistiken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-sortieren">Werte sortieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einzigartige-werte">Einzigartige Werte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-filtern">DataFrame filtern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-zahlen">Werte zählen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-bearbeiten">Werte bearbeiten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-werte">Numerische Werte</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern">Datentyp ändern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-bearbeitung">Bedingte Bearbeitung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-und-applymap"><code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8.16. 🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">8.17. Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
 </ul>
   </nav></div>
 
