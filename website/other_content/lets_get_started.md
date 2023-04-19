@@ -1,4 +1,4 @@
-# Programmieren für Geistes- und Sozialwissenschaftler:innen
+# Hello Humanities!
 
 Hier kannst Du Programmieren mit Python lernen. Vorkenntnisse benötigst Du keine. Sämtliche Lerninhalte befinden sich auf den folgenden Seiten. Es handelt sich dabei im Kern um sog. *Jupyter Notebooks*. Diese enthalten neben Erklärtexten natürlich Code, der bereits ausgeführt ist. Du siehst also auch immer das Ergebnis des Codes. Auf den Seiten selbst kannst Du nicht mit dem Code interagieren, d.h. ihn z.B. verändern und dann nochmal ausführen. Programmierenlernen funktioniert aber nur, indem Du selbst möglichst viel ausprobierst und "rumcodest". Alle in die Notebooks integrierten Übungen und Anwendungsfälle lassen sich auch nur so lösen. 
 
