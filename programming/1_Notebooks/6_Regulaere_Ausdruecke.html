@@ -497,7 +497,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1967</span><span class="o">/</span><span class="mf">3505986274.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1891</span><span class="o">/</span><span class="mf">3505986274.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> 
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#hier aktivieren wir den Pizzabot</span>
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
@@ -741,7 +741,7 @@ document.write(`
 <ol class="arabic simple" start="2">
 <li><p>Öffne das Dokument wie im fünften Notebook gelernt, lies es ein und weise es der Variablen <code class="docutils literal notranslate"><span class="pre">source_code</span></code> zu.</p></li>
 <li><p>Gehe nochmal zum <a class="reference external" href="https://www.weltfussball.de/alle_spiele/bundesliga-2019-2020/">Spielplan</a> im Browser und öffne einige Spielberichte, indem Du auf die jeweiligen Spielergebnisse klickst. Schau Dir die Adresszeile an und analysiere, wie die Links aufgebaut sind sowie worin sie sich unterscheiden. Schau ebenfalls im Quelltext nach, wie die Links da aussehen (💡 Tipp: die Links im Quelltext sind abgekürzt).</p></li>
-<li><p>Formuliere darauf aufbauend einen regulären Ausdruck, der sämtliche Links zu allen Spielberichten im Quelltext matcht. Füge ihn als string bei der Variablen <code class="docutils literal notranslate"><span class="pre">regex</span></code> ein. Ist der reguläre Ausdruck korrekt, sollte <code class="docutils literal notranslate"><span class="pre">matches</span></code> 306 Links beinhalten.</p></li>
+<li><p>Formuliere darauf aufbauend einen regulären Ausdruck, der sämtliche Links zu allen Spielberichten im Quelltext matcht. Füge ihn als string bei der Variablen <code class="docutils literal notranslate"><span class="pre">regex</span></code> ein. Ist der reguläre Ausdruck korrekt, sollte <code class="docutils literal notranslate"><span class="pre">matches</span></code> 306 Links beinhalten. Sowohl bei <code class="docutils literal notranslate"><span class="pre">regex</span></code> als auch bei <code class="docutils literal notranslate"><span class="pre">matches</span></code> musst Du natürlich noch die Hashtags entfernen.</p></li>
 <li><p>Erstelle eine Liste mit vollständigen Links zu allen Spielberichten und lasse sie Dir ausgeben. Probiere einige der Links aus.</p></li>
 </ol>
 <p>Quelle: Übung modifiziert übernommen von Prof. Simon Meier-Vierackers Kurs <a class="reference external" href="https://padlet.com/simonmeiervieracker/readingmachines">Reading Machines - Einführung in die Korpuslinguistik</a>, der unter dem angegebenen Link frei zugänglich ist.</p>
@@ -752,24 +752,10 @@ document.write(`
 <span class="c1">#hier Code zu Schritte 2 einfügen</span>
 
 <span class="c1">#hier regulären Ausdruck (Schritt 4) einfügen</span>
-<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
-<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">source_code</span><span class="p">)</span>
+<span class="c1">#regex = r&quot;&quot;</span>
+<span class="c1">#matches = re.findall(regex, source_code)</span>
 
 <span class="c1">#hier Code zu Schritt 5 einfügen</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1967</span><span class="o">/</span><span class="mf">3767378213.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#hier regulären Ausdruck (Schritt 4) einfügen</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">source_code</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> 
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#hier Code zu Schritt 5 einfügen</span>
-
-<span class="ne">NameError</span>: name &#39;source_code&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -854,7 +840,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1967</span><span class="o">/</span><span class="mf">165035356.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1891</span><span class="o">/</span><span class="mf">165035356.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">regex_5</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> 
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">first_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
@@ -884,7 +870,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1967</span><span class="o">/</span><span class="mf">3006339820.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1891</span><span class="o">/</span><span class="mf">3006339820.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">kv21</span><span class="p">):</span>
@@ -1068,7 +1054,7 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 <h4><code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code><a class="headerlink" href="#re-match-und-re-fullmatch" title="Permalink to this heading">#</a></h4>
 <p>Daneben gibt es noch die Funktionen <code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code>. Erstere überprüft bei einem string, ob dessen Anfang den regulären Ausdruck matcht (wodurch <code class="docutils literal notranslate"><span class="pre">^</span></code> überflüssig wird, s.o.) und letztere, ob der gesamte string den regulären Ausdruck matcht (wodurch <code class="docutils literal notranslate"><span class="pre">^</span></code> und <code class="docutils literal notranslate"><span class="pre">$</span></code> überflüssig werden).</p>
 <p>Der folgende, recht „dreiste“ Code, der so ähnlich im Pizzabot integriert ist, endet nur, wenn Du einer Pizza mit „Ja“ zustimmst. Schau, was passiert, wenn Du z.B. mit „Ja, wobei nein doch nicht“ antwortest.</p>
-<div class="cell docutils container">
+<div class="cell tag_&quot;hide-output&quot; docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Willst Du eine Pizza?&quot;</span>
 <span class="n">yes_regex</span><span class="p">,</span> <span class="n">no_regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Ja&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;Nein&quot;</span>
@@ -1089,7 +1075,7 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1967</span><span class="o">/</span><span class="mf">3433418646.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1891</span><span class="o">/</span><span class="mf">3433418646.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> 
 <span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
@@ -1289,7 +1275,7 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1967</span><span class="o">/</span><span class="mf">2327317937.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1891</span><span class="o">/</span><span class="mf">2327317937.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">reload</span><span class="p">(</span><span class="n">pizzabot</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> 
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>

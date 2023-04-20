@@ -451,7 +451,7 @@ document.write(`
 <p>In diesem Notebook kommt nochmal einiges an Theorie auf Dich zu, bereits im nächsten Notebook wird es jedoch angewandter. Dieses Notebook ist auch als Nachschlageort gedacht, wo Du alles Relevante zu Datentypen findest. Viele Fehler beim Programmieren fußen auf einem fehlenden Verständnis von Datentypen. Dem möchten wir hiermit vorbeugen, und wenn es doch zu Fehlern kommt (und das wird es sehr oft 😅), kannst Du hier nachschlagen.</p>
 <section id="zeichenketten-strings">
 <h2>Zeichenketten / strings<a class="headerlink" href="#zeichenketten-strings" title="Permalink to this heading">#</a></h2>
-<p>Zeichenketten sind, wie es der Name sagt, grundlegend Ketten von Zeichen, primär alphanumerischen Zeichen, also etwa Wörter, Sätze oder ganze Texte. Sie werden stets umrahmt von Anführungszeichen, also <code class="docutils literal notranslate"><span class="pre">&quot;...&quot;</span></code>oder <code class="docutils literal notranslate"><span class="pre">'...'</span></code> (beide Varianten sind in Ordnung, solange konsistent):</p>
+<p>Zeichenketten sind, wie es der Name sagt, grundlegend Ketten von Zeichen, also etwa Wörter, Sätze oder ganze Texte. Sie werden stets umrahmt von Anführungszeichen, also <code class="docutils literal notranslate"><span class="pre">&quot;...&quot;</span></code>oder <code class="docutils literal notranslate"><span class="pre">'...'</span></code> (beide Varianten sind in Ordnung, solange konsistent):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string1</span> <span class="o">=</span> <span class="s2">&quot;Dies ist ein Satz bestehend aus 8 &#39;Wörtern&#39;&quot;</span> <span class="c1">#die jeweils anderen Anführungszeichen können im string vorkommen</span>
@@ -524,20 +524,16 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>Angenommen Du hast mit den Frühlingsmonaten angefangen, sollte Dir der nächste <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl die Sommermonate zurückgeben. Die hier verwendete Technik nennt sich <em>Indexing</em>. Kurz formuliert erlaubt sie es uns, auf einzelne Element einer Liste über ihren <em>Index</em> zuzugreifen, wobei wir bei 0 zu zählen beginnen. Der Index <code class="docutils literal notranslate"><span class="pre">0</span></code> gibt uns also das erste Element zurück, der Index <code class="docutils literal notranslate"><span class="pre">1</span></code> das zweite, etc.:</p>
+<p>Angenommen Du hast mit den Frühlingsmonaten angefangen, sollte Dir der nächste <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl die Sommermonate zurückgeben. Die hier verwendete Technik nennt sich <em>Indexing</em>. Kurz formuliert erlaubt sie es uns, auf einzelne Element einer Liste über ihren <em>Index</em> zuzugreifen, wobei wir bei 0 zu zählen beginnen. Der Index <code class="docutils literal notranslate"><span class="pre">0</span></code> gibt uns also das erste Element zurück, der Index <code class="docutils literal notranslate"><span class="pre">1</span></code> das zweite, etc. Um sicherzustellen, dass sich der Befehl ausführen lässt, definieren wir erst nochmal die Liste <code class="docutils literal notranslate"><span class="pre">seasons</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seasons</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;März&#39;</span><span class="p">,</span> <span class="s1">&#39;April&#39;</span><span class="p">,</span> <span class="s1">&#39;Mai&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Juni&#39;</span><span class="p">,</span> <span class="s1">&#39;Juli&#39;</span><span class="p">,</span> <span class="s1">&#39;August&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;September&#39;</span><span class="p">,</span> <span class="s1">&#39;Oktober&#39;</span><span class="p">,</span> <span class="s1">&#39;November&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Dezember&#39;</span><span class="p">,</span> <span class="s1">&#39;Januar&#39;</span><span class="p">,</span> <span class="s1">&#39;Februar&#39;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1866</span><span class="o">/</span><span class="mf">980998546.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;seasons&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Juni&#39;, &#39;Juli&#39;, &#39;August&#39;]
 </pre></div>
 </div>
 </div>
@@ -547,7 +543,7 @@ document.write(`
 <section id="dictionaries">
 <h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h2>
 <p>Das vierte Element in <code class="docutils literal notranslate"><span class="pre">wild_mix</span></code> oben ist also ein Objekt des Datentyps <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, kurz <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Dictionaries funktionieren wie Wörterbücher im alltäglichen Leben. Sie bestehen aus Schlüsseln, in Python <code class="docutils literal notranslate"><span class="pre">key</span></code> genannt, und zugehörigen Werten, in Python <code class="docutils literal notranslate"><span class="pre">value</span></code> genannt. Zusammen ergeben Schlüssel und Wert sog. <em>Schlüssel-Werte-Paare</em> (<em>key-value pairs</em>). Ein Schlüssel entspricht dem Suchbegriff, den wir in einem Sprachwörterbuch nachschlagen. Der zugehörige Wert entspricht dem Eintrag, den wir beim betreffenden Suchbegriff vorfinden.</p>
-<p>Ein dictionary wird von geschweiften Klammern umrahmt. Zwischen Schlüssel und Wert befindet sich ein Doppelpunkt und zwischen den Schlüssel-Werte-Paaren jeweils ein Komma:</p>
+<p>Ein dictionary wird von geschweiften Klammern umrahmt. Zwischen Schlüssel und Wert befindet sich ein Doppelpunkt und zwischen den einzelnen Schlüssel-Werte-Paaren jeweils ein Komma:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span> <span class="s2">&quot;value3&quot;</span><span class="p">}</span>
@@ -566,25 +562,10 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>Wenn Du alles richtig gemacht hast, kannst Du nun einen Schlüssel aus Deinem dictionary bei <code class="docutils literal notranslate"><span class="pre">&quot;key&quot;</span></code> im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl unten einsetzen, um die zugehörigen Werte zurück zu bekommen:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1866</span><span class="o">/</span><span class="mf">2239285682.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">])</span>
-
-<span class="ne">NameError</span>: name &#39;seasons&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<p>Hier greifen wir nicht auf das <em>n</em>-te Element eines dictionary zu, wie bei Indexing für Listen (das ginge auch nicht, da dictionaries im Gegensatz zu Listen keine Reihenfolge „abspeichern“, dazu mehr unter Sequentialität unten). Stattdessen „sprechen“ wir einen bestimmten Wert über den zugehörigen Schlüssel „an“. Weitere Methoden, um mit dictionaries zu arbeiten, lernen wir ebenfalls im vierten Notebook.</p>
+<p>Wenn Du alles richtig gemacht hast, kannst Du anschließend „key“ durch einen beliebigen Schlüssel (z.B. „Sommer“) in folgender Syntax einsetzen:</p>
+<p><code class="docutils literal notranslate"><span class="pre">season[&quot;key&quot;]</span></code></p>
+<p>Probier es in der Code-Zelle oben aus.</p>
+<p>Dadurch greifst Du nicht auf das <em>n</em>-te Element eines dictionary zu, wie bei Indexing für Listen (das ginge auch nicht, da dictionaries im Gegensatz zu Listen keine Reihenfolge „abspeichern“, dazu mehr unter Sequentialität unten). Stattdessen „sprichst“ Du einen bestimmten Wert über den zugehörigen Schlüssel „an“. Weitere Methoden, um mit dictionaries zu arbeiten, lernen wir ebenfalls im vierten Notebook.</p>
 </section>
 <section id="mengen-set">
 <h2>Mengen / set<a class="headerlink" href="#mengen-set" title="Permalink to this heading">#</a></h2>
@@ -619,7 +600,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;aus&#39;, &#39;stand&#39;, &#39;Bank&#39;, &#39;dem&#39;, &#39;zur&#39;, &#39;eine&#39;, &#39;Eingang&#39;, &#39;Vor&#39;, &#39;Holz&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Eingang&#39;, &#39;stand&#39;, &#39;zur&#39;, &#39;Holz&#39;, &#39;dem&#39;, &#39;eine&#39;, &#39;Bank&#39;, &#39;Vor&#39;, &#39;aus&#39;}
 </pre></div>
 </div>
 </div>
@@ -695,7 +676,7 @@ document.write(`
 </section>
 <section id="boolsche-werte-boolean-values">
 <h2>Boolsche Werte / Boolean values<a class="headerlink" href="#boolsche-werte-boolean-values" title="Permalink to this heading">#</a></h2>
-<p>Als letzten wichtigen Datentypen lernen wir Boolsche Werte kennen. Sie werden in Python mit <code class="docutils literal notranslate"><span class="pre">bool</span></code> abgekürzt. Um genau zu sein, hatten Boolsche Werte bereits einen kleinen Gastauftritt im ersten Notebook. Es gibt genau zwei Boolsche Werte: <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> (beachte die Großschreibung!), also „wahr“ und „falsch“.</p>
+<p>Als letzten wichtigen Datentyp lernen wir Boolsche Werte kennen. Sie werden in Python mit <code class="docutils literal notranslate"><span class="pre">bool</span></code> abgekürzt. Um genau zu sein, hatten Boolsche Werte bereits einen kleinen Gastauftritt im ersten Notebook. Es gibt genau zwei Boolsche Werte: <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> (beachte die Großschreibung!), also „wahr“ und „falsch“.</p>
 <p>Wie erwähnt gibt es in Python keine Mehrdeutigkeit und genau das können wir uns zunutze machen, wenn wir den Ablauf unseres Codes steuern wollen. Zum Beispiel bei Ausdrücken mit Vergleichoperatoren (vgl. erstes Notebook), die immer nur entweder <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> ergeben können. Gepaart mit den Kontrollstrukturen <em>bedingte Anweisungen</em> („wenn dieser Ausdruck <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt, dann mache x, sonst y“) und <em>Schleifen</em> („solange diese Bedingung <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt, mache x“), die wir bereits gestreift haben und im nächsten Notebook eingehend kennenlernen, können wir unseren Code kontrollieren.</p>
 <p>Bei der Übung zu den Einrückungen im ersten Notebook haben wir das schon angewendet. Hier ein leicht erweiterter Code, bei dem wir die Details noch nicht verstehen müssen.</p>
 <div class="cell docutils container">
@@ -788,7 +769,7 @@ c is not &#39;a&#39;
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1866</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1799</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">an_integer</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print(len(a_float))</span>
@@ -877,7 +858,7 @@ e
 </div>
 </div>
 </div>
-<p>Um auf ein Element auf der Liste/im Tupel bzw. ein Zeichen in einem string zuzugreifen, setzt man den entsprechenden Index (sozusagen die Straßennummer) in eckige Klammern direkt nach dem Objekt bzw. der auf das Objekt zeigenden Variable. Die Indizes beginnen bei Null (was unsere Straßenmetapher zugegebenermaßen leicht strapaziert). Neben den positiven Indizes gibt es auch negative, die hilfreich sind, um Elemente vom Ende des Objekts her zu indizieren. Hier ein Überblick über die positiven und negativen Indizes für die Elemente auf <code class="docutils literal notranslate"><span class="pre">my_list</span></code>:</p>
+<p>Um auf ein Element auf der Liste/im Tupel bzw. ein Zeichen in einem string zuzugreifen, setzt man den entsprechenden Index (sozusagen die Hausnummer) in eckige Klammern direkt nach dem Objekt bzw. der auf das Objekt zeigenden Variable. Die Indizes beginnen bei Null (was unsere Straßenmetapher zugegebenermaßen leicht strapaziert). Neben den positiven Indizes gibt es auch negative, die hilfreich sind, um Elemente vom Ende des Objekts her zu indizieren. Hier ein Überblick über die positiven und negativen Indizes für die Elemente auf <code class="docutils literal notranslate"><span class="pre">my_list</span></code>:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">my_list</span>&#160; <span class="pre">=</span> <span class="pre">[</span>&#160; <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9,10]</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">index_p</span>&#160; <span class="pre">=</span>&#160;&#160;&#160; <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9</span> </code> (positive Indizes)</p></li>
@@ -931,9 +912,7 @@ e
 <section id="slicing">
 <h3>Slicing<a class="headerlink" href="#slicing" title="Permalink to this heading">#</a></h3>
 <p>Mit Slicing (übersetzt so viel wie <em>Herausschneiden</em>) können wir nicht nur ein einzelnes Element in einem sequentiellen Objekt „ansprechen“, sondern mehrere aufeinanderfolgende. Dabei können wir definieren, wo in der Sequenz, also bei welchem Index, wir anfangen wollen (<code class="docutils literal notranslate"><span class="pre">start</span></code> in der Syntax unten), wo wir aufhören wollen (<code class="docutils literal notranslate"><span class="pre">end</span></code>) sowie einen Schrittparameter, falls wir jeweils <em>n</em> Elemente überspringen wollen (<code class="docutils literal notranslate"><span class="pre">step</span></code>). Die Syntax sieht wie folgt aus:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">my_list[start:end:step]</span></code></p></li>
-</ul>
+<p><code class="docutils literal notranslate"><span class="pre">my_list[start:end:step]</span></code></p>
 <p>Beachte den Doppelpunkt zwischen den einzelnen Parametern.</p>
 <p>Folgendes gilt es zu beachten:</p>
 <ul class="simple">
@@ -990,7 +969,7 @@ e
 <p>Zur Veranschaulichung von <code class="docutils literal notranslate"><span class="pre">join</span></code> folgt ein Beispiel:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sentence</span> <span class="pre">=</span> <span class="pre">&quot;</span> <span class="pre">&quot;.join([&quot;Mach&quot;,</span> <span class="pre">&quot;einen&quot;,</span> <span class="pre">&quot;Satz&quot;,</span> <span class="pre">&quot;aus&quot;,</span> <span class="pre">&quot;mir&quot;])</span></code></p>
 <p>In die runden Klammern von <code class="docutils literal notranslate"><span class="pre">join</span></code> setzen wir eine Liste. <code class="docutils literal notranslate"><span class="pre">join</span></code> verbindet nun alle Elemente dieser Liste durch einen Leerschlag zu insgesamt einer Zeichenkette. Diese wird <code class="docutils literal notranslate"><span class="pre">sentence</span></code> zugewiesen. <code class="docutils literal notranslate"><span class="pre">sentence</span></code> referenziert also den string „Mach einen Satz aus mir“.</p>
-<p>Tipp: Erstelle erst eine neue Liste mit den Wörtern des ersten Satzteils, dann eine Liste mit den Wörtern des zweiten Satzteils und verbinde dann die beiden Listen zu einer Liste, in der alle Wörter in der richtigen Reihenfolge stehen. Wende nun <code class="docutils literal notranslate"><span class="pre">join</span></code> wie oben gezeigt an, um daraus einen string zu schaffen.</p>
+<p>💡 Tipp: Erstelle erst eine neue Liste mit den Wörtern des ersten Satzteils, dann eine Liste mit den Wörtern des zweiten Satzteils und verbinde dann die beiden Listen zu einer Liste, in der alle Wörter in der richtigen Reihenfolge stehen. Wende nun <code class="docutils literal notranslate"><span class="pre">join</span></code> wie oben gezeigt an, um daraus einen string zu schaffen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1033,7 +1012,7 @@ Sonntag
 <p>Die Iteration hört dann auf, wenn das Objekt aufgebraucht (engl. <em>exhausted</em>) ist.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 6:</strong> Benutze eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife, um über die Liste <code class="docutils literal notranslate"><span class="pre">wild_mix</span></code> von oben zu iterieren (stelle sicher, dass die Variable noch initialisiert ist, indem Du die entsprechende Zelle nochmal ausführst). Lasse Dir für jedes Element den Datentyp ausgeben.</p>
-<p>Tipp: zwischen <code class="docutils literal notranslate"><span class="pre">for</span></code> und <code class="docutils literal notranslate"><span class="pre">in</span></code> kannst Du irgendeinen Variablennamen hinschreiben. Im obigen Beipiel ist <code class="docutils literal notranslate"><span class="pre">day</span></code> intuitiv verständlich, man könnte aber theoretisch irgendeine andere Variable wählen (<em>theoretisch</em>, denn auch diese Variable soll nach Möglichkeit sprechend sein, vgl. erstes Notebook). Wichtig ist in jedem Fall, dass man im Anweisungskörper die entsprechende Variable wiederverwendet (siehe „day“ im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl oben).</p>
+<p>Tipp: zwischen <code class="docutils literal notranslate"><span class="pre">for</span></code> und <code class="docutils literal notranslate"><span class="pre">in</span></code> kannst Du irgendeinen Variablennamen hinschreiben. Im obigen Beipiel ist <code class="docutils literal notranslate"><span class="pre">day</span></code> intuitiv verständlich, Du könntest aber theoretisch irgendeine andere Variable wählen (<em>theoretisch</em>, denn auch diese Variable soll nach Möglichkeit sprechend sein, vgl. erstes Notebook). Wichtig ist in jedem Fall, dass Du im Anweisungskörper die entsprechende Variable wiederverwendest (siehe „day“ im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl oben).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1084,8 +1063,8 @@ Sonntag
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False denn 140123114614960 ist ungleich 140123113790128
-Das list-Objekt ist immer noch das gleiche: True denn 140123114311504 ist gleich 140123114311504
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False denn 140409602809904 ist ungleich 140409602913712
+Das list-Objekt ist immer noch das gleiche: True denn 140409602830576 ist gleich 140409602830576
 </pre></div>
 </div>
 </div>
