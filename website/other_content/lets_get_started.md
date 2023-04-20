@@ -1,16 +1,20 @@
 # Hello Humanities!
 
-Hier kannst Du Programmieren mit Python lernen. Vorkenntnisse benötigst Du keine. Sämtliche Lerninhalte befinden sich auf den folgenden Seiten. Es handelt sich dabei im Kern um sog. *Jupyter Notebooks*. Diese enthalten neben Erklärtexten natürlich Code, der bereits ausgeführt ist. Du siehst also auch immer das Ergebnis des Codes. Auf den Seiten selbst kannst Du nicht mit dem Code interagieren, d.h. ihn z.B. verändern und dann nochmal ausführen. Programmierenlernen funktioniert aber nur, indem Du selbst möglichst viel ausprobierst und "rumcodest". Alle in die Notebooks integrierten Übungen und Anwendungsfälle lassen sich auch nur so lösen. 
+Hier kannst Du Programmieren mit Python lernen. Vorkenntnisse benötigst Du keine. Sämtliche Lerninhalte befinden sich auf den folgenden Seiten. Es handelt sich dabei im Kern um sog. *Jupyter Notebooks*. Diese enthalten neben Erklärtexten natürlich Code, der bereits ausgeführt ist. Du siehst also auch immer das Ergebnis des Codes. Auf den Seiten selbst kannst Du nicht mit dem Code interagieren, d.h. ihn z.B. verändern und dann nochmal ausführen. Du siehst sie nur im Lesemodus (s.u.).
 
-Es stehen Dir deshalb zwei Optionen zur Verfügung, um die Jupyter Notebooks zum Leben zu erwecken, d.h. mit dem Code zu interagieren:
+Programmierenlernen funktioniert aber nur, indem Du selbst möglichst viel ausprobierst und "rumcodest". Alle in die Notebooks integrierten Übungen und Anwendungsfälle lassen sich auch nur so lösen. 
 
-## In der Cloud 
+Es stehen Dir deshalb zwei Optionen zur Verfügung, um die Jupyter Notebooks zum Leben zu erwecken, d.h. mit dem Code zu interagieren.
 
-Klicke auf das <i class="fa fa-rocket" aria-hidden="true"></i>-Symbol oben rechts auf der Seite "Einführung" (oder irgendeiner anderen Seite mit Code) und anschließend auf *Binder*. Binder erlaubt es Dir, die Jupyter Notebooks in der Cloud zu öffnen und den Code nach Belieben zu ändern und auszuführen. Auf Deinem Rechner musst Du dafür nichts installieren. Binder lädt am Anfang eine Weile, funktioniert danach aber tadellos.
+## Wie interagiere ich mit dem Code?
 
-## Auf Deinem Rechner
+### 1. In der Cloud 
 
-Installiere Python sowie die Programmierumgebung *JupyterLab* auf Deinem eigenen Rechner. Folge dazu [dieser Anleitung](https://youtu.be/7kc7IjJ731g). Starte anschließend wie im Video beschrieben einen JupyterLab Server. Lade nun [über diesen Link](https://github.com/yannickfrommherz/exdimed-student/archive/refs/heads/main.zip) sämtliche Jupyter Notebooks herunter, entpacke die Dateien und speichere sie an einem sinnvollen Ort ab. Greife anschließend über den in JupyterLab integrierten Dateimanager (linke Spalte) auf das gewünschte Notebook zu. 
+Klicke auf das <i class="fa fa-rocket" aria-hidden="true"></i>-Symbol oben rechts auf der Seite "Einführung" (oder irgendeiner anderen Seite mit Code) und anschließend auf *Binder*. Binder erlaubt es Dir, die Jupyter Notebooks in der Cloud zu öffnen und den Code nach Belieben zu ändern und auszuführen. Auf Deinem Rechner musst Du dafür nichts installieren. Binder lädt am Anfang eine Weile, funktioniert danach aber tadellos. Wenn Du einmal in der Binder-Cloud bist, kannst Du von dort bequem über den integrierten Dateimanager (linke Spalte) zu anderen Notebooks sowie den Lösungen der Übungen wechseln.
+
+### 2. Auf Deinem Rechner
+
+Installiere Python sowie die Programmierumgebung *JupyterLab* auf Deinem eigenen Rechner. Folge dazu [dieser Anleitung](https://youtu.be/7kc7IjJ731g). Starte anschließend wie im Video beschrieben einen JupyterLab Server. Lade nun [über diesen Link](https://github.com/yannickfrommherz/exdimed-student/archive/refs/heads/main.zip) sämtliche Jupyter Notebooks herunter, entpacke die Dateien und speichere sie an einem sinnvollen Ort ab. Greife abschließend über den in JupyterLab integrierten Dateimanager (linke Spalte) auf das gewünschte Notebook zu. 
 
 ```{admonition} Welche Option soll ich wählen?
 Führe die Notebooks auf Deinem eigenen Rechner aus (und nicht bei Binder), wenn Du den ganzen Kurs machen möchtest. Binder lohnt sich hingegen, um einzelne Notebooks (mal eben) auszuführen.
@@ -26,8 +30,8 @@ Ob auf Deinem Rechner oder in einer cloudbasierten Version von JupyterLab, Du so
 
 ## Feedback
 
-Über Feedback freue ich mich unter yannick.frommherz@tu-dresden.de. Wenn Du mit GitHub vertraut bist, kannst Du mir auch jederzeit 
+Über Feedback freue ich mich unter yannick.frommherz@tu-dresden.de. Wenn Du mit GitHub vertraut bist, kannst Du mir jederzeit ein "Issue" öffnen, indem Du oben rechts auf das <i class="fa fa-github" style="font-size:24px"></i>-Symbol klickst und anschließend auf "Open issue".
 
 ## Credit
 
-Die Notebooks sind im Rahmen des Projekts *Experimentierraum Digitale Medienkompetenz* im Projektverbund [*Virtuelles Lehren und Lernen an der TU Dresden im Open Source-Kontext*](https://tu-dresden.de/gsw/virtuos) entstanden. Die Seite ist inspieriert von Melanie Walsh's [Intro to Cultural Analytics](https://melaniewalsh.github.io/Intro-Cultural-Analytics/How-To-Interact-With-This-Book.html), einer sehr englischsprachigen Seiten zum Programmierenlernen.
+Die Notebooks sind im Rahmen des Projekts *Experimentierraum Digitale Medienkompetenz* im Projektverbund [*Virtuelles Lehren und Lernen an der TU Dresden im Open Source-Kontext*](https://tu-dresden.de/gsw/virtuos) entstanden. Die Seite ist inspieriert von Melanie Walsh's [Intro to Cultural Analytics](https://melaniewalsh.github.io/Intro-Cultural-Analytics/How-To-Interact-With-This-Book.html), einer sehr empfehlenswerten, englischsprachigen Seite zum Programmierenlernen.
