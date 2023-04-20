@@ -9,7 +9,6 @@ exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 execute:
   execute_notebooks: force
   allow_errors: true
-  stderr_output: "remove"
 
 # Define the name of the latex output file for PDF builds
 latex:

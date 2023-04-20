@@ -1,6 +1,6 @@
 # Table of contents
 format: jb-book
-root: start
+root: start_page
 parts:
   - caption: About me
     chapters:
