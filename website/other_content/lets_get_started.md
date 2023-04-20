@@ -30,7 +30,7 @@ Ob auf Deinem Rechner oder in einer cloudbasierten Version von JupyterLab, Du so
 
 ## Feedback
 
-Über Feedback freue ich mich unter yannick.frommherz@tu-dresden.de. Wenn Du mit GitHub vertraut bist, kannst Du mir jederzeit ein "Issue" öffnen, indem Du oben rechts auf das <i class="fa fa-github" aria-hidden="true"></i>-Symbol klickst und anschließend auf "Open issue".
+Über Feedback freue ich mich unter yannick.frommherz@tu-dresden.de. Wenn Du mit GitHub vertraut bist, kannst Du mir jederzeit ein "Issue" öffnen, indem Du oben rechts auf das GitHub-Symbol klickst und anschließend auf "Open issue".
 
 ## Credit
 
