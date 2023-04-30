@@ -1048,17 +1048,17 @@ Der Buchstabe 26 im deutschen Alphabet ist: z
 </div>
 </div>
 </div>
-<p>Die Verwendung von <code class="docutils literal notranslate"><span class="pre">while</span></code> mit einem Zähler ist eine von zwei gängingen Verwendungsweisen von <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen. Wir verwenden sie, wenn wir von vornerein wissen, wann die Schleife nicht mehr ausgeführt werden soll (in diesem Beispiel, wenn <code class="docutils literal notranslate"><span class="pre">i</span></code> gleich mit der Länge von <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> ist).</p>
-<p>Es gibt aber auch Situationen, wo wir nicht von Anfang an wissen, wie oft eine Schleife wiederholt werden soll. Ein Beispiel wäre ein Ratespiel mit User-Input, das so oft wiederholt werden soll, bis die Userin die Antwort errät. Für User-Input gibt es die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion, die wir im Code unten einfach mal benutzen, ohne sie im Detail einzuführen.</p>
-<p>Diese Schleife soll also ganz grundsätzlich unendlich oft wiederholt werden. Theoretisch ist es ja möglich, dass die Userin unedlich oft falsch rät. Dafür schreiben wir im Schleifenkopf <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>, eigentlich eine Kurzform für <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span> <span class="pre">==</span> <span class="pre">True</span></code>, was also immer zutrifft und die Schleife endlos laufen lässt.</p>
-<p>Nun brauchen wir zusätzlich das Statement <code class="docutils literal notranslate"><span class="pre">break</span></code>, das wir innerhalb des Schleifenkörpers platzieren können (in unserem Beispiel, in dem Fall, sobald die Userin richtig rät). Sobald Python zu diesem Statement gelangt, wird die Schleife endgültig abgebrochen. Das sieht dann wie im folgenden Code aus.</p>
-<p>Die User:innenrolle übernimmst übrigens Du, wenn Du diese Zelle ausführst. 😉 Deine Antwort kannst Du direkt im Anschluß an die Frage eingeben und mit <code class="docutils literal notranslate"><span class="pre">Enter</span></code> abschicken. Eventuell musst Du erst ins Antwortfeld unter der Frage klicken, sodass der Cursor blinkt.</p>
+<p>Die Verwendung von <code class="docutils literal notranslate"><span class="pre">while</span></code> mit einem Zähler ist eine von zwei gängingen Verwendungsweisen von <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen. Wir benutzen sie, wenn wir von vornerein wissen, wann die Schleife nicht mehr ausgeführt werden soll (in diesem Beispiel, wenn <code class="docutils literal notranslate"><span class="pre">i</span></code> gleich mit der Länge von <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> ist).</p>
+<p>Es gibt aber auch Situationen, in denen wir nicht von Anfang an wissen, wie oft eine Schleife wiederholt werden soll. Ein Beispiel wäre ein Ratespiel mit User-Input, das so oft wiederholt werden soll, bis die Userin die Antwort errät. Für User-Input gibt es die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion, die wir im Code unten einfach mal benutzen, ohne sie im Detail einzuführen.</p>
+<p>Diese Schleife soll grundsätzlich unendlich oft wiederholt werden. Theoretisch ist es ja möglich, dass die Userin unedlich oft falsch rät. Dafür schreiben wir im Schleifenkopf <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>, eigentlich eine Kurzform für <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span> <span class="pre">==</span> <span class="pre">True</span></code>, was also immer zutrifft und die Schleife endlos laufen lässt.</p>
+<p>Nun brauchen wir zusätzlich das Statement <code class="docutils literal notranslate"><span class="pre">break</span></code>, das wir innerhalb des Schleifenkörpers platzieren können. Sobald Python zu diesem Statement gelangt, wird die Schleife abgebrochen (in unserem Beispiel, sobald die Userin richtig rät). Das sieht dann wie im folgenden Code aus.</p>
+<p>Die User:innenrolle übernimmst übrigens Du, wenn Du diese Zelle ausführst. 😉 Deine Antwort kannst Du direkt unter der ausgegebenen Frage eingeben und mit <code class="docutils literal notranslate"><span class="pre">Enter</span></code> abschicken. Eventuell musst Du erst ins Antwortfeld unter der Frage klicken, sodass der Cursor blinkt.</p>
 <div class="cell tag_&quot;hide-output&quot; docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     
     <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie viele Arme hat ein Oktopus? Gib bitte eine Zahl an.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
-
+    
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Falsch, es sind mehr.&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span> 
@@ -1072,7 +1072,7 @@ Der Buchstabe 26 im deutschen Alphabet ist: z
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1814</span><span class="o">/</span><span class="mf">2209010033.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1905</span><span class="o">/</span><span class="mf">3165554030.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie viele Arme hat ein Oktopus? Gib bitte eine Zahl an.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
@@ -1091,8 +1091,8 @@ Der Buchstabe 26 im deutschen Alphabet ist: z
 </div>
 </div>
 </div>
-<p>Wie Du siehst, geht das Ratespiel endlos weiter, solange Du falsch rätst und hört sofort auf, wenn Du richtig rätst. Ersteres hat auch zur Folge, dass Du keine andere Code-Zelle in diesem Notebook ausführen kannst, bis Du richtig rätst und damit die Ausführung der Zelle mit dem Input beendest. Wenn Du dennoch versuchst, gleichzeitig eine andere Code-Zelle auszuführen, kommt die Fehlermeldung: <code class="docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">not</span> <span class="pre">executed</span> <span class="pre">due</span> <span class="pre">to</span> <span class="pre">pending</span> <span class="pre">input</span></code>.</p>
-<p>Neben <code class="docutils literal notranslate"><span class="pre">break</span></code> gibt es auch <code class="docutils literal notranslate"><span class="pre">continue</span></code>, das nicht gleich die gesamte Schleife abbricht, sondern nur den einzelnen Durchlauf. Python kehrt damit zum Schleifenkopf zurück und prüft, ob die darin definierte Bedingung noch zutrifft.</p>
+<p>Wie Du siehst, geht das Ratespiel endlos weiter, solange Du falsch rätst und hört sofort auf, wenn Du richtig rätst. Ersteres hat auch zur Folge, dass Du keine andere Code-Zelle in diesem Notebook ausführen kannst, bis Du richtig rätst und damit die Ausführung der Zelle beendest. Wenn Du dennoch versuchst, gleichzeitig eine andere Code-Zelle auszuführen, kommt die Fehlermeldung: <code class="docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">not</span> <span class="pre">executed</span> <span class="pre">due</span> <span class="pre">to</span> <span class="pre">pending</span> <span class="pre">input</span></code>.</p>
+<p>Neben <code class="docutils literal notranslate"><span class="pre">break</span></code> gibt es auch <code class="docutils literal notranslate"><span class="pre">continue</span></code>, das nicht gleich die gesamte Schleife abbricht, sondern nur den einzelnen Durchlauf. Python kehrt damit zum Schleifenkopf zurück und prüft bei <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen, ob die darin definierte Bedingung noch zutrifft. In <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen eingebaut entfaltet <code class="docutils literal notranslate"><span class="pre">continue</span></code> das gleiche Verhalten, mit dem Unterschied, dass Python im Schleifenkopf überprüft, ob das Objekt, über das iteriert wird, aufgebraucht ist. Wenn nein, folgt der nächste Durchlauf; wenn ja, endet die Schleife.</p>
 <p>Der folgende, etwas komplexere Code veranschaulicht dieses Verhalten. Stellen wir uns vor, wir haben ein Gesellschaftsspiel, an dem mindestens vier Leute teilnehmen müssen. Es können aber unbegrenzt viele Leute teilnehmen. Wir haben ein Pool mit Leuten, die sich nach und nach zum Mitspielen bereit erklären  (<code class="docutils literal notranslate"><span class="pre">participants_pool</span></code>). Erst tritt Max ins Spiel ein, danach Moritz, es folgt Janine, etc. Der Code wird unten im Detail erläutert.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1174,6 +1174,11 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
     
     <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Spiel voll&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finale TN:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">)</span>
+        <span class="k">break</span>
 </pre></div>
 </div>
 </div>
@@ -1196,11 +1201,8 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
 Das Spiel läuft 😍
 Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;] 
 
-Das Spiel läuft 😍
-Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;] 
-
-Das Spiel läuft 😍
-Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;] 
+Spiel voll
+Finale TN: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;]
 </pre></div>
 </div>
 </div>
