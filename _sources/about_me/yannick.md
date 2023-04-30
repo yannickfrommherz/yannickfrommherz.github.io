@@ -27,10 +27,10 @@ I am a dedicated linguistics graduate with a strong passion for the interface of
 - Advanced my understanding and fascination of natural language processes. 
 
 ### Bachelor's degree in German Language and Literature @ University of Basel
-    - 2014 – 2017
-    - Focus on Interactional Linguistics
-    - Thesis in Conversation Analysis on “topic shifting” in political tv debates, graded with highest mark.
-    - Involved a great deal of responsibility, developing my ability to think critically.
+- 2014 – 2017
+- Focus on Interactional Linguistics
+- Thesis in Conversation Analysis on “topic shifting” in political tv debates, graded with highest mark.
+- Involved a great deal of responsibility, developing my ability to think critically.
 
 ### Bachelor's degree in Geography @ University of Basel
 - 2014 – 2017
