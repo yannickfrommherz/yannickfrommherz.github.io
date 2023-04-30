@@ -4,8 +4,10 @@ root: start
 parts:
   - caption: About me
     chapters:
-      - file: about_me/yannick
+      - file: about_me/resume
         title: Résumé
+      - file: about_me/phd
+        title: PhD project
   - caption: Hello Humanities!
     chapters:
       - file: other_content/lets_get_started
