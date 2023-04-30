@@ -1,10 +1,11 @@
 # Table of contents
 format: jb-book
 root: start
-chapters:
-  - file: about_me/yannick
-    title: I am Yannick
-parts:    
+parts:
+  - caption: About me
+    chapters:
+      - file: about_me/yannick
+        title: I am Yannick
   - caption: Hello Humanities!
     chapters:
       - file: other_content/lets_get_started
