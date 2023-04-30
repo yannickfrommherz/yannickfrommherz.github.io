@@ -1,8 +1,6 @@
-# I am Yannick
+# Résumé
 
-I am a dedicated linguistics graduate with a strong passion for the interface of human and computer languages. 
-
-## Professional experience
+## Professional experience 🧑‍💻
 
 ### Research Associate in Applied Linguistics @ TU Dresden
 - Nov 2021 – present
@@ -16,7 +14,7 @@ I am a dedicated linguistics graduate with a strong passion for the interface of
 - Preparing materials and workshops for use case partners on intent classification, entity recognition, slot filling, neural as well as rule-based NLP methods.
 - Cross-component collaboration with the NLU and UX team. 
 
-## Education
+## Education 🎓
 
 ### Master's degree in Linguistics @ Lund University, Sweden
 - 2017 - 2019 

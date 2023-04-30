@@ -5,7 +5,7 @@ parts:
   - caption: About me
     chapters:
       - file: about_me/yannick
-        title: I am Yannick
+        title: Résumé
   - caption: Hello Humanities!
     chapters:
       - file: other_content/lets_get_started
