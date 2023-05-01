@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lösungen zu den Zusatzübungen zum zweiten Notebook &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../about_me/resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about_me/phd.html">PhD project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../other_content/lets_get_started.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/5_Input_und_Output.html">5. Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/7_Datenanalyse.html">7. Datenanalyse</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/programming/4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lösungen zu den Zusatzübungen zum zweiten Notebook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="losungen-zu-den-zusatzubungen-zum-zweiten-notebook">
+<h1>Lösungen zu den Zusatzübungen zum zweiten Notebook<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-zweiten-notebook" title="Permalink to this heading">#</a></h1>
+<ol class="arabic">
+<li><p>Schreibe <em>eine</em> Code-Zeile, die folgende Bedingungen überprüft:</p>
+<ul class="simple">
+<li><p>Berlin hat mehr Einwohner:innen als München</p></li>
+<li><p>In Hamburg wohnen entweder weniger Menschen oder gleich viele wie in Berlin</p></li>
+<li><p>München ist Hamburg in Sachen Einwohnerzahl unterlegen.<br><br></p></li>
+</ul>
+<p>📌 Herausforderung: Überprüfe zusätzlich im gleichen Statement, ob Berlin <em>nicht</em> kleiner als München ist, was die Einwohnerzahl anbelangt.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berlin</span> <span class="o">=</span> <span class="mi">3677472</span>
+<span class="n">hamburg</span> <span class="o">=</span> <span class="mi">1853935</span>
+<span class="n">muenchen</span> <span class="o">=</span> <span class="mi">1487708</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">berlin</span> <span class="o">&gt;</span> <span class="n">muenchen</span> <span class="ow">and</span> <span class="n">hamburg</span> <span class="o">&lt;=</span> <span class="n">berlin</span> <span class="ow">and</span> <span class="n">muenchen</span> <span class="o">&lt;</span> <span class="n">hamburg</span><span class="p">)</span>
+
+<span class="c1">#herausforderung</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">berlin</span> <span class="o">&gt;</span> <span class="n">muenchen</span> <span class="ow">and</span> <span class="n">hamburg</span> <span class="o">&lt;=</span> <span class="n">berlin</span> <span class="ow">and</span> <span class="n">muenchen</span> <span class="o">&lt;</span> <span class="n">hamburg</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">berlin</span> <span class="o">&lt;</span> <span class="n">muenchen</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Formuliere den folgenden Code so konzis wie möglich in natürlicher Sprache:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_rain_chance_forecast</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;na&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">daily_forecast</span> <span class="ow">in</span> <span class="n">weekly_rain_chance_forecast</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">daily_forecast</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No prognosis possible due to missing value&quot;</span><span class="p">)</span>
+        <span class="k">continue</span>
+    <span class="k">if</span> <span class="n">daily_forecast</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No need to carry an umbrella 🌤️&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Carry an umbrella with you ☔️&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No need to carry an umbrella 🌤️
+Carry an umbrella with you ☔️
+Carry an umbrella with you ☔️
+No need to carry an umbrella 🌤️
+Carry an umbrella with you ☔️
+No need to carry an umbrella 🌤️
+No prognosis possible due to missing value
+</pre></div>
+</div>
+</div>
+</div>
+<p>Natürlichsprachlich formuliert: „Wenn die Regenwahrscheinlichkeit an einem Tag in den nächsten sieben Tagen 50% übersteigt, nimm an diesem Tag einen Schirm mit. Bei niedrigerer Regenwahrscheinlichkeit als 50% brauchst Du keinen Schirm mitzunehmen. Sollte noch keine Regenwahrscheinlichkeit vorliegen, kann ich leider keine Empfehlung abgeben.“</p>
+<ol class="arabic" start="3">
+<li><p>Mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> soll das monatliche Einkommen einer bestimmten Person referenziert werden. Beträgt es 6000€ oder mehr, fällt es in die höchste Einkommensklasse. Bei einem Betrag von unter 2000€ handelt es sich um ein Einkommen in der tiefsten Einkommensklasse. Zwischen 2000€ und unter 3000€, 3000€ und unter 4500€ sowie 4500€ und unter 6000€ fällt es in die Einkommesklasse „untere Mitte“, „Mitte“ bzw. „obere Mitte“. Formuliere bedingte Anweisungen, die die Einkommensklasse je nach Höhe von <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ausgeben.</p>
+<p>📌 Herausforderung: Was passiert, wenn das Einkommen anstatt als Zahl z.B. so vorliegt: „dreitausendsiebenhundert“? Und was, wenn mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ein noch weniger sinnvolles Objekt referenziert wird, z.B. eine Liste? Verhindere in jedem Fall, dass es zu einer Fehlermeldung kommt.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_salary</span> <span class="o">=</span> <span class="mi">3000</span>
+<span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">:</span>
+    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;low&quot;</span>
+<span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
+    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;lower middle&quot;</span>
+<span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">4500</span><span class="p">:</span>
+    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;middle&quot;</span>
+<span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">6000</span><span class="p">:</span>
+    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;upper middle&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;high&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">income_class</span><span class="p">)</span>
+
+<span class="n">monthly_salary</span> <span class="o">=</span> <span class="s2">&quot;siebentausend&quot;</span>
+<span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="c1">#mit Herausforderung (drei semantisch identische Lösungen)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">monthly_salary</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">monthly_salary</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">:</span>
+<span class="c1">#if type(monthly_salary) != int and type(monthly_salary) != float:</span>
+<span class="c1">#if type(monthly_salary) not in [int, float]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;invalid income&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">:</span>
+    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;low&quot;</span>
+<span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
+    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;lower middle&quot;</span>
+<span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">4500</span><span class="p">:</span>
+    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;middle&quot;</span>
+<span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">6000</span><span class="p">:</span>
+    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;upper middle&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;high&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">income_class</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>middle
+invalid income
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Erstelle einen string aus den jeweils letzten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code> und lass ihn Dir ausgeben.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="n">string</span> <span class="o">+=</span> <span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>namen
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="5">
+<li><p>Erstelle abermals einen string bestehend aus ausgewählten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code>. Diesmal soll der erste Buchstabe für den neuen string der erste Buchstaben des ersten Namens sein, der zweite Buchstabe für den neuen string soll der zweite Buchstabe des zweiten Namens sein, etc. Welcher neue Namen entsteht so?</p>
+<p>📌 Herausforderung: Verwende die <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion zur Lösung der Übung (sofern Du es nicht bereits getan hast).</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
+
+<span class="c1">#Lösung mit Zählervariable</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="n">string</span> <span class="o">+=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+
+<span class="c1">#Herausforderung: Lösung mit range-Funktion</span>
+<span class="n">string</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
+    <span class="n">string</span> <span class="o">+=</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Helga
+Helga
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Erstelle einen weiteren string, indem Du bei jedem Namen auf <code class="docutils literal notranslate"><span class="pre">names</span></code> über die Buchstaben iterierst und jeweils das zweite, vierte, sechste, etc. Zeichen an den neuen string hängst. Der string beginnt also mit „a“ und „e“ aus „Hagen“, gefolgt von „e“ aus „Lena“ etc. Diesmal entsteht kein sinnvolles neues Wort, geschweige denn ein Name. Vielleicht fällt Dir aber dennoch was zur allgemeinen Komposition von Namen auf.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
+
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">string</span> <span class="o">+=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="c1">#auffallend viele Vokale unter diesen Zeichen!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>aeeaeirgteemn
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="7">
+<li><p>Wir wollen einen sehr simplen interaktiven Vokabeltrainer für Deutsch-Schwedisch programmieren. Das Programm soll eine Userin nach und nach alle gespeicherten Vokabeln abfragen, bis sie sämtliche korrekt vom Deutschen ins Schwedische übersetzt hat. Die Vokabeln inklusive Übersetzung stehen Dir bereits in <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> zur Verfügung. Iteriere mit der ebenfalls bereits gegebenen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife über das dictionary. Vervollständige den Anweisungskörper sodass die Userin bei jedem Wort (<code class="docutils literal notranslate"><span class="pre">word</span></code>) solange nach der Übersetzung (<code class="docutils literal notranslate"><span class="pre">translation</span></code>) gefragt wird, bis ihre Antwort korrekt ist. Der Dialog sollte wie folgt aussehen:</p>
+ <img src="../../3_Dateien/Grafiken_und_Videos/de_sv.png">
+<p>Anschließend soll das nächste Wort abgefragt werden.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">de_sv</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ich&quot;</span><span class="p">:</span> <span class="s2">&quot;jag&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">:</span> <span class="s2">&quot;från&quot;</span><span class="p">,</span> <span class="s2">&quot;reisen&quot;</span><span class="p">:</span> <span class="s2">&quot;resa&quot;</span><span class="p">,</span> <span class="s2">&quot;gerne&quot;</span><span class="p">:</span> <span class="s2">&quot;gärna&quot;</span><span class="p">,</span> <span class="s2">&quot;nach&quot;</span><span class="p">:</span> <span class="s2">&quot;till&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;woher&quot;</span><span class="p">:</span> <span class="s2">&quot;varifrån&quot;</span><span class="p">,</span> <span class="s2">&quot;kommen&quot;</span><span class="p">:</span> <span class="s2">&quot;komma&quot;</span><span class="p">,</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">:</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweden&quot;</span><span class="p">:</span> <span class="s2">&quot;Sverige&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;dich&quot;</span><span class="p">:</span> <span class="s2">&quot;dig&quot;</span><span class="p">,</span> <span class="s2">&quot;mich&quot;</span><span class="p">:</span> <span class="s2">&quot;mig&quot;</span><span class="p">,</span> <span class="s2">&quot;wir&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">translation</span> <span class="ow">in</span> <span class="n">de_sv</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    
+        <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> 
+
+        <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">translation</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Korrekt! 🥳&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das war leider falsch 😅&quot;</span><span class="p">)</span>
+
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2361</span><span class="o">/</span><span class="mf">919368008.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="ne">----&gt; </span><span class="mi">9</span>         <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">translation</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1174</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1175</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>📌 Herausforderung aufbauend auf Übung 7: Praktischer wäre es ja, wenn der Vokabeltrainer bei falsch übersetzten Wörtern die richtige Übersetzung ausgibt und diese Wörter dann später noch einmal abfragt. Korrekt übersetzte Wörter müssten dagegen weiterhin nur einmal abgefragt werden. Schreib den Code entsprechend so, dass jedes korrekt übersetzte Wort kein weiteres Mal abgefragt wird. Bei falsch übersetzten Wörtern soll hingegen die richtige Übersetzung angezeigt werden. Später, d.h., wenn alle (noch vorhandenen) Wörter abgefragt wurden, sollen abermals die in der letzten Iteration falsch übersetzten Wörter abgefragt werden, bis am Schluss jedes Wort einmal korrekt übersetzt wurde.<br><br>
+💡 Tipp 1: Überleg Dir, wie Du die beiden Schleifentypen in einander verschachteln musst, um die beschriebene Abfragelogik zu implementieren.<br><br>
+💡 Tipp 2: Um ein Schlüssel-Wert-Paar aus einem dictionary zu entfernen, kannst Du die <code class="docutils literal notranslate"><span class="pre">pop</span></code>-Methode mit folgender Syntax verwenden: <code class="docutils literal notranslate"><span class="pre">dictionary.pop(&quot;key&quot;)</span></code>.<br><br>
+📌 Herausforderung zur Herausforderung: Überleg Dir, wie Du den Vokabeltrainer zusätzlich verbessern könntest.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">de_sv</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ich&quot;</span><span class="p">:</span> <span class="s2">&quot;jag&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">:</span> <span class="s2">&quot;från&quot;</span><span class="p">,</span> <span class="s2">&quot;reisen&quot;</span><span class="p">:</span> <span class="s2">&quot;resa&quot;</span><span class="p">,</span> <span class="s2">&quot;gerne&quot;</span><span class="p">:</span> <span class="s2">&quot;gärna&quot;</span><span class="p">,</span> <span class="s2">&quot;nach&quot;</span><span class="p">:</span> <span class="s2">&quot;till&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;woher&quot;</span><span class="p">:</span> <span class="s2">&quot;varifrån&quot;</span><span class="p">,</span> <span class="s2">&quot;kommen&quot;</span><span class="p">:</span> <span class="s2">&quot;komma&quot;</span><span class="p">,</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">:</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweden&quot;</span><span class="p">:</span> <span class="s2">&quot;Sverige&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;dich&quot;</span><span class="p">:</span> <span class="s2">&quot;dig&quot;</span><span class="p">,</span> <span class="s2">&quot;mich&quot;</span><span class="p">:</span> <span class="s2">&quot;mig&quot;</span><span class="p">,</span> <span class="s2">&quot;wir&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">}</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    
+    <span class="n">learnt_during_iteration</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">translation</span> <span class="ow">in</span> <span class="n">de_sv</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        
+        <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> 
+
+        <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">translation</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Korrekt! 🥳&quot;</span><span class="p">)</span>
+            <span class="n">learnt_during_iteration</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das war leider falsch 😅. Richtig wäre &#39;&quot;</span> <span class="o">+</span> <span class="n">translation</span> <span class="o">+</span> <span class="s2">&quot;&#39; gewesen!&quot;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">learnt_word</span> <span class="ow">in</span> <span class="n">learnt_during_iteration</span><span class="p">:</span>
+        <span class="n">de_sv</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">learnt_word</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">de_sv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du kannst alle Vokabeln! 🎉&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2361</span><span class="o">/</span><span class="mf">3902902596.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="ne">---&gt; </span><span class="mi">11</span>         <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> 
+<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">translation</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1174</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1175</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ideen für weitere Verbesserungsmöglichkeiten:</p>
+<ul class="simple">
+<li><p>Zufällige Sortierung der Vokabeln bei jeder neuen Iteration. Umsetzbar z.B. mithilfe von <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> (vgl. 4. Notebook).</p></li>
+<li><p>Einführen eines Grenzwerts, der definiert, wie oft ein Wort korrekt übersetzt werden muss, bis es aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt wird. Umsetzbar z.B., indem <code class="docutils literal notranslate"><span class="pre">learnt_during_interaction</span></code> ein dictionary (statt eine Liste) ist, wobei der Wert die Anzahl an korrekten Übersetzungen pro Wort (Schlüssel) speichert. Bei jeder korrekten Übersetzung wird der Wert um 1 erhöht. Alle Schlüssel, deren Werte den Grenzwert erreichen, werden aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt.</p></li>
+</ul>
+<ol class="arabic" start="9">
+<li><p>Wenn Du zwei Vergleiche, die beide für sich ausgerechnet <code class="docutils literal notranslate"><span class="pre">False</span></code> ergeben, mithilfe von <code class="docutils literal notranslate"><span class="pre">or</span></code> verknüpfst, ergibt die Verknüpfung dann <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>?</p>
+<p>Sie ergibt <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</li>
+</ol>
+<ol class="arabic" start="10">
+<li><p>In Anlehnung an den Anwendungsfall im dritten Notebook, lasse Dir sämtliche Viertelstunden eines kompletten Tages ausgeben, also:</p>
+<p>00:00<br>
+00:15<br>
+00:30<br>
+00:45<br>
+01:15<br>
+etc.</p>
+<p>Achte darauf, dass die Ausgabe stets vierstellig ist.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_per_hour</span> <span class="o">=</span> <span class="mi">59</span>
+<span class="n">hours_per_day</span> <span class="o">=</span> <span class="mi">24</span>
+
+<span class="n">hour</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="n">hours_per_day</span><span class="p">:</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">hour_str</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hour_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span> 
+
+    <span class="n">minute</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">while</span> <span class="n">minute</span> <span class="o">&lt;</span> <span class="n">min_per_hour</span><span class="p">:</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">minute</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">hour_str</span> <span class="o">+</span> <span class="s2">&quot;:0&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">minute</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">hour_str</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">minute</span><span class="p">))</span>
+        
+        <span class="n">minute</span> <span class="o">+=</span> <span class="mi">15</span>
+    
+    <span class="n">hour</span><span class="o">+=</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>00:00
+00:15
+00:30
+00:45
+01:00
+01:15
+01:30
+01:45
+02:00
+02:15
+02:30
+02:45
+03:00
+03:15
+03:30
+03:45
+04:00
+04:15
+04:30
+04:45
+05:00
+05:15
+05:30
+05:45
+06:00
+06:15
+06:30
+06:45
+07:00
+07:15
+07:30
+07:45
+08:00
+08:15
+08:30
+08:45
+09:00
+09:15
+09:30
+09:45
+10:00
+10:15
+10:30
+10:45
+11:00
+11:15
+11:30
+11:45
+12:00
+12:15
+12:30
+12:45
+13:00
+13:15
+13:30
+13:45
+14:00
+14:15
+14:30
+14:45
+15:00
+15:15
+15:30
+15:45
+16:00
+16:15
+16:30
+16:45
+17:00
+17:15
+17:30
+17:45
+18:00
+18:15
+18:30
+18:45
+19:00
+19:15
+19:30
+19:45
+20:00
+20:15
+20:30
+20:45
+21:00
+21:15
+21:30
+21:45
+22:00
+22:15
+22:30
+22:45
+23:00
+23:15
+23:30
+23:45
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/4_Zusatzuebungen/Loesungen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
