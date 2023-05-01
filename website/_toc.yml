@@ -55,10 +55,10 @@ parts:
           title: 3. Kontrollstrukturen
       - file: other_content/extra_exercises_solutions
         title: Lösungen zu den Zusatzübungen
+        sections:
         - file: programming/4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen
           title: 1. Einführung
         - file: programming/4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen
           title: 2. Datentypen
         - file: programming/4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen
           title: 3. Kontrollstrukturen
-
