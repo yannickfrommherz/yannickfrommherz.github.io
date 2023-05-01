@@ -903,9 +903,6 @@ Der Satz fängt mit einem maskulinen Artikel an.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Auch diese Methode wird uns später beim Errechnen von Schlüsselwörtern für die Koalitionstexte helfen.</p>
@@ -1045,6 +1042,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ich gehe&#39;, &#39;gehe am&#39;, &#39;am Abend&#39;, &#39;Abend noch&#39;, &#39;noch spazieren&#39;]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Die ersten paar Zeilen des Codes sind die gleichen wie in der ersten Variante. Der Unterschied spielt sich in der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ab: In der ersten Variante wird grob formuliert in jeder Iteration ein neues n-gram (<code class="docutils literal notranslate"><span class="pre">current_ngram</span></code>) geschaffen, indem das bisher erste Wort vom letzten n-gram entfernt wird und ein neues hinten angehängt wird. Jedes n-gram wird dann <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> angehängt. In der zweiten Variante hier „schieben“ wir hingegen eine Art „Fenster“ über <code class="docutils literal notranslate"><span class="pre">words</span></code>: Mittels Slicing schneiden wir uns eine neue Liste von der Länge <code class="docutils literal notranslate"><span class="pre">n</span></code> aus <code class="docutils literal notranslate"><span class="pre">words</span></code> heraus und rücken bei jeder Iteration den Start- und Endindex für das Slicing um eine Position vor. Die neue Liste fügen wir jeweils mit der uns aus dem zweiten Notebook bekannten <code class="docutils literal notranslate"><span class="pre">join</span></code>-Methode zu einem string zusammen und hängen den als n-gram <code class="docutils literal notranslate"><span class="pre">ngrams</span></code> an. Das Resultat ist natürlich dasselbe wie bei der ersten Variante.</p>
@@ -1072,6 +1072,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1155,10 +1158,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.41, 1.42, 1.43, 1.44]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.41, 1.42, 1.43, 1.44] 
  [(&#39;sein&#39;, 35), (&#39;haben&#39;, 28)] 
  [&#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
 &lt;class &#39;list&#39;&gt;
@@ -1284,9 +1284,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;unantastbar&#39;, &#39;Verpflichtung&#39;, &#39;staatlichen&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Hier entfernen wir mittels <code class="docutils literal notranslate"><span class="pre">strip</span></code> bei <code class="docutils literal notranslate"><span class="pre">expression</span></code> den Punkt am Ende von „unantastbar.“.</p>
@@ -1311,9 +1308,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dIE wÜRDE DES mENSCHEN IST UNANTASTBAR. sIE ZU ACHTEN UND ZU SCHÜTZEN IST vERPFLICHTUNG ALLER STAATLICHEN gEWALT.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
 </pre></div>
 </div>
 </div>
@@ -1376,7 +1371,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1869</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1939</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -2000,7 +1995,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;eu-umgebungslärmrichtlinie&#39;, 1), (&#39;landwirtinnen&#39;, 1), (&#39;kunstgegenständen&#39;, 1), (&#39;ausnahmetatbestand&#39;, 1), (&#39;„eckpunkte&#39;, 1), (&#39;nordrhein-&#39;, 1), (&#39;qualitätsverbesserung&#39;, 1), (&#39;„strukturierten&#39;, 1), (&#39;eingliederungsmanagement&#39;, 1), (&#39;pflanzenschutz-&#39;, 1)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;jugendplan&#39;, 1), (&#39;authentifizierungsmedium&#39;, 1), (&#39;arktis&#39;, 1), (&#39;sozialleistungsbetrug&#39;, 1), (&#39;hilfesysteme&#39;, 1), (&#39;gleichzeitigem&#39;, 1), (&#39;hilfen“&#39;, 1), (&#39;beweisanträgen&#39;, 1), (&#39;wiederzubeleben&#39;, 1), (&#39;weltraumwetterrisiken&#39;, 1)]
 </pre></div>
 </div>
 </div>
@@ -2035,7 +2030,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[84, 69, 92, 74, 96, 18, 30, 27, 64, 55]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 35, 66, 17, 33, 61, 12, 65, 97, 11]
 </pre></div>
 </div>
 </div>
