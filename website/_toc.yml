@@ -27,4 +27,6 @@ parts:
           title: 6. Reguläre Ausdrücke
         - file: programming/1_Notebooks/7_Datenanalyse
           title: 7. Datenanalyse
+      - file: other_content/solutions
+        title: Lösungen
 
