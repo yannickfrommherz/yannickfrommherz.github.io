@@ -28,7 +28,7 @@ parts:
         - file: programming/1_Notebooks/7_Datenanalyse
           title: 7. Datenanalyse
       - file: other_content/solutions
-        title: Lösungen
+        title: Lösungen zu den Notebooks
         sections:
         - file: programming/1_Notebooks/Loesungen/1_Einfuehrung_Loesungen
           title: 1. Einführung
@@ -44,4 +44,21 @@ parts:
           title: 6. Reguläre Ausdrücke
         - file: programming/1_Notebooks/Loesungen/7_Datenanalyse_Loesungen
           title: 7. Datenanalyse
+      - file: other_content/extra_exercises
+        title: Zusatzübungen
+        sections:
+        - file: programming/4_Zusatzuebungen/1_Einfuehrung_Uebungen
+          title: 1. Einführung
+        - file: programming/4_Zusatzuebungen/2_Datentypen_Uebungen
+          title: 2. Datentypen
+        - file: programming/4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen
+          title: 3. Kontrollstrukturen
+      - file: other_content/extra_exercises_solutions
+        title: Lösungen zu den Zusatzübungen
+        - file: programming/4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen
+          title: 1. Einführung
+        - file: programming/4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen
+          title: 2. Datentypen
+        - file: programming/4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen
+          title: 3. Kontrollstrukturen
 
