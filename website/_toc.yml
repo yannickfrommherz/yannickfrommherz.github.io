@@ -4,9 +4,9 @@ root: start
 parts:
   - caption: About me
     chapters:
-      - file: about_me/resume
+      - file: resume
         title: Résumé
-      - file: about_me/phd
+      - file: phd
         title: PhD project
   - caption: Hello Humanities!
     chapters:
