@@ -1,0 +1,1601 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Datenanalyse (Lösungen) &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/Loesungen/7_Datenanalyse_Loesungen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/Loesungen/7_Datenanalyse_Loesungen.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Zusatzübungen" href="../../../extra_exercises.html" />
+    <link rel="prev" title="Reguläre Ausdrücke (Lösungen)" href="6_Regulaere_Ausdruecke_Loesungen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../resume.html">Professional experience 🧑‍💻</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../../phd.html">PhD project</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_Input_und_Output.html">5. Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7_Datenanalyse.html">7. Datenanalyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../solutions.html">Lösungen zu den Notebooks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7. Datenanalyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/2_Datentypen_Uebungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/1_Notebooks/Loesungen/7_Datenanalyse_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/Loesungen/7_Datenanalyse_Loesungen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/programming/1_Notebooks/Loesungen/7_Datenanalyse_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Datenanalyse (Lösungen)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="datenanalyse-losungen">
+<h1>Datenanalyse (Lösungen)<a class="headerlink" href="#datenanalyse-losungen" title="Permalink to this heading">#</a></h1>
+<p>☝️ Beachte: es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
+<p>⚠️ Führe folgenden Code aus, bevor du einzelne Lösungen ausführst. Im Lehrnotebook sortieren wir das DataFrame zu einem bestimmten Zeitpunkt. Diese Sortierung nehmen wir im Lösungsnotebook nicht vor, weswegen die Reihenfolge der Zeilen ab einem gewissen Punkt abweicht. Dies ist nicht weiter schlimm und wird bloß erwähnt, dass Du nicht wunderst, warum die Daten zwischen den beiden Notebooks vermeintlich anders ausschauen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt </span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Songkorpus/songkorpus_token.tsv&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">songkorpus</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="n">songkorpus</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">,</span> <span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span>
+
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span>
+
+<span class="n">decades</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]):</span>
+    <span class="n">decade</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;0&quot;</span>
+    <span class="n">decades</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decade</span><span class="p">)</span>
+    
+<span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">decades</span>
+<span class="n">original_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 1:</strong> Erstelle eine weitere Series, die nur das 100.000te, 200.000te und 300.000te Token der Series <code class="docutils literal notranslate"><span class="pre">tokens</span></code> beinhält.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">[[</span><span class="mi">100000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">300000</span><span class="p">]])</span> <span class="c1">#Alternative 1: Liste an Indizes (beachte die inneren eckigen Klammern!)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">100000</span><span class="p">::</span><span class="mi">100000</span><span class="p">])</span> <span class="c1">#Alternative 2: Slicing mit Start-Index 100000 und Step 100000, vgl. zweites Notebook</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100000      Leuten
+200000       alten
+300000    mitnehme
+Name: Token, dtype: object
+100000      Leuten
+200000       alten
+300000    mitnehme
+Name: Token, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 2:</strong></p>
+<ol class="arabic simple">
+<li><p>Lies die Datei <code class="docutils literal notranslate"><span class="pre">songkorpus_tokens.tsv</span></code> abermals ein und übergib beim Erstellen des DataFrames zusätzlich den Parameter <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code>. Dadurch wird die erste Spalte (mit dem Index 0), also diejenige mit den Tokens, zur sog. <em>Index-Spalte</em>. Jede Zeile hat nun statt einem numerischen Index einen Namen, nämlich das jeweilige Token. Weise das DataFrame der Variablen <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> zu.</p></li>
+<li><p>Benenne die Spalten wie bei <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> um. Falls Du hier eine Fehlermeldung kriegst, lies sie aufmerksam und passe Deinen Code entsprechend an.</p></li>
+<li><p>Überlege Dir, was die Tatsache, dass wir nun Tokens als Zeilennamen verwenden, zur Konsequenz hat. Experimentiere dazu gerne mit dem DataFrame herum und greife auf verschiedene Zeilen über Namen zu.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt </span>
+<span class="n">songkorpus_labelled_rows</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Songkorpus/songkorpus_token.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+    
+<span class="n">songkorpus_labelled_rows</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span> 
+
+<span class="c1">#Zu 3.: Zeilennamen können mehrfach vorkommen.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 3:</strong> Setze die Tatsache, dass Zeilennamen mehrfach vorkommen dürfen, produktiv ein und finde heraus, wie oft „Dresden“ in <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> vorkommt, indem Du die Häufigkeiten in allen Jahren, in denen das Wort gesungen wird, zusammenzählst.</p>
+<p>💡 Tipp: Der erste Schritt besteht darin, aus dem gesamten DataFrame <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> ein kleineres, sog. <em>Sub-DataFrame</em> zu erstellen, das mit einer neuen Variablen referenziert wird. Der zweite Schritt besteht darin, eine Series aus diesem Sub-DataFrame „herauszuschneiden“, die Du anschließend wie eine Liste behandeln kannst, um schließlich zur Anzahl der Nennungen von „Dresden“ zu gelangen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dresden</span> <span class="o">=</span> <span class="n">songkorpus_labelled_rows</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Dresden&quot;</span><span class="p">]</span> <span class="c1">#erst greifen wir auf alle Zeilen zu, die &quot;Dresden&quot; als Label haben und weisen das Resultat der Variablen &quot;dresden&quot; zu</span>
+<span class="n">occurrences_per_year</span> <span class="o">=</span> <span class="n">dresden</span><span class="p">[</span><span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span> <span class="c1">#anschließend greifen wir auf die Spalte &quot;Häufigkeit&quot; im Sub-DataFrame &quot;dresden&quot; zu und weisen die resultierende Series der Variablen &quot;occurrences_per_year&quot; zu</span>
+
+<span class="c1">#Drei Alternativen ab hier:</span>
+
+<span class="c1">#1. for-Loop</span>
+<span class="c1">#nun iterieren wir über &quot;occurrences_per_year&quot; wie bei einer Liste und erhöhen die Zählvariable &quot;total&quot; um den jeweiligen Zeilenwert</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">occurrences_per_year</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">year</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+
+<span class="c1">#2. sum-Funktion</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">occurrences_per_year</span><span class="p">))</span>
+
+<span class="c1">#3. sum-Methode von pandas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">occurrences_per_year</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22
+22
+22
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 4:</strong> Füge <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> eine weitere Spalte mit dem Namen „Länge“ hinzu, in der die Anzahl Buchstaben je Token steht.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lengths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]:</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">))</span> <span class="c1">#Casten in string ist nötig, da manche Tokens Zahlen sind und Zahlen keine Länge haben, vgl. zweites Notebook</span>
+    <span class="n">lengths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+    
+<span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lengths</span>
+
+<span class="n">songkorpus</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Token</th>
+      <th>Jahr</th>
+      <th>Häufigkeit</th>
+      <th>Jahrzehnt</th>
+      <th>Länge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Klaround</td>
+      <td>2007</td>
+      <td>1</td>
+      <td>2000</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>#3</td>
+      <td>2009</td>
+      <td>1</td>
+      <td>2000</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>#Babo</td>
+      <td>2015</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>#JeSuisPasséChezSo</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>#Nachbar</td>
+      <td>2016</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 5:</strong> Vereinfache den Code von oben, mit dessen Hilfe wir die Spalte „Jahrzehnt“ hinzugefügt haben, indem Du ihn mittels List Comprehension (vgl. viertes Notebook) auf eine einzige Zeile reduzierst. Hole den Abschnitt zu List Comprehensions nach, falls Du ihn damals ausgelassen hast, da er als fortgeschritten markiert war.</p>
+<p>Hinweis: <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> verfügt ja bereits über eine Spalte mit der Bezeichnung „Jahrzehnt“. Indem Du das Resultat Deiner List Comprehension <code class="docutils literal notranslate"><span class="pre">songkorpus[&quot;Jahrzehnt&quot;]</span></code> zuweist, überschreibst du die befindliche Spalte ganz einfach.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;0&quot;</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]]</span>
+<span class="n">songkorpus</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Token</th>
+      <th>Jahr</th>
+      <th>Häufigkeit</th>
+      <th>Jahrzehnt</th>
+      <th>Länge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Klaround</td>
+      <td>2007</td>
+      <td>1</td>
+      <td>2000</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>#3</td>
+      <td>2009</td>
+      <td>1</td>
+      <td>2000</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>#Babo</td>
+      <td>2015</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>#JeSuisPasséChezSo</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>#Nachbar</td>
+      <td>2016</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 6:</strong> Führe die Zelle oben, in der wir <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> Zeilen mit Fantasiewörtern hinzugefügt haben, noch ein paar Mal aus, ohne darauf zu achten wie oft. Verwende nun <code class="docutils literal notranslate"><span class="pre">drop</span></code> in einer geeigneten Kontrollstruktur (vgl. drittes Notebook) sowie die anfangs eingeführte Variable <code class="docutils literal notranslate"><span class="pre">original_len</span></code>, um die Fantasiewörter wieder zu entfernen und <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code>, was die Anzahl an Zeilen betrifft, wieder in seinen Originalzustand zu bringen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vorbereitung, die im Lehrnotebook nicht notwendig ist: </span>
+<span class="c1">#Wir füngen &quot;new_row&quot;, sagen wir, 17 Mal &quot;songkorpus&quot; hinzu</span>
+<span class="n">new_row</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Fantasiewort&quot;</span><span class="p">,</span> <span class="mi">2023</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">17</span><span class="p">):</span>
+    <span class="n">songkorpus</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">)]</span> <span class="o">=</span> <span class="n">new_row</span>
+
+<span class="c1">#hier beginnt die Lösung:</span>
+<span class="c1">#was im Schleifenkörper steht, wird wiederholt ausgeführt, solange die Länge von &quot;songkorpus&quot;</span>
+<span class="c1">#größer als die ursprüngliche Länge ist, d.h. wir hören auf, wenn beide Werte gleich viel betragen</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">original_len</span><span class="p">:</span>
+    <span class="c1">#als Index setzen wir die Länge von &quot;songkorpus&quot; minus 1 ein; minus 1, da Indizes bei 0 beginnen</span>
+    <span class="n">songkorpus</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Überschreiben von &quot;songkorpus&quot;, alternativ &quot;inplace=True&quot; spezifizieren</span>
+
+<span class="c1">#hier überprüfen wir das Resultat</span>
+<span class="n">songkorpus</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Token</th>
+      <th>Jahr</th>
+      <th>Häufigkeit</th>
+      <th>Jahrzehnt</th>
+      <th>Länge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>386505</th>
+      <td>﻿Vierzehn</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>386506</th>
+      <td>﻿Was</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>386507</th>
+      <td>﻿Weißer</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>386508</th>
+      <td>﻿Wie</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>386509</th>
+      <td>﻿Wozu</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 7:</strong> Mithilfe von <code class="docutils literal notranslate"><span class="pre">describe</span></code> haben wir oben herausgefunden, dass die durchschnittliche Wortlänge in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> 6.88 Buchstaben beträgt. Die maximale Wortlänge beträgt hingegen sagenhafte 53 Buchstaben. Die Verteilung scheint alles andere als gleichmäßig zu sein, was wir auch an den sog. <em>Quartilen</em> 25% und 75% sehen (Quartile werden wie der Median berechnet, nur geht es nicht um den Mittelwert sondern um die Werte nach einem Viertel bzw. drei Vierteln aller aufgereihten Werte). Finde heraus, welche Wortlängen für jeweils mindestens 10 % aller Wörter gelten. Finde ebenfalls heraus, welche Wortlängen für jeweils maximal 1 % aller Wörter gelten.</p>
+<p>💡 Tipp: Einer von verschiedenen denkbaren Lösungswegen involviert die Tatsache, dass DataFrames und Series mit dictionaries verwandt sind und sich auch in ein solches casten lassen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lengths</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="c1">#als List Comprehension</span>
+<span class="n">min_10_pc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">lengths</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="n">max_1_pc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">lengths</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">]</span>
+
+<span class="c1">#als klassischer for-Loop</span>
+<span class="n">min_10_pc</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="n">max_1_pc</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">lengths</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span>
+        <span class="n">min_10_pc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">:</span>
+        <span class="n">max_1_pc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mind. 10 %:&quot;</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">min_10_pc</span><span class="p">)),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Max. 1 %:&quot;</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">max_1_pc</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mind. 10 %: 4, 5, 6, 7 
+Max. 1 %: 1, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 46, 47, 48, 49, 50, 51, 53
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 8:</strong> Wir wissen bereits, wieviele Tokens in unserem DataFrame vorkommen, nämlich 386.510. Finde heraus, wieviele einzigartige Token, also Types (vgl. viertes Notebook) es gibt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>104934
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 9:</strong> Erstelle ein Sub-DataFrame, das nur Tokens beinhält, die mindestes 20 Zeichen lang sind.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long_words</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">]</span>
+<span class="n">long_words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Token</th>
+      <th>Jahr</th>
+      <th>Häufigkeit</th>
+      <th>Jahrzehnt</th>
+      <th>Länge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>111</th>
+      <td>*ratata-ratarata-ratata*</td>
+      <td>2015</td>
+      <td>2</td>
+      <td>2010</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>166</th>
+      <td>-ell-ell-ell-ell-ell</td>
+      <td>2019</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>388</th>
+      <td>1.......2.....3.....4.....5.....6.....7.....8....</td>
+      <td>1982</td>
+      <td>1</td>
+      <td>1980</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>505</th>
+      <td>100.000-Euro-Lächeln</td>
+      <td>2013</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>856</th>
+      <td>187-Strassenbande-Fußtattoo</td>
+      <td>2022</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>385866</th>
+      <td>„K-K-K-K-KitschKrieg</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>386040</th>
+      <td>„Panini-Fußball-Bilder</td>
+      <td>1996</td>
+      <td>1</td>
+      <td>1990</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>386119</th>
+      <td>„Selbstverwirklichung“</td>
+      <td>2019</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>386404</th>
+      <td>„ich-fang'-alle-Blicke“-Pöter</td>
+      <td>1995</td>
+      <td>1</td>
+      <td>1990</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>386405</th>
+      <td>„ich-verbitte-mir-alle-Vergleiche“-Pöter</td>
+      <td>1995</td>
+      <td>1</td>
+      <td>1990</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+<p>1060 rows × 5 columns</p>
+</div></div></div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 10:</strong> Erstelle das gleiche Sub-DataFrame wie in Übung 9 (also eines, das nur Tokens beinhält, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stelle sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long_words_2</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">]</span>
+
+<span class="c1">#Überprüfen, ob die beiden Ergebnisse identisch sind:</span>
+
+<span class="c1">#unsichere Methode, da ja in den Zeilen andere Werte stehen könnten:</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">long_words_2</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">long_words</span><span class="p">))</span>
+
+<span class="c1">#sichere Methode, da wir erst sämtliche Werte vergleichen und dann True bzw. False auszählen</span>
+<span class="n">same_values</span> <span class="o">=</span> <span class="n">long_words_2</span> <span class="o">==</span> <span class="n">long_words</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">same_values</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> <span class="c1">#es kommt nur jeweils True vor, also sind die beiden Ergebnisse identisch</span>
+
+<span class="c1">#Pandas bietet dafür auch eine Methode, nämlich equals():</span>
+<span class="n">long_words_2</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">long_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+Token  Jahr  Häufigkeit  Jahrzehnt  Länge
+True   True  True        True       True     1060
+dtype: int64
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 11:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Gehe abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop – auch nicht in Form einer List Comprehension – zu benutzen. Mit anderen Worten: Du sollst Pandas-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>💡 Tipp: Es sind dieselben einzelnen Schritte wie im <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop oben nötig, allerdings formuliert in pandas-Syntax. Gegebenfalls musst Du in der <a class="reference external" href="https://pandas.pydata.org/docs/">pandas-Dokumentation</a> nachschlagen, wie die jeweilige Syntax der pandas-Pendants ausschaut.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt_ohne_Loop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;0&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt_ohne_Loop&quot;</span><span class="p">]))</span>
+<span class="n">songkorpus</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Token</th>
+      <th>Jahr</th>
+      <th>Häufigkeit</th>
+      <th>Jahrzehnt</th>
+      <th>Länge</th>
+      <th>Jahrzehnt_ohne_Loop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Klaround</td>
+      <td>2007</td>
+      <td>1</td>
+      <td>2000</td>
+      <td>8</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>#3</td>
+      <td>2009</td>
+      <td>1</td>
+      <td>2000</td>
+      <td>2</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>#Babo</td>
+      <td>2015</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>5</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>#JeSuisPasséChezSo</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>18</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>#Nachbar</td>
+      <td>2016</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>8</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>386505</th>
+      <td>﻿Vierzehn</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>9</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>386506</th>
+      <td>﻿Was</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>386507</th>
+      <td>﻿Weißer</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>7</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>386508</th>
+      <td>﻿Wie</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>386509</th>
+      <td>﻿Wozu</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>5</td>
+      <td>2020</td>
+    </tr>
+  </tbody>
+</table>
+<p>386510 rows × 6 columns</p>
+</div></div></div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 12:</strong> Bearbeite die Werte in der Spalte „Token“ so, dass jedes Wort, das aus genau fünf Buchstaben besteht, großgeschrieben wird. Einfach weil wir’s können! 😉</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">])</span>
+<span class="n">songkorpus</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Token</th>
+      <th>Jahr</th>
+      <th>Häufigkeit</th>
+      <th>Jahrzehnt</th>
+      <th>Länge</th>
+      <th>Jahrzehnt_ohne_Loop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Klaround</td>
+      <td>2007</td>
+      <td>1</td>
+      <td>2000</td>
+      <td>8</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>#3</td>
+      <td>2009</td>
+      <td>1</td>
+      <td>2000</td>
+      <td>2</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>#BABO</td>
+      <td>2015</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>5</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>#JeSuisPasséChezSo</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>18</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>#Nachbar</td>
+      <td>2016</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>8</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>386505</th>
+      <td>﻿Vierzehn</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>9</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>386506</th>
+      <td>﻿Was</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>386507</th>
+      <td>﻿Weißer</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>7</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>386508</th>
+      <td>﻿Wie</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>4</td>
+      <td>2020</td>
+    </tr>
+    <tr>
+      <th>386509</th>
+      <td>﻿WOZU</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>5</td>
+      <td>2020</td>
+    </tr>
+  </tbody>
+</table>
+<p>386510 rows × 6 columns</p>
+</div></div></div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 13:</strong> Caste sämtliche Werte in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> in strings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="c1">#str ist ja auch eine Funktion!</span>
+<span class="c1">#songkorpus = songkorpus.astype(str) #Alternative</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">songkorpus</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;Jahrzehnt_ohne_Loop&quot;</span><span class="p">]))</span> <span class="c1">#Überprüfung an einem bestimmten Wert</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>🔧 <strong>Anwendungsfall (komplette Lösung):</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt </span>
+<span class="n">songkorpus</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Songkorpus/songkorpus_token.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> 
+    
+<span class="n">songkorpus</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">,</span> <span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span> <span class="c1">#Spalten umbenennen</span>
+
+<span class="c1">#neue Spalte für relative Häufigkeiten schaffen, indem absolute Häufigkeiten durch aufsummierte Häufigkeit pro Jahr geteilt werden (genaue Erklärung s. Schritt-für-Schritt-Anleitung)</span>
+<span class="n">total_freq_per_year</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Jahr&quot;</span><span class="p">])[</span><span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Relative Häufigkeit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">total_freq_per_year</span><span class="p">)</span> 
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#Abfragen der zu plottenden Wörter</span>
+<span class="n">words</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Welche Wörter sollen geplotted werden? Bsp.: &#39;ich, du&#39;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+
+<span class="c1">#Iterieren über die zu plottenden Wörter</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="c1">#Schaffen eines Sub-DataFrames über Filter</span>
+    <span class="n">word_df</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">word</span><span class="p">]</span>
+    <span class="c1">#Sortieren des Sub-DataFrames nach der Spalte &quot;Jahr&quot; und Zurücksetzen des Index</span>
+    <span class="n">word_df</span> <span class="o">=</span> <span class="n">word_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="c1">#Definieren von x und y, &quot;Jahr&quot; soll auf x-Achse geplotted werden, &quot;Relative Häufigkeit&quot; auf y-Achse</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">word_df</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">word_df</span><span class="p">[</span><span class="s2">&quot;Relative Häufigkeit&quot;</span><span class="p">]</span>
+    <span class="c1">#Eigentliches Plotten</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+
+<span class="c1">#Zusätzliches Verfeinern und Beschriften des Plots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wortverlaufskurve für </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">words</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative Häufigkeit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1967</span><span class="p">,</span> <span class="mi">2023</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2094</span><span class="o">/</span><span class="mf">3742356630.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1">#Abfragen der zu plottenden Wörter</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">words</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Welche Wörter sollen geplotted werden? Bsp.: &#39;ich, du&#39;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1174</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1175</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>🔧 <strong>Anwendungsfall (Schritt-für-Schritt-Lösung):</strong></p>
+<ol class="arabic simple">
+<li><p>Um sicherzugehen, dass wir wirklich mit den originalen Daten arbeiten, lies die Datei „songkorpus_token.tsv“ abermals ein.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt </span>
+<span class="n">songkorpus</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Songkorpus/songkorpus_token.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Benenne die Spalten in „Token“, „Jahr“ und „Häufigkeit“ um.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">,</span> <span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="3">
+<li><p>Im DataFrame verfügen wir bislang nur über absolute Häufigkeiten. Um die Werte zwischen einzelnen Jahren besser vergleichbar zu machen, wollen wir aber relative Häufigkeiten für die Visualisierung verwenden. Schaffe dazu eine Spalte „Relative Häufigkeit“, die für jedes Token vermerkt, wie häufig es in Relation zur Summe aller Häufigkeiten aller Tokens im gegebenen Jahr vorkommt. Für diese Berechnung brauchst Du jeweils zwei Werte: erstens die absolute Häufigkeit (bereits in der Spalte „Häufigkeit“) und zweitens die Summe aller Häufigkeiten aller Tokens im gegebenen Jahr.</p>
+<p>Verwende die Methode <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a> zur Berechnung der Summe aller Häufigkeiten pro Jahr. Nach dem Motto „split-apply-combine“ erlaubt Dir diese Methode, das DataFrame nach den Werten der Spalte „Jahr“ zu gruppieren (aufzu<em>split</em>ten). Indem Du im gleichen Statement die <code class="docutils literal notranslate"><span class="pre">sum</span></code>-Methode auf die Spalte „Häufigkeit“ jedes durch <code class="docutils literal notranslate"><span class="pre">groupby</span></code> entstehenden Sub-DataFrame anwendest (<em>apply</em>), erhältst Du eine zusammengeführte Series (<em>combine</em>), die für jedes Jahr die Summe aller Häufigkeiten aller Tokens enthält. Weise die Series der Variablen <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code> zu und inspiziere sie.</p>
+<p>Um nun zur relativen Häufigkeit zu gelangen, musst Du für jedes Token in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> den Wert in der Spalte „Häufigkeit“ durch die jeweilige Summe an Häufigkeiten im gegebenen Jahr teilen. Da wir letzteren Wert in einer anderen Series (nämlich in <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code>) vorliegen haben, müssen wir zu einem Trick greifen: Wende die <code class="docutils literal notranslate"><span class="pre">replace</span></code>-Methode auf die Spalte „Jahr“ an und übergib ihr <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code>. Wir machen uns hier den Umstand zunutze, dass eine Series wie ein dictionary funktioniert. Will heißen: <code class="docutils literal notranslate"><span class="pre">replace</span></code> ersetzt kurzerhand jedes Jahr (Schlüssel) durch die jeweilige Summe der Häufigkeiten pro Jahr (Wert).</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_freq_per_year</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Jahr&quot;</span><span class="p">])[</span><span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Relative Häufigkeit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">total_freq_per_year</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Installiere ggf. <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> über das Terminal oder die Eingabeaufforderung und importiere anschließend <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> (wieder so eine gängige Abkürzung). matplotlib ist die Bibliothek, die wir zum Visualisieren unserer Daten verwenden. Mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">y)</span></code> (denk an den Modulnamen davor) können wir einfach Grafiken produzieren. <code class="docutils literal notranslate"><span class="pre">x</span></code> ist dabei eine Liste oder Series an Werten, die auf der x-Achse abgebildet werden sollen und <code class="docutils literal notranslate"><span class="pre">y</span></code> eine Liste oder Series derjenigen Werte, die auf der y-Achse dargestellt werden sollen. <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> müssen gleich lange sein. Konkret wird der erste Punkt in der Grafik bei den Koordinaten <code class="docutils literal notranslate"><span class="pre">x[0]</span></code> und <code class="docutils literal notranslate"><span class="pre">y[0]</span></code> eingezeichnet, der zweite bei <code class="docutils literal notranslate"><span class="pre">x[1]</span></code> und <code class="docutils literal notranslate"><span class="pre">y[1]</span></code>, etc. Standardmäßig werden die einzelnen Punkte wie oben zu einem Graphen verbunden. Schau in den Beispieldarstellungen oben, welche Werte wir entlang der x-Achse bzw. entlang der y-Achsen plotten wollen.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;pip(3) install matplotlib&#39; zur Installation von matplotlib via Terminal/Eingabeaufforderung</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Definiere eine Liste an Wörtern, die Du visualisieren möchtest. Diesen Schritt kannst Du auch interaktiv umsetzen, sodass Du bei jeder Ausführung aufgefordert wirst, Wörter zur Visualisierung anzugeben.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Statische Definition</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ich&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;er&quot;</span><span class="p">,</span> <span class="s2">&quot;sie&quot;</span><span class="p">]</span>
+
+<span class="c1">#Interaktive Abfrage</span>
+<span class="c1">#words = input(&quot;Welche Wörter sollen geplotted werden? Bsp.: &#39;ich, du&#39;.&quot;).split(&quot;,&quot;)</span>
+<span class="c1">#words = [word.strip() for word in words]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Plotte nun nacheinander eine Verlaufskurve für jedes Wort auf der Liste. Gehe dazu für jedes Wort wie folgt vor:</p>
+<ul class="simple">
+<li><p>Schaffe ein Sub-DataFrame, in dem in der Spalte „Token“ nur das gegebene Wort steht.</p></li>
+<li><p>Sortiere das Sub-DataFrame aufsteigend nach der Spalte „Jahr“ und setze den Index anschließend zurück.</p></li>
+<li><p>Übergib der <code class="docutils literal notranslate"><span class="pre">plot</span></code>-Funktion die relevanten Spalten des Sub-DataFrames an Stelle von <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code>. Übergib als drittes Argument den string „o-“, der den Stil des Graphen (Linie mit Punkten) definiert.</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="7">
+<li><p>Nachdem Du alle Wörter der Liste entsprechend geplotted hast, kannst Du <strong>in derselben Zelle</strong> folgende Funktionen verwenden, um den Plot zu verfeinern:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code>, um einen Titel zu setzen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xlabel</span></code> und  <code class="docutils literal notranslate"><span class="pre">ylabel</span></code>, um die Achsen zu beschriften.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xlim</span></code>, um der x-Achse Grenzen zu setzen, z.B. von 1969 bis 2022 (dies vereinheitlicht die Plots, da diese sonst automatisch an den Wertebereich der zu plottenden Wörter angepasst wird und der Plot dadurch mitunter anders beschnitten sein kann).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">legend</span></code>, um eine Legende einzufügen, indem Du der Funktion die Liste mit Wörtern übergibst</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Iterieren über die zu plottenden Wörter</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="c1">#Schaffen eines Sub-DataFrames über Filter</span>
+    <span class="n">word_df</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">word</span><span class="p">]</span>
+    <span class="c1">#Sortieren des Sub-DataFrames nach der Spalte &quot;Jahr&quot; und Zurücksetzen des Index</span>
+    <span class="n">word_df</span> <span class="o">=</span> <span class="n">word_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="c1">#Definieren von x und y, &quot;Jahr&quot; soll auf x-Achse geplotted werden, &quot;Relative Häufigkeit&quot; auf y-Achse</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">word_df</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">word_df</span><span class="p">[</span><span class="s2">&quot;Relative Häufigkeit&quot;</span><span class="p">]</span>
+    <span class="c1">#Eigentliches Plotten</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+
+<span class="c1">#Zusätzliches Verfeinern und Beschriften des Plots</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wortverlaufskurve für </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">words</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative Häufigkeit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1967</span><span class="p">,</span> <span class="mi">2023</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc3975d4990&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/25f1e25f3666ecaab06d466d66c594f6215c39b915dc2f3adb2278af5a64ee07.png" src="../../../_images/25f1e25f3666ecaab06d466d66c594f6215c39b915dc2f3adb2278af5a64ee07.png" />
+</div>
+</div>
+<hr class="docutils" />
+<br></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks/Loesungen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="6_Regulaere_Ausdruecke_Loesungen.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title">Reguläre Ausdrücke (Lösungen)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../../extra_exercises.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title">Zusatzübungen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
