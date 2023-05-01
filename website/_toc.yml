@@ -10,7 +10,7 @@ parts:
         title: PhD project
   - caption: Hello Humanities!
     chapters:
-      - file: other_content/lets_get_started
+      - file: notebooks
         title: Notebooks
         sections: 
         - file: programming/1_Notebooks/1_Einfuehrung
@@ -27,7 +27,7 @@ parts:
           title: 6. Reguläre Ausdrücke
         - file: programming/1_Notebooks/7_Datenanalyse
           title: 7. Datenanalyse
-      - file: other_content/solutions
+      - file: solutions
         title: Lösungen zu den Notebooks
         sections:
         - file: programming/1_Notebooks/Loesungen/1_Einfuehrung_Loesungen
@@ -44,7 +44,7 @@ parts:
           title: 6. Reguläre Ausdrücke
         - file: programming/1_Notebooks/Loesungen/7_Datenanalyse_Loesungen
           title: 7. Datenanalyse
-      - file: other_content/extra_exercises
+      - file: extra_exercises
         title: Zusatzübungen
         sections:
         - file: programming/4_Zusatzuebungen/1_Einfuehrung_Uebungen
@@ -53,7 +53,7 @@ parts:
           title: 2. Datentypen
         - file: programming/4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen
           title: 3. Kontrollstrukturen
-      - file: other_content/extra_exercises_solutions
+      - file: extra_exercises_solutions
         title: Lösungen zu den Zusatzübungen
         sections:
         - file: programming/4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen
