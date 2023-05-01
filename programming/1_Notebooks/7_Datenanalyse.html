@@ -1129,6 +1129,9 @@ Name: 777, dtype: object
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1995
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Neben der Herangehensweise über <code class="docutils literal notranslate"><span class="pre">loc</span></code> besteht auch die Möglichkeit erst wie oben gelernt auf eine spezifische Spalte bzw. eine spezifische Zeile zuzugreifen, was in einer Series resultiert, und in dieser Series anschließend auf eine bestimmte Zeile bzw. eine bestimmte Spalte zuzugreifen (z.B. <code class="docutils literal notranslate"><span class="pre">songkorpus[&quot;Token&quot;][22]</span></code>). Obige Syntax mit <code class="docutils literal notranslate"><span class="pre">loc</span></code> ist diesen sog. „chained assignments“ (etwa: Kettenaufgabe) jedoch vorzuziehen.</p>
@@ -3135,28 +3138,28 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>24</td>
-      <td>84</td>
+      <td>72</td>
+      <td>47</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>51</td>
-      <td>34</td>
+      <td>67</td>
+      <td>25</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>87</td>
-      <td>72</td>
+      <td>89</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>88</td>
-      <td>74</td>
+      <td>0</td>
+      <td>68</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>31</td>
-      <td>67</td>
+      <td>69</td>
+      <td>17</td>
     </tr>
   </tbody>
 </table>
@@ -3203,33 +3206,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>24</td>
-      <td>84</td>
-      <td>2016</td>
+      <td>72</td>
+      <td>47</td>
+      <td>3384</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>51</td>
-      <td>34</td>
-      <td>1734</td>
+      <td>67</td>
+      <td>25</td>
+      <td>1675</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>87</td>
-      <td>72</td>
-      <td>6264</td>
+      <td>89</td>
+      <td>8</td>
+      <td>712</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>88</td>
-      <td>74</td>
-      <td>6512</td>
+      <td>0</td>
+      <td>68</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>31</td>
-      <td>67</td>
-      <td>2077</td>
+      <td>69</td>
+      <td>17</td>
+      <td>1173</td>
     </tr>
   </tbody>
 </table>
@@ -3279,33 +3282,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>24</td>
-      <td>84</td>
-      <td>2016</td>
+      <td>72</td>
+      <td>47</td>
+      <td>3384</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>51</td>
-      <td>34</td>
-      <td>1734</td>
+      <td>67</td>
+      <td>25</td>
+      <td>1675</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>87</td>
-      <td>72</td>
-      <td>6264</td>
+      <td>89</td>
+      <td>8</td>
+      <td>712</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>88</td>
-      <td>74</td>
-      <td>6512</td>
+      <td>0</td>
+      <td>68</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>31</td>
-      <td>67</td>
-      <td>2077</td>
+      <td>69</td>
+      <td>17</td>
+      <td>1173</td>
     </tr>
   </tbody>
 </table>
@@ -3319,9 +3322,9 @@ Name: Jahrzehnt, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.010181427001953125 
-for-Loop 16.78944182395935 
-Faktor: 1649.0263909704008
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.008794546127319336 
+for-Loop 12.436546087265015 
+Faktor: 1414.120286279719
 </pre></div>
 </div>
 </div>
@@ -3526,9 +3529,9 @@ Faktor: 1649.0263909704008
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.8017425537109375 
-for-Loop 0.9169058799743652 
-Faktor: 3.0556490201472677
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.3288681507110596 
+for-Loop 0.7518508434295654 
+Faktor: 3.0975135175587942
 </pre></div>
 </div>
 </div>
@@ -3862,7 +3865,7 @@ Faktor: 3.0556490201472677
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd56a32d2d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fec84ac5650&gt;
 </pre></div>
 </div>
 <img alt="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" src="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" />
