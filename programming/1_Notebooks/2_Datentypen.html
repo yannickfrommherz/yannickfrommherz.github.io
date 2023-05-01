@@ -152,7 +152,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../about_me/resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about_me/resume.html">Professional experience 🧑‍💻</a></li>
+
+
 <li class="toctree-l1"><a class="reference internal" href="../../about_me/phd.html">PhD project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
@@ -167,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="7_Datenanalyse.html">7. Datenanalyse</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_content/solutions.html">Lösungen</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_content/solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/1_Einfuehrung_Loesungen.html">1. Einführung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/2_Datentypen_Loesungen.html">2. Datentypen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
@@ -175,6 +177,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/7_Datenanalyse_Loesungen.html">7. Datenanalyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_content/extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/2_Datentypen_Uebungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../other_content/extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">3. Kontrollstrukturen</a></li>
 </ul>
 </li>
 </ul>
@@ -612,7 +626,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;aus&#39;, &#39;zur&#39;, &#39;Bank&#39;, &#39;dem&#39;, &#39;eine&#39;, &#39;Eingang&#39;, &#39;Holz&#39;, &#39;stand&#39;, &#39;Vor&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Bank&#39;, &#39;zur&#39;, &#39;dem&#39;, &#39;Eingang&#39;, &#39;Vor&#39;, &#39;eine&#39;, &#39;Holz&#39;, &#39;aus&#39;, &#39;stand&#39;}
 </pre></div>
 </div>
 </div>
@@ -781,7 +795,7 @@ c is not &#39;a&#39;
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1983</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1888</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">an_integer</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print(len(a_float))</span>
@@ -1075,8 +1089,8 @@ Sonntag
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False denn 140420003930544 ist ungleich 140420004002096
-Das list-Objekt ist immer noch das gleiche: True denn 140420004049616 ist gleich 140420004049616
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False denn 140414362302896 ist ungleich 140414362396144
+Das list-Objekt ist immer noch das gleiche: True denn 140414362309008 ist gleich 140414362309008
 </pre></div>
 </div>
 </div>
