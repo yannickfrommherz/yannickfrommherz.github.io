@@ -152,9 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../resume.html">Professional experience 🧑‍💻</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="../../resume.html">Résumé</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../phd.html">PhD project</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
@@ -1042,9 +1040,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ich gehe&#39;, &#39;gehe am&#39;, &#39;am Abend&#39;, &#39;Abend noch&#39;, &#39;noch spazieren&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Die ersten paar Zeilen des Codes sind die gleichen wie in der ersten Variante. Der Unterschied spielt sich in der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ab: In der ersten Variante wird grob formuliert in jeder Iteration ein neues n-gram (<code class="docutils literal notranslate"><span class="pre">current_ngram</span></code>) geschaffen, indem das bisher erste Wort vom letzten n-gram entfernt wird und ein neues hinten angehängt wird. Jedes n-gram wird dann <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> angehängt. In der zweiten Variante hier „schieben“ wir hingegen eine Art „Fenster“ über <code class="docutils literal notranslate"><span class="pre">words</span></code>: Mittels Slicing schneiden wir uns eine neue Liste von der Länge <code class="docutils literal notranslate"><span class="pre">n</span></code> aus <code class="docutils literal notranslate"><span class="pre">words</span></code> heraus und rücken bei jeder Iteration den Start- und Endindex für das Slicing um eine Position vor. Die neue Liste fügen wir jeweils mit der uns aus dem zweiten Notebook bekannten <code class="docutils literal notranslate"><span class="pre">join</span></code>-Methode zu einem string zusammen und hängen den als n-gram <code class="docutils literal notranslate"><span class="pre">ngrams</span></code> an. Das Resultat ist natürlich dasselbe wie bei der ersten Variante.</p>
@@ -1072,9 +1067,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1269,6 +1261,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Die&#39;, &#39;des&#39;, &#39;ist&#39;, &#39;Sie&#39;, &#39;zu&#39;, &#39;und&#39;, &#39;zu&#39;, &#39;ist&#39;]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Wie oben erwähnt, kann, wie hier, bei <code class="docutils literal notranslate"><span class="pre">expression</span></code> nur die Variable für <code class="docutils literal notranslate"><span class="pre">element</span></code> stehen. So verwenden wir die List Comprehension schlicht zum Erstellen einer gefilterten Liste, ohne dabei die Elemente, die es „in die Liste schaffen“ zusätzlich zu modifizieren.</p>
@@ -1371,7 +1366,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1939</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1844</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -1995,7 +1990,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;jugendplan&#39;, 1), (&#39;authentifizierungsmedium&#39;, 1), (&#39;arktis&#39;, 1), (&#39;sozialleistungsbetrug&#39;, 1), (&#39;hilfesysteme&#39;, 1), (&#39;gleichzeitigem&#39;, 1), (&#39;hilfen“&#39;, 1), (&#39;beweisanträgen&#39;, 1), (&#39;wiederzubeleben&#39;, 1), (&#39;weltraumwetterrisiken&#39;, 1)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;market&#39;, 1), (&#39;aufnahmewillen&#39;, 1), (&#39;neugier&#39;, 1), (&#39;nr&#39;, 1), (&#39;hälftig&#39;, 1), (&#39;auschwitz&#39;, 1), (&#39;kooperationsangeboten&#39;, 1), (&#39;altersversorgung&#39;, 1), (&#39;aktualisierung&#39;, 1), (&#39;angetastet&#39;, 1)]
 </pre></div>
 </div>
 </div>
@@ -2030,7 +2025,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 35, 66, 17, 33, 61, 12, 65, 97, 11]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[75, 44, 48, 8, 39, 26, 96, 60, 61, 8]
 </pre></div>
 </div>
 </div>
