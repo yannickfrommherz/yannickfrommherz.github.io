@@ -8,6 +8,8 @@ parts:
         title: Résumé
       - file: phd
         title: PhD project
+      - file: publications
+        title: Publications
   - caption: Hello Humanities!
     chapters:
       - file: notebooks
