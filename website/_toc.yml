@@ -27,7 +27,7 @@ parts:
           title: 6. Reguläre Ausdrücke
         - file: programming/1_Notebooks/7_Datenanalyse
           title: 7. Datenanalyse
-    - file: other/content/exercises
+    - file: other/content/solutions
       title: Lösungen
       sections:
         - file: programming/1_Notebooks/Loesungen/1_Einfuehrung_Loesungen
@@ -44,7 +44,13 @@ parts:
           title: 6. Reguläre Ausdrücke
         - file: programming/1_Notebooks/Loesungen/7_Datenanalyse_Loesungen
           title: 7. Datenanalyse
-
+    - file: other/content/extra_exercises
+      title: Zusatzübungen
+      sections:
+        - file: programming/4_Zusatzuebungen/1_Einfuehrung_Uebungen
+          title: 1. Einführung
+    - file: other_content/cheat_sheets
+      title: Cheat Sheets
 
       
 
