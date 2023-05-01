@@ -1,0 +1,1124 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Kontrollstrukturen (Lösungen) &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+    <link rel="next" title="Funktionen und Methoden (Lösungen)" href="4_Funktionen_und_Methoden_Loesungen.html" />
+    <link rel="prev" title="Datentypen (Lösungen)" href="2_Datentypen_Loesungen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../resume.html">Professional experience 🧑‍💻</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../phd.html">PhD project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publications.html">Publications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_Input_und_Output.html">5. Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7_Datenanalyse.html">7. Datenanalyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../../solutions.html">Lösungen zu den Notebooks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_Datenanalyse_Loesungen.html">7. Datenanalyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/2_Datentypen_Uebungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/programming/1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kontrollstrukturen (Lösungen)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="kontrollstrukturen-losungen">
+<h1>Kontrollstrukturen (Lösungen)<a class="headerlink" href="#kontrollstrukturen-losungen" title="Permalink to this heading">#</a></h1>
+<p>☝️ Beachte: es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
+<p>✏️ <strong>Lösung 1:</strong> Simplifiziere den folgenden Code auf zwei verschiedene Arten, einmal unter Einsatz des logischen Operators <code class="docutils literal notranslate"><span class="pre">and</span></code>, einmal mithilfe von <code class="docutils literal notranslate"><span class="pre">or</span></code>. Das Resultat Deiner Simplifizierung sollte sein, dass der Code nur noch um eine Ebene eingerückt ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Lösungsweg mit &quot;and&quot;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">28</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">65</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch arbeitet vermutlich&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch arbeitet vermutlich nicht&quot;</span><span class="p">)</span>
+    
+<span class="c1">#Lösungsweg mit &quot;or&quot;</span>
+<span class="c1">#beachte &quot;kleiner gleich&quot; statt &quot;kleiner&quot; bzw. &quot;größer&quot; statt &quot;größer gleich&quot; verglichen mit oben</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">18</span> <span class="ow">or</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">65</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch arbeitet vermutlich nicht&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch arbeitet vermutlich&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mensch arbeitet vermutlich
+Mensch arbeitet vermutlich
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 2:</strong> Mit <code class="docutils literal notranslate"><span class="pre">größe</span></code> soll die Körpergröße eines erwachsenen Menschen in Zentimetern referenziert werden. Schreibe einen Code, der je nach dem, wie groß <code class="docutils literal notranslate"><span class="pre">größe</span></code> ist, auf sehr brachiale Art über die Körpergröße Folgendes verlauten lässt:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">größe</span></code> größer als 180cm ist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">durchschnittlich</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">größe</span></code> zwischen 170cm und 180cm ist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">kleiner</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">größe</span></code> kleiner als 170cm ist</p></li>
+</ul>
+<p>Der Code soll zudem überprüfen, ob die Zahl in <code class="docutils literal notranslate"><span class="pre">größe</span></code> sinnvoll ist. Sie muss dafür mindestens dreistellig sein, darf aber auch nicht mehr als 200 betragen. Ist dies nicht der Fall, soll eine Fehlermeldung zurückgegeben werden.</p>
+<p>Wenn Du fertig bist, probiere Deinen Code aus, indem Du verschiedene Werte bei <code class="docutils literal notranslate"><span class="pre">größe</span></code> einsetzt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">größe</span> <span class="o">=</span> <span class="mi">182</span>
+
+<span class="k">if</span> <span class="n">größe</span> <span class="o">&gt;</span> <span class="mi">99</span> <span class="ow">and</span> <span class="n">größe</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c1">#wir beginnen von oben und überprüfen, ob größe größer als 180 ist</span>
+    <span class="k">if</span> <span class="n">größe</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;groß&quot;</span><span class="p">)</span>
+    <span class="c1">#wenn nicht, reicht es zu überprüfen, ob &quot;größe&quot; größer gleich 170 ist (eine größe größer als 180 wäre ja bereits durch das if-Statement oben &quot;abgefangen&quot; worden)</span>
+    <span class="k">elif</span> <span class="n">größe</span> <span class="o">&gt;=</span> <span class="mi">170</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;durchschnittlich&quot;</span><span class="p">)</span>
+    <span class="c1">#wenn nicht, wissen wir, dass immer der Fall &quot;klein&quot; eintreten muss (eine größe größer als 180 oder größer gleich 170 wäre ja bereits &quot;abgefangen&quot; worden)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;klein&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tut mir leid, damit kann ich nicht umgehen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>groß
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 3:</strong> Im Isländischen setzen sich Nachnamen aus dem Vornamen eines Elternteils (traditionell, aber nicht immer, des Vaters) und der binären Bezeichnung „son“ bzw. „dottir“ zusammen (i.d.R. mit Genitiv-s dazwischen). „Johannsdottir“ ist also z.B. die Tochter von Johann. Lasse Dir für jeden Namen auf <code class="docutils literal notranslate"><span class="pre">surnames</span></code> ausgeben, ob es sich um eine Person vermutlich isländischer Abstammung handelt, oder nicht. Wenn ja, lasse Dir zudem ausgeben, ob es sich aufgrund des Nachnamens um eine Frau oder einen Mann handelt.</p>
+<p>In der Ausgabe sollte der betreffende Name vorkommen, also z.B. für einen nicht-isländischen Namen: <code class="docutils literal notranslate"><span class="pre">Mensch</span> <span class="pre">Müller</span> <span class="pre">kommt</span> <span class="pre">vermutlich</span> <span class="pre">nicht</span> <span class="pre">aus</span> <span class="pre">Island</span></code>.</p>
+<p>In der bedingten Anweisung kannst Du das Pendant zum bereits bekannten <code class="docutils literal notranslate"><span class="pre">startswith</span></code>, nämlich <code class="docutils literal notranslate"><span class="pre">endswith</span></code> benutzen, das für einen string überprüft, ob er mit der in Klammern angegebenen Zeichenkette endet oder nicht. <code class="docutils literal notranslate"><span class="pre">&quot;string&quot;.endswith(&quot;g&quot;)</span></code> überprüft etwa, ob „string“ mit „g“ endet. Wie immer kannst Du anstatt der Zeichenketten auch Variablen verwenden, die einen string referenzieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">surnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jonsdottir&quot;</span><span class="p">,</span> <span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Johannsson&quot;</span><span class="p">,</span> <span class="s2">&quot;Einarsdottir&quot;</span><span class="p">,</span> <span class="s2">&quot;Fischer&quot;</span><span class="p">,</span> <span class="s2">&quot;Suarez&quot;</span><span class="p">,</span> <span class="s2">&quot;Johannsdottir&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">surnames</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;dottir&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;sson&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;dottir&quot;</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frau&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;ist vermutlich eine Frau aus Island&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Herr&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;ist vermutlich ein Mann aus Island&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;kommt vermutlich nicht aus Island&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frau Jonsdottir ist vermutlich eine Frau aus Island
+Mensch Müller kommt vermutlich nicht aus Island
+Herr Johannsson ist vermutlich ein Mann aus Island
+Frau Einarsdottir ist vermutlich eine Frau aus Island
+Mensch Fischer kommt vermutlich nicht aus Island
+Mensch Suarez kommt vermutlich nicht aus Island
+Frau Johannsdottir ist vermutlich eine Frau aus Island
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 4:</strong> In der Zelle unten steht noch einmal der gleiche Code. Modifiziere ihn derart, dass bei sechs Teilnehmer:innen Schluss ist. Die Iteration soll abbrechen. Vorher wollen wir aber darüber informiert werden, dass das Spiel bereits voll besetzt ist sowie darüber, wer daran teilnimmt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">participants_pool</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Janine&quot;</span><span class="p">,</span> <span class="s2">&quot;Hussein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Mia&quot;</span><span class="p">,</span> <span class="s2">&quot;Marianne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dolores&quot;</span><span class="p">]</span>
+
+<span class="n">participants_game</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">participants_pool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Noch nicht genügend Teilnehmer:innen, wir brauchen noch&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">),</span> <span class="s2">&quot;😬&quot;</span><span class="p">)</span>
+        
+        <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">continue</span>
+    
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leider ist das Spiel voll 🥲&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuelle Teilnehmer:innen: &quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">)</span>
+        <span class="k">break</span>
+        
+    <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Spiel läuft 😍&quot;</span><span class="p">)</span>
+    
+    <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Noch nicht genügend Teilnehmer:innen, wir brauchen noch 3 😬
+Aktuell auf der Liste: [&#39;Max&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 2 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;] 
+
+Noch nicht genügend Teilnehmer:innen, wir brauchen noch 1 😬
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;] 
+
+Das Spiel läuft 😍
+Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;] 
+
+Leider ist das Spiel voll 🥲
+Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>🔧 <strong>Anwendungsfall (Lösung):</strong> Deine Aufgabe ist es also, 365 vollständige Daten vom Format „Wochentag, Tag. Monat Jahr“ auszugeben:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Samstag,</span> <span class="pre">1.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
+<code class="docutils literal notranslate"><span class="pre">Sonntag,</span> <span class="pre">2.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
+<code class="docutils literal notranslate"><span class="pre">Montag,</span> <span class="pre">3.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br></p>
+<p>Als Ausgangspunkt stehen Dir ein dictionary mit allen Monaten und der jeweiligen Anzahl Tage als Schlüssel-Werte-Paare und ebenfalls eine Liste mit allen Wochentagen zur Verfügung. Wie Du über Listen iterierst, weißt Du ja bereits. Zum Iterieren über dictionaries kannst Du wie oben im Video die <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode verwenden (mehr dazu im nächsten Notebook), sie steht Dir ebenfalls bereits im Code zur Verfügung. Die Variablen <code class="docutils literal notranslate"><span class="pre">month</span></code> und <code class="docutils literal notranslate"><span class="pre">days</span></code> stehen dabei stellvertretend für den Schlüssel (Monatsnamen) und Wert (Anzahl Tage) des jeweiligen Schlüssel-Werte-Paars im dictionary. Verwende diese Variablen im Schleifenkörper, um auf den jeweiligen Schlüssel bzw. Wert zuzugreifen.</p>
+<p>Diese Übung ist durchaus komplex. Überlege Dir deshalb erst, in welche kleineren Schritte Du die Aufgabe zerlegen kannst und vergewissere Dich dann bei jedem (Zwischen-)Schritt, dass Dein Code das tut, was er soll (trial and error!).</p>
+<p>Letzte Bemerkung: <code class="docutils literal notranslate"><span class="pre">pass</span></code> steht als Platzhalter für Deinen Code da. Ein leerer Anweisungskörper erzeugt bei Python nämlich eine Fehlermeldung. Ersetze <code class="docutils literal notranslate"><span class="pre">pass</span></code> durch Deinen Code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">months</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Januar&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;Februar&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;März&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Mai&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;Juni&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Juli&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;September&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Oktober&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;November&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Dezember&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">}</span>
+<span class="n">weekdays</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Montag&quot;</span><span class="p">,</span> <span class="s2">&quot;Dienstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Mittwoch&quot;</span><span class="p">,</span> <span class="s2">&quot;Donnerstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Freitag&quot;</span><span class="p">,</span> <span class="s2">&quot;Samstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonntag&quot;</span><span class="p">]</span>
+
+
+<span class="n">j</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">month</span><span class="p">,</span> <span class="n">days</span> <span class="ow">in</span> <span class="n">months</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">days</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">weekdays</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="s2">&quot;, &quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;. &quot;</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Samstag, 1. Januar
+Sonntag, 2. Januar
+Montag, 3. Januar
+Dienstag, 4. Januar
+Mittwoch, 5. Januar
+Donnerstag, 6. Januar
+Freitag, 7. Januar
+Samstag, 8. Januar
+Sonntag, 9. Januar
+Montag, 10. Januar
+Dienstag, 11. Januar
+Mittwoch, 12. Januar
+Donnerstag, 13. Januar
+Freitag, 14. Januar
+Samstag, 15. Januar
+Sonntag, 16. Januar
+Montag, 17. Januar
+Dienstag, 18. Januar
+Mittwoch, 19. Januar
+Donnerstag, 20. Januar
+Freitag, 21. Januar
+Samstag, 22. Januar
+Sonntag, 23. Januar
+Montag, 24. Januar
+Dienstag, 25. Januar
+Mittwoch, 26. Januar
+Donnerstag, 27. Januar
+Freitag, 28. Januar
+Samstag, 29. Januar
+Sonntag, 30. Januar
+Montag, 31. Januar
+Dienstag, 1. Februar
+Mittwoch, 2. Februar
+Donnerstag, 3. Februar
+Freitag, 4. Februar
+Samstag, 5. Februar
+Sonntag, 6. Februar
+Montag, 7. Februar
+Dienstag, 8. Februar
+Mittwoch, 9. Februar
+Donnerstag, 10. Februar
+Freitag, 11. Februar
+Samstag, 12. Februar
+Sonntag, 13. Februar
+Montag, 14. Februar
+Dienstag, 15. Februar
+Mittwoch, 16. Februar
+Donnerstag, 17. Februar
+Freitag, 18. Februar
+Samstag, 19. Februar
+Sonntag, 20. Februar
+Montag, 21. Februar
+Dienstag, 22. Februar
+Mittwoch, 23. Februar
+Donnerstag, 24. Februar
+Freitag, 25. Februar
+Samstag, 26. Februar
+Sonntag, 27. Februar
+Montag, 28. Februar
+Dienstag, 1. März
+Mittwoch, 2. März
+Donnerstag, 3. März
+Freitag, 4. März
+Samstag, 5. März
+Sonntag, 6. März
+Montag, 7. März
+Dienstag, 8. März
+Mittwoch, 9. März
+Donnerstag, 10. März
+Freitag, 11. März
+Samstag, 12. März
+Sonntag, 13. März
+Montag, 14. März
+Dienstag, 15. März
+Mittwoch, 16. März
+Donnerstag, 17. März
+Freitag, 18. März
+Samstag, 19. März
+Sonntag, 20. März
+Montag, 21. März
+Dienstag, 22. März
+Mittwoch, 23. März
+Donnerstag, 24. März
+Freitag, 25. März
+Samstag, 26. März
+Sonntag, 27. März
+Montag, 28. März
+Dienstag, 29. März
+Mittwoch, 30. März
+Donnerstag, 31. März
+Freitag, 1. April
+Samstag, 2. April
+Sonntag, 3. April
+Montag, 4. April
+Dienstag, 5. April
+Mittwoch, 6. April
+Donnerstag, 7. April
+Freitag, 8. April
+Samstag, 9. April
+Sonntag, 10. April
+Montag, 11. April
+Dienstag, 12. April
+Mittwoch, 13. April
+Donnerstag, 14. April
+Freitag, 15. April
+Samstag, 16. April
+Sonntag, 17. April
+Montag, 18. April
+Dienstag, 19. April
+Mittwoch, 20. April
+Donnerstag, 21. April
+Freitag, 22. April
+Samstag, 23. April
+Sonntag, 24. April
+Montag, 25. April
+Dienstag, 26. April
+Mittwoch, 27. April
+Donnerstag, 28. April
+Freitag, 29. April
+Samstag, 30. April
+Sonntag, 1. Mai
+Montag, 2. Mai
+Dienstag, 3. Mai
+Mittwoch, 4. Mai
+Donnerstag, 5. Mai
+Freitag, 6. Mai
+Samstag, 7. Mai
+Sonntag, 8. Mai
+Montag, 9. Mai
+Dienstag, 10. Mai
+Mittwoch, 11. Mai
+Donnerstag, 12. Mai
+Freitag, 13. Mai
+Samstag, 14. Mai
+Sonntag, 15. Mai
+Montag, 16. Mai
+Dienstag, 17. Mai
+Mittwoch, 18. Mai
+Donnerstag, 19. Mai
+Freitag, 20. Mai
+Samstag, 21. Mai
+Sonntag, 22. Mai
+Montag, 23. Mai
+Dienstag, 24. Mai
+Mittwoch, 25. Mai
+Donnerstag, 26. Mai
+Freitag, 27. Mai
+Samstag, 28. Mai
+Sonntag, 29. Mai
+Montag, 30. Mai
+Dienstag, 31. Mai
+Mittwoch, 1. Juni
+Donnerstag, 2. Juni
+Freitag, 3. Juni
+Samstag, 4. Juni
+Sonntag, 5. Juni
+Montag, 6. Juni
+Dienstag, 7. Juni
+Mittwoch, 8. Juni
+Donnerstag, 9. Juni
+Freitag, 10. Juni
+Samstag, 11. Juni
+Sonntag, 12. Juni
+Montag, 13. Juni
+Dienstag, 14. Juni
+Mittwoch, 15. Juni
+Donnerstag, 16. Juni
+Freitag, 17. Juni
+Samstag, 18. Juni
+Sonntag, 19. Juni
+Montag, 20. Juni
+Dienstag, 21. Juni
+Mittwoch, 22. Juni
+Donnerstag, 23. Juni
+Freitag, 24. Juni
+Samstag, 25. Juni
+Sonntag, 26. Juni
+Montag, 27. Juni
+Dienstag, 28. Juni
+Mittwoch, 29. Juni
+Donnerstag, 30. Juni
+Freitag, 1. Juli
+Samstag, 2. Juli
+Sonntag, 3. Juli
+Montag, 4. Juli
+Dienstag, 5. Juli
+Mittwoch, 6. Juli
+Donnerstag, 7. Juli
+Freitag, 8. Juli
+Samstag, 9. Juli
+Sonntag, 10. Juli
+Montag, 11. Juli
+Dienstag, 12. Juli
+Mittwoch, 13. Juli
+Donnerstag, 14. Juli
+Freitag, 15. Juli
+Samstag, 16. Juli
+Sonntag, 17. Juli
+Montag, 18. Juli
+Dienstag, 19. Juli
+Mittwoch, 20. Juli
+Donnerstag, 21. Juli
+Freitag, 22. Juli
+Samstag, 23. Juli
+Sonntag, 24. Juli
+Montag, 25. Juli
+Dienstag, 26. Juli
+Mittwoch, 27. Juli
+Donnerstag, 28. Juli
+Freitag, 29. Juli
+Samstag, 30. Juli
+Sonntag, 31. Juli
+Montag, 1. August
+Dienstag, 2. August
+Mittwoch, 3. August
+Donnerstag, 4. August
+Freitag, 5. August
+Samstag, 6. August
+Sonntag, 7. August
+Montag, 8. August
+Dienstag, 9. August
+Mittwoch, 10. August
+Donnerstag, 11. August
+Freitag, 12. August
+Samstag, 13. August
+Sonntag, 14. August
+Montag, 15. August
+Dienstag, 16. August
+Mittwoch, 17. August
+Donnerstag, 18. August
+Freitag, 19. August
+Samstag, 20. August
+Sonntag, 21. August
+Montag, 22. August
+Dienstag, 23. August
+Mittwoch, 24. August
+Donnerstag, 25. August
+Freitag, 26. August
+Samstag, 27. August
+Sonntag, 28. August
+Montag, 29. August
+Dienstag, 30. August
+Mittwoch, 31. August
+Donnerstag, 1. September
+Freitag, 2. September
+Samstag, 3. September
+Sonntag, 4. September
+Montag, 5. September
+Dienstag, 6. September
+Mittwoch, 7. September
+Donnerstag, 8. September
+Freitag, 9. September
+Samstag, 10. September
+Sonntag, 11. September
+Montag, 12. September
+Dienstag, 13. September
+Mittwoch, 14. September
+Donnerstag, 15. September
+Freitag, 16. September
+Samstag, 17. September
+Sonntag, 18. September
+Montag, 19. September
+Dienstag, 20. September
+Mittwoch, 21. September
+Donnerstag, 22. September
+Freitag, 23. September
+Samstag, 24. September
+Sonntag, 25. September
+Montag, 26. September
+Dienstag, 27. September
+Mittwoch, 28. September
+Donnerstag, 29. September
+Freitag, 30. September
+Samstag, 1. Oktober
+Sonntag, 2. Oktober
+Montag, 3. Oktober
+Dienstag, 4. Oktober
+Mittwoch, 5. Oktober
+Donnerstag, 6. Oktober
+Freitag, 7. Oktober
+Samstag, 8. Oktober
+Sonntag, 9. Oktober
+Montag, 10. Oktober
+Dienstag, 11. Oktober
+Mittwoch, 12. Oktober
+Donnerstag, 13. Oktober
+Freitag, 14. Oktober
+Samstag, 15. Oktober
+Sonntag, 16. Oktober
+Montag, 17. Oktober
+Dienstag, 18. Oktober
+Mittwoch, 19. Oktober
+Donnerstag, 20. Oktober
+Freitag, 21. Oktober
+Samstag, 22. Oktober
+Sonntag, 23. Oktober
+Montag, 24. Oktober
+Dienstag, 25. Oktober
+Mittwoch, 26. Oktober
+Donnerstag, 27. Oktober
+Freitag, 28. Oktober
+Samstag, 29. Oktober
+Sonntag, 30. Oktober
+Montag, 31. Oktober
+Dienstag, 1. November
+Mittwoch, 2. November
+Donnerstag, 3. November
+Freitag, 4. November
+Samstag, 5. November
+Sonntag, 6. November
+Montag, 7. November
+Dienstag, 8. November
+Mittwoch, 9. November
+Donnerstag, 10. November
+Freitag, 11. November
+Samstag, 12. November
+Sonntag, 13. November
+Montag, 14. November
+Dienstag, 15. November
+Mittwoch, 16. November
+Donnerstag, 17. November
+Freitag, 18. November
+Samstag, 19. November
+Sonntag, 20. November
+Montag, 21. November
+Dienstag, 22. November
+Mittwoch, 23. November
+Donnerstag, 24. November
+Freitag, 25. November
+Samstag, 26. November
+Sonntag, 27. November
+Montag, 28. November
+Dienstag, 29. November
+Mittwoch, 30. November
+Donnerstag, 1. Dezember
+Freitag, 2. Dezember
+Samstag, 3. Dezember
+Sonntag, 4. Dezember
+Montag, 5. Dezember
+Dienstag, 6. Dezember
+Mittwoch, 7. Dezember
+Donnerstag, 8. Dezember
+Freitag, 9. Dezember
+Samstag, 10. Dezember
+Sonntag, 11. Dezember
+Montag, 12. Dezember
+Dienstag, 13. Dezember
+Mittwoch, 14. Dezember
+Donnerstag, 15. Dezember
+Freitag, 16. Dezember
+Samstag, 17. Dezember
+Sonntag, 18. Dezember
+Montag, 19. Dezember
+Dienstag, 20. Dezember
+Mittwoch, 21. Dezember
+Donnerstag, 22. Dezember
+Freitag, 23. Dezember
+Samstag, 24. Dezember
+Sonntag, 25. Dezember
+Montag, 26. Dezember
+Dienstag, 27. Dezember
+Mittwoch, 28. Dezember
+Donnerstag, 29. Dezember
+Freitag, 30. Dezember
+Samstag, 31. Dezember
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_13917</span><span class="o">/</span><span class="mf">3684105398.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>             <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> 
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;count&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a...b...c
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks/Loesungen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2_Datentypen_Loesungen.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title">Datentypen (Lösungen)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="4_Funktionen_und_Methoden_Loesungen.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title">Funktionen und Methoden (Lösungen)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
