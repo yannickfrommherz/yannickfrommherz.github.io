@@ -471,7 +471,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buzzwords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sozial&quot;</span><span class="p">,</span> <span class="s2">&quot;Klima&quot;</span><span class="p">,</span> <span class="s2">&quot;Europa&quot;</span><span class="p">,</span> <span class="s2">&quot;Verkehr&quot;</span><span class="p">,</span> <span class="s2">&quot;Landwirtschaft&quot;</span><span class="p">,</span> <span class="s2">&quot;Umwelt&quot;</span><span class="p">,</span> <span class="s2">&quot;Corona&quot;</span><span class="p">]</span>
 
-<span class="n">count18</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">count18</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">count21</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">buzzwords</span><span class="p">:</span>
@@ -495,40 +495,16 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>word:  Sozial
-2018:  71
-2021:  41
-trend: 📉 
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2145</span><span class="o">/</span><span class="mf">3029703247.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">buzzwords</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">count18</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">kv18</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">count21</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
 
-word:  Klima
-2018:  65
-2021:  157
-trend: 📈 
-
-word:  Europa
-2018:  98
-2021:  53
-trend: 📉 
-
-word:  Verkehr
-2018:  43
-2021:  24
-trend: 📉 
-
-word:  Landwirtschaft
-2018:  23
-2021:  12
-trend: 📉 
-
-word:  Umwelt
-2018:  33
-2021:  28
-trend: 📉 
-
-word:  Corona
-2018:  0
-2021:  18
-trend: 📈 
+<span class="ne">TypeError</span>: &#39;str&#39; object does not support item assignment
 </pre></div>
 </div>
 </div>
@@ -1067,10 +1043,10 @@ dazu kommt 137 oft vor.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>90
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>103
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>112.357
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>112.981
 </pre></div>
 </div>
 </div>

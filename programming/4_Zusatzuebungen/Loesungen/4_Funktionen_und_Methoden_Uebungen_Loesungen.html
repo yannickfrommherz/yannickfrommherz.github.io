@@ -460,7 +460,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
@@ -469,7 +469,7 @@ document.write(`
 <li><p>Warum <code class="docutils literal notranslate"><span class="pre">reverse.count(&quot;e&quot;)</span></code> unterschiedliche Werte zurückgibt: Die Werte variieren, da wir nur das kleingeschriebene „e“ zählen. Je nach dem, welche Buchstaben durch <code class="docutils literal notranslate"><span class="pre">random.shuffle(a_list)</span></code> und <code class="docutils literal notranslate"><span class="pre">&quot;&quot;.join(a_list)</span></code> am Anfang eines „Wortes“ stehen, werden jeweils andere Buchstaben durch <code class="docutils literal notranslate"><span class="pre">shuffled_string.title()</span></code> großgeschrieben. Fallen ein oder mehrere „e“ darunter, werden diese dann bei <code class="docutils literal notranslate"><span class="pre">reverse.count(&quot;e&quot;)</span></code> nicht mitgezählt.</p></li>
 </ul>
 <ol class="arabic" start="2">
-<li><p>Finde alle Klammerbemerkungen im Koalitionsvertrag von 2021 und speichere sie ohne die Klammern auf einer Liste. Die Länge der Liste sollte 104 betragen. Wie viele einzigartige Klammerbemerkungen kommen im Text vor?</p>
+<li><p>Finde alle in Klammern stehenden Wörter im Koalitionsvertrag von 2021 (z.B. „(SPD)“) und speichere sie ohne die Klammern auf einer Liste. Mehrere Wörter bzw. Sätze in Klammern kannst Du ignorieren. Die Länge der Liste sollte 104 betragen. Wie viele einzigartige Wörter in Klammern kommen im Text vor?</p>
 <p>📌 Herausforderung: Formuliere den Code als List Comprehension in einer einzigen Zeile.</p>
 </li>
 </ol>
@@ -665,40 +665,40 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verschlüsselungscode:
-a r
-b l
-c m
-d b
-e k
-f v
-g d
-h ü
-i i
-j ö
-k w
-l p
-m ß
-n u
-o n
-p t
-q ä
-r g
+a o
+b d
+c r
+d y
+e q
+f c
+g p
+h f
+i a
+j g
+k i
+l ü
+m k
+n ß
+o s
+p u
+q e
+r h
 s j
-t z
-u a
-v o
+t ä
+u z
+v v
 w x
-x c
-y y
-z e
-ä s
-ö f
-ü q
-ß h
+x ö
+y n
+z w
+ä t
+ö b
+ü l
+ß m
 
-Verschlüsselte Nachricht: bkg$dnpblrggku$ijz$iu$bkg$zikvwqüpzgaük$iu$kiukß$iwkr$vgijmüürpzklkazkp$ßiz$lgnwwnpigfjmüku$okgjzkmwz$
+Verschlüsselte Nachricht: yqh$psüydohhqß$ajä$aß$yqh$äaqcilfüähzfq$aß$qaßqk$aiqo$chajrffoüäqdqzäqü$kaä$dhsiisüahbjrfqß$vqhjäqriä$
 
-Verschlüsselte Nachricht mit Ablenkungszeichen: b§kg$dnp*blrg*gk&#39;u$ijz$iu$]bk|]g$zikvwq¢üpzgaü“k$=iu{$ki(ukß$iwk≠r$vgijm&#39;¡üürpzk|lkazk)p$ßiz{$lgnwwnpigfjm(üku$}okgjzkmwz$
+Verschlüsselte Nachricht mit Ablenkungszeichen: yq/h$p?süydoh&amp;hqß$[a|jä$a&#39;ß$*yqh$äaqci&#39;)lfüähzfq$[aß$¡q]aß&amp;qk$aiqo$[¡ch§ajr≠ffoü¡äq“dqzä*qü$kaä$dhsiisüahbjrfqß$vqhjäqriä$
 </pre></div>
 </div>
 </div>
@@ -879,12 +879,12 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: b§kg$dnp*blrg*gk&#39;u$ijz$iu$
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2357</span><span class="o">/</span><span class="mf">2727000230.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2376</span><span class="o">/</span><span class="mf">2727000230.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">47</span> 
 <span class="ne">---&gt; </span><span class="mi">48</span> <span class="n">ngram_freqs</span><span class="p">(</span><span class="n">kv21</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 
-<span class="nn">/tmp/ipykernel_2357/2727000230.py</span> in <span class="ni">ngram_freqs</span><span class="nt">(text, n)</span>
+<span class="nn">/tmp/ipykernel_2376/2727000230.py</span> in <span class="ni">ngram_freqs</span><span class="nt">(text, n)</span>
 <span class="g g-Whitespace">     </span><span class="mi">38</span> 
 <span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">40</span>         <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">ngrams</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
