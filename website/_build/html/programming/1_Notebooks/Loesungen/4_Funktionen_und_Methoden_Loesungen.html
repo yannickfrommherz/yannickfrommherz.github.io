@@ -1015,7 +1015,7 @@ dazu kommt 137 oft vor.
 <p>✏️ <strong>Lösung 13:</strong> Importiere die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls. <code class="docutils literal notranslate"><span class="pre">sample</span></code> generiert eine zufällige Auswahl von Elementen, z.B. zehn zufällige Elemente, aus einer Grundgesamtheit mit allen Elementen. Die Funktion erwartet als erstes Argument die Grundgesamtheit in Form einer Liste und als zweites eine Ganzzahl, mit der die Anzahl der zufällig auszuwählenden Elemente definiert wird. Die Grundgesamtheit in dieser Übung ist das<code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> von der Übung von oben bzw. aus dem letzten Notebook. Die Anzahl der zufällig auszuwählenden Elemente beträgt in diesem Fall vier. Wir wollen also zufällige Spielzusammensetzungen mit jeweils vier Teilnehmer:innen erhalten.</p>
 <p>Deine Aufgabe besteht nun darin, so viele zufällige Spielzusammensetzungen zu genererieren, bis eine Zusammensetzung doppelt vorkommt. Verwende dazu eine passende Kontrollstruktur, die Deinen Code so oft wiederholt, bis die Bedingung, dass eine zufällige Zusammensetzung bereits einmal zuvor generiert wurde, zutrifft. In diesem Fall soll die Iteration abbrechen und die Anzahl der notwendigen Wiederholungen bis zur identischen Zusammensetzung ausgegeben werden.</p>
 <p>Beachte, dass es für diese Anzahl der notwendigen Wiederholungen keine richtige Antwort gibt, da es in der Natur der zufälligen Auswahl liegt, dass es manchmal etwas mehr und manchmal etwas weniger Wiederholungen braucht.</p>
-<p>Fortgeschritten: Wenn Du Dich herausfordern möchtest, kannst Du Deinen gesamten Code in eine (andere) Kontrollstruktur verpacken, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl bis zwei Zusammensetzungen doppelt vorkommen auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code class="docutils literal notranslate"><span class="pre">sum</span></code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.</p>
+<p>📌 Herausforderung: Verpacke Deinen gesamten Code in eine (andere) Kontrollstruktur, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl bis zwei Zusammensetzungen doppelt vorkommen auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code class="docutils literal notranslate"><span class="pre">sum</span></code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1040,8 +1040,7 @@ dazu kommt 137 oft vor.
     
     <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
     
-<span class="c1">#Fortgeschritten</span>
-
+<span class="c1">#Herausforderung</span>
 <span class="n">all_counts</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
@@ -1068,10 +1067,10 @@ dazu kommt 137 oft vor.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>157
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>105
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>112.064
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>114.21
 </pre></div>
 </div>
 </div>
