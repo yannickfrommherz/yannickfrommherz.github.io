@@ -469,7 +469,7 @@ document.write(`
 <li><p>Warum <code class="docutils literal notranslate"><span class="pre">reverse.count(&quot;e&quot;)</span></code> unterschiedliche Werte zurückgibt: Die Werte variieren, da wir nur das kleingeschriebene „e“ zählen. Je nach dem, welche Buchstaben durch <code class="docutils literal notranslate"><span class="pre">random.shuffle(a_list)</span></code> und <code class="docutils literal notranslate"><span class="pre">&quot;&quot;.join(a_list)</span></code> am Anfang eines „Wortes“ stehen, werden jeweils andere Buchstaben durch <code class="docutils literal notranslate"><span class="pre">shuffled_string.title()</span></code> großgeschrieben. Fallen ein oder mehrere „e“ darunter, werden diese dann bei <code class="docutils literal notranslate"><span class="pre">reverse.count(&quot;e&quot;)</span></code> nicht mitgezählt.</p></li>
 </ul>
 <ol class="arabic" start="2">
-<li><p>Finde alle Klammerbemerkungen im Koalitionsvertrag von 2021 und speichere sie ohne die Klammern auf einer Liste. Die Länge der Liste sollte 104 betragen. Wie viele einzigartige Klammerbemerkungen kommen im Text vor?</p>
+<li><p>Finde alle in Klammern stehenden Wörter im Koalitionsvertrag von 2021 (z.B. „(SPD)“) und speichere sie ohne die Klammern auf einer Liste. Mehrere Wörter bzw. Sätze in Klammern kannst Du ignorieren. Die Länge der Liste sollte 104 betragen. Wie viele einzigartige Wörter in Klammern kommen im Text vor?</p>
 <p>📌 Herausforderung: Formuliere den Code als List Comprehension in einer einzigen Zeile.</p>
 </li>
 </ol>
@@ -665,40 +665,40 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verschlüsselungscode:
-a y
-b l
-c ß
-d s
-e p
-f z
-g ö
-h a
-i r
-j ä
-k m
-l j
-m x
-n t
-o h
-p u
-q v
-r k
-s ü
-t n
-u d
-v i
-w f
-x o
-y g
-z c
-ä e
-ö q
-ü w
-ß b
+a b
+b t
+c y
+d j
+e ß
+f r
+g d
+h i
+i h
+j n
+k l
+l u
+m ö
+n p
+o k
+p v
+q e
+r ä
+s m
+t z
+u o
+v a
+w w
+x c
+y ü
+z s
+ä g
+ö f
+ü x
+ß q
 
-Verschlüsselte Nachricht: spk$öhjslykkpt$rün$rt$spk$nrpzmwajnkdap$rt$prtpx$rmpy$zkrüßaayjnplpdnpj$xrn$lkhmmhjrkqüßapt$ipkünpßmn$
+Verschlüsselte Nachricht: jßä$dkujtbääßp$hmz$hp$jßä$zhßrlxiuzäoiß$hp$ßhpßö$hlßb$rähmyiibuzßtßozßu$öhz$täkllkuhäfmyißp$aßämzßylz$
 
-Verschlüsselte Nachricht mit Ablenkungszeichen: sp&#39;k$≠öhj]sl/y¶kk§(pt|$rün$rt$s)pk$nrpzm[wa[jnkdap$rt$pr/tpx$&#39;rmpy${zkrüß¡)¢aayjnplpdnpj$xrn$=lk[≠hmmhjrkqüßapt$ipkünpßmn$
+Verschlüsselte Nachricht mit Ablenkungszeichen: ]jßä$dk§ujtb]&#39;ääßp$)hmz$hp$jßä$/zhßrlxiu/zä¢[oi=ß$hp$ßh¡p{ßö$hlßb$rähmyiibuzß?tßozß(}u$ö≠hz$[tä=kl¢lkuhäfmyißp§$aßämzßylz$
 </pre></div>
 </div>
 </div>
@@ -881,12 +881,12 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: sp&#39;k$≠öhj]sl/y¶kk§(pt|
  (&#39;gemeinsam mit den ländern&#39;, 20),
  (&#39;setzen uns für eine&#39;, 14),
  (&#39;auf den weg bringen&#39;, 12),
- (&#39;uns dafür ein dass&#39;, 8),
- (&#39;setzen wir uns für&#39;, 8),
- (&#39;ausbau der erneuerbaren energien&#39;, 8),
  (&#39;setzen uns für ein&#39;, 8),
- (&#39;90 / die grünen&#39;, 7),
- (&#39;im dialog mit den&#39;, 7)]
+ (&#39;uns dafür ein dass&#39;, 8),
+ (&#39;ausbau der erneuerbaren energien&#39;, 8),
+ (&#39;setzen wir uns für&#39;, 8),
+ (&#39;setzen uns für die&#39;, 7),
+ (&#39;bündnis 90 / die&#39;, 7)]
 </pre></div>
 </div>
 </div>
