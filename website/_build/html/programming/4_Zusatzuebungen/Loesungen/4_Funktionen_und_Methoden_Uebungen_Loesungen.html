@@ -460,7 +460,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
 </pre></div>
 </div>
 </div>
@@ -479,13 +479,18 @@ document.write(`
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
-<span class="n">words</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1">#Tokenisieren von kv21</span>
 
-<span class="n">in_parenthesis</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">in_parenthesis</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die wir Wörter in Klammern anhängen</span>
+<span class="c1">#Iteration über die einzelnen Wörter</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-    <span class="c1">#anstatt Indexing könnten wir auch die Methoden startswith und endswith benutzen</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Überprüfen, ob erstes und letztes Zeichen des jeweiligen Wortes Klammern sind: </span>
+<span class="sd">    Wenn ja, Wort von Klammern (mittels strip) befreit in_parenthesis anhängen.</span>
+<span class="sd">    Anstatt Indexing könnten wir auch die Methoden startswith und endswith benutzen (s.u.)&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;(&quot;</span> <span class="ow">and</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;)&quot;</span><span class="p">:</span>
         <span class="n">in_parenthesis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;()&quot;</span><span class="p">))</span>
+
+<span class="c1">#Ausgabe der Länge der Liste bzw. der Anzahl an einzigartigen Elementen auf der Liste</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">in_parenthesis</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">in_parenthesis</span><span class="p">)))</span>
 
 <span class="c1">#Herausforderung</span>
@@ -510,10 +515,12 @@ document.write(`
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
-<span class="n">words</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="n">words</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1">#alternativ: words = words[::-1]</span>
-<span class="n">reversed_kv</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1">#Tokenisieren von kv21</span>
+<span class="n">words</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1">#Umkehren der Reihenfolge der Wörter auf words; alternativ: words = words[::-1]</span>
+<span class="n">reversed_kv</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="c1">#Wiederzusammenfügen der Wörter zu einem einzigen string, konkateniert mit Leerschlägen dazwischen</span>
 
+<span class="sd">&quot;&quot;&quot;Ausgabe eines bestimmten Abschnitts des strings mithilfe von Slicing, wobei für den end-Parameter den von der find-Methode zurückgegebene Index,</span>
+<span class="sd">erhöht um die Länge des Worts &quot;Vorschlagsrecht&quot;, eingesetzt wird&quot;&quot;&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">reversed_kv</span><span class="p">[:</span><span class="n">reversed_kv</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Vorschlagsrecht&quot;</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Vorschlagsgrecht&quot;</span><span class="p">)])</span>
 </pre></div>
 </div>
@@ -533,7 +540,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ubiquitous_u</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Um uns ununterbrochene Unterstützung und unvergessliche Unterhaltung</span>
 <span class="s2">unterzujubeln, unternehmen unsere Unternehmungen unentwegt ungewöhnliche und unkonventionelle Unterfangen.&quot;&quot;&quot;</span>
-<span class="n">ubiquitous_u</span> <span class="o">=</span> <span class="n">ubiquitous_u</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1">#strings sind unveränderlich, wir müssen das Objekt also mit dem Resultat der Methode überschreiben</span>
+
+<span class="sd">&quot;&quot;&quot;strings sind unveränderlich, wir müssen das Objekt also mit dem Resultat der Methode überschreiben </span>
+<span class="sd">(d.h. nicht die Methode upper war falsch (denn wir suchen ja unten nach einem großgeschriebenen &quot;U&quot;), </span>
+<span class="sd">sondern die fehlende Zuweisung des Resultats der Methode&quot;&quot;&quot;</span>
+<span class="n">ubiquitous_u</span> <span class="o">=</span> <span class="n">ubiquitous_u</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> 
 <span class="nb">print</span><span class="p">(</span><span class="n">ubiquitous_u</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;U&quot;</span><span class="p">))</span> <span class="c1">#korrekt sind stattdessen 22 Vorkommen</span>
 </pre></div>
 </div>
@@ -555,8 +566,21 @@ document.write(`
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
-<span class="n">sentences</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">))</span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="c1">#Aufsplitten von kv21 in Sätze</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">))</span> <span class="c1">#Ausgabe der Anzahl an Sätze (d.h. Länge der Liste sentences)</span>
+
+<span class="n">sentences_long</span><span class="p">,</span> <span class="n">sentences_short</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="c1">#Initialisieren zweier leerer Zählervariablen</span>
+
+<span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1">#Tokenisieren des jeweiligen Satzes</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Überprüfen, ob die Anzahl Wörter des jeweiligen Satzes zehn oder höher ist oder nicht; abhängig davon, </span>
+<span class="sd">    jeweilige Zählervariable um 1 erhöhen&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">sentences_long</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sentences_short</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">sentences_long</span><span class="p">,</span> <span class="n">sentences_short</span><span class="p">)</span>
 
 <span class="c1">#Herausforderung</span>
 <span class="n">sentences_long</span> <span class="o">=</span> <span class="p">[</span><span class="n">sentence</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="o">&gt;=</span> <span class="mi">10</span><span class="p">]</span>
@@ -568,6 +592,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3394
+2543 851
 2543 851
 </pre></div>
 </div>
@@ -585,15 +610,18 @@ document.write(`
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
-<span class="n">kv21</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="n">unique_letters</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">kv21</span><span class="p">)</span>
+<span class="n">kv21</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1">#sämtliche Zeichen in kv21 kleinschreiben und Resultat der Methode kv21 zuweisen</span>
+<span class="n">unique_letters</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">kv21</span><span class="p">)</span> <span class="c1">#Set an einzigartigen Zeichen schaffen</span>
 
-<span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#Initialisieren eines leeren dictionaries, dem wir nach und nach Buchstaben-Vorkommen-Paare anhängen</span>
+<span class="c1">#Iteration über die einzelnen Zeichen</span>
 <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">unique_letters</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Schaffen eines neuen Schlüssel-Werte-Paars in freq_dict mit dem jeweiligen Zeichens als Schlüssel </span>
+<span class="sd">    und dessen Vorkommen (ermittelt über count) als Wert&quot;&quot;&quot;</span>
     <span class="n">freq_dict</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
 
-<span class="n">freqs_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">freqs_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">freqs_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#Absteigendes Sortieren des freq_dicts nach Werten </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">freqs_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#Ausgabe des ersten Elements auf freqs_sorted</span>
 </pre></div>
 </div>
 </div>
@@ -625,27 +653,34 @@ document.write(`
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">encoding</span><span class="p">)):</span>
     <span class="n">decription_dict</span><span class="p">[</span><span class="n">encoding</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">decoding</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
-<span class="n">secret_message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#wir initialisieren einen leeren string...</span>
+<span class="n">secret_message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#wir initialisieren einen leeren string für die verschlüsselte Nachricht...</span>
 
 <span class="c1">#und iterieren über die Buchstaben der unverschlüsselten Nachricht, um stattdessen jeweils sein verschlüsseltes Pendant an secret_message anzuhängen</span>
 <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">message</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;anstatt einer if-else-Konstruktion (s.u.) könnten wir etwas eleganter die get-Methode für dictionaries verwenden</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Überprüfen, ob letter in decription_dict: Wenn ja, Anhängen des verschlüsselten Zeichens an secret_message;</span>
+<span class="sd">    wenn nein, Anhängen eines beliebigen anderen Zeichens (in unserem Fall für Leerzeichen). </span>
+<span class="sd">    </span>
+<span class="sd">    Anstatt einer if-else-Konstruktion (s.u.) könnten wir etwas eleganter die get-Methode für dictionaries verwenden</span>
 <span class="sd">    (also: decription_dict.get(letter, &quot;$&quot;)), die den Wert zum jeweiligen Schlüssel (letter) zurückgibt, falls dieser </span>
 <span class="sd">    vorhanden ist; wenn nicht, wird das als zweiter Parameter spezifizierte Zeichen (hier &quot;$&quot;) zurückgegeben.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">decription_dict</span><span class="p">:</span> 
         <span class="n">secret_letter</span> <span class="o">=</span> <span class="n">decription_dict</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">secret_letter</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="c1">#oder ein anderes Zeichen, um Leerzeichen zu verschlüsseln</span>
+        <span class="n">secret_letter</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="c1">#oder ein anderes Zeichen, um Zeichen, die nicht in decription_dict sind (hier: Leerschlag), zu verschlüsseln</span>
     <span class="n">secret_message</span> <span class="o">+=</span> <span class="n">secret_letter</span>
 
+<span class="c1">#Ausgabe des Verschlüsselungscodes sowie der verschlüsselten Nachricht</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Verschlüsselungscode:&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">decription_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Verschlüsselte Nachricht:&quot;</span><span class="p">,</span> <span class="n">secret_message</span><span class="p">)</span>
 
 <span class="c1">#Herausforderung</span>
-<span class="n">distractor_signs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;?=)(/&amp;%§*&#39;&#39;¡“¶¢[]|{≠}&quot;</span><span class="p">)</span> <span class="c1">#das Zeichen für den Leerschlag (s.o) darf nicht dabei sein!</span>
-<span class="n">random_indices</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)),</span> <span class="mi">20</span><span class="p">)</span> <span class="c1">#hier generieren wir zufällige Indizes, an denen wir unten ein zufälliges Zeichen einfügen</span>
+
+<span class="c1">#Schaffen einer Liste mit beliebigen Ablenkungszeichen, wobei das Zeichen für den Leerschlag (s.o) darf nicht dabei sein!</span>
+<span class="n">distractor_signs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;?=)(/&amp;%§*&#39;&#39;¡“¶¢[]|{≠}&quot;</span><span class="p">)</span> 
+<span class="c1">#hier generieren wir zufällige Indizes, an denen wir unten ein zufälliges Zeichen einfügen</span>
+<span class="n">random_indices</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)),</span> <span class="mi">20</span><span class="p">)</span> 
 
 <span class="c1">#Das Einfügen von Elementen bei einem bestimmten Index geht am besten auf einer Liste, daher Casting:</span>
 <span class="n">secret_message_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">secret_message</span><span class="p">)</span>
@@ -653,7 +688,7 @@ document.write(`
 <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">random_indices</span><span class="p">:</span>
     <span class="c1">#bestimmen jeweils ein zufälliges Ablenkungszeichen</span>
     <span class="n">random_distractor</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">distractor_signs</span><span class="p">)</span>
-    <span class="c1">#und fügen diesen beim zufälligen Index ein</span>
+    <span class="c1">#und fügen dieses beim zufälligen Index ein</span>
     <span class="n">secret_message_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">random_distractor</span><span class="p">)</span>
 
 <span class="c1">#abschließend konvertieren wir die Liste wieder in einen string</span>
@@ -665,40 +700,40 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verschlüsselungscode:
-a t
-b p
-c ö
-d z
-e g
-f u
-g o
-h s
-i e
-j m
-k x
-l j
-m i
-n y
-o k
-p l
-q h
-r v
+a d
+b a
+c t
+d e
+e l
+f b
+g y
+h j
+i n
+j v
+k o
+l f
+m s
+n c
+o ä
+p u
+q ö
+r m
 s ü
-t q
-u ß
-v d
-w c
-x r
-y ä
-z b
-ä a
-ö n
-ü f
-ß w
+t k
+u x
+v h
+w q
+x ß
+y z
+z w
+ä i
+ö p
+ü r
+ß g
 
-Verschlüsselte Nachricht: zgv$okjzptvvgy$eüq$ey$zgv$qeguxfsjqvßsg$ey$geygi$exgt$uveüösstjqgpgßqgj$ieq$pvkxxkjevnüösgy$dgvüqgöxq$
+Verschlüsselte Nachricht: elm$yäfeadmmlc$nük$nc$elm$knlborjfkmxjl$nc$lncls$nold$bmnütjjdfklalxklf$snk$amäooäfnmpütjlc$hlmükltok$
 
-Verschlüsselte Nachricht mit Ablenkungszeichen: zgv&amp;$ok≠jzptvv&#39;]gy$eü}{q$ey$zgv&#39;$qegu{xfsjqvß}sg$ey[$geygi$exgt$uveüösstj(qgpgßqgj$ie}{q$“pv=kxx|kjevnüösg]y$&#39;d|g¶vüqgöxq$
+Verschlüsselte Nachricht mit Ablenkungszeichen: elm$y¡äfe=admmlc$nük$nc$el“{m$knlb{orjfkmxjl$nc$lnc%ls$no≠ld)$b[?m≠n*ü?tjjdf%&#39;klalxkl]f$snk$a}mä?oo&amp;äfnmpü)tjlc$hlmükltok$
 </pre></div>
 </div>
 </div>
@@ -722,22 +757,27 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: zgv&amp;$ok≠jzptvv&#39;]gy$e�
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
-<span class="n">first_100_sentences_list</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
-<span class="n">first_100_sentences</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">first_100_sentences_list</span><span class="p">)</span>
-<span class="n">first_100_sentences_words</span> <span class="o">=</span> <span class="n">first_100_sentences</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">first_100_sentences_list</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span> <span class="c1">#Aufsplitten von kv21 in Sätze und Zugriff auf die ersten 100 mittels Slicing</span>
+<span class="n">first_100_sentences</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">first_100_sentences_list</span><span class="p">)</span> <span class="c1">#Wiederzusammenfügen zu einem string</span>
+<span class="n">first_100_sentences_words</span> <span class="o">=</span> <span class="n">first_100_sentences</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1">#Tokenisieren des strings</span>
 
+<span class="c1">#Initialisieren einer leeren Liste, an die wir Trigramme anhängen, sowie Definieren von n = 3</span>
 <span class="n">trigrams</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
 
+<span class="c1">#Mithilfe von range iterieren wir über first_100_sentences_words (wobei wir &#39;i&#39; unten als Indizes zum Slicen der n-gramme benutzen, s.u.)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">first_100_sentences_words</span><span class="p">)</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mittels Slicing schneiden wir uns eine neue Liste von der Länge n aus first_100_sentences_words heraus </span>
+<span class="sd">    und rücken bei jeder Iteration den Start- und Endindex für das Slicing um eine Position vor. </span>
+<span class="sd">    Die neue Liste fügen wir jeweils mit join zu einem string zusammen und hängen diesen als n-gram trigrams an.&quot;&quot;&quot;</span>
     <span class="n">trigrams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">first_100_sentences_words</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">trigrams</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trigrams</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span> <span class="c1">#Ausgabe der ersten zehn Trigramme</span>
 
-<span class="c1">#Herausforderung</span>
+<span class="c1">#Herausforderung: selbiger Code als List Comprehension</span>
 <span class="n">trigrams</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">first_100_sentences_words</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">first_100_sentences_words</span><span class="p">)</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">trigrams</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trigrams</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span> <span class="c1">#Ausgabe der ersten zehn Trigramme</span>
 </pre></div>
 </div>
 </div>
@@ -755,21 +795,26 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: zgv&amp;$ok≠jzptvv&#39;]gy$e�
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ngrammer</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="n">ngrams</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Beschreibung des Codes siehe Lösung zur Übung 8</span>
+
+<span class="k">def</span> <span class="nf">ngrammer</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function takes string (text) and an integer (n) and returns list of n-grams of desired length n.&quot;&quot;&quot;</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> 
+    <span class="n">ngrams</span> <span class="o">=</span> <span class="p">[]</span> 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">ngrams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]))</span>
     <span class="k">return</span><span class="p">(</span><span class="n">ngrams</span><span class="p">)</span>
 
 <span class="c1">#Herausforderung</span>
 <span class="k">def</span> <span class="nf">ngrammer</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function takes string (text) and an integer (n) and returns list of n-grams of desired length n.&quot;&quot;&quot;</span>
     <span class="k">return</span><span class="p">([</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">())</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
 
-<span class="n">words_for_first_ten_trigrams</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">kv21</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">12</span><span class="p">])</span>
-<span class="n">trigrams_calculated_with_function</span> <span class="o">=</span> <span class="n">ngrammer</span><span class="p">(</span><span class="n">words_for_first_ten_trigrams</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">words_for_first_ten_trigrams</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">kv21</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">12</span><span class="p">])</span> <span class="c1">#Berechnen der Wörter für die ersten zehn Trigramme</span>
+<span class="c1">#Übergabe dieser Wörter an die Funktion und Speichern des Resultats in trigrams_calculated_with_function</span>
+<span class="n">trigrams_calculated_with_function</span> <span class="o">=</span> <span class="n">ngrammer</span><span class="p">(</span><span class="n">words_for_first_ten_trigrams</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">trigrams</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="o">==</span> <span class="n">trigrams_calculated_with_function</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trigrams</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="o">==</span> <span class="n">trigrams_calculated_with_function</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span> <span class="c1">#Vergleich, ob Resultate gleich sind</span>
 </pre></div>
 </div>
 </div>
@@ -806,8 +851,11 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: zgv&amp;$ok≠jzptvv&#39;]gy$e�
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_english_title</span> <span class="o">=</span> <span class="s2">&quot;Handbook about the magic technique of list comprehensions&quot;</span>
 
+<span class="sd">&quot;&quot;&quot;Großschreiben des ersten Buchstaben jedes Worts in my_english_title (bzw. einer daraus erstellten, nach</span>
+<span class="sd">Wörtern unterteilten Liste), wenn das Wort länger als 3 Buchstaben ist,ansonsten unverändert lassen. </span>
+<span class="sd">Abschließend Wörter mittels join zu einem string zusammenfügen&quot;&quot;&quot;</span>
 <span class="n">titled</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">my_english_title</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">titled</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">titled</span><span class="p">)</span> <span class="c1">#Ausgabe des englischsprachigen Titels</span>
 </pre></div>
 </div>
 </div>
@@ -827,34 +875,45 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: zgv&amp;$ok≠jzptvv&#39;]gy$e�
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#umgesetzt ohne List Comprehension</span>
 <span class="k">def</span> <span class="nf">ngram_freqs</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function takes a string (text) and an integer (n), computes ngrams of desired length n,</span>
+<span class="sd">    calculates frequencies for the ngrams in the string and outputs ngram-frequencies-tuples sorted in descending order.&quot;&quot;&quot;</span>
     
-    <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1">#Tokenisieren von text</span>
 
-    <span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die die bereinigten Wörter angehängt werden</span>
 
+    <span class="c1">#Iterieren über words, um jedes Wort zu bereinigen</span>
     <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
         <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> 
         <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,():&quot;</span><span class="p">)</span>
         <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
         
-    <span class="n">ngrams</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ngrams</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die die n-gramme angehängt weden</span>
     
+    <span class="c1">#Mithilfe von range iterieren wir über preprocessed_words (wobei wir &#39;i&#39; unten als Indizes zum Slicen der n-gramme benutzen, s.u.)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Mittels Slicing schneiden wir uns eine neue Liste von der Länge n aus preprocessed_words heraus </span>
+<span class="sd">        und rücken bei jeder Iteration den Start- und Endindex für das Slicing um eine Position vor. </span>
+<span class="sd">        Die neue Liste fügen wir jeweils mit join zu einem string zusammen und hängen diesen als n-gram ngrams an.&quot;&quot;&quot;</span>
         <span class="n">ngrams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">]))</span>
 
-    <span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ngrams</span><span class="p">)</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ngrams</span><span class="p">)</span> <span class="c1">#Erstellen eines Sets an einzigartigen n-grammen (Types)</span>
 
-    <span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> 
+    <span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1">#Initialisieren eines leeren dictionaries, dem wir unten n-gram-Frequenz-Paare hinzufügen</span>
 
+    <span class="c1">#Iterieren über jedes einzigartige n-gram (Type) und Schaffen eines n-gram-Frequenz-Paars mithilfe von count</span>
     <span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
         <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">ngrams</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
 
+    <span class="c1">#Sortieren des dictionaries nach Werten in absteigender Reihenfolge</span>
     <span class="n">freq_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">freq_sorted</span>
+    <span class="k">return</span> <span class="n">freq_sorted</span> <span class="c1">#Zurückgeben von freq_sorted</span>
 
-<span class="c1">#umgesetzt mit List Comprehensions und mit implementiertem Standardwert 1 für n</span>
+<span class="c1">#umgesetzt mit List Comprehensions und mit implementiertem Standardwert 1 für n, Beschreibung des Codes s.o.</span>
 <span class="k">def</span> <span class="nf">ngram_freqs</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function takes a string (text) and an integer (n), computes ngrams of desired length n,</span>
+<span class="sd">    calculates frequencies for the ngrams in the string and outputs ngram-frequencies-tuples sorted in descending order.&quot;&quot;&quot;</span>
     
     <span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,():&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>       
     <span class="n">ngrams</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
@@ -881,11 +940,11 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: zgv&amp;$ok≠jzptvv&#39;]gy$e�
  (&#39;gemeinsam mit den ländern&#39;, 20),
  (&#39;setzen uns für eine&#39;, 14),
  (&#39;auf den weg bringen&#39;, 12),
- (&#39;setzen wir uns für&#39;, 8),
- (&#39;setzen uns für ein&#39;, 8),
  (&#39;ausbau der erneuerbaren energien&#39;, 8),
  (&#39;uns dafür ein dass&#39;, 8),
- (&#39;im dialog mit den&#39;, 7),
+ (&#39;setzen uns für ein&#39;, 8),
+ (&#39;setzen wir uns für&#39;, 8),
+ (&#39;setzen uns für die&#39;, 7),
  (&#39;90 / die grünen&#39;, 7)]
 </pre></div>
 </div>

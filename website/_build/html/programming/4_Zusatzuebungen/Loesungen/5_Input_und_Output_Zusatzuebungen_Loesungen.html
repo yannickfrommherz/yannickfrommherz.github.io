@@ -1,0 +1,1109 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lösungen zu den Zusatzübungen zum Notebook „Input und Output“ &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/4_Zusatzuebungen/Loesungen/5_Input_und_Output_Zusatzuebungen_Loesungen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/4_Zusatzuebungen/Loesungen/5_Input_und_Output_Zusatzuebungen_Loesungen.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../phd.html">PhD project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publications.html">Publications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/5_Input_und_Output.html">5. Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/7_Datenanalyse.html">7. Datenanalyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/1_Einfuehrung_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/2_Datentypen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/7_Datenanalyse_Loesungen.html">7. Datenanalyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_Einfuehrung_Uebungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_Datentypen_Uebungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_Kontrollstrukturen_Uebungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung_Uebungen_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen_Uebungen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen_Uebungen_Loesungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/4_Zusatzuebungen/Loesungen/5_Input_und_Output_Zusatzuebungen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/4_Zusatzuebungen/Loesungen/5_Input_und_Output_Zusatzuebungen_Loesungen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/programming/4_Zusatzuebungen/Loesungen/5_Input_und_Output_Zusatzuebungen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lösungen zu den Zusatzübungen zum Notebook „Input und Output“</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="losungen-zu-den-zusatzubungen-zum-notebook-input-und-output">
+<h1>Lösungen zu den Zusatzübungen zum Notebook „Input und Output“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-input-und-output" title="Permalink to this heading">#</a></h1>
+<ol class="arabic">
+<li><p>Lies das erste Kapitel von <a class="reference external" href="https://www.projekt-gutenberg.org/lagerloe/nielsho1/titlepage.html">Niels Holgersens wunderbare Reise mit den Wildgänsen</a> von Selma Lagerlöf ein und weise es <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> zu. Entferne dabei sämtliche Zeilenumbrüche, sodass ein Fließtext entsteht. Lass Dir die ersten 1000 Zeichen ausgeben.</p>
+<p>📌 Herausforderung: Löse die Übung mithilfe einer List Comprehension.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Niels_Holgersen/Kapitel_1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    <span class="n">niels_holgersen</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die Zeilen ohne Umbrüche angehängt werden</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="c1">#Überspringen, falls leere Zeile</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">isspace</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="c1">#Anhängen der von trailing whitespace befreiten Zeile an niels_holgersen</span>
+        <span class="n">niels_holgersen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+
+    <span class="n">niels_holgersen</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">)</span> <span class="c1">#Wiederzusammenfügen zu einem string</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;als List Comprehension: Achtung: funktioniert nur, wenn die gesamte for-Schleife oben auskommentiert wird!</span>
+<span class="sd">    Dies liegt daran, dass read_file beim Iterieren darüber aufgebraucht wird, d.h. jedes Element wird nach der Iteration </span>
+<span class="sd">    aus dem Arbeitsspeicher gelöscht, weswegen maximal einmal darüber iteriert werden kann.&quot;&quot;&quot;</span>
+    <span class="c1">#niels_holgersen = &quot; &quot;.join([line.rstrip() for line in read_file if not line.isspace()])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I. Der Junge Der Kobold. Sonntag, den 20. März. Es war einmal ein Junge. Er mochte wohl vierzehn Jahre alt sein, war lang aufgeschossen und hatte flachsgelbes Haar. Er war zu nichts recht zu gebrauchen. Am liebsten mochte er schlafen und essen, sein größtes Vergnügen aber war, dumme Streiche zu machen. Es war an einem Sonntagmorgen. Die Eltern des Jungen waren im Begriff, sich zum Kirchgang anzukleiden. Der Junge selbst saß in Hemdärmeln auf dem Tisch und dachte, wie schön es sei, daß Vater und Mutter beide fortgingen, so daß er ein paar Stunden lang sein eigener Herr sein konnte. »Jetzt kann ich doch Vaters Flinte herunternehmen und ein wenig damit schießen, ohne daß sich gleich jemand dahineinmischt,« sagte er zu sich selbst. Aber es war fast, als habe der Vater die Gedanken des Knaben erraten, denn gerade als er in der Tür stand und gehen wollte, blieb er stehen und wandte sich nach ihm um. »Wenn du nicht mit Mutter und mir in die Kirche willst,« sagte er, »so finde ich, du solltest
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="2">
+<li><p>Formatiere <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> als Blocksatz mit 100 Zeichen pro Zeile ausgeben. Wörter dürfen sich über Zeilenumbrüche hinweg erstrecken, ein Bindestrich ist nicht nötig.</p>
+<p>📌 Herausforderung: Löse die Übung mithilfe einer List Comprehension.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">justified</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, um Zeilen bestehend aus jeweils 100 Zeichen anzuhängen</span>
+<span class="n">max_chars</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#Definieren einer Variablen für die maximale Anzahl an Zeichen pro Zeile (möglichst wenig Harcoding!)</span>
+
+<span class="c1">#Iterieren über niels_holgersen mithilfe der range-Funktion, wobei jeweils max_chars übersprungen werden</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">),</span> <span class="n">max_chars</span><span class="p">):</span>
+    <span class="n">justified</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">max_chars</span><span class="p">])</span> <span class="c1">#Slicen eines Abschnitt der Länge max_chars und Anhängen an justified</span>
+
+<span class="n">justified</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">justified</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">justified</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1010</span><span class="p">])</span> <span class="c1">#Ausgabe der ersten 10 Zeilen (1010, da 10 Zeilenumbrüche mitgerechnet werden)</span>
+
+<span class="c1">#Herausforderung</span>
+<span class="n">justified</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">niels_holgersen</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">max_chars</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">),</span> <span class="n">max_chars</span><span class="p">)])</span>
+<span class="c1">#print(justified)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I. Der Junge Der Kobold. Sonntag, den 20. März. Es war einmal ein Junge. Er mochte wohl vierzehn Jah
+re alt sein, war lang aufgeschossen und hatte flachsgelbes Haar. Er war zu nichts recht zu gebrauche
+n. Am liebsten mochte er schlafen und essen, sein größtes Vergnügen aber war, dumme Streiche zu mach
+en. Es war an einem Sonntagmorgen. Die Eltern des Jungen waren im Begriff, sich zum Kirchgang anzukl
+eiden. Der Junge selbst saß in Hemdärmeln auf dem Tisch und dachte, wie schön es sei, daß Vater und 
+Mutter beide fortgingen, so daß er ein paar Stunden lang sein eigener Herr sein konnte. »Jetzt kann 
+ich doch Vaters Flinte herunternehmen und ein wenig damit schießen, ohne daß sich gleich jemand dahi
+neinmischt,« sagte er zu sich selbst. Aber es war fast, als habe der Vater die Gedanken des Knaben e
+rraten, denn gerade als er in der Tür stand und gehen wollte, blieb er stehen und wandte sich nach i
+hm um. »Wenn du nicht mit Mutter und mir in die Kirche willst,« sagte er, »so finde ich, du solltest
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="3">
+<li><p>Extrahiere sämtliche Fälle von direkter Rede aus <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> und speichere sie auf der Liste <code class="docutils literal notranslate"><span class="pre">direct_speech</span></code> ab. Ein zu extrahierendes Beispiel lautet</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> »Wartet! Wartet! ich komme.«
+</pre></div>
+</div>
+</br>
+ Verwende hierfür keine regulären Ausdrücke (vgl. sechstes Notebook).</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">direct_speech</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die wir Fälle von direkter Rede anhängen</span>
+<span class="n">start_index</span><span class="p">,</span> <span class="n">end_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="c1">#Initialisieren von Variablen zum Speichern der Indizes des ersten und letzten Zeichens einer direkten Rede</span>
+
+<span class="c1">#Iterieren über die Zeichen in niels_holgersen mittels range-Funktion</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">)):</span>
+    <span class="c1">#wenn das entsprechende Zeichen in niels_holgersen dem öffnenden Anführungszeichen entspricht, soll der Index als start_index gespeichert werden</span>
+    <span class="k">if</span> <span class="n">niels_holgersen</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;»&quot;</span><span class="p">:</span>
+        <span class="n">start_index</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="c1">#wenn das entsprechende Zeichen in niels_holgersen dem schließenden Anführungszeichen entspricht, soll der Index als end_index gespeichert werden</span>
+    <span class="k">elif</span> <span class="n">niels_holgersen</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;«&quot;</span><span class="p">:</span>
+        <span class="n">end_index</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="c1">#sofern start_index und end_index größer null, d.h. ein kompletter Fall bestehend aus öffnenden und schließenden Anführungszeichen wurde gefunden, dann...</span>
+    <span class="k">if</span> <span class="n">start_index</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">end_index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1">#...slicen wir diese Zeichen aus niels_holgersen heraus und hängen sie direct_speech an</span>
+        <span class="n">direct_speech</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span><span class="n">end_index</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="c1">#Zurücksetzen der Indizes für nächsten Fall von direkter Rede</span>
+        <span class="n">start_index</span><span class="p">,</span> <span class="n">end_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+<span class="n">direct_speech</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;»Jetzt kann ich doch Vaters Flinte herunternehmen und ein wenig damit schießen, ohne daß sich gleich jemand dahineinmischt,«&#39;,
+ &#39;»Wenn du nicht mit Mutter und mir in die Kirche willst,«&#39;,
+ &#39;»so finde ich, du solltest auf alle Fälle eine Predigt hier zu Hause lesen. Willst du mir das versprechen?«&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="4">
+<li><p>Schaffe einen irrwitzigen Dialog zwischen den Figuren auf <code class="docutils literal notranslate"><span class="pre">subjects</span></code> (füge gerne weitere amüsante Charaktere hinzu). Verwende dazu sämtliche Redebeiträge auf der Liste <code class="docutils literal notranslate"><span class="pre">direct_speech</span></code> aus der Übung 3 in zufälliger Reihenfolge. Die Figuren sollen abwechselnd zu Wort kommen, wobei sie ihren Redebeitrag über ein jeweils zufälliges Sprechaktverb der Liste <code class="docutils literal notranslate"><span class="pre">verbs</span></code> äußern (auch hier kannst Du gerne weitere Verben hinzufügen). Der Dialog soll wie folgt aussehen:</p>
+ <img src="../../3_Dateien/Grafiken_und_Videos/Irrwitziger_Dialog.png">
+<p>und so weiter.</p>
+<p>Um eine zufällige Reihenfolge bzw. eine zufällige Auswahl zu generieren, musst Du ein Dir bekanntes Modul importieren. Lies ggf. in der Dokumentation des Moduls nach, welche Funktionen die benötigten Operationen implementieren.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subjects</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Der Witwer&quot;</span><span class="p">,</span> <span class="s2">&quot;Die Diva&quot;</span><span class="p">,</span> <span class="s2">&quot;Der Kobold (der heimlich zugegen war)&quot;</span><span class="p">,</span> <span class="s2">&quot;Die misanthrope Ente&quot;</span><span class="p">]</span>
+<span class="n">verbs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;meinte&quot;</span><span class="p">,</span> <span class="s2">&quot;schrie&quot;</span><span class="p">,</span> <span class="s2">&quot;flüsterte&quot;</span><span class="p">,</span> <span class="s2">&quot;hielt dagegen&quot;</span><span class="p">,</span> <span class="s2">&quot;verkündete&quot;</span><span class="p">,</span> <span class="s2">&quot;jauchzte&quot;</span><span class="p">,</span> <span class="s2">&quot;raunte&quot;</span><span class="p">,</span> <span class="s2">&quot;soufflierte&quot;</span><span class="p">,</span> <span class="s2">&quot;röchelte&quot;</span><span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">random</span> <span class="c1">#Importieren des Moduls random, um zufällige Reihenfolge der Redebeiträge sowie zufälliges Verb zu generieren</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">direct_speech</span><span class="p">)</span> <span class="c1">#zufälliges Umordnen der Elemente auf der Liste (geschieht in-place)</span>
+
+<span class="n">dialog</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, um anschließend die einzelnen Redebeiträge anzuhängen</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Initialisieren einer Zählervariablen, um Figuren abwechselnd zu indizieren (s.u.)</span>
+
+<span class="c1">#Iterieren über die Redebeiträge</span>
+<span class="k">for</span> <span class="n">utterance</span> <span class="ow">in</span> <span class="n">direct_speech</span><span class="p">:</span>
+    <span class="n">random_verb</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">verbs</span><span class="p">)</span> <span class="c1">#zufälliges Verb aus der Liste auswählen</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Zusammenfügen von alternierendem Subjekt (indiziert via Zählervariable, die nach dem letzten Element auf Null zurückgesetzt wird (s.u.)),</span>
+<span class="sd">    zufälligem Verb und Redebeitrag zu einem string sowie Anhängen an Liste dialog&quot;&quot;&quot;</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">subjects</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">random_verb</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">utterance</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
+    <span class="n">dialog</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+    <span class="c1">#Erhöhen der Zählervariablen um 1</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Zurücksetzen der Zählervariablen auf Null (d.h. im nächsten Redebeitrag spricht wieder die erste Figur der Liste), </span>
+<span class="sd">    falls sie größer als die Länge der Liste der Figuren minus eins ist (minus eins, da die Zählervariable bzw. Indizes bei Null beginnnen,</span>
+<span class="sd">    die Länge der Liste jedoch bei eins)&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dialog</span><span class="p">))</span> <span class="c1">#Ausgabe des Dialogs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Witwer jauchzte: »Was in aller Welt ist das nur?«.
+Die Diva röchelte: »Aber da ist ja noch einer!«.
+Der Kobold (der heimlich zugegen war) flüsterte: »aber darum ist es nicht gesagt, daß ich es dir erzählen will.«.
+Die misanthrope Ente flüsterte: »Wo in aller Welt bin ich nur hingekommen,«.
+Der Witwer flüsterte: »Wartet! Wartet! ich komme.«.
+Die Diva schrie: »Gut, gut, gut, gut, das ist gut genug für ihn!«.
+Der Kobold (der heimlich zugegen war) schrie: »Dies ist das Rittergut Dybeck. Heut wie vorm Jahr. Heut wie vorm Jahr.«.
+Die misanthrope Ente soufflierte: »Ja,«.
+Der Witwer raunte: »Ja, das sind wir,«.
+Die Diva hielt dagegen: »der Hof heißt Kleinhof, heut wie vorm Jahr, heut wie vorm Jahr.«.
+Der Kobold (der heimlich zugegen war) raunte: »Aber Vater und Mutter werden doch behaupten, daß es nichts weiter gewesen ist,«.
+Die misanthrope Ente flüsterte: »Also ihr seid heute auch übers Wasser gekommen,«.
+Der Witwer hielt dagegen: »dann will ich dir alle die Male heimzahlen, wo du deiner Mutter den Milchhuker weggezogen hast, und alle die Male, wo du ihr ein Bein gestellt hast, wenn sie mit dem Milcheimer geschleppt kam, und alle Tränen, die sie hier um dich vergossen hat.«.
+Die Diva meinte: »Komm du bloß heran!«.
+Der Kobold (der heimlich zugegen war) soufflierte: »Wenn du nicht mit Mutter und mir in die Kirche willst,«.
+Die misanthrope Ente schrie: »dann will ich dir einen Stoß versetzen, den du so bald nicht wieder vergißt!«.
+Der Witwer soufflierte: »Sieh nur zu, daß du ordentlich liest! Denn wenn wir nach Hause kommen, überhöre ich dir jede Seite, und hast du eine Seite übersprungen, so kannst du mir glauben, ich werd dich lehren!«.
+Die Diva röchelte: »denn dann komme ich heute vormittag nicht durch dies hier hindurch.«.
+Der Kobold (der heimlich zugegen war) flüsterte: »Komm nur her, dann will ich dir die Bremse heimzahlen, die du mir ins Ohr gesetzt hast,«.
+Die misanthrope Ente röchelte: »Das waren gar keine Gänse. Das waren nur Schafe. Das waren nur Schafe.«.
+Der Witwer meinte: »jetzt mag es genug sein. Diesmal will ich dich um meiner Hausmutter willen loslassen. Ich wollte nur, daß du wissen solltest, wer von uns beiden jetzt der Stärkere ist.«.
+Die Diva soufflierte: »Es würde wirklich schlimm sein,«.
+Der Kobold (der heimlich zugegen war) jauchzte: »Siehst du denn nicht, daß er mich verhext hat?«.
+Die misanthrope Ente hielt dagegen: »Komm hierher,«.
+Der Witwer flüsterte: »das ist gut genug für ihn; Kickerikih, er hat mich an meinem Kamm gezupft.«.
+Die Diva jauchzte: »Komm nur her, dann sollst du fühlen, wie es schmeckte, wenn du mit deinen Holzschuhen nach mir warfst, wie du es diesen Sommer so oft getan hast!«.
+Der Kobold (der heimlich zugegen war) verkündete: »Dieser Hof heißt Grützlos.«.
+Die misanthrope Ente hielt dagegen: »Nein, seht doch nur den Gänsejungen Niels! Seht den Däumling! Seht den Däumling Niels Holgersen!«.
+Der Witwer hielt dagegen: »So,«.
+Die Diva meinte: »Wir haben es gut, so wie wir es haben. Wir haben es gut, so wie wir es haben.«.
+Der Kobold (der heimlich zugegen war) flüsterte: »Tit, tit! Tit, tit!«.
+Die misanthrope Ente soufflierte: »Liebe Miez, du mußt mir wirklich helfen,«.
+Der Witwer schrie: »Soll ich dir vielleicht helfen, weil du mich so oft am Schwanz gezogen hast,«.
+Die Diva hielt dagegen: »Möchtet ihr erschossen werden, alle miteinander, alle miteinander!«.
+Der Kobold (der heimlich zugegen war) meinte: »Uha, uha!«.
+Die misanthrope Ente verkündete: »Äcker und Wiesen. Äcker und Wiesen.«.
+Der Witwer flüsterte: »Jetzt geht es in die Berge. Wollt ihr mit? Wollt ihr mit?«.
+Die Diva schrie: »Gack«.
+Der Kobold (der heimlich zugegen war) raunte: »du, dem das Allerschrecklichste widerfahren ist, was einem Menschen widerfahren kann!«.
+Die misanthrope Ente verkündete: »so finde ich, du solltest auf alle Fälle eine Predigt hier zu Hause lesen. Willst du mir das versprechen?«.
+Der Witwer raunte: »Es ist nur gut, daß es noch Gerechtigkeit in der Welt gibt!«.
+Die Diva röchelte: »Dies Haus heißt: Kauewenig, Kauewenig, Kauewenig.«.
+Der Kobold (der heimlich zugegen war) flüsterte: »Was ist das doch für ein großes, gewürfeltes Tuch, das ich da unten sehe?«.
+Die misanthrope Ente flüsterte: »Sonst wird er ein Unglück für sich selbst und für uns.«.
+Der Witwer verkündete: »du kennst ja alle Winkel und Schlupflöcher hier auf dem Hofe? Willst du mir nicht erzählen, wo ich den Kobold finden kann?«.
+Die Diva meinte: »dann sollst du Erlaubnis haben, auf meinen Hörnern zu tanzen!«.
+Der Kobold (der heimlich zugegen war) soufflierte: »Wer kann das doch nur getan haben? Wer kann das doch nur getan haben?«.
+Die misanthrope Ente verkündete: »Jetzt geht&#39;s in die Berge! Jetzt geht&#39;s in die Berge!«.
+Der Witwer raunte: »Kommt mit, dann wollen wir euch fliegen und schwimmen lehren.«.
+Die Diva meinte: »Kickerikih!«.
+Der Kobold (der heimlich zugegen war) jauchzte: »Du sollst es schon lassen, fortzufliegen!«.
+Die misanthrope Ente hielt dagegen: »Das ist die Jordberger Zuckerfabrik.«.
+Der Witwer meinte: »Das muß daher kommen, weil ich in einen Kobold verwandelt bin,«.
+Die Diva jauchzte: »Die Predigt ist vierzehn und eine halbe Seite lang,«.
+Der Kobold (der heimlich zugegen war) röchelte: »Ich weiß recht gut, wo der Kobold wohnt,«.
+Die misanthrope Ente verkündete: »Ich kann dich noch einmal am Schwanz ziehen!«.
+Der Witwer raunte: »Du mußt dich wohl gleich hinsetzen und lesen, wenn du hindurchkommen willst,«.
+Die Diva meinte: »wenn der große Gänserich davonfliegt. Vater und Mutter würden sehr ärgerlich darüber sein, falls er weg wäre, wenn sie aus der Kirche kommen.«.
+Der Kobold (der heimlich zugegen war) verkündete: »Wie denkt ihr, daß es mit dem Frühling steht?«.
+Die misanthrope Ente schrie: »Es ist wohl nichts weiter als Traum und Einbildung,«.
+Der Witwer meinte: »Wenn doch Gott ihn beugen und ihm einen andern Sinn geben wollte,«.
+Die Diva raunte: »Das ist die Jordberger Zuckerfabrik,«.
+Der Kobold (der heimlich zugegen war) schrie: »Der ist ja genau so gekleidet wie ich,«.
+Die misanthrope Ente soufflierte: »Wenn noch eine Schar kommt, fliege ich mit,«.
+Der Witwer hielt dagegen: »Wie dumm war ich, daß ich ihn losließ,«.
+Die Diva meinte: »Komm nur her,«.
+Der Kobold (der heimlich zugegen war) schrie: »So schweigt doch still, ihr Lumpengesindel!«.
+Die misanthrope Ente flüsterte: »Muh, muh, muh!«.
+Der Witwer flüsterte: »Wenn ich nur ein wenig warte, werde ich wohl wieder ein Mensch.«.
+Die Diva meinte: »Darum kann ich die Sprache der Vögel verstehen.«.
+Der Kobold (der heimlich zugegen war) flüsterte: »Die ziehen aus Rücksicht auf den Kobold gewiß nichts ab. Es wird wohl am besten sein, wenn ich mich wieder hinsetze und lese.«.
+Die misanthrope Ente röchelte: »Daß du lachen kannst!«.
+Der Witwer schrie: »Die gehen nun dahin und sind stolz darauf, daß sie es so gut gemacht haben und ich hier nun, während der ganzen Zeit, daß sie fort sind, über der Predigt brüten muß,«.
+Die Diva schrie: »Jetzt kann ich doch Vaters Flinte herunternehmen und ein wenig damit schießen, ohne daß sich gleich jemand dahineinmischt,«.
+Der Kobold (der heimlich zugegen war) schrie: »Liebe kleine Miez,«.
+Die misanthrope Ente röchelte: »Der Kobold wird doch nicht den Lehnstuhl und den Tisch und auch das ganze Haus verhext haben!«.
+Der Witwer jauchzte: »Es ist noch Winter. Ihr seid zu früh draußen. Kehrt um! Kehrt um!«.
+Die Diva verkündete: »Gut, gut, gut, das ist gut genug für dich!«.
+Der Kobold (der heimlich zugegen war) röchelte: »Nein, ich will nicht einschlafen,«.
+Die misanthrope Ente soufflierte: »Dies ist Svaneholm. Das muß doch Gott und alle Welt wissen.«.
+Der Witwer hielt dagegen: »Fruchtbares, gutes Land. Fruchtbares, gutes Land.«.
+Die Diva hielt dagegen: »Wartet! Wartet!«.
+Der Kobold (der heimlich zugegen war) schrie: »Seid doch nicht verrückt! Die da oben werden noch frieren und hungern.«.
+Die misanthrope Ente flüsterte: »Nicht ein Blatt an den Bäumen und kaltes Wasser in den Seen,«.
+Der Witwer schrie: »Wie heißt der Hof? Wie heißt der Hof?«.
+Die Diva flüsterte: »das kann ich gerne tun.«.
+Der Kobold (der heimlich zugegen war) verkündete: »Muh, muh, muh!«.
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Führe den Code, den Du in Übung 4 geschrieben hast, ein paar Mal aus, bis Du einen besonders lustigen Dialog erhältst. Speichere nun diesen Dialog als Textdatei im Ordner „Output“. Formatiere dabei den Text wie ein Drama (vgl. <em>Nathan der Weise</em> im Lehrnotebook). Die Textdatei soll zudem einen Titel sowie eine Auflistung der Figuren beinhalten.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Der wirre Witwer und die misanthrope Ente. Eine Posse.&quot;</span> <span class="c1">#Definieren eines frei gewählten Titels</span>
+<span class="n">characters</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span> <span class="c1">#Zusammenfügen der Figuren zu einem string</span>
+
+<span class="c1">#(Schaffen) und Öffnen einer zu beschreibenden Datei im Ordner &quot;Output&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/irrwitzigster_dialog.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+
+    <span class="c1">#Schreiben des Titels und der Figurenliste am Anfang der Datei</span>
+    <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">title</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Figuren: &quot;</span> <span class="o">+</span> <span class="n">characters</span> <span class="o">+</span> <span class="s2">&quot;.</span><span class="se">\n\n</span><span class="s2">--------------</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1">#Iterieren über Redebeiträge</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">dialog</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Schreiben der einzelnen Redebeiträge in die Datei, jeweils mit doppeltem Zeilenumbruch abgeschlossen, um Redebeiträge (die in sich theoretisch</span>
+<span class="sd">        auch Zeilenumbrüche beinhalten könnten) voneinander klar abzugrenzen&quot;&quot;&quot;</span>
+        <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Füge Deiner eben geschaffenen Datei (mithilfe von Python!) den Satz „An dieser Stelle endet die die Zusammenkunft abrupt.“ an.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">end</span> <span class="o">=</span> <span class="s2">&quot;An dieser Stelle endet die die Zusammenkunft abrupt.&quot;</span> <span class="c1">#Definieren des strings, der am Ende der Datei stehen soll</span>
+
+<span class="c1">#Öffnen der bereits existierenden Datei im append-Modus (&quot;a&quot;)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/irrwitzigster_dialog.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+    <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="c1">#Anhängen des strings end am Ende der Datei</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="7">
+<li><p>Lass Dir das aktuelles Arbeitsverzeichnis sowie die darin befindlichen Dateien und Verzeichnisse ausgeben.</p>
+<p>📌 Herausforderung: Schaffe ein neues Verzeichnis namens „new_dir“ im aktuellen Arbeitsverzeichnis und überprüfe anschließend (mithilfe von Python), ob es geklappt hat.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> <span class="c1">#Importieren des Moduls</span>
+
+<span class="c1">#Ausgeben von aktuellem Arbeitsverzeichnis sowie den darin befindlichen Dateien und Verzeichnisse</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span> <span class="c1">#beachte: hier wird ein anderer Pfad als im Übungsnotebook ausgegeben, da sich das Lösungsnotebook in einem anderen Verzeichnis befindet</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">())</span> <span class="c1">#entsprechend befinden sich auch andere Dateien und Verzeichnisse darin</span>
+
+<span class="c1">#Herausforderung</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;new_dir&quot;</span><span class="p">)</span> <span class="c1">#Schaffen eines neuen Verzeichnisses (beachte: funktioniert nur einmal, danach FileExistsError!)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/Yannick/Documents/Repositories/yfrommherz.ch/website/programming/4_Zusatzuebungen/Loesungen
+[&#39;3_Kontrollstrukturen_Uebungen_Loesungen.ipynb&#39;, &#39;4_Funktionen_und_Methoden_Uebungen_Loesungen.ipynb&#39;, &#39;1_Einfuehrung_Uebungen_Loesungen.ipynb&#39;, &#39;5_Input_und_Output_Zusatzuebungen_Loesungen.ipynb&#39;, &#39;2_Datentypen_Uebungen_Loesungen.ipynb&#39;]
+[&#39;3_Kontrollstrukturen_Uebungen_Loesungen.ipynb&#39;, &#39;4_Funktionen_und_Methoden_Uebungen_Loesungen.ipynb&#39;, &#39;1_Einfuehrung_Uebungen_Loesungen.ipynb&#39;, &#39;5_Input_und_Output_Zusatzuebungen_Loesungen.ipynb&#39;, &#39;2_Datentypen_Uebungen_Loesungen.ipynb&#39;, &#39;new_dir&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Lies aufbauend auf der Zusatzübung 7 zum dritten Notebook die Datei „de_sv.csv“ aus dem Ordner „Tabellarische_Daten“ ein. Darin befinden sich nun mehr als nur eine Handvoll Vokabeln Deutsch-Schwedisch. Genauer gesagt, handelt es sich um die 100 wichtigsten Vokabeln gemäß ChatGPT. Überführe die Daten in ein geeignetes Objekt und „füttere“ damit den bereits programmierten Vokabeltrainer. Beim Einlesen dürfte die Dir noch unbekannte <code class="docutils literal notranslate"><span class="pre">next</span></code>-Funktion hilfreich sein – erkundige selbständig, wie Du sie einsetzen kannst. Implementiere außerdem einen Mechanismus, über den Benutzer:innen die Lernsession vorzeitig beenden können, falls sie nicht alle 100 Vokabeln lernen möchten.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Tabellarische_Daten/de_sv.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    
+    <span class="n">de_sv</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#Initialisieren eines leeren dictionaries, an das wir die Daten als Schlüssel-Werte-Paare anhängen</span>
+
+    <span class="c1">#die erste Zeile beinhält Spaltennamen, wir überspringen sie mit der Funktion next</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span> 
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Iterieren über einzelne Zeilen in read_file, aufsplitten beim Trennzeichen (&quot;,&quot;) und schaffen von Schlüssel-Werte-Paaren.</span>
+<span class="sd">    An dieser Stelle könnten wir auch die reader-Funktion des csv-Moduls einsetzen.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">de</span><span class="p">,</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="n">de_sv</span><span class="p">[</span><span class="n">de</span><span class="p">]</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1">#Entfernen von trailing whitespace (Zeilenumbruch)</span>
+
+<span class="sd">&quot;&quot;&quot;Hier wird der Vokabeltrainer (Dokumentation des Codes siehe Lösung zu Zusatzübung 7 zum dritten Notebook)</span>
+<span class="sd">in eine Funktion gepackt, damit wir die doppelte Schleife (while und for) auf einfache Weise beenden können, sobald Benutzer:innen</span>
+<span class="sd">die Lernsession abbrechen wollen. Dies erreichen wir unkompliziert mithilfe des return-Statements (s.u.).</span>
+<span class="sd">Ohne Funktion ließe sich dieser Mechanismus z.B. mit zwei break-Statements (eines in jeder Schleife) implementieren.&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">vocab_trainer</span><span class="p">():</span>
+    
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+        <span class="c1">#zusätzliche Info, wie die Lernsession beendet werden kann</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hej! Mit mir kannst Du Schwedisch lernen! Wenn Du genug gelernt hast, gib einfach &#39;X&#39; ein.&quot;</span><span class="p">)</span>
+    
+        <span class="n">learnt_during_iteration</span> <span class="o">=</span> <span class="p">[]</span>
+            
+        <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">translation</span> <span class="ow">in</span> <span class="n">de_sv</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            
+            <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> 
+    
+            <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+
+            <span class="c1">#zusätzliche Bedingung, die überprüft, ob Benutzer:in Lernsession beenden will (hier mittels Eingabe von &quot;X&quot;)</span>
+            <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span>
+                <span class="k">return</span><span class="p">(</span><span class="s2">&quot;Tschüss / Hejdå!&quot;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">translation</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Korrekt! 🥳&quot;</span><span class="p">)</span>
+                <span class="n">learnt_during_iteration</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das war leider falsch 😅. Richtig wäre &#39;&quot;</span> <span class="o">+</span> <span class="n">translation</span> <span class="o">+</span> <span class="s2">&quot;&#39; gewesen!&quot;</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">learnt_word</span> <span class="ow">in</span> <span class="n">learnt_during_iteration</span><span class="p">:</span>
+            <span class="n">de_sv</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">learnt_word</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">de_sv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du kannst alle Vokabeln! 🎉&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+
+<span class="n">vocab_trainer</span><span class="p">()</span> <span class="c1">#Aufrufen der Funktion</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hej! Mit mir kannst Du Schwedisch lernen! Wenn Du genug gelernt hast, gib einfach &#39;X&#39; ein.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_76376</span><span class="o">/</span><span class="mf">3288044500.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>             <span class="k">break</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> 
+<span class="ne">---&gt; </span><span class="mi">51</span> <span class="n">vocab_trainer</span><span class="p">()</span> <span class="c1">#Aufrufen der Funktion</span>
+
+<span class="nn">/var/folders/dy/1d_wflpx5_57vhd_6cdbfk0m0000gn/T/ipykernel_76376/3288044500.py</span> in <span class="ni">vocab_trainer</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>             <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> 
+<span class="ne">---&gt; </span><span class="mi">32</span>             <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> 
+<span class="g g-Whitespace">     </span><span class="mi">34</span>             <span class="c1">#zusätzliche Bedingung, die überprüft, ob Benutzer:in Lernsession beenden will (hier mittels Eingabe von &quot;X&quot;)</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="9">
+<li><p>Passe den Code aus Übung 8 derart an, dass Benutzer:innen eine Übersicht über die korrekt übersetzten bzw. falsch übersetzten Vokabeln gegeben wird, sobald sie die Lernsession beenden. Überleg Dir, wie Du diese Übersicht visuell ansprechend formatieren kannst. Folgender Screenshot ist eine Idee, Du kannst die Ausgabe auch gerne anders gestalten:</p>
+ <img src="../../3_Dateien/Grafiken_und_Videos/Formatierung.png" width="300"/></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Dokumentation s.o.</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Tabellarische_Daten/de_sv.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    
+    <span class="n">de_sv</span> <span class="o">=</span> <span class="p">{}</span> 
+
+    <span class="nb">next</span><span class="p">(</span><span class="n">read_file</span><span class="p">)</span> 
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">de</span><span class="p">,</span> <span class="n">sv</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="n">de_sv</span><span class="p">[</span><span class="n">de</span><span class="p">]</span> <span class="o">=</span> <span class="n">sv</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> 
+
+<span class="k">def</span> <span class="nf">vocab_trainer</span><span class="p">():</span>
+    
+    <span class="n">correctly_translated</span><span class="p">,</span> <span class="n">incorrectly_translated</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span> <span class="c1">#Initialisieren zweier Listen für (in)korrekt übersetzte Vokabeln</span>
+    
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hej! Mit mir kannst Du Schwedisch lernen! Wenn Du genug gelernt hast, gib einfach &#39;X&#39; ein.&quot;</span><span class="p">)</span>
+    
+        <span class="n">learnt_during_iteration</span> <span class="o">=</span> <span class="p">[]</span>
+            
+        <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">translation</span> <span class="ow">in</span> <span class="n">de_sv</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            
+            <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> 
+    
+            <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span>
+<span class="w">                </span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Für eine ansprechende Übersicht von (in)korrekt übersetzten Vokabeln verwenden wir f-strings, und genauer,</span>
+<span class="sd">                die Angabe eines digit space von 20 Zeichen pro Wort und Sprache. Um eine Tabelle zu imitieren, lassen wir uns</span>
+<span class="sd">                am vertikalen Anfang und Ende der jeweiligen Übersicht &#39;-&#39; 40 Mal ausgeben (komplexer Ausdruck), </span>
+<span class="sd">                jeweils mit &#39;|&#39; am horizontalen Anfang, in der Mitte sowie am Ende.&quot;&quot;&quot;</span>
+                
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Diese Vokabeln hast Du korrekt übersetzt:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="s1">&#39;–&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| </span><span class="si">{</span><span class="s1">&#39;Deutsch&#39;</span><span class="si">:</span><span class="s2">19</span><span class="si">}</span><span class="s2">| </span><span class="si">{</span><span class="s1">&#39;Schwedisch&#39;</span><span class="si">:</span><span class="s2">19</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">correctly_translated</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| </span><span class="si">{</span><span class="n">word</span><span class="si">:</span><span class="s2">19</span><span class="si">}</span><span class="s2">| </span><span class="si">{</span><span class="n">de_sv</span><span class="p">[</span><span class="n">word</span><span class="p">]</span><span class="si">:</span><span class="s2">19</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+
+
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Diese Vokabeln hast Du falsch übersetzt:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="s1">&#39;–&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| </span><span class="si">{</span><span class="s1">&#39;Deutsch&#39;</span><span class="si">:</span><span class="s2">19</span><span class="si">}</span><span class="s2">| </span><span class="si">{</span><span class="s1">&#39;Schwedisch&#39;</span><span class="si">:</span><span class="s2">19</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+
+                <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">incorrectly_translated</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;| </span><span class="si">{</span><span class="n">word</span><span class="si">:</span><span class="s2">19</span><span class="si">}</span><span class="s2">| </span><span class="si">{</span><span class="n">de_sv</span><span class="p">[</span><span class="n">word</span><span class="p">]</span><span class="si">:</span><span class="s2">19</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">20</span><span class="si">}</span><span class="s2">|&quot;</span><span class="p">)</span>
+                
+                <span class="k">return</span><span class="p">(</span><span class="s2">&quot;Tschüss / Hejdå!&quot;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">translation</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Korrekt! 🥳&quot;</span><span class="p">)</span>
+                <span class="n">learnt_during_iteration</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+                <span class="n">correctly_translated</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das war leider falsch 😅. Richtig wäre &#39;&quot;</span> <span class="o">+</span> <span class="n">translation</span> <span class="o">+</span> <span class="s2">&quot;&#39; gewesen!&quot;</span><span class="p">)</span>
+                <span class="n">incorrectly_translated</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">learnt_word</span> <span class="ow">in</span> <span class="n">learnt_during_iteration</span><span class="p">:</span>
+            <span class="n">de_sv</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">learnt_word</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">de_sv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du kannst alle Vokabeln! 🎉&quot;</span><span class="p">)</span>
+            <span class="k">break</span>
+
+<span class="n">vocab_trainer</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hej! Mit mir kannst Du Schwedisch lernen! Wenn Du genug gelernt hast, gib einfach &#39;X&#39; ein.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_76376</span><span class="o">/</span><span class="mf">1449469739.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="k">break</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span> 
+<span class="ne">---&gt; </span><span class="mi">73</span> <span class="n">vocab_trainer</span><span class="p">()</span>
+
+<span class="nn">/var/folders/dy/1d_wflpx5_57vhd_6cdbfk0m0000gn/T/ipykernel_76376/1449469739.py</span> in <span class="ni">vocab_trainer</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>             <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> 
+<span class="ne">---&gt; </span><span class="mi">26</span>             <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> 
+<span class="g g-Whitespace">     </span><span class="mi">28</span>             <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span>
+
+<span class="nn">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
+<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="10">
+<li><p>In dieser letzten Übung begeben wir uns in unbekanntes Terrain. Den Großteil der Arbeit erledigen wir nämlich nicht wie gewohnt aus JupypterLab heraus, sondern über die Command Line (Terminal unter macOS/Eingabeaufforderung unter Windows). Manche Tools stehen nämlich nur für die Command Line bereit und nicht für Python. So auch <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/">TreeTagger</a>, ein Tool, mit dem wir Text in verschiedenen Sprachen mit metalinguistischen Informationen wie Lemma (also die Form eines Wortes, die in einem Wörterbuch steht, z.B. „Kindes“ &gt; „Kind“) oder Part-of-Speech-Tags (Wortarten; abgekürzt: <em>POS</em>) anreichern können.</p>
+<ol class="arabic">
+<li><p>Installiere TreeTagger über die Schritte 1-5 auf der oben verlinkten Seite. Bei den „parameter files“ lädst Du das <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/german.par.gz">German parameter file</a> herunter. Speichere alle Dateien im gleichen Verzeichnis und achte darauf, dass der Dateipfad dorthin keine Leerschläge enthält. Entpacke keine der Dateien. Bei Schritt 5 ist es wichtig, dass Du die Command Line entweder direkt aus dem Verzeichnis mit den TreeTagger-Dateien heraus öffnest (i.d.R. möglich über Rechtsklick im Verzeichnis), oder mittels <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">path</span></code> zum Verzeichnis navigierst. Dadurch hat die Command Line das Verzeichnis der TreeTagger-Dateien als aktuelles Arbeitsverzeichnis.</p></li>
+<li><p>Schau, ob die Installation geklappt hat, indem Du in der Command Line (mit dem TreeTagger-Verzeichnis als Arbeitsverzeichnis!) den Befehl <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">'Hallo</span> <span class="pre">Welt!'</span> <span class="pre">|</span> <span class="pre">cmd/tree-tagger-german</span></code> eingibst. Ggf. verhindert Dein Betriebssystem die Ausführung des Befehls, weil TreeTagger nicht von einem verifizierten Entwickler stammt. Über die Einstellungen Deines Betriebssystems solltest Du diese Blockierung aufheben können. Die Ausgabe sollte folgendermaßen ausschauen:</p>
+ <img src="../../3_Dateien/Grafiken_und_Videos/Terminal_Output.png" width="450"/>
+<p>Die erste Spalte enthält die ursprünglichen Wörter unserer Eingabe in tokenisierter Form (ein Token pro Zeile). Die zweite Spalte enthält die POS-Tags (die deutsche Legende findest Du <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/STTS-Tagset.pdf">hier</a>) und die dritte die Lemmas.</p>
+</li>
+<li><p>Nun wollen wir einen längeren Text taggen. Speichere dazu den in Übung 1 erstellten Fließtext mit Niels Holgersens erstem Kapitel im gleichen Verzeichnis wie die TreeTagger-Dateien unter dem Namen „niels_holgersen.txt“ ab.</p></li>
+<li><p>Führe den Befehl <code class="docutils literal notranslate"><span class="pre">cmd/tree-tagger-german</span> <span class="pre">niels_holgersen.txt</span> <span class="pre">&gt;</span> <span class="pre">niels_holgersen_tagged.txt</span></code> in der Command Line (mit dem TreeTagger-Verzeichnis als Arbeitsverzeichnis!) aus. Dadurch übergeben wir „niels_holgersen.txt“ dem Pogramm „tree-tagger-german“ (das sich im Unterverzeichnis „cmd/“ befindet). Das Programm tokenisiert, POS-taggt und lemmatisiert den Text in „niels_holgersen.txt“ und speichert das Ergebnis in „niels_holgersen_tagged.txt“. Öffne die neue Datei (z.B. mit Sublime Text) und inspiziere sie.</p></li>
+<li><p>Lies die Datei hier in JupyterLab ein und finde heraus, welches POS-Tag am häufigsten vorkommt. Es sollte sich um Nomen (NN) handeln.</p></li>
+</ol>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Im folgenden Befehl fehlt der Pfad zum Verzeichnis mit den TreeTagger-Dateien, setze ihn bei path ein und entferne die Hashtags</span>
+<span class="c1">#with open(&quot;path/niels_holgersen.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as write_file:</span>
+    <span class="c1">#write_file.write(niels_holgersen)</span>
+
+<span class="c1">#an dieser Stelle führst Du Schritt D aus</span>
+
+<span class="c1">#hier lesen wir &#39;niels_holgersen_tagged.txt&#39; ein, wobei der Pfad wiederum individuell ist, setze ihn bei path ein</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path/niels_holgersen_tagged.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    
+    <span class="n">pos_tags</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Erstellen einer leeren Liste, an die wir alle POS-Tags aus der zweiten Spalte anhängen</span>
+
+    <span class="c1">#Iterieren über alle Zeilen, Splitten nach Tab und Anhängen des zweiten Elements (mit Index 1) an pos_tags</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">pos_tags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;als List Comprehension: Achtung: funktioniert nur, wenn die gesamte for-Schleife oben auskommentiert wird!</span>
+<span class="sd">    Dies liegt daran, dass read_file beim Iterieren darüber aufgebraucht wird, d.h. jedes Element wird nach der Iteration </span>
+<span class="sd">    aus dem Arbeitsspeicher gelöscht, weswegen maximal einmal darüber iteriert werden kann.&quot;&quot;&quot;</span>
+    <span class="c1">#pos_tags = [line.split(&quot;\t&quot;)[1] for line in read_file]</span>
+
+<span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">pos_tags</span><span class="p">)</span> <span class="c1">#Erstellen eines Sets an POS-Tags</span>
+
+<span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#Erstellen eines frequency dictionaries, an das wir POS-Tags sowie ihre Frequenzen als Schlüssel-Werte-Paare anhängen</span>
+
+<span class="c1">#Iterieren über alle Types und Zählen des jeweiligen Vorkommens in pos_tags sowie Schaffen eines Schlüssel-Werte-Paars</span>
+<span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
+    <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos_tags</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
+
+<span class="c1">#Ausgabe des ersten Elements des nach Werten absteigend sortierten freq_dict</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_76376</span><span class="o">/</span><span class="mf">4175888784.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#hier lesen wir &#39;niels_holgersen_tagged.txt&#39; ein, wobei der Pfad wiederum individuell ist, setze ihn bei path ein</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;path/niels_holgersen_tagged.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">pos_tags</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Erstellen einer leeren Liste, an die wir alle POS-Tags aus der zweiten Spalte anhängen</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;path/niels_holgersen_tagged.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/4_Zusatzuebungen/Loesungen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
