@@ -451,9 +451,10 @@ document.write(`
 <span class="n">hamburg</span> <span class="o">=</span> <span class="mi">1853935</span>
 <span class="n">muenchen</span> <span class="o">=</span> <span class="mi">1487708</span>
 
+<span class="c1">#Verknüpfung mehrerer Vergleiche mit &#39;and&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">berlin</span> <span class="o">&gt;</span> <span class="n">muenchen</span> <span class="ow">and</span> <span class="n">hamburg</span> <span class="o">&lt;=</span> <span class="n">berlin</span> <span class="ow">and</span> <span class="n">muenchen</span> <span class="o">&lt;</span> <span class="n">hamburg</span><span class="p">)</span>
 
-<span class="c1">#herausforderung</span>
+<span class="c1">#herausforderung: zusätzlicher, negierter Vergleich</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">berlin</span> <span class="o">&gt;</span> <span class="n">muenchen</span> <span class="ow">and</span> <span class="n">hamburg</span> <span class="o">&lt;=</span> <span class="n">berlin</span> <span class="ow">and</span> <span class="n">muenchen</span> <span class="o">&lt;</span> <span class="n">hamburg</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">berlin</span> <span class="o">&lt;</span> <span class="n">muenchen</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -508,6 +509,11 @@ No prognosis possible due to missing value
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_salary</span> <span class="o">=</span> <span class="mi">3000</span>
 <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
+<span class="sd">&quot;&quot;&quot;Um möglichst wenig Bedingungen aufzustellen, beginnen wir entweder bei der &quot;obersten&quot; oder, wie hier, bei der &quot;untersten&quot; Bedingung.</span>
+<span class="sd">Da Bedingungen nacheinander überprüft werden, bis eine zutrifft, müssen wir beim ersten &#39;elif&#39;-Statement z.B. nicht mehr übrprüfen,</span>
+<span class="sd">ob monthly_salary AUCH unter 2000 liegt (und nicht nur unter 3000). Denn läge monthly_salary unter 2000, hätte bereits die erste Bedingung</span>
+<span class="sd">zugetroffen und Python wäre nie zur zweiten Bedingung vorgerückt, etc. Diese Logik funktioniert aber nur, wenn wir die Bedingungen in korrekter</span>
+<span class="sd">Reihenfolge entweder von unten nach oben oder von oben nach unten überprüfen.&quot;&quot;&quot;</span>
 <span class="k">if</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">:</span>
     <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;low&quot;</span>
 <span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
@@ -523,6 +529,10 @@ No prognosis possible due to missing value
 
 <span class="n">monthly_salary</span> <span class="o">=</span> <span class="s2">&quot;siebentausend&quot;</span>
 <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;Herausforderung: Wir müssen in jedem Fall überprüfen, ob der Datentyp von monthly_salary entweder float oder integer ist. Falls nicht, muss eine </span>
+<span class="sd">Fehlermeldung zurückgegeben werden. Dies gilt auch bei Zahlen als strings, denn Python kann diese nicht in integer oder float konvertieren, </span>
+<span class="sd">es sei denn wir würden ein benutzerdefiniertes dictionary anlegen, aber das wäre ein extremer Arbeitsaufwand.&quot;&quot;&quot;</span>
 
 <span class="c1">#mit Herausforderung (drei semantisch identische Lösungen)</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">monthly_salary</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">monthly_salary</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">:</span>
@@ -558,9 +568,9 @@ invalid income
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
 
-<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#die Variable muss vor der Iteration als leerer string initialisiert werden</span>
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-    <span class="n">string</span> <span class="o">+=</span> <span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">string</span> <span class="o">+=</span> <span class="n">name</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#bei jeder Iteration hängen wir das jeweils letzte Zeichen (via Indexing) des jeweiligen Namens an string an</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 </pre></div>
@@ -582,17 +592,17 @@ invalid income
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
 
 <span class="c1">#Lösung mit Zählervariable</span>
-<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#die Variable muss vor der Iteration als leerer string initialisiert werden</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#wir initialisieren eine Zählervariable bei 0, die wir für das Indizieren des jeweiligen Buchstabens im jeweiligen Namen verwenden</span>
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-    <span class="n">string</span> <span class="o">+=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">string</span> <span class="o">+=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1">#hier Indizieren wir den jeweiligen Buchstaben im jeweiligen Namen</span>
+    <span class="n">i</span><span class="o">+=</span><span class="mi">1</span> <span class="c1">#nach jeder Iteration erhöhen wie die Zählervariable um 1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 
 <span class="c1">#Herausforderung: Lösung mit range-Funktion</span>
-<span class="n">string</span><span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">string</span><span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#die Variable muss vor der Iteration als leerer string initialisiert werden</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
-    <span class="n">string</span> <span class="o">+=</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">string</span> <span class="o">+=</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="c1">#doppeltes Indexing, erst Element auf der Liste names, dann Zeichen im jeweiligen Element</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -611,9 +621,12 @@ Helga
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
 
-<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#die Variable muss vor der Iteration als leerer string initialisiert werden</span>
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;&quot;Mittels range können wir jedes zweite, vierte, etc. Zeichen im jeweiligen Element auf der Liste names indizieren und string anhgängen.</span>
+<span class="sd">    Dazu setzen wir den start-Parameter auf 1 (bei Index 1, also beim zweiten Zeichen geht es los), den end-Parameter auf die Länge des jeweiligen Elements </span>
+<span class="sd">    (denn diese ist ja variabel) und den step-Parameter auf 2, damit jeweils ein Zeichen übersprungen wird.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span> 
         <span class="n">string</span> <span class="o">+=</span> <span class="n">name</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="c1">#auffallend viele Vokale unter diesen Zeichen!</span>
 </pre></div>
@@ -635,14 +648,17 @@ Helga
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">de_sv</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ich&quot;</span><span class="p">:</span> <span class="s2">&quot;jag&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">:</span> <span class="s2">&quot;från&quot;</span><span class="p">,</span> <span class="s2">&quot;reisen&quot;</span><span class="p">:</span> <span class="s2">&quot;resa&quot;</span><span class="p">,</span> <span class="s2">&quot;gerne&quot;</span><span class="p">:</span> <span class="s2">&quot;gärna&quot;</span><span class="p">,</span> <span class="s2">&quot;nach&quot;</span><span class="p">:</span> <span class="s2">&quot;till&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;woher&quot;</span><span class="p">:</span> <span class="s2">&quot;varifrån&quot;</span><span class="p">,</span> <span class="s2">&quot;kommen&quot;</span><span class="p">:</span> <span class="s2">&quot;komma&quot;</span><span class="p">,</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">:</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweden&quot;</span><span class="p">:</span> <span class="s2">&quot;Sverige&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;dich&quot;</span><span class="p">:</span> <span class="s2">&quot;dig&quot;</span><span class="p">,</span> <span class="s2">&quot;mich&quot;</span><span class="p">:</span> <span class="s2">&quot;mig&quot;</span><span class="p">,</span> <span class="s2">&quot;wir&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">}</span>
 
+<span class="c1">#Iteration über dictionaries, wobei jeweiliger Schlüssel und Wert mit den Variablen word und translation referenziert werden</span>
 <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">translation</span> <span class="ow">in</span> <span class="n">de_sv</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     
+    <span class="c1">#while-Schleife wird erst durch break-Statement (wenn Wort korrekt übersetzt wurde) abgebrochen</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     
-        <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> 
+        <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> <span class="c1">#Konkenation eines prompts mit dem jeweiligen Wort</span>
 
-        <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="c1">#Abfrage der Übersetzung und Speichern der Antwort in answer</span>
         
+        <span class="c1">#Überprüfen, ob Anwort korrekt: Wenn ja while-Schleife abbrechen, ansonsten Schleife weiter laufen lassen</span>
         <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">translation</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Korrekt! 🥳&quot;</span><span class="p">)</span>
             <span class="k">break</span>
@@ -656,12 +672,12 @@ Helga
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2262</span><span class="o">/</span><span class="mf">919368008.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> 
-<span class="ne">----&gt; </span><span class="mi">9</span>         <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2312</span><span class="o">/</span><span class="mf">2004641827.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> <span class="c1">#Konkenation eines prompts mit dem jeweiligen Wort</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">translation</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">11</span>         <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="c1">#Abfrage der Übersetzung und Speichern der Antwort in answer</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> 
+<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="c1">#Überprüfen, ob Anwort korrekt: Wenn ja while-Schleife abbrechen, ansonsten Schleife weiter laufen lassen</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
@@ -685,25 +701,30 @@ Helga
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">de_sv</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ich&quot;</span><span class="p">:</span> <span class="s2">&quot;jag&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">:</span> <span class="s2">&quot;från&quot;</span><span class="p">,</span> <span class="s2">&quot;reisen&quot;</span><span class="p">:</span> <span class="s2">&quot;resa&quot;</span><span class="p">,</span> <span class="s2">&quot;gerne&quot;</span><span class="p">:</span> <span class="s2">&quot;gärna&quot;</span><span class="p">,</span> <span class="s2">&quot;nach&quot;</span><span class="p">:</span> <span class="s2">&quot;till&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;woher&quot;</span><span class="p">:</span> <span class="s2">&quot;varifrån&quot;</span><span class="p">,</span> <span class="s2">&quot;kommen&quot;</span><span class="p">:</span> <span class="s2">&quot;komma&quot;</span><span class="p">,</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">:</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweden&quot;</span><span class="p">:</span> <span class="s2">&quot;Sverige&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;dich&quot;</span><span class="p">:</span> <span class="s2">&quot;dig&quot;</span><span class="p">,</span> <span class="s2">&quot;mich&quot;</span><span class="p">:</span> <span class="s2">&quot;mig&quot;</span><span class="p">,</span> <span class="s2">&quot;wir&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">}</span>
 
+<span class="c1">#while-Schleife wird erst durch break-Statement (wenn sämtliche Wörter korrekt übersetzt wurden) abgebrochen</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     
-    <span class="n">learnt_during_iteration</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">learnt_during_iteration</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die wir korrekt übersetzte Wörter anhängen</span>
     
+    <span class="c1">#Iteration über dictionaries, wobei jeweiliger Schlüssel und Wert mit den Variablen word und translation referenziert werden</span>
     <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">translation</span> <span class="ow">in</span> <span class="n">de_sv</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         
-        <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> 
+        <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> <span class="c1">#Konkenation eines prompts mit dem jeweiligen Wort</span>
 
-        <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="c1">#Abfrage der Übersetzung und Speichern der Antwort in answer</span>
         
+        <span class="c1">#Überprüfen, ob Anwort korrekt: Wenn ja, Wort learnt_during_interaction anhängen; wenn nein, korrekte Antwort ausgeben</span>
         <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">translation</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Korrekt! 🥳&quot;</span><span class="p">)</span>
             <span class="n">learnt_during_iteration</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das war leider falsch 😅. Richtig wäre &#39;&quot;</span> <span class="o">+</span> <span class="n">translation</span> <span class="o">+</span> <span class="s2">&quot;&#39; gewesen!&quot;</span><span class="p">)</span>
     
+    <span class="c1">#Nach jeder vollständigen Iteration über de_sv, entfernen wir gelernte Wörter aus de_sv</span>
     <span class="k">for</span> <span class="n">learnt_word</span> <span class="ow">in</span> <span class="n">learnt_during_iteration</span><span class="p">:</span>
         <span class="n">de_sv</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">learnt_word</span><span class="p">)</span>
-    
+        
+    <span class="c1">#Überprüfen ob de_sv noch weitere, zu lernende Wörter beinhält: wenn ja, läuft die while-Schleife weiter; wenn nein, wird sie abgebrochen</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">de_sv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Du kannst alle Vokabeln! 🎉&quot;</span><span class="p">)</span>
         <span class="k">break</span>
@@ -713,12 +734,12 @@ Helga
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2262</span><span class="o">/</span><span class="mf">3902902596.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="ne">---&gt; </span><span class="mi">11</span>         <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2312</span><span class="o">/</span><span class="mf">3200852112.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> <span class="c1">#Konkenation eines prompts mit dem jeweiligen Wort</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="k">if</span> <span class="n">answer</span> <span class="o">==</span> <span class="n">translation</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>         <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="c1">#Abfrage der Übersetzung und Speichern der Antwort in answer</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> 
+<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="c1">#Überprüfen, ob Anwort korrekt: Wenn ja, Wort learnt_during_interaction anhängen; wenn nein, korrekte Antwort ausgeben</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
@@ -758,28 +779,37 @@ etc.</p>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_per_hour</span> <span class="o">=</span> <span class="mi">59</span>
-<span class="n">hours_per_day</span> <span class="o">=</span> <span class="mi">24</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_per_hour</span> <span class="o">=</span> <span class="mi">59</span> <span class="c1">#Definieren der maximalen Minutenanzahl pro Stunde</span>
+<span class="n">hours_per_day</span> <span class="o">=</span> <span class="mi">24</span> <span class="c1">#Definieren der maximalen Stundenanzahl pro Tag</span>
 
-<span class="n">hour</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">hour</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Initialisieren der Stunde bei Null</span>
+<span class="c1">#while-Schleife läuft, solange hour kleiner als die maximale Stundenanzahl pro Tag ist</span>
 <span class="k">while</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="n">hours_per_day</span><span class="p">:</span>
-    
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Überprüfen, ob hour (als string, da nur strings eine Länge haben) aus einem Zeichen besteht:</span>
+<span class="sd">    wenn ja: Voranstellen einer Null; in beiden Fällen hour_str zuweisen&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">hour_str</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">hour_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span> 
 
-    <span class="n">minute</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">minute</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Initialisieren der Minute bei Null (jedes Mal, wenn eine neue Stunde beginnt)</span>
     
+    <span class="c1">#while-Schleife läuft, solange minute kleiner maximale Minutenzahl pro Stude ist</span>
     <span class="k">while</span> <span class="n">minute</span> <span class="o">&lt;</span> <span class="n">min_per_hour</span><span class="p">:</span>
-        
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Überprüfen, ob minute (als string, da nur strings eine Länge haben) aus einem Zeichen besteht:</span>
+<span class="sd">        wenn ja: Voranstellen einer Null; in beiden Fällen konkateniert mit hour_str und einem Doppelpunkt ausgeben lassen&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">minute</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">hour_str</span> <span class="o">+</span> <span class="s2">&quot;:0&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">minute</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">hour_str</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">minute</span><span class="p">))</span>
-        
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;minute um 15 erhöhen (dies geschieht viermal, wobei nach dem vierten Mal (minute == 60) die Bedingung</span>
+<span class="sd">        der inneren while-Schleife nicht mehr zutrifft und wir zur nächsten Stunde übergehen&quot;&quot;&quot;</span>
         <span class="n">minute</span> <span class="o">+=</span> <span class="mi">15</span>
     
+    <span class="c1">#zuvor erhöhen wir die Stunde noch um 1</span>
     <span class="n">hour</span><span class="o">+=</span><span class="mi">1</span>
 </pre></div>
 </div>

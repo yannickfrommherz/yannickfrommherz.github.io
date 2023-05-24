@@ -32,7 +32,7 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['#umgesetzt ohne List Comprehension', 'def ngram_freqs(text, n):', '    ', '    words = text.split()', '']
+['#umgesetzt ohne List Comprehension', 'def ngram_freqs(text, n):', '    """Function takes a string (text) and an integer (n), computes ngrams of desired length n,', '    calculates frequencies for the ngrams in the string and outputs ngram-frequencies-tuples sorted in descending order."""', '    ']
 ...
 ['#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt', 'with open("../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt", encoding="utf-8") as g:', '    kv21 = g.read()', '    ', 'ngram_freqs(kv21, 4)[0:10]']
 -------------------
