@@ -578,7 +578,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Eher komische Wörter in der Spalte „CO_TOKEN“. Wie wir an Spalte „CO_COUNT“ erkennen können, kamen sie aber auch nur jeweils einmal (im angegeben Jahr in „CO_YEAR“) vor.</p>
+<p>Eher komische Wörter in der Spalte „CO_TOKEN“. Wie wir an Spalte „CO_COUNT“ erkennen können, kamen sie aber auch nur jeweils einmal (im in „CO_YEAR“ angegebenen Jahr) vor.</p>
 <p>Das Gegenstück zu <code class="docutils literal notranslate"><span class="pre">head</span></code> ist <code class="docutils literal notranslate"><span class="pre">tail</span></code> (also der „Schwanz“), wodurch wir die letzten fünf Zeilen des DataFrames erhalten:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -760,7 +760,7 @@ RangeIndex(start=0, stop=386510, step=1)
 <h2>🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈<a class="headerlink" href="#anwendungsfall-wortverlaufskurven-visualisieren" title="Permalink to this heading">#</a></h2>
 <p>Auch in diesem Notebook gibt es einen Anwendungsfall: Wir wollen visualisieren, wie häufig beliebige Wörter in jedem Jahr im vom Songkorpus abgedeckten Zeitraum 1969-2022 vorkommen. Für die Begriffe „ich“, „du“, „er“ und „sie“ sähe das z.B. so aus:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Wortverlaufskurve_Jahr.png" width="700">
-<p>Es scheint, als sängen die Künstler:innen im Songkorpus bevorzugt über sich selbst. 😅</p>
+<p>Es scheint, als sängen die Künstler:innen im Songkorpus bevorzugt über sich selbst (bzw. über ihr lyrisches Ich). 😅</p>
 <hr class="docutils" />
 <p>Zuallererst wollen wir einen detailierten Blick auf Spalten und Zeilen werfen, aus denen ein DataFrame ja besteht.</p>
 </section>
@@ -1119,14 +1119,17 @@ Name: 777, dtype: object
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">songkorpus</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Jahr&quot;</span><span class="p">])</span>
 
-<span class="c1">#Randbemerkung: Auf die Spitze getrieben, können wir mit .loc auch nur auf Spalten zugreifen, nämlich, indem wir </span>
-<span class="c1">#wie bei Listen-Slicing auch möglich, durch Weglassen eines Start- und Endindex sämtliche Zeilen ansprechen, sprich so: </span>
-<span class="c1">#songkorpus.loc[:, &quot;Jahr&quot;]</span>
+<span class="sd">&quot;&quot;&quot;Randbemerkung: Auf die Spitze getrieben, können wir mit .loc auch nur auf Spalten zugreifen, nämlich, indem wir, </span>
+<span class="sd">wie bei Listen-Slicing auch möglich, durch Weglassen eines Start- und Endindex sämtliche Zeilen ansprechen, sprich so: </span>
+<span class="sd">songkorpus.loc[:, &quot;Jahr&quot;]&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1995
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Randbemerkung: Auf die Spitze getrieben, können wir mit .loc auch nur auf Spalten zugreifen, nämlich, indem wir, \nwie bei Listen-Slicing auch möglich, durch Weglassen eines Start- und Endindex sämtliche Zeilen ansprechen, sprich so: \nsongkorpus.loc[:, &quot;Jahr&quot;]&#39;
 </pre></div>
 </div>
 </div>
@@ -3135,28 +3138,28 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>7</td>
-      <td>31</td>
+      <td>22</td>
+      <td>41</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>15</td>
       <td>57</td>
+      <td>25</td>
     </tr>
     <tr>
       <th>2</th>
       <td>65</td>
-      <td>36</td>
+      <td>86</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>73</td>
-      <td>41</td>
+      <td>8</td>
+      <td>76</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>22</td>
-      <td>80</td>
+      <td>79</td>
+      <td>50</td>
     </tr>
   </tbody>
 </table>
@@ -3203,33 +3206,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>7</td>
-      <td>31</td>
-      <td>217</td>
+      <td>22</td>
+      <td>41</td>
+      <td>902</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>15</td>
       <td>57</td>
-      <td>855</td>
+      <td>25</td>
+      <td>1425</td>
     </tr>
     <tr>
       <th>2</th>
       <td>65</td>
-      <td>36</td>
-      <td>2340</td>
+      <td>86</td>
+      <td>5590</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>73</td>
-      <td>41</td>
-      <td>2993</td>
+      <td>8</td>
+      <td>76</td>
+      <td>608</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>22</td>
-      <td>80</td>
-      <td>1760</td>
+      <td>79</td>
+      <td>50</td>
+      <td>3950</td>
     </tr>
   </tbody>
 </table>
@@ -3279,33 +3282,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>7</td>
-      <td>31</td>
-      <td>217</td>
+      <td>22</td>
+      <td>41</td>
+      <td>902</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>15</td>
       <td>57</td>
-      <td>855</td>
+      <td>25</td>
+      <td>1425</td>
     </tr>
     <tr>
       <th>2</th>
       <td>65</td>
-      <td>36</td>
-      <td>2340</td>
+      <td>86</td>
+      <td>5590</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>73</td>
-      <td>41</td>
-      <td>2993</td>
+      <td>8</td>
+      <td>76</td>
+      <td>608</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>22</td>
-      <td>80</td>
-      <td>1760</td>
+      <td>79</td>
+      <td>50</td>
+      <td>3950</td>
     </tr>
   </tbody>
 </table>
@@ -3319,9 +3322,9 @@ Name: Jahrzehnt, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.007172822952270508 
-for-Loop 12.891427516937256 
-Faktor: 1797.2599634369287
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.010544776916503906 
+for-Loop 15.712398767471313 
+Faktor: 1490.0645970878177
 </pre></div>
 </div>
 </div>
@@ -3526,9 +3529,9 @@ Faktor: 1797.2599634369287
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.133697271347046 
-for-Loop 0.6707372665405273 
-Faktor: 3.181122293013554
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.7900912761688232 
+for-Loop 0.9394965171813965 
+Faktor: 2.9697728784981936
 </pre></div>
 </div>
 </div>
@@ -3862,7 +3865,7 @@ Faktor: 3.181122293013554
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb191f03290&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f172a05a1d0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" src="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" />
@@ -3879,6 +3882,44 @@ Faktor: 3.181122293013554
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/songkorpus_new.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1997</span><span class="o">/</span><span class="mf">3687279591.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/songkorpus_new.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3480</span>             <span class="n">doublequote</span><span class="o">=</span><span class="n">doublequote</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3481</span>             <span class="n">escapechar</span><span class="o">=</span><span class="n">escapechar</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">3482</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3483</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3484</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/formats/format.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1103</span>             <span class="n">formatter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmt</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1104</span>         <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1105</span>         <span class="n">csv_formatter</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1106</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1107</span>         <span class="k">if</span> <span class="n">created_buffer</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/formats/csvs.py</span> in <span class="ni">save</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">241</span>             <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">242</span>             <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">243</span>             <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">244</span>         <span class="p">)</span> <span class="k">as</span> <span class="n">handles</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">245</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">707</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../3_Dateien/Output/songkorpus_new.csv&#39;
 </pre></div>
 </div>
 </div>

@@ -1,0 +1,986 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lösungen zu den Zusatzübungen zum Notebook „Datenanalyse“ &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/4_Zusatzuebungen/Loesungen/7_Datenanalyse_Zusatzuebungen_Loesungen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/4_Zusatzuebungen/Loesungen/7_Datenanalyse_Zusatzuebungen_Loesungen.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../phd.html">PhD project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publications.html">Publications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/5_Input_und_Output.html">5. Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/7_Datenanalyse.html">7. Datenanalyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/1_Einfuehrung_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/2_Datentypen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/7_Datenanalyse_Loesungen.html">7. Datenanalyse</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_Einfuehrung_Uebungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_Datentypen_Uebungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_Kontrollstrukturen_Uebungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung_Uebungen_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen_Uebungen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen_Uebungen_Loesungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/4_Zusatzuebungen/Loesungen/7_Datenanalyse_Zusatzuebungen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/4_Zusatzuebungen/Loesungen/7_Datenanalyse_Zusatzuebungen_Loesungen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/programming/4_Zusatzuebungen/Loesungen/7_Datenanalyse_Zusatzuebungen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lösungen zu den Zusatzübungen zum Notebook „Datenanalyse“</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="losungen-zu-den-zusatzubungen-zum-notebook-datenanalyse">
+<h1>Lösungen zu den Zusatzübungen zum Notebook „Datenanalyse“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-datenanalyse" title="Permalink to this heading">#</a></h1>
+<p>☝️ Beachte 1: es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
+<p>☝️ Beachte 2:  In diesem Notebook arbeiten wir größtenteils mit einer Datei, die Du in Übung 1 selbst herunterladen musst. Die meisten Lösungen lassen sich folglich erst ausführen, wenn Du den korrekten Pfad zur heruntergeladenen Datei bei <code class="docutils literal notranslate"><span class="pre">path</span></code> eingesetzt hast.</p>
+<p>☝️ Beachte 3:  Anders als im siebten Notebook kommt hier auch die dot-Notation für den Spaltenzugriff (<code class="docutils literal notranslate"><span class="pre">df.column</span></code> statt <code class="docutils literal notranslate"><span class="pre">df[&quot;column&quot;]</span></code>) zum Einsatz.</p>
+<ol class="arabic">
+<li><p>Lade Dir den Datensatz mit 1 Million Sätzen aus deutschsprachigen Nachrichtentexten („News“) aus dem Jahr 2022 von der Seite des Projekts <a class="reference external" href="https://wortschatz.uni-leipzig.de/de/download/German">Wortschatz Leipzig</a> herunter und speichere ihn an einem sinnvollen Ort. Entpacke das Verzeichnis und lies die Datei „deu_news_2022_1M-sentences.txt“ mithilfe von pandas ein. Das DataFrame soll <code class="docutils literal notranslate"><span class="pre">news_df</span></code> heißen und aus zwei Spalten (<code class="docutils literal notranslate"><span class="pre">sentence_id</span></code> und <code class="docutils literal notranslate"><span class="pre">sentence</span></code>) sowie 1 Million Zeilen bestehen. Spaltennamen kannst Du mithilfe des <code class="docutils literal notranslate"><span class="pre">names</span></code>-Argument beim Einlesen definieren. Lass Dir die ersten zehn Zeilen ausgeben.</p>
+<p>Befinden sich wirklich 1 Million Sätze im DataFrame? Falls dies bei Deinem DataFrame nicht der Fall ist, überleg Dir, was schief gelaufen sein könnte. Denn in der Datei „deu_news_2022_1M-sentences.txt“ befinden garantiert 1 Million Sätze.</p>
+<p>💡 Tipp: Irgendein Zeichen muss pandas dazu verleitet haben, das Trennzeichen „\t“ literal anstatt als Trennzeichen zu interprieren. Dies hatte zur Folge, dass mehrere Sätze in <em>einer</em> Zeile gelandet sind, weswegen schlussendlich weniger als 1 Million Zeilen im DataFrame stehen. Finde heraus, mithilfe welchen Parameters im Einlesebefehl Du dieses Verhalten korrigieren kannst.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1">#Importieren des Moduls</span>
+
+<span class="c1">#Spezifizieren des Pfades zur einzulesenden Datei (hier leer, da individueller Speicherort)</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;Einlesen der Daten, Spezifizieren der Spaltennamen, sowie Steuern des Verhaltens bei Anführungszeichen:</span>
+<span class="sd">Der Parameter &#39;quoting&#39; löst das Problem, dass mehr als ein Satz in einer Zeile landet. Das Problem entsteht bei Sätzen,</span>
+<span class="sd">die ein öffnendes Anführungszeichen beinhalten, aber kein schließendes. pandas interpretiert dadurch die folgenden Trennzeichen &#39;\t&#39;</span>
+<span class="sd">literal anstatt als Trennzeichen, bis zum nächsten Anführungszeichen. Indem wir quoting=3 spezifizieren, teilen wir pandas mit,</span>
+<span class="sd">dass KEINE Anführungszeichen beim Einlesen als literal interpretiert werden sollen, vgl. https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html;</span>
+<span class="sd">Anstatt einer ominösen 3, kannst Du auch zusätzlich das Modul csv importieren und quoting=csv.QUOTE_NONE spezifizieren,</span>
+<span class="sd">die beiden Optionen sind gleichbedeutend.&quot;&quot;&quot;</span>
+<span class="n">news_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sentence_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sentence&quot;</span><span class="p">],</span> <span class="n">quoting</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1">#Ausgabe der Anzahl an Spalten und Zeilen des DataFrames: das DataFrame sollte 1 Million Zeilen umfassen</span>
+<span class="n">news_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#Ausgabe der ersten zehn Zeilen</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">84905062.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">Anstatt</span> <span class="n">einer</span> <span class="n">ominösen</span> <span class="mi">3</span><span class="p">,</span> <span class="n">kannst</span> <span class="n">Du</span> <span class="n">auch</span> <span class="n">zusätzlich</span> <span class="n">das</span> <span class="n">Modul</span> <span class="n">csv</span> <span class="n">importieren</span> <span class="n">und</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONE</span> <span class="n">spezifizieren</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">die</span> <span class="n">beiden</span> <span class="n">Optionen</span> <span class="n">sind</span> <span class="n">gleichbedeutend</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">13</span><span class="s2"> news_df = pd.read_csv(path, sep=&quot;</span><span class="se">\t</span><span class="s2">&quot;, encoding=&quot;utf-8&quot;, names=[&quot;sentence_id&quot;, &quot;sentence&quot;], quoting=3)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="s2"> print(news_df.shape) #Ausgabe der Anzahl an Spalten und Zeilen des DataFrames: das DataFrame sollte 1 Million Zeilen umfassen</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span><span class="s2">                     stacklevel=stacklevel,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span><span class="s2">                 )</span>
+<span class="ne">--&gt; </span><span class="mi">311</span><span class="s2">             return func(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="s2">         return wrapper</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span><span class="s2">     kwds.update(kwds_defaults)</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">586</span><span class="s2">     return _read(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">481</span><span class="s2">     # Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">482</span><span class="s2">     parser = TextFileReader(filepath_or_buffer, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">483</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span><span class="s2">     if chunksize or iterator:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span><span class="s2">             self.options[&quot;has_index_names&quot;] = kwds[&quot;has_index_names&quot;]</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">811</span><span class="s2">         self._engine = self._make_engine(self.engine)</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">813</span><span class="s2">     def close(self):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span><span class="s2">             )</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span><span class="s2">         # error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span><span class="s2">         return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1042</span><span class="s2">     def _failover_to_python(self):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span><span class="s2">         # open handles</span>
+<span class="ne">---&gt; </span><span class="mi">51</span><span class="s2">         self._open_handles(src, kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span><span class="s2">         assert self.handles is not None</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span><span class="s2">             memory_map=kwds.get(&quot;memory_map&quot;, False),</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span><span class="s2">             storage_options=kwds.get(&quot;storage_options&quot;, None),</span>
+<span class="ne">--&gt; </span><span class="mi">229</span><span class="s2">             errors=kwds.get(&quot;encoding_errors&quot;, &quot;strict&quot;),</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span><span class="s2">         )</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">                 encoding=ioargs.encoding,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">                 errors=errors,</span>
+<span class="ne">--&gt; </span><span class="mi">707</span><span class="s2">                 newline=&quot;&quot;,</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span><span class="s2">             )</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span><span class="s2">         else:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Finde heraus, ob es in den deutschsprachigen Nachrichten 2022 häufiger um die Ukraine oder Corona ging (unter der Annahme, dass der Datensatz repräsentativ für die deutschsprachigen Nachrichten ist).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ukraine</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Ukraine&quot;</span><span class="p">)]</span> <span class="c1">#Filtern des DataFrames nach dem Vorkommen von &quot;Ukraine&quot; in der Spalte &quot;sentence&quot;</span>
+<span class="n">corona</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Corona&quot;</span><span class="p">)]</span> <span class="c1">#Filtern des DataFrames nach dem Vorkommen von &quot;Corona&quot; in der Spalte &quot;sentence&quot;</span>
+
+<span class="c1">#Ausgabe der Länge der beiden Sub-DataFrames</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sätze mit &#39;Ukraine&#39;:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ukraine</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sätze mit &#39;Corona&#39;:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">corona</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">1283505984.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ukraine</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Ukraine&quot;</span><span class="p">)]</span> <span class="c1">#Filtern des DataFrames nach dem Vorkommen von &quot;Ukraine&quot; in der Spalte &quot;sentence&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">corona</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Corona&quot;</span><span class="p">)]</span> <span class="c1">#Filtern des DataFrames nach dem Vorkommen von &quot;Corona&quot; in der Spalte &quot;sentence&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#Ausgabe der Länge der beiden Sub-DataFrames</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sätze mit &#39;Ukraine&#39;:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ukraine</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="3">
+<li><p>Schaffe eine zusätzliche Spalte im DataFrame, in der die jeweilige Länge des Satzes in Wörtern verzeichnet ist.</p>
+<p>Wie lange ist der längste Satz? Wie lange ist der kürzeste Satz? Und was ist die durchschnittliche Satzlänge?</p>
+<p>Lass Dir den längsten Satz sowie die kürzesten Sätze ausgeben!</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">#Zählen der Leerschläge und Addieren von 1, um Anzahl Wörter pro Satz auszurechnen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1">#Ausgabe des maximalen, minimalen und durchschnittlichen Werts in der Spalte &quot;length&quot;</span>
+
+<span class="c1">#Filtern des DataFrames danach, dass in der Spale &quot;length&quot; der maximale bzw. minmale Wert verzeichnet steht, Ausgabe der Werte mithilfe der &#39;values&#39;-Methode (um nur die Werte zu erhalten)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">2080315774.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">#Zählen der Leerschläge und Addieren von 1, um Anzahl Wörter pro Satz auszurechnen</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1">#Ausgabe des maximalen, minimalen und durchschnittlichen Werts in der Spalte &quot;length&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="nn">      4 #Filtern des DataFrames danach, dass</span> in <span class="ni">der Spale &quot;length&quot; der maximale bzw. minmale Wert verzeichnet steht, Ausgabe der Werte mithilfe der &#39;values&#39;-Methode </span><span class="nt">(um nur die Werte zu erhalten)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Sortiere das DataFrame nach der Länge der Sätze in absteigender Reihenfolge. Welcher Schritt ist anschließend noch sinnvoll?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Sortieren des DataFrames nach den Werten der Spalte &quot;length&quot; sowie sinnvollerweise Zurücksetzen der Indizes inkl. &quot;droppen&quot; der alten Indizes</span>
+<span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">news_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">983016777.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Sortieren des DataFrames nach den Werten der Spalte &quot;length&quot; sowie sinnvollerweise Zurücksetzen der Indizes inkl. &quot;droppen&quot; der alten Indizes</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">news_df</span>
+
+<span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="5">
+<li><p>Bereinige sämtliche Sätze derart, dass Sonderzeichen von allen Wortanfängen und -enden entfernt werden. Dazu steht Dir die Liste <code class="docutils literal notranslate"><span class="pre">special_signs</span></code> zur Verfügung. Groß- und Kleinschreibung sollst Du beibehalten. Jeder Satz soll auch nach dem Preprocessing als ein string vorliegen.</p>
+<p>💡 Tipp: Verwende die pandas-eigene, vektorisierte Art der Datenbearbeitung und denk daran, dass Du diese auch in Kombination mit selbst definierten Funktionen verwenden kannst.</p>
+<p>📌 Herausforderung: Verwende maximal eine Zeile zur Bereinigung der Sätze.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">special_signs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;‰&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;§&#39;</span><span class="p">,</span> <span class="s1">&#39;´&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;́&#39;</span><span class="p">,</span> <span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="s1">&#39;❓&#39;</span><span class="p">,</span> <span class="s1">&#39;‑&#39;</span><span class="p">,</span> <span class="s1">&#39;”&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s1">&#39;″&#39;</span><span class="p">,</span> <span class="s1">&#39;»&#39;</span><span class="p">,</span> <span class="s1">&#39;−&#39;</span><span class="p">,</span> <span class="s1">&#39;✔&#39;</span><span class="p">,</span> <span class="s1">&#39;•&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;`&#39;</span><span class="p">,</span> <span class="s1">&#39;〉&#39;</span><span class="p">,</span> <span class="s1">&#39;†&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s1">&#39;‹&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;‚&#39;</span><span class="p">,</span> <span class="s1">&#39;®&#39;</span><span class="p">,</span> <span class="s1">&#39;°&#39;</span><span class="p">,</span> <span class="s1">&#39;‒&#39;</span><span class="p">,</span> <span class="s1">&#39;▶&#39;</span><span class="p">,</span> <span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="s1">&#39;‘&#39;</span><span class="p">,</span> <span class="s1">&#39;€&#39;</span><span class="p">,</span> <span class="s1">&#39;«&#39;</span><span class="p">,</span> <span class="s1">&#39;Ł&#39;</span><span class="p">,</span> <span class="s1">&#39;═&#39;</span><span class="p">,</span> <span class="s1">&#39;„&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">,</span> <span class="s1">&#39;–&#39;</span><span class="p">,</span> <span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;︎&#39;</span><span class="p">,</span> <span class="s1">&#39;—&#39;</span><span class="p">,</span> <span class="s1">&#39;“&#39;</span><span class="p">,</span> <span class="s1">&#39;·&#39;</span><span class="p">,</span> <span class="s1">&#39;…&#39;</span><span class="p">,</span> <span class="s1">&#39;‟&#39;</span><span class="p">,</span> <span class="s1">&#39;‡&#39;</span><span class="p">,</span><span class="s1">&#39;’&#39;</span><span class="p">,</span> <span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;ł&#39;</span><span class="p">,</span> <span class="s1">&#39;~&#39;</span><span class="p">,</span> <span class="s1">&#39;™&#39;</span><span class="p">,</span> <span class="s1">&#39;›&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">]</span>
+<span class="n">specials_signs_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">special_signs</span><span class="p">)</span> <span class="c1">#Casten in string, da strip-Methode einen string mit zu strippenden Zeichen erwartet</span>
+
+<span class="c1">#Definieren einer eigenen Funktion, die unten auf jeden Satz angewandt wird</span>
+<span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1">#Splitten in Wörter</span>
+    <span class="c1">#Bereinigen der Wörter (leere strings werden durch if-Bedingung übersprungen)</span>
+    <span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">specials_signs_str</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">specials_signs_str</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> 
+    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span> <span class="c1">#Rückgabe eines wieder als string zusammengesetzten Satzes mit bereinigten Wörtern</span>
+
+<span class="c1">#Überschreiben der Spalte &quot;sentence&quot;</span>
+<span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;sentence&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">)</span> <span class="c1">#Anwenden der benutzerdefinierten Funktion auf alle Zeilen in der Spalte &quot;sentence&quot;</span>
+
+<span class="c1">#Herausforderung</span>
+<span class="c1">#news_df[&quot;sentence&quot;] = news_df.sentence.apply(lambda sentence: &quot; &quot;.join([word.strip(specials_signs_str) for word in sentence.split(&quot; &quot;) if len(word.strip(specials_signs_str)) &gt; 0]))</span>
+
+<span class="n">news_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">1659539673.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#Überschreiben der Spalte &quot;sentence&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;sentence&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">)</span> <span class="c1">#Anwenden der benutzerdefinierten Funktion auf alle Zeilen in der Spalte &quot;sentence&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> 
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1">#Herausforderung</span>
+
+<span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="6">
+<li><p>Mit welchen zehn Wörtern beginnen die Nachrichtensätze am häufigsten?</p>
+<p>💡 Tipp: Um jeweils auf das n-te Element einer Liste in jeder Zeile einer bestimmten Spalte zuzugreifen, kannst Du <code class="docutils literal notranslate"><span class="pre">.str[n]</span></code> an den Spaltennamen anhängen.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Splitten der Sätze in Wörter, Indizieren des ersten Elements, Berechnen der Häufigkeitsverteilung und Ausgabe der obersten zehn Elemente</span>
+<span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">1061076737.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Splitten der Sätze in Wörter, Indizieren des ersten Elements, Berechnen der Häufigkeitsverteilung und Ausgabe der obersten zehn Elemente</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Und mit welchen zehn Wörtern enden die die Nachrichtensätze am häufigsten?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Splitten der Sätze in Wörter, Indizieren des letzten Elements, Berechnen der Häufigkeitsverteilung und Ausgabe der obersten zehn Elemente</span>
+<span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">259983597.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Splitten der Sätze in Wörter, Indizieren des letzten Elements, Berechnen der Häufigkeitsverteilung und Ausgabe der obersten zehn Elemente</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="8">
+<li><p>Wortschatz Leipzig stellt nicht nur eine Million Sätze zur Verfügung, sondern listet auch auf, wann und von welchem Nachrichtenportal die Sätze extrahiert wurden. Diese Informationen sind jedoch in zwei weiteren Dateien gespeichert, die Du ebenfalls bereits heruntergeladen und entpackt hast. Sämtliche Quellen sowie Daten (wann wurde der Satz heruntergeladen?) sind in „deu_news_2022_1M-sources.txt“ aufgelistet und mit Quellen-IDs versehen, die Zuordnung zwischen Quellen-ID und Satz-ID findet sich wiederum in „deu_news_2022_1M-inv_so.txt“.</p>
+<p>Deine Aufgabe ist es nun, diese Informationen (Quelle und Datum) mit dem DataFrame <code class="docutils literal notranslate"><span class="pre">news_df</span></code> zu vereinen. Dazu bietet sich eine Dir vermutlich noch unbekannte Methode namens <code class="docutils literal notranslate"><span class="pre">merge</span></code> an. Informiere Dich <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">hier</a> über die Methode. Bei <code class="docutils literal notranslate"><span class="pre">merge</span></code> kannst Du mithilfe des <code class="docutils literal notranslate"><span class="pre">on</span></code>-Parameters spezifizieren, auf Basis der Werte welcher Spalte die Zusammenführung zweier DataFrames erfolgen soll. Wichtig ist dabei, dass der angegebene Spaltenname in beiden DataFrames existiert. Stelle sicher, dass du am Ende immer noch eine Million Sätze in Deinem DataFrame hast, sowie, dass keine fehlenden Werte (die etwa aufgrund eines falschen Mergings eingetragen wurden) darin vorkommen. Verwende dazu entweder <code class="docutils literal notranslate"><span class="pre">if</span></code>-Bedingungen, oder, eleganter, <code class="docutils literal notranslate"><span class="pre">assert</span></code>-Statements (mehr dazu <a class="reference external" href="https://realpython.com/python-assert-statement/#getting-to-know-assertions-in-python">hier</a>).</p>
+<p>Überprüfe abschließend bei ein paar Quellenlinks, ob die jeweiligen Sätze tatsächlich auf der entsprechenden Website zu finden sind.</p>
+<p>⚠️ Achtung: Wenn Du mehrfach hintereinander dieselben DataFrames zusammenfügst, riskierst Du einen <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> bei der als <code class="docutils literal notranslate"><span class="pre">on</span></code>-Parameter übergebenen Spalte. Die Fehlermeldung rührt daher, dass pandas bei mehrmaligem Mergen bereits existierende Spaltennamen um ein Suffix ergänzt, da Spaltennamen einzigartig sein müssen. Schaffe deshalb als erstes eine Kopie von <code class="docutils literal notranslate"><span class="pre">news_df</span></code> mithilfe von <code class="docutils literal notranslate"><span class="pre">news_df_enriched</span> <span class="pre">=</span> <span class="pre">news_df.copy()</span></code> und arbeite fortan mit <code class="docutils literal notranslate"><span class="pre">news_df_enriched</span></code>. Jedes Mal wenn Du die ganze Zelle ausführst, um die DataFrames zu mergen, passiert dies somit auf Basis einer (immer wieder) neu erstellten Kopie.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news_df_enriched</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1">#Spezifizieren der Pfade zur einzulesenden Datei (hier leer, da individueller Speicherort)</span>
+<span class="n">sources</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;source_id&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">mapping</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;source_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sentence_id&quot;</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+<span class="n">news_df_enriched</span> <span class="o">=</span> <span class="n">news_df_enriched</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">mapping</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;sentence_id&quot;</span><span class="p">)</span> <span class="c1">#Zusammenführen von news_df und mapping, basierend auf Werten der Spalte &quot;sentence_id&quot;</span>
+<span class="n">news_df_enriched</span> <span class="o">=</span> <span class="n">news_df_enriched</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">sources</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;source_id&quot;</span><span class="p">)</span> <span class="c1">#Zusammenführen von news_df (jetzt mit source_id aus vorangegangenem Merging) und sources, basierend auf Werten der Spalte &quot;source_id&quot;</span>
+
+<span class="c1">#Überprüfen, ob Länge von news_df immer noch 1 Million mithilfe des assert-Statements</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">news_df_enriched</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1000000</span>
+
+<span class="sd">&quot;&quot;&quot;Überprüfen, ob fehlende Werte in news_df vorkommen mithilfe von isna(), das ein DataFrame mit True/False für jede</span>
+<span class="sd">einzelne Zelle ausgibt. False ist bei Python gleichbedeutung mit 0 (True mit 1), weswegen wir die sum-Methode anhängen können,</span>
+<span class="sd">die standardmäßig spaltenweise aufsummiert, wobei immer noch jede Spalte Null ergeben sollte. Anschließend können wir auf die</span>
+<span class="sd">resultierende Series nochmal sum() anwenden, um die Spaltensummen zusammenzuzählen. Ergibt dies immer noch Null, finden sich</span>
+<span class="sd">keinerlei fehlende Werte in news_df_enriched. Lasse Dir ggf. Zwischenschritte ausgeben, um das Ergebnis nachvollziehen zu können&quot;&quot;&quot;</span>
+<span class="k">assert</span> <span class="n">news_df_enriched</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="c1">#Ausgabe von ein paar Links zur manuellen Überprüfung, ob Sätze tatsächlich aus der jeweiligen Quelle stammen</span>
+<span class="n">some_indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">330</span><span class="p">,</span> <span class="mi">8374</span><span class="p">,</span> <span class="mi">99473</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">some_indices</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">news_df_enriched</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;sentence&quot;</span><span class="p">],</span> <span class="s2">&quot;sollte von&quot;</span><span class="p">,</span> <span class="n">news_df_enriched</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">],</span> <span class="s2">&quot;stammen. Stimmts?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">1257780226.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">news_df_enriched</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Spezifizieren der Pfade zur einzulesenden Datei (hier leer, da individueller Speicherort)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sources</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;source_id&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">mapping</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;source_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sentence_id&quot;</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="9">
+<li><p>Füge eine weitere Spalte namens <code class="docutils literal notranslate"><span class="pre">country</span></code> hinzu, die basierend auf der Top-Level-Domain dem Quellenlink (z.B. „.de“ oder „.ch“) angibt, aus welchem Land der jeweilige Nachrichtensatz stammt. Dies lässt sich am besten mithilfe eines regulären Ausdrucks (vgl. sechstes Notebook) lösen. Pandas wiederum stellt mit <code class="docutils literal notranslate"><span class="pre">findall</span></code> eine nützliche string-Methode zur Verfügung, die wir wie gewohnt auf eine ganze Spalte anwenden können und der wir problemlos einen regulären Ausdruck übergeben können.</p>
+<p>📌 Herausforderung: Lass Dir eine schön formatierte Übersicht über die absolute und eine relative Häufigkeitsverteilung der Länder ausgeben. Folgender Screenshot ist eine Idee für die Formatierung, Du kannst es aber auch anders umsetzen.</p>
+ <img src="../../3_Dateien/Grafiken_und_Videos/tld_overview.png" width="300"/></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df_enriched</span> <span class="c1">#&quot;Zurückverweisen&quot; von news_df_enriched auf news_df, da dies der simplere Variablenname ist</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1">#Definieren der RegEx: ein Punkt (escaped mit Backslash), gefolgt von zwei oder mehr kleingeschriebenen Buchstaben, gefolgt von Schrägstrich (escaped mit Backslash)</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\.[a-z]{2,}\/&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;Schaffen einer neuen Spalte, die jeweils das erste Element (Index 0) der durch findall(pattern) produzierten Liste </span>
+<span class="sd">mit Regex-Matches beinhält (bereinigt vom Punkt zu Beginn und dem Schrägstrich am Ende)&quot;&quot;&quot;</span>
+<span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;./&quot;</span><span class="p">)</span> 
+
+<span class="c1">#Herausfoderung</span>
+<span class="c1">#Schaffen zweier dictionaries mit den absoluten und relativen Häufigkeitsverteilungen (dictionaries eignen sich besser als Series für die Iteration unten)</span>
+<span class="n">absolute</span><span class="p">,</span> <span class="n">relative</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="c1">#Ausgabe einer Überschrift sowie eines horizontalen Trennbalkens, Formatierung mithilfe von f-strings</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;TLD&#39;</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="s1">&#39;Absolute&#39;</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}{</span><span class="s1">&#39;Relative&#39;</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">30</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">#Iteration über eines der beiden dictionaries, Ausgabe des Schlüssels sowie der beiden Werte aus den dictionaries, Formatierung mithilfe von f-strings</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">absolute</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">val</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">relative</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">:</span><span class="s2">10.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">2336589509.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df_enriched</span> <span class="c1">#&quot;Zurückverweisen&quot; von news_df_enriched auf news_df, da dies der simplere Variablenname ist</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">re</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#Definieren der RegEx: ein Punkt (escaped mit Backslash), gefolgt von zwei oder mehr kleingeschriebenen Buchstaben, gefolgt von Schrägstrich (escaped mit Backslash)</span>
+
+<span class="ne">NameError</span>: name &#39;news_df_enriched&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>Schaffe ein Sub-DataFrame mit Nachrichtensätzen aus dem <a class="reference external" href="https://de.wikipedia.org/wiki/D-A-CH">DACH</a>-Raum.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Schaffen eines Sub-DataFrames, indem news_df in der Spalte &quot;country&quot; nach den Werten &quot;de&quot;, &quot;at&quot; und &quot;ch&quot; gefiltert wird</span>
+<span class="n">dach_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="s2">&quot;at&quot;</span><span class="p">,</span> <span class="s2">&quot;ch&quot;</span><span class="p">])]</span>
+<span class="n">dach_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#Ausgabe der obersten Zeilen des Sub-DataFrames</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">3267149204.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Schaffen eines Sub-DataFrames, indem news_df in der Spalte &quot;country&quot; nach den Werten &quot;de&quot;, &quot;at&quot; und &quot;ch&quot; gefiltert wird</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dach_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="s2">&quot;at&quot;</span><span class="p">,</span> <span class="s2">&quot;ch&quot;</span><span class="p">])]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dach_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#Ausgabe der obersten Zeilen des Sub-DataFrames</span>
+
+<span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="11">
+<li><p>Zum Schluss wollen wir noch überprüfen, ob das Sampling der Nachrichtensätze im Datensatz einigermaßen repräsentativ für die deutschsprachigen Länder ist, wobei wir uns der Einfachheit halber wieder auf den DACH-Raum beschränken. Deutschland ist ungefähr um den Faktor 10 größer als Österreich resp. die Schweiz (überprüfe gerne die aktuellen Einwohner:innenzahl der drei Länder). Entsprechend sollten zirka zehn mal so viele Nachrichtensätze aus Deutschland stammen als aus Österreich bzw. der Schweiz. Gleichzeitig sollte der Anteil an Nachrichtensätzen aus Deutschland, Österreich und der Schweiz aber auch einigermaßen gleichmäßig über das Jahr 2022 verteilt sein. Idealerweise wurden nicht bloß im Januar Schweizer Quellen, im Februar österreichische und den Rest des Jahres deutsche gesammelt… Die Verteilung nach Land über die Monate des Jahres 2022 hinweg wollen wir uns als Plot ausgeben lassen. Bevor Du diesen Plot erstellst, führe folgende Vorbereitungsschritte aus:</p>
+<ul class="simple">
+<li><p>Wenn Du dir die Daten (wann wurde der Satz heruntergeladen?) in <code class="docutils literal notranslate"><span class="pre">news_df</span></code> anschaust (z.B. mittels <code class="docutils literal notranslate"><span class="pre">news_df[~news_df.date.str.startswith(&quot;2022&quot;)])</span></code>, siehst Du, dass einige unrealistische Daten dabei sind. Da hat wohl das Web-Scraping bzw. das Postprocessing versagt… Filtere das DataFrame derart, dass nur Sätze aus dem Jahr 2022 übrigbleiben.</p></li>
+<li><p>Da wir die Verteilung anstatt über 365 Tage vereinfacht über zwölf Monate hinweg plotten wollen, schaffe eine neue Spalte mit dem jeweiligen Extraktionsmonat des Nachrichtensatzes. Sortiere das DataFrame anschließend nach den Werten dieser neuen Spalte.
+</br></br></p></li>
+</ul>
+<p>Analysiere nun folgenden Plot und erstelle ihn anschließend selbst. Überleg Dir abschließend, ob das Sampling repräsentativ für die Größe der DACH-Länder über die Monate hinweg ist.</p>
+<p><img src="../../3_Dateien/Grafiken_und_Videos/news_dach.png" width="600"/> </br></p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#Importieren von matplotlib.pyplot</span>
+
+<span class="n">dach_df</span> <span class="o">=</span> <span class="n">dach_df</span><span class="p">[</span><span class="n">dach_df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;2022&quot;</span><span class="p">)]</span> <span class="c1">#Wegfiltern von Daten außerhalb des Jahres 2022</span>
+
+<span class="n">dach_df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dach_df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#Schaffen einer neuen Spalte mit Monaten durch Splitten nach &quot;-&quot; und Indizieren des zweiten Elements</span>
+
+<span class="n">dach_df</span> <span class="o">=</span> <span class="n">dach_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#Sortieren des DataFrames nach Monat</span>
+
+<span class="n">tlds</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="s2">&quot;at&quot;</span><span class="p">,</span> <span class="s2">&quot;ch&quot;</span><span class="p">]</span> <span class="c1">#Definieren einer Liste mit DACH-TLDs</span>
+
+<span class="c1">#Iterieren über die TLDs</span>
+<span class="k">for</span> <span class="n">tld</span> <span class="ow">in</span> <span class="n">tlds</span><span class="p">:</span>
+    <span class="n">tld_df</span> <span class="o">=</span> <span class="n">dach_df</span><span class="p">[</span><span class="n">dach_df</span><span class="o">.</span><span class="n">country</span> <span class="o">==</span> <span class="n">tld</span><span class="p">]</span> <span class="c1">#Schaffen eines Sub-DataFrames mit Nachrichtensätzen nur aus dem jeweiligen Land</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">tld_df</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span> <span class="c1">#Definieren der Werte, die auf der x-Achse geplottet werden (einzigartige Werte in der Spalte &quot;month&quot;, d.h. die zwölf Monate)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Definieren der Werte, die auf der y-Achse geplottet werden, indem das Sub-DataFrame nach Werten in der Spalte &quot;month&quot; gruppiert wird und für jede Gruppe</span>
+<span class="sd">    die Anzahl an Zeilen über size() ermittelt wird. Der Wert jeden Monats wird anschließend durch die Gesamtanzahl an Zeilen im jeweiligen Monat in dach_df geteilt,</span>
+<span class="sd">    um den relativen Anteil des jeweiligen Landes im entsprechenden Monat auszurechnen.&quot;&quot;&quot;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">tld_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;month&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">/</span> <span class="n">dach_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;month&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span> <span class="c1">#Plotting im &#39;o-&#39;-Stil</span>
+
+<span class="c1">#Plotten von Titel, Achsenbeschriftungen und Legende</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Anzahl an Nachrichtensätzen aus den DACH-Ländern&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Monate 2022&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Anteil an DACH-Quellen/Monat&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">tlds</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">2695093634.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#Importieren von matplotlib.pyplot</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">dach_df</span> <span class="o">=</span> <span class="n">dach_df</span><span class="p">[</span><span class="n">dach_df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;2022&quot;</span><span class="p">)]</span> <span class="c1">#Wegfiltern von Daten außerhalb des Jahres 2022</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">dach_df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dach_df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#Schaffen einer neuen Spalte mit Monaten durch Splitten nach &quot;-&quot; und Indizieren des zweiten Elements</span>
+
+<span class="ne">NameError</span>: name &#39;dach_df&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Antwort auf abschließende Frage: Das Sampling ist definitiv gleichmäßig über die Monate hinweg. Der jeweilige Anteil der Länder entspricht einigermaßen der ihrer Größenordnung, wobei der Anteil der Schweizer Quellen etwas zu niedrig und der Anteil der österreichischen Quellen etwas zu hoch ausfällt.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/4_Zusatzuebungen/Loesungen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
