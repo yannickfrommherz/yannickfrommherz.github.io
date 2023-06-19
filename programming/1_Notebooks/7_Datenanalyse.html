@@ -2077,7 +2077,7 @@ Name: Jahrzehnt, dtype: float64
 </div>
 </div>
 <hr class="docutils" />
-<p>Abgsehen von Vergleichsoperatoren (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> und <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, vgl. erstes Notebook) bei numerischen Werten (alle Operatoren) bzw. strings (nur die ersten beiden) können wir bei strings auch andere Methoden in den Filter einbauen. Pandas bietet sowohl solche an, die wir bereits von gewöhnlichen strings kennen (vgl. viertes Notebook), als auch ein paar eigene. Wichtig ist, dass die Methoden die Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> zurückgeben. Das heißt, <code class="docutils literal notranslate"><span class="pre">startswith</span></code> funktioniert, <code class="docutils literal notranslate"><span class="pre">split</span></code> hingegen nicht. String-Methoden bei pandas beginnen immer mit <code class="docutils literal notranslate"><span class="pre">str</span></code>, gefolgt von der Methode, also etwa <code class="docutils literal notranslate"><span class="pre">str.startswith()</span></code>. Außerdem müssen wir ihnen in vielen Fällen den Paramter <code class="docutils literal notranslate"><span class="pre">na=False</span></code> übergeben. Hier ein paar Beispiele:</p>
+<p>Abgsehen von Vergleichsoperatoren (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> und <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, vgl. erstes Notebook) bei numerischen Werten (alle Operatoren) bzw. strings (nur die ersten beiden) können wir bei strings auch andere Methoden in den Filter einbauen. Pandas bietet sowohl solche an, die wir bereits von gewöhnlichen strings kennen (vgl. viertes Notebook), als auch ein paar eigene. Wichtig ist, dass die Methoden die Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> zurückgeben. Das heißt, <code class="docutils literal notranslate"><span class="pre">startswith</span></code> funktioniert, <code class="docutils literal notranslate"><span class="pre">split</span></code> hingegen nicht. String-Methoden bei pandas beginnen immer mit <code class="docutils literal notranslate"><span class="pre">str</span></code>, gefolgt von der Methode, also etwa <code class="docutils literal notranslate"><span class="pre">str.startswith()</span></code>. Außerdem müssen wir ihnen in einigen Fällen den Parameter <code class="docutils literal notranslate"><span class="pre">na=False</span></code> übergeben. Hier ein paar Beispiele:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liebe_startswith</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;liebe&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span> <span class="c1">#wie normale string-Methode in Python</span>
@@ -2227,8 +2227,8 @@ Name: Jahrzehnt, dtype: float64
 <li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> steht für für <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> steht für <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
 </ul>
-<p>Außerdem steht <code class="docutils literal notranslate"><span class="pre">~</span></code> steht für <code class="docutils literal notranslate"><span class="pre">not</span></code> und kann zur Negation eines einzelnen Filters benutzt werden.</p>
-<p>Unter Verwendung von <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> können wir beispielsweise alle (potentiellen) regelmäßigen Partizip II-Formen extrahieren:</p>
+<p>Außerdem steht <code class="docutils literal notranslate"><span class="pre">~</span></code> steht für <code class="docutils literal notranslate"><span class="pre">not</span></code> und kann zur Negation eines in runde Klammern gesetzten, einzelnen Filters benutzt werden.</p>
+<p>Unter Verwendung von <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> können wir beispielsweise alle (potenziellen) regelmäßigen Partizip II-Formen extrahieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;ge&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
@@ -3138,28 +3138,28 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>22</td>
-      <td>41</td>
+      <td>20</td>
+      <td>37</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>57</td>
-      <td>25</td>
+      <td>80</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>65</td>
-      <td>86</td>
+      <td>21</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>8</td>
-      <td>76</td>
+      <td>17</td>
+      <td>53</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>79</td>
-      <td>50</td>
+      <td>75</td>
+      <td>92</td>
     </tr>
   </tbody>
 </table>
@@ -3206,33 +3206,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>22</td>
-      <td>41</td>
-      <td>902</td>
+      <td>20</td>
+      <td>37</td>
+      <td>740</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>57</td>
-      <td>25</td>
-      <td>1425</td>
+      <td>80</td>
+      <td>1</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>65</td>
-      <td>86</td>
-      <td>5590</td>
+      <td>21</td>
+      <td>8</td>
+      <td>168</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>8</td>
-      <td>76</td>
-      <td>608</td>
+      <td>17</td>
+      <td>53</td>
+      <td>901</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>79</td>
-      <td>50</td>
-      <td>3950</td>
+      <td>75</td>
+      <td>92</td>
+      <td>6900</td>
     </tr>
   </tbody>
 </table>
@@ -3282,33 +3282,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>22</td>
-      <td>41</td>
-      <td>902</td>
+      <td>20</td>
+      <td>37</td>
+      <td>740</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>57</td>
-      <td>25</td>
-      <td>1425</td>
+      <td>80</td>
+      <td>1</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>65</td>
-      <td>86</td>
-      <td>5590</td>
+      <td>21</td>
+      <td>8</td>
+      <td>168</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>8</td>
-      <td>76</td>
-      <td>608</td>
+      <td>17</td>
+      <td>53</td>
+      <td>901</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>79</td>
-      <td>50</td>
-      <td>3950</td>
+      <td>75</td>
+      <td>92</td>
+      <td>6900</td>
     </tr>
   </tbody>
 </table>
@@ -3322,9 +3322,9 @@ Name: Jahrzehnt, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.010544776916503906 
-for-Loop 15.712398767471313 
-Faktor: 1490.0645970878177
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.009711742401123047 
+for-Loop 14.212693929672241 
+Faktor: 1463.454583394707
 </pre></div>
 </div>
 </div>
@@ -3529,9 +3529,9 @@ Faktor: 1490.0645970878177
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.7900912761688232 
-for-Loop 0.9394965171813965 
-Faktor: 2.9697728784981936
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.621756076812744 
+for-Loop 0.8897616863250732 
+Faktor: 2.9465823457078923
 </pre></div>
 </div>
 </div>
@@ -3865,7 +3865,7 @@ Faktor: 2.9697728784981936
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f172a05a1d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff853cd8190&gt;
 </pre></div>
 </div>
 <img alt="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" src="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" />
@@ -3888,31 +3888,31 @@ Faktor: 2.9697728784981936
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1997</span><span class="o">/</span><span class="mf">3687279591.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1988</span><span class="o">/</span><span class="mf">3687279591.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/songkorpus_new.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3480</span>             <span class="n">doublequote</span><span class="o">=</span><span class="n">doublequote</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">3481</span>             <span class="n">escapechar</span><span class="o">=</span><span class="n">escapechar</span><span class="p">,</span>
 <span class="ne">-&gt; </span><span class="mi">3482</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">3483</span>         <span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3484</span> 
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/formats/format.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/formats/format.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1103</span>             <span class="n">formatter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmt</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">1104</span>         <span class="p">)</span>
 <span class="ne">-&gt; </span><span class="mi">1105</span>         <span class="n">csv_formatter</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 <span class="g g-Whitespace">   </span><span class="mi">1106</span> 
 <span class="g g-Whitespace">   </span><span class="mi">1107</span>         <span class="k">if</span> <span class="n">created_buffer</span><span class="p">:</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/formats/csvs.py</span> in <span class="ni">save</span><span class="nt">(self)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/formats/csvs.py</span> in <span class="ni">save</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">241</span>             <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">242</span>             <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span>
 <span class="ne">--&gt; </span><span class="mi">243</span>             <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_options</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">244</span>         <span class="p">)</span> <span class="k">as</span> <span class="n">handles</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">245</span> 
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
 <span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
 <span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
 <span class="ne">--&gt; </span><span class="mi">707</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -3926,6 +3926,32 @@ Faktor: 2.9697728784981936
 </div>
 <p>Neben dem Ausgabepfad können wir das gewünschte Trennzeichen und Encoding spezifizieren. Neben <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> gibt es analog zum Input auch spezifische Output-Methoden für XML (<code class="docutils literal notranslate"><span class="pre">to_xml</span></code>), JSON (<code class="docutils literal notranslate"><span class="pre">to_json</span></code>) und Excel (<code class="docutils literal notranslate"><span class="pre">to_excel</span></code>).</p>
 <p>Damit sind wir am Ende des Notebooks angelangt. Gute Arbeit!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.21.6&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3.5.3&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
