@@ -471,7 +471,8 @@ document.write(`
 <h1>Datenanalyse<a class="headerlink" href="#datenanalyse" title="Permalink to this heading">#</a></h1>
 <p>In diesem Notebook lernen wir, wie wir in Python große Mengen strukturierter Daten, allen voran Daten in Form von Tabellen, verarbeiten und analysieren können.</p>
 <p>Im fünften Notebook haben wir mit folgender Tabelle gearbeitet:</p>
-<img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_Tabelle.png"><p>Wir haben unter Zuhilfenahme des <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Moduls unseren eigenen Code geschrieben, um auszurechnen, wieviele der 100 flächengrößten Gemeinden sich in jedem der sechzehn Bundesländer befinden. In diesem Notebook lernen wir die sehr viel leistungsstärkere Bibliothek <em>pandas</em> kennen, die uns diese Rechnung im Handumdrehen liefern kann. Pandas kann aber viel mehr, wie wir gleich sehen werden.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_Tabelle.png">
+<p>Wir haben unter Zuhilfenahme des <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Moduls unseren eigenen Code geschrieben, um auszurechnen, wieviele der 100 flächengrößten Gemeinden sich in jedem der sechzehn Bundesländer befinden. In diesem Notebook lernen wir die sehr viel leistungsstärkere Bibliothek <em>pandas</em> kennen, die uns diese Rechnung im Handumdrehen liefern kann. Pandas kann aber viel mehr, wie wir gleich sehen werden.</p>
 <p>Zu Beginn müssen wir pandas natürlich importieren. Folgendes Statement importiert die Bibliothek und verleiht ihr den Namen <code class="docutils literal notranslate"><span class="pre">pd</span></code>. Diese Abkürzung ist eine Konvention.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -480,8 +481,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Solltest Du einen <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> erhalten, musst Du <code class="docutils literal notranslate"><span class="pre">pandas</span></code> erst über die Command Line installieren. Öffne dazu das Terminal (macOS) bzw. die Eingabeaufforderung (Windows) in einem neuen Fenster, gib <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pandas</span></code> (macOS) bzw. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code> (Windows) ein und drücke auf Enter. Sobald der Prozess abgeschlossen ist, sollte der Import oben klappen.</p>
-<p>Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, nämlich dem <a class="reference external" href="https://songkorpus.de/index.html">Songkorpus</a>. Das Songkorpus beinhält Lieder von bekannten deutschen Künstler:innen, u.a. von Udo Lindenberg und Fettes Brot und umspannt die Jahre 1969-2022. Öffentlich herunterladbar sind unter anderem Worthäufigkeiten pro Jahr und zwar als Tabelle (auf der Webseite selbst finden sich weitere spannende Daten und Analysen). Jedes Wort, das in einem oder mehreren Songs in einem bestimmten Jahr vorkommt, steht in einer eigenen Zeile, zusammen mit dem entsprechenden Jahr und der Häufigkeit, mit der es in diesem Jahr bei allen Künstler:innen auftritt (s.u.). Insgesamt handelt es sich um über 380.000 Wörter. Solch eine tabellarische Datei, zumal derart groß, ist prädestiniert dazu, mit pandas verarbeitet zu werden.</p>
+<p>Solltest Du einen <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> erhalten, musst Du <code class="docutils literal notranslate"><span class="pre">pandas</span></code> erst über die Command Line installieren. Öffne dazu das Terminal (macOS) bzw. die Eingabeaufforderung (Windows) in einem neuen Fenster, gib <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pandas</span></code> (macOS) bzw. <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code> (Windows) ein und drücke auf Enter. Sobald der Prozess abgeschlossen ist, sollte der Import oben klappen.
+Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, nämlich dem <a class="reference external" href="https://songkorpus.de/index.html">Songkorpus</a>. Das Songkorpus beinhält Lieder von bekannten deutschen Künstler:innen, u.a. von Udo Lindenberg und Fettes Brot und umspannt die Jahre 1969-2022. Öffentlich herunterladbar sind unter anderem Worthäufigkeiten pro Jahr und zwar als Tabelle (auf der Webseite selbst finden sich weitere spannende Daten und Analysen). Jedes Wort, das in einem oder mehreren Songs in einem bestimmten Jahr vorkommt, steht in einer eigenen Zeile, zusammen mit dem entsprechenden Jahr und der Häufigkeit, mit der es in diesem Jahr bei allen Künstler:innen auftritt (s.u.). Insgesamt handelt es sich um über 380.000 Wörter. Solch eine tabellarische Datei, zumal derart groß, ist prädestiniert dazu, mit pandas verarbeitet zu werden.</p>
 <section id="input">
 <h2>Input<a class="headerlink" href="#input" title="Permalink to this heading">#</a></h2>
 <p>In der folgenden Zelle öffnen wir die Datei, die sich bereits in „3_Dateien/Songkorpus“ befindet, und lesen sie mit der pandas-Funktion <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> ein, die neben dem Dateipfad u.a. auch das Trennzeichen (<code class="docutils literal notranslate"><span class="pre">sep</span></code>, in diesem Fall der Tabulator „\t“) als Argument nimmt:</p>
@@ -3138,28 +3139,28 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>23</td>
-      <td>21</td>
+      <td>74</td>
+      <td>56</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>8</td>
-      <td>74</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>61</td>
+      <td>22</td>
       <td>43</td>
     </tr>
     <tr>
+      <th>2</th>
+      <td>80</td>
+      <td>58</td>
+    </tr>
+    <tr>
       <th>3</th>
-      <td>66</td>
-      <td>95</td>
+      <td>60</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>51</td>
-      <td>85</td>
+      <td>48</td>
+      <td>29</td>
     </tr>
   </tbody>
 </table>
@@ -3206,33 +3207,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>23</td>
-      <td>21</td>
-      <td>483</td>
+      <td>74</td>
+      <td>56</td>
+      <td>4144</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>8</td>
-      <td>74</td>
-      <td>592</td>
+      <td>22</td>
+      <td>43</td>
+      <td>946</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>61</td>
-      <td>43</td>
-      <td>2623</td>
+      <td>80</td>
+      <td>58</td>
+      <td>4640</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>66</td>
-      <td>95</td>
-      <td>6270</td>
+      <td>60</td>
+      <td>5</td>
+      <td>300</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>51</td>
-      <td>85</td>
-      <td>4335</td>
+      <td>48</td>
+      <td>29</td>
+      <td>1392</td>
     </tr>
   </tbody>
 </table>
@@ -3282,33 +3283,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>23</td>
-      <td>21</td>
-      <td>483</td>
+      <td>74</td>
+      <td>56</td>
+      <td>4144</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>8</td>
-      <td>74</td>
-      <td>592</td>
+      <td>22</td>
+      <td>43</td>
+      <td>946</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>61</td>
-      <td>43</td>
-      <td>2623</td>
+      <td>80</td>
+      <td>58</td>
+      <td>4640</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>66</td>
-      <td>95</td>
-      <td>6270</td>
+      <td>60</td>
+      <td>5</td>
+      <td>300</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>51</td>
-      <td>85</td>
-      <td>4335</td>
+      <td>48</td>
+      <td>29</td>
+      <td>1392</td>
     </tr>
   </tbody>
 </table>
@@ -3322,9 +3323,9 @@ Name: Jahrzehnt, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.009676933288574219 
-for-Loop 15.96450424194336 
-Faktor: 1649.748299990145
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.009231090545654297 
+for-Loop 16.800403594970703 
+Faktor: 1819.980370886926
 </pre></div>
 </div>
 </div>
@@ -3529,9 +3530,9 @@ Faktor: 1649.748299990145
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.779597282409668 
-for-Loop 0.7969222068786621 
-Faktor: 3.487915455759014
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.952727794647217 
+for-Loop 0.8796920776367188 
+Faktor: 3.356546989237054
 </pre></div>
 </div>
 </div>
@@ -3865,7 +3866,7 @@ Faktor: 3.487915455759014
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7fd607dc10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f7b5d17ca90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" src="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" />
@@ -3888,7 +3889,7 @@ Faktor: 3.487915455759014
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2102</span><span class="o">/</span><span class="mf">3687279591.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2014</span><span class="o">/</span><span class="mf">3687279591.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/songkorpus_new.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
