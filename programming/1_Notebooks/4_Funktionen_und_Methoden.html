@@ -1039,6 +1039,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ich gehe&#39;, &#39;gehe am&#39;, &#39;am Abend&#39;, &#39;Abend noch&#39;, &#39;noch spazieren&#39;]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Die ersten paar Zeilen des Codes sind die gleichen wie in der ersten Variante. Der Unterschied spielt sich in der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ab: In der ersten Variante wird grob formuliert in jeder Iteration ein neues n-gram (<code class="docutils literal notranslate"><span class="pre">current_ngram</span></code>) geschaffen, indem das bisher erste Wort vom letzten n-gram entfernt wird und ein neues hinten angehängt wird. Jedes n-gram wird dann <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> angehängt. In der zweiten Variante hier „schieben“ wir hingegen eine Art „Fenster“ über <code class="docutils literal notranslate"><span class="pre">words</span></code>: Mittels Slicing schneiden wir uns eine neue Liste von der Länge <code class="docutils literal notranslate"><span class="pre">n</span></code> aus <code class="docutils literal notranslate"><span class="pre">words</span></code> heraus und rücken bei jeder Iteration den Start- und Endindex für das Slicing um eine Position vor. Die neue Liste fügen wir jeweils mit der uns aus dem zweiten Notebook bekannten <code class="docutils literal notranslate"><span class="pre">join</span></code>-Methode zu einem string zusammen und hängen diesen als n-gram <code class="docutils literal notranslate"><span class="pre">ngrams</span></code> an. Das Resultat ist natürlich dasselbe wie bei der ersten Variante.</p>
@@ -1066,6 +1069,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1115,9 +1121,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6, 5, 4, 3, 2, 1]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Ebenso kann man mit dem <code class="docutils literal notranslate"><span class="pre">key</span></code>-Parameter angeben, nach welchem benutzerdefinierten Kriterium sortiert werden soll. Wir könnten eine Liste von strings z.B. nach der Länge der strings sortieren. Dazu brauchen wir eine etwas komplizierte sog. <code class="docutils literal notranslate"><span class="pre">lambda</span></code>-Funktion (noch so ein griechischer Buchstabe…). Ohne die Details genauer zu erläutern: Der hier verwendete <code class="docutils literal notranslate"><span class="pre">key</span></code>-Parameter geht Element (<code class="docutils literal notranslate"><span class="pre">x</span></code>) für Element auf der Liste durch und rechnet für jedes Element seine Länge aus und sortiert anschließend die Liste nach den jeweils errechneten Längen:</p>
@@ -1130,6 +1133,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Beta&#39;, &#39;Alpha&#39;, &#39;Delta&#39;, &#39;Gamma&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1152,7 +1158,10 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.41, 1.42, 1.43, 1.44] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.41, 1.42, 1.43, 1.44]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
  [(&#39;sein&#39;, 35), (&#39;haben&#39;, 28)] 
  [&#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
 &lt;class &#39;list&#39;&gt;
@@ -1365,7 +1374,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1923</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1894</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -1989,7 +1998,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;seltene&#39;, 1), (&#39;verifizierbare&#39;, 1), (&#39;authentifizierung&#39;, 1), (&#39;wetterdaten&#39;, 1), (&#39;paralympischer&#39;, 1), (&#39;klagebefugnis&#39;, 1), (&#39;bedenklichen&#39;, 1), (&#39;ausgleichsmaßnahmen&#39;, 1), (&#39;sharing&#39;, 1), (&#39;personengesellschaftsrecht&#39;, 1)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;politikansatzes&#39;, 1), (&#39;nutzbar&#39;, 1), (&#39;gesamtkonzeptes&#39;, 1), (&#39;dialogbereit&#39;, 1), (&#39;fortgang&#39;, 1), (&#39;genossenschaftswesen&#39;, 1), (&#39;erfolgreicher&#39;, 1), (&#39;eingestellten&#39;, 1), (&#39;voranmeldung&#39;, 1), (&#39;kreislaufwirtschaftspakets&#39;, 1)]
 </pre></div>
 </div>
 </div>
@@ -2024,7 +2033,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[52, 55, 48, 39, 38, 92, 35, 54, 0, 22]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 39, 77, 83, 48, 22, 61, 88, 9, 9]
 </pre></div>
 </div>
 </div>
