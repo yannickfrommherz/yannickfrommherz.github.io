@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Kontrollstrukturen &#8212; Yannick Frommherz</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -459,15 +458,15 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="kontrollstrukturen">
-<h1>Kontrollstrukturen<a class="headerlink" href="#kontrollstrukturen" title="Permalink to this heading">#</a></h1>
+<h1>Kontrollstrukturen<a class="headerlink" href="#kontrollstrukturen" title="Link zu dieser Überschrift">#</a></h1>
 <p>Bislang haben wir mit Code gearbeitet, der Zeile für Zeile von oben bis unten ausgeführt wird. Wirklich spannend wird es jetzt, da wir lernen, wie wir den Ablauf des Codes derart <em>kontrollieren</em> können, dass gewisse Codeteile nur unter bestimmten Bedingungen ausgeführt werden, oder aber gewisse Teile eine bestimmte Anzahl Mal wiederholt ausgeführt werden. Dazu gibt es <em>Kontroll</em>strukturen in Python und zwar zwei verschiedene: Bedingte Anweisungen (auch „Fallunterscheidungen“ und engl. <em>conditionals</em> genannt) und Schleifen (engl. <em>loops</em>). Beiden sind wir auf dem Weg hierhin schon ein paar Mal begegnet.</p>
 <p>Im Falle von <em>bedingten</em> Anweisungen werden Codeblöcke nur unter bestimmten <em>Bedingungen</em> ausgeführt, bei Schleifen hingegen werden Codeblöcke solange wiederholt ausgeführt, wie eine bestimmte Bedingung zutrifft. Wie bei Python üblich, steuern Einrückungen, welcher Teil des Codes von einer solchen Struktur kontrolliert wird.</p>
 <p>Im Zusammenhang mit Bedingungen sind die beiden Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code> relevant: Trifft die Bedingung, die die Ausführung eines Codeblocks kontrolliert, zu, dann nimmt sie den Boolschen Wert <code class="docutils literal notranslate"><span class="pre">True</span></code> an und der darunter eingerückte Anweisungskörper wird ausgeführt. Trifft die Bedingung nicht zu, dann nimmt sie den Boolschen Wert <code class="docutils literal notranslate"><span class="pre">False</span></code> an und der darunter eingerückte Anweisungskörper wird nicht ausgeführt, d.h. Python springt direkt zur Zeile nach der Einrückung und macht dort weiter.</p>
 <section id="rekapitulation-operatoren">
-<h2>Rekapitulation Operatoren<a class="headerlink" href="#rekapitulation-operatoren" title="Permalink to this heading">#</a></h2>
+<h2>Rekapitulation Operatoren<a class="headerlink" href="#rekapitulation-operatoren" title="Link zu dieser Überschrift">#</a></h2>
 <p>Die Bedingungen ihrerseits werden mithilfe von Vergleichsoperatoren und logischen Operatoren definiert. Erstere rekapitulieren wir nochmal kurz, bevor wir letztere kennenlernen.</p>
 <section id="vergleichsoperatoren">
-<h3>Vergleichsoperatoren<a class="headerlink" href="#vergleichsoperatoren" title="Permalink to this heading">#</a></h3>
+<h3>Vergleichsoperatoren<a class="headerlink" href="#vergleichsoperatoren" title="Link zu dieser Überschrift">#</a></h3>
 <p>Ein Vergleichsoperator vergleicht den Wert, der links vom Operator steht, mit dem Wert zu seiner Rechten. Ergebnis ist immer ein Boolscher Wert, entweder <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">==</span></code>: ist gleich</p></li>
@@ -492,7 +491,7 @@ document.write(`
 </div>
 </section>
 <section id="logische-operatoren">
-<h3>Logische Operatoren<a class="headerlink" href="#logische-operatoren" title="Permalink to this heading">#</a></h3>
+<h3>Logische Operatoren<a class="headerlink" href="#logische-operatoren" title="Link zu dieser Überschrift">#</a></h3>
 <p>Logische Operatoren ermöglichen es nun, Vergleiche miteinander zu verknüpfen. Das sieht dann z.B. so aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -525,7 +524,7 @@ document.write(`
 </div>
 <p>Der erste Vergleich ergibt natürlich <code class="docutils literal notranslate"><span class="pre">False</span></code>, denn die Werte von <code class="docutils literal notranslate"><span class="pre">small</span></code> und <code class="docutils literal notranslate"><span class="pre">big</span></code> sind nicht gleich. Der zweite Vergleich ergibt immer noch <code class="docutils literal notranslate"><span class="pre">True</span></code>, weswegen die Verknüpfung durch <code class="docutils literal notranslate"><span class="pre">or</span></code> ebenfalls <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt.</p>
 <p>Daraus ergibt sich folgende Wahrheitstabelle für die Verknüpfung zweier Vergleiche (es können aber beliebig viele Vergleiche miteinander verknüpft werden). <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> stehen jeweils für einen ausgerechneten Vergleich:</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>x</p></th>
 <th class="head"><p>y</p></th>
@@ -575,7 +574,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="anwendungsfall-einen-kalender-erstellen">
-<h2>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#anwendungsfall-einen-kalender-erstellen" title="Permalink to this heading">#</a></h2>
+<h2>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#anwendungsfall-einen-kalender-erstellen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Erinnerst Du Dich an die Übung im ersten Notebook, wo wir die sieben Wochentage für alle 52 Wochen ausgegeben haben? Viel praktischer wäre es, wenn wir zusätzlich auch den Tag und Monat für jedes Datum ausgeben lassen könnten, also etwa so:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Samstag,</span> <span class="pre">1.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">Sonntag,</span> <span class="pre">2.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
@@ -584,7 +583,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="bedingte-anweisungen">
-<h2>Bedingte Anweisungen<a class="headerlink" href="#bedingte-anweisungen" title="Permalink to this heading">#</a></h2>
+<h2>Bedingte Anweisungen<a class="headerlink" href="#bedingte-anweisungen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Wir widmen uns als Erstes den bedingten Anweisungen und definieren dafür einen simplen string. Führe wie immer die Zelle aus, um <code class="docutils literal notranslate"><span class="pre">sentence</span></code> zu initialisieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,14 +756,14 @@ document.write(`
 <p>Nun wissen wir alles Relevante über bedingte Anweisungen. Kommen wir zu den Schleifen.</p>
 </section>
 <section id="schleifen-loops">
-<h2>Schleifen (Loops)<a class="headerlink" href="#schleifen-loops" title="Permalink to this heading">#</a></h2>
+<h2>Schleifen (Loops)<a class="headerlink" href="#schleifen-loops" title="Link zu dieser Überschrift">#</a></h2>
 <p>Es gibt zwei Arten von Schleifen in Python:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen (engl. <em>for-loops</em>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen (engl. <em>while-loops</em>)</p></li>
 </ul>
 <section id="for-schleifen">
-<h3><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen<a class="headerlink" href="#for-schleifen" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen<a class="headerlink" href="#for-schleifen" title="Link zu dieser Überschrift">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen werden zum Ausgeben der einzelnen Elemente eines iterierbaren Objekts benutzt (vgl. Iterierbarkeit im zweiten Notebook). Ein Element nach dem anderen wird einzeln ausgegeben, bis das Objekt aufgebraucht (engl. <em>exhausted</em>) ist. Die Syntax lautet:</p>
 <p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">element</span> <span class="pre">in</span> <span class="pre">iterable_object:</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">element</span></code> ist wie bereits erwähnt eine Variable für das einzelne Element bei der Iteration über <code class="docutils literal notranslate"><span class="pre">iterable_object</span></code> und kann beliebig (aber bitte sprechend) benannt werden. Diese Variable wird dann im Anweisungskörper wiederverwendet, etwa um die Elemente nacheinander auszugeben (Beispiel für Liste unten), eine Bedingung an ihnen zu überprüfen (Beispiel für dictionary unten) oder um sie zu manipulieren (siehe viertes Notebook).</p>
@@ -962,7 +961,7 @@ y
 </section>
 <hr class="docutils" />
 <section id="exkurs-trial-and-error-coding">
-<h3>Exkurs: Trial-and-error-Coding<a class="headerlink" href="#exkurs-trial-and-error-coding" title="Permalink to this heading">#</a></h3>
+<h3>Exkurs: Trial-and-error-Coding<a class="headerlink" href="#exkurs-trial-and-error-coding" title="Link zu dieser Überschrift">#</a></h3>
 <p>Unsere Codes werden zunehmend komplexer: In der letzten Übung hast Du etwa eine Schleife so wie mehrere bedingte Anweisungen verwendet. Wie wir ganz am Anfang im Video zu algorithmischem Denken gelernt haben, ist es wichtig, sich stets zu überlegen, in welche einzelnen Schritte ein Problem zerlegt werden kann, bevor man loslegt. Die Bedeutung dieser Herangehensweise nimmt mit zunehmender Komplexität der Aufgaben natürlich zu.</p>
 <p>Die einzelnen Schritte jedoch löst man dann meistens durch „trial and error“. Oft hat man eine Idee, wie man einen Schritt lösen kann, probiert es aus und schaut dann, ob der Code das tut, was man erwartet. Manchmal klappt’s, manchmal nicht.</p>
 <p>Konkret heißt das für Dich: führe Deinen Code immer wieder aus, lasse Dir einzelne Zwischenschritte über <code class="docutils literal notranslate"><span class="pre">print</span></code> ausgeben und taste Dich so (Zwischen-)Schritt für (Zwischen-)Schritt an die Lösung heran.</p>
@@ -1031,7 +1030,7 @@ y
 </div>
 </section>
 <section id="while-schleifen">
-<h3><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen<a class="headerlink" href="#while-schleifen" title="Permalink to this heading">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen<a class="headerlink" href="#while-schleifen" title="Link zu dieser Überschrift">#</a></h3>
 <p>Neben <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen gibt es <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen. Sie führen den in ihrem Anweisungskörper definierten Codeblock solange aus, wie die im Anweisungskopf definierte Bedingung zutrifft. Um dies zu veranschaulichen, bemühen wir noch mal das Alphabetbeispiel mit dem Zähler von oben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1097,19 +1096,29 @@ Der Buchstabe 26 im deutschen Alphabet ist: z
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_76157</span><span class="o">/</span><span class="mf">3165554030.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie viele Arme hat ein Oktopus? Gib bitte eine Zahl an.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Falsch, es sind mehr.&quot;</span><span class="p">)</span>
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
-<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
 
 <span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
@@ -1238,7 +1247,7 @@ Finale TN: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;
 </section>
 <hr class="docutils" />
 <section id="id1">
-<h2>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">#</a></h2>
 <p>Deine Aufgabe ist es also, 365 vollständige Daten vom Format „Wochentag, Tag. Monat Jahr“ auszugeben:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Samstag,</span> <span class="pre">1.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">Sonntag,</span> <span class="pre">2.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
@@ -1264,7 +1273,7 @@ Finale TN: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;
 <p>Abschließend noch ein paar Tipps, wo Du Hilfe findest, wenn Du mal bei einem Programmierproblem nicht weiterkommst.</p>
 </section>
 <section id="exkurs-hilfe-holen">
-<h2>Exkurs: Hilfe holen<a class="headerlink" href="#exkurs-hilfe-holen" title="Permalink to this heading">#</a></h2>
+<h2>Exkurs: Hilfe holen<a class="headerlink" href="#exkurs-hilfe-holen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Bis zu diesem Punkt im Notebook bist Du sicherlich auf das ein oder andere Problem gestoßen, das Du nicht selbst lösen konntest. Vermutlich hast Du in diesen Fällen Hilfe bei Google gesucht. Das ist genau die richtige Strategie, denn in den seltensten Fällen bist Du mit Deinem Programmierproblem alleine. Ein sehr beliebtes Forum für Fragen rund um Python, das zumeist auch das erste Suchergebnis bei Google ist, heißt <a class="reference external" href="https://stackoverflow.com/questions/tagged/python">Stack Overflow</a>.</p>
 <p>Angenommen Du stündest vor der Herausforderung, Duplikate aus einer Liste zu entfernen und kämst nicht weiter, so würdest du über die Suchanfrage „remove duplicates in lists“ (oder so ähnlich) zu diesem <a class="reference external" href="https://stackoverflow.com/questions/7961363/removing-duplicates-in-lists">Beitrag</a> gelangen. Die Frage des Nutzers steht auch im Screenshot unten:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Stack_Overflow1.png"><p>Fragen bei Stack Overflow bestehen i.d.R. aus einer Erklärung des Problems sowie Codeausschnitten und ggf. Output (z.B. eine Fehlermeldung). Hier handelt es sich jedoch um eine einfache Frage, die aber sehr viele Programmierer:innen als nützlich (bzw. gut recherchiert und klar formuliert) bewertet haben, was wir an den 1297 sog. <em>Upvotes</em> erkennen.</p>

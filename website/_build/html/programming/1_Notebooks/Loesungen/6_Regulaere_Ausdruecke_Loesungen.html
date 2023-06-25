@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Reguläre Ausdrücke (Lösungen) &#8212; Yannick Frommherz</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
@@ -435,7 +434,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="regulare-ausdrucke-losungen">
-<h1>Reguläre Ausdrücke (Lösungen)<a class="headerlink" href="#regulare-ausdrucke-losungen" title="Permalink to this heading">#</a></h1>
+<h1>Reguläre Ausdrücke (Lösungen)<a class="headerlink" href="#regulare-ausdrucke-losungen" title="Link zu dieser Überschrift">#</a></h1>
 <p>☝️ Beachte: es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
 <p>⚠️ Führe folgenden Code aus, bevor du einzelne Lösungen ausführst.</p>
 <div class="cell docutils container">
@@ -591,12 +590,21 @@ Zitate:
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_76260</span><span class="o">/</span><span class="mf">2716016526.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt </span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#Code funktioniert erst, nachdem Du das Dokument &quot;quelltext.txt&quot; erstellt hast!</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Fussball/quelltext.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">source_code</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;/spielbericht/[\w-]+/&quot;</span> <span class="c1">#literal &quot;/spielbericht/&quot;, ein oder mehrere alphanumerische Zeichen bzw. literal &quot;-&quot;, literal &quot;/&quot;</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py:284,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">284</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../3_Dateien/Fussball/quelltext.txt&#39;
 </pre></div>
@@ -858,24 +866,42 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 2022/01/01 geb
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_76260</span><span class="o">/</span><span class="mf">2284844103.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Module/&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">pizzabot_solved_documented</span> <span class="k">as</span> <span class="nn">pizzabot</span>
 <span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
 
-<span class="nn">~/Documents/Repositories/yfrommherz.ch/website/programming/1_Notebooks/Loesungen/../../3_Dateien/Module/pizzabot_solved_documented.py</span> in <span class="ni">order_pizza</span><span class="nt">()</span>
+<span class="nn">File ~/Documents/Repositories/yfrommherz.ch/website/programming/1_Notebooks/Loesungen/../../3_Dateien/Module/pizzabot_solved_documented.py:57,</span> in <span class="ni">order_pizza</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Funktion leitet durch Bestellprozess, indem für einzelne Schritte relevante Funktionen aus dem Modul &#39;pizza_functions_documented&#39; aufgerufen werden.</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span><span class="sd"> Die den Funktionen zu übergebenden Argumente (prompts an User:in) werden jeweils direkt vor Funktionsaufruf definiert. </span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span><span class="sd"> Grober Ablauf: </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span><span class="sd"> 11) &#39;request_address&#39; wird aufgerufen, um valide Lieferadresse zu erhalten.</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span><span class="sd"> 12) Bestellbestätigung inkl. Pizzawahl und Lieferadresse wird ausgegeben. Bot endet.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="c1">#------------&gt; CHOOSE PIZZA &lt;------------ </span>
 <span class="g g-Whitespace">     </span><span class="mi">55</span> 
-<span class="g g-Whitespace">     </span><span class="mi">56</span>         <span class="c1">#User:in wird initial nach Name gefragt; Name wird in &#39;user_name&#39; gespeichert</span>
-<span class="ne">---&gt; </span><span class="mi">57</span>         <span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hallo, ich bin der Pizzabot 🍕🤖</span><span class="se">\n</span><span class="s2">Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> 
-<span class="g g-Whitespace">     </span><span class="mi">59</span>         <span class="c1">#um eine authentischere Interaktion zu simulieren fügt diese Zeile eine Sekunde Latenz ein (gilt auch für alle folgenden gleichlautenden Zeilen)</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="c1">#User:in wird initial nach Name gefragt; Name wird in &#39;user_name&#39; gespeichert</span>
+<span class="ne">---&gt; </span><span class="mi">57</span> <span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hallo, ich bin der Pizzabot 🍕🤖</span><span class="se">\n</span><span class="s2">Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="c1">#um eine authentischere Interaktion zu simulieren fügt diese Zeile eine Sekunde Latenz ein (gilt auch für alle folgenden gleichlautenden Zeilen)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
-<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
 
 <span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Input und Output &#8212; Yannick Frommherz</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -470,7 +469,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="input-und-output">
-<h1>Input und Output<a class="headerlink" href="#input-und-output" title="Permalink to this heading">#</a></h1>
+<h1>Input und Output<a class="headerlink" href="#input-und-output" title="Link zu dieser Überschrift">#</a></h1>
 <p>In den ersten Notebooks haben wir gelernt, dass wir in Python effizient mit Objekten verschiedenster Datentypen arbeiten, indem wir sie Variablen zuweisen. Am Anfang hatten wir es bloß mit kleinen Objekten zu tun – etwa mit einzelnen Wörtern oder, wenn’s hoch kam, mit Sätzen. Diese haben wir bei der Variablenzuweisung jeweils komplett ausgeschrieben:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sentence</span> <span class="pre">=</span> <span class="pre">&quot;Am</span> <span class="pre">Anfang</span> <span class="pre">haben</span> <span class="pre">wir</span> <span class="pre">eine</span> <span class="pre">Zeichenkette</span> <span class="pre">noch</span> <span class="pre">ausgeschrieben.&quot;</span></code></p>
 <p>Im letzten Notebook haben wir dann zum ersten Mal mit größeren Objekten gearbeitet, nämlich mit den Koalitionsverträgen. Aufgrund der Größe (und der Tatsache, dass wir die Texte bereits extern in einer Datei vorliegen hatten) haben wir uns die Texte vom externen Speicherort in den Arbeitsspeicher geladen und Variablen zugewiesen.</p>
@@ -479,11 +478,11 @@ document.write(`
 <p>Auch in diesem Notebook gibt es einen Anwendungsfall, den wir am Ende unter Einbezug der meisten hier erlernten Techniken lösen können. Mehr dazu weiter unten.</p>
 <p>Dieses Notebook ist recht umfangreich und es ist empfehlenswert, sich die Inhalte verteilt über zwei oder mehr Lernsesssions anzuschauen.</p>
 <section id="dateipfade">
-<h2>Dateipfade<a class="headerlink" href="#dateipfade" title="Permalink to this heading">#</a></h2>
+<h2>Dateipfade<a class="headerlink" href="#dateipfade" title="Link zu dieser Überschrift">#</a></h2>
 <p>Um Dateien von einem bestimmten Ort auf dem Laufwerk einzulesen bzw. an einem bestimmten Ort auszugeben, müssen wir uns mit Dateipfaden vertraut machen. Jede Datei auf Deinem Computer hat bekanntlich einen Namen, ein Dateisuffix (etwa „.txt“, wird z.T. ausgeblendet) und die Datei befindet sich in einem bestimmten Verzeichnis (auch <em>Ordner</em> genannt). Dieses Verzeichnis befindet sich wiederum in einem Verzeichnis, und so weiter, bis zum obersten Verzeichnis, dem Stamm des Laufwerks. Jede Datei hat also eine einzigartige Adresse und diese Adresse wird <em>Dateipfad</em> genannt.</p>
 <p>Wie Du gleich sehen wirst, gibt es zwei Arten, einen Dateipfad anzugeben, nämlich absolut und relativ. Zusätzlich unterscheiden sich Dateipfade zwischen macOS und Windows. Dateipfade zu verstehen, ist überaus wichtig, um frustrierenden <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>-Fehlern vorzubeugen.</p>
 <section id="absolute-dateipfade">
-<h3>Absolute Dateipfade<a class="headerlink" href="#absolute-dateipfade" title="Permalink to this heading">#</a></h3>
+<h3>Absolute Dateipfade<a class="headerlink" href="#absolute-dateipfade" title="Link zu dieser Überschrift">#</a></h3>
 <p>Ein Dateipfad kann immer absolut, d.h. vollständig vom Stamm des Laufwerks bis zur gewünschten Datei, angegeben werden. Um an den absoluten Pfad einer beliebigen Datei heranzukommen, gibt es folgende Tricks:</p>
 <ul class="simple">
 <li><p>Unter macOS: Navigiere im Finder zur gewünschten Datei und klicke die Datei mit zwei Fingern an (Rechtsklick), es öffnet sich ein Menüfenster. Drücke die Taste <em>Option ⌥</em>, wodurch sich einige Menüoptionen ändern. Wähle <em>„Datei“ als Pfadname kopieren</em>. Ein vollständiger Pfad unter macOS sieht z.B. so aus: „/Users/Name/Documents/Project/Folder/Notebook.ipynb“, beachte, dass Schrägstriche „/“ verwendet werden sowie, dass der absolute Pfad mit einem Schrägstrich beginnt.</p></li>
@@ -509,7 +508,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="relative-dateipfade">
-<h3>Relative Dateipfade<a class="headerlink" href="#relative-dateipfade" title="Permalink to this heading">#</a></h3>
+<h3>Relative Dateipfade<a class="headerlink" href="#relative-dateipfade" title="Link zu dieser Überschrift">#</a></h3>
 <p>Ein Dateipfad kann stets auch relativ, d.h. vom aktuellen Arbeitsverzeichnis aus gesehen, angegeben werden. Am einfachsten ist das natürlich bei einer Datei, die sich im aktuellen Arbeitsverzeichnis befindet. Um auf diese zuzugreifen, geben wir bloß ihren Namen als Pfad an.</p>
 <p>Weiter können wir vom aktuellen Arbeitsverzeichnis aus in ein (darin befindliches) Unterverzeichnis navigieren. Dazu beginnt der relative Pfad mit dem Namen des Unterverzeichnis, gefolgt von einem Schrägstrich sowie dem Namen der Datei. Diese Schreibweise mit dem Schrägstrich funktioniert innerhalb Pythons auf allen Betriebssystemen. Unsere Schnittstelle zu externen Dateien, die weiter unten vorgestellte <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion, kümmert sich bei relativen Pfaden wenn nötig um die Konversion von Schrägstrich zu Backslash.</p>
 <p>Letztlich können wir vom aktuellen Arbeitsverzeichnis aus auch aufwärts (zum Stamm des Laufwerks hin) navigieren. Indem wir zwei Punkte und einen Schrägstrich, also „../“, an den Anfang des relativen Pfads stellen, rücken wir eine Ebene nach oben (und durch „../../“ zwei Ebenen, etc.). Im Anschluss an den Schrägstrich folgt der Name der Datei, die sich im Oberverzeichnis befindet. Natürlich können wir vom Oberverzeichnis aus auch in ein <em>anderes</em> Unterverzeichnis als das aktuelle Arbeitsverzeichnis (eine Art „Schwesterverzeichnis“) navigieren.</p>
@@ -518,7 +517,7 @@ document.write(`
 </section>
 </section>
 <section id="das-os-modul">
-<h2>Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul<a class="headerlink" href="#das-os-modul" title="Permalink to this heading">#</a></h2>
+<h2>Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul<a class="headerlink" href="#das-os-modul" title="Link zu dieser Überschrift">#</a></h2>
 <p>Im Zusammenhang mit Dateien auf Deinem Laufwerk ist das Modul <code class="docutils literal notranslate"><span class="pre">os</span></code> mit den Funktionen <code class="docutils literal notranslate"><span class="pre">getcwd</span></code>, <code class="docutils literal notranslate"><span class="pre">chdir</span></code> und <code class="docutils literal notranslate"><span class="pre">listdir</span></code> äußerst hilfreich. Sie werden in der folgenden Zelle angewandt und mithilfe von Kommentaren beschrieben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -570,14 +569,14 @@ Loesungen
 </section>
 <hr class="docutils" />
 <section id="anwendungsfall-einen-gedankenprotokollanten-programmieren">
-<h2>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren" title="Permalink to this heading">#</a></h2>
+<h2>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren" title="Link zu dieser Überschrift">#</a></h2>
 <p>Beim Anwendungsfall in diesem Notebook wollen wir ein interaktives Programm schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Die Benutzerin soll durch das Programm geführt werden und entscheiden können, wo, d.h. in welchem (externen) Dokument, sie ihre Gedanken festhalten will. Sie soll sowohl neue Dokumente anlegen können, als auch in bestehende reinschreiben. Anschließend soll sie beliebig viele Gedanken in dieses Dokument einfügen können. Das folgende Video zeigt das fertige Programm „in Aktion“:</p>
 <video controls src="../3_Dateien/Grafiken_und_Videos/Gedankenprotokollant.mov" width=700/><p>Ohne dieses Programm würde die Benutzerin vermutlich ein Microsoft Word-Dokument öffnen, ihre Gedanken reinschreiben, das Dokument speichern und dann wieder schließen. Das Anlegen/Öffnen/Speichern/Schließen des Dokuments wollen wir ihr abnehmen und ihr stattdessen ermöglichen, ihre Gedanken über eine freundliche, aber sehr minimale Benutzeroberfläche (engl.: <em>user interface</em>, abgekürzt: <em>UI</em>) zu protokollieren.</p>
 <p>Im Folgenden lernen wir die dafür notwendigen Grundlagen kennen.</p>
 </section>
 <hr class="docutils" />
 <section id="die-open-funktion">
-<h2>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion<a class="headerlink" href="#die-open-funktion" title="Permalink to this heading">#</a></h2>
+<h2>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion<a class="headerlink" href="#die-open-funktion" title="Link zu dieser Überschrift">#</a></h2>
 <p>Die Schnittstelle zu externen Dateien bietet in Python die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion. Sie öffnet externe Dateien mittels folgender grundlegender Syntax:</p>
 <p><code class="docutils literal notranslate"><span class="pre">open(file,</span> <span class="pre">mode)</span></code></p>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">file</span></code> setzen wir den absoluten oder relativen Dateipfad zur zu öffnenden Datei ein, und zwar als Zeichenkette, inklusive des Dateisuffixes und natürlich umrahmt von Anführungszeichen. Über den Parameter <code class="docutils literal notranslate"><span class="pre">mode</span></code> müssen bzw. können wir spezifizieren, was wir mit der zu öffnenden Datei machen wollen. <code class="docutils literal notranslate"><span class="pre">open</span></code> stellt drei verschiedene Modi zur Verfügung:</p>
@@ -593,7 +592,7 @@ Loesungen
 </ul>
 <p>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion akzeptiert neben <code class="docutils literal notranslate"><span class="pre">file</span></code> und <code class="docutils literal notranslate"><span class="pre">mode</span></code> weitere Parameter, u.a. <code class="docutils literal notranslate"><span class="pre">encoding</span></code>, wo wir spezifizieren können, <em>wie</em> eine Datei enkodiert ist. Das Encoding einer Datei legt fest, nach welchem Schlüssel sämtliche Zeichen (Buchstaben in lateinischer Schrift sowie den allermeisten anderen Sprachen, Zahlen, Emojis…) in Nullen und Einsen übersetzt werden. Natürlich geht nichts ohne den korrekten Schlüssel. <a class="reference external" href="https://de.wikipedia.org/wiki/UTF-8">UTF-8</a> von <a class="reference external" href="https://de.wikipedia.org/wiki/Unicode">Unicode</a> ist Standard, sodass wir uns i.d.R. nicht den Kopf darüber zerbrechen müssen. Um Problemen vorzubeugen (insbesondere unter Windows), lohnt es sich trotzdem, standardmäßig <code class="docutils literal notranslate"><span class="pre">encoding=utf-8</span></code> zu spezifizieren, und zwar beim Input sowie beim Output.</p>
 <section id="input">
-<h3>Input<a class="headerlink" href="#input" title="Permalink to this heading">#</a></h3>
+<h3>Input<a class="headerlink" href="#input" title="Link zu dieser Überschrift">#</a></h3>
 <p>Wie wir bei den Koalitionsverträgen im letzten Notebook bereits gesehen haben, wird die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion zum Lesen von externen Dateien wie folgt syntaktisch eingebunden:</p>
 <p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(file,</span> <span class="pre">encoding=&quot;utf-8&quot;)</span> <span class="pre">as</span> <span class="pre">read_file:</span></code><br>
           <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">=</span> <span class="pre">read_file.read()</span></code></p>
@@ -607,7 +606,7 @@ Loesungen
 <p>In der ersten Zeile wird die externe Datei geöffnet und in der zweiten gelesen. Anschließend muss die Datei wieder <em>manuell</em> geschlossen werden. Oft wird jedoch genau dieser letzte Schritt vergessen. Gewöhne Dir also an, stets den <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager im Umgang mit externen Dateien zu benutzen.</p>
 </section>
 <section id="output">
-<h3>Output<a class="headerlink" href="#output" title="Permalink to this heading">#</a></h3>
+<h3>Output<a class="headerlink" href="#output" title="Link zu dieser Überschrift">#</a></h3>
 <p>Für den Output von Dateien verwenden wir ebenfalls den <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager sowie die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion, aber wie oben erwähnt mit dem zusätzlichen Parameter <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> oder <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(file,</span> <span class="pre">&quot;w&quot;,</span> <span class="pre">encoding=&quot;utf-8&quot;)</span> <span class="pre">as</span> <span class="pre">write_file:</span></code><br>
           <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span> <span class="pre">data:</span></code><br>
@@ -617,7 +616,7 @@ Loesungen
 </section>
 </section>
 <section id="textdateien">
-<h2>Textdateien<a class="headerlink" href="#textdateien" title="Permalink to this heading">#</a></h2>
+<h2>Textdateien<a class="headerlink" href="#textdateien" title="Link zu dieser Überschrift">#</a></h2>
 <p>Textdateien sind grundlegend nach Zeilen strukturierte Dateien. Das trifft sowohl auf Microsoft Office-Dokumente mit dem Suffix „.docx“ zu, als auch auf sog. <em>Plain Text Files</em> (mit dem Suffix „.txt“). Letztere sind <strong>nur</strong> nach Zeilen strukturiert und können von den meisten Programmen auf sämtlichen Betriebssystemen und natürlich auch von Python geöffnet werden. Deshalb beschränken wir uns im Folgenden auf Plain Text Files.</p>
 <p>Am Ende jeder Zeile in einer solchen Textdatei steht ein Zeilenumbruch, der als <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> (ausgesprochen: <em>backslash n</em> oder <em>newline</em>) kodiert wird. Wenn wir eine „.txt“-Datei z.B. in Microsoft Word öffnen, werden uns i.d.R. nur die Zeilenumbrüche, nicht aber die dafür verantwortlichen Zeichen angezeigt (links im Screenshot unten). Optional können wir sie uns aber einblenden lassen (rechts im Screenshot unten).</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Miss_Sara_Sampson.png"><p>Hier handelt es sich um die ersten paar Zeilen aus Gotthold Ephraim Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/sampson/sampson.html">Miss Sara Sampson</a>.</p>
@@ -801,7 +800,7 @@ Sara. Diese sollen die Zeugen unserer Verbindung sein? – Grausamer! so soll di
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">startswith</span></code> tut ganz klar seinen Dienst.</p>
 <section id="exkurs-die-wahrheitsmatrix">
-<h3>Exkurs: Die Wahrheitsmatrix<a class="headerlink" href="#exkurs-die-wahrheitsmatrix" title="Permalink to this heading">#</a></h3>
+<h3>Exkurs: Die Wahrheitsmatrix<a class="headerlink" href="#exkurs-die-wahrheitsmatrix" title="Link zu dieser Überschrift">#</a></h3>
 <p>An dieser Stelle lohnt sich nochmal ein Blick in <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>, zur Vergewisserung, dass wir mit obiger Bedingung auch wirklich alle Redebeiträge von Sara extrahiert haben. Es könnte ja z.B. sein, dass ihr Name vor einem Redebeitrag aus welchem Grund auch immer kleingeschrieben ist („sara.“) oder aber, dass zwischen ihrem Namen und dem Punkt eine Klammer mit Metakommentaren steht.</p>
 <p>Und tatsächlich: ein Redebeitrag beginnt so: „Sara (sie setzt sich).“ (Index 71 in <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>). Nach eingehender Prüfung wissen wir, dass dies auch der einzige Redebeitrag ist, der nicht von <code class="docutils literal notranslate"><span class="pre">turn.startswith(&quot;Sara.&quot;)</span></code> „eingefangen“ wird. Wir könnten nun etwas unelegant die zusätzliche Bedingung <code class="docutils literal notranslate"><span class="pre">or</span> <span class="pre">turn.startswith(&quot;Sara</span> <span class="pre">(sie</span> <span class="pre">setzt</span> <span class="pre">sich).&quot;)</span></code> aufstellen.</p>
 <p>Um sicherzustellen, dass der Code wiederverwendbar ist (z.B. beim zweiten Aufzug), wählen wir den eleganteren Weg der regulären Ausdrücke (engl.: <em>regular expressions</em>, abgekürzt: <em>RegEx</em>). Reguläre Ausdrücke sind ein äußerst praktisches Werkzeug, das wir uns im nächsten Notebooks im Detail anschauen. Kurz gesagt: Wir definieren hier <em>einen</em> regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">pattern</span></code>), der sowohl Redebeiträge mit als auch solche ohne Metakommentar abdeckt. Lässt sich der definierte reguläre Ausdruck wie eine Schablone über den Anfang eines Elements in  <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code> legen, dann haben wir einen sog. <em>match</em> und wir hängen das Element an <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> an. Wie wir sehen, erhalten wir dadurch 23 statt bisher 22 Redebeiträge zurück:</p>
@@ -842,7 +841,7 @@ Sara. Was sollte ich Ihnen nicht vergeben? Sie wissen, was ich Ihnen bereits ver
 </div>
 </div>
 <p>Das Überprüfen, ob wir mit der aufgestellten Bedingung auch wirklich alle wahren Redebeiträge von Sara abdecken, ist ein sehr wichtiger Schritt. Konkret verhindern wir dadurch sog. <em>false negatives</em> im Sinne einer <a class="reference external" href="https://de.wikipedia.org/wiki/Beurteilung_eines_bin%C3%A4ren_Klassifikators#Wahrheitsmatrix:_Richtige_und_falsche_Klassifikationen">Wahrheitsmatrix</a>:</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>ein Redebeitrag von Sara</p></th>
@@ -1081,7 +1080,7 @@ Und wäre leicht von Grund aus abgebrannt.
 </section>
 </section>
 <section id="tabellarische-dateien">
-<h2>Tabellarische Dateien<a class="headerlink" href="#tabellarische-dateien" title="Permalink to this heading">#</a></h2>
+<h2>Tabellarische Dateien<a class="headerlink" href="#tabellarische-dateien" title="Link zu dieser Überschrift">#</a></h2>
 <p>Tabellarische Dateien kennst Du von Microsoft Excel (oder vergleichbaren Programmen). An der Benutzeroberfläche sind sie in Spalten und Zeilen organisiert, wie wir hier am Beispiel einer Tabelle über die <a class="reference external" href="https://de.wikipedia.org/wiki/Liste_der_fl%C3%A4chengr%C3%B6%C3%9Ften_Gemeinden_Deutschlands">zehn flächengrößten Gemeinden Deutschlands</a> sehen:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_Tabelle.png"><p>Der einzige strukturelle Unterschied zu Textdateien ist, dass es neben Zeilen auch eine zweite Strukturdimension gibt, nämlich die Spalten.</p>
 <p>„Hinter den Kulissen“ werden die einzelnen Spalten durch ein Trennzeichen (verwirrenderweise teils <em>separator</em>, teils <em>delimiter</em> auf Englisch) strukturiert. Bei dieser Datei sind dies Semikola (Strichpunkte), wie wir hier sehen:</p>
@@ -1089,7 +1088,7 @@ Und wäre leicht von Grund aus abgebrannt.
 <p>Wenn wir tabellarische Dateien einlesen, müssen wir wissen, mithilfe welchen Trennzeichens sie auf der Spaltenebene strukturiert sind, damit die Daten einer Zeile an den richtigen Orten in Spalten unterteilt werden. Neben Semikola (<code class="docutils literal notranslate"><span class="pre">&quot;;&quot;</span></code>) sind Kommata (<code class="docutils literal notranslate"><span class="pre">&quot;,&quot;</span></code>) oder Tabs (<code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>) übliche Trennzeichen. Wenn, wie oben, Semikola das Trennzeichen sind, können die anderen üblichen Trennzeichen ohne Weiteres zwischen den Semikola vorkommen (siehe z.B. die Kommata in den Flächenangaben). Auch beim Schreiben von tabellarischen Dateien müssen bzw. können wir spezifieren, welches Trennzeichen verwendet werden soll.</p>
 <p>Zur Arbeit mit tabellarischen Daten (sowie generell für fortgeschrittene Datenanalyse) gibt es die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, der das übernächste Notebook gewidmet ist. Hier schauen wir uns das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul an, das sich für den einfachen Umgang mit tabellarischen Daten eignet.</p>
 <section id="das-csv-modul">
-<h3>Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul<a class="headerlink" href="#das-csv-modul" title="Permalink to this heading">#</a></h3>
+<h3>Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul<a class="headerlink" href="#das-csv-modul" title="Link zu dieser Überschrift">#</a></h3>
 <p>Wie üblich importieren wir das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul zu Beginn. Ebenfalls setzen wir stets „csv.“ vor den Namen von Funktionen aus diesem Modul (vgl. oben zum <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul).</p>
 <p>Die Datei mit den flächengrößten Gemeinden lesen wir natürlich auch mittels <code class="docutils literal notranslate"><span class="pre">open</span></code>, eingebettet in ein <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement, ein. Das <code class="docutils literal notranslate"><span class="pre">read_file</span></code> übergeben wir zusammen mit dem korrekten Trennzeichen (<code class="docutils literal notranslate"><span class="pre">delimiter=&quot;;&quot;</span></code>) der <code class="docutils literal notranslate"><span class="pre">reader</span></code>-Funktion (beachte die „agentive“ Benennung von Funktionen im <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul). Standardtrennzeichen ist übrigens das Komma (der Name des Moduls ist nämlich eine Abkürzung für <em>comma-separated values</em>), das wie immer nicht angegeben werden muss.</p>
 <p>Die <code class="docutils literal notranslate"><span class="pre">reader</span></code>-Funktion gibt uns nun nicht ein gewöhnliches Python-Objekt zurück (etwa einen string oder eine Liste wie beim Textinput), sondern ein <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code>, das wir mit <code class="docutils literal notranslate"><span class="pre">data</span></code> referenzieren. Über dieses <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code> können wir wie gewohnt iterieren und die einzelnen Zeilen einer Liste anhängen. Wir müssen das innerhalb der Einrückung machen, da  das <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code> zusammen mit <code class="docutils literal notranslate"><span class="pre">read_file</span></code> wieder geschlossen wird, sobald wir die Einrückung verlassen:</p>
@@ -1173,7 +1172,7 @@ Und wäre leicht von Grund aus abgebrannt.
 </section>
 </section>
 <section id="user-input-fur-interaktive-programme">
-<h2>User-Input für interaktive Programme<a class="headerlink" href="#user-input-fur-interaktive-programme" title="Permalink to this heading">#</a></h2>
+<h2>User-Input für interaktive Programme<a class="headerlink" href="#user-input-fur-interaktive-programme" title="Link zu dieser Überschrift">#</a></h2>
 <p>Wie wir bereits im dritten Notebook gesehen haben, ist es ganz einfach, User-Input in Programme einzubauen. Wir verwenden dafür die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion und übergeben ihr einen sog. <em>prompt</em> als string. Dieser <em>prompt</em> ist die Aufforderung, die der Benutzerin angezeigt wird, sobald Python die Code-Zeile mit der <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion erreicht. Das, was die Benutzerin nun eingibt (und durch Drücken von Enter „abschickt“), weisen wir direkt einer Variablen zu.</p>
 <p>Python interpretiert den Input standardmäßig als string. Wenn wir z.B. eine Ganzzahl erwarten (und der anschließende Code darauf ausgerichtet ist), müssen wir den Input vor der Variablenzuweisung entsprechend casten (s.u.).</p>
 <p>Führe die folgende Zelle aus und agiere im Anschluss als Benutzer:in. Eventuell musst Du erst ins Antwortfeld unter der Frage klicken, sodass der Cursor blinkt.</p>
@@ -1195,19 +1194,28 @@ Und wäre leicht von Grund aus abgebrannt.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_76196</span><span class="o">/</span><span class="mf">2969257605.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Handelt es sich um einen anderen Datentyp als string muss der Input gecastet werden</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
-<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
 
 <span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
@@ -1220,7 +1228,7 @@ Und wäre leicht von Grund aus abgebrannt.
 </section>
 <hr class="docutils" />
 <section id="id1">
-<h2>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">#</a></h2>
 <p>Deine Aufgabe ist es also, ein kleines interaktives Programm zu schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Hier folgt nochmal das gleiche Video vom Anfang:</p>
 <video controls src="../3_Dateien/Grafiken_und_Videos/Gedankenprotokollant.mov" width=700/><p>Ergänzend zu diesem Video siehst Du unten eine Liste an einfachen Schritten, die – korrekt implementiert – die Aufgabe lösen und das im Video gezeigte Endprodukt verwirklichen. Diese einzelnen Schritte entsprechen dem zweiten Punkt beim algorithmischen Denken (nach der initialen Problemanalyse und vor der konkreten Implementierung).</p>
 <p>Überlege Dir für jeden einzelnen Schritt, wie Du ihn konkret implementieren kannst, d.h. welche Funktionen oder Methoden sowie Kontrollstrukturen Du dafür benötigst. Schreibe zu jedem Punkt alle Techniken auf, mithilfe welcher Du den jeweiligen Punkt konkret in Code umsetzen kannst. Ignoriere dabei erst einmal, wie und in welcher Reihenfolge Du die Schritte anschließend miteinander verbindest:</p>
@@ -1297,7 +1305,7 @@ Und wäre leicht von Grund aus abgebrannt.
 <p>Abschließend schauen wir uns noch die vermutlich am häufigsten benutzte Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">print</span></code>, genauer an.</p>
 </section>
 <section id="die-print-funktion-im-detail">
-<h2>Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail<a class="headerlink" href="#die-print-funktion-im-detail" title="Permalink to this heading">#</a></h2>
+<h2>Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail<a class="headerlink" href="#die-print-funktion-im-detail" title="Link zu dieser Überschrift">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">print</span></code> gibt bekanntlich null, ein oder mehrere Objekte als string aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1328,7 +1336,10 @@ Hier werden 5 Objekte ausgegeben.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Leerschlag
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Leer
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>schlag
 13.10.1988 / 10-13-1988
 </pre></div>
 </div>
@@ -1350,7 +1361,7 @@ Hier werden 5 Objekte ausgegeben.
 </div>
 <p>Wenn Du diese Zelle mehrfach ausführst, schreibst Du jedes Mal eine weitere Zelle in die externe Datei. Dies liegt natürlich am <em>append</em>-Modus.</p>
 <section id="f-strings">
-<h3>f-strings<a class="headerlink" href="#f-strings" title="Permalink to this heading">#</a></h3>
+<h3>f-strings<a class="headerlink" href="#f-strings" title="Link zu dieser Überschrift">#</a></h3>
 <p>Im Zusammenhang mit <code class="docutils literal notranslate"><span class="pre">print</span></code> sind auch die sog. <em>f-strings</em> (abgekürzt für <em>formatted string literals</em>) zu erwähnen. Gleich wie <code class="docutils literal notranslate"><span class="pre">print</span></code> (für die Ausgabe) und die Zeichenketten-Konkatenation mithilfe von <code class="docutils literal notranslate"><span class="pre">+</span></code> (vgl. erstes Notebook) können wir f-strings dazu nutzen, beliebig viele Werte zu einem string zusammenzusetzen. Das sieht syntaktisch so aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1381,18 +1392,28 @@ Hier werden 5 Objekte ausgegeben.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">dy</span><span class="o">/</span><span class="mi">1</span><span class="n">d_wflpx5_57vhd_6cdbfk0m0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_76196</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Freut mich, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. Du darfst </span><span class="si">{</span><span class="s1">&#39;leider nicht&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;natürlich&#39;</span><span class="si">}</span><span class="s2"> in den Club.&quot;</span><span class="p">)</span>
 
-<span class="nn">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1001</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1002</span><span class="s2">         if not self._allow_stdin:</span>
-<span class="ne">-&gt; </span><span class="mi">1003</span><span class="s2">             raise StdinNotImplementedError(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1004</span><span class="s2">                 &quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1005</span><span class="s2">             )</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
 
 <span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
