@@ -470,6 +470,7 @@ document.write(`
 <li><p>alle Zitate (dieser reguläre Ausdruck beinhält vermutlich doppelte Anführungszeichen; umschließe den string zwecks korrekter Abgrenzung daher mit drei einfachen Anführungszeichen)</p></li>
 </ol>
 <p>Lasse Dir anschließend alle Listen schön formatiert ausgeben.</p>
+<p>👆 Hinweis: Nach oben uneingeschränkte Quantifikatoren sind <em>gierig</em>. Will heißen: sie matchen so viele Zeichen wie nur möglich. Wenn wir beim dritten Suchauftrag etwa spezifizieren, dass beliebig viele beliebige Zeichen (<code class="docutils literal notranslate"><span class="pre">.*</span></code>) innerhalb von Anführungszeichen vorkommen dürfen, führt das dazu, dass die Zitate nicht einzeln gematcht werden, sondern dass fälschlicherweise ein langes Zitat – beginnend beim ersten öffnenden Anführungszeichen und endend beim letzten schließenden Anführungszeichen – ausgegeben wird. Um diese <em>Gier</em> zu bändigen und stattdessen alle kürzesten, vollständigen matches, also alle Zitate einzeln, zu erhalten, können wir dem Quantifikator ganz einfach ein <code class="docutils literal notranslate"><span class="pre">?</span></code> anfügen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#zur Lösung verwendeter Text stammt von https://www.mdr.de/nachrichten/sachsen/bautzen/goerlitz-weisswasser-zittau/bahnstrecke-berlin-goerlitz-ice-ausbau-fahrgastverband-wirtschaftsministerium-100.html</span>
@@ -490,7 +491,7 @@ document.write(`
 <span class="n">regex_1</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot; [a-zäöüß]</span><span class="si">{3}</span><span class="s2"> &quot;</span>
 <span class="n">regex_2</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot; [A-ZÄÖÜ]\w* &quot;</span>
 <span class="sd">&quot;&quot;&quot;beachte, dass regex_3 auf den obigen Text zugeschnitten ist und bei Dir vermutlich anders aussieht&quot;&quot;&quot;</span>
-<span class="n">regex_3</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;&quot;[\wäöüß/,-.\s()]*&quot;&#39;&#39;&#39;</span> <span class="c1">#literal &#39;&quot;&#39;, dann beliebig viele ASCII-Zeichen bzw. &quot;ä&quot;, &quot;ö&quot;, &quot;ü&quot;, &quot;ß&quot;, &quot;/&quot;, &quot;,&quot;, &quot;-&quot;, &quot;.&quot;, whitespace-Zeichen, &quot;(&quot;, &quot;)&quot;, danach literal &#39;&quot;&#39;</span>
+<span class="n">regex_3</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;&quot;.*?&quot;&#39;&#39;&#39;</span> <span class="c1">#beliebig viele beliebige Zeichen innerhalb von Anführungszeichen, mit gebändigter Gier (d.h. kürzestmöglicher match)</span>
 
 <span class="n">three_letter_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="n">capital_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_2</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
@@ -502,6 +503,7 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Großgeschriebene Wörter: &quot;</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">capital_words</span><span class="p">]),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zitate:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">quotes</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">quote</span> <span class="ow">in</span> <span class="n">quotes</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">quote</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -513,6 +515,7 @@ document.write(`
 Großgeschriebene Wörter:  ICE, Berlin, Das, Auch, Sachsens, Michael, Berlin, Görlitz, ICE, Bundeshauptstadt, Das, Wirtschaftsministerium, Nachfrage, MDR, Ziel, Schienenverbindung, Cottbus, Görlitz, Geschwindigkeit, Dies, Investitionsgesetz, Kohleregionen, Elektrifizierung, Bahnhofes, Systemtrennstelle, Anschluss, Gleichstromsystem, Den, Wirtschaftsministerium, Ausbau, Schieneninfrastruktur, Verkehrsträgern, Einsatz, Produktgattungen, Im, Wenn, Bedarf, Regionalzüge, Görlitz, Cottbus, Umsteigen, Warum, Staatskanzlei, Nachfrage, Ausführungen, Aus, Wirtschaftsministerium, Angaben, Deutschen, Bauarbeiten, Ende, Die, Milliarden, Über, Ausbau, Ländern, Brandenburg, Über, Fernverkehr, DB, Auch, Kosten, Bahn, Kosten, Zeitplan, Deutsche, Planungen, Zeitplan, Investitionsgesetz, Bund, Grundlage, Ausbau, Bahnstrecke, Berlin, Görlitz, Im, Berlin, Cottbus, Fokus, Einzelmaßnahmen, Strecke, Auf, Abschnitt, Görlitz, Ausbau, Elektrifizierung, Strecke, Ende, Abbaus, Metropolregionen, Umsetzung, Maßnahmen, Nachfrageentwicklungen, DB, Angebotsplanung, ICE, ICE, Görlitz, Fahrgastverband, Bahn, Statement, Ministerpräsident, Tat, Besonderheit, Trasse, Frühere, Ausbau, Geschwindigkeiten, Stundenkilometer, Der, DB, Eine, Fernverkehr, Dresden, Chemnitz, Erfurt, Gera, Seit, Bahnreform, Fusion, Deutschen, Deutschen, Deutschen, AG, Regionalverkehr, Ländern, Fernverkehrszüge, DB, Eurocity, Laut, Versäumnis, Politik, Fernverkehrsentwicklung, ICE, Potentiale, Entwicklung, Fernverkehrs, Lausitz, Nachbarn, Blick, Der, Oberleitung, Das, Stromsystemen, Fernverkehr, Bestand, Lage, Polen, Tschechien, Bestand, DB, Niederlande, Schweiz, Intercity, Züge, Görlitzer, Seite, Meter, Neißeviadukt, Hauptbahnhof, Polen, Deutschland, Staatsvertrag, Seite, Staatsvertrag, Seite, Schienendrehkreuz, Lausitz, Fahrgastverband, Drehkreuz, In, Görlitz, Verkehrsströme, Fokus, Berlin, Cottbus, Wroclaw, Kraków, Przemysl, Kiew, Leipzig, Dresden, Görlitz, Wroclaw, Warschau, Verkehre, Berlin, Cottbus, Zudem, Seite, Flughafen, BER, Wroclaw, Jahren, Interesse, Berlin, Bahn, Strecke, Intercitys, Zwischen, Görlitz, Weißwasser, Dieseltriebwagen, Ostdeutschen, In, Abschnitt, Streckenausbau, Tagebau, Fahrgastverband, Görlitz, Zittau, Bahnstrecke, Seite, Liberec, Prag, Fernverkehr, Auch, Trasse, Bautzen, Görlitz, Strecken, Pro 
 
 Zitate:
+17
 &quot;die bestehende Schienenverbindung zwischen Cottbus und Görlitz durchgängig zweigleisig zu elektrifizieren sowie auf eine Geschwindigkeit von bis zu 160 km/h zu ertüchtigen.&quot; 
 
 &quot;ICE-Strecke&quot; 
@@ -541,7 +544,7 @@ Zitate:
 
 &quot;einst ein Drehkreuz des europäischen Schienenverkehrs&quot; 
 
-&quot;Daran hat sie schon vor Jahren großes Interesse bekundet.&quot; 
+&quot;Würde man den Fokus statt auf ICE-Züge beispielsweise auf Eurocity-Züge Berlin - Cottbus - Wroclaw - Kraków - Przemysl -Lwiw - Kiew oder Frankfurt/Main - Leipzig - Dresden - Görlitz - Wroclaw - Warschau legen, so wären solche Verkehre sicherlich wirtschaftlicher realisierbar als innerdeutsche &#39;Endverkehre&#39; Berlin - Cottbus - Görlitz. Zudem könnte die polnische Seite auch den Flughafen Berlin-Brandenburg BER aus Wroclaw kommend direkt anfahren. &quot; 
 
 &quot;zeitnah&quot; 
 
