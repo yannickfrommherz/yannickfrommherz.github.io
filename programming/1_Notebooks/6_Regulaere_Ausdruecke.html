@@ -522,7 +522,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2039</span><span class="o">/</span><span class="mf">3505986274.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2100</span><span class="o">/</span><span class="mf">3505986274.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> 
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#hier aktivieren wir den Pizzabot</span>
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
@@ -616,12 +616,12 @@ document.write(`
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
 <td class="text-left"><p>das davor stehende Zeichen darf 0 bis <em>n</em> mal vorkommen</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hund.*</span></code> matcht z.B. <em>Hund</em>, <em>Hunde</em>, <em>Hundehütte</em></p></td>
-<td class="text-left"><p>–</p></td>
+<td class="text-left"><p>ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>; vgl. Übung 2 für sinnvolle Anwendung)</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
 <td class="text-left"><p>das davor stehende Zeichen darf 1 bis <em>n</em> mal vorkommen</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hund.+</span></code> matcht z.B. <em>Hunde</em>, <em>Hundehütte</em></p></td>
-<td class="text-left"><p>–</p></td>
+<td class="text-left"><p>ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>)</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
 <td class="text-left"><p>das davor stehende Zeichen darf 0 bis 1 mal vorkommen</p></td>
@@ -636,7 +636,7 @@ document.write(`
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{n,m}</span></code></p></td>
 <td class="text-left"><p>das davor stehende Zeichen darf min. <em>n</em> und max. <em>m</em> mal vorkommen</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hu{2,3}nd</span></code> matcht <em>Huund</em>, <em>Huuund</em></p></td>
-<td class="text-left"><p>bleiben <em>n</em> / <em>m</em> leer, werden nach unten / oben beliebig viele Zeichen gematcht</p></td>
+<td class="text-left"><p>bleiben <em>n</em> / <em>m</em> leer, werden nach unten / oben beliebig viele Zeichen gematcht; ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>)</p></td>
 </tr>
 </tbody>
 </table>
@@ -728,6 +728,7 @@ document.write(`
 <li><p>alle Zitate (dieser reguläre Ausdruck beinhält vermutlich doppelte Anführungszeichen; umschließe den string zwecks korrekter Abgrenzung daher mit drei einfachen Anführungszeichen)</p></li>
 </ol>
 <p>Lasse Dir anschließend alle Listen schön formatiert ausgeben.</p>
+<p>👆 Hinweis: Nach oben uneingeschränkte Quantifikatoren sind <em>gierig</em>. Will heißen: sie matchen so viele Zeichen wie nur möglich. Wenn wir beim dritten Suchauftrag etwa spezifizieren, dass beliebig viele beliebige Zeichen (<code class="docutils literal notranslate"><span class="pre">.*</span></code>) innerhalb von Anführungszeichen vorkommen dürfen, führt das dazu, dass die Zitate nicht einzeln gematcht werden, sondern dass fälschlicherweise ein langes Zitat – beginnend beim ersten öffnenden Anführungszeichen und endend beim letzten schließenden Anführungszeichen – ausgegeben wird. Um diese <em>Gier</em> zu bändigen und stattdessen alle kürzesten, vollständigen matches, also alle Zitate einzeln, zu erhalten, können wir dem Quantifikator ganz einfach ein <code class="docutils literal notranslate"><span class="pre">?</span></code> anfügen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
@@ -866,7 +867,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2039</span><span class="o">/</span><span class="mf">165035356.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2100</span><span class="o">/</span><span class="mf">165035356.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">regex_5</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> 
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">first_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
@@ -896,7 +897,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2039</span><span class="o">/</span><span class="mf">3006339820.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2100</span><span class="o">/</span><span class="mf">3006339820.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">kv21</span><span class="p">):</span>
@@ -1101,7 +1102,7 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2039</span><span class="o">/</span><span class="mf">3433418646.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2100</span><span class="o">/</span><span class="mf">3433418646.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> 
 <span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
@@ -1302,7 +1303,7 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2039</span><span class="o">/</span><span class="mf">2327317937.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2100</span><span class="o">/</span><span class="mf">2327317937.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">reload</span><span class="p">(</span><span class="n">pizzabot</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> 
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
@@ -1396,12 +1397,12 @@ request_address: None
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
 <td class="text-left"><p>das davor stehende Zeichen darf 0 bis <em>n</em> mal vorkommen</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hund.*</span></code> matcht z.B. <em>Hund</em>, <em>Hunde</em>, <em>Hundehütte</em></p></td>
-<td class="text-center"><p>–</p></td>
+<td class="text-center"><p>ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>)</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
 <td class="text-left"><p>das davor stehende Zeichen darf 1 bis <em>n</em> mal vorkommen</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hund.+</span></code> matcht z.B. <em>Hunde</em>, <em>Hundehütte</em></p></td>
-<td class="text-center"><p>–</p></td>
+<td class="text-center"><p>ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>)</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
 <td class="text-left"><p>das davor stehende Zeichen darf 0 bis 1 mal vorkommen</p></td>
@@ -1416,7 +1417,7 @@ request_address: None
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{n,m}</span></code></p></td>
 <td class="text-left"><p>das davor stehende Zeichen darf min. <em>n</em> und max. <em>m</em> mal vorkommen</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hu{2,3}nd</span></code> matcht <em>Huund</em>, <em>Huuund</em></p></td>
-<td class="text-center"><p>bleiben <em>n</em> / <em>m</em> leer, werden nach unten / oben beliebig viele Zeichen gematcht</p></td>
+<td class="text-center"><p>bleiben <em>n</em> / <em>m</em> leer, werden nach unten / oben beliebig viele Zeichen gematcht; ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>)</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\w</span></code></p></td>
 <td class="text-left"><p>matcht ein beliebiges alphanumerisches <a class="reference external" href="https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a>-Zeichen</p></td>
