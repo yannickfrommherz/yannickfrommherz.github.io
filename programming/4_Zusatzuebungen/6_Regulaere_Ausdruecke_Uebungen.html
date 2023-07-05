@@ -7,9 +7,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Zusatzübungen zum Notebook „Input und Output“ &#8212; Yannick Frommherz</title>
+    <title>Zusatzübungen zum Notebook „Reguläre Ausdrücke“ &#8212; Yannick Frommherz</title>
   
   
   
@@ -44,6 +44,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -61,8 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/4_Zusatzuebungen/5_Input_und_Output_Zusatzuebungen';</script>
-    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/4_Zusatzuebungen/5_Input_und_Output_Zusatzuebungen.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/4_Zusatzuebungen/6_Regulaere_Ausdruecke_Uebungen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/4_Zusatzuebungen/6_Regulaere_Ausdruecke_Uebungen.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -241,7 +242,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/4_Zusatzuebungen/5_Input_und_Output_Zusatzuebungen.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/4_Zusatzuebungen/6_Regulaere_Ausdruecke_Uebungen.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -307,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/4_Zusatzuebungen/5_Input_und_Output_Zusatzuebungen.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/4_Zusatzuebungen/6_Regulaere_Ausdruecke_Uebungen.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Öffnen Sie ein Problem"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -337,7 +338,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/programming/4_Zusatzuebungen/5_Input_und_Output_Zusatzuebungen.ipynb" target="_blank"
+      <li><a href="../../_sources/programming/4_Zusatzuebungen/6_Regulaere_Ausdruecke_Uebungen.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Quelldatei herunterladen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -417,7 +418,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Zusatzübungen zum Notebook „Input und Output“</h1>
+    <h1>Zusatzübungen zum Notebook „Reguläre Ausdrücke“</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -431,64 +432,76 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="zusatzubungen-zum-notebook-input-und-output">
-<h1>Zusatzübungen zum Notebook „Input und Output“<a class="headerlink" href="#zusatzubungen-zum-notebook-input-und-output" title="Link zu dieser Überschrift">#</a></h1>
+  <section id="zusatzubungen-zum-notebook-regulare-ausdrucke">
+<h1>Zusatzübungen zum Notebook „Reguläre Ausdrücke“<a class="headerlink" href="#zusatzubungen-zum-notebook-regulare-ausdrucke" title="Permalink to this heading">#</a></h1>
+<p>👆 Je komplexer die Suchaufträge, desto mehr Möglichkeiten gibt es, einen regulären Ausdruck dafür zu konstruieren. Bei der Abwägung zwischen Genauigkeit (decke ich alle gewünschten Fälle und nur diese ab?) und Effizienz (wie lange brauche ich, um den regulären Ausdruck zu konstruieren?) gibt es nicht immer Richtig und Falsch.</p>
 <ol class="arabic">
-<li><p>Lies das erste Kapitel von <a class="reference external" href="https://www.projekt-gutenberg.org/lagerloe/nielsho1/titlepage.html">Niels Holgersens wunderbare Reise mit den Wildgänsen</a> von Selma Lagerlöf ein und weise es <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> zu. Entferne dabei sämtliche Zeilenumbrüche, sodass ein Fließtext entsteht. Lass Dir die ersten 1000 Zeichen ausgeben.</p>
-<p>📌 Herausforderung: Löse die Übung mithilfe einer List Comprehension.</p>
+<li><p>Um das Formulieren von regulären Ausdrücken zu üben, laden wir uns den <a class="reference external" href="https://de.wikipedia.org/wiki/Quantenphysik">Wikipedia-Artikel zur Quantenphysik</a> herunter. Dies tun wir mithilfe des Moduls <code class="docutils literal notranslate"><span class="pre">wikipediaapi</span></code>, das die offizielle Schnittstelle von Wikipedia (die sog. <em>API</em>) für Python zugänglich macht.</p>
+<p>Installiere zuallererst das Module über die Command Line: <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">wikipedia-api</span></code> (beachte den Bindestrich!). Der Code zum Herunterladen des Artikels steht Dir bereits in der Code-Zelle zur Verfügung. Du musst bloß Deine Mailadresse bei <code class="docutils literal notranslate"><span class="pre">mail_address</span></code> angeben. Die Kontaktangabe beim „Anzapfen“ einer Schnittstelle gehört nämlich zum guten Ton!</p>
+<p>Führe anschließend die Code-Zelle <em>einmal</em> aus. Da jede Abfrage die Server von Wikipedia beschäftigt, versuchen wir die Anzahl an Abfragen auf ein Minimum zu begrenzen. Im Extremfall (bei vielen Abfragen von der selben IP-Adresse innerhalb eines kurzen Zeitraums) sperrt Wikipedia Dich automatisch.</p>
 </li>
 </ol>
-<ol class="arabic" start="2">
-<li><p>Lass Dir <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> als Blocksatz mit jeweils 100 Zeichen pro Zeile ausgeben. Wörter dürfen sich über Zeilenumbrüche hinweg erstrecken, ein Bindestrich ist nicht nötig.</p>
-<p>📌 Herausforderung: Löse die Übung mithilfe einer List Comprehension.</p>
-</li>
-</ol>
-<ol class="arabic" start="3">
-<li><p>Extrahiere sämtliche Fälle von direkter Rede aus <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> und speichere sie auf der Liste <code class="docutils literal notranslate"><span class="pre">direct_speech</span></code> ab. Ein zu extrahierendes Beispiel lautet</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> »Wartet! Wartet! ich komme.«
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mail_address</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#trage hier Deine Mailadresse ein</span>
+
+<span class="kn">import</span> <span class="nn">wikipediaapi</span> <span class="c1">#kein Bindestrich beim Import</span>
+
+<span class="c1">#Initialisieren der Schnittstelle mittels Angabe von user_agent, Sprache und Extraktionsformat </span>
+<span class="n">Wiki_API</span> <span class="o">=</span> <span class="n">wikipediaapi</span><span class="o">.</span><span class="n">Wikipedia</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Programmierenlernen, </span><span class="si">{</span><span class="n">mail_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="n">extract_format</span><span class="o">=</span><span class="n">wikipediaapi</span><span class="o">.</span><span class="n">ExtractFormat</span><span class="o">.</span><span class="n">WIKI</span><span class="p">)</span>
+<span class="n">qp</span> <span class="o">=</span> <span class="n">Wiki_API</span><span class="o">.</span><span class="n">page</span><span class="p">(</span><span class="s1">&#39;Quantenphysik&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="c1">#eigentliche Abfrage des angegebenen Artikels</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;. &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">qp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]))</span> <span class="c1">#Ausgabe der ersten 3 Sätze</span>
 </pre></div>
 </div>
-</br>
- Verwende hierfür keine regulären Ausdrücke (vgl. sechstes Notebook).</li>
-</ol>
-<ol class="arabic" start="4">
-<li><p>Schaffe einen irrwitzigen Dialog zwischen den Figuren auf <code class="docutils literal notranslate"><span class="pre">subjects</span></code> (füge gerne weitere amüsante Charaktere hinzu). Verwende dazu sämtliche Redebeiträge auf der Liste <code class="docutils literal notranslate"><span class="pre">direct_speech</span></code> aus der Übung 3 in zufälliger Reihenfolge. Die Figuren sollen abwechselnd zu Wort kommen, wobei sie ihren Redebeitrag über ein jeweils zufälliges Sprechaktverb der Liste <code class="docutils literal notranslate"><span class="pre">verbs</span></code> äußern (auch hier kannst Du gerne weitere Verben hinzufügen). Der Dialog soll wie folgt aussehen:</p>
- <img src="../3_Dateien/Grafiken_und_Videos/Irrwitziger_Dialog.png">
-<p>und so weiter.</p>
-<p>Um eine zufällige Reihenfolge bzw. eine zufällige Auswahl zu generieren, musst Du ein Dir bekanntes Modul importieren. Lies ggf. in der Dokumentation des Moduls nach, welche Funktionen die benötigten Operationen implementieren.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2332</span><span class="o">/</span><span class="mf">2085477444.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">mail_address</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#trage hier Deine Mailadresse ein</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">wikipediaapi</span> <span class="c1">#kein Bindestrich beim Import</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#Initialisieren der Schnittstelle mittels Angabe von user_agent, Sprache und Extraktionsformat</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;wikipediaapi&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="2">
+<li><p>Nun steht uns der Inhalt des Artikels als string-Objekt in <code class="docutils literal notranslate"><span class="pre">qp</span></code> zur Verfügung und wir können reguläre Ausdrücke üben.</p>
+<p>Extrahiere als Erstes alle Wörter bestehend aus mindestens 20 Buchstaben.</p>
+<p>💡 Tipp: Verwende hier und in den folgenden Übungen, wo sinnvoll, die <code class="docutils literal notranslate"><span class="pre">re.I</span></code>-Flag, um die regulären Ausdrücke kurz zu halten.</p>
 </li>
 </ol>
+<ol class="arabic simple" start="3">
+<li><p>Lass Dir nun alle einzigartigen kleingeschriebenen Wörter in <code class="docutils literal notranslate"><span class="pre">qp</span></code> bestehend aus zwei oder drei Buchstaben ausgeben.</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Schaffe eine Liste mit allen Wörtern mit Bindestrich (z.B. „Wikipedia-Artikel“) in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p></li>
+</ol>
 <ol class="arabic simple" start="5">
-<li><p>Führe den Code, den Du in Übung 4 geschrieben hast, ein paar Mal aus, bis Du einen besonders lustigen Dialog erhältst. Speichere nun diesen Dialog als Textdatei im Ordner „Output“. Formatiere dabei den Text wie ein Drama (vgl. <em>Nathan der Weise</em> im Lehrnotebook). Die Textdatei soll zudem einen Titel sowie eine Auflistung der Figuren beinhalten.</p></li>
+<li><p>Extrahiere aus <code class="docutils literal notranslate"><span class="pre">qp</span></code> sämtliche Wörter mit Großbuchstaben am Anfang, die mindestens vier Buchstaben lang sind. Lass sie Dir alphabetisch ausgeben.</p></li>
 </ol>
 <ol class="arabic simple" start="6">
-<li><p>Füge Deiner eben geschaffenen Datei (mithilfe von Python!) den Satz „An dieser Stelle endet die die Zusammenkunft abrupt.“ an.</p></li>
+<li><p>Identifiziere alle Substantivpaare in <code class="docutils literal notranslate"><span class="pre">qp</span></code>, die mit „und“ verbunden sind (z.B. „Phänomene und Effekte“).</p></li>
 </ol>
 <ol class="arabic" start="7">
-<li><p>Lass Dir das aktuelles Arbeitsverzeichnis sowie die darin befindlichen Dateien und Verzeichnisse ausgeben.</p>
-<p>📌 Herausforderung: Schaffe ein neues Verzeichnis namens „new_dir“ im aktuellen Arbeitsverzeichnis und überprüfe anschließend (mithilfe von Python), ob es geklappt hat.</p>
+<li><p>Finde sämtliche Klammerbemerkungen in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p>
+<p>💡Tipp: <code class="docutils literal notranslate"><span class="pre">re</span></code> versucht bei Verwendung der Quantifikatoren <code class="docutils literal notranslate"><span class="pre">+</span></code> und <code class="docutils literal notranslate"><span class="pre">*</span></code> jeweils den längstmöglichen match zu extrahieren. Will heißen: Kommt nach einer schließenden Klammern später im abzusuchenden Text nochmal eine schließende Klammer (und unter der Voraussetzung, dass alles dazwischen ebenfalls gematcht werden kann), so matcht <code class="docutils literal notranslate"><span class="pre">re</span></code> den gesamten Abschnitt von der ersten öffnenden Klammern bis zur letzten schließenden Klammer. Um diese <em>Gier</em> zu bändigen (und die einzelnen Klammerbemerkungen separat zu matchen), können wir dem Quantifikator zusätzlich ein <code class="docutils literal notranslate"><span class="pre">?</span></code> anfügen. Dann matcht <code class="docutils literal notranslate"><span class="pre">re</span></code> nur so viele Zeichen wie nötig, um einen vollständigen match zu erreichen.</p>
 </li>
 </ol>
 <ol class="arabic simple" start="8">
-<li><p>Lies aufbauend auf der Zusatzübung 7 zum dritten Notebook die Datei „de_sv.csv“ aus dem Ordner „Tabellarische_Daten“ ein. Darin befinden sich nun mehr als nur eine Handvoll Vokabeln Deutsch-Schwedisch. Genauer gesagt, handelt es sich um die 100 wichtigsten Vokabeln gemäß ChatGPT. Überführe die Daten in ein geeignetes Objekt und „füttere“ damit den bereits programmierten Vokabeltrainer. Beim Einlesen dürfte die Dir noch unbekannte <code class="docutils literal notranslate"><span class="pre">next</span></code>-Funktion hilfreich sein – erkundige selbständig, wie Du sie einsetzen kannst. Implementiere außerdem einen Mechanismus, über den Benutzer:innen die Lernsession vorzeitig beenden können, falls sie nicht alle 100 Vokabeln lernen möchten.</p></li>
+<li><p>An welcher Stelle und in welchem Wort in <code class="docutils literal notranslate"><span class="pre">qp</span></code> taucht „theorie“ zum ersten Mal auf?</p></li>
 </ol>
 <ol class="arabic" start="9">
-<li><p>Passe den Code aus Übung 8 derart an, dass Benutzer:innen eine Übersicht über die korrekt übersetzten bzw. falsch übersetzten Vokabeln gegeben wird, sobald sie die Lernsession beenden. Überleg Dir, wie Du diese Übersicht visuell ansprechend formatieren kannst. Folgender Screenshot ist eine Idee, Du kannst die Ausgabe auch gerne anders gestalten:</p>
- <img src="../3_Dateien/Grafiken_und_Videos/Formatierung.png" width="300"/></li>
-</ol>
-<ol class="arabic" start="10">
-<li><p>In dieser letzten Übung begeben wir uns in unbekanntes Terrain. Den Großteil der Arbeit erledigen wir nämlich nicht wie gewohnt aus JupypterLab heraus, sondern über die Command Line (Terminal unter macOS/Eingabeaufforderung unter Windows). Manche Tools stehen nämlich nur für die Command Line bereit und nicht für Python. So auch <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/">TreeTagger</a>, ein Tool, mit dem wir Text in verschiedenen Sprachen mit metalinguistischen Informationen wie Lemma (also die Form eines Wortes, die in einem Wörterbuch steht, z.B. „Kindes“ &gt; „Kind“) oder Part-of-Speech-Tags (Wortarten; abgekürzt: <em>POS</em>) anreichern können.</p>
-<ol class="arabic">
-<li><p>Installiere TreeTagger über die Schritte 1-5 auf der oben verlinkten Seite. Bei den „parameter files“ lädst Du das <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/german.par.gz">German parameter file</a> herunter. Speichere alle Dateien im gleichen Verzeichnis und achte darauf, dass der Dateipfad dorthin keine Leerschläge enthält. Entpacke keine der Dateien. Bei Schritt 5 ist es wichtig, dass Du die Command Line entweder direkt aus dem Verzeichnis mit den TreeTagger-Dateien heraus öffnest (i.d.R. möglich über Rechtsklick im Verzeichnis), oder mittels <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">path</span></code> zum Verzeichnis navigierst. Dadurch hat die Command Line das Verzeichnis der TreeTagger-Dateien als aktuelles Arbeitsverzeichnis.</p></li>
-<li><p>Schau, ob die Installation geklappt hat, indem Du in der Command Line (mit dem TreeTagger-Verzeichnis als Arbeitsverzeichnis!) den Befehl <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">'Hallo</span> <span class="pre">Welt!'</span> <span class="pre">|</span> <span class="pre">cmd/tree-tagger-german</span></code> eingibst. Ggf. verhindert Dein Betriebssystem die Ausführung des Befehls, weil TreeTagger nicht von einem verifizierten Entwickler stammt. Über die Einstellungen Deines Betriebssystems solltest Du diese Blockierung aufheben können. Die Ausgabe sollte folgendermaßen ausschauen:</p>
- <img src="../3_Dateien/Grafiken_und_Videos/Terminal_Output.png" width="450"/>
-<p>Die erste Spalte enthält die ursprünglichen Wörter unserer Eingabe in tokenisierter Form (ein Token pro Zeile). Die zweite Spalte enthält die POS-Tags (die deutsche Legende findest Du <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/STTS-Tagset.pdf">hier</a>) und die dritte die Lemmas.</p>
+<li><p>Erstelle ein Häufigkeitsverteilung über alle Zahlen in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p>
+<p>💡 Tipp: Verwende pandas für den letzten Schritt.</p>
 </li>
-<li><p>Nun wollen wir einen längeren Text taggen. Speichere dazu den in Übung 1 erstellten Fließtext mit Niels Holgersens erstem Kapitel im gleichen Verzeichnis wie die TreeTagger-Dateien unter dem Namen „niels_holgersen.txt“ ab.</p></li>
-<li><p>Führe den Befehl <code class="docutils literal notranslate"><span class="pre">cmd/tree-tagger-german</span> <span class="pre">niels_holgersen.txt</span> <span class="pre">&gt;</span> <span class="pre">niels_holgersen_tagged.txt</span></code> in der Command Line (mit dem TreeTagger-Verzeichnis als Arbeitsverzeichnis!) aus. Dadurch übergeben wir „niels_holgersen.txt“ dem Pogramm „tree-tagger-german“ (das sich im Unterverzeichnis „cmd/“ befindet). Das Programm tokenisiert, POS-taggt und lemmatisiert den Text in „niels_holgersen.txt“ und speichert das Ergebnis in „niels_holgersen_tagged.txt“. Öffne die neue Datei (z.B. mit Sublime Text) und inspiziere sie.</p></li>
-<li><p>Lies die Datei hier in JupyterLab ein und finde heraus, welches POS-Tag am häufigsten vorkommt. Es sollte sich um Nomen (NN) handeln.</p></li>
 </ol>
-</li>
+<ol class="arabic simple" start="10">
+<li><p>Tausche die Position der beiden Substantive in allen in Übung 6 ermittelten Substantivpaaren. Statt „Phänomene und Effekte“ soll „Effekte und Phänomene“ in <code class="docutils literal notranslate"><span class="pre">qp</span></code> stehen, etc.</p></li>
 </ol>
 </section>
 

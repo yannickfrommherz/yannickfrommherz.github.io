@@ -2520,9 +2520,76 @@ Name: Jahrzehnt, dtype: float64
 <li><p><code class="docutils literal notranslate"><span class="pre">count</span></code> zum Berechnen der Auftretenshäufigkeit eines strings/regulären Ausdrucks in den strings.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">strip</span></code>, <code class="docutils literal notranslate"><span class="pre">lstrip</span></code> und <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> zum Entfernen von (leading/trailing) whitespace in den strings.</p></li>
 </ul>
-<p>Neben <code class="docutils literal notranslate"><span class="pre">contains</span></code> (s.o.) ist außerdem <code class="docutils literal notranslate"><span class="pre">slice</span></code> eine nützliche pandas-string-Methode, die abweichend von ihrem nativen Python-Pendant heißt: <code class="docutils literal notranslate"><span class="pre">slice</span></code> mit den Argumentenen <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span></code> implementiert die Funktionalität der eckigen Klammern, die wir bei normalen Python-strings zum Slicen verwenden.</p>
+<p>Neben <code class="docutils literal notranslate"><span class="pre">contains</span></code> (s.o.) ist außerdem <code class="docutils literal notranslate"><span class="pre">slice</span></code> eine nützliche pandas-string-Methode, die abweichend von ihrem nativen Python-Pendant heißt: <code class="docutils literal notranslate"><span class="pre">slice</span></code> mit den Argumenten <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span></code> implementiert die Funktionalität der eckigen Klammern, die wir bei normalen Python-strings zum Slicen verwenden.</p>
 <p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/text.html">Hier</a> findest Du mehr Infos zu sämlichen string-Methoden bei pandas. Denke stets daran, <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die jeweilige string-Methode zu hängen!</p>
-<p>Eine letzte praktische Methode ist <code class="docutils literal notranslate"><span class="pre">isin(list)</span></code>. Sie überprüft, ob ein Wert Element der übergebenen Liste ist und gibt eine Series mit Boolschen Werten zurück. <code class="docutils literal notranslate"><span class="pre">isin</span></code> lässt nicht nur bei strings anwenden, deshalb hängen wir auch kein <code class="docutils literal notranslate"><span class="pre">str</span></code> davor.</p>
+<p>Zwei letzte praktische Methoden sind <code class="docutils literal notranslate"><span class="pre">isin(list)</span></code> und <code class="docutils literal notranslate"><span class="pre">shift(n)</span></code>, die aber nicht string-spezifisch sind, weswegen wir kein <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die Methode hängen. <code class="docutils literal notranslate"><span class="pre">isin</span></code> überprüft, ob ein Wert Element der übergebenen Liste ist und gibt eine Series mit Boolschen Werten zurück. <code class="docutils literal notranslate"><span class="pre">shift</span></code> wiederum lässt uns auf den Inhalt benachbarter Zeilen zugreifen, konkret auf den Inhalt der um <code class="docutils literal notranslate"><span class="pre">n</span></code> nach oben (n) bzw. nach unten (-n) <em>geshifteten</em> Zeile. Das macht <code class="docutils literal notranslate"><span class="pre">shift</span></code> insbesondere für die Erstellung von n-grammen interessant. Die folgende Code-Zelle demonstriert die Erstellung von Bigrammen basierend auf einer Spalte mit Token (Unigrammen):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ngram_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="s2">&quot;Ich&quot;</span><span class="p">,</span> <span class="s2">&quot;gehe&quot;</span><span class="p">,</span> <span class="s2">&quot;am&quot;</span><span class="p">,</span> <span class="s2">&quot;Abend&quot;</span><span class="p">,</span> <span class="s2">&quot;noch&quot;</span><span class="p">,</span> <span class="s2">&quot;spazieren&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;unigram&quot;</span><span class="p">])</span>
+<span class="n">ngram_df</span><span class="p">[</span><span class="s2">&quot;bigram&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ngram_df</span><span class="p">[</span><span class="s2">&quot;unigram&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">ngram_df</span><span class="p">[</span><span class="s2">&quot;unigram&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ngram_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unigram</th>
+      <th>bigram</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ich</td>
+      <td>Ich gehe</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>gehe</td>
+      <td>gehe am</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>am</td>
+      <td>am Abend</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Abend</td>
+      <td>Abend noch</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>noch</td>
+      <td>noch spazieren</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>spazieren</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>So einfach kann die Berechnung von n-grammen sein!</p>
 </section>
 <section id="numerische-werte">
 <h3>Numerische Werte<a class="headerlink" href="#numerische-werte" title="Permalink to this heading">#</a></h3>
@@ -3139,28 +3206,28 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>2</td>
-      <td>48</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>54</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>17</td>
+      <td>69</td>
       <td>11</td>
     </tr>
     <tr>
+      <th>1</th>
+      <td>78</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>19</td>
+      <td>42</td>
+    </tr>
+    <tr>
       <th>3</th>
-      <td>4</td>
-      <td>2</td>
+      <td>11</td>
+      <td>58</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>50</td>
-      <td>38</td>
+      <td>89</td>
+      <td>21</td>
     </tr>
   </tbody>
 </table>
@@ -3207,33 +3274,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>2</td>
-      <td>48</td>
-      <td>96</td>
+      <td>69</td>
+      <td>11</td>
+      <td>759</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>54</td>
-      <td>13</td>
-      <td>702</td>
+      <td>78</td>
+      <td>81</td>
+      <td>6318</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>17</td>
-      <td>11</td>
-      <td>187</td>
+      <td>19</td>
+      <td>42</td>
+      <td>798</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>4</td>
-      <td>2</td>
-      <td>8</td>
+      <td>11</td>
+      <td>58</td>
+      <td>638</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>50</td>
-      <td>38</td>
-      <td>1900</td>
+      <td>89</td>
+      <td>21</td>
+      <td>1869</td>
     </tr>
   </tbody>
 </table>
@@ -3283,33 +3350,33 @@ Name: Jahrzehnt, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>2</td>
-      <td>48</td>
-      <td>96</td>
+      <td>69</td>
+      <td>11</td>
+      <td>759</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>54</td>
-      <td>13</td>
-      <td>702</td>
+      <td>78</td>
+      <td>81</td>
+      <td>6318</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>17</td>
-      <td>11</td>
-      <td>187</td>
+      <td>19</td>
+      <td>42</td>
+      <td>798</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>4</td>
-      <td>2</td>
-      <td>8</td>
+      <td>11</td>
+      <td>58</td>
+      <td>638</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>50</td>
-      <td>38</td>
-      <td>1900</td>
+      <td>89</td>
+      <td>21</td>
+      <td>1869</td>
     </tr>
   </tbody>
 </table>
@@ -3323,9 +3390,9 @@ Name: Jahrzehnt, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.01034402847290039 
-for-Loop 14.280503034591675 
-Faktor: 1380.5552712856681
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.007441282272338867 
+for-Loop 12.396597385406494 
+Faktor: 1665.922206914229
 </pre></div>
 </div>
 </div>
@@ -3530,9 +3597,9 @@ Faktor: 1380.5552712856681
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.9008097648620605 
-for-Loop 0.8894054889678955 
-Faktor: 3.261515473924369
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.113760471343994 
+for-Loop 0.6662650108337402 
+Faktor: 3.172552118111245
 </pre></div>
 </div>
 </div>
@@ -3866,7 +3933,7 @@ Faktor: 3.261515473924369
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbef1d7a950&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f64f5976a90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" src="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" />
