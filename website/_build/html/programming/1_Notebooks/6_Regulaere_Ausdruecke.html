@@ -497,7 +497,7 @@ document.write(`
 <p>Unser regulärer Ausdruck funktioniert für die fünf gegebenen Links. Bei längeren Links, die auf „tiefere“ Unterseiten verlinken (mit weiteren „/“ konkateniert), müsste er aber verfeinert werden. Natürlich ließe er sich auch derart modifizieren, dass optional auch nicht-verschlüsselte Links (also ohne „s“ nach „http“) oder solche mit „www“ zwischen „https://“ und Domain (hier: „tu-dresden“) gematcht werden. Wie das geht, lernen wir weiter unten.</p>
 <p>Wir fassen zusammen: Sowohl bei der Inputvalidierung als auch bei der musterbasierten Suche ist das Prinzip von RegEx das Gleiche:</p>
 <p><strong>Wir formulieren <em>einen</em> regulären Ausdruck auf eine ausreichend abstrakte Weise, sodass er alle gewünschten Fälle auf einmal abdeckt.</strong></p>
-<p>Genau wie bei bedingten Anweisungen müssen wir gleichzeitig darauf achten, dass wir nicht „über das Ziel hinausschießen“ und das Muster <em>zu</em> abstrakt formulieren und dadurch womöglich unerwünschte Fälle matchen (vgl. auch Wahrheitsmatrix im letzten Notebook).</p>
+<p>Genau wie bei bedingten Anweisungen müssen wir stets darauf achten, dass wir nicht „über das Ziel hinausschießen“, das Muster also <em>zu</em> abstrakt formulieren und dadurch womöglich unerwünschte Fälle matchen (vgl. auch Wahrheitsmatrix im letzten Notebook).</p>
 <p>Auch in diesem Notebook gibt es einen Anwendungsfall.</p>
 </section>
 <hr class="docutils" />
@@ -562,7 +562,7 @@ document.write(`
 <section id="regex-bezogene-aufgabe">
 <h3>RegEx-bezogene Aufgabe<a class="headerlink" href="#regex-bezogene-aufgabe" title="Link zu dieser Überschrift">#</a></h3>
 <p>Die RegEx-bezogene Aufgabe besteht darin, den Pizzabot flexibler in Bezug auf Input zu machen. Dafür wirst Du die regulären Ausdrücke erweitern müssen, die schon jetzt im Code dafür benutzt werden, den User-Input zu validieren.</p>
-<p>Beispielsweise wird die Antwort auf Ja-Nein-Fragen momentan nur nach den strings „Ja“ und „Nein“ abgesucht. Durch Deine regulären Ausdrücke sollen Kund:innen in Zukunft ohne Probleme auch mit „ja“, „nö“, „Ne“, „NEIN“ etc. antworten können. Ebenfalls soll der Pizzabot mit Rechtschreibfehlern bei den Pizzanamen umgehen können (etwa „Margharita“), um Kund:innen nicht unnötig vor den Kopf zu stoßen. Letztlich besteht ein großes Manko des Pizzabots noch darin, dass er nur an eine einzige Adresse liefern kann, nämlich an die what3words-Adresse „falschen.fliegen.beliebten“, was übrigens der <a class="reference external" href="https://w3w.co/falschen.fliegen.beliebten">nordöstlichen Ecke der Zentralbibliothek der TU Dresden (SLUB)</a> entspricht. Das musst Du ändern, sodass der Pizzabot in Zukunft weltweit liefern kann, und zwar an jedes beliebige 3 x 3 m große Quadrat auf der Erdoberfläche. what3words hat nämlich jedes dieser Quadrate mit einer Adresse bestehend aus drei Wörtern analog zu „falschen.fliegen.beliebten“ versehen. Solche Adressen erlauben einerseits eine viel genauere Angabe als konventionelle Straßennamen (z.B. auch Orte in einem Park oder am Strand) und sind andererseits viel „menschenfreundlicher“ als Koordinaten. Genauere Instruktionen, wie Du die regulären Ausdrücke erweitern sollst, findest Du weiter unten.</p>
+<p>Beispielsweise wird die Antwort auf Ja-Nein-Fragen momentan nur nach den strings „Ja“ und „Nein“ (unabhängig von Groß- und Kleinschreibung) abgesucht. Durch Deine regulären Ausdrücke sollen Kund:innen in Zukunft ohne Probleme auch mit „nö“, „ne“, „nope“ etc. antworten können. Ebenfalls soll der Pizzabot mit Rechtschreibfehlern bei den Pizzanamen umgehen können (etwa „Margharita“), um Kund:innen nicht unnötig vor den Kopf zu stoßen. Letztlich besteht ein großes Manko des Pizzabots noch darin, dass er nur an eine einzige Adresse liefern kann, nämlich an die what3words-Adresse „falschen.fliegen.beliebten“, was übrigens der <a class="reference external" href="https://w3w.co/falschen.fliegen.beliebten">nordöstlichen Ecke der Zentralbibliothek der TU Dresden (SLUB)</a> entspricht. Das musst Du ändern, sodass der Pizzabot in Zukunft weltweit liefern kann, und zwar an jedes beliebige 3 x 3 m große Quadrat auf der Erdoberfläche. what3words hat nämlich jedes dieser Quadrate mit einer Adresse bestehend aus drei Wörtern analog zu „falschen.fliegen.beliebten“ versehen. Solche Adressen erlauben einerseits eine viel genauere Angabe als konventionelle Straßennamen (z.B. auch Orte in einem Park oder am Strand) und sind andererseits wesentlich „menschenfreundlicher“ als Koordinaten. Genauere Instruktionen, wie Du die regulären Ausdrücke erweitern sollst, findest Du weiter unten.</p>
 </section>
 <section id="dokumentationsaufgabe">
 <h3>Dokumentationsaufgabe<a class="headerlink" href="#dokumentationsaufgabe" title="Link zu dieser Überschrift">#</a></h3>
@@ -593,7 +593,7 @@ document.write(`
 <p>Das simpelste aller Sonderzeichen ist die sog. Wildcard.</p>
 <section id="wildcard">
 <h4>Wildcard<a class="headerlink" href="#wildcard" title="Link zu dieser Überschrift">#</a></h4>
-<p>Der <code class="docutils literal notranslate"><span class="pre">.</span></code> matcht ganz einfach ein beliebiges Zeichen, wie in der folgenden Tabelle ersichtlich. Solche Tabellen mit einer konzisen Zusammenfassung der Sonderzeichen gibt es zu allen Sonderzeichen und eine Zusammenstellung aller Tabellen findet sich am Ende dieses Notebooks.</p>
+<p>Der <code class="docutils literal notranslate"><span class="pre">.</span></code> matcht ganz einfach ein beliebiges Zeichen, wie in der folgenden Tabelle ersichtlich ist. Solche Tabellen mit einer konzisen Zusammenfassung der Sonderzeichen gibt es zu allen Sonderzeichen und eine Zusammenstellung aller Tabellen findet sich am Ende dieses Notebooks.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
@@ -614,7 +614,7 @@ document.write(`
 </section>
 <section id="quantifikatoren">
 <h4>Quantifikatoren<a class="headerlink" href="#quantifikatoren" title="Link zu dieser Überschrift">#</a></h4>
-<p>Mithilfe von Quantifikatoren können wir dieses Verhalten anpassen. Quantifikatoren stehen jeweils nach dem Zeichen, bei welchem wir (abweichend vom standardmäßig einmaligen Auftreten) definieren möchten, wie oft es vorkommen darf bzw. muss, damit ein Match vorliegt. Dazu können wir einerseits die Sonderzeichen <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code> und <code class="docutils literal notranslate"><span class="pre">?</span></code> für die gängigsten quantitativen Bedingungen verwenden. Andererseits können wir mithilfe geschweifter Klammern auch eigene quantitative Bedingungen aufstellen. In folgenden Beispielen kommt neben den Quantifikatoren auch die bereits eingeführte Wildcard <code class="docutils literal notranslate"><span class="pre">.</span></code> vor:</p>
+<p>Mithilfe von Quantifikatoren können wir dieses Verhalten anpassen. Quantifikatoren stehen jeweils nach dem Zeichen, bei welchem wir (abweichend vom standardmäßig einmaligen Auftreten) definieren möchten, wie oft es vorkommen darf bzw. muss, damit ein Match vorliegt. Dazu können wir einerseits die Sonderzeichen <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code> und <code class="docutils literal notranslate"><span class="pre">?</span></code> für die gängigsten quantitativen Bedingungen verwenden. Andererseits können wir mithilfe geschweifter Klammern auch eigene quantitative Bedingungen aufstellen. In folgenden Beispielen kommt neben den Quantifikatoren auch die bereits eingeführte Wildcard <code class="docutils literal notranslate"><span class="pre">.</span></code> zum Einsatz:</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
@@ -653,8 +653,8 @@ document.write(`
 </table>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 1:</strong> Finde heraus, wieviele Mal drei aufeinanderfolgende „f“ im string <code class="docutils literal notranslate"><span class="pre">text</span></code> vorkommen. <code class="docutils literal notranslate"><span class="pre">regex</span></code> soll Deinen regulären Ausdruck referenzieren. Es handelt sich dabei ebenfalls um einen string, allerdings mit einem dem öffnenden Anführungszeichen vorangestellten „r“/“R“. Wie bei f-strings im fünften Notebook teilen wir Python damit mit, dass der folgende string anders als ein normaler string zu interpretieren ist (wie genau, sind technische Details, die für uns nicht relevant sind, vgl. ebenfalls fünftes Notebook zu Dateipfaden bei Windows).</p>
-<p>Der Rest des Codes ist bereits fertig geschrieben. Grob formuliert, nimmt die <code class="docutils literal notranslate"><span class="pre">findall</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls Deinen regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">regex</span></code>) und sucht <code class="docutils literal notranslate"><span class="pre">text</span></code> von links nach rechts danach ab. Alle Matches landen in einer Liste, die mit <code class="docutils literal notranslate"><span class="pre">matches</span></code> referenziert wird, deren Länge wir uns abschließend ausgeben lassen. Die Ausgabe sollte natürlich „3“ sein, sobald du den korrekten regulären Ausdruck bei <code class="docutils literal notranslate"><span class="pre">regex</span></code> ausgefüllt hast.</p>
-<p>💡 Tipp: Verwende bei dieser und bei den folgenden Übungen <a class="reference external" href="https://regexr.com">RegExr</a>. Auf dieser Webseite kannst Du verschiedene reguläre Ausdrücke ausprobieren (im Feld oben) und siehst dabei direkt, welche matches in einem zu durchsuchenden Text (den Du im Feld unten eingibst) dabei gefunden werden. Oben drauf wird Dir unter dem zweiten Feld jedes Zeichen Deines regulären Ausdrucks erklärt.</p>
+<p>Der Rest des Codes ist bereits fertig geschrieben. Grob formuliert, nimmt die <code class="docutils literal notranslate"><span class="pre">findall</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls Deinen regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">regex</span></code>) und sucht <code class="docutils literal notranslate"><span class="pre">text</span></code> von links nach rechts danach ab. Alle Matches landen in einer Liste, die mit <code class="docutils literal notranslate"><span class="pre">matches</span></code> referenziert wird und deren Länge wir uns abschließend ausgeben lassen. Die Ausgabe sollte natürlich „3“ sein, sobald du den korrekten regulären Ausdruck bei <code class="docutils literal notranslate"><span class="pre">regex</span></code> ausgefüllt hast.</p>
+<p>💡 Tipp: Verwende bei dieser und bei den folgenden Übungen <a class="reference external" href="https://regexr.com">RegExr</a>. Auf dieser Webseite kannst Du verschiedene reguläre Ausdrücke ausprobieren (im Feld oben) und siehst dabei direkt, welche matches in einem zu durchsuchenden Text (den Du im Feld in der Mitte eingibst) gefunden werden. Oben drauf wird Dir im Feld unten jedes Zeichen Deines regulären Ausdrucks erklärt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
@@ -682,8 +682,8 @@ document.write(`
 </section>
 <section id="zeichenklassen">
 <h4>Zeichenklassen<a class="headerlink" href="#zeichenklassen" title="Link zu dieser Überschrift">#</a></h4>
-<p>Zeichenklassen definieren, wie es der Name sagt, eine Klasse von Zeichen, die an einer bestimmten Stelle gematcht werden sollen. Anstatt eines einzigen Zeichen dürfen an dieser Stelle also alle Zeichen in der gegebenen Klasse, aber keine anderen, stehen.</p>
-<p>Einerseits gibt es fertige Zeichenklassen für die gängigsten Kombinationen. Dafür haben wir im regulären Ausdruck zum Absuchen des Quelltexts von <a class="reference external" href="https://tu-dresden.de">tu-dresden.de</a> bereits ein Beispiel gesehen, nämlich <code class="docutils literal notranslate"><span class="pre">\w</span></code>, das alphanumerische Zeichen matcht. Andererseits können wir mithilfe von eckigen Klammern unsere eigenen Klassen von Zeichen definieren. In der Tabelle findest Du erst drei fertige Zeichenklassen, dann zusammengefasst ihre jeweiligen Negationen und anschließend verschiedene Ausführungen eigener Klassen:</p>
+<p>Zeichenklassen definieren, wie es der Name sagt, eine Klasse von Zeichen, die an einer bestimmten Stelle gematcht werden sollen. Anstatt eines einzigen Zeichens dürfen an dieser Stelle also alle Zeichen in der gegebenen Klasse, aber keine anderen, stehen.</p>
+<p>Einerseits gibt es fertige Zeichenklassen für die gängigsten Kombinationen. Dafür haben wir im regulären Ausdruck zum Absuchen des Quelltexts von <a class="reference external" href="https://tu-dresden.de">tu-dresden.de</a> bereits ein Beispiel gesehen, nämlich <code class="docutils literal notranslate"><span class="pre">\w</span></code>, das alphanumerische Zeichen matcht. Andererseits können wir mithilfe von eckigen Klammern unsere eigenen Klassen von Zeichen definieren (auch das haben wir in der Link-RegEx bereits gesehen). In der Tabelle findest Du erst drei fertige Zeichenklassen, dann zusammengefasst ihre jeweiligen Negationen und anschließend verschiedene Ausführungen eigener Klassen:</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
@@ -705,7 +705,7 @@ document.write(`
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\s</span></code></p></td>
 <td class="text-left"><p>matcht ein whitespace-Zeichen (Leerschlag, Tabstopp, Zeilenumbruch)</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\s{2,}</span></code> matcht alle Vorkommen von doppelten Leerschlägen (und anderem whitespace)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\s{2,}</span></code> matcht alle Vorkommen von mehrfachen Leerschlägen (und anderem whitespace)</p></td>
 <td class="text-left"><p>Fertige Zeichenklasse</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\W</span></code>,<code class="docutils literal notranslate"><span class="pre">\D</span></code>,<code class="docutils literal notranslate"><span class="pre">\S</span></code></p></td>
@@ -846,12 +846,13 @@ document.write(`
 <p>✏️ <strong>Übung 4:</strong> Lies das Märchen „Des Kaisers neue Kleider“ von Hans Christian Andersen aus dem Ordner „3_Dateien“ ein und weise es <code class="docutils literal notranslate"><span class="pre">fairytale</span></code> zu. Formuliere nun reguläre Ausdrücke für folgende Suchaufträge:</p>
 <ol class="arabic simple">
 <li><p>das erste Wort des Märchens</p></li>
-<li><p>regelmäßige Verben in der 3. Person Singular/Plural im Präteritum (z.B. „lebte“ oder „sagte“; es ist in Ordnung, wenn Du mit diesem regulären Ausdruck auch ein paar falsch positive (vgl. Wahrheitsmatrix im 5. Notebook) matches kriegst 🤫)</p></li>
+<li><p>regelmäßige Verben in der 3. Person Singular/Plural im Präteritum (z.B. „lebte“ oder „sagten“; es ist in Ordnung, wenn Du mit diesem regulären Ausdruck auch ein paar falsch positive matches kriegst 🤫, vgl. Wahrheitsmatrix im 5. Notebook)</p></li>
 <li><p>letzte Wörter von Sätzen, die mit einem Punkt enden (z.B. „einherzugehen“, vgl. erster Satz des Märchens)</p></li>
 <li><p>Wörter mit Doppel-a (z.B. „Saal“)</p></li>
 <li><p>das letzte Wort des Märchens</p></li>
 </ol>
 <p>Da wir bei der ersten und letzten Aufgabe, nicht nach <em>allen</em> matches suchen, sondern nur an einem einzigen interessiert sind (es kann ja auch nur jeweils einen match geben), verwenden wir eine neue Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">search</span></code>, auf die wir unten genauer eingehen. Dabei erhalten wir keine Liste zurück, sondern ein sog. <em>match-Objekt</em>, wobei wir auf den eigentlichen match wie im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement bereits vorgegeben zugreifen können. Überhaupt sollte das <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement das Ergebnis aller fünf Suchaufträge schön formatiert ausgeben.</p>
+<p>👆 Hinweis: Je komplexer die Suchaufträge, desto mehr Möglichkeiten gibt es, einen regulären Ausdruck dafür zu konstruieren. Oft steht man vor der Frage, eine fertige Zeichenklasse wie z.B. <code class="docutils literal notranslate"><span class="pre">\w</span></code> einzubauen oder lieber eine eigene Zeichenklasse zusammenzustellen, um auch Nicht-ASCII-Zeichen zu matchen. Manchmal erreicht man sein Ziel auch aus der umgekehrten Richtung, z.B. mithilfe von <code class="docutils literal notranslate"><span class="pre">\S</span></code>, um alles <em>außer</em> whitespace zu matchen (was ja sämtliche Buchstaben, ASCII hin oder her, umfasst). Letzlich gilt wie immer zwischen Genauigkeit und Effizienz abzuwägen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
@@ -889,7 +890,7 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 5:</strong> Im vierten Notebook in Übung 2 haben wir gesehen, dass das Wort „Klima“ viel häufiger im Koalitionsvertrag von 2021 als in demjenigen von 2018 vorkommt. Nun wollen wir herausfinden, in welcher Form das Wort verwendet wird. Neben dem alleinstehenden Auftreten von „Klima“ (als sog. <em>Simplex</em>, da es aus nur einem Morphem besteht) ist „Klima“ bzw. „klima“ häufig Teil von zusammengesetzten Wörtern, also sog. <em>Komposita</em>, wie etwa in“Klimakrise“ oder „klimapolitisch“.</p>
+<p>✏️ <strong>Übung 5:</strong> Im vierten Notebook in Übung 2 haben wir gesehen, dass das Wort „Klima“ viel häufiger im Koalitionsvertrag von 2021 als in demjenigen von 2018 vorkommt. Nun wollen wir herausfinden, in welcher Form das Wort verwendet wird. Neben dem alleinstehenden Auftreten von „Klima“ (als sog. <em>Simplex</em>, da es aus nur einem Morphem besteht) ist „Klima“ bzw. „klima“ häufig Teil von zusammengesetzten Wörtern, also sog. <em>Komposita</em>, wie etwa in „Klimakrise“ oder „klimapolitisch“.</p>
 <p>Lies den Koalitionsvertrag von 2021 nochmal ein und weise ihn der Variablen <code class="docutils literal notranslate"><span class="pre">kv21</span></code> zu. Durchsuche ihn nun nach einem regulären Ausdruck, der sämtliche Komposita, in denen „Klima“ bzw. „klima“ vorkommt, matcht. Hänge alle Komposita der Liste <code class="docutils literal notranslate"><span class="pre">climate_compounds</span></code> an und lasse Dir abschließend die Liste ausgeben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -979,7 +980,7 @@ document.write(`
 <p>✏️ <strong>Übung 7 (fortgeschritten):</strong> Gegeben sind kurze Beschreibungen von fünf Personen in <code class="docutils literal notranslate"><span class="pre">people</span></code>. In jeder Beschreibung findet sich der Vor- und Nachname, das Geburtsdatum sowie die E-Mailadresse der Person. Wir wollen daraus ein kleines Adressbuch in tabellarischer Form schaffen. Ziel ist es, die Daten wie im Screenshot gezeigt in die Datei „address_book.tsv“ im Ordner „3_Dateien/Output“ zu schreiben:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/address_book.png">
 <p>Zwischen den Namen und dem Geburtstag sowie dem Geburtstag und der E-Mailadresse soll also ein Tab stehen, da Dateien mit der Endung „.tsv“ tabulatorsepariert sind (dem gleichen Prinzip wie kommaseparierte Dateien folgend, vgl. 5. Notebook).</p>
-<p>Formuliere <em>einen</em> regulären Ausdruck, um fünf matches zu erhalten (einen pro Person), und nutze Gruppen, um die Elemente <em>Nachname</em>, <em>Vorname</em>, <em>Geburtstag</em> und <em>E-Mailadresse</em> als Teilmatch separat zu erhalten. Öffne und beschreibe anschließend die Datei „address_book.tsv“, sodass jede Person in einer eigenen Zeile abgespeichert wird sowie jedes Element in einer eigenen Spalte.</p>
+<p>Formuliere <em>einen</em> regulären Ausdruck, um fünf matches zu erhalten (einen pro Person), und nutze Gruppen, um die Elemente <em>Nachname</em>, <em>Vorname</em>, <em>Geburtstag</em> und <em>E-Mailadresse</em> als Teilmatch separat zu erhalten. Öffne und beschreibe anschließend die Datei „address_book.tsv“, sodass jede Person in einer eigenen Zeile sowie jedes Element in einer eigenen Spalte abgespeichert wird.</p>
 <p>💡 Tipp: <code class="docutils literal notranslate"><span class="pre">findall</span></code> findet stets den längstmöglichen match. Da die Wildcard alle beliebigen Zeichen <em>außer</em> einem Zeilenumbruch matcht, kannst Du sie getrost in Deinen regulären Ausdruck einbauen, z.B. für die erste Gruppe der Vornamen, etwa so <code class="docutils literal notranslate"><span class="pre">(.+)</span></code>. Indem Du danach eine Gruppe für den Nachnamen anhängst, kann die durch den Quantifikator <code class="docutils literal notranslate"><span class="pre">+</span></code> „ungebändigte“ Wildcard nicht einfach die ganze Personenbeschreibung matchen (man spricht angesichts dieser Gier auch von <em>fressen</em>). Dies, da sie ja keinen Zeilenumbruch matchen kann und nach dem Zeilenumbruch nun mal nichts kommt, das von Deiner zweiten Gruppe sowie dem restlichen regulären Ausdruck gematcht werden könnte.</p>
 <p>Quelle: Übung modifiziert übernommen von Prof. Simon Meier-Vierackers Kurs <a class="reference external" href="https://padlet.com/simonmeiervieracker/readingmachines">Reading Machines - Einführung in die Korpuslinguistik</a>, der unter dem angegebenen Link frei zugänglich ist.</p>
 <div class="cell docutils container">
@@ -1004,7 +1005,7 @@ document.write(`
 <p>Weiter unten folgen noch weitere Beispiele, in denen wir mit Teilmatches arbeiten, die aus Gruppen im regulären Ausdruck erwachsen.</p>
 <p>Bevor wir uns dem <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul zuwenden, soll auf weitere Tutorials zu regulären Ausdrücken verwiesen werden, die zusätzliche Funktionalitäten thematisieren:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://danielfett.de/2006/03/20/regulaere-ausdruecke-tutorial/">Umfangreiche und dennoch konzise Einführung von Dr. Daniel Fett, die weitere Features wie Lookaheads und Lookbehinds bespricht</a>:</p></li>
+<li><p><a class="reference external" href="https://danielfett.de/2006/03/20/regulaere-ausdruecke-tutorial/">Umfangreiche und dennoch konzise Einführung von Dr. Daniel Fett, die weitere Features wie Lookaheads und Lookbehinds bespricht</a></p></li>
 <li><p><a class="reference external" href="https://www.bubenhofer.com/korpuslinguistik/kurs/index.php?id=regexp.html">Kurzes, auf die Korpuslinguistik zugeschnittenes Tutorial von Prof. Dr. Noah Bubenhofer von der Universität Zürich</a></p></li>
 <li><p><a class="reference external" href="http://regenechsen.de/wp/">Gut gegliederte, umfangreiche Anleitung mit Übungen</a></p></li>
 </ul>
@@ -1140,7 +1141,7 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 </div>
 </div>
 </div>
-<p>Je nach Anwendungsfall macht es Sinn, etwas flexibler nur den Anfang eines strings zu matchen (<code class="docutils literal notranslate"><span class="pre">re.match</span></code>), oder strikt den kompletten string (<code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code>). Im Pizzabot wird <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code> eingesetzt, um z.B. den, wenn auch wenig wahrscheinlichen, Input „Ja, wobei nein doch nicht“ korrekt zu „handeln“.</p>
+<p>Je nach Anwendungsfall macht es Sinn, etwas flexibler nur den Anfang eines strings zu matchen (<code class="docutils literal notranslate"><span class="pre">re.match</span></code>), oder strikt den kompletten string (<code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code>). Im Pizzabot wird <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code> eingesetzt, um z.B. den (wenn auch wenig wahrscheinlichen) Input „Ja, wobei nein doch nicht“ korrekt zu „handeln“.</p>
 <p>💡 In diesem Code sehen wir außerdem ein Verhalten Pythons, dem wir zwar schon einmal <em>en passant</em> im letzten Notebook begegnet sind, das wir aber noch nicht explizit besprochen haben: Wenn wir uns die bedingte Anweisung <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">re.match(regex,</span> <span class="pre">text)</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">re.fullmatch(regex,</span> <span class="pre">text)</span></code> (vgl. auch Abschnitt zu Miss Sara Sampson im letzten Notebook) angucken, könnte der Eindruck entstehen, dass diese Funktionen die Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> zurückgeben, je nach dem ob ein match vorliegt oder nicht. Tatsächlich geben sie aber ein gewöhnliches match-Objekt zurück, wenn sie einen match finden, ansonsten <code class="docutils literal notranslate"><span class="pre">None</span></code>, also <em>kein</em> Objekt. In der bedingten Anweisung oben machen wir uns den Umstand zunutze, dass <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">object</span> <span class="pre">==</span> <span class="pre">None</span></code> (auf das es ja hinausläuft) für Python immer <code class="docutils literal notranslate"><span class="pre">False</span></code> ergibt und alles andere (also, wenn das Objekt <em>nicht</em> <code class="docutils literal notranslate"><span class="pre">None</span></code> ist) immer <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt. Dieses Verhalten gilt natürlich nicht nur im Zusammenhang mit regulären Ausdrücken. Wir können es produktiv einsetzen, wann immer es Sinn macht, den Ablauf des Codes von der Existenz eines Objekts abhängig zu machen (im Code des Pizzabots kommt es übrigens auch vor).</p>
 <p>Damit kennen wir alle wesentlichen Funktionen zum Matchen regulärer Ausdrücke.</p>
 </section>
@@ -1204,11 +1205,12 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 </div>
 </div>
 </div>
-<p>Anstatt eines strings, ob nun ein normaler oder ein regulärer Ausdruck, kann an Stelle von <code class="docutils literal notranslate"><span class="pre">replacement</span></code> übrigens auch eine Funktion stehen.</p>
+<hr class="docutils" />
+<p>Anstatt eines strings, ob nun ein normaler oder ein regulärer Ausdruck, kann anstelle von <code class="docutils literal notranslate"><span class="pre">replacement</span></code> übrigens auch eine Funktion stehen.</p>
 <p>Der Funktion wird iterativ jedes einzelne match-Objekt übergeben. Innerhalb der Funktion wird mithilfe der <code class="docutils literal notranslate"><span class="pre">group</span></code>-Methode auf Teilmatches zugegriffen. Die <code class="docutils literal notranslate"><span class="pre">group</span></code>-Methode nimmt nämlich optional einen Parameter in Klammern, z.B. eine 1, wenn wir den ersten Teilmatch referenzieren wollen oder eine 3 für den dritten, etc. (in den bisherigen Anwendungsbeispielen von <code class="docutils literal notranslate"><span class="pre">group</span></code> war die Klammer stets leer, da es gar keine Teilmatches gab). Am Ende der Funktion steht wie immer ein <code class="docutils literal notranslate"><span class="pre">return</span></code>-Statement (siehe viertes Notebook). Das, was die Funktion zurückgibt, ersetzt den match im abgesuchten string.</p>
 <p>Die Verwendung einer Funktion für die Ersetzung macht immer dann Sinn, wenn bloßes Rearrangieren der Teilmatches mithilfe von Rückreferenzen nicht ausreicht, sondern die einzelnen Teilmatches zusätzlich modifiziert werden müssen, wie in der folgenden Übung.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 10:</strong> <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> von oben ist nun etwas länger und beinhält mehr Geburtsdaten. Ziel ist es, sämtliche Geburtsdaten in das Datumsformat nach <a class="reference external" href="https://de.wikipedia.org/wiki/Datumsformat#ISO_8601_und_EN_28601">ISO 8601</a>, also YYYY/MM/DD, zu bringen.</p>
+<p>✏️ <strong>Übung 10:</strong> <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> von oben ist nun etwas länger und beinhält mehr Geburtsdaten. Ziel ist es, sämtliche Geburtsdaten in das Datumsformat nach <a class="reference external" href="https://de.wikipedia.org/wiki/Datumsformat#ISO_8601_und_EN_28601">ISO 8601</a>, also YYYY/MM/DD, zu bringen. Gehe dazu wie folgt vor:</p>
 <ol class="arabic simple">
 <li><p>Wenn nötig, passe <code class="docutils literal notranslate"><span class="pre">regex</span></code> an, damit auch alle neuen Geburtsdaten gematcht werden.</p></li>
 <li><p>Setze Klammern in <code class="docutils literal notranslate"><span class="pre">regex</span></code>, um relevante Teile eines matches zu gruppieren.</p></li>
@@ -1252,18 +1254,18 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 </section>
 <section id="matchen-und-splitten-re-split">
 <h3>Matchen und Splitten: <code class="docutils literal notranslate"><span class="pre">re.split</span></code><a class="headerlink" href="#matchen-und-splitten-re-split" title="Link zu dieser Überschrift">#</a></h3>
-<p>Widmen wir uns abschließend kurz der Funktion <code class="docutils literal notranslate"><span class="pre">re.split</span></code>, die dem Splitten von strings basierend auf einem regulären Ausdruck dient. Im Gegensatz zur <code class="docutils literal notranslate"><span class="pre">split</span></code>-Methode für strings können wir also nicht bloß ein Zeichen (bzw. eine Zeichenkette) definieren, bei welchem der string jeweils unterteilt wird, sondern ein komplexeres Muster, z.B. mehrere Zeichen, bei denen gesplittet werden soll:</p>
+<p>Widmen wir uns abschließend kurz der Funktion <code class="docutils literal notranslate"><span class="pre">re.split</span></code>, die dem Splitten von strings basierend auf einem regulären Ausdruck dient. Im Gegensatz zur <code class="docutils literal notranslate"><span class="pre">split</span></code>-Methode für strings können wir also nicht bloß ein Zeichen (bzw. eine Zeichenkette) definieren, bei welchem der string jeweils unterteilt wird, sondern ein komplexeres Muster, z.B. mehrere Zeichen, bei denen (allen) gesplittet werden soll:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Das ist ein Satz. Aber ist das ein Satz? Das hingegen ist definitiv ein Satz: Das ist ein Satz!&quot;</span>
 <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[.?!:]&quot;</span>
 <span class="n">sentences</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">([</span><span class="n">sentence</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">sentence</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Das ist ein Satz&#39;, &#39; Aber ist das ein Satz&#39;, &#39; Das hingegen ist definitiv ein Satz&#39;, &#39; Das ist ein Satz&#39;, &#39;&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Das ist ein Satz&#39;, &#39;Aber ist das ein Satz&#39;, &#39;Das hingegen ist definitiv ein Satz&#39;, &#39;Das ist ein Satz&#39;, &#39;&#39;]
 </pre></div>
 </div>
 </div>
@@ -1287,13 +1289,13 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 <ul class="simple">
 <li><p>margherita: margerita, margarita, margarita, mergerita, margarita</p></li>
 <li><p>prosciutto: proschutto, schinken, procciuto, prosciuto, proschuto</p></li>
-<li><p>vegetariana: vegetarisch, vegi, vegetariano, vegetaria, vegetario</p></li>
+<li><p>vegetariana: vegetarisch, vegi, vegetariano, vegetaria, vegetario</br></br></p></li>
 </ul>
 </li>
 <li><p>bei der Normalisierung und Validierung des Inputs auf Ja-/Nein-Fragen mindestens mit folgendem alternativen Input umgehen kann:</p>
 <ul class="simple">
 <li><p>ja: jo, jup, jop, jap, jaa, ja klar, klaro, mmhm, mhm, yes, si, oui, ja bitte, yes please, ja danke, yas, yeah</p></li>
-<li><p>nein: ne, nee, nö, nein danke, niemals, bitte nicht, no, never, ne danke, nö danke, nee danke, nope, nene, no thanks, no, niet</p></li>
+<li><p>nein: ne, nee, nö, nein danke, niemals, bitte nicht, no, never, ne danke, nö danke, nee danke, nope, nene, no thanks, no, niet</br></br></p></li>
 </ul>
 </li>
 <li><p>bei der Validierung der <a class="reference external" href="https://w3w.co/">what3words</a>-Adressen sämtlichen Input bestehend aus drei Wörtern des deutschen Alphabets, konkateniert durch je einen Punkt akzeptiert.</p></li>
@@ -1368,7 +1370,7 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 <li><p>Füge möglichst vor jeder Code-Zeile einen Kommentar ein, in welchem Du dokumentierst, was in der folgenden Zeile passiert (vgl. erstes Notebook zu Kommentaren).</p></li>
 <li><p>Ergänze alle Funktionen um docstrings, die sich anschließend über das <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-Attribut abrufen lassen (vgl. viertes Notebook zu Modulen).</p></li>
 </ol>
-<p>Tipp 💡: In dieser Aufgabe lohnt es sich wirklich, <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle in den Code einzubauen, um etwa Zwischenresultate zurückzukriegen oder, um zu verstehen, wann eine bedingte Anweisung „greift“. Auch hier gilt: wann immer Du den Code veränderst und ihn erneut ausprobieren willst, musst Du das betreffende Modul speichern und den Bot mithilfe von <code class="docutils literal notranslate"><span class="pre">reload</span></code> erneut in JupyterLab laden (s.o.).</p>
+<p>💡 Tipp: In dieser Aufgabe lohnt es sich wirklich, <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle in den Code einzubauen, um etwa Zwischenresultate zurückzukriegen oder, um zu verstehen, wann eine bedingte Anweisung „greift“. Auch hier gilt: wann immer Du den Code veränderst und ihn erneut ausprobieren willst, musst Du das betreffende Modul speichern und den Bot mithilfe von <code class="docutils literal notranslate"><span class="pre">reload</span></code> erneut in JupyterLab laden (s.o.).</p>
 <p>Nach getaner Arbeit kannst Du hier die docstrings sämtlicher Funktionen inspizieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1379,27 +1381,27 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
     <span class="n">reload</span><span class="p">(</span><span class="n">pizzabot</span><span class="p">)</span>
     <span class="n">reload</span><span class="p">(</span><span class="n">pizza_functions</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pizza_functions</span><span class="o">.</span><span class="n">yn_validator</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pizza_functions</span><span class="o">.</span><span class="n">choose_pizza</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pizza_functions</span><span class="o">.</span><span class="n">remove_ingredient</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pizza_functions</span><span class="o">.</span><span class="n">add_ingredient</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pizza_functions</span><span class="o">.</span><span class="n">request_address</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;order_pizza:&quot;</span><span class="p">,</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yn_validator:&quot;</span><span class="p">,</span> <span class="n">pizza_functions</span><span class="o">.</span><span class="n">yn_validator</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;choose_pizza:&quot;</span><span class="p">,</span> <span class="n">pizza_functions</span><span class="o">.</span><span class="n">choose_pizza</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;remove_ingredient:&quot;</span><span class="p">,</span> <span class="n">pizza_functions</span><span class="o">.</span><span class="n">remove_ingredient</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;add_ingredient:&quot;</span><span class="p">,</span> <span class="n">pizza_functions</span><span class="o">.</span><span class="n">add_ingredient</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;request_address:&quot;</span><span class="p">,</span> <span class="n">pizza_functions</span><span class="o">.</span><span class="n">request_address</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>order_pizza: None 
 
-None 
+yn_validator: None 
 
-None 
+choose_pizza: None 
 
-None 
+remove_ingredient: None 
 
-None 
+add_ingredient: None 
 
-None 
+request_address: None 
 </pre></div>
 </div>
 </div>
@@ -1462,7 +1464,7 @@ None
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\s</span></code></p></td>
 <td class="text-left"><p>matcht ein whitespace-Zeichen (Leerschlag, Tabstopp, Zeilenumbruch)</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\s{2,}</span></code> matcht alle Vorkommen von doppelten Leerschlägen (und anderem whitespace)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\s{2,}</span></code> matcht alle Vorkommen von mehrfachen Leerschlägen (und anderem whitespace)</p></td>
 <td class="text-center"><p>Fertige Zeichenklasse</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\W</span></code>,<code class="docutils literal notranslate"><span class="pre">\D</span></code>,<code class="docutils literal notranslate"><span class="pre">\S</span></code></p></td>
@@ -1497,7 +1499,7 @@ None
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\b</span></code></p></td>
 <td class="text-left"><p>matcht Wortgrenzen (whitespace oder nicht-alphanumerische Zeichen)</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\b[a-zäöüß]{3}\b</span></code> matcht ein kleingeschriebenes Wort mit drei Buchstaben und stellt eine elegantere Lösung für Übung 2.1 dar (s.o. bzw. im Lösungsnotebook)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\b[a-zäöüß]{3}\b</span></code> matcht ein kleingeschriebenes Wort mit drei Buchstaben</p></td>
 <td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\B</span></code> matcht das Gegenteil, also ein Zeichen, das keine Wortgrenze ist</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>

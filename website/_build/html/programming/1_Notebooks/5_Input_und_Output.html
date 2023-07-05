@@ -811,7 +811,7 @@ Sara. Diese sollen die Zeugen unserer Verbindung sein? – Grausamer! so soll di
 <span class="n">saras_turns</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1">#sieht kryptisch aus 🤯 und Du musst diesen regulären Ausdruck im Moment noch nicht nachvollziehen können</span>
-<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Sara( \S*)?.&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Sara(\(\s\S*\))?.&quot;</span>
 
 <span class="k">for</span> <span class="n">turn</span> <span class="ow">in</span> <span class="n">miss_sara_sampson</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">turn</span><span class="p">):</span>
@@ -1336,10 +1336,7 @@ Hier werden 5 Objekte ausgegeben.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Leer
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>schlag
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Leerschlag
 13.10.1988 / 10-13-1988
 </pre></div>
 </div>
