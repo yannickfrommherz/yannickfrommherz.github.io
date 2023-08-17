@@ -453,9 +453,9 @@ document.write(`
                   
   <section id="losungen-zu-den-zusatzubungen-zum-notebook-datentypen">
 <h1>Lösungen zu den Zusatzübungen zum Notebook „Datentypen“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-datentypen" title="Link zu dieser Überschrift">#</a></h1>
-<p>☝️ Beachte: es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
+<p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
 <ol class="arabic simple">
-<li><p>Identifiziere die Datentypen sämtlicher Objekte im verschachtelten Object <code class="docutils literal notranslate"><span class="pre">nested_object</span></code>.</p></li>
+<li><p>Identifizier die Datentypen sämtlicher Objekte im verschachtelten Object <code class="docutils literal notranslate"><span class="pre">nested_object</span></code>.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -465,23 +465,23 @@ document.write(`
 </div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">nested_object</span></code> ist eine Liste, die fünf Elemente enthält. Das erste Element ist ein string (und zwar „He sings ‚oh my God‘“ als Ganzes, die inneren Anführungszeichen grenzen keinen zusätzlichen string ab). Das zweite Element ist ein sog. <em>NoneType</em>, wie Du über <code class="docutils literal notranslate"><span class="pre">type(None)</span></code> herausfinden kannst. Das dritte Element ist ein Tupel bestehend aus fünf strings (die unterschiedlichen Anführungszeichen spielen keine Rolle). Das vierte Element ist ein dictionary mit zwei Schlüssel-Werte-Paaren, wobei das erste einen string als Schlüssel und eine Liste bestehend aus drei strings als Wert hat. Das zweite Schlüssel-Werte-Paar besteht aus einem string als Schlüssel und dem Boolschen Wert <code class="docutils literal notranslate"><span class="pre">False</span></code> als Wert. Das fünfte Element auf der Liste ist eine Dezimalzahl.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nested_object</span></code> ist eine <strong>Liste</strong>, die fünf Elemente enthält. Das erste Element ist ein <strong>string</strong> (und zwar „He sings ‚oh my God‘“ als Ganzes, die inneren Anführungszeichen grenzen keinen zusätzlichen string ab). Das zweite Element ist ein sog. <em><strong>NoneType</strong></em>, wie Du über <code class="docutils literal notranslate"><span class="pre">type(None)</span></code> herausfinden kannst. Das dritte Element ist ein <strong>Tupel</strong> bestehend aus fünf <strong>strings</strong> (die unterschiedlichen Anführungszeichen spielen keine Rolle). Das vierte Element ist ein <strong>dictionary</strong> mit zwei Schlüssel-Werte-Paaren, wobei das erste einen <strong>string</strong> als Schlüssel und eine <strong>Liste</strong> bestehend aus drei <strong>strings</strong> als Wert hat. Das zweite Schlüssel-Werte-Paar besteht aus einem <strong>string</strong> als Schlüssel und dem <strong>Boolschen</strong> Wert <code class="docutils literal notranslate"><span class="pre">False</span></code> als Wert. Das fünfte Element auf der Liste ist eine <strong>Dezimalzahl/float</strong>.</p></li>
 </ul>
 <ol class="arabic simple" start="2">
-<li><p>Finde den/die Fehler in der folgenden Code-Zelle:</p></li>
+<li><p>Find den/die Fehler in der folgenden Code-Zelle:</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summer</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#Boolsche Werte werden großgeschrieben</span>
-<span class="k">if</span> <span class="n">summer</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span> <span class="c1">#der Vergleichsoperator besteht aus zwei Gleichzeiten UND Boolsche Werte werden großgeschrieben </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summer</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#Boolsche Werte werden großgeschrieben.</span>
+<span class="k">if</span> <span class="n">summer</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span> <span class="c1">#Vergleichsoperator besteht aus zwei Gleichzeichen UND Boolsche Werte werden großgeschrieben</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;it is hot!&quot;</span><span class="p">)</span> <span class="c1">#falsche Einrückung (ein Leerschlag fehlte) UND string steht in Klammern</span>
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic" start="3">
-<li><p>Finde erstens heraus, wie lange <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> ist. Finde zweitens <strong>mithilfe von Python</strong> heraus, welche fünf Buchstaben des deutschen Alphabets (ohne Umlaute) nicht in <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> vorkommen. Den Abgleich zwischen allen einzigartigen Buchstaben in <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> und dem deutschen Alphabet kannst Du händisch vornehmen.</p>
-<p>📌 Es sei denn, Du willst Dich herausfordern: Dann benutze zusätzlich <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> sowie einen der im 1. Notebook kennengelernten, multifunktionalen Operatoren, um den Unterschied zweier Objekte zu berechnen.</p>
+<li><p>Ermittle erstens, wie lang <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> ist. Find zweitens <strong>mithilfe von Python</strong> heraus, welche fünf Buchstaben des deutschen Alphabets (ohne Umlaute) nicht in <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> vorkommen. Den Abgleich zwischen allen einzigartigen Buchstaben in <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> und dem deutschen Alphabet kannst Du händisch vornehmen.</p>
+<p>📌 Es sei denn, Du willst Dich herausfordern: Dann benutz zusätzlich <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> sowie einen der im Notebook „Einführung“ kennengelernten, multifunktionalen Operatoren, um den Unterschied zweier Objekte zu berechnen.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -497,23 +497,23 @@ document.write(`
 <span class="c1">#Herausforderung</span>
 <span class="n">alphabet</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
 
-<span class="sd">&quot;&quot;&quot;In diesem Fall funktioniert ist die Lösung so simpel wie unten, bei einem anderen Wort (in dem der</span>
-<span class="sd">groß geschriebene Anfangsbuchstabe nicht auch noch kleingeschrieben vorkommt, müsstest du &#39;longest_word&#39;</span>
-<span class="sd">zusätzlich noch kleinschreiben, was mit der Methode longest_word.lower() möglich wäre)&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;In diesem Fall funktioniert die Lösung so simpel wie unten, bei einem anderen Wort (in dem der</span>
+<span class="sd">großgeschriebene Anfangsbuchstabe nicht auch noch kleingeschrieben vorkommt, müsstest Du &#39;longest_word&#39;</span>
+<span class="sd">zusätzlich noch kleinschreiben, was mit der Methode longest_word.lower() möglich wäre).&quot;&quot;&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">alphabet</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">longest_word</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86
-{&#39;t&#39;, &#39;u&#39;, &#39;c&#39;, &#39;s&#39;, &#39;r&#39;, &#39;f&#39;, &#39;m&#39;, &#39;a&#39;, &#39;k&#39;, &#39;b&#39;, &#39;z&#39;, &#39;e&#39;, &#39;o&#39;, &#39;ä&#39;, &#39;l&#39;, &#39;g&#39;, &#39;n&#39;, &#39;p&#39;, &#39;h&#39;, &#39;d&#39;, &#39;i&#39;, &#39;D&#39;, &#39;w&#39;}
-{&#39;x&#39;, &#39;v&#39;, &#39;q&#39;, &#39;y&#39;, &#39;j&#39;}
+{&#39;l&#39;, &#39;m&#39;, &#39;t&#39;, &#39;D&#39;, &#39;c&#39;, &#39;z&#39;, &#39;n&#39;, &#39;b&#39;, &#39;s&#39;, &#39;u&#39;, &#39;p&#39;, &#39;k&#39;, &#39;ä&#39;, &#39;h&#39;, &#39;i&#39;, &#39;f&#39;, &#39;a&#39;, &#39;d&#39;, &#39;o&#39;, &#39;w&#39;, &#39;g&#39;, &#39;r&#39;, &#39;e&#39;}
+{&#39;q&#39;, &#39;v&#39;, &#39;x&#39;, &#39;j&#39;, &#39;y&#39;}
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Ein Supermarkt verkauft die in <code class="docutils literal notranslate"><span class="pre">products</span></code> gegebenen Produkte zu den gegebenen Preisen. Der Supermarkt will künftig keine Centbeträge mehr verrechnen und entscheidet sich dreisterweise dazu, alle Preise aufzurunden. Lass Dir die neuen Preise für alle Produkte ausrechnen. Was fällt dir dabei auf?</p></li>
+<li><p>Ein Supermarkt verkauft die in <code class="docutils literal notranslate"><span class="pre">products</span></code> gegebenen Produkte zu den gegebenen Preisen. Der Supermarkt will künftig keine Centbeträge mehr verrechnen und entscheidet sich dreisterweise dazu, alle Preise aufzurunden. Lass Dir die neuen Preise für alle Produkte ausrechnen. Was fällt Dir dabei auf?</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -521,6 +521,10 @@ document.write(`
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s2">&quot;pear&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> 
       <span class="nb">int</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s2">&quot;carrot&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s2">&quot;rocket&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s2">&quot;eggplant&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Was fällt auf?</span>
+<span class="c1"># Beim Casting einer Dezimalzahl zu einer Ganzzahl wird immer abgerundet, deshalb rechnen wir plus eins bei allen Preisen. </span>
+<span class="c1"># Python ist kund:innenfreundlicher als dieser Supermarkt. 😅</span>
 </pre></div>
 </div>
 </div>
@@ -530,24 +534,21 @@ document.write(`
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Was fällt auf? Beim Casting einer Dezimalzahl zu einer Ganzzahl wird immer abgerundet, deshalb rechnen wir plus eins bei allen Preisen. Python ist kund:innenfreundlicher als dieser Supermarkt. 😅</p></li>
-</ul>
 <ol class="arabic simple" start="5">
 <li><p>Lass Dir das erste Element von <code class="docutils literal notranslate"><span class="pre">products</span></code> ausgeben.</p></li>
 </ol>
 <ul class="simple">
-<li><p>Das geht nicht! Bei <code class="docutils literal notranslate"><span class="pre">products</span></code> handelt es sich um ein Objekt des Datentyps dictionary und dictionaries haben keine Reihenfolge, vgl. Sequentialität im 2. Notebook.</p></li>
+<li><p>Das geht nicht! Bei <code class="docutils literal notranslate"><span class="pre">products</span></code> handelt es sich um ein Objekt des Datentyps dictionary und dictionaries haben keine Reihenfolge (vgl. Sequentialität im Notebook „Datentypen“).</p></li>
 </ul>
 <ol class="arabic" start="6">
-<li><p>Finde für jede Webadresse in <code class="docutils literal notranslate"><span class="pre">newspapers</span></code> anhand ihrer <a class="reference external" href="https://de.wikipedia.org/wiki/Top-Level-Domain">Top-Level-Domain</a> heraus, aus welchem Land die jeweilige Zeitung stammt. Lass Dir die Ergebnisse wie folgt formatiert ausgeben:</p>
+<li><p>Ermittle für jede Webadresse in <code class="docutils literal notranslate"><span class="pre">newspapers</span></code> anhand ihrer <a class="reference external" href="https://de.wikipedia.org/wiki/Top-Level-Domain">Top-Level-Domain</a>, aus welchem Land die jeweilige Zeitung stammt. Lass Dir die Ergebnisse wie folgt formatiert ausgeben:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> https://www.bild.de: Deutschland
  https://www.nzz.ch: Schweiz
  http://www.derstandard.at: Österreich
  https://www.vaterland.li: Liechtenstein
 </pre></div>
 </div>
-<p>📌 Herausforderung: Verwende eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife mit einem eingebauten <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement (dabei kannst Du dieselbe Struktur wie in Übung 5 im 1. Notebook verwenden), um herauszufinden, welche der Webadressen nicht sicher sind.</p>
+<p>📌 Herausforderung: Verwend eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife mit einem eingebauten <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement (dabei kannst Du dieselbe Struktur wie in der fünften Übung im Notebook „Einführung“ verwenden), um herauszufinden, welche der Webadressen nicht sicher sind.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -555,8 +556,8 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tld_countries</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;li&quot;</span><span class="p">:</span> <span class="s2">&quot;Liechtenstein&quot;</span><span class="p">,</span> <span class="s2">&quot;ch&quot;</span><span class="p">:</span> <span class="s2">&quot;Schweiz&quot;</span><span class="p">,</span> <span class="s2">&quot;de&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">,</span> <span class="s2">&quot;at&quot;</span><span class="p">:</span> <span class="s2">&quot;Österreich&quot;</span><span class="p">}</span>
 <span class="n">newspapers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://www.bild.de&quot;</span><span class="p">,</span> <span class="s2">&quot;https://www.nzz.ch&quot;</span><span class="p">,</span> <span class="s2">&quot;http://www.derstandard.at&quot;</span><span class="p">,</span> <span class="s2">&quot;https://www.vaterland.li&quot;</span><span class="p">]</span>
 
-<span class="c1">#Indexing um auf Element (Webadresse) in der Liste newspapers zuzugreifen</span>
-<span class="c1">#Slicing um Top-Level-Domain aus Webadresse herauszuschneiden und als Schlüssel in tld_countries zu verwenden, </span>
+<span class="c1">#Indexing, um auf Element (Webadresse) in der Liste newspapers zuzugreifen</span>
+<span class="c1">#Slicing, um Top-Level-Domain aus Webadresse herauszuschneiden und als Schlüssel in tld_countries zu verwenden, </span>
 <span class="c1">#um auf zugehörigen Wert zuzugreifen</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">newspapers</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">tld_countries</span><span class="p">[</span><span class="n">newspapers</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">2</span><span class="p">:]],</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">newspapers</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">tld_countries</span><span class="p">[</span><span class="n">newspapers</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">2</span><span class="p">:]],</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -565,7 +566,7 @@ document.write(`
 
 <span class="c1">#Herausforderung:</span>
 <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">newspapers</span><span class="p">:</span>
-    <span class="c1">#wenn das fünfte Zeichen (mit Index 4!) in einer Adresse ungleich &quot;s&quot; ist, wird das print-Statement ausgegeben</span>
+    <span class="c1">#Wenn das fünfte Zeichen (mit Index 4!) in einer Adresse ungleich &quot;s&quot; ist, wird das print-Statement ausgegeben.</span>
     <span class="k">if</span> <span class="n">address</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;s&quot;</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="s2">&quot;is not secure!&quot;</span><span class="p">)</span>
 </pre></div>
@@ -582,8 +583,8 @@ http://www.derstandard.at is not secure!
 </div>
 </div>
 <ol class="arabic" start="7">
-<li><p>Palindrome sind Wörter, die sich vorwärts wie rückwärts gleich schreiben. Lasse Dir alle Wörter auf <code class="docutils literal notranslate"><span class="pre">palindromes</span></code> rückwärts ausgeben.</p>
-<p>Groß- und Kleinschreibung spielt bei Python ja eine Rolle. Überprüfe mittels eines Vergleichsoperators bei allen Palindromen, ob sie auch im pythonischen Sinne Palindrome sind (also auch hinsichtlich der Groß- und Kleinschreibung rückwärts wie vorwärts gleich geschrieben werden). Lass Dir den Output für jedes Wort (genau!) wie folgt ausgeben:</p>
+<li><p>Palindrome sind Wörter, die sich vorwärts wie rückwärts gleich schreiben. Lass Dir alle Wörter auf <code class="docutils literal notranslate"><span class="pre">palindromes</span></code> rückwärts ausgeben.</p>
+<p>Groß- und Kleinschreibung spielt bei Python ja eine Rolle. Überprüf mittels eines Vergleichsoperators bei allen Palindromen, ob sie auch im pythonischen Sinne Palindrome sind (also auch hinsichtlich der Groß- und Kleinschreibung rückwärts wie vorwärts gleich geschrieben werden). Lass Dir den Output für jedes Wort (genau!) wie folgt ausgeben:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> Neffen ist ein pythonisches Palindrom: Falsch
 </pre></div>
 </div>
@@ -597,8 +598,8 @@ http://www.derstandard.at is not secure!
 <span class="n">true_false_dict</span> <span class="o">=</span> <span class="p">{</span><span class="kc">True</span><span class="p">:</span> <span class="s2">&quot;Wahr&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="s2">&quot;Falsch&quot;</span><span class="p">}</span> <span class="c1">#dictionary für die Übersetzung ins Deutsche</span>
 
 <span class="c1">#Indexing, um auf Element in palindromes zuzugreifen</span>
-<span class="c1">#Vergleich von Element und Element in umgekehrter Reihenfolge (mittels Slicing: [::-1]) ergibt entweder True oder False</span>
-<span class="c1">#True oder False werden wiederum als Schlüssel bei true_false_dict eingesetzt, um zugehörigen Wert, d.h. dt. Übersetzung zurückzukriegen</span>
+<span class="c1">#Vergleich von Element und Element in umgekehrter Reihenfolge (mittels Slicing: [::-1]), ergibt entweder True oder False</span>
+<span class="c1">#True oder False werden wiederum als Schlüssel bei true_false_dict eingesetzt, um zugehörigen Wert, d. h. dt. Übersetzung zurückzukriegen</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">palindromes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;ist ein pythonisches Palindrom:&quot;</span><span class="p">,</span> <span class="n">true_false_dict</span><span class="p">[</span><span class="n">palindromes</span><span class="p">[</span><span class="mi">0</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">palindromes</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">palindromes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;ist ein pythonisches Palindrom:&quot;</span><span class="p">,</span> <span class="n">true_false_dict</span><span class="p">[</span><span class="n">palindromes</span><span class="p">[</span><span class="mi">1</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">palindromes</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">palindromes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;ist ein pythonisches Palindrom:&quot;</span><span class="p">,</span> <span class="n">true_false_dict</span><span class="p">[</span><span class="n">palindromes</span><span class="p">[</span><span class="mi">2</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">palindromes</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
@@ -625,30 +626,30 @@ Rentner ist ein pythonisches Palindrom: Falsch
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Initialisierung eines Kundenverzeichnis in Form eines dictionaries mit Schlüssel-Werte-Paaren, </span>
-<span class="sd">wobei Schlüssel jeweils der Name des/der Kund:in ist und Wert die entsprechenden Kontaktdetails. </span>
-<span class="sd">Letztere sind wiederum als dictionary gespeichert, bestehend aus verschiedenen Arten der Kontaktaufnahme </span>
-<span class="sd">(Telefon/E-Mail) als Schlüssel und die entsprechenden Adressen (Telefonnummer/E-Mailadresse) als Werte&quot;&quot;&quot;</span>
+<span class="sd">wobei der Schlüssel jeweils der Name des/der Kund:in ist und der Wert die entsprechenden Kontaktdetails. </span>
+<span class="sd">Letztere sind wiederum als dictionary gespeichert, bestehend aus verschiedenen Arten der Kontaktaufnahme  </span>
+<span class="sd">(Telefon/E-Mail) als Schlüssel und die entsprechenden Adressen (Telefonnummer/E-Mailadresse) als Werte.&quot;&quot;&quot;</span>
 <span class="n">customers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Petra&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;tel&quot;</span><span class="p">:</span> <span class="mi">124039485</span><span class="p">,</span> <span class="s2">&quot;e-mail&quot;</span><span class="p">:</span> <span class="s2">&quot;petra_bluemchen@hotmail.com&quot;</span><span class="p">},</span>
              <span class="s2">&quot;Mads&quot;</span><span class="p">:</span>   <span class="p">{</span><span class="s2">&quot;tel&quot;</span><span class="p">:</span> <span class="mi">399843632</span><span class="p">,</span> <span class="s2">&quot;e-mail&quot;</span><span class="p">:</span> <span class="s2">&quot;mads1997@gmail.com&quot;</span><span class="p">},</span>
              <span class="s2">&quot;Selima&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;tel&quot;</span><span class="p">:</span> <span class="mi">938489774</span><span class="p">,</span> <span class="s2">&quot;e-mail&quot;</span><span class="p">:</span> <span class="s2">&quot;selima_berlin@web.de&quot;</span><span class="p">},</span> 
              <span class="s2">&quot;Manni&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;tel&quot;</span><span class="p">:</span> <span class="mi">938712023</span><span class="p">,</span> <span class="s2">&quot;e-mail&quot;</span><span class="p">:</span> <span class="s2">&quot;manni234@web.de&quot;</span><span class="p">},</span>
              <span class="s2">&quot;Gordon&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;tel&quot;</span><span class="p">:</span> <span class="mi">192738402</span><span class="p">,</span> <span class="s2">&quot;e-mail&quot;</span><span class="p">:</span> <span class="s2">&quot;gordon_meister@gmx.de&quot;</span><span class="p">}}</span>
 
-<span class="c1">#Ausgabe einer Überschrift für den nachfolgenden Output</span>
+<span class="c1">#Ausgabe einer Überschrift für den nachfolgenden Output:</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kund:innen aus der Umgebung (erkennbar an der Vorwahl 938) sind:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="sd">&quot;&quot;&quot;Iteration über das dictionary &#39;customers&#39; unter Verwendung der items-Methode, die jeweils</span>
-<span class="sd">Schlüssel und Wert pro Paar zurückgibt. Schlüssel wird jeweils mit der Variable &#39;name&#39; referenziert, </span>
-<span class="sd">Wert jeweils mit &#39;details&#39;&quot;&quot;&quot;</span>
+<span class="sd">Schlüssel und Wert pro Paar zurückgibt. Der Schlüssel wird jeweils mit der Variable &#39;name&#39; referenziert, </span>
+<span class="sd">der Wert jeweils mit &#39;details&#39;.&quot;&quot;&quot;</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">details</span> <span class="ow">in</span> <span class="n">customers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Überprüfung, ob die ersten drei Ziffern der Telefonnummer 938 sind. </span>
-<span class="sd">    Dazu greifen wir auf über den Schlüssel &#39;tel&#39; im jeweiligen Kontaktdaten-dictionary auf die Telefonnummer zu, </span>
+<span class="sd">    Dazu greifen wir über den Schlüssel &#39;tel&#39; im jeweiligen Kontaktdaten-dictionary auf die Telefonnummer zu, </span>
 <span class="sd">    casten diese in einen string (da sich die nächste Technik, nämlich Slicing, nur auf sequentielle Objekte </span>
-<span class="sd">    anwenden lässt [vgl. 2. Notebook] und Ganzzahlen nicht sequentiell sind) und Slicen die ersten drei Zeichen heraus. </span>
-<span class="sd">    Anschließend prüfen wir, ob diese gleich wie der string &#39;938&#39; sind, und wenn ja...&quot;&quot;&quot;</span>
+<span class="sd">    anwenden lässt [vgl. Notebook &quot;Datentypen&quot;] und Ganzzahlen nicht sequentiell sind) und Slicen die ersten drei Zeichen heraus. </span>
+<span class="sd">    Anschließend prüfen wir, ob diese gleich dem string &#39;938&#39; sind, und wenn ja...&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;tel&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;938&quot;</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;...lassen wir uns den jeweiligen Namen des/der Kund:in ausgeben sowie die gesamte Telefonnummer </span>
-<span class="sd">        mittels des Schlüssels &#39;tel&#39; im dictionary &#39;details&#39; des/der jeweiligen Kund:in&quot;&quot;&quot;</span>
+<span class="sd">        des/der jeweiligen Kund:in mittels des Schlüssels &#39;tel&#39; im dictionary &#39;details&#39;.&quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;mit der Telefonnummer&quot;</span><span class="p">,</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;tel&quot;</span><span class="p">])</span>
 </pre></div>
 </div>

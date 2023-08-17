@@ -488,7 +488,7 @@ document.write(`
 </ul>
 <ol class="arabic" start="2">
 <li><p>Finde alle in Klammern stehenden Wörter im Koalitionsvertrag von 2021 (z.B. „(SPD)“) und speichere sie ohne die Klammern auf einer Liste. Mehrere Wörter bzw. Sätze in Klammern kannst Du ignorieren. Die Länge der Liste sollte 104 betragen. Wie viele einzigartige Wörter in Klammern kommen im Text vor?</p>
-<p>📌 Herausforderung: Formuliere den Code als List Comprehension in einer einzigen Zeile.</p>
+<p>📌 Herausforderung: Formuliere Deinen Code als List Comprehension in einer einzigen Zeile.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -540,6 +540,12 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;Ausgabe eines bestimmten Abschnitts des strings mithilfe von Slicing, wobei für den end-Parameter den von der find-Methode zurückgegebene Index,</span>
 <span class="sd">erhöht um die Länge des Worts &quot;Vorschlagsrecht&quot;, eingesetzt wird&quot;&quot;&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">reversed_kv</span><span class="p">[:</span><span class="n">reversed_kv</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Vorschlagsrecht&quot;</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Vorschlagsgrecht&quot;</span><span class="p">)])</span>
+
+<span class="c1">#alternativer Lösungsweg (Hashtag vor print-Befehl entfernen)</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="c1">#print(token, end=&quot; &quot;) #Spezifizieren eines Leerschlags als End-Parameter bei der Ausgabe (statt standardmäßig &quot;\n&quot;)</span>
+    <span class="k">if</span> <span class="n">token</span> <span class="o">==</span> <span class="s2">&quot;Vorschlagsrecht&quot;</span><span class="p">:</span>
+        <span class="k">break</span>
 </pre></div>
 </div>
 </div>
@@ -575,7 +581,7 @@ document.write(`
 </div>
 <ol class="arabic" start="5">
 <li><p>Aus wievielen Sätzen besteht der Koalitionsvertrag von 2021? Bestehen mehr Sätze aus zehn und mehr Wörtern oder aus weniger als zehn Wörtern?</p>
-<p>📌 Herausforderung: Formuliere den Code mithilfe von List Comprehensions.</p>
+<p>📌 Herausforderung: Formuliere Deinen Code mithilfe von List Comprehensions kompakter.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -718,40 +724,40 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verschlüsselungscode:
-a z
-b h
-c a
-d p
-e q
-f w
-g d
-h f
-i j
-j e
-k ü
-l s
-m ö
-n i
-o m
-p ä
-q n
-r x
-s u
-t l
-u c
-v v
-w ß
+a s
+b y
+c x
+d ä
+e g
+f l
+g c
+h ü
+i v
+j n
+k o
+l j
+m h
+n ß
+o z
+p a
+q i
+r k
+s m
+t p
+u q
+v r
+w b
 x t
-y o
-z k
-ä r
-ö y
-ü b
-ß g
+y e
+z d
+ä u
+ö ö
+ü w
+ß f
 
-Verschlüsselte Nachricht: pqx$dmsphzxxqi$jul$ji$pqx$ljqwübfslxcfq$ji$qjiqö$jüqz$wxjuaffzslqhqclqs$öjl$hxmüümsjxyuafqi$vqxulqaül$
+Verschlüsselte Nachricht: ägk$czjäyskkgß$vmp$vß$ägk$pvglowüjpkqüg$vß$gvßgh$vogs$lkvmxüüsjpgygqpgj$hvp$ykzoozjvkömxügß$rgkmpgxop$
 
-Verschlüsselte Nachricht mit Ablenkungszeichen: pqx$dmsphzxx&amp;q|i$jul$ji$pqx$|ljqwü&amp;bfsl≠xc/f/q$ji$q)jiq*ö($¶jüqz${w¢xjuaf?fzs%l*qhqc(=lq≠s$öjl$hxmüümsjxyuafqi$vq}xulqaül$
+Verschlüsselte Nachricht mit Ablenkungszeichen: ägk$&#39;czjäys(kkgß$¶vmp&amp;$vß$ägk$p§vglowü¢j&amp;pkqüg$vß}$gv%ßgh¶§$vo[gs$lkvmxüüsjpg/ygqpgj|$h%vp]§$ykzoo?zjvkömx}ügß$§rgkmpgxop$
 </pre></div>
 </div>
 </div>
@@ -958,10 +964,10 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: pqx$dmsphzxx&amp;q|i$jul$ji$pqx
  (&#39;gemeinsam mit den ländern&#39;, 20),
  (&#39;setzen uns für eine&#39;, 14),
  (&#39;auf den weg bringen&#39;, 12),
- (&#39;ausbau der erneuerbaren energien&#39;, 8),
- (&#39;setzen uns für ein&#39;, 8),
- (&#39;uns dafür ein dass&#39;, 8),
  (&#39;setzen wir uns für&#39;, 8),
+ (&#39;setzen uns für ein&#39;, 8),
+ (&#39;ausbau der erneuerbaren energien&#39;, 8),
+ (&#39;uns dafür ein dass&#39;, 8),
  (&#39;setzen uns für die&#39;, 7),
  (&#39;90 / die grünen&#39;, 7)]
 </pre></div>
