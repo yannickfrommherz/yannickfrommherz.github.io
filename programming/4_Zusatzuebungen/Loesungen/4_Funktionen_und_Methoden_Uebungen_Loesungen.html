@@ -489,7 +489,7 @@ document.write(`
 </ul>
 <ol class="arabic" start="2">
 <li><p>Finde alle in Klammern stehenden Wörter im Koalitionsvertrag von 2021 (z.B. „(SPD)“) und speichere sie ohne die Klammern auf einer Liste. Mehrere Wörter bzw. Sätze in Klammern kannst Du ignorieren. Die Länge der Liste sollte 104 betragen. Wie viele einzigartige Wörter in Klammern kommen im Text vor?</p>
-<p>📌 Herausforderung: Formuliere den Code als List Comprehension in einer einzigen Zeile.</p>
+<p>📌 Herausforderung: Formuliere Deinen Code als List Comprehension in einer einzigen Zeile.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -541,6 +541,12 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;Ausgabe eines bestimmten Abschnitts des strings mithilfe von Slicing, wobei für den end-Parameter den von der find-Methode zurückgegebene Index,</span>
 <span class="sd">erhöht um die Länge des Worts &quot;Vorschlagsrecht&quot;, eingesetzt wird&quot;&quot;&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">reversed_kv</span><span class="p">[:</span><span class="n">reversed_kv</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Vorschlagsrecht&quot;</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Vorschlagsgrecht&quot;</span><span class="p">)])</span>
+
+<span class="c1">#alternativer Lösungsweg (Hashtag vor print-Befehl entfernen)</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="c1">#print(token, end=&quot; &quot;) #Spezifizieren eines Leerschlags als End-Parameter bei der Ausgabe (statt standardmäßig &quot;\n&quot;)</span>
+    <span class="k">if</span> <span class="n">token</span> <span class="o">==</span> <span class="s2">&quot;Vorschlagsrecht&quot;</span><span class="p">:</span>
+        <span class="k">break</span>
 </pre></div>
 </div>
 </div>
@@ -576,7 +582,7 @@ document.write(`
 </div>
 <ol class="arabic" start="5">
 <li><p>Aus wievielen Sätzen besteht der Koalitionsvertrag von 2021? Bestehen mehr Sätze aus zehn und mehr Wörtern oder aus weniger als zehn Wörtern?</p>
-<p>📌 Herausforderung: Formuliere den Code mithilfe von List Comprehensions.</p>
+<p>📌 Herausforderung: Formuliere Deinen Code mithilfe von List Comprehensions kompakter.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -719,40 +725,40 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verschlüsselungscode:
-a w
-b b
-c k
-d s
-e u
-f r
+a l
+b m
+c a
+d j
+e p
+f ü
 g ß
-h h
-i c
-j l
-k z
-l m
-m v
-n x
-o ö
-p ä
-q d
-r a
-s y
-t p
+h b
+i v
+j ä
+k t
+l z
+m d
+n w
+o y
+p g
+q k
+r ö
+s f
+t q
 u n
-v g
-w ü
-x f
-y t
-z i
+v u
+w h
+x e
+y x
+z c
 ä o
-ö e
-ü q
-ß j
+ö s
+ü i
+ß r
 
-Verschlüsselte Nachricht: sua$ßömsbwaaux$cyp$cx$sua$pcurzqhmpanhu$cx$ucxuv$czuw$racykhhwmpubunpum$vcp$baözzömcaeykhux$guaypukzp$
+Verschlüsselte Nachricht: jpö$ßyzjmlööpw$vfq$vw$jpö$qvpütibzqönbp$vw$pvwpd$vtpl$üövfabblzqpmpnqpz$dvq$möyttyzvösfabpw$upöfqpatq$
 
-Verschlüsselte Nachricht mit Ablenkungszeichen: sua$ßö¡msbw/aaux$cyp$}c=x$sua$pcur]¶zq/h¶mpanh=u$cx($ucx?uv$&#39;czuw$rac*yk(}hhwmpub&amp;unpum$v%cp$ba}özzömc¢ae{ykhux$guaypukzp$
+Verschlüsselte Nachricht mit Ablenkungszeichen: jpö$ßyzj)mlö¶öpw$]vfq$vw$jpö¡$qvpüt}ibzq“ö§n≠bp$v/w$pvwpd$vtpl≠{$üövf&amp;abblzqpmpnqpz$d≠*vq&#39;$m])öy?ttyzvösfa&#39;b¶pw$upöfqpatq$
 </pre></div>
 </div>
 </div>
@@ -957,12 +963,12 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: sua$ßö¡msbw/aaux$cyp$}c=x$su
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2425</span><span class="o">/</span><span class="mf">3514662711.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">3514662711.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">58</span> 
 <span class="ne">---&gt; </span><span class="mi">59</span> <span class="n">ngram_freqs</span><span class="p">(</span><span class="n">kv21</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 
-<span class="nn">/tmp/ipykernel_2425/3514662711.py</span> in <span class="ni">ngram_freqs</span><span class="nt">(text, n)</span>
+<span class="nn">/tmp/ipykernel_2415/3514662711.py</span> in <span class="ni">ngram_freqs</span><span class="nt">(text, n)</span>
 <span class="g g-Whitespace">     </span><span class="mi">49</span> 
 <span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">51</span>         <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">ngrams</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>

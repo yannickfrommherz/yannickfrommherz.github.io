@@ -1136,9 +1136,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6, 5, 4, 3, 2, 1]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Ebenso kann man mit dem <code class="docutils literal notranslate"><span class="pre">key</span></code>-Parameter angeben, nach welchem benutzerdefinierten Kriterium sortiert werden soll. Wir könnten eine Liste von strings z.B. nach der Länge der strings sortieren. Dazu brauchen wir eine etwas komplizierte sog. <code class="docutils literal notranslate"><span class="pre">lambda</span></code>-Funktion (noch so ein griechischer Buchstabe…). Ohne die Details genauer zu erläutern: Der hier verwendete <code class="docutils literal notranslate"><span class="pre">key</span></code>-Parameter geht Element (<code class="docutils literal notranslate"><span class="pre">x</span></code>) für Element auf der Liste durch und rechnet für jedes Element seine Länge aus und sortiert anschließend die Liste nach den jeweils errechneten Längen:</p>
@@ -1151,6 +1148,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Beta&#39;, &#39;Alpha&#39;, &#39;Delta&#39;, &#39;Gamma&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1207,6 +1207,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;, &#39;j&#39;, &#39;k&#39;, &#39;l&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;p&#39;, &#39;q&#39;, &#39;r&#39;, &#39;s&#39;, &#39;t&#39;, &#39;u&#39;, &#39;v&#39;, &#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1377,6 +1380,9 @@ True
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graz
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Was passiert, wenn wir den Wert zu einem Schlüssel erfragen, der nicht im dictionary ist?</p>
@@ -1389,7 +1395,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1979</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1965</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -1553,7 +1559,9 @@ Eisenstadt liegt in Burgenland
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bregenz
-Innsbruck
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Innsbruck
 Klagenfurt
 Graz
 Wien
@@ -1580,7 +1588,9 @@ Eisenstadt
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vorarlberg
-Tirol
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tirol
 Kärnten
 Steiermark
 Wien
@@ -2013,7 +2023,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;practice&#39;, 1), (&#39;krankheitserreger&#39;, 1), (&#39;ingenieuren&#39;, 1), (&#39;fahrgast-&#39;, 1), (&#39;vorlesepaten&#39;, 1), (&#39;umland&#39;, 1), (&#39;wildtierhandel&#39;, 1), (&#39;beseitigung&#39;, 1), (&#39;ausdehnung&#39;, 1), (&#39;regionalprojekte&#39;, 1)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;religionen&#39;, 1), (&#39;straßengüterverkehr&#39;, 1), (&#39;bundesteilhabegesetz&#39;, 1), (&#39;positioniert&#39;, 1), (&#39;präventionsarbeit&#39;, 1), (&#39;streng&#39;, 1), (&#39;tritt&#39;, 1), (&#39;servicedienststelle&#39;, 1), (&#39;seines&#39;, 1), (&#39;kreislaufwirtschaftspakets&#39;, 1)]
 </pre></div>
 </div>
 </div>
@@ -2048,7 +2058,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[69, 84, 82, 79, 1, 35, 57, 96, 41, 73]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5, 98, 38, 62, 87, 100, 7, 10, 21, 54]
 </pre></div>
 </div>
 </div>

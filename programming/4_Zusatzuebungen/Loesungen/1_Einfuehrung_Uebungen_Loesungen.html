@@ -454,18 +454,25 @@ document.write(`
                   
   <section id="losungen-zu-den-zusatzubungen-zum-notebook-einfuhrung">
 <h1>Lösungen zu den Zusatzübungen zum Notebook „Einführung“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-einfuhrung" title="Permalink to this heading">#</a></h1>
-<p>Finde den bzw. die Fehler in den nachfolgenden Code-Zellen. Stelle sicher, dass sie sich 1) ausführen lassen, 2) semantisch Sinn ergeben und 3) den im ersten Notebook beschriebenen Best Practices entsprechen.</p>
+<p>Find den bzw. die Fehler in den nachfolgenden Code-Zellen. Stell sicher, dass sie…</p>
+<ol class="arabic simple">
+<li><p>sich ausführen lassen,</p></li>
+<li><p>semantisch Sinn ergeben und</p></li>
+<li><p>den im Notebook „Einführung“ beschriebenen Best Practices entsprechen.
+<br>
+<br></p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Reihenfolge der Befehle ist relevant</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Diese Aufgabe ist&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;wohl zu einfach&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;wohl zu einfach.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Diese Aufgabe ist
-wohl zu einfach
+wohl zu einfach.
 </pre></div>
 </div>
 </div>
@@ -473,12 +480,12 @@ wohl zu einfach
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Anführungszeichen um einen string sind Pflicht</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das vermutlich auch noch&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das vermutlich auch noch.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das vermutlich auch noch
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das vermutlich auch noch.
 </pre></div>
 </div>
 </div>
@@ -486,19 +493,19 @@ wohl zu einfach
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Anführungszeichen müssen konsistent sein</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wie sieht es hiermit aus&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wie sieht es hiermit aus?&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wie sieht es hiermit aus
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wie sieht es hiermit aus?
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#die jeweils anderen Anführungszeichen können im string als literale Zeichen verwendet werden</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#jeweils andere Anführungszeichen können im string als literale Zeichen verwendet werden</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Haben wir mit &quot;&quot;-Zeichen ein Problem?&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -511,29 +518,29 @@ wohl zu einfach
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#die Variable steht immer links des Zuweisungsoperators</span>
-<span class="n">print_out</span> <span class="o">=</span> <span class="s2">&quot;Das hier wollen wir ausgeben&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Variable steht immer links des Zuweisungsoperators</span>
+<span class="n">print_out</span> <span class="o">=</span> <span class="s2">&quot;Das hier wollen wir ausgeben.&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">print_out</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das hier wollen wir ausgeben
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das hier wollen wir ausgeben.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;print&#39; ist ein Python-Keyword und darf nicht überschrieben werden</span>
-<span class="c1">#nenne die Variable anders und starte den Kernel neu, um &#39;print&#39; wieder als Funktionsnamen zu benutzen</span>
-<span class="n">no_python_keyword</span> <span class="o">=</span> <span class="s2">&quot;was ist hier das Problem?&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;print&#39; ist ein Python-Keyword und darf nicht überschrieben werden.</span>
+<span class="c1">#Benenne die Variable anders und starte den Kernel neu, um &#39;print&#39; wieder als Funktionsnamen zu benutzen.</span>
+<span class="n">no_python_keyword</span> <span class="o">=</span> <span class="s2">&quot;Was ist hier das Problem?&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">no_python_keyword</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>was ist hier das Problem?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Was ist hier das Problem?
 </pre></div>
 </div>
 </div>
@@ -554,14 +561,14 @@ wohl zu einfach
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#runde Klammern umschließen das Argument bei Funktionen wir &#39;print&#39;</span>
-<span class="n">print_it</span> <span class="o">=</span> <span class="s2">&quot;wo liegt hier der Hund begraben?&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Runde Klammern umschließen das Argument bei Funktionen wie &#39;print&#39;.</span>
+<span class="n">print_it</span> <span class="o">=</span> <span class="s2">&quot;Wo liegt hier der Hund begraben?&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">print_it</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wo liegt hier der Hund begraben?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Wo liegt hier der Hund begraben?
 </pre></div>
 </div>
 </div>
@@ -597,7 +604,7 @@ wohl zu einfach
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#die Variable steht immer links des Zuweisungsoperators</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Variable steht immer links des Zuweisungsoperators</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">9</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
@@ -613,7 +620,7 @@ wohl zu einfach
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#was gibt 1 plus 9? Zahlen stehen ohne Anführungszeichen</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Was ergibt 1 plus 9? Zahlen ohne Anführungszeichen!</span>
 <span class="n">num1</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">num2</span> <span class="o">=</span> <span class="mi">9</span>
 <span class="n">total</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
@@ -646,7 +653,7 @@ Bern
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Null und der Buchstabe &#39;O&#39; sind nicht zu verwechseln</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Null und Buchstabe &#39;O&#39; nicht verwechseln</span>
 <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">num2</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -662,7 +669,7 @@ Bern
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Anzahl an Variablen und zuzuweisenden Objekt muss gleich sein</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Anzahl an Variablen und zuzuweisenden Objekten müssen gleich sein</span>
 <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="s2">&quot;Warum&quot;</span><span class="p">,</span> <span class="s2">&quot;geht&quot;</span><span class="p">,</span> <span class="s2">&quot;das&quot;</span><span class="p">,</span> <span class="s2">&quot;nicht?&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
@@ -677,20 +684,20 @@ Bern
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Zelltyp auf Code ändern</span>
-<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Langsam wirds lästig&quot;</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Langsam wird&#39;s lästig.&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Langsam wirds lästig
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Langsam wird&#39;s lästig.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#hier definieren wir eine variable für den satz (und dies ist ein Kommentar!)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Hier definieren wir eine Variable für den Satz (dies ist ein Kommentar!).</span>
 <span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Es kann aber auch alles schiefgehen.&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
 </pre></div>
@@ -704,39 +711,39 @@ Bern
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;satz&#39; muss erst definiert werden und &#39;print&#39;-Befehl darf nicht auskommentiert sein</span>
-<span class="n">satz</span> <span class="o">=</span> <span class="s2">&quot;hallo, ich bin ein Satz.&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;satz&#39; muss erst definiert werden, &#39;print&#39;-Befehl darf nicht auskommentiert sein</span>
+<span class="n">satz</span> <span class="o">=</span> <span class="s2">&quot;Hallo, ich bin ein Satz.&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">satz</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hallo, ich bin ein Satz.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hallo, ich bin ein Satz.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#hier ging so einiges schief</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Hier ging so einiges schief.</span>
 <span class="n">capitals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Berlin&quot;</span><span class="p">,</span> <span class="s2">&quot;Wien&quot;</span><span class="p">,</span> <span class="s2">&quot;Bern&quot;</span><span class="p">]</span> <span class="c1">#konsistente Anführungszeichen</span>
 
 <span class="k">for</span> <span class="n">capital</span> <span class="ow">in</span> <span class="n">capitals</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">capital</span> <span class="o">==</span> <span class="s2">&quot;Bern&quot;</span><span class="p">:</span> <span class="c1">#doppeltes Gleichzeichen überprüft Werte gleich sind </span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The capital of Switzerland&quot;</span><span class="p">,</span> <span class="n">capital</span><span class="p">,</span> <span class="s2">&quot;is on the list&quot;</span><span class="p">)</span> <span class="c1">#konsistente Anführungszeichen, zweifach eingerückt</span>
+    <span class="k">if</span> <span class="n">capital</span> <span class="o">==</span> <span class="s2">&quot;Bern&quot;</span><span class="p">:</span> <span class="c1">#doppeltes Gleichzeichen überprüft, ob Werte gleich sind </span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The capital of Switzerland&quot;</span><span class="p">,</span> <span class="n">capital</span><span class="p">,</span> <span class="s2">&quot;is on the list.&quot;</span><span class="p">)</span> <span class="c1">#konsistente Anführungszeichen, zweifach eingerückt</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The capital of Switzerland Bern is on the list
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The capital of Switzerland Bern is on the list.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#letzter fehlerhafter Code darf nicht auskommentiert sein</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">capitals</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#letzter fehlerhafter Code </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">capitals</span><span class="p">)</span> <span class="c1">#darf nicht auskommentiert sein</span>
 </pre></div>
 </div>
 </div>
