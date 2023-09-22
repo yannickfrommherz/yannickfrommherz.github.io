@@ -475,7 +475,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summer</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#Boolsche Werte werden großgeschrieben.</span>
 <span class="k">if</span> <span class="n">summer</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span> <span class="c1">#Vergleichsoperator besteht aus zwei Gleichzeichen UND Boolsche Werte werden großgeschrieben</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;it is hot!&quot;</span><span class="p">)</span> <span class="c1">#falsche Einrückung (ein Leerschlag fehlte) UND string steht in Klammern</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;it is hot!&quot;</span><span class="p">)</span> <span class="c1">#Falsche Einrückung (ein Leerschlag fehlte) UND string steht in Klammern</span>
 </pre></div>
 </div>
 </div>
@@ -500,15 +500,15 @@ document.write(`
 
 <span class="sd">&quot;&quot;&quot;In diesem Fall funktioniert die Lösung so simpel wie unten, bei einem anderen Wort (in dem der</span>
 <span class="sd">großgeschriebene Anfangsbuchstabe nicht auch noch kleingeschrieben vorkommt, müsstest Du &#39;longest_word&#39;</span>
-<span class="sd">zusätzlich noch kleinschreiben, was mit der Methode longest_word.lower() möglich wäre).&quot;&quot;&quot;</span>
+<span class="sd">zusätzlich noch kleinschreiben, was mit der Methode &#39;longest_word.lower&#39; möglich wäre).&quot;&quot;&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">alphabet</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">longest_word</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86
-{&#39;i&#39;, &#39;D&#39;, &#39;w&#39;, &#39;f&#39;, &#39;c&#39;, &#39;l&#39;, &#39;p&#39;, &#39;t&#39;, &#39;z&#39;, &#39;n&#39;, &#39;r&#39;, &#39;h&#39;, &#39;m&#39;, &#39;k&#39;, &#39;b&#39;, &#39;o&#39;, &#39;e&#39;, &#39;ä&#39;, &#39;a&#39;, &#39;d&#39;, &#39;g&#39;, &#39;u&#39;, &#39;s&#39;}
-{&#39;q&#39;, &#39;v&#39;, &#39;y&#39;, &#39;x&#39;, &#39;j&#39;}
+{&#39;n&#39;, &#39;g&#39;, &#39;l&#39;, &#39;k&#39;, &#39;u&#39;, &#39;h&#39;, &#39;c&#39;, &#39;t&#39;, &#39;e&#39;, &#39;o&#39;, &#39;s&#39;, &#39;r&#39;, &#39;i&#39;, &#39;m&#39;, &#39;d&#39;, &#39;w&#39;, &#39;p&#39;, &#39;b&#39;, &#39;f&#39;, &#39;z&#39;, &#39;a&#39;, &#39;ä&#39;, &#39;D&#39;}
+{&#39;x&#39;, &#39;q&#39;, &#39;v&#39;, &#39;y&#39;, &#39;j&#39;}
 </pre></div>
 </div>
 </div>
@@ -523,9 +523,9 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s2">&quot;pear&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> 
       <span class="nb">int</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s2">&quot;carrot&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s2">&quot;rocket&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s2">&quot;eggplant&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="c1"># Was fällt auf?</span>
-<span class="c1"># Beim Casting einer Dezimalzahl zu einer Ganzzahl wird immer abgerundet, deshalb rechnen wir plus eins bei allen Preisen. </span>
-<span class="c1"># Python ist kund:innenfreundlicher als dieser Supermarkt. 😅</span>
+<span class="c1">#Was fällt auf?</span>
+<span class="c1">#Beim Casting einer Dezimalzahl zu einer Ganzzahl wird immer abgerundet, deshalb rechnen wir plus eins bei allen Preisen. </span>
+<span class="c1">#Python ist kund:innenfreundlicher als dieser Supermarkt. 😅</span>
 </pre></div>
 </div>
 </div>
@@ -622,11 +622,11 @@ Rentner ist ein pythonisches Palindrom: Falsch
 </div>
 </div>
 <ol class="arabic simple" start="8">
-<li><p>Der folgende, fortgeschrittenere Code verwendet die bereits angeteaserten Kontrollstrukturen sowie weitere, uns noch unbekannte Methoden. Versuche ihn dennoch zu verstehen. Dazu lohnt es sich, ihn zu verändern, <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle einzubauen und ihn immer wieder auszuführen, um so die einzelnen Schritte zu verstehen. Kommentiere den Code anschließend, damit ihn auch andere verstehen.</p></li>
+<li><p>Der folgende, fortgeschrittenere Code verwendet die bereits angeteaserten Kontrollstrukturen sowie weitere, uns noch unbekannte Methoden. Versuch ihn dennoch zu verstehen. Dazu lohnt es sich, ihn zu verändern, <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle einzubauen und ihn immer wieder auszuführen, um so die einzelnen Schritte zu verstehen. Kommentier den Code anschließend, damit ihn auch andere verstehen.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Initialisierung eines Kundenverzeichnis in Form eines dictionaries mit Schlüssel-Werte-Paaren, </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Initialisierung eines Kundenverzeichnisses in Form eines dictionaries mit Schlüssel-Werte-Paaren, </span>
 <span class="sd">wobei der Schlüssel jeweils der Name des/der Kund:in ist und der Wert die entsprechenden Kontaktdetails. </span>
 <span class="sd">Letztere sind wiederum als dictionary gespeichert, bestehend aus verschiedenen Arten der Kontaktaufnahme  </span>
 <span class="sd">(Telefon/E-Mail) als Schlüssel und die entsprechenden Adressen (Telefonnummer/E-Mailadresse) als Werte.&quot;&quot;&quot;</span>

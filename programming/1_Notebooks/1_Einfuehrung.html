@@ -505,7 +505,7 @@ und am Ende das.
 </section>
 <section id="objekte">
 <h2>Objekte<a class="headerlink" href="#objekte" title="Permalink to this heading">#</a></h2>
-<p>Das elementarste aller Konzepte in Python ist dasjenige des <em>Objekts</em>. Jeder Datenpunkt, mit dem wir in Python arbeiten, ist ein Objekt. Das klingt etwas abstrakt und oft sprechen wir gar nicht von „Objekten“, sondern eher von „Zeichenketten“ oder „Listen“. Was wir damit meinen, ist ein Objekt des Datentyps <em>Zeichenkette</em> bzw. <em>Liste</em>. Die drei Sätze, die wir uns oben mittels <code class="docutils literal notranslate"><span class="pre">print</span></code> ausgeben lassen haben, sind etwa Objekte des Typs Zeichenkette. Es gibt noch weitere wichtige Datentypen mit jeweils unterschiedlichen Eigenschaften, die wir im Detail im Notebook „Datentypen“ kennenlernen. Fürs Erste reicht es, dass wir ganz grob wissen, was ein Objekt ist.</p>
+<p>Das elementarste aller Konzepte in Python ist dasjenige des <em>Objekts</em>. Jeder Datenpunkt, mit dem wir in Python arbeiten, ist ein Objekt. Das klingt etwas abstrakt und oft sprechen wir gar nicht von „Objekten“, sondern eher von „Zeichenketten“ oder „Listen“. Was wir damit meinen, ist ein <em>Objekt</em> des Datentyps Zeichenkette bzw. Liste. Die drei Sätze, die wir uns oben mittels <code class="docutils literal notranslate"><span class="pre">print</span></code> ausgeben lassen haben, sind etwa Objekte des Typs Zeichenkette. Es gibt noch weitere wichtige Datentypen mit jeweils unterschiedlichen Eigenschaften, die wir im Detail im Notebook „Datentypen“ kennenlernen. Fürs Erste reicht es, dass wir ganz grob wissen, was ein Objekt ist.</p>
 </section>
 <section id="variablen">
 <h2>Variablen<a class="headerlink" href="#variablen" title="Permalink to this heading">#</a></h2>
@@ -548,7 +548,7 @@ und am Ende das.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1907</span><span class="o">/</span><span class="mf">346808566.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2007</span><span class="o">/</span><span class="mf">346808566.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">Print_out</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;Print_out&#39; is not defined
@@ -557,10 +557,10 @@ und am Ende das.
 </div>
 </div>
 <p>Hier sehen wir eine Fehlermeldung, von denen uns noch ganz viele begegnen werden. Erstens sehen wir, über welche Zeile Python gestolpert ist. Da es hier nur eine Zeile gibt, steht hinter dem <code class="docutils literal notranslate"><span class="pre">–––&gt;</span></code> eine <code class="docutils literal notranslate"><span class="pre">1</span></code>. Bei längeren Codes ist diese Angabe aber natürlich hilfreicher. Zweitens steht zuunterst jeweils ein (teils nützlicher, teils kryptischer) Hinweis darauf, was schief gelaufen ist. Dieser <code class="docutils literal notranslate"><span class="pre">NameError</span></code> bedeutet, dass Python die Variable <code class="docutils literal notranslate"><span class="pre">Print_out</span></code> nicht kennt. Durch Korrigieren des Variablennamens sollte der Befehl klappen (probier’s aus!), unter der Voraussetzung, dass die Code-Zelle oben bereits einmal ausgeführt wurde, d. h. die Variable <code class="docutils literal notranslate"><span class="pre">print_out</span></code> mit kleinem „p“ <em>initialisiert</em> ist.</p>
-<p>Noch eine letzte, dafür umso zentralere Bemerkung zu Variablennamen: <strong>Sie sollten möglichst sprechend sein</strong>, d. h. es sollte direkt aus ihnen hervorgehen, was durch sie referenziert wird. Um dies zu veranschaulichen, vergleiche folgende zwei Codes, die beide den Body-Mass-Index errechnen:</p>
+<p>Noch eine letzte, dafür umso zentralere Bemerkung zu Variablennamen: Sie sollten <strong>möglichst sprechend</strong> sein, d. h. es sollte direkt aus ihnen hervorgehen, was durch sie referenziert wird. Um dies zu veranschaulichen, vergleiche folgende zwei Codes, die beide den Body-Mass-Index errechnen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#nichtssagende Variablen</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Nichtssagende Variablen</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">65</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mf">1.70</span>
 
@@ -568,7 +568,7 @@ und am Ende das.
 
 <span class="nb">print</span><span class="p">(</span><span class="n">bmi</span><span class="p">)</span>
 
-<span class="c1">#sprechende Variablen</span>
+<span class="c1">#Sprechende Variablen</span>
 <span class="n">weight_kg</span> <span class="o">=</span> <span class="mi">65</span>
 <span class="n">height_m</span> <span class="o">=</span> <span class="mf">1.70</span>
 
@@ -588,7 +588,7 @@ und am Ende das.
 <p>Das Ergebnis ist natürlich dasselbe. Bei so einem kurzen Code könnte man argumentieren, dass einfach ersichtlich ist, was mit <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> gemeint ist. Bei längeren Codes, wo wir die gleichen Variablen immer wieder einsetzen (und genau aus diesem Grund verwenden wir ja erst Variablen), verliert man aber schnell den Überblick. Wollen wir zum Beispiel an späterer Stelle den sog. Area Mass Index ausrechnen, ein anderes anthropometrisches Maß, zeigt sich bereits, wie sinnvoll sprechende Variablen sind:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ami_f</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.865</span> <span class="o">*</span> <span class="p">(</span><span class="n">weight_kg</span><span class="o">/</span><span class="p">(</span><span class="n">height_m</span><span class="o">*</span><span class="n">height_m</span><span class="p">)))</span><span class="o">+</span><span class="mf">18.56</span> <span class="c1">#Zusatz &quot;_f&quot; aufgrund separater AMI-Formeln für Frauen und Männer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ami_f</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.865</span> <span class="o">*</span> <span class="p">(</span><span class="n">weight_kg</span><span class="o">/</span><span class="p">(</span><span class="n">height_m</span><span class="o">*</span><span class="n">height_m</span><span class="p">)))</span><span class="o">+</span><span class="mf">18.56</span> <span class="c1">#Zusatz &#39;_f&#39; aufgrund separater AMI-Formeln für Frauen und Männer</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ami_f</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -600,7 +600,7 @@ und am Ende das.
 </div>
 </div>
 <p>Um die Formel zu verstehen, hilft es ungemein, wenn die einzelnen Variablen sich durch ihren Namen „selbst erklären“. Generell helfen sprechende Variablen <em>Dir</em>, den Überblick zu behalten, und erst recht <em>anderen</em>, die Deinen Code nachvollziehen sollen.</p>
-<p>In diesen Notebooks werden übrigens durchgängig englischsprachige Variablennamen benutzt, das ist aber natürlich kein Muss. Wenn wir schon bei Englisch sind: Bei allen wichtigen Konzepten wird in diesen Notebooks jeweils auch der englische Name eingeführt. Dies machen wir so, da Englisch in der Programmiercommunity die <em>Lingua Franca</em> ist. Wenn man sich mal mit einer Frage an die Community wenden oder ein Problem googeln will, so hat man am ehesten Erfolg, wenn man dies auf Englisch tut (das Thema <em>Hilfe holen</em> wird auch noch einmal im Notebook „Kontrollstrukturen“ angesprochen).</p>
+<p>In diesen Notebooks werden übrigens durchgängig englischsprachige Variablennamen benutzt, das ist aber natürlich kein Muss. Wenn wir schon bei Englisch sind: Bei allen wichtigen Konzepten wird in diesen Notebooks jeweils auch der englische Name eingeführt. Dies machen wir so, da Englisch in der Programmiercommunity die <em>Lingua Franca</em> ist. Wenn man sich mal mit einer Frage an die Community wenden oder ein Problem googeln will, so hat man am ehesten Erfolg, wenn man dies auf Englisch tut (das Thema „Hilfe holen“ wird auch noch einmal im Notebook „Kontrollstrukturen“ angesprochen).</p>
 </section>
 <section id="operatoren">
 <h2>Operatoren<a class="headerlink" href="#operatoren" title="Permalink to this heading">#</a></h2>
@@ -623,7 +623,7 @@ und am Ende das.
 <span class="nb">print</span><span class="p">(</span><span class="n">number1</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">number1</span> <span class="o">+</span> <span class="n">number2</span><span class="p">)</span>
 
-<span class="c1">#ein anderer Weg</span>
+<span class="c1">#Ein anderer Weg</span>
 <span class="n">total</span> <span class="o">=</span> <span class="n">number1</span> <span class="o">+</span> <span class="n">number2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
 </pre></div>
@@ -638,7 +638,7 @@ und am Ende das.
 </div>
 </div>
 </div>
-<p>Zuunterst sehen wir außerdem, dass auf der rechten Seite einer Variablenzuweisung nicht bloß <em>ein</em> Objekt stehen kann, sondern auch ein sog. <em>komplexer Ausdruck</em> wie eine Addition. Dies trifft übrigens überall in Python zu: Wo ein einzelnes Objekt stehen kann, kann auch ein Ausdruck stehen (der, wenn ausgerechnet, ja wieder <em>einen</em> Wert annimmt).</p>
+<p>Zuunterst sehen wir außerdem, dass auf der rechten Seite einer Variablenzuweisung nicht bloß ein Objekt stehen kann, sondern auch ein sog. <em>komplexer Ausdruck</em> wie eine Addition. Dies trifft übrigens überall in Python zu: Wo ein einzelnes Objekt stehen kann, kann auch ein Ausdruck stehen (der, wenn ausgerechnet, ja wieder <em>einen</em> Wert annimmt).</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 1:</strong> Definier zwei numerische Variablen sowie eine dritte, die die erste Variable von der zweiten subtrahiert. Lass Dir anschließend diese dritte Variable multipliziert mit sich selbst ausgeben.</p>
 <div class="cell docutils container">
@@ -654,12 +654,12 @@ und am Ende das.
 <p>Zurück zu den Operatoren: <em>Erweiterte Zuweisungsoperatoren</em> kombinieren nun den Zuweisungsoperator <code class="docutils literal notranslate"><span class="pre">=</span></code> mit den arithmetischen Operatoren. Damit können wir den nachfolgend oberen Code wie unten gezeigt vereinfachen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#komplizierte Herangehensweise</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Komplizierte Herangehensweise</span>
 <span class="n">number</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">7</span> <span class="c1">#&quot;number&quot; wird in dieser Anweisung überschrieben.</span>
+<span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">7</span> <span class="c1">#&#39;number&#39; wird in dieser Anweisung überschrieben.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 
-<span class="c1">#simple Herangehensweise mithilfe erweiterter Zuweisung</span>
+<span class="c1">#Simple Herangehensweise mithilfe erweiterter Zuweisung</span>
 <span class="n">number</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">number</span> <span class="o">+=</span> <span class="mi">7</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
@@ -772,11 +772,11 @@ Di </br></p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alphabet</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
 
-<span class="c1">#Hier geben wir jeden einzelnen Buchstaben in alphabet nacheinander einzeln aus.</span>
+<span class="c1">#Hier geben wir jeden einzelnen Buchstaben in &#39;alphabet&#39; nacheinander einzeln aus.</span>
 <span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">alphabet</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
 
-<span class="c1">#Hier überprüfen wir, ob alphabet gleich ist mit &quot;abc&quot; und wenn ja, wird der eingerückte print-Befehl ausgeführt.</span>
+<span class="c1">#Hier überprüfen wir, ob &#39;alphabet&#39; gleich ist mit &#39;abc&#39; und wenn ja, wird der eingerückte &#39;print&#39;-Befehl ausgeführt.</span>
 <span class="k">if</span> <span class="n">alphabet</span> <span class="o">==</span> <span class="s2">&quot;abc&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">alphabet</span><span class="p">,</span> <span class="s2">&quot;ist gleich abc&quot;</span><span class="p">)</span>
 </pre></div>
@@ -813,7 +813,7 @@ abc ist gleich abc
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Dies ist ein einzeiliger Kommentar.</span>
-<span class="n">alphabet</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span> <span class="c1">#Kommentare können auch in der gleichen Zeile wie Code stehen (sog. &quot;in-line comment&quot;).</span>
+<span class="n">alphabet</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span> <span class="c1">#Kommentare können auch in der gleichen Zeile wie Code stehen (sog. &#39;in-line comment&#39;).</span>
 
 <span class="sd">&#39;&#39;&#39;hier haben  </span>
 <span class="sd">wir einen</span>

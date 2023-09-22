@@ -454,8 +454,8 @@ document.write(`
                   
   <section id="kontrollstrukturen-losungen">
 <h1>Kontrollstrukturen (Lösungen)<a class="headerlink" href="#kontrollstrukturen-losungen" title="Permalink to this heading">#</a></h1>
-<p>☝️ Beachte: es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
-<p>✏️ <strong>Lösung 1:</strong> Simplifiziere den folgenden Code auf zwei verschiedene Arten, einmal unter Einsatz des logischen Operators <code class="docutils literal notranslate"><span class="pre">and</span></code>, einmal mithilfe von <code class="docutils literal notranslate"><span class="pre">or</span></code>. Das Resultat Deiner Simplifizierung sollte sein, dass der Code nur noch um eine Ebene eingerückt ist.</p>
+<p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
+<p>✏️ <strong>Lösung 1:</strong> Simplifizier den folgenden Code auf zwei verschiedene Arten, einmal unter Einsatz des logischen Operators <code class="docutils literal notranslate"><span class="pre">and</span></code>, einmal mithilfe von <code class="docutils literal notranslate"><span class="pre">or</span></code>. Das Resultat Deiner Simplifizierung sollte sein, dass der Code nur noch um eine Ebene eingerückt ist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Lösungsweg mit &quot;and&quot;</span>
@@ -467,7 +467,7 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch arbeitet vermutlich nicht&quot;</span><span class="p">)</span>
     
 <span class="c1">#Lösungsweg mit &quot;or&quot;</span>
-<span class="c1">#beachte &quot;kleiner gleich&quot; statt &quot;kleiner&quot; bzw. &quot;größer&quot; statt &quot;größer gleich&quot; verglichen mit oben</span>
+<span class="c1">#Beachte &quot;kleiner gleich&quot; statt &quot;kleiner&quot; bzw. &quot;größer&quot; statt &quot;größer gleich&quot; verglichen mit oben</span>
 <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">18</span> <span class="ow">or</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">65</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch arbeitet vermutlich nicht&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -483,30 +483,30 @@ Mensch arbeitet vermutlich
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 2:</strong> Mit <code class="docutils literal notranslate"><span class="pre">größe</span></code> soll die Körpergröße eines erwachsenen Menschen in Zentimetern referenziert werden. Schreibe einen Code, der je nach dem, wie groß <code class="docutils literal notranslate"><span class="pre">größe</span></code> ist, auf sehr brachiale Art über die Körpergröße Folgendes verlauten lässt:</p>
+<p>✏️ <strong>Lösung 2:</strong> Mit <code class="docutils literal notranslate"><span class="pre">height</span></code> soll die Körpergröße eines erwachsenen Menschen in Zentimetern referenziert werden. Schreib einen Code, der je nachdem, wie groß <code class="docutils literal notranslate"><span class="pre">height</span></code> ist, auf sehr brachiale Art über die Körpergröße Folgendes verlauten lässt:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">größe</span></code> größer als 180cm ist</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">durchschnittlich</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">größe</span></code> zwischen 170cm und 180cm ist</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">kleiner</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">größe</span></code> kleiner als 170cm ist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> größer als 180cm ist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">durchschnittlich</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> zwischen 170cm und 180cm ist</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">kleiner</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> kleiner als 170cm ist</p></li>
 </ul>
-<p>Der Code soll zudem überprüfen, ob die Zahl in <code class="docutils literal notranslate"><span class="pre">größe</span></code> sinnvoll ist. Sie muss dafür mindestens dreistellig sein, darf aber auch nicht mehr als 200 betragen. Ist dies nicht der Fall, soll eine Fehlermeldung zurückgegeben werden.</p>
-<p>Wenn Du fertig bist, probiere Deinen Code aus, indem Du verschiedene Werte bei <code class="docutils literal notranslate"><span class="pre">größe</span></code> einsetzt.</p>
+<p>Der Code soll zudem überprüfen, ob die Zahl in <code class="docutils literal notranslate"><span class="pre">height</span></code> sinnvoll ist. Sie muss dafür mindestens dreistellig sein, darf aber auch nicht mehr als 200 betragen. Ist dies nicht der Fall, soll eine Fehlermeldung zurückgegeben werden.</p>
+<p>Wenn Du fertig bist, probier Deinen Code aus, indem Du verschiedene Werte bei <code class="docutils literal notranslate"><span class="pre">height</span></code> einsetzt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">größe</span> <span class="o">=</span> <span class="mi">182</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="mi">182</span>
 
-<span class="k">if</span> <span class="n">größe</span> <span class="o">&gt;</span> <span class="mi">99</span> <span class="ow">and</span> <span class="n">größe</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">:</span>
-    <span class="c1">#wir beginnen von oben und überprüfen, ob größe größer als 180 ist</span>
-    <span class="k">if</span> <span class="n">größe</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">99</span> <span class="ow">and</span> <span class="n">height</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c1">#Wir beginnen von oben und überprüfen, ob &#39;height&#39; größer als 180 ist.</span>
+    <span class="k">if</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;groß&quot;</span><span class="p">)</span>
-    <span class="c1">#wenn nicht, reicht es zu überprüfen, ob &quot;größe&quot; größer gleich 170 ist (eine größe größer als 180 wäre ja bereits durch das if-Statement oben &quot;abgefangen&quot; worden)</span>
-    <span class="k">elif</span> <span class="n">größe</span> <span class="o">&gt;=</span> <span class="mi">170</span><span class="p">:</span>
+    <span class="c1">#Wenn nicht, reicht die Überprüfung, ob &#39;height&#39; größer gleich 170 ist (wenn &#39;height&#39; größer als 180 wäre, wäre es bereits durch if-Statement oben &quot;abgefangen&quot; worden).</span>
+    <span class="k">elif</span> <span class="n">height</span> <span class="o">&gt;=</span> <span class="mi">170</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;durchschnittlich&quot;</span><span class="p">)</span>
-    <span class="c1">#wenn nicht, wissen wir, dass immer der Fall &quot;klein&quot; eintreten muss (eine größe größer als 180 oder größer gleich 170 wäre ja bereits &quot;abgefangen&quot; worden)</span>
+    <span class="c1">#In allen anderen Fällen muss &quot;klein&quot; eintreten (&#39;height&#39; größer als 180 oder größer gleich 170 wäre ja bereits &quot;abgefangen&quot; worden).</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;klein&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tut mir leid, damit kann ich nicht umgehen&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tut mir leid, damit kann ich nicht umgehen.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -517,9 +517,9 @@ Mensch arbeitet vermutlich
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 3:</strong> Im Isländischen setzen sich Nachnamen aus dem Vornamen eines Elternteils (traditionell, aber nicht immer, des Vaters) und der binären Bezeichnung „son“ bzw. „dottir“ zusammen (i.d.R. mit Genitiv-s dazwischen). „Johannsdottir“ ist also z.B. die Tochter von Johann. Lasse Dir für jeden Namen auf <code class="docutils literal notranslate"><span class="pre">surnames</span></code> ausgeben, ob es sich um eine Person vermutlich isländischer Abstammung handelt, oder nicht. Wenn ja, lasse Dir zudem ausgeben, ob es sich aufgrund des Nachnamens um eine Frau oder einen Mann handelt.</p>
-<p>In der Ausgabe sollte der betreffende Name vorkommen, also z.B. für einen nicht-isländischen Namen: <code class="docutils literal notranslate"><span class="pre">Mensch</span> <span class="pre">Müller</span> <span class="pre">kommt</span> <span class="pre">vermutlich</span> <span class="pre">nicht</span> <span class="pre">aus</span> <span class="pre">Island</span></code>.</p>
-<p>In der bedingten Anweisung kannst Du das Pendant zum bereits bekannten <code class="docutils literal notranslate"><span class="pre">startswith</span></code>, nämlich <code class="docutils literal notranslate"><span class="pre">endswith</span></code> benutzen, das für einen string überprüft, ob er mit der in Klammern angegebenen Zeichenkette endet oder nicht. <code class="docutils literal notranslate"><span class="pre">&quot;string&quot;.endswith(&quot;g&quot;)</span></code> überprüft etwa, ob „string“ mit „g“ endet. Wie immer kannst Du anstatt der Zeichenketten auch Variablen verwenden, die einen string referenzieren.</p>
+<p>✏️ <strong>Lösung 3:</strong> Im Isländischen setzen sich Nachnamen aus dem Vornamen eines Elternteils (traditionell, aber nicht immer, des Vaters) und der binären Bezeichnung „son“ bzw. „dottir“ zusammen (i. d. R. mit Genitiv-S dazwischen). „Johannsdottir“ ist also z. B. die Tochter von Johann. Lass Dir für jeden Namen auf <code class="docutils literal notranslate"><span class="pre">surnames</span></code> ausgeben, ob es sich um eine Person vermutlich isländischer Abstammung handelt, oder nicht. Wenn ja, lass Dir zudem ausgeben, ob es sich aufgrund des Nachnamens um eine Frau oder einen Mann handelt.</p>
+<p>In der Ausgabe sollte der betreffende Name vorkommen, also z. B. für einen nicht-isländischen Namen: <br>
+<code class="docutils literal notranslate"><span class="pre">Mensch</span> <span class="pre">Müller</span> <span class="pre">kommt</span> <span class="pre">vermutlich</span> <span class="pre">nicht</span> <span class="pre">aus</span> <span class="pre">Island.</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">surnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jonsdottir&quot;</span><span class="p">,</span> <span class="s2">&quot;Müller&quot;</span><span class="p">,</span> <span class="s2">&quot;Johannsson&quot;</span><span class="p">,</span> <span class="s2">&quot;Einarsdottir&quot;</span><span class="p">,</span> <span class="s2">&quot;Fischer&quot;</span><span class="p">,</span> <span class="s2">&quot;Suarez&quot;</span><span class="p">,</span> <span class="s2">&quot;Johannsdottir&quot;</span><span class="p">]</span>
@@ -527,31 +527,31 @@ Mensch arbeitet vermutlich
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">surnames</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;dottir&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;sson&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;dottir&quot;</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frau&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;ist vermutlich eine Frau aus Island&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frau&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;ist vermutlich eine Frau aus Island.&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Herr&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;ist vermutlich ein Mann aus Island&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Herr&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;ist vermutlich ein Mann aus Island.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;kommt vermutlich nicht aus Island&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mensch&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;kommt vermutlich nicht aus Island.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frau Jonsdottir ist vermutlich eine Frau aus Island
-Mensch Müller kommt vermutlich nicht aus Island
-Herr Johannsson ist vermutlich ein Mann aus Island
-Frau Einarsdottir ist vermutlich eine Frau aus Island
-Mensch Fischer kommt vermutlich nicht aus Island
-Mensch Suarez kommt vermutlich nicht aus Island
-Frau Johannsdottir ist vermutlich eine Frau aus Island
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frau Jonsdottir ist vermutlich eine Frau aus Island.
+Mensch Müller kommt vermutlich nicht aus Island.
+Herr Johannsson ist vermutlich ein Mann aus Island.
+Frau Einarsdottir ist vermutlich eine Frau aus Island.
+Mensch Fischer kommt vermutlich nicht aus Island.
+Mensch Suarez kommt vermutlich nicht aus Island.
+Frau Johannsdottir ist vermutlich eine Frau aus Island.
 </pre></div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 4:</strong> In der Zelle unten steht noch einmal der gleiche Code. Modifiziere ihn derart, dass bei sechs Teilnehmer:innen Schluss ist. Die Iteration soll abbrechen. Vorher wollen wir aber darüber informiert werden, dass das Spiel bereits voll besetzt ist sowie darüber, wer daran teilnimmt.</p>
+<p>✏️ <strong>Lösung 4:</strong> In der Zelle unten steht noch einmal der gleiche Code. Modifizier ihn derart, dass bei sechs Teilnehmer:innen Schluss ist. Die Iteration soll abbrechen. Vorher wollen wir aber darüber informiert werden, dass das Spiel bereits voll besetzt ist sowie darüber, wer daran teilnimmt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
 <span class="n">participants_pool</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Janine&quot;</span><span class="p">,</span> <span class="s2">&quot;Hussein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Mia&quot;</span><span class="p">,</span> <span class="s2">&quot;Marianne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dolores&quot;</span><span class="p">]</span>
 
@@ -562,20 +562,20 @@ Frau Johannsdottir ist vermutlich eine Frau aus Island
         <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Noch nicht genügend Teilnehmer:innen, wir brauchen noch&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">),</span> <span class="s2">&quot;😬&quot;</span><span class="p">)</span>
         
-        <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
+        <span class="c1">#Zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         
         <span class="k">continue</span>
     
     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leider ist das Spiel voll 🥲&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leider ist das Spiel voll. 🥲&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuelle Teilnehmer:innen: &quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">)</span>
         <span class="k">break</span>
         
     <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Spiel läuft 😍&quot;</span><span class="p">)</span>
     
-    <span class="c1">#zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
+    <span class="c1">#Zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -599,7 +599,7 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
 Das Spiel läuft 😍
 Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;] 
 
-Leider ist das Spiel voll 🥲
+Leider ist das Spiel voll. 🥲
 Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;Hussein&#39;, &#39;Fritz&#39;, &#39;Mia&#39;]
 </pre></div>
 </div>
@@ -610,9 +610,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <p><code class="docutils literal notranslate"><span class="pre">Samstag,</span> <span class="pre">1.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">Sonntag,</span> <span class="pre">2.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">Montag,</span> <span class="pre">3.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br></p>
-<p>Als Ausgangspunkt stehen Dir ein dictionary mit allen Monaten und der jeweiligen Anzahl Tage als Schlüssel-Werte-Paare und ebenfalls eine Liste mit allen Wochentagen zur Verfügung. Wie Du über Listen iterierst, weißt Du ja bereits. Zum Iterieren über dictionaries kannst Du wie oben im Video die <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode verwenden (mehr dazu im nächsten Notebook), sie steht Dir ebenfalls bereits im Code zur Verfügung. Die Variablen <code class="docutils literal notranslate"><span class="pre">month</span></code> und <code class="docutils literal notranslate"><span class="pre">days</span></code> stehen dabei stellvertretend für den Schlüssel (Monatsnamen) und Wert (Anzahl Tage) des jeweiligen Schlüssel-Werte-Paars im dictionary. Verwende diese Variablen im Schleifenkörper, um auf den jeweiligen Schlüssel bzw. Wert zuzugreifen.</p>
-<p>Diese Übung ist durchaus komplex. Überlege Dir deshalb erst, in welche kleineren Schritte Du die Aufgabe zerlegen kannst und vergewissere Dich dann bei jedem (Zwischen-)Schritt, dass Dein Code das tut, was er soll (trial and error!).</p>
-<p>Letzte Bemerkung: <code class="docutils literal notranslate"><span class="pre">pass</span></code> steht als Platzhalter für Deinen Code da. Ein leerer Anweisungskörper erzeugt bei Python nämlich eine Fehlermeldung. Ersetze <code class="docutils literal notranslate"><span class="pre">pass</span></code> durch Deinen Code.</p>
+<p>Als Ausgangspunkt stehen Dir ein dictionary mit allen Monaten und der jeweiligen Anzahl Tage als Schlüssel-Werte-Paare und ebenfalls eine Liste mit allen Wochentagen zur Verfügung. Wie Du über Listen iterierst, weißt Du ja bereits. Zum Iterieren über dictionaries kannst Du wie oben im Video die <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode verwenden (mehr dazu im Notebook „Funktionen und Methoden“), sie steht Dir ebenfalls bereits im Code zur Verfügung. Die Variablen <code class="docutils literal notranslate"><span class="pre">month</span></code> und <code class="docutils literal notranslate"><span class="pre">days</span></code> stehen dabei stellvertretend für den Schlüssel (Monatsnamen) und Wert (Anzahl Tage) des jeweiligen Schlüssel-Werte-Paars im dictionary. Nutz diese Variablen im Schleifenkörper, um auf den jeweiligen Schlüssel bzw. Wert zuzugreifen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">months</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Januar&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;Februar&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;März&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Mai&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;Juni&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Juli&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;September&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Oktober&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;November&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Dezember&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">}</span>
@@ -626,8 +624,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
         <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
             <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -997,28 +993,6 @@ Mittwoch, 28. Dezember
 Donnerstag, 29. Dezember
 Freitag, 30. Dezember
 Samstag, 31. Dezember
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2109</span><span class="o">/</span><span class="mf">3684105398.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>             <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;count&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a...b...c
 </pre></div>
 </div>
 </div>
