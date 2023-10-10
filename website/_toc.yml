@@ -16,51 +16,79 @@ parts:
         title: Notebooks
         sections: 
         - file: programming/1_Notebooks/1_Einfuehrung
-          title: 1. Einführung
+          title: Einführung
         - file: programming/1_Notebooks/2_Datentypen
-          title: 2. Datentypen
+          title: Datentypen
         - file: programming/1_Notebooks/3_Kontrollstrukturen
-          title: 3. Kontrollstrukturen
-        - file: programming/1_Notebooks/4_Funktionen_und_Methoden
-          title: 4. Funktionen und Methoden
-        - file: programming/1_Notebooks/5_Input_und_Output
-          title: 5. Input und Output
-        - file: programming/1_Notebooks/6_Regulaere_Ausdruecke
-          title: 6. Reguläre Ausdrücke
-        - file: programming/1_Notebooks/7_Datenanalyse
-          title: 7. Datenanalyse
+          title: Kontrollstrukturen
+        - file: programming/1_Notebooks/4_Funktionen_und_Methoden_Teil_1
+          title: Funktionen und Methoden Teil 1
+        - file: programming/1_Notebooks/4_Funktionen_und_Methoden_Teil_2
+          title: Funktionen und Methoden Teil 2
+        - file: programming/1_Notebooks/5_Input_und_Output_Teil_1
+          title: Input und Output Teil 1
+        - file: programming/1_Notebooks/5_Input_und_Output_Teil_2
+          title: Input und Output Teil 2
+        - file: programming/1_Notebooks/6_Datenanalyse_Teil_1
+          title: Datenanalyse Teil 1
+        - file: programming/1_Notebooks/6_Datenanalyse_Teil_2
+          title: Datenanalyse Teil 2
+        - file: programming/1_Notebooks/7_Regulaere_Ausdruecke
+          title: Reguläre Ausdrücke
       - file: solutions
         title: Lösungen zu den Notebooks
         sections:
         - file: programming/1_Notebooks/Loesungen/1_Einfuehrung_Loesungen
-          title: 1. Einführung
+          title: Einführung
         - file: programming/1_Notebooks/Loesungen/2_Datentypen_Loesungen
-          title: 2. Datentypen
+          title: Datentypen
         - file: programming/1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen
-          title: 3. Kontrollstrukturen
-        - file: programming/1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen
-          title: 4. Funktionen und Methoden
-        - file: programming/1_Notebooks/Loesungen/5_Input_und_Output_Loesungen
-          title: 5. Input und Output
-        - file: programming/1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen
-          title: 6. Reguläre Ausdrücke
-        - file: programming/1_Notebooks/Loesungen/7_Datenanalyse_Loesungen
-          title: 7. Datenanalyse
+          title: Kontrollstrukturen
+        - file: programming/1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Teil_1_Loesungen
+          title: Funktionen und Methoden Teil 1
+        - file: programming/1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Teil_2_Loesungen
+          title: Funktionen und Methoden Teil 2
+        - file: programming/1_Notebooks/Loesungen/5_Input_und_Output_Teil_1_Loesungen
+          title: Input und Output Teil 1
+        - file: programming/1_Notebooks/Loesungen/5_Input_und_Output_Teil_2_Loesungen
+          title: Input und Output Teil 2
+        - file: programming/1_Notebooks/Loesungen/6_Datenanalyse_Teil_1_Loesungen
+          title: Datenanalyse Teil 1
+        - file: programming/1_Notebooks/Loesungen/6_Datenanalyse_Teil_2_Loesungen
+          title: Datenanalyse Teil 2
+        - file: programming/1_Notebooks/Loesungen/7_Regulaere_Ausdruecke_Loesungen
+          title: Reguläre Ausdrücke
       - file: extra_exercises
         title: Zusatzübungen
         sections:
         - file: programming/4_Zusatzuebungen/1_Einfuehrung_Uebungen
-          title: 1. Einführung
+          title: Einführung
         - file: programming/4_Zusatzuebungen/2_Datentypen_Uebungen
-          title: 2. Datentypen
+          title: Datentypen
         - file: programming/4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen
-          title: 3. Kontrollstrukturen
+          title: Kontrollstrukturen
+        - file: programming/4_Zusatzuebungen/4_Funktionen_und_Methoden_Uebungen
+          title: Funktionen und Methoden
+        - file: programming/4_Zusatzuebungen/5_Input_und_Output_Uebungen
+          title: Input und Output
+        - file: programming/4_Zusatzuebungen/6_Datenanalyse_Uebungen
+          title: Datenanalyse
+        - file: programming/4_Zusatzuebungen/7_Regulaere_Ausdruecke_Uebungen
+          title: Reguläre Ausdrücke
       - file: extra_exercises_solutions
         title: Lösungen zu den Zusatzübungen
         sections:
         - file: programming/4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen
-          title: 1. Einführung
+          title: Einführung
         - file: programming/4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen
-          title: 2. Datentypen
+          title: Datentypen
         - file: programming/4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen
-          title: 3. Kontrollstrukturen
+          title: Kontrollstrukturen
+        - file: programming/4_Zusatzuebungen/Loesungen/4_Funktionen_und_Methoden_Uebungen_Loesungen
+          title: Funktionen und Methoden
+        - file: programming/4_Zusatzuebungen/Loesungen/5_Input_und_Output_Uebungen_Loesungen
+          title: Input und Output
+        - file: programming/4_Zusatzuebungen/Loesungen/6_Datenanalyse_Uebungen_Loesungen
+          title: Datenanalyse
+        - file: programming/4_Zusatzuebungen/Loesungen/7_Regulaere_Ausdruecke_Uebungen_Loesungen
+          title: Reguläre Ausdrücke
