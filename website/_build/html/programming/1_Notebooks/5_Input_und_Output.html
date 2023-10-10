@@ -65,7 +65,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/5_Input_und_Output.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="Reguläre Ausdrücke / RegEx" href="6_Regulaere_Ausdruecke.html" />
     <link rel="prev" title="Funktionen und Methoden" href="4_Funktionen_und_Methoden.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
@@ -163,8 +162,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="7_Datenanalyse.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -173,8 +170,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/7_Datenanalyse_Loesungen.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -469,7 +464,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-csv-modul">Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-fur-interaktive-programme">User-Input für interaktive Programme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-innen-input-fur-interaktive-programme">User:innen-Input für interaktive Programme</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-print-funktion-im-detail">Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">f-strings</a></li>
@@ -488,31 +483,32 @@ document.write(`
                   
   <section id="input-und-output">
 <h1>Input und Output<a class="headerlink" href="#input-und-output" title="Link zu dieser Überschrift">#</a></h1>
-<p>In den ersten Notebooks haben wir gelernt, dass wir in Python effizient mit Objekten verschiedenster Datentypen arbeiten, indem wir sie Variablen zuweisen. Am Anfang hatten wir es bloß mit kleinen Objekten zu tun – etwa mit einzelnen Wörtern oder, wenn’s hoch kam, mit Sätzen. Diese haben wir bei der Variablenzuweisung jeweils komplett ausgeschrieben:</p>
+<p>In den vergangenen Notebooks haben wir gelernt, dass wir in Python effizient mit Objekten verschiedenster Datentypen arbeiten, indem wir sie Variablen zuweisen. Am Anfang hatten wir es bloß mit kleinen Objekten zu tun – etwa mit einzelnen Wörtern oder, wenn’s hoch kam, mit Sätzen. Diese haben wir bei der Variablenzuweisung jeweils komplett ausgeschrieben:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sentence</span> <span class="pre">=</span> <span class="pre">&quot;Am</span> <span class="pre">Anfang</span> <span class="pre">haben</span> <span class="pre">wir</span> <span class="pre">eine</span> <span class="pre">Zeichenkette</span> <span class="pre">noch</span> <span class="pre">ausgeschrieben.&quot;</span></code></p>
-<p>Im letzten Notebook haben wir dann zum ersten Mal mit größeren Objekten gearbeitet, nämlich mit den Koalitionsverträgen. Aufgrund der Größe (und der Tatsache, dass wir die Texte bereits extern in einer Datei vorliegen hatten) haben wir uns die Texte vom externen Speicherort in den Arbeitsspeicher geladen und Variablen zugewiesen.</p>
-<p>Da wir fortan häufig mit größeren externen Dateien arbeiten, schauen wir uns in diesem Notebook genauer an, wie der sog. <em>Input</em> von Dateien funktioniert. Ebenso schauen wir uns das andere Ende an, nämlich den <em>Output</em> von Dateien, also das Speichern von Dateien auf einem externen Laufwerk. In diesem Notebook geht es also nicht primär darum, wie wir mit Daten <em>in</em> Python arbeiten, sondern wie diese Daten überhaupt erst für Python verarbeitbar werden und wie wir sie nach einer Verarbeitung durch Python wiederum für die Welt außerhalb Pythons zugänglich machen.</p>
-<p>Weiter lernen wir in diesem Notebook, wie Benutzer:innen über Input für ein laufendes Programm dessen Ablauf beeinflussen oder kontrollieren können (wir haben diese Funktion bereits im dritten Notebook beim Oktopus-Ratespiel benutzt). Dadurch können wir interaktive Programme schreiben. Abschließend gehen wir detailliert auf die allgegenwärtige <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ein. Diese stellt ja auch eine Form von Output bereit, zwar (standardmäßig) nicht als Datei, aber als Zeichenkette in der Ausgabe.</p>
+<p>Im zweiteiligen Notebook „Funktionen und Methoden“ haben wir dann zum ersten Mal mit größeren Objekten gearbeitet, nämlich mit den Koalitionsverträgen. Aufgrund der Größe (und der Tatsache, dass wir die Texte bereits extern in einer Datei vorliegen hatten) haben wir uns die Texte vom externen Speicherort in den Arbeitsspeicher geladen und Variablen zugewiesen.</p>
+<p>Da wir fortan häufig mit größeren externen Dateien arbeiten, schauen wir uns in diesem Notebook genauer an, wie der sog. <em>Input</em> von Dateien funktioniert. Ebenso schauen wir uns das andere Ende an, nämlich den <em>Output</em> von Dateien, also das Speichern dieser auf einem externen Laufwerk. In diesem Notebook geht es also nicht primär darum, wie wir mit Daten <em>in</em> Python arbeiten, sondern wie diese Daten überhaupt erst für Python verarbeitbar werden und wie wir sie nach einer Verarbeitung durch Python wiederum für die Welt außerhalb Pythons zugänglich machen.</p>
+<p>Weiter lernen wir in diesem Notebook, wie Benutzer:innen über Input für ein laufendes Programm dessen Ablauf beeinflussen oder kontrollieren können (wir haben diese Funktion bereits im Notebook „Kontrollstrukturen“ beim Oktopus-Ratespiel benutzt). Dadurch können wir interaktive Programme schreiben. Abschließend gehen wir detailliert auf die allgegenwärtige <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ein. Diese stellt ja auch eine Form von Output bereit, zwar (standardmäßig) nicht als Datei, aber als Zeichenkette in der Ausgabe.</p>
 <p>Auch in diesem Notebook gibt es einen Anwendungsfall, den wir am Ende unter Einbezug der meisten hier erlernten Techniken lösen können. Mehr dazu weiter unten.</p>
 <p>Dieses Notebook ist recht umfangreich und es ist empfehlenswert, sich die Inhalte verteilt über zwei oder mehr Lernsesssions anzuschauen.</p>
 <section id="dateipfade">
 <h2>Dateipfade<a class="headerlink" href="#dateipfade" title="Link zu dieser Überschrift">#</a></h2>
-<p>Um Dateien von einem bestimmten Ort auf dem Laufwerk einzulesen bzw. an einem bestimmten Ort auszugeben, müssen wir uns mit Dateipfaden vertraut machen. Jede Datei auf Deinem Computer hat bekanntlich einen Namen, ein Dateisuffix (etwa „.txt“, wird z.T. ausgeblendet) und die Datei befindet sich in einem bestimmten Verzeichnis (auch <em>Ordner</em> genannt). Dieses Verzeichnis befindet sich wiederum in einem Verzeichnis, und so weiter, bis zum obersten Verzeichnis, dem Stamm des Laufwerks. Jede Datei hat also eine einzigartige Adresse und diese Adresse wird <em>Dateipfad</em> genannt.</p>
-<p>Wie Du gleich sehen wirst, gibt es zwei Arten, einen Dateipfad anzugeben, nämlich absolut und relativ. Zusätzlich unterscheiden sich Dateipfade zwischen macOS und Windows. Dateipfade zu verstehen, ist überaus wichtig, um frustrierenden <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>-Fehlern vorzubeugen.</p>
+<p>Um Dateien von einem bestimmten Ort auf dem Laufwerk einzulesen bzw. an einem bestimmten Ort auszugeben, müssen wir uns mit Dateipfaden vertraut machen. Jede Datei auf Deinem Computer hat bekanntlich einen Namen, ein Dateisuffix (etwa <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, wird z. T. ausgeblendet) und die Datei befindet sich in einem bestimmten Verzeichnis (auch <em>Ordner</em> genannt). Dieses Verzeichnis befindet sich wiederum in einem Verzeichnis, und so weiter, bis zum obersten Verzeichnis, dem Stamm des Laufwerks. Jede Datei hat also eine <em>einzigartige</em> Adresse und diese Adresse wird <em>Dateipfad</em> genannt.</p>
+<p>Wie Du gleich sehen wirst, gibt es zwei Arten, einen Dateipfad anzugeben, nämlich <strong>absolut</strong> und <strong>relativ</strong>. Zusätzlich unterscheiden sich Dateipfade zwischen macOS und Windows. Dateipfade zu verstehen, ist überaus wichtig, um frustrierenden <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>-Fehlern vorzubeugen.</p>
 <section id="absolute-dateipfade">
 <h3>Absolute Dateipfade<a class="headerlink" href="#absolute-dateipfade" title="Link zu dieser Überschrift">#</a></h3>
-<p>Ein Dateipfad kann immer absolut, d.h. vollständig vom Stamm des Laufwerks bis zur gewünschten Datei, angegeben werden. Um an den absoluten Pfad einer beliebigen Datei heranzukommen, gibt es folgende Tricks:</p>
+<p>Ein Dateipfad kann immer absolut, d. h. vollständig vom Stamm des Laufwerks bis zur gewünschten Datei, angegeben werden. Um an den absoluten Pfad einer beliebigen Datei heranzukommen, gibt es folgende Tricks:</p>
 <ul class="simple">
-<li><p>Unter macOS: Navigiere im Finder zur gewünschten Datei und klicke die Datei mit zwei Fingern an (Rechtsklick), es öffnet sich ein Menüfenster. Drücke die Taste <em>Option ⌥</em>, wodurch sich einige Menüoptionen ändern. Wähle <em>„Datei“ als Pfadname kopieren</em>. Ein vollständiger Pfad unter macOS sieht z.B. so aus: „/Users/Name/Documents/Project/Folder/Notebook.ipynb“, beachte, dass Schrägstriche „/“ verwendet werden sowie, dass der absolute Pfad mit einem Schrägstrich beginnt.</p></li>
-<li><p>Unter Windows: Navigiere im Explorer zur gewünschten Datei und klicke die Datei mit einem Rechtsklick an, während du Shift gedrückt hältst. Es öffnet sich ein Menüfenster. Wähle <em>Als Pfad kopieren</em>. Ein vollständiger Pfad unter Windows sieht z.B. so aus: „C:\Users\Name\Documents\Project\Folder\Notebook.ipynb“, beachte, dass Backslashes „&quot; verwendet werden sowie, dass der absolute Pfad ohne Backslash beginnt. ⚠️ Achtung: der Backslash „&quot; hat bei Python eine Spezialbedeutung innerhalb von strings, wie etwa bei „\n“, das bekanntlich für einen Zeilenumbruch steht. Um Python bei einem Windows-Dateipfad mitzuteilen, dass die darin verwendeten Backslashes nicht als Spezialzeichen interpretiert werden sollen, müssen wir ein „r“ vor das öffnende Anführungszeichen stellen. Obiger Pfad innerhalb von Python-Code muss also so ausschauen: r“C:\Users\Name\Documents\Project\Folder\Notebook.ipynb“.</p></li>
+<li><p>Unter <strong>macOS</strong>: Navigier im Finder zur gewünschten Datei und klick die Datei mit zwei Fingern an (Rechtsklick), es öffnet sich ein Menüfenster. Drück die Taste <code class="docutils literal notranslate"><span class="pre">Option</span> <span class="pre">⌥</span></code>, wodurch sich einige Menüoptionen ändern. Wähl <em>„Datei“ als Pfadname kopieren</em>. Ein vollständiger Pfad unter macOS sieht z. B. so aus: „/Users/Name/Documents/Project/Folder/Notebook.ipynb“. Beachte, dass Schrägstriche „/“ verwendet werden sowie, dass der absolute Pfad mit einem Schrägstrich beginnt.</p></li>
+<li><p>Unter <strong>Windows</strong>: Navigier im Explorer zur gewünschten Datei und klick diese mit einem Rechtsklick an, während du <code class="docutils literal notranslate"><span class="pre">Shift</span></code> gedrückt hältst. Es öffnet sich ein Menüfenster. Wähl <em>Als Pfad kopieren</em>. Ein vollständiger Pfad unter Windows sieht z. B. so aus: „C:\Users\Name\Documents\Project\Folder\Notebook.ipynb“. Beachte, dass Backslashes „&quot; verwendet werden sowie, dass der absolute Pfad ohne Backslash beginnt. <br>⚠️ Achtung: Der Backslash „&quot; hat bei Python eine Spezialbedeutung innerhalb von strings, wie etwa bei „\n“, das bekanntlich für einen Zeilenumbruch steht. Um Python bei einem Windows-Dateipfad mitzuteilen, dass die darin verwendeten Backslashes nicht als Spezialzeichen interpretiert werden sollen, müssen wir ein „r“ vor das öffnende Anführungszeichen stellen. Obiger Pfad innerhalb von Python-Code muss also so ausschauen: r“C:\Users\Name\Documents\Project\Folder\Notebook.ipynb“.</p></li>
+<li><p>Unter <strong>Linux</strong>: Hier gibt es mehrere Möglichkeiten, außerdem kann sich das Vorgehen je nach Distribution etwas unterscheiden. Öffne die Dateiverwaltung, navigier zur gewünschten Datei und klick diese an (Rechtsklick). Wähl nun <em>Eigenschaften</em>, dort kannst Du den absoluten Pfad kopieren. Du kannst auch die Datei auswählen und kommst mit <code class="docutils literal notranslate"><span class="pre">Shift</span></code> + Rechtsklick in ein Menü, in welchem Du den Pfad kopieren kannst. Alternativ – und das funktioniert unter allen gängigen Linux-Distributionen – kannst Du das Terminal im entsprechenden Ordner öffnen und in die Konsole den Befehl <code class="docutils literal notranslate"><span class="pre">pwd</span></code> eingeben. Dir wird anschließend der absolute Dateipfad <strong>zum Ordner</strong> ausgegeben. Du musst ihn dann noch um den Namen der Datei (mit Dateisuffix) ergänzen. Wie auch bei macOS beginnen absolute Pfade mit einem Schrägstrich.</p></li>
 </ul>
-<p>In beiden Fällen wird der Pfad in die Zwischenablage kopiert und Du kannst ihn anschließend in Deinen Code einfügen (am besten mit der Tastenkombination <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">⌘</span></code>+ <code class="docutils literal notranslate"><span class="pre">V</span></code> (macOS) / <code class="docutils literal notranslate"><span class="pre">Strg</span></code>+ <code class="docutils literal notranslate"><span class="pre">V</span></code> (Windows)).</p>
-<p>Beachte, dass die obersten Verzeichnisse eines absoluten Pfades, also diejenigen, die vom System vorgegeben sind, z.T. auf Englisch angegeben werden (selbst wenn sie in Deinem Dateimanager auf Deutsch angezeigt werden). Im vollständigen Pfad steht also ggf. <em>Users</em> und nicht <em>Benutzer</em>. Das geschieht aber automatisch, wenn Du den Pfad wie oben beschrieben kopierst.</p>
+<p>In ersteren beiden Fällen wird der Pfad in die Zwischenablage kopiert, unter Linux musst Du ihn ggf. noch selbst kopieren. Du kannst den Pfad anschließend in Deinen Code einfügen (am besten mit der Tastenkombination <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">⌘</span></code>+ <code class="docutils literal notranslate"><span class="pre">V</span></code> (macOS) / <code class="docutils literal notranslate"><span class="pre">Strg</span></code>+ <code class="docutils literal notranslate"><span class="pre">V</span></code> (Windows; Linux)).</p>
+<p>Beachte, dass die obersten Verzeichnisse eines absoluten Pfades, also diejenigen, die vom System vorgegeben sind, z. T. auf Englisch angegeben werden (selbst wenn sie in Deinem Dateimanager auf Deutsch angezeigt werden). Im vollständigen Pfad steht also ggf. <em>Users</em> und nicht <em>Benutzer</em>. Das geschieht aber automatisch, wenn Du den Pfad wie oben beschrieben kopierst.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 1:</strong> Navigiere in Deinem Dateimanager zu fünf beliebigen Dateien in fünf verschiedenen Verzeichnissen. Kopiere die absoluten Dateipfade wie oben beschrieben und weise je einen Dateipfad einer der folgenden Variablen zu (innerhalb der Anführungszeichen).</p>
+<p>✏️ <strong>Übung 1:</strong> Navigier in Deinem Dateimanager zu fünf beliebigen Dateien in fünf verschiedenen Verzeichnissen. Kopier die absoluten Dateipfade wie oben beschrieben und weis je einen Dateipfad einer der folgenden Variablen zu (innerhalb der Anführungszeichen).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben (so viel zu coden gibt es hier nicht 😅)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben (so viel zu coden gibt es hier nicht 😅).</span>
 
 <span class="n">path_file1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="n">path_file2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
@@ -527,11 +523,11 @@ document.write(`
 <hr class="docutils" />
 <section id="relative-dateipfade">
 <h3>Relative Dateipfade<a class="headerlink" href="#relative-dateipfade" title="Link zu dieser Überschrift">#</a></h3>
-<p>Ein Dateipfad kann stets auch relativ, d.h. vom aktuellen Arbeitsverzeichnis aus gesehen, angegeben werden. Am einfachsten ist das natürlich bei einer Datei, die sich im aktuellen Arbeitsverzeichnis befindet. Um auf diese zuzugreifen, geben wir bloß ihren Namen als Pfad an.</p>
-<p>Weiter können wir vom aktuellen Arbeitsverzeichnis aus in ein (darin befindliches) Unterverzeichnis navigieren. Dazu beginnt der relative Pfad mit dem Namen des Unterverzeichnis, gefolgt von einem Schrägstrich sowie dem Namen der Datei. Diese Schreibweise mit dem Schrägstrich funktioniert innerhalb Pythons auf allen Betriebssystemen. Unsere Schnittstelle zu externen Dateien, die weiter unten vorgestellte <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion, kümmert sich bei relativen Pfaden wenn nötig um die Konversion von Schrägstrich zu Backslash.</p>
+<p>Ein Dateipfad kann stets auch relativ, d. h. vom aktuellen <em>Arbeitsverzeichnis</em> (das ist das Verzeichnis, in dem man sich gerade befindet) aus gesehen, angegeben werden. Am einfachsten ist das natürlich bei einer Datei, die sich im aktuellen Arbeitsverzeichnis befindet. Um auf diese zuzugreifen, geben wir bloß ihren Namen als Pfad an.</p>
+<p>Weiter können wir vom aktuellen Arbeitsverzeichnis aus in ein (darin befindliches) Unterverzeichnis navigieren. Dazu beginnt der relative Pfad mit dem Namen des Unterverzeichnisses, gefolgt von einem Schrägstrich sowie dem Namen der Datei. Diese Schreibweise mit dem Schrägstrich funktioniert innerhalb Pythons auf allen Betriebssystemen. Unsere Schnittstelle zu externen Dateien, die weiter unten vorgestellte <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion, kümmert sich bei relativen Pfaden wenn nötig um die Konversion von Schrägstrich zu Backslash.</p>
 <p>Letztlich können wir vom aktuellen Arbeitsverzeichnis aus auch aufwärts (zum Stamm des Laufwerks hin) navigieren. Indem wir zwei Punkte und einen Schrägstrich, also „../“, an den Anfang des relativen Pfads stellen, rücken wir eine Ebene nach oben (und durch „../../“ zwei Ebenen, etc.). Im Anschluss an den Schrägstrich folgt der Name der Datei, die sich im Oberverzeichnis befindet. Natürlich können wir vom Oberverzeichnis aus auch in ein <em>anderes</em> Unterverzeichnis als das aktuelle Arbeitsverzeichnis (eine Art „Schwesterverzeichnis“) navigieren.</p>
-<p>Relative Dateipfade sind zwar fehleranfälliger als die einfach zu kopierenden, absoluten Dateipfade. Sie sind aber aus dreierlei Gründen zu bevorzugen: Erstens sind sie i.d.R. kürzer. Zweitens funktionieren sie auf allen Betriebssystemen. Drittens sind sie stabiler, da sie auch nach dem Verschieben oder Teilen eines Notebooks funktionieren, sofern die darin aufgerufenen Dateien entsprechend mitverschoben bzw. mitgeteilt wurden. Aus diesem Grund werden in diesen Notebooks auch stets relative Dateipfade verwendet und Du wurdest anfangs darum gebeten, die Ordnerstruktur der heruntergeladenen Dateien nicht zu verändern. Die hier verwendeten, relativen Dateipfade funktionieren solange, wie Du die Ordnerstruktur (konkret: das Verzeichnis „3_Dateien“ und die darin befindlichen Ordner und Dateien) nicht veränderst.</p>
-<p>Versuche also immer relative Dateipfade zu verwenden.</p>
+<p>Relative Dateipfade sind zwar fehleranfälliger als die einfach zu kopierenden, absoluten Dateipfade. Sie sind aber aus dreierlei Gründen zu bevorzugen: Erstens sind sie i. d. R. kürzer. Zweitens funktionieren sie auf allen Betriebssystemen. Drittens sind sie stabiler, da sie auch nach dem Verschieben oder Teilen eines Notebooks funktionieren, sofern die darin aufgerufenen Dateien entsprechend mitverschoben bzw. mitgeteilt wurden. Aus diesem Grund werden in diesen Notebooks auch stets relative Dateipfade verwendet und Du wurdest anfangs darum gebeten, die Ordnerstruktur der heruntergeladenen Dateien nicht zu verändern. Die hier verwendeten, relativen Dateipfade funktionieren solange, wie Du die Ordnerstruktur (konkret: das Verzeichnis „3_Dateien“ und die darin befindlichen Ordner und Dateien) nicht veränderst.</p>
+<p>Versuch also immer, <strong>relative</strong> Dateipfade zu verwenden.</p>
 </section>
 </section>
 <section id="das-os-modul">
@@ -541,15 +537,15 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
-<span class="c1">#gibt das aktuelle Arbeitsverzeichnis aus (&quot;get current working directory&quot;)</span>
+<span class="c1">#Gibt das aktuelle Arbeitsverzeichnis aus (&quot;get current working directory&quot;).</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuelles Arbeitsverzeichnis:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
 
-<span class="sd">&quot;&quot;&quot;mit dieser Funktion könnte man das aktuelle Arbeitsverzeichnis ändern; das tun wir aber nicht, </span>
-<span class="sd">da die relativen Dateipfade weiter unten im Notebook sonst nicht mehr korrekt wären (s.o).&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Mit dieser Funktion könnte man das aktuelle Arbeitsverzeichnis ändern; das tun wir aber nicht, </span>
+<span class="sd">da die relativen Dateipfade weiter unten im Notebook sonst nicht mehr korrekt wären (s. o.).&quot;&quot;&quot;</span>
 <span class="c1">#os.chdir(&quot;new_path&quot;)</span>
 
-<span class="sd">&quot;&quot;&quot;gibt die im aktuellen Arbeitsverzeichnis (oder beim in Klammern angegebenen Pfad) befindlichen Unterverzeichnisse </span>
-<span class="sd">und Dateien als Liste aus; darunter auch einige, die vom Dateimanager i.d.R. ausgeblendet werden&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Gibt die im aktuellen Arbeitsverzeichnis (oder beim in Klammern angegebenen Pfad) befindlichen Unterverzeichnisse </span>
+<span class="sd">und Dateien als Liste aus; darunter auch einige, die vom Dateimanager i. d. R. ausgeblendet werden.&quot;&quot;&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Darin befindliche Unterverzeichnisse und Dateien: &quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
@@ -560,26 +556,32 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuelles Arbeitsverzeichnis: /Users/Yannick/Documents/Repositories/yfrommherz.ch/website/programming/1_Notebooks
 
 Darin befindliche Unterverzeichnisse und Dateien: 
-7_Datenanalyse.ipynb
 2_Datentypen.ipynb
 4_Funktionen_und_Methoden.ipynb
 5_Input_und_Output.ipynb
 Loesungen
 1_Einfuehrung.ipynb
-6_Regulaere_Ausdruecke.ipynb
+4_Funktionen_und_Methoden_Teil_1.ipynb
+5_Input_und_Output_Teil_2.ipynb
+7_Regulaere_Ausdruecke.ipynb
+6_Datenanalyse_Teil_2.ipynb
+4_Funktionen_und_Methoden_Teil_2.ipynb
 3_Kontrollstrukturen.ipynb
+5_Input_und_Output_Teil_1.ipynb
+6_Datenanalyse.ipynb
+6_Datenanalyse_Teil_1.ipynb
 </pre></div>
 </div>
 </div>
 </div>
 <p>Denk daran, dass Du ein externes Modul wie <code class="docutils literal notranslate"><span class="pre">os</span></code> am Anfang jedes Notebooks importieren musst, um damit arbeiten zu können.</p>
-<p>Wie im vierten Notebook erklärt, müssen wir vor den Funktionsnamen jeweils den Modulnamen sowie einen Punkt setzen (z.B. <code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code>), damit Python weiß, wo sich die gewünschte Funktion befindet. Alternativ könnten wir auch den <code class="docutils literal notranslate"><span class="pre">import</span></code>-Befehl zu <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">os</span> <span class="pre">import</span> <span class="pre">getcwd,</span> <span class="pre">chdir,</span> <span class="pre">listdir</span></code> ändern, um so die entsprechenden Funktionen ohne Modulnamen davor aufzurufen.</p>
-<p>Wenn Du es versäumst, <code class="docutils literal notranslate"><span class="pre">os</span></code> am Anfang zu importieren, erhältst Du <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'os'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code> zurück. Das ist die gleiche Fehlermeldung, wie wenn Du versuchst mit einer (noch) nicht definierten Variable zu arbeiten. In beiden Fällen kann Python schlicht nichts mit den <em>Namen</em> anfangen.</p>
+<p>Wie im Notebook „Funktionen und Methoden Teil 2“ erklärt, müssen wir vor den Funktionsnamen jeweils den Modulnamen sowie einen Punkt setzen (z. B. <code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code>), damit Python weiß, wo sich die gewünschte Funktion befindet. Alternativ könnten wir auch den <code class="docutils literal notranslate"><span class="pre">import</span></code>-Befehl zu <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">os</span> <span class="pre">import</span> <span class="pre">getcwd,</span> <span class="pre">chdir,</span> <span class="pre">listdir</span></code> ändern, um so die entsprechenden Funktionen ohne Modulnamen davor aufzurufen.</p>
+<p>Wenn Du es versäumst, <code class="docutils literal notranslate"><span class="pre">os</span></code> am Anfang zu importieren, erhältst Du <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'os'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code> zurück. Das ist die gleiche Fehlermeldung, wie wenn Du versuchst, mit einer (noch) nicht definierten Variable zu arbeiten. In beiden Fällen kann Python schlicht nichts mit den <em>Namen</em> anfangen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 2:</strong> Das aktuelle Arbeitsverzeichnis auf einem Windows-Rechner sei „C:\Users\Name\Documents\Project\Folder“. Du möchtest auf eine Datei zugreifen, die folgenden absoluten Dateipfad besitzt: „C:\Users\Name\Documents\Resources\file.csv“. Mithilfe welchen relativen Pfads können wir in Python auf „file.csv“ zugreifen?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben (immer noch nichts zu coden 😅)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben (immer noch nichts zu coden 😅).</span>
 </pre></div>
 </div>
 </div>
@@ -588,8 +590,28 @@ Loesungen
 <hr class="docutils" />
 <section id="anwendungsfall-einen-gedankenprotokollanten-programmieren">
 <h2>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren" title="Link zu dieser Überschrift">#</a></h2>
-<p>Beim Anwendungsfall in diesem Notebook wollen wir ein interaktives Programm schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Die Benutzerin soll durch das Programm geführt werden und entscheiden können, wo, d.h. in welchem (externen) Dokument, sie ihre Gedanken festhalten will. Sie soll sowohl neue Dokumente anlegen können, als auch in bestehende reinschreiben. Anschließend soll sie beliebig viele Gedanken in dieses Dokument einfügen können. Das folgende Video zeigt das fertige Programm „in Aktion“:</p>
-<video controls src="../3_Dateien/Grafiken_und_Videos/Gedankenprotokollant.mov" width=700/><p>Ohne dieses Programm würde die Benutzerin vermutlich ein Microsoft Word-Dokument öffnen, ihre Gedanken reinschreiben, das Dokument speichern und dann wieder schließen. Das Anlegen/Öffnen/Speichern/Schließen des Dokuments wollen wir ihr abnehmen und ihr stattdessen ermöglichen, ihre Gedanken über eine freundliche, aber sehr minimale Benutzeroberfläche (engl.: <em>user interface</em>, abgekürzt: <em>UI</em>) zu protokollieren.</p>
+<p>Beim Anwendungsfall in diesem Notebook wollen wir ein interaktives Programm schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Die Benutzerin soll durch das Programm geführt werden und entscheiden können, wo, d. h. in welchem (externen) Dokument, sie ihre Gedanken festhalten will. Sie soll sowohl neue Dokumente anlegen können als auch in bestehende reinschreiben. Anschließend soll sie beliebig viele Gedanken in dieses Dokument einfügen können. Das folgende Video zeigt das fertige Programm „in Aktion“:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Führ diese Zelle aus, um das Video einzubetten.</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;RlshSCCX55E&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/RlshSCCX55E"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>Ohne dieses Programm würde die Benutzerin vermutlich ein Microsoft Word-Dokument öffnen, ihre Gedanken reinschreiben, das Dokument speichern und dann wieder schließen. Das Anlegen/Öffnen/Speichern/Schließen des Dokuments wollen wir ihr abnehmen und ihr stattdessen ermöglichen, ihre Gedanken über eine freundliche, aber sehr minimale Benutzeroberfläche (engl.: <em>user interface</em>, abgekürzt: <em>UI</em>) zu protokollieren.</p>
 <p>Im Folgenden lernen wir die dafür notwendigen Grundlagen kennen.</p>
 </section>
 <hr class="docutils" />
@@ -597,31 +619,31 @@ Loesungen
 <h2>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion<a class="headerlink" href="#die-open-funktion" title="Link zu dieser Überschrift">#</a></h2>
 <p>Die Schnittstelle zu externen Dateien bietet in Python die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion. Sie öffnet externe Dateien mittels folgender grundlegender Syntax:</p>
 <p><code class="docutils literal notranslate"><span class="pre">open(file,</span> <span class="pre">mode)</span></code></p>
-<p>Bei <code class="docutils literal notranslate"><span class="pre">file</span></code> setzen wir den absoluten oder relativen Dateipfad zur zu öffnenden Datei ein, und zwar als Zeichenkette, inklusive des Dateisuffixes und natürlich umrahmt von Anführungszeichen. Über den Parameter <code class="docutils literal notranslate"><span class="pre">mode</span></code> müssen bzw. können wir spezifizieren, was wir mit der zu öffnenden Datei machen wollen. <code class="docutils literal notranslate"><span class="pre">open</span></code> stellt drei verschiedene Modi zur Verfügung:</p>
+<p>Bei <code class="docutils literal notranslate"><span class="pre">file</span></code> setzen wir den absoluten oder relativen Dateipfad zur zu öffnenden Datei ein, und zwar als Zeichenkette, inklusive des <strong>Dateisuffixes</strong> und natürlich umrahmt von <strong>Anführungszeichen</strong>. Über den Parameter <code class="docutils literal notranslate"><span class="pre">mode</span></code> müssen bzw. können wir spezifizieren, was wir mit der zu öffnenden Datei machen wollen. <code class="docutils literal notranslate"><span class="pre">open</span></code> stellt drei verschiedene Modi zur Verfügung:</p>
 <ul class="simple">
-<li><p>den Lesemodus für Input (<code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>): dies ist der Standardmodus, der Parameter <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> wird deswegen i.d.R. weggelassen (vgl. viertes Notebook beim Öffnen der Koalitionsverträge)</p></li>
-<li><p>den Schreibmodus für Output (<code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>): überprüft, ob die angegebene Datei im Verzeichnis existiert; wenn ja, wird deren Inhalt <em>über</em>schrieben; wenn nein, wird die Datei geschaffen und <em>be</em>schrieben</p></li>
-<li><p>den „Anhängmodus“ für Output (<code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> von <em>append</em>): überprüft, ob die angegebene Datei im Verzeichnis existiert; wenn ja, werden Daten (z.B. neue Zeilen bei einer Datei in Tabellenform) im Anschluss an die bereits existierenden Daten in der angegebenen Datei angehängt; wenn nein, wird die Datei geschaffen und <em>be</em>schrieben</p></li>
+<li><p>den <strong>Lesemodus</strong> für Input (<code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>): Dies ist der Standardmodus, der Parameter <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> wird deswegen i. d. R. weggelassen (vgl. Notebook „Funktionen und Methoden“ beim Öffnen der Koalitionsverträge).</p></li>
+<li><p>den <strong>Schreibmodus</strong> für Output (<code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>): Dieser überprüft, ob die angegebene Datei im Verzeichnis existiert; wenn ja, wird deren Inhalt <em>über</em>schrieben; wenn nein, wird die Datei geschaffen und <em>be</em>schrieben.</p></li>
+<li><p>den <strong>„Anhängmodus“</strong> für Output (<code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> von <em>append</em>): Er überprüft, ob die angegebene Datei im Verzeichnis existiert; wenn ja, werden Daten (z. B. neue Zeilen bei einer Datei in Tabellenform) im Anschluss an die bereits existierenden Daten in der angegebenen Datei angehängt; wenn nein, wird die Datei geschaffen und <em>be</em>schrieben.</p></li>
 </ul>
 <p>Zum Schreiben bzw. Anhängen sieht der Funktionsaufruf also so aus:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">open(file,</span> <span class="pre">&quot;w&quot;)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">open(file,</span> <span class="pre">&quot;a&quot;)</span></code></p></li>
 </ul>
-<p>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion akzeptiert neben <code class="docutils literal notranslate"><span class="pre">file</span></code> und <code class="docutils literal notranslate"><span class="pre">mode</span></code> weitere Parameter, u.a. <code class="docutils literal notranslate"><span class="pre">encoding</span></code>, wo wir spezifizieren können, <em>wie</em> eine Datei enkodiert ist. Das Encoding einer Datei legt fest, nach welchem Schlüssel sämtliche Zeichen (Buchstaben in lateinischer Schrift sowie den allermeisten anderen Sprachen, Zahlen, Emojis…) in Nullen und Einsen übersetzt werden. Natürlich geht nichts ohne den korrekten Schlüssel. <a class="reference external" href="https://de.wikipedia.org/wiki/UTF-8">UTF-8</a> von <a class="reference external" href="https://de.wikipedia.org/wiki/Unicode">Unicode</a> ist Standard, sodass wir uns i.d.R. nicht den Kopf darüber zerbrechen müssen. Um Problemen vorzubeugen (insbesondere unter Windows), lohnt es sich trotzdem, standardmäßig <code class="docutils literal notranslate"><span class="pre">encoding=utf-8</span></code> zu spezifizieren, und zwar beim Input sowie beim Output.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion akzeptiert neben <code class="docutils literal notranslate"><span class="pre">file</span></code> und <code class="docutils literal notranslate"><span class="pre">mode</span></code> weitere Parameter, u. a. <code class="docutils literal notranslate"><span class="pre">encoding</span></code>, wo wir spezifizieren können, <em>wie</em> eine Datei enkodiert ist. Das Encoding einer Datei legt fest, nach welchem Schlüssel sämtliche Zeichen (Buchstaben in lateinischer Schrift sowie den allermeisten anderen Sprachen, Zahlen, Emojis…) in Nullen und Einsen übersetzt werden. Natürlich geht nichts ohne den korrekten Schlüssel. <a class="reference external" href="https://de.wikipedia.org/wiki/UTF-8">UTF-8</a> von <a class="reference external" href="https://de.wikipedia.org/wiki/Unicode">Unicode</a> ist Standard, sodass wir uns i. d. R. nicht den Kopf darüber zerbrechen müssen. Um Problemen vorzubeugen (insbesondere unter Windows), lohnt es sich trotzdem, standardmäßig <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code> zu spezifizieren, und zwar beim Input sowie beim Output.</p>
 <section id="input">
 <h3>Input<a class="headerlink" href="#input" title="Link zu dieser Überschrift">#</a></h3>
-<p>Wie wir bei den Koalitionsverträgen im letzten Notebook bereits gesehen haben, wird die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion zum Lesen von externen Dateien wie folgt syntaktisch eingebunden:</p>
+<p>Wie wir bei den Koalitionsverträgen im Notebook „Funktionen und Methoden“ bereits gesehen haben, wird die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion zum Lesen von externen Dateien wie folgt syntaktisch eingebunden:</p>
 <p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(file,</span> <span class="pre">encoding=&quot;utf-8&quot;)</span> <span class="pre">as</span> <span class="pre">read_file:</span></code><br>
           <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">=</span> <span class="pre">read_file.read()</span></code></p>
 <p>Wir benutzen hier den sog. <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager: Im <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement öffnen wir mittels <code class="docutils literal notranslate"><span class="pre">open</span></code> das übergebene <code class="docutils literal notranslate"><span class="pre">file</span></code> und weisen die geöffnete Datei direkt einer Variablen zu (hier <code class="docutils literal notranslate"><span class="pre">read_file</span></code>, aber wie immer kann man einen beliebigen Variablennamen wählen).</p>
-<p>Eingerückt darunter wenden wir die <code class="docutils literal notranslate"><span class="pre">read</span></code>-Methode auf <code class="docutils literal notranslate"><span class="pre">read_file</span></code> an, d.h. die bislang nur geöffnete Datei wird nun eingelesen. Je nach dem, wie die externe Datei formatiert ist, müssen wir <code class="docutils literal notranslate"><span class="pre">read</span></code> durch eine andere geeignete Lesemethode ersetzen (s.u.). Das Resultat weisen wir in jedem Fall einer sinnvoll genannten <code class="docutils literal notranslate"><span class="pre">variable</span></code> zu. Die externe Datei befindet sich damit als Objekt im Arbeitsspeicher.</p>
-<p>Diese Syntax für den Dateiinput entspricht natürlichsprachlich ungefähr: „Mit (<code class="docutils literal notranslate"><span class="pre">with</span></code>) der zu öffnenden (<code class="docutils literal notranslate"><span class="pre">open</span></code>) Datei (<code class="docutils literal notranslate"><span class="pre">file</span></code>) als (<code class="docutils literal notranslate"><span class="pre">as</span></code>), nennen wir es, <code class="docutils literal notranslate"><span class="pre">read_file</span></code>, tu alles, was nach dem Doppelpunkt (<code class="docutils literal notranslate"><span class="pre">:</span></code>) darunter eingerückt (<code class="docutils literal notranslate"><span class="pre">⇥</span></code>) steht (hier: lese (<code class="docutils literal notranslate"><span class="pre">read</span></code>) das <code class="docutils literal notranslate"><span class="pre">read_file</span></code> und weise es <code class="docutils literal notranslate"><span class="pre">variable</span></code> zu (<code class="docutils literal notranslate"><span class="pre">=</span></code>)).</p>
+<p>Eingerückt darunter wenden wir die <code class="docutils literal notranslate"><span class="pre">read</span></code>-Methode auf <code class="docutils literal notranslate"><span class="pre">read_file</span></code> an, d. h. die bislang nur geöffnete Datei wird nun eingelesen. Je nachdem, wie die externe Datei formatiert ist, müssen wir <code class="docutils literal notranslate"><span class="pre">read</span></code> durch eine andere geeignete Lesemethode ersetzen (s. u.). Das Resultat weisen wir in jedem Fall einer sinnvoll genannten <code class="docutils literal notranslate"><span class="pre">variable</span></code> zu. Die externe Datei befindet sich damit als Objekt im Arbeitsspeicher.</p>
+<p>Diese Syntax für den Dateiinput entspricht natürlichsprachlich ungefähr: „Mit (<code class="docutils literal notranslate"><span class="pre">with</span></code>) der zu öffnenden (<code class="docutils literal notranslate"><span class="pre">open</span></code>) Datei (<code class="docutils literal notranslate"><span class="pre">file</span></code>) als (<code class="docutils literal notranslate"><span class="pre">as</span></code>), nennen wir es, <code class="docutils literal notranslate"><span class="pre">read_file</span></code>, tu alles, was nach dem Doppelpunkt (<code class="docutils literal notranslate"><span class="pre">:</span></code>) darunter eingerückt (<code class="docutils literal notranslate"><span class="pre">⇥</span></code>) steht (hier: lies (<code class="docutils literal notranslate"><span class="pre">read</span></code>) das <code class="docutils literal notranslate"><span class="pre">read_file</span></code> und weis es <code class="docutils literal notranslate"><span class="pre">variable</span></code> zu (<code class="docutils literal notranslate"><span class="pre">=</span></code>)).“</p>
 <p>Indem wir anschließend die Einrückung wieder verlassen, schließt der <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager die externe Datei <em>automatisch</em>. Die brauchen wir ja auch nicht mehr, da wir deren Inhalt nun in einem Python-Objekt im Arbeitsspeicher haben. Die Verwendung von <code class="docutils literal notranslate"><span class="pre">with</span></code> beim Umgang mit externen Dateien ist <em>Best Practice</em>. Abweichend davon begegnet man auch folgender Herangehensweise:</p>
 <p><code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">=</span> <span class="pre">open(&quot;path&quot;,</span> <span class="pre">encoding=&quot;utf-8&quot;)</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">content</span> <span class="pre">=</span> <span class="pre">file.read()</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">file.close()</span> </code></p>
-<p>In der ersten Zeile wird die externe Datei geöffnet und in der zweiten gelesen. Anschließend muss die Datei wieder <em>manuell</em> geschlossen werden. Oft wird jedoch genau dieser letzte Schritt vergessen. Gewöhne Dir also an, stets den <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager im Umgang mit externen Dateien zu benutzen.</p>
+<p>In der ersten Zeile wird die externe Datei geöffnet und in der zweiten gelesen. Anschließend muss die Datei wieder <em>manuell</em> geschlossen werden. Oft wird jedoch genau dieser letzte Schritt vergessen. Gewöhn Dir also an, stets den <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager im Umgang mit externen Dateien zu benutzen.</p>
 </section>
 <section id="output">
 <h3>Output<a class="headerlink" href="#output" title="Link zu dieser Überschrift">#</a></h3>
@@ -629,28 +651,28 @@ Loesungen
 <p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(file,</span> <span class="pre">&quot;w&quot;,</span> <span class="pre">encoding=&quot;utf-8&quot;)</span> <span class="pre">as</span> <span class="pre">write_file:</span></code><br>
           <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span> <span class="pre">data:</span></code><br>
                     <code class="docutils literal notranslate"><span class="pre">write_file.write(line</span> <span class="pre">+</span> <span class="pre">&quot;\n&quot;)</span></code></p>
-<p>In diesem Beispiel iterieren wir über ein mit <code class="docutils literal notranslate"><span class="pre">data</span></code> referenziertes Listenobjekt (das wir im Code davor auf irgendeine Weise geschaffen haben) und schreiben mittels der <code class="docutils literal notranslate"><span class="pre">write</span></code>-Methode jedes Element (<code class="docutils literal notranslate"><span class="pre">line</span></code>) in eine neue Zeile von <code class="docutils literal notranslate"><span class="pre">write_file</span></code> (die neue Zeile kommt durch den abschließenden Zeilenumbruch im <code class="docutils literal notranslate"><span class="pre">write</span></code>-Befehl zustande, wobei dieser mit der jeweiligen <code class="docutils literal notranslate"><span class="pre">line</span></code> zu <em>einem</em> string konkateniert wird, da <code class="docutils literal notranslate"><span class="pre">write</span></code> nur <em>ein</em> Argument akzeptiert). Wie beim Input wird <code class="docutils literal notranslate"><span class="pre">write_file</span></code> nach Verlassen der (äußeren) Einrückung automatisch geschlossen. Je nach gewünschtem Outputformat (z.B. als Textdatei oder als Tabelle) kommen andere Schreibmethoden als <code class="docutils literal notranslate"><span class="pre">write</span></code> zum Einsatz (s.u.).</p>
-<p>Im Folgenden schauen wir uns genauer an, wie wir mit den beiden wichtigsten Datenformaten, Textdateien und tabellarische Dateien, beim Input und Output umgehen.</p>
+<p>In diesem Beispiel iterieren wir über ein mit <code class="docutils literal notranslate"><span class="pre">data</span></code> referenziertes Listenobjekt (das wir im Code davor auf irgendeine Weise geschaffen haben) und schreiben mittels der <code class="docutils literal notranslate"><span class="pre">write</span></code>-Methode jedes Element (<code class="docutils literal notranslate"><span class="pre">line</span></code>) in eine neue Zeile von <code class="docutils literal notranslate"><span class="pre">write_file</span></code> (die neue Zeile kommt durch den abschließenden Zeilenumbruch im <code class="docutils literal notranslate"><span class="pre">write</span></code>-Befehl zustande, wobei dieser mit der jeweiligen <code class="docutils literal notranslate"><span class="pre">line</span></code> zu <em>einem</em> string konkateniert wird, da <code class="docutils literal notranslate"><span class="pre">write</span></code> nur <em>ein</em> Argument akzeptiert). Wie beim Input wird <code class="docutils literal notranslate"><span class="pre">write_file</span></code> nach Verlassen der (äußeren) Einrückung automatisch geschlossen. Je nach gewünschtem Outputformat (z. B. als Textdatei oder als Tabelle) kommen andere Schreibmethoden als <code class="docutils literal notranslate"><span class="pre">write</span></code> zum Einsatz (s. u.).</p>
+<p>Im Folgenden schauen wir uns genauer an, wie wir mit den beiden wichtigsten Datenformaten, <em>Textdateien</em> und <em>tabellarische Dateien</em>, beim Input und Output umgehen.</p>
 </section>
 </section>
 <section id="textdateien">
 <h2>Textdateien<a class="headerlink" href="#textdateien" title="Link zu dieser Überschrift">#</a></h2>
-<p>Textdateien sind grundlegend nach Zeilen strukturierte Dateien. Das trifft sowohl auf Microsoft Office-Dokumente mit dem Suffix „.docx“ zu, als auch auf sog. <em>Plain Text Files</em> (mit dem Suffix „.txt“). Letztere sind <strong>nur</strong> nach Zeilen strukturiert und können von den meisten Programmen auf sämtlichen Betriebssystemen und natürlich auch von Python geöffnet werden. Deshalb beschränken wir uns im Folgenden auf Plain Text Files.</p>
-<p>Am Ende jeder Zeile in einer solchen Textdatei steht ein Zeilenumbruch, der als <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> (ausgesprochen: <em>backslash n</em> oder <em>newline</em>) kodiert wird. Wenn wir eine „.txt“-Datei z.B. in Microsoft Word öffnen, werden uns i.d.R. nur die Zeilenumbrüche, nicht aber die dafür verantwortlichen Zeichen angezeigt (links im Screenshot unten). Optional können wir sie uns aber einblenden lassen (rechts im Screenshot unten).</p>
-<img src="../3_Dateien/Grafiken_und_Videos/Miss_Sara_Sampson.png"><p>Hier handelt es sich um die ersten paar Zeilen aus Gotthold Ephraim Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/sampson/sampson.html">Miss Sara Sampson</a>.</p>
+<p>Textdateien sind grundlegend nach Zeilen strukturierte Dateien. Das trifft sowohl auf Microsoft Office-Dokumente mit dem Suffix „.docx“ zu als auch auf sog. <em>Plain Text Files</em> (mit dem Suffix „.txt“). Letztere sind <strong>nur</strong> nach Zeilen strukturiert und können von den meisten Programmen auf sämtlichen Betriebssystemen und natürlich auch von Python geöffnet werden. Deshalb beschränken wir uns im Folgenden auf Plain Text Files.</p>
+<p>Am Ende jeder Zeile in einer solchen Textdatei steht ein Zeilenumbruch, der als <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> (ausgesprochen: <em>backslash n</em> oder <em>newline</em>) kodiert wird. Wenn wir eine „.txt“-Datei z. B. in Microsoft Word öffnen, werden uns i. d. R. nur die Zeilenumbrüche, nicht aber die dafür verantwortlichen Zeichen angezeigt (links im Screenshot unten). Optional können wir sie uns aber einblenden lassen (rechts im Screenshot unten).</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Miss_Sara_Sampson.png"><p>Hier handelt es sich um die ersten paar Zeilen aus Gotthold Ephraim Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/sampson/sampson.html"><em>Miss Sara Sampson</em></a>.</p>
 <p>An den sichtbar gemachten Zeichen für Zeilenumbrüche sehen wir, dass die letzten beiden Redebeiträge jeweils nur in einer einzigen Zeile gespeichert sind. Hier werden sie bloß aufgrund der horizontalen Begrenzung des Fensters auf mehreren Zeilen angezeigt.</p>
 <p>Auch bei Python werden Zeilenumbrüche nur in gewissen Fällen als Zeichen angezeigt, wie wir gleich sehen werden. Damit arbeiten können wir aber in jedem Fall, also auch wenn Zeilenumbrüche als Zeichen bei einer Ausgabe mal nicht angezeigt werden.</p>
 <p>Das wollen wir jetzt ausprobieren. Dazu lesen wir den im Screenshot gezeigten Text sowie den Rest des ersten Aufzugs aus dem Trauerspiel in Python ein. Die Datei befindet sich im Ordner „3_Dateien/Miss_Sara_Sampson“. Die simpelste Methode zum Einlesen einer Datei heißt, wie oben erwähnt, <code class="docutils literal notranslate"><span class="pre">read</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#um in den Ordner &quot;3_Dateien&quot; zu gelangen, navigieren wir mit &quot;../&quot; erst eine Ordnerebene nach oben</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Um in den Ordner &quot;3_Dateien&quot; zu gelangen, navigieren wir mit &quot;../&quot; erst eine Ordnerebene nach oben</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Miss_Sara_Sampson/Miss_Sara_Sampson_Aufzug_1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
     <span class="n">miss_sara_sampson</span> <span class="o">=</span> <span class="n">read_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="n">miss_sara_sampson</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">200</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="sd">&quot;&quot;&quot;Tipp: im Output hier werden Zeilenumbrüche nicht als Zeichen angezeigt; </span>
-<span class="sd">will man dies forcieren, kann man die repr-Funktion verwenden&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Tipp: Im Output hier werden Zeilenumbrüche nicht als Zeichen angezeigt; </span>
+<span class="sd">will man dies forcieren, kann man die &#39;repr&#39;-Funktion verwenden.&quot;&quot;&quot;</span>
 <span class="c1">#print(repr(miss_sara_sampson[0:200]))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">miss_sara_sampson</span><span class="p">))</span>
@@ -674,7 +696,7 @@ Sir William. Hier meine Tochter? Hier in diesem elenden Wirt
 </div>
 </div>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">read</span></code> wird die gesamte Textdatei in einen einzigen langen string überführt. Da der erste Aufzug recht umfangreich ist (26960 Zeichen), geben wir hier mithilfe von Slicing nur die ersten 200 Zeichen aus. Indem Du die eckigen Klammern entfernst, kannst Du Dir den gesamten ersten Aufzug zu Gemüte führen (das ist nicht nötig, aber fürs weitere Verständnis lohnt es sich, ihn zumindest zu überfliegen).</p>
-<p>Natürlich wollen wir den Text nicht nur lesen. Dafür hätten wir ein beliebiges Textverarbeitungsprogramm verwenden und uns das Programmieren sparen können. Programmieren bringt erst dann einen Vorteil, wenn wir es mit sinnvoll strukturierten Daten zu tun haben (dieses Merkmal ist hier ja u.a. durch die Zeilenumbrüche gegeben) und wir uns diese Strukturiertheit bei der Verarbeitung und Auswertung der Daten zunutze machen können.</p>
+<p>Natürlich wollen wir den Text nicht nur lesen. Dafür hätten wir ein beliebiges Textverarbeitungsprogramm verwenden und uns das Programmieren sparen können. Programmieren bringt erst dann einen Vorteil, wenn wir es mit sinnvoll strukturierten Daten zu tun haben (dieses Merkmal ist hier ja u. a. durch die Zeilenumbrüche gegeben) und wir uns diese Strukturiertheit bei der Verarbeitung und Auswertung der Daten zunutze machen können.</p>
 <p>Machen wir es konkret und stellen uns vor, wir würden gerne sämtliche Redebeiträge der Protagonistin Sara extrahieren. Wie bereits erwähnt, entspricht jeder Redebeitrag einer Zeile. Es macht in einem ersten Schritt also Sinn, dass wir das strukturelle Merkmal der Zeilenumbrüche ausnutzen und den Text in Zeilen (und damit in Redebeiträge) unterteilen. Dazu könnten wir <code class="docutils literal notranslate"><span class="pre">split(&quot;\n&quot;)</span></code> auf <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code> anwenden. Es gibt aber genau dafür auch eine eigene Lesemethode:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -694,13 +716,13 @@ Sir William. Hier meine Tochter? Hier in diesem elenden Wirt
 <p>Mit <code class="docutils literal notranslate"><span class="pre">readlines</span></code> werden die einzelnen Zeilen einer Textdatei als string-Elemente in eine Liste aufgenommen. Über den <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl lassen wir uns die ersten fünf Elemente, also die ersten fünf Zeilen, ausgeben. Wir sehen, dass einige Zeilen nur aus einem <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> bestehen (natürlich zeigten sich diese leeren Zeilen auch schon bei der vorherigen Ausgabe). Diese leeren Zeilen können wir mithilfe der (bisher uneingeführten) string-Methode <code class="docutils literal notranslate"><span class="pre">isspace</span></code> entfernen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#wir iterieren über alle Elemente in &quot;miss_sara_sampson&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Wir iterieren über alle Elemente in &#39;miss_sara_sampson&#39;.</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">miss_sara_sampson</span><span class="p">:</span>
     
-    <span class="c1">#wenn das Element nur (!) aus whitespace-Zeichen (und dazu gehören Zeilenumbrüche) besteht...</span>
+    <span class="c1">#Wenn das Element nur (!) aus whitespace-Zeichen (und dazu gehören Zeilenumbrüche) besteht...</span>
     <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">isspace</span><span class="p">():</span>
         
-        <span class="c1">#...dann entfernen wir das betreffende Element aus der Liste</span>
+        <span class="c1">#...dann entfernen wir das betreffende Element aus der Liste.</span>
         <span class="n">miss_sara_sampson</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         
 <span class="nb">print</span><span class="p">(</span><span class="n">miss_sara_sampson</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
@@ -714,13 +736,13 @@ Sir William. Hier meine Tochter? Hier in diesem elenden Wirt
 </div>
 </div>
 <p>Hat geklappt!</p>
-<p>Wir sehen auch, dass jeder string noch mit einem kodierten Zeilenumbruch endet. Dies ist überflüssig, da die Struktur, die im Fließtext durch die Zeilenumbrüche entstand, bereits in Form der Elemente auf der Liste widerspiegelt wird. Die kodierten Zeilenumbrüche können wir so entfernen:</p>
+<p>Wir sehen auch, dass jeder string noch mit einem kodierten Zeilenumbruch endet. Dies ist überflüssig, da die Struktur, die im Fließtext durch die Zeilenumbrüche entstand, bereits in Form der Elemente auf der Liste widergespiegelt wird. Die kodierten Zeilenumbrüche können wir so entfernen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessed</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">miss_sara_sampson</span><span class="p">:</span>
-    <span class="c1">#hier entfernen wir sämtliche whitespace-Zeichen am rechten Rand (trailing whitespace) und hängen das Resultat &quot;preprocessed&quot; an</span>
+    <span class="c1">#Hier entfernen wir sämtliche whitespace-Zeichen am rechten Rand (trailing whitespace) und hängen das Resultat &#39;preprocessed&#39; an.</span>
     <span class="n">preprocessed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
@@ -734,10 +756,10 @@ Sir William. Hier meine Tochter? Hier in diesem elenden Wirt
 </div>
 </div>
 <p>Klappt ebenfalls.</p>
-<p>Zeilenumbrüche (sowie sonstige whitespace-Zeichen) am rechten Rand können aber bereits beim Einlesen einer Textdatei entfernt werden. Dabei muss noch nicht mal eine Lesemethode verwendet werden. Zwar können wir uns die geöffnete Datei <code class="docutils literal notranslate"><span class="pre">read_file</span></code> nicht direkt als Zeichenkette ausgeben lassen (dafür brauchen wir die Lesemethoden <code class="docutils literal notranslate"><span class="pre">read</span></code> oder <code class="docutils literal notranslate"><span class="pre">readlines</span></code>; überzeuge Dich selbst davon, indem Du versuchst, <code class="docutils literal notranslate"><span class="pre">read_file</span></code> auszugeben), aber es ist praktischerweise möglich, über <code class="docutils literal notranslate"><span class="pre">read_file</span></code> zu iterieren. Die einzelnen Elemente entsprechen ganz einfach den Zeilen:</p>
+<p>Zeilenumbrüche (sowie sonstige whitespace-Zeichen) am rechten Rand können aber bereits beim Einlesen einer Textdatei entfernt werden. Dabei muss noch nicht einmal eine Lesemethode verwendet werden. Zwar können wir uns die geöffnete Datei <code class="docutils literal notranslate"><span class="pre">read_file</span></code> nicht direkt als Zeichenkette ausgeben lassen (dafür brauchen wir die Lesemethoden <code class="docutils literal notranslate"><span class="pre">read</span></code> oder <code class="docutils literal notranslate"><span class="pre">readlines</span></code>; überzeug Dich selbst davon, indem Du versuchst, <code class="docutils literal notranslate"><span class="pre">read_file</span></code> auszugeben), aber es ist praktischerweise möglich, über <code class="docutils literal notranslate"><span class="pre">read_file</span></code> zu iterieren. Die einzelnen Elemente entsprechen ganz einfach den Zeilen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dieser Code erledigt alle Schritte von oben auf einmal</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Dieser Code erledigt alle Schritte von oben auf einmal.</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Miss_Sara_Sampson/Miss_Sara_Sampson_Aufzug_1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
     <span class="n">miss_sara_sampson</span> <span class="o">=</span> <span class="p">[]</span>
@@ -746,7 +768,7 @@ Sir William. Hier meine Tochter? Hier in diesem elenden Wirt
             <span class="k">continue</span>
         <span class="n">miss_sara_sampson</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
 
-    <span class="c1">#hier sparen wir uns noch mehr Zeilen mithilfe einer List Comprehension</span>
+    <span class="c1">#Hier sparen wir uns noch mehr Zeilen mithilfe einer List Comprehension.</span>
     <span class="c1">#miss_sara_sampson = [line.rstrip() for line in read_file if not line.isspace()]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
@@ -766,11 +788,11 @@ Waitwell. Ach! sie verdient sie, und wenn es blutige Tränen wären.
 </div>
 <p>Hier überprüfen wir erst, ob die Zeile nur aus whitespace besteht, und wenn ja, dann überspringen wir sie (<code class="docutils literal notranslate"><span class="pre">continue</span></code>). Andernfalls hängen wir die am rechten Rand von whitespace bereinigte Zeile <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code> an. Das Ergebnis ist das gleiche wie oben, nur haben wir uns dabei ein paar Zeilen Code gespart.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 3:</strong> Lies den ersten Aufzug aus Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/nathan/chap002.html">Nathan der Weise</a> ein. Die Datei befindet sich im Unterverzeichnis „Nathan_der_Weise“ im Dateienordner. Finde heraus, welche der Figuren des Stücks (bereitgestellt in <code class="docutils literal notranslate"><span class="pre">characters</span></code>) am häufigsten erwähnt wird (wir unterscheiden nicht zwischen Erwähnungen in Redebeiträgen und sonst wo im Text, z.B. in der Sprecherkennzeichung).</p>
-<p>Um Deine Fertigkeiten aus dem letzten Notebook gleich wieder einzusetzen, könntest Du dazu auch eine sortierte Frequenzliste mit allen Figuren und ihren jeweiligen Erwähnungshäufigkeiten erstellen.</p>
+<p>✏️ <strong>Übung 3:</strong> Lies den ersten Aufzug aus Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/nathan/chap002.html"><em>Nathan der Weise</em></a> ein. Die Datei befindet sich im Unterverzeichnis „Nathan_der_Weise“ im Dateienordner. Find heraus, welche der Figuren des Stücks (bereitgestellt in <code class="docutils literal notranslate"><span class="pre">characters</span></code>) am häufigsten erwähnt wird (wir unterscheiden nicht zwischen Erwähnungen in Redebeiträgen und sonst wo im Text, z. B. in der Sprecherkennzeichung).</p>
+<p>Um Deine Fertigkeiten aus dem Notebook „Funktionen und Methoden Teil 1“ gleich wieder einzusetzen, könntest Du dazu auch eine sortierte Frequenzliste mit allen Figuren und ihren jeweiligen Erwähnungshäufigkeiten erstellen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
 <span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sultan Saladin&quot;</span><span class="p">,</span> <span class="s2">&quot;Sittah&quot;</span><span class="p">,</span> <span class="s2">&quot;Nathan&quot;</span><span class="p">,</span> <span class="s2">&quot;Recha&quot;</span><span class="p">,</span> <span class="s2">&quot;Daja&quot;</span><span class="p">,</span> <span class="s2">&quot;Tempelherr&quot;</span><span class="p">,</span> <span class="s2">&quot;Derwisch&quot;</span><span class="p">,</span> <span class="s2">&quot;Patriarch von Jerusalem&quot;</span><span class="p">,</span> <span class="s2">&quot;Klosterbruder&quot;</span><span class="p">,</span> <span class="s2">&quot;Emir&quot;</span><span class="p">]</span> 
 </pre></div>
@@ -779,7 +801,7 @@ Waitwell. Ach! sie verdient sie, und wenn es blutige Tränen wären.
 </div>
 <hr class="docutils" />
 <p>Die Antwort ist natürlich keine große Überraschung. 🙈</p>
-<p>Zurück zu <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>, das ja mittlerweile eine Liste mit von trailing whitespace befreiten Zeilen darstellt. Die Liste enthält neben Redebeiträgen auch noch Metakommentare wie <em>Sir William Sampson und Waitwell treten in Reisekleidern herein.</em> (Index 3).</p>
+<p>Zurück zu <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>, das ja mittlerweile eine Liste mit von trailing whitespace befreiten Zeilen darstellt. Die Liste enthält neben Redebeiträgen auch noch Metakommentare wie <em>Sir William Sampson und Waitwell treten in Reisekleidern herein.</em> (Index <code class="docutils literal notranslate"><span class="pre">3</span></code>).</p>
 <p>Um nun Saras Redebeiträge zu extrahieren, können wir uns den strukturellen Umstand zunutze machen, dass am Anfang aller Redebeiträge der Name der Figur gefolgt von einem Punkt steht:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -789,10 +811,10 @@ Waitwell. Ach! sie verdient sie, und wenn es blutige Tränen wären.
     <span class="k">if</span> <span class="n">turn</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Sara.&quot;</span><span class="p">):</span> 
         <span class="n">saras_turns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">turn</span><span class="p">)</span>
 
-<span class="c1">#als List Comprehension</span>
+<span class="c1">#Als List Comprehension</span>
 <span class="c1">#saras_turns = [turn for turn in miss_sara_sampson if turn.startswith(&quot;Sara.&quot;)]</span>
 
-<span class="c1">#hier geben wir zur Überprüfung die Redebeiträge mit Indizes 10, 11, 12, 13, 14 aus</span>
+<span class="c1">#Hier geben wir zur Überprüfung die Redebeiträge mit Indizes 10, 11, 12, 13, 14 aus</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">saras_turns</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -819,16 +841,16 @@ Sara. Diese sollen die Zeugen unserer Verbindung sein? – Grausamer! so soll di
 <p><code class="docutils literal notranslate"><span class="pre">startswith</span></code> tut ganz klar seinen Dienst.</p>
 <section id="exkurs-die-wahrheitsmatrix">
 <h3>Exkurs: Die Wahrheitsmatrix<a class="headerlink" href="#exkurs-die-wahrheitsmatrix" title="Link zu dieser Überschrift">#</a></h3>
-<p>An dieser Stelle lohnt sich nochmal ein Blick in <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>, zur Vergewisserung, dass wir mit obiger Bedingung auch wirklich alle Redebeiträge von Sara extrahiert haben. Es könnte ja z.B. sein, dass ihr Name vor einem Redebeitrag aus welchem Grund auch immer kleingeschrieben ist („sara.“) oder aber, dass zwischen ihrem Namen und dem Punkt eine Klammer mit Metakommentaren steht.</p>
-<p>Und tatsächlich: ein Redebeitrag beginnt so: „Sara (sie setzt sich).“ (Index 71 in <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>). Nach eingehender Prüfung wissen wir, dass dies auch der einzige Redebeitrag ist, der nicht von <code class="docutils literal notranslate"><span class="pre">turn.startswith(&quot;Sara.&quot;)</span></code> „eingefangen“ wird. Wir könnten nun etwas unelegant die zusätzliche Bedingung <code class="docutils literal notranslate"><span class="pre">or</span> <span class="pre">turn.startswith(&quot;Sara</span> <span class="pre">(sie</span> <span class="pre">setzt</span> <span class="pre">sich).&quot;)</span></code> aufstellen.</p>
-<p>Um sicherzustellen, dass der Code wiederverwendbar ist (z.B. beim zweiten Aufzug), wählen wir den eleganteren Weg der regulären Ausdrücke (engl.: <em>regular expressions</em>, abgekürzt: <em>RegEx</em>). Reguläre Ausdrücke sind ein äußerst praktisches Werkzeug, das wir uns im nächsten Notebooks im Detail anschauen. Kurz gesagt: Wir definieren hier <em>einen</em> regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">pattern</span></code>), der sowohl Redebeiträge mit als auch solche ohne Metakommentar abdeckt. Lässt sich der definierte reguläre Ausdruck wie eine Schablone über den Anfang eines Elements in  <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code> legen, dann haben wir einen sog. <em>match</em> und wir hängen das Element an <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> an. Wie wir sehen, erhalten wir dadurch 23 statt bisher 22 Redebeiträge zurück:</p>
+<p>An dieser Stelle lohnt sich nochmal ein Blick in <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>, zur Vergewisserung, dass wir mit obiger Bedingung auch wirklich alle Redebeiträge von Sara extrahiert haben. Es könnte ja z. B. sein, dass ihr Name vor einem Redebeitrag aus welchem Grund auch immer kleingeschrieben ist („sara.“) oder aber, dass zwischen ihrem Namen und dem Punkt eine Klammer mit Metakommentaren steht.</p>
+<p>Und tatsächlich – ein Redebeitrag beginnt so: „Sara (sie setzt sich).“ (Index <code class="docutils literal notranslate"><span class="pre">71</span></code> in <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>). Nach eingehender Prüfung wissen wir, dass dies auch der einzige Redebeitrag ist, der nicht von <code class="docutils literal notranslate"><span class="pre">turn.startswith(&quot;Sara.&quot;)</span></code> „eingefangen“ wird. Wir könnten nun etwas unelegant die zusätzliche Bedingung <code class="docutils literal notranslate"><span class="pre">or</span> <span class="pre">turn.startswith(&quot;Sara</span> <span class="pre">(sie</span> <span class="pre">setzt</span> <span class="pre">sich).&quot;)</span></code> aufstellen.</p>
+<p>Um sicherzustellen, dass der Code wiederverwendbar ist (z. B. beim zweiten Aufzug), wählen wir den eleganteren Weg der regulären Ausdrücke (engl.: <em>regular expressions</em>, abgekürzt: <em>RegEx</em>). Reguläre Ausdrücke sind ein äußerst praktisches Werkzeug, das wir uns im Notebook „Reguläre Ausdrücke“ im Detail anschauen. Kurz gesagt: Wir definieren hier <em>einen</em> regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">pattern</span></code>), der sowohl Redebeiträge mit als auch solche ohne Metakommentar abdeckt. Lässt sich der definierte reguläre Ausdruck wie eine Schablone über den Anfang eines Elements in  <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code> legen, dann haben wir einen sog. <em>match</em> und wir hängen das Element an <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> an. Wie wir sehen, erhalten wir dadurch 23 statt bisher 22 Redebeiträge zurück:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
 <span class="n">saras_turns</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="c1">#sieht kryptisch aus 🤯 und Du musst diesen regulären Ausdruck im Moment noch nicht nachvollziehen können</span>
+<span class="c1">#Sieht kryptisch aus 🤯 und Du musst diesen regulären Ausdruck im Moment noch nicht nachvollziehen können.</span>
 <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Sara(\(\s\S*\))?.&quot;</span>
 
 <span class="k">for</span> <span class="n">turn</span> <span class="ow">in</span> <span class="n">miss_sara_sampson</span><span class="p">:</span>
@@ -877,11 +899,11 @@ Sara. Was sollte ich Ihnen nicht vergeben? Sie wissen, was ich Ihnen bereits ver
 </tr>
 </tbody>
 </table>
-<p><em>False negatives</em> sind Fälle, die in Wahrheit Redebeiträge von Sara sind, die aber fälschlicherweise nicht als solche erkannt wurden. Mit anderen Worten: der Test (die Bedingung, die wir aufgestellt haben) fiel negativ aus (die Bedingung ergab <code class="docutils literal notranslate"><span class="pre">False</span></code>), aber dieses Testresultat ist falsch. <em>True</em>/<em>False</em> bezieht sich bei allen vier Begriffspaaren jeweils auf die Richtigkeit des Testresultats und <em>positive</em>/<em>negative</em> auf das gefällte Testresultat.</p>
-<p>Konsequenterweise müssen wir umgekehrt sicherstellen, dass wir mit der aufgestellten Bedingung nicht übers Ziel hinaus schießen und <em>false positives</em> „einfangen“, also Redebeiträge, die nicht von Sara sind, aber fälschlicherweise als solche erkannt wurden. Tatsächlich sind das erste und dritte Element in <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> (Indizes 0/2) keine Redebeiträge von Sara, sondern bloß Metakommentare:</p>
+<p><em>False negatives</em> sind Fälle, die in Wahrheit Redebeiträge von Sara sind, die aber fälschlicherweise nicht als solche erkannt wurden. Mit anderen Worten: Der Test (die Bedingung, die wir aufgestellt haben) fiel negativ aus (die Bedingung ergab <code class="docutils literal notranslate"><span class="pre">False</span></code>), aber dieses Testresultat ist falsch. <em>True</em>/<em>False</em> bezieht sich bei allen vier Begriffspaaren jeweils auf die Richtigkeit des Testresultats und <em>positive</em>/<em>negative</em> auf das gefällte Testresultat.</p>
+<p>Konsequenterweise müssen wir umgekehrt sicherstellen, dass wir mit der aufgestellten Bedingung nicht übers Ziel hinaus schießen und <em>false positives</em> „einfangen“, also Redebeiträge, die nicht von Sara sind, aber fälschlicherweise als solche erkannt wurden. Tatsächlich sind das erste und dritte Element in <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> (Indizes <code class="docutils literal notranslate"><span class="pre">0</span></code> und <code class="docutils literal notranslate"><span class="pre">2</span></code>) keine Redebeiträge von Sara, sondern bloß Metakommentare:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#dies sind die beiden false positives</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Dies sind die beiden &quot;false positives&quot;.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">saras_turns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -894,7 +916,7 @@ Sara. Was sollte ich Ihnen nicht vergeben? Sie wissen, was ich Ihnen bereits ver
 </div>
 <p>Ein Blick auf alle Elemente in <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> verrät, dass diese die einzigen beiden <em>false positives</em> sind.</p>
 <p>Wir müssen also eine zweite Bedingung aufstellen, um diese beiden Fälle auszuschließen. Sie haben gemeinsam, dass nach „Sara.“ „Mellefont.“ steht. Bevor wir eine entsprechende Ausschlussbedingung aufstellen, müssen wir überprüfen, ob dies nicht auch auf wahre Redebeiträge (<em>true positives</em>) zutrifft (es ist ja denkbar, dass Sara einen Beitrag mit „Mellefont.“ anfängt). Dies ist aber nicht der Fall.</p>
-<p>Die zweite Bedingung stellen wir so auf: Das zweite Wort (Index 1) auf einer Liste mit allen Wörtern im jeweiligen <code class="docutils literal notranslate"><span class="pre">turn</span></code> (die Wörterliste erhalten wir mittels <code class="docutils literal notranslate"><span class="pre">split</span></code>) darf nicht (<code class="docutils literal notranslate"><span class="pre">!=</span></code>, vgl. Vergleichsoperatoren ) „Mellefont.“ sein. Wenn dies wahr ist, und die erste Bedingung ebenfalls (<code class="docutils literal notranslate"><span class="pre">and</span></code>), dann hängen wir den <code class="docutils literal notranslate"><span class="pre">turn</span></code> an <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> an.</p>
+<p>Die zweite Bedingung stellen wir so auf: Das zweite Wort (Index <code class="docutils literal notranslate"><span class="pre">1</span></code>) auf einer Liste mit allen Wörtern im jeweiligen <code class="docutils literal notranslate"><span class="pre">turn</span></code> (die Wörterliste erhalten wir mittels <code class="docutils literal notranslate"><span class="pre">split</span></code>) darf nicht (<code class="docutils literal notranslate"><span class="pre">!=</span></code>, vgl. Vergleichsoperatoren) „Mellefont.“ sein. Wenn dies wahr ist, und die erste Bedingung ebenfalls (<code class="docutils literal notranslate"><span class="pre">and</span></code>), dann hängen wir den <code class="docutils literal notranslate"><span class="pre">turn</span></code> an <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> an.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saras_turns</span> <span class="o">=</span> <span class="p">[]</span>
@@ -918,17 +940,17 @@ Sara. Was sollte ich Ihnen nicht vergeben? Sie wissen, was ich Ihnen bereits ver
 </div>
 </div>
 </div>
-<p>Eine letzte Überprüfung zeigt, dass wir damit wirklich alle wahren Redebeiträge von Sara (alle <em>true positives</em>) extrahiert haben (um das Bild zu vervollständigen: alle nicht extrahierten Elemente sind die <em>true negatives</em>).</p>
+<p>Eine letzte Überprüfung zeigt, dass wir damit wirklich alle wahren Redebeiträge von Sara (alle <em>true positives</em>) extrahiert haben (um das Bild zu vervollständigen: Alle nicht extrahierten Elemente sind die <em>true negatives</em>).</p>
 <p>Dieses Beispiel lehrt uns, dass wir iterativ vorgehen müssen, wenn wir mit strukturellen Merkmalen arbeiten. Selten denken wir von Anfang an an alle Ausnahmen, die beachtet werden müssen, um wirklich das gewünschte Ergebnis zu errechnen.</p>
-<p>Übrigens haben wir für die letzte Bedingung keine besonders elegante Lösung gewählt. Sie schließt nur spezifisch Mellefont aus und keine weiteren Figuren. Gleichzeitig deckt sie wie gesagt theoretisch auch Fälle ab, wo „Mellefont.“ das erste Wort eines Redebeitrags von Sara ist. Während wir es bei der ersten zusätzlichen Bedingung noch mit einfacher fassbaren strukturellen Merkmalen (nämlich den optionalen Metakommentaren in <strong>Klammern</strong>) zu tun hatten, zeigen sich hier die Grenzen von Datenfilterung basierend auf strukturellen Merkmalen. Denn „Mellefont.“ besteht strukturell aus Buchstaben und einem Punkt, wie sie auch in wahren Redebeiträgen von Sara vorkommen. Neben der iterativen Herangehensweise, sind in solchen Fällen also auch sehr spezifische und vermeintlich unelegante Bedingungen in Ordnung.</p>
+<p>Übrigens haben wir für die letzte Bedingung keine besonders elegante Lösung gewählt. Sie schließt nur spezifisch Mellefont aus und keine weiteren Figuren. Gleichzeitig deckt sie wie gesagt theoretisch auch Fälle ab, wo „Mellefont.“ das erste Wort eines Redebeitrags von Sara ist. Während wir es bei der ersten zusätzlichen Bedingung noch mit einfacher fassbaren strukturellen Merkmalen (nämlich den optionalen Metakommentaren in <strong>Klammern</strong>) zu tun hatten, zeigen sich hier die Grenzen von Datenfilterung basierend auf strukturellen Merkmalen. Denn „Mellefont.“ besteht strukturell aus Buchstaben und einem Punkt, wie sie auch in wahren Redebeiträgen von Sara vorkommen. Neben der iterativen Herangehensweise sind in solchen Fällen also auch sehr spezifische und vermeintlich unelegante Bedingungen in Ordnung.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 4:</strong> Im Gegensatz zu Miss Sara Sampson ist Nathan der Weise etwas anders formatiert, z.B. verteilen sich Redebeiträge z.T. über mehrere Zeilen.</p>
-<p>Lies den ersten Aufzug aus Nathan der Weise abermals ein. Schaue Dir die Formatierung des Textes genau an, um ein strukturelles Merkmal zu finden, anhand dessen Du eine Liste mit zusammengehörigen Redebeiträgen und Metakommentaren erstellen kannst. Ein über mehrere Zeilen verteilter Redebeitrag oder Metakommentar soll jeweils in ein Element einfließen.</p>
-<p>Bereinige anschließend die Liste von allem, was kein Redebeitrag darstellt. Auch hierfür musst Du Dir die Liste gut anschauen, um ein strukturelles Merkmal zu identifizieren, anhand dessen Du die „Spreu vom Weizen“ trennen kannst. Sollte sich ein Metakommentar innerhalb eines Redebeitrags befinden, kannst Du dies ignorieren. Stelle durch einen iterativen Ansatz sicher, dass Du am Ende wirklich alle Redebeiträge und nur Redebeiträge auf der Liste hast (also die <em>true positives</em>).</p>
+<p>✏️ <strong>Übung 4:</strong> Im Gegensatz zu <em>Miss Sara Sampson</em> ist <em>Nathan der Weise</em> etwas anders formatiert, z. B. verteilen sich Redebeiträge z. T. über mehrere Zeilen.</p>
+<p>Lies den ersten Aufzug aus <em>Nathan der Weise</em> abermals ein. Schau Dir die Formatierung des Textes genau an, um ein strukturelles Merkmal zu finden, anhand dessen Du eine Liste mit zusammengehörigen Redebeiträgen und Metakommentaren erstellen kannst. Ein über mehrere Zeilen verteilter Redebeitrag oder Metakommentar soll jeweils in ein Element einfließen.</p>
+<p>Bereinige anschließend die Liste von allem, was kein Redebeitrag darstellt. Auch hierfür musst Du Dir die Liste gut anschauen, um ein strukturelles Merkmal zu identifizieren, anhand dessen Du die „Spreu vom Weizen“ trennen kannst. Sollte sich ein Metakommentar innerhalb eines Redebeitrags befinden, kannst Du dies ignorieren. Stell durch einen iterativen Ansatz sicher, dass Du am Ende wirklich alle Redebeiträge und nur Redebeiträge auf der Liste hast (also die <em>true positives</em>).</p>
 <p>Dir steht wiederum eine Liste mit Figuren zur Verfügung.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
 <span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sultan Saladin&quot;</span><span class="p">,</span> <span class="s2">&quot;Sittah&quot;</span><span class="p">,</span> <span class="s2">&quot;Nathan&quot;</span><span class="p">,</span> <span class="s2">&quot;Recha&quot;</span><span class="p">,</span> <span class="s2">&quot;Daja&quot;</span><span class="p">,</span> <span class="s2">&quot;Tempelherr&quot;</span><span class="p">,</span> <span class="s2">&quot;Derwisch&quot;</span><span class="p">,</span> <span class="s2">&quot;Patriarch von Jerusalem&quot;</span><span class="p">,</span> <span class="s2">&quot;Klosterbruder&quot;</span><span class="p">,</span> <span class="s2">&quot;Emir&quot;</span><span class="p">]</span> 
 </pre></div>
@@ -938,13 +960,13 @@ Sara. Was sollte ich Ihnen nicht vergeben? Sie wissen, was ich Ihnen bereits ver
 <hr class="docutils" />
 <p>Nun haben wir verschiedene Techniken zum Einlesen von Textdateien kennengelernt. Hier folgt eine kurze Zusammenfassung, wann Du welche Technik anwenden kannst:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">read</span></code> überführt die gesamte Datei in einen einzigen string</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">readlines</span></code> überführt die einzelnen Zeilen der Datei in Elemente auf einer Liste</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span> <span class="pre">read_file</span></code> iteriert über die geöffnete Datei (ohne jegliche Lesemethode), wobei <code class="docutils literal notranslate"><span class="pre">line</span></code> einer Zeile in der Datei entspricht</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">strip</span></code> (meistens spezifisch <code class="docutils literal notranslate"><span class="pre">rstrip</span></code>) entfernt (trailing) whitespace, insbesondere Zeilenumbrüche</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">isspace</span></code> in einem <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement mit <code class="docutils literal notranslate"><span class="pre">continue</span></code> überspringt leere Zeilen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read</span></code> überführt die gesamte Datei in einen einzigen string.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">readlines</span></code> überführt die einzelnen Zeilen der Datei in Elemente auf einer Liste.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span> <span class="pre">read_file</span></code> iteriert über die geöffnete Datei (ohne jegliche Lesemethode), wobei <code class="docutils literal notranslate"><span class="pre">line</span></code> einer Zeile in der Datei entspricht.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strip</span></code> (meistens spezifisch <code class="docutils literal notranslate"><span class="pre">rstrip</span></code>) entfernt (trailing) whitespace, insbesondere Zeilenumbrüche.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isspace</span></code> in einem <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement mit <code class="docutils literal notranslate"><span class="pre">continue</span></code> überspringt leere Zeilen.</p></li>
 </ul>
-<p>Schauen wir uns nun an, wie wir Text in eine Datei schreiben können. Wir arbeiten dafür mit dem Ergebnis der letzten Übung, also mit der Liste an Redebeiträgen im ersten Aufzug von Nathan der Weise, weiter. Damit wir auf dem gleichen Stand sind, steht in der nächsten Zelle eine mögliche Lösung der Aufgabe. Wenn Du sie ausführst, siehst Du bereits anhand der ersten fünf Redebeiträge, dass diese <em>in sich</em> unterschiedlich formatiert sind. Zum Teil folgt auf den Figurenamen nach dem Punkt ein Zeilenumbruch, zum Teil mehrere Leerschläge.</p>
+<p>Schauen wir uns nun an, wie wir Text in eine Datei schreiben können. Wir arbeiten dafür mit dem Ergebnis der letzten Übung, also mit der Liste an Redebeiträgen im ersten Aufzug von <em>Nathan der Weise</em>, weiter. Damit wir auf dem gleichen Stand sind, steht in der nächsten Zelle eine mögliche Lösung der Aufgabe. Wenn Du sie ausführst, siehst Du bereits anhand der ersten fünf Redebeiträge, dass diese <em>in sich</em> unterschiedlich formatiert sind. Zum Teil folgt auf den Figurennamen nach dem Punkt ein Zeilenumbruch, zum Teil mehrere Leerschläge.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sultan Saladin&quot;</span><span class="p">,</span> <span class="s2">&quot;Sittah&quot;</span><span class="p">,</span> <span class="s2">&quot;Nathan&quot;</span><span class="p">,</span> <span class="s2">&quot;Recha&quot;</span><span class="p">,</span> <span class="s2">&quot;Daja&quot;</span><span class="p">,</span> <span class="s2">&quot;Tempelherr&quot;</span><span class="p">,</span> <span class="s2">&quot;Derwisch&quot;</span><span class="p">,</span> <span class="s2">&quot;Patriarch von Jerusalem&quot;</span><span class="p">,</span> <span class="s2">&quot;Klosterbruder&quot;</span><span class="p">,</span> <span class="s2">&quot;Emir&quot;</span><span class="p">]</span> 
@@ -999,32 +1021,32 @@ Und wäre leicht von Grund aus abgebrannt.
 <p>Unser Ziel ist es, die Redebeiträge in einheitlicher Formatierung in eine externe Datei zu schreiben. Der folgende Code übernimmt die einheitliche Formatierung. Lies die Kommentare aufmerksam, um den Code nachzuvollziehen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#am Ende hängen wir die vereinheitlichten Redebeiträge an diese Liste an</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Am Ende hängen wir die vereinheitlichten Redebeiträge an diese Liste an.</span>
 <span class="n">standardized_turns</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="c1">#wir iterieren über die einzelnen Redebeiträge in &quot;actual_turns&quot;</span>
+<span class="c1">#Wir iterieren über die einzelnen Redebeiträge in &#39;actual_turns&#39;.</span>
 <span class="k">for</span> <span class="n">turn</span> <span class="ow">in</span> <span class="n">actual_turns</span><span class="p">:</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Als Nächstes splitten wir den &#39;turn&#39; ein einziges Mal beim ersten Punkt, der ja auf den </span>
 <span class="sd">    Figurennamen folgt (damit wir nur einmal splitten und nicht bei jedem Punkt, setzen wir den</span>
-<span class="sd">    optionalen Parameter maxsplit auf 1). Dadurch entsteht eine Liste, wobei das erste Element </span>
+<span class="sd">    optionalen Parameter &#39;maxsplit&#39; auf 1). Dadurch entsteht eine Liste, wobei das erste Element </span>
 <span class="sd">    (mit Index 0) der Figurenname ist. Diesen weisen wir &#39;turn_speaker&#39; zu.&quot;&quot;&quot;</span>
     <span class="n">turn_speaker</span> <span class="o">=</span> <span class="n">turn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     
-    <span class="c1">#das zweite Element (mit Index 1) ist ja der eigentliche Redebeitrag, wir weisen ihn &quot;turn_words&quot; zu</span>
+    <span class="c1">#Das zweite Element (mit Index 1) ist ja der eigentliche Redebeitrag, wir weisen ihn &#39;turn_words&#39; zu.</span>
     <span class="n">turn_words</span> <span class="o">=</span> <span class="n">turn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;genau dieser Redebeitrag enthält nun leading whitespace (was sowohl Zeilenumbrüche als auch </span>
-<span class="sd">    Leerschläge umfasst). Wir entfernen diese und weisen das Resultat &#39;turn_words_stripped&#39; zu&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Genau dieser Redebeitrag enthält nun leading whitespace (was sowohl Zeilenumbrüche als auch </span>
+<span class="sd">    Leerschläge umfasst). Wir entfernen diese und weisen das Resultat &#39;turn_words_stripped&#39; zu.&quot;&quot;&quot;</span>
     <span class="n">turn_words_stripped</span> <span class="o">=</span> <span class="n">turn_words</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
     
-    <span class="c1">#nun konkatenieren wir einheitlich Figurennamen und Redebeitrag mit einem Doppelpunkt und Zeilenumbruch dazwischen</span>
+    <span class="c1">#Nun konkatenieren wir einheitlich Figurenname und Redebeitrag mit einem Doppelpunkt und Zeilenumbruch dazwischen.</span>
     <span class="n">standardized_turn</span> <span class="o">=</span> <span class="n">turn_speaker</span> <span class="o">+</span> <span class="s2">&quot;:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">turn_words_stripped</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;den standardisierten Redebeitrag hängen wir an &#39;standardized_turns&#39; an&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Den standardisierten Redebeitrag hängen wir an &#39;standardized_turns&#39; an.&quot;&quot;&quot;</span>
     <span class="n">standardized_turns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">standardized_turn</span><span class="p">)</span>
     
-    <span class="c1">#sämtliche Schritte in einem Statement sähe übrigens so aus:</span>
+    <span class="c1">#Sämtliche Schritte in einem Statement sähe übrigens so aus:</span>
     <span class="c1">#standardized_turns.append(turn.split(&quot;.&quot;, 1)[0] + &quot;:\n&quot; + turn.split(&quot;.&quot;, 1)[1].lstrip())</span>
     
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
@@ -1065,16 +1087,16 @@ Und wäre leicht von Grund aus abgebrannt.
 </div>
 </div>
 <p>Das schaut doch gleich viel besser aus. Zeilenumbrüche innerhalb der Redebeiträge haben wir übrigens unberührt gelassen, schließlich handelt es sich um ein dramatisches Gedicht.</p>
-<p>Nun wollen wir die Redebeiträge in eine externe Datei schreiben. Wie oben erklärt, öffnen wir dazu die gewünschte Datei im Schreibmodus (<code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>). Da die unten angegebene Datei noch nicht im Verzeichnis existiert, wird sie automatisch neu geschaffen. Anschließend iterieren wir über <code class="docutils literal notranslate"><span class="pre">standardized_turns</span></code> und schreiben Element für Element (Zeile für Zeile) in die geöffnete Datei (<code class="docutils literal notranslate"><span class="pre">write</span></code>). Wichtig: die Zeilenumbrüche müssen wir explizit reinschreiben:</p>
+<p>Nun wollen wir die Redebeiträge in eine externe Datei schreiben. Wie oben erklärt, öffnen wir dazu die gewünschte Datei im Schreibmodus (<code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>). Da die unten angegebene Datei noch nicht im Verzeichnis existiert, wird sie <strong>automatisch</strong> neu geschaffen. Anschließend iterieren wir über <code class="docutils literal notranslate"><span class="pre">standardized_turns</span></code> und schreiben Element für Element (Zeile für Zeile) in die geöffnete Datei (<code class="docutils literal notranslate"><span class="pre">write</span></code>). Wichtig: Die Zeilenumbrüche müssen wir explizit reinschreiben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;hier geben wir einerseits den Speicherort an, gleichzeitig geben wir der Datei</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Hier geben wir einerseits den Speicherort an, gleichzeitig geben wir der Datei</span>
 <span class="sd">auch einen Namen; bei Textdateien hängen wir stets &#39;.txt&#39; als Dateisuffix an!&quot;&quot;&quot;</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/Nathan_der_Weise_Aufzug_1_standardisiert.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">standardized_turns</span><span class="p">:</span>
 <span class="w">        </span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;da es auch innerhalb der Redebeiträge Zeilenumbrüche gibt, schreiben wir</span>
-<span class="sd">        wie in der ursprünglichen Datei zwei Zeilenumbrüche nach jedem Redebeitrag&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Da es auch innerhalb der Redebeiträge Zeilenumbrüche gibt, schreiben wir</span>
+<span class="sd">        wie in der ursprünglichen Datei zwei Zeilenumbrüche nach jedem Redebeitrag.&quot;&quot;&quot;</span>
         <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">element</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Konkatenation zu einem string mittels +-Operator, damit ein Argument (also nicht kommasepariert zwei Argumente!)</span>
 </pre></div>
 </div>
@@ -1082,18 +1104,18 @@ Und wäre leicht von Grund aus abgebrannt.
 </div>
 <p>Nun solltest Du die neue Datei im angegebenen Verzeichnis vorfinden. Du kannst sie entweder wieder in Python einlesen, oder mit einem Textverarbeitungsprogramm auf Deinem Computer öffnen.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 5:</strong> Bisher haben wir nur mit dem ersten Aufzug aus Miss Sara Sampson gearbeitet. Das Trauerspiel besteht aber aus fünf Aufzügen, die sich allesamt im gleichen Verzeichnis wie der erste Aufzug befinden.</p>
-<p>Öffne eine neue Textdatei mit Namen „Miss_Sara_Sampson_komplett.txt“ im Verzeichnis „Output“ und schreibe alle fünf Aufzüge in der richtigen Reihenfolge in diese Datei.</p>
+<p>✏️ <strong>Übung 5:</strong> Bisher haben wir nur mit dem ersten Aufzug aus <em>Miss Sara Sampson</em> gearbeitet. Das Trauerspiel besteht aber aus fünf Aufzügen, die sich allesamt im gleichen Verzeichnis wie der erste Aufzug befinden.</p>
+<p>Öffne eine neue Textdatei mit dem Namen „Miss_Sara_Sampson_komplett.txt“ im Verzeichnis „Output“ und schreib alle fünf Aufzüge in der richtigen Reihenfolge in diese Datei.</p>
 <p>Anstatt jede Datei über ihren Pfad einzeln zu öffnen, kannst Du die oben bereits vorgestellte <code class="docutils literal notranslate"><span class="pre">listdir</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">os</span></code>-Moduls verwenden. Als Argument übergibst Du ihr den Pfad zum betreffenden Verzeichnis. Du kriegst eine Liste mit den darin befindlichen Dateien und Unterverzeichnissen (jeweils als string) zurück. Über diese Liste kannst Du dann wie gewohnt iterieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
-<p>Soviel zu Textdateien.</p>
+<p>So viel zu Textdateien.</p>
 <p>Wenden wir uns den tabellarischen Dateien zu.</p>
 </section>
 </section>
@@ -1103,11 +1125,11 @@ Und wäre leicht von Grund aus abgebrannt.
 <img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_Tabelle.png"><p>Der einzige strukturelle Unterschied zu Textdateien ist, dass es neben Zeilen auch eine zweite Strukturdimension gibt, nämlich die Spalten.</p>
 <p>„Hinter den Kulissen“ werden die einzelnen Spalten durch ein Trennzeichen (verwirrenderweise teils <em>separator</em>, teils <em>delimiter</em> auf Englisch) strukturiert. Bei dieser Datei sind dies Semikola (Strichpunkte), wie wir hier sehen:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_roh.png"><p>Die Zeilen wiederum werden wie bei Textdateien durch Zeilenumbrüche strukturiert, wobei die dafür zuständigen Zeichen im Screenshot oben einmal mehr nicht sichtbar sind.</p>
-<p>Wenn wir tabellarische Dateien einlesen, müssen wir wissen, mithilfe welchen Trennzeichens sie auf der Spaltenebene strukturiert sind, damit die Daten einer Zeile an den richtigen Orten in Spalten unterteilt werden. Neben Semikola (<code class="docutils literal notranslate"><span class="pre">&quot;;&quot;</span></code>) sind Kommata (<code class="docutils literal notranslate"><span class="pre">&quot;,&quot;</span></code>) oder Tabs (<code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>) übliche Trennzeichen. Wenn, wie oben, Semikola das Trennzeichen sind, können die anderen üblichen Trennzeichen ohne Weiteres zwischen den Semikola vorkommen (siehe z.B. die Kommata in den Flächenangaben). Auch beim Schreiben von tabellarischen Dateien müssen bzw. können wir spezifieren, welches Trennzeichen verwendet werden soll.</p>
-<p>Zur Arbeit mit tabellarischen Daten (sowie generell für fortgeschrittene Datenanalyse) gibt es die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, der das übernächste Notebook gewidmet ist. Hier schauen wir uns das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul an, das sich für den einfachen Umgang mit tabellarischen Daten eignet.</p>
+<p>Wenn wir tabellarische Dateien einlesen, müssen wir wissen, mithilfe welchen Trennzeichens sie auf der Spaltenebene strukturiert sind, damit die Daten einer Zeile an den richtigen Orten in Spalten unterteilt werden. Neben Semikola (<code class="docutils literal notranslate"><span class="pre">&quot;;&quot;</span></code>) sind Kommata (<code class="docutils literal notranslate"><span class="pre">&quot;,&quot;</span></code>) oder Tabs (<code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>) übliche Trennzeichen. Wenn, wie oben, Semikola das Trennzeichen sind, können die anderen üblichen Trennzeichen ohne Weiteres zwischen den Semikola vorkommen (siehe z. B. die Kommata in den Flächenangaben). Auch beim Schreiben von tabellarischen Dateien müssen bzw. können wir spezifizieren, welches Trennzeichen verwendet werden soll.</p>
+<p>Zur Arbeit mit tabellarischen Daten (sowie generell für fortgeschrittene Datenanalyse) gibt es die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, der das Notebook „Datenanalyse“ gewidmet ist. Hier schauen wir uns das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul an, das sich für den einfachen Umgang mit tabellarischen Daten eignet.</p>
 <section id="das-csv-modul">
 <h3>Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul<a class="headerlink" href="#das-csv-modul" title="Link zu dieser Überschrift">#</a></h3>
-<p>Wie üblich importieren wir das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul zu Beginn. Ebenfalls setzen wir stets „csv.“ vor den Namen von Funktionen aus diesem Modul (vgl. oben zum <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul).</p>
+<p>Wie üblich importieren wir das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul zu Beginn. Ebenfalls setzen wir stets <code class="docutils literal notranslate"><span class="pre">csv.</span></code> vor den Namen von Funktionen aus diesem Modul (vgl. oben zum <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul).</p>
 <p>Die Datei mit den flächengrößten Gemeinden lesen wir natürlich auch mittels <code class="docutils literal notranslate"><span class="pre">open</span></code>, eingebettet in ein <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement, ein. Das <code class="docutils literal notranslate"><span class="pre">read_file</span></code> übergeben wir zusammen mit dem korrekten Trennzeichen (<code class="docutils literal notranslate"><span class="pre">delimiter=&quot;;&quot;</span></code>) der <code class="docutils literal notranslate"><span class="pre">reader</span></code>-Funktion (beachte die „agentive“ Benennung von Funktionen im <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul). Standardtrennzeichen ist übrigens das Komma (der Name des Moduls ist nämlich eine Abkürzung für <em>comma-separated values</em>), das wie immer nicht angegeben werden muss.</p>
 <p>Die <code class="docutils literal notranslate"><span class="pre">reader</span></code>-Funktion gibt uns nun nicht ein gewöhnliches Python-Objekt zurück (etwa einen string oder eine Liste wie beim Textinput), sondern ein <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code>, das wir mit <code class="docutils literal notranslate"><span class="pre">data</span></code> referenzieren. Über dieses <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code> können wir wie gewohnt iterieren und die einzelnen Zeilen einer Liste anhängen. Wir müssen das innerhalb der Einrückung machen, da  das <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code> zusammen mit <code class="docutils literal notranslate"><span class="pre">read_file</span></code> wieder geschlossen wird, sobald wir die Einrückung verlassen:</p>
 <div class="cell docutils container">
@@ -1139,10 +1161,10 @@ Und wäre leicht von Grund aus abgebrannt.
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 6:</strong> Finde heraus, wieviele der 100 flächengrößten Gemeinden zu jedem der 16 Bundesländer gehören. Du kannst direkt mit <code class="docutils literal notranslate"><span class="pre">biggest_municipalities</span></code> weiterarbeiten. Dir steht ein dictionary mit Bundesländern zur Verfügung. Ziel ist es, den Wert (jetzt noch 0 für alle Bundesländer) für jedes Bundesland korrekt zu berechnen.</p>
+<p>✏️ <strong>Übung 6:</strong> Find heraus, wie viele der 100 flächengrößten Gemeinden zu jedem der 16 Bundesländer gehören. Du kannst direkt mit <code class="docutils literal notranslate"><span class="pre">biggest_municipalities</span></code> weiterarbeiten. Dir steht ein dictionary mit Bundesländern zur Verfügung. Ziel ist es, den Wert (jetzt noch null für alle Bundesländer) für jedes Bundesland korrekt zu berechnen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
 <span class="n">federal_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Baden-Württemberg&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Bayern&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Berlin&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Brandenburg&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Bremen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Hamburg&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Hessen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
                 <span class="s1">&#39;Mecklenburg-Vorpommern&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Niedersachsen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Nordrhein-Westfalen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Rheinland-Pfalz&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Saarland&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
@@ -1152,21 +1174,21 @@ Und wäre leicht von Grund aus abgebrannt.
 </div>
 </div>
 <hr class="docutils" />
-<p>Sehr gut – in Brandenburg befinden sich also die meisten der 100 flächengrößsten Gemeinden Deutschlands.</p>
-<p>Das dictionary <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> wollen wir nun als Tabelle extern speichern. Die Tabelle wird ganz einfach aus zwei Spalten sowie 17 Zeilen (1 Zeile mit Spaltenüberschriften + 16 Bundesländer) bestehen.</p>
+<p>Sehr gut – in Brandenburg befinden sich also die meisten der 100 flächengrößten Gemeinden Deutschlands.</p>
+<p>Das dictionary <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> wollen wir nun als Tabelle extern speichern. Die Tabelle wird ganz einfach aus zwei Spalten sowie 17 Zeilen (eine Zeile mit Spaltenüberschriften + 16 Bundesländer) bestehen.</p>
 <p>Der Output von tabellarischen Dateien funktioniert wie gewohnt in einem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement über die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion mit dem Parameter <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>. Nun kommt das Pendant zu <code class="docutils literal notranslate"><span class="pre">reader</span></code>, nämlich <code class="docutils literal notranslate"><span class="pre">writer</span></code>, zum Einsatz, dies jedoch auf ziemlich unintuitive Art. Wenn es Dich interessiert, wird im Folgenden erklärt, was da genau geschieht. Andernfalls ist es auch in Ordnung, die Syntax unten einfach zu copy-pasten, wann immer Du tabellarische Daten schreiben musst.</p>
 <ol class="arabic simple">
 <li><p>Wir initialisieren ein <code class="docutils literal notranslate"><span class="pre">_csv.writer</span> <span class="pre">object</span></code>, indem wir der <code class="docutils literal notranslate"><span class="pre">writer</span></code>-Funktion die zu beschreibende Datei (<code class="docutils literal notranslate"><span class="pre">write_file</span></code>) als Argument übergeben. Das <code class="docutils literal notranslate"><span class="pre">_csv.writer</span> <span class="pre">object</span></code> weisen wir der Variable <code class="docutils literal notranslate"><span class="pre">federal_states_writer</span></code> zu. Was wir nun in dieses Objekt reinschreiben, landet am Schluss in der externen Datei.</p></li>
 <li><p>Wir wenden die Methode <code class="docutils literal notranslate"><span class="pre">writerow</span></code> auf das <code class="docutils literal notranslate"><span class="pre">_csv.writer</span> <span class="pre">object</span></code> an, um unsere Daten Zeile für Zeile zu schreiben:</p>
 <ul class="simple">
-<li><p>wir schreiben die Spaltenüberschriften (<code class="docutils literal notranslate"><span class="pre">header</span></code>) in die erste Zeile</p></li>
-<li><p>wir iterieren danach über <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> und schreiben Zeile für Zeile in <code class="docutils literal notranslate"><span class="pre">federal_states_writer</span></code></p></li>
+<li><p>Wir schreiben die Spaltenüberschriften (<code class="docutils literal notranslate"><span class="pre">header</span></code>) in die erste Zeile.</p></li>
+<li><p>Wir iterieren danach über <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> und schreiben Zeile für Zeile in <code class="docutils literal notranslate"><span class="pre">federal_states_writer</span></code>.</p></li>
 </ul>
 </li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#damit wir auf dem gleichen Stand sind, wird das dictionary mit den korrekten Werten pro Schlüssel hier nochmal initialisiert</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Damit wir auf dem gleichen Stand sind, wird das dictionary mit den korrekten Werten pro Schlüssel hier noch einmal initialisiert.</span>
 <span class="n">federal_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Baden-Württemberg&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Bayern&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Berlin&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Brandenburg&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;Bremen&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Hamburg&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Hessen&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
                   <span class="s1">&#39;Mecklenburg-Vorpommern&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Niedersachsen&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;Nordrhein-Westfalen&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;Rheinland-Pfalz&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
                   <span class="s1">&#39;Saarland&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Sachsen&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Sachsen-Anhalt&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Schleswig-Holstein&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Thüringen&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
@@ -1186,22 +1208,22 @@ Und wäre leicht von Grund aus abgebrannt.
 </div>
 </div>
 <p>Nun kennen wir die zwei grundlegenden Techniken zum Input bzw. Output von tabellarischen Dateien.</p>
-<p>Vom Input externer Dateien wenden wir uns nun einer anderen Form des Inputs zu: User-Input in interaktiven Programmen.</p>
+<p>Vom Input externer Dateien wenden wir uns nun einer anderen Form des Inputs zu: User:innen-Input in interaktiven Programmen.</p>
 </section>
 </section>
-<section id="user-input-fur-interaktive-programme">
-<h2>User-Input für interaktive Programme<a class="headerlink" href="#user-input-fur-interaktive-programme" title="Link zu dieser Überschrift">#</a></h2>
-<p>Wie wir bereits im dritten Notebook gesehen haben, ist es ganz einfach, User-Input in Programme einzubauen. Wir verwenden dafür die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion und übergeben ihr einen sog. <em>prompt</em> als string. Dieser <em>prompt</em> ist die Aufforderung, die der Benutzerin angezeigt wird, sobald Python die Code-Zeile mit der <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion erreicht. Das, was die Benutzerin nun eingibt (und durch Drücken von Enter „abschickt“), weisen wir direkt einer Variablen zu.</p>
-<p>Python interpretiert den Input standardmäßig als string. Wenn wir z.B. eine Ganzzahl erwarten (und der anschließende Code darauf ausgerichtet ist), müssen wir den Input vor der Variablenzuweisung entsprechend casten (s.u.).</p>
-<p>Führe die folgende Zelle aus und agiere im Anschluss als Benutzer:in. Eventuell musst Du erst ins Antwortfeld unter der Frage klicken, sodass der Cursor blinkt.</p>
+<section id="user-innen-input-fur-interaktive-programme">
+<h2>User:innen-Input für interaktive Programme<a class="headerlink" href="#user-innen-input-fur-interaktive-programme" title="Link zu dieser Überschrift">#</a></h2>
+<p>Wie wir bereits im Notebook „Kontrollstrukturen“ gesehen haben, ist es ganz einfach, User:innen-Input in Programme einzubauen. Wir verwenden dafür die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion und übergeben ihr einen sog. <em>prompt</em> als string. Dieser <em>prompt</em> ist die Aufforderung, die der Benutzerin angezeigt wird, sobald Python die Code-Zeile mit der <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion erreicht. Das, was die Benutzerin nun eingibt (und durch Drücken von <code class="docutils literal notranslate"><span class="pre">Enter</span></code> „abschickt“), weisen wir direkt einer Variablen zu.</p>
+<p>Python interpretiert den Input standardmäßig als string. Wenn wir z. B. eine Ganzzahl erwarten (und der anschließende Code darauf ausgerichtet ist), müssen wir den Input vor der Variablenzuweisung entsprechend casten (s. u.).</p>
+<p>Führ die folgende Zelle aus und agier im Anschluss als Benutzer:in. Eventuell musst Du erst ins Antwortfeld unter der Frage klicken, sodass der Cursor blinkt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="c1">#Handelt es sich um einen anderen Datentyp als string muss der Input gecastet werden</span>
+<span class="c1">#Handelt es sich um einen anderen Datentyp als string, muss der Input gecastet werden.</span>
 <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
 
-<span class="c1">#ohne Casting würde diese bedingte Anweisung fehlschlagen, da strings nicht größer gleich 18 sein können</span>
+<span class="c1">#Ohne Casting würde diese bedingte Anweisung fehlschlagen, da strings nicht größer gleich 18 sein können.</span>
 <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Freut mich, &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;. Du darfst natürlich in den Club! 🎉&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -1212,9 +1234,9 @@ Und wäre leicht von Grund aus abgebrannt.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Handelt es sich um einen anderen Datentyp als string muss der Input gecastet werden</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Handelt es sich um einen anderen Datentyp als string, muss der Input gecastet werden.</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
 
 <span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
@@ -1240,29 +1262,49 @@ Und wäre leicht von Grund aus abgebrannt.
 </div>
 </div>
 </div>
-<p>Solltest Du im Folgenden beim Ausführen einer Code-Zelle auf die Fehlermeldung <code class="docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">not</span> <span class="pre">executed</span> <span class="pre">due</span> <span class="pre">to</span> <span class="pre">pending</span> <span class="pre">input</span></code> stoßen, lies im dritten Notebook nach, woran das liegt.</p>
-<p>Das ist auch schon alles, das wir über User-Input wissen müssen.</p>
+<p>Solltest Du im Folgenden beim Ausführen einer Code-Zelle auf die Fehlermeldung <code class="docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">not</span> <span class="pre">executed</span> <span class="pre">due</span> <span class="pre">to</span> <span class="pre">pending</span> <span class="pre">input</span></code> stoßen, lies im Notebook „Kontrollstrukturen“ nach, woran das liegt.</p>
+<p>Das ist auch schon alles, das wir über User:innen-Input wissen müssen.</p>
 <p>Nun können wir uns unserem Anwendungsfall für dieses Notebook zuwenden.</p>
 </section>
 <hr class="docutils" />
 <section id="id1">
 <h2>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">#</a></h2>
 <p>Deine Aufgabe ist es also, ein kleines interaktives Programm zu schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Hier folgt nochmal das gleiche Video vom Anfang:</p>
-<video controls src="../3_Dateien/Grafiken_und_Videos/Gedankenprotokollant.mov" width=700/><p>Ergänzend zu diesem Video siehst Du unten eine Liste an einfachen Schritten, die – korrekt implementiert – die Aufgabe lösen und das im Video gezeigte Endprodukt verwirklichen. Diese einzelnen Schritte entsprechen dem zweiten Punkt beim algorithmischen Denken (nach der initialen Problemanalyse und vor der konkreten Implementierung).</p>
-<p>Überlege Dir für jeden einzelnen Schritt, wie Du ihn konkret implementieren kannst, d.h. welche Funktionen oder Methoden sowie Kontrollstrukturen Du dafür benötigst. Schreibe zu jedem Punkt alle Techniken auf, mithilfe welcher Du den jeweiligen Punkt konkret in Code umsetzen kannst. Ignoriere dabei erst einmal, wie und in welcher Reihenfolge Du die Schritte anschließend miteinander verbindest:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Führ diese Zelle aus, um das Video einzubetten.</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;RlshSCCX55E&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/RlshSCCX55E"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>Ergänzend zu diesem Video siehst Du unten eine Liste an einfachen Schritten, die – korrekt implementiert – die Aufgabe lösen und das im Video gezeigte Endprodukt verwirklichen. Diese einzelnen Schritte entsprechen dem zweiten Punkt beim algorithmischen Denken (nach der initialen Problemanalyse und vor der konkreten Implementierung).</p>
+<p>Überleg Dir für jeden einzelnen Schritt, wie Du ihn konkret implementieren kannst, d. h. welche Funktionen oder Methoden sowie Kontrollstrukturen Du dafür benötigst. Schreib zu jedem Punkt alle Techniken auf, mithilfe welcher Du den jeweiligen Punkt konkret in Code umsetzen kannst. Ignorier dabei erst einmal, wie und in welcher Reihenfolge Du die Schritte anschließend miteinander verbindest:</p>
 <ol class="arabic simple">
 <li><p>Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet.</p></li>
 <li><p>Die Benutzerin wird aufgefordert, anzugeben, in welchem Dokument sie ihre(n) Gedanke(n) festhalten will. Handelt es sich um ein noch nicht existierendes Dokument, so wird es für sie geschaffen. Existiert das Dokument bereits, so soll(en) ihr(e) Gedanke(n) an dessen Ende gehängt werden.</p></li>
 <li><p>Die Benutzerin wird aufgefordert, ihren Gedanken einzugeben.</p></li>
 <li><p>Der Gedanke wird in das gewählte Dokument geschrieben.</p></li>
-<li><p>Die Benutzerin wird zur Entscheidung aufgefordert, ob sie einen weiteren Gedanken im selben Dokument festhalten will oder ob sie das Programm verlassen will.</p>
+<li><p>Die Benutzerin wird zur Entscheidung aufgefordert, ob sie einen weiteren Gedanken im selben Dokument festhalten oder das Programm verlassen will.</p>
 <ol class="arabic simple">
 <li><p>Will die Benutzerin einen weiteren Gedanken festhalten, so soll das Programm zu Schritt 3 zurückspringen.</p></li>
 <li><p>Will die Benutzerin das Programm verlassen, so soll sie verabschiedet werden.</p></li>
 </ol>
 </li>
 </ol>
-<p>Du kannst nun wählen, ob Du von hier aus selbst weiter machen willst. Der nächste Arbeitsschritt besteht natürlich darin, die einzelnen Techniken <em>in der richtigen Reihenfolge</em> in Code zu implementieren. Verwende dafür die folgende Code-Zelle. Sollte Dir nicht zu allen fünf Schritten eine mögliche Technik einfallen, so findest Du nach der Code-Zelle mögliche Implementierungslösungen für jeden einzelen Schritt.</p>
+<p>Du kannst nun wählen, ob Du von hier aus selbst weiter machen willst. Der nächste Arbeitsschritt besteht natürlich darin, die einzelnen Techniken <em>in der richtigen Reihenfolge</em> in Code zu implementieren. Verwend dafür die folgende Code-Zelle. Sollte Dir nicht zu allen fünf Schritten eine mögliche Technik einfallen, so findest Du nach der Code-Zelle mögliche Implementierungslösungen für jeden einzelnen Schritt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1270,25 +1312,25 @@ Und wäre leicht von Grund aus abgebrannt.
 </div>
 </div>
 </div>
-<p>Hier siehst, wie die einzelnen Schritte implementiert werden können.</p>
+<p>Hier siehst Du, wie die einzelnen Schritte implementiert werden können.</p>
 <ol class="arabic">
 <li><p>Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet. <br><br></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">print(&quot;Gruß&quot;)</span></code> bietet sich an, um die Benutzerin initial zu grüßen.</p></li>
 <li><p>Alternativ könnte man den Gruß auch in den <code class="docutils literal notranslate"><span class="pre">input</span></code>-<em>prompt</em> von Schritt 2 integrieren (<code class="docutils literal notranslate"><span class="pre">input(&quot;Gruß</span> <span class="pre">+</span> <span class="pre">prompt&quot;)</span></code>; so wurde das im Video umgesetzt), an der Benutzeroberfläche sind beide Alternativen gleichwertig.</p></li>
-<li><p>Wie stellen wir sicher, dass der Gruß nur wirklich am Anfang angezeigt wird, und nicht nochmal, wenn die Benutzerin einen weiteren Gedanken festhalten will (5.A.)? Wir führen eine Variable <code class="docutils literal notranslate"><span class="pre">first_time</span></code> ein und setzen sie ganz am Anfang auf <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">True</span></code>); das <code class="docutils literal notranslate"><span class="pre">print(&quot;Gruß&quot;)</span></code>-Statement bzw. das kombinierte <code class="docutils literal notranslate"><span class="pre">input(&quot;Gruß</span> <span class="pre">+</span> <span class="pre">prompt&quot;)</span></code>-Statement führen wir nur aus, wenn <code class="docutils literal notranslate"><span class="pre">first_time</span></code> <code class="docutils literal notranslate"><span class="pre">True</span></code> ist (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">first_time</span> <span class="pre">==</span> <span class="pre">True</span></code>); nach dem ersten Durchlauf setzen wir <code class="docutils literal notranslate"><span class="pre">first_time</span></code> auf <code class="docutils literal notranslate"><span class="pre">False</span></code> (<code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">False</span></code>), der Gruß wird somit nicht mehr ausgegeben.<br><br></p></li>
+<li><p>Wie stellen wir sicher, dass der Gruß nur wirklich am Anfang angezeigt wird, und nicht noch einmal, wenn die Benutzerin einen weiteren Gedanken festhalten will (vgl. Schritt 5.A.)? Wir führen eine Variable <code class="docutils literal notranslate"><span class="pre">first_time</span></code> ein und setzen sie ganz am Anfang auf <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">True</span></code>); das <code class="docutils literal notranslate"><span class="pre">print(&quot;Gruß&quot;)</span></code>-Statement bzw. das kombinierte <code class="docutils literal notranslate"><span class="pre">input(&quot;Gruß</span> <span class="pre">+</span> <span class="pre">prompt&quot;)</span></code>-Statement führen wir nur aus, wenn <code class="docutils literal notranslate"><span class="pre">first_time</span></code> <code class="docutils literal notranslate"><span class="pre">True</span></code> ist (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">first_time</span> <span class="pre">==</span> <span class="pre">True</span></code>); nach dem ersten Durchlauf setzen wir <code class="docutils literal notranslate"><span class="pre">first_time</span></code> auf <code class="docutils literal notranslate"><span class="pre">False</span></code> (<code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">False</span></code>), der Gruß wird somit nicht mehr ausgegeben.<br><br></p></li>
 </ul>
 </li>
 <li><p>Die Benutzerin wird aufgefordert, anzugeben, in welchem Dokument sie ihre(n) Gedanke(n) festhalten will. Handelt es sich um ein noch nicht existierendes Dokument, so wird es für sie geschaffen. Existiert das Dokument bereits, so soll(en) ihr(e) Gedanke(n) an dessen Ende gehängt werden.</p>
 <ul class="simple">
-<li><p>Den Namen des gewünschten Dokuments fragen wir über <code class="docutils literal notranslate"><span class="pre">input(prompt)</span></code> ab (ggf. mit dem Gruß davor, s.o.), das Resultat weisen wir einer Variablen namens <code class="docutils literal notranslate"><span class="pre">file_name</span></code> zu.</p></li>
-<li><p>Wie unter 1. erwähnt, soll dieser <code class="docutils literal notranslate"><span class="pre">input</span></code>-Befehl nur bedingt ausgeführt werden, nämlich nur  wenn <code class="docutils literal notranslate"><span class="pre">first_time</span></code> <code class="docutils literal notranslate"><span class="pre">True</span></code> ist (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">first_time</span> <span class="pre">==</span> <span class="pre">True</span></code>).</p></li>
-<li><p>Das gewünschte Dokument öffnen wir in einem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement mittels <code class="docutils literal notranslate"><span class="pre">open</span></code> im <em>append</em>-Modus (<code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>) und <code class="docutils literal notranslate"><span class="pre">&quot;encoding=utf-8&quot;</span></code>. Der <em>append</em>-Modus schafft das gewünschte Dokument, sollte es noch nicht existieren. Wenn es bereits existiert, wird der neue Inhalt an das gewünschte Dokument angehängt. Wichtig: als Pfad übergeben wir der <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion einen konkatenierten string bestehend aus dem Pfad zum Verzeichnis (das kannst Du selbst auswählen), dem <code class="docutils literal notranslate"><span class="pre">file_name</span></code> sowie dem Suffix „.txt“. Das geöffnete Dokument weisen wir wie üblich einer Variablen zu: <code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">write_file</span></code>.<br><br></p></li>
+<li><p>Den Namen des gewünschten Dokuments fragen wir über <code class="docutils literal notranslate"><span class="pre">input(prompt)</span></code> ab (ggf. mit dem Gruß davor, s. o.), das Resultat weisen wir einer Variablen namens <code class="docutils literal notranslate"><span class="pre">file_name</span></code> zu.</p></li>
+<li><p>Wie unter 1. erwähnt, soll dieser <code class="docutils literal notranslate"><span class="pre">input</span></code>-Befehl nur bedingt ausgeführt werden, nämlich nur, wenn <code class="docutils literal notranslate"><span class="pre">first_time</span></code> <code class="docutils literal notranslate"><span class="pre">True</span></code> ist (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">first_time</span> <span class="pre">==</span> <span class="pre">True</span></code>).</p></li>
+<li><p>Das gewünschte Dokument öffnen wir in einem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement mittels <code class="docutils literal notranslate"><span class="pre">open</span></code> im <em>append</em>-Modus (<code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>) und <code class="docutils literal notranslate"><span class="pre">&quot;encoding=utf-8&quot;</span></code>. Der <em>append</em>-Modus schafft das gewünschte Dokument, sollte es noch nicht existieren. Wenn es bereits existiert, wird der neue Inhalt an das gewünschte Dokument angehängt. Wichtig: Als Pfad übergeben wir der <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion einen konkatenierten string bestehend aus dem Pfad zum Verzeichnis (das kannst Du selbst auswählen), dem <code class="docutils literal notranslate"><span class="pre">file_name</span></code> sowie dem Suffix „.txt“. Das geöffnete Dokument weisen wir wie üblich einer Variablen zu: <code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">write_file</span></code>.<br><br></p></li>
 </ul>
 </li>
 <li><p>Die Benutzerin wird aufgefordert, ihren Gedanken einzugeben.</p>
 <ul class="simple">
-<li><p>Dafür verwenden wir wieder die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion und weisen das Resultat der Variablen <code class="docutils literal notranslate"><span class="pre">thought</span></code> zu. Es spielt keine Rolle, ob wir dies vor oder eingerückt unter dem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement (s.o.) tun.<br><br></p></li>
+<li><p>Dafür verwenden wir wieder die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion und weisen das Resultat der Variablen <code class="docutils literal notranslate"><span class="pre">thought</span></code> zu. Es spielt keine Rolle, ob wir dies vor oder eingerückt unter dem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement (s. o.) tun.<br><br></p></li>
 </ul>
 </li>
 <li><p>Der Gedanke wird in das gewählte Dokument geschrieben.</p>
@@ -1296,16 +1338,16 @@ Und wäre leicht von Grund aus abgebrannt.
 <li><p>Eingerückt unter dem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement wenden wir die <code class="docutils literal notranslate"><span class="pre">write</span></code>-Methode auf <code class="docutils literal notranslate"><span class="pre">write_file</span></code> an, in die Klammern setzen wir <code class="docutils literal notranslate"><span class="pre">thought</span></code> sowie einen finalen Zeilenumbruch. <code class="docutils literal notranslate"><span class="pre">thought</span></code> wird jetzt also auf eine eigene Zeile in <code class="docutils literal notranslate"><span class="pre">write_file</span></code> geschrieben. Durch das Verlassen der Einrückung des <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statements wird das Dokument mit der neuen Zeile gespeichert und geschlossen.<br><br></p></li>
 </ul>
 </li>
-<li><p>Die Benutzerin wird zur Entscheidung aufgefordert, ob sie einen weiteren Gedanken im selben Dokument festhalten will oder ob sie das Programm verlassen will.</p>
+<li><p>Die Benutzerin wird zur Entscheidung aufgefordert, ob sie einen weiteren Gedanken im selben Dokument festhalten oder das Programm verlassen will.</p>
 <ul class="simple">
-<li><p>Hier kommt nochmal <code class="docutils literal notranslate"><span class="pre">input</span></code> zum Einsatz. Da die Benutzerin ihre Entscheidung nicht über eine binäre „Ja/Nein“-Taste mitteilen kann, empfiehlt es sich, sie zur Eingabe eines „Y“ (oder sonst eines bestimmten Buchstaben) aufzufordern, sollte sie noch einen weiteren Gedanken festhalten wollen. Andernfalls soll sie irgendeine andere Eingabe tätigen. Ihre Eingabe weisen wir der Variablen <code class="docutils literal notranslate"><span class="pre">repeat</span></code> zu.</p></li>
-<li><p>Spätestens an dieser Stelle fällt uns auf, dass wir den gesamten vorherigen Code in eine Schleife einbauen müssen. Nämlich in eine (potentielle) Endlosschlaufe, die nur dann abgebrochen wird, wenn sich die Benutzerin dazu entscheidet, <em>keinen</em> weiteren Gedanken festzuhalten (5.B.). Dafür verwenden wir <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> (vgl. drittes Notebook), eine Schleife, die sich unendlich wiederholt, es sei denn, Python trifft auf ein <code class="docutils literal notranslate"><span class="pre">break</span></code>-Statement.</p></li>
-<li><p>Am Ende des Codeblocks innerhalb der <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife müssen wir also prüfen, ob <code class="docutils literal notranslate"><span class="pre">repeat</span></code> „Y“ (oder einem anderen festgelegten Zeichen) enspricht und abhängig davon, die Schleife abbrechen (<code class="docutils literal notranslate"><span class="pre">break</span></code>) oder nicht.<br><br></p></li>
+<li><p>Hier kommt noch einmal <code class="docutils literal notranslate"><span class="pre">input</span></code> zum Einsatz. Da die Benutzerin ihre Entscheidung nicht über eine binäre „Ja/Nein“-Taste mitteilen kann, empfiehlt es sich, sie zur Eingabe eines „Y“ (oder sonst eines bestimmten Buchstaben) aufzufordern, sollte sie noch einen weiteren Gedanken festhalten wollen. Andernfalls soll sie irgendeine andere Eingabe tätigen. Ihre Eingabe weisen wir der Variablen <code class="docutils literal notranslate"><span class="pre">repeat</span></code> zu.</p></li>
+<li><p>Spätestens an dieser Stelle fällt uns auf, dass wir den gesamten vorherigen Code in eine Schleife einbauen müssen. Nämlich in eine (potentielle) Endlosschleife, die nur dann abgebrochen wird, wenn sich die Benutzerin dazu entscheidet, <em>keinen</em> weiteren Gedanken festzuhalten (vgl. Schritt 5.B.). Dafür verwenden wir <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> (vgl. Notebook „Kontrollstrukturen“), eine Schleife, die sich unendlich wiederholt, es sei denn, Python trifft auf ein <code class="docutils literal notranslate"><span class="pre">break</span></code>-Statement.</p></li>
+<li><p>Am Ende des Codeblocks innerhalb der <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife müssen wir also prüfen, ob <code class="docutils literal notranslate"><span class="pre">repeat</span></code> „Y“ (oder einem anderen festgelegten Zeichen) entspricht und abhängig davon die Schleife abbrechen (<code class="docutils literal notranslate"><span class="pre">break</span></code>) oder nicht.<br><br></p></li>
 </ul>
 <ol class="arabic simple">
 <li><p>Will die Benutzerin einen weiteren Gedanken festhalten, so soll das Programm zu Schritt 3 zurückspringen.</p>
 <ul class="simple">
-<li><p>In diesem Fall müssen wir nichts weiter machen, die Schleife läuft ja von alleine weiter. Einzig wichtig ist, dass der Gruß sowie die Aufforderung nach dem Namen des gewünschten Dokuments (Schritt 1 und 2) nicht wiederholt werden, indem wir hier <code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">False</span></code> setzen.
+<li><p>In diesem Fall müssen wir nichts weiter machen, die Schleife läuft ja von allein weiter. Einzig wichtig ist, dass der Gruß sowie die Aufforderung nach dem Namen des gewünschten Dokuments (Schritt 1 und 2) nicht wiederholt werden, indem wir hier <code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">False</span></code> setzen.
 <br><br></p></li>
 </ul>
 </li>
@@ -1317,9 +1359,9 @@ Und wäre leicht von Grund aus abgebrannt.
 </ol>
 </li>
 </ol>
-<p>Solltest Du den Anwendungsfall nicht bereits gelöst haben, versuche es nun mithilfe all dieser Techniken in der Code-Zelle oben.</p>
+<p>Solltest Du den Anwendungsfall nicht bereits gelöst haben, versuch es nun mithilfe all dieser Techniken in der Code-Zelle oben.</p>
 <hr class="docutils" />
-<p>Damit sind wir in der Lage, unsere Python-Programme über User-Input interaktiv zu gestalten. 😎</p>
+<p>Damit sind wir in der Lage, unsere Python-Programme über User:innen-Input interaktiv zu gestalten. 😎</p>
 <p>Abschließend schauen wir uns noch die vermutlich am häufigsten benutzte Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">print</span></code>, genauer an.</p>
 </section>
 <section id="die-print-funktion-im-detail">
@@ -1329,15 +1371,15 @@ Und wäre leicht von Grund aus abgebrannt.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="nb">print</span><span class="p">()</span> <span class="c1">#print ohne Argument gibt einfach eine leere Zeile aus</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hier wird ein Objekt ausgegeben&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span> <span class="c1">#&#39;print&#39; ohne Argument gibt einfach eine leere Zeile aus</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hier wird ein Objekt ausgegeben.&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hier werden zwei Objekte&quot;</span><span class="p">,</span> <span class="s2">&quot;ausgegeben.&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hier&quot;</span><span class="p">,</span> <span class="s2">&quot;werden&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="s2">&quot;Objekte&quot;</span><span class="p">,</span> <span class="s2">&quot;ausgegeben.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hier wird ein Objekt ausgegeben
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hier wird ein Objekt ausgegeben.
 Hier werden zwei Objekte ausgegeben.
 Hier werden 5 Objekte ausgegeben.
 </pre></div>
@@ -1348,7 +1390,7 @@ Hier werden 5 Objekte ausgegeben.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leer&quot;</span><span class="p">,</span> <span class="s2">&quot;schlag&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1988</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; / &quot;</span><span class="p">)</span> <span class="c1">#deutsche Schreibweise</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1988</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; / &quot;</span><span class="p">)</span> <span class="c1">#Deutsche Schreibweise</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1988</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="c1">#US-amerikanische Schreibweise</span>
 </pre></div>
 </div>
@@ -1362,13 +1404,13 @@ Hier werden 5 Objekte ausgegeben.
 </div>
 <p>Im zweiten Beispiel haben wir zudem einen <code class="docutils literal notranslate"><span class="pre">end</span></code>-Parameter spezifiziert. Überleg Dir für einen Augenblick, was hier der Standardwert sein könnte.</p>
 <p>Genau, ein Zeilenumbruch.</p>
-<p>Der letzte optionale Parameter der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion heißt <code class="docutils literal notranslate"><span class="pre">file</span></code>. Statt das/die übergegebe(n) Argument(e) standardmäßig im Outputfeld von JupyterLab auszugeben, können wir den Output in eine externe Datei <em>umleiten</em>. Wichtig dabei ist, dass die Datei geöffnet ist:</p>
+<p>Der letzte optionale Parameter der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion heißt <code class="docutils literal notranslate"><span class="pre">file</span></code>. Statt das/die übergegebe(n) Argument(e) standardmäßig im Outputfeld auszugeben, können wir den Output in eine externe Datei <em>umleiten</em>. Wichtig dabei ist, dass die Datei geöffnet ist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/print_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;So können wir in eine externe Datei schreiben.&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">write_file</span><span class="p">)</span>
     
-    <span class="c1">#Dabei besteht übrigens kein Unterschied zur oben kennengelernten write-Methode</span>
+    <span class="c1">#Dabei besteht übrigens kein Unterschied zur oben kennengelernten &#39;write&#39;-Methode</span>
     <span class="c1">#write_file.write(&quot;So können wir in eine externe Datei schreiben.&quot;)</span>
 </pre></div>
 </div>
@@ -1377,7 +1419,7 @@ Hier werden 5 Objekte ausgegeben.
 <p>Wenn Du diese Zelle mehrfach ausführst, schreibst Du jedes Mal eine weitere Zelle in die externe Datei. Dies liegt natürlich am <em>append</em>-Modus.</p>
 <section id="f-strings">
 <h3>f-strings<a class="headerlink" href="#f-strings" title="Link zu dieser Überschrift">#</a></h3>
-<p>Im Zusammenhang mit <code class="docutils literal notranslate"><span class="pre">print</span></code> sind auch die sog. <em>f-strings</em> (abgekürzt für <em>formatted string literals</em>) zu erwähnen. Gleich wie <code class="docutils literal notranslate"><span class="pre">print</span></code> (für die Ausgabe) und die Zeichenketten-Konkatenation mithilfe von <code class="docutils literal notranslate"><span class="pre">+</span></code> (vgl. erstes Notebook) können wir f-strings dazu nutzen, beliebig viele Werte zu einem string zusammenzusetzen. Das sieht syntaktisch so aus:</p>
+<p>Im Zusammenhang mit <code class="docutils literal notranslate"><span class="pre">print</span></code> sind auch die sog. <em>f-strings</em> (abgekürzt für <em>formatted string literals</em>) zu erwähnen. Gleich wie <code class="docutils literal notranslate"><span class="pre">print</span></code> (für die Ausgabe) und die Zeichenketten-Konkatenation mithilfe von <code class="docutils literal notranslate"><span class="pre">+</span></code> (vgl. Notebook „Einführung“) können wir f-strings dazu nutzen, beliebig viele Werte zu einem string zusammenzusetzen. Das sieht syntaktisch so aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letter</span> <span class="o">=</span> <span class="s2">&quot;f&quot;</span>
@@ -1392,9 +1434,9 @@ Hier werden 5 Objekte ausgegeben.
 </div>
 </div>
 </div>
-<p>Steht ein „f“/“F“ vor dem öffnenden Anführungszeichen eines strings, können wir beliebig viele Werte, jeweils umrahmt von geschweiften Klammern <em>in</em> den string reinpacken. Der Wert kann dabei direkt von einer Variablen kommen (oben <code class="docutils literal notranslate"><span class="pre">letter</span></code>) oder das Ergebnis eines komplexen Ausdrucks sein (oben bei <code class="docutils literal notranslate"><span class="pre">letter.upper()</span></code>).</p>
-<p>Als Erinnerung (vom ersten Notebook): ein komplexer Ausdruck wie eine arithmetische Operation (<code class="docutils literal notranslate"><span class="pre">2*3</span></code>), eine Funktion (<code class="docutils literal notranslate"><span class="pre">sorted</span></code> oder <code class="docutils literal notranslate"><span class="pre">len</span></code>), eine Methode (s.o.), ein Werteabruf in einem dictionary (<code class="docutils literal notranslate"><span class="pre">dictionary[key]</span></code>) etc. gibt immer <em>einen</em> Wert zurück (<code class="docutils literal notranslate"><span class="pre">6</span></code> beim Beispiel für die arithmetische Operation). Genau dieser Wert wird dann an der Stelle der geschweiften Klammern im string eingesetzt.</p>
-<p>Der selben Logik entsprechend lassen sich auch bedingte Anweisungen in einen f-string integrieren. Folgenden Code kennen wir bereits von oben. Dank f-strings ist er nun aber wesentlich kürzer:</p>
+<p>Steht ein „f“/“F“ vor dem öffnenden Anführungszeichen eines string, können wir beliebig viele Werte, jeweils umrahmt von geschweiften Klammern, <em>in</em> den string reinpacken. Der Wert kann dabei direkt von einer Variablen kommen (oben <code class="docutils literal notranslate"><span class="pre">letter</span></code>) oder das Ergebnis eines komplexen Ausdrucks sein (oben bei <code class="docutils literal notranslate"><span class="pre">letter.upper()</span></code>).</p>
+<p>Als Erinnerung (vom Notebook „Einführung“): Ein komplexer Ausdruck wie eine arithmetische Operation (<code class="docutils literal notranslate"><span class="pre">2*3</span></code>), eine Funktion (<code class="docutils literal notranslate"><span class="pre">sorted</span></code> oder <code class="docutils literal notranslate"><span class="pre">len</span></code>), eine Methode (s. o.), ein Werteabruf in einem dictionary (<code class="docutils literal notranslate"><span class="pre">dictionary[key]</span></code>) etc. gibt immer <em>einen</em> Wert zurück (<code class="docutils literal notranslate"><span class="pre">6</span></code> beim Beispiel für die arithmetische Operation). Genau dieser Wert wird dann an der Stelle der geschweiften Klammern im string eingesetzt.</p>
+<p>Derselben Logik entsprechend lassen sich auch bedingte Anweisungen in einen f-string integrieren. Folgenden Code kennen wir bereits von oben. Dank f-strings ist er nun aber wesentlich kürzer:</p>
 <div class="cell tag_&quot;hide-output&quot; docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?&quot;</span><span class="p">)</span>
@@ -1407,7 +1449,7 @@ Hier werden 5 Objekte ausgegeben.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?&quot;</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Freut mich, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. Du darfst </span><span class="si">{</span><span class="s1">&#39;leider nicht&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;natürlich&#39;</span><span class="si">}</span><span class="s2"> in den Club.&quot;</span><span class="p">)</span>
@@ -1443,7 +1485,7 @@ Hier werden 5 Objekte ausgegeben.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mf">23.238457584</span>
 
-<span class="c1">#hier runden wir &quot;value&quot; auf zwei Nachkommastellen</span>
+<span class="c1">#Hier runden wir &#39;value&#39; auf zwei Nachkommastellen</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zahl mit nur zwei Nachkommastellen: </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -1477,17 +1519,17 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
 </div>
 </div>
 </div>
-<p>Hier definieren wir nach dem Doppelpunkt einen sog. <em>digit space</em>, also die Anzahl an Stellen, die zur Ausgabe verwendet werden soll. In den Beispielen oben wird der digit space als aus drei Stellen bestehend definiert. Optional können wir davor angeben, ob etwaige leere Stellen (da die Zahl aus weniger Ziffern als Stellen des digit space besteht) mit Nullen „aufgefüllt“ werden sollen (engl. <em>zero padding</em>). Zahlen, die aus weniger Ziffern als der digit space bestehen und nicht zero-gepaddet werden, werden rechtsbündig ausgegeben. Wie Du diese Ausrichtung innerhalb des vorgegebenen digit space ändern kannst (engl. <em>alignment</em>), findest Du im Cheat Sheet.</p>
+<p>Hier definieren wir nach dem Doppelpunkt einen sog. <em>digit space</em>, also die Anzahl an Stellen, die zur Ausgabe verwendet werden soll. In den Beispielen oben wird der digit space als aus drei Stellen bestehend definiert. Optional können wir davor angeben, ob etwaige leere Stellen (da die Zahl aus weniger Ziffern als Stellen des digit space besteht) mit Nullen „aufgefüllt“ werden sollen (engl.: <em>zero padding</em>). Zahlen, die aus weniger Ziffern als der digit space bestehen und nicht zero-gepaddet werden, werden rechtsbündig ausgegeben. Wie Du diese Ausrichtung innerhalb des vorgegebenen digit space ändern kannst (engl.: <em>alignment</em>), findest Du im Cheat Sheet.</p>
 <p>Digit space und Nachkommastellen können natürlich auch zusammen definiert werden, die syntaktische Reihenfolge sieht dann so aus (die Leerschläge dienen nur der besseren Lesbarkeit und müssen im Code entfernt werden!):</p>
 <p><code class="docutils literal notranslate"><span class="pre">f&quot;{value:</span> <span class="pre">(zero_padding)</span> <span class="pre">digit_space</span> <span class="pre">.</span> <span class="pre">decimals</span> <span class="pre">type}</span></code></p>
 <p>Genau diese Kombination aus digit space und Nachkommastellen kannst Du nun in der letzten Übung einsetzen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 7:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben.</p>
-<img src="../3_Dateien/Grafiken_und_Videos/Einkaufskorb.png"><p>Hinweis 1: Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ 5.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Einkaufskorb.png"><p>Hinweis 1: Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ fünf.</p>
 <p>Hinweis 2: Wie erwähnt werden Zahlen innerhalb des digit space standardmäßig rechtsbündig ausgerichtet. Strings werden hingegen innerhalb des digit space standardmäßig linksbündig ausgerichtet (Tabellenkalkulationsprogramme legen das gleiche Verhalten an den Tag, wie Dir vielleicht schon aufgefallen ist). Um die Darstellung im Screenshot umzusetzen, musst Du Dich folglich nicht um das Alignment kümmern, da es dem Standard entspricht.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
 <span class="n">shopping_list</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Apple&quot;</span><span class="p">:</span> <span class="mf">0.77</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">,</span> <span class="s2">&quot;Oat Milk&quot;</span><span class="p">:</span> <span class="mf">1.944</span><span class="p">,</span> <span class="s2">&quot;Olive Oil Extra Vergine&quot;</span><span class="p">:</span> <span class="mf">11.17</span><span class="p">}</span>
 </pre></div>
@@ -1540,15 +1582,6 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
         <p class="prev-next-title">Funktionen und Methoden</p>
       </div>
     </a>
-    <a class="right-next"
-       href="6_Regulaere_Ausdruecke.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title">Reguläre Ausdrücke / RegEx</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -1587,7 +1620,7 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-csv-modul">Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-input-fur-interaktive-programme">User-Input für interaktive Programme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-innen-input-fur-interaktive-programme">User:innen-Input für interaktive Programme</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-print-funktion-im-detail">Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">f-strings</a></li>

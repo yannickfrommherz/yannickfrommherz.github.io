@@ -163,8 +163,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="7_Datenanalyse.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -173,8 +171,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/7_Datenanalyse_Loesungen.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -474,13 +470,13 @@ document.write(`
 <p>Da es sich aber um eine repetitive, regelhafte Aufgabe handelt (also ein sehr ähnlicher Ablauf stets wiederholt wird), ist dies ein Paradebeispiel dafür, wie wir uns das Leben mit Programmierkenntnissen leichter machen können. Gewiss, wenn Du das erste Mal einen Web Scraping-Code schreibst – so nennt sich diese Herangehensweise –, dann wird das auch einige Stunden oder Tage dauern. Aber selbst das steht in keinem Verhältnis zur Zeit, die Du bei einer manuellen Bewältigung dieser Aufgabe benötigen würdest. Und beim nächsten Mal codest Du dann auch bereits schneller! 😎</p>
 <p>Hier noch ein paar weitere Beispiele für repetitive, regelhafte Aufgaben, bei denen Du von Programmierkenntnissen profitieren wirst:</p>
 <ul class="simple">
-<li><p>Aufbereiten und Bearbeiten von Daten, z. B. alle Wörter in einem bestimmten Text sollen großgeschrieben werden</p></li>
-<li><p>Anreichern von Daten, z. B. alle Eigennamen in einem Text sollen getaggt werden, je nachdem, ob es sich um eine Person, einen Ort oder eine Institution handelt</p></li>
-<li><p>Filtern von Daten, z. B. alle Bilder, die einen R-Mittelwert (im RGB-Farbraum) von über 150 aufweisen</p></li>
-<li><p>Auswerten von Daten, z. B. Zählen des Vorkommens bestimmter Formulierungen in einem Text, Errechnen von Schlüsselwörtern für einen Text</p></li>
+<li><p>Aufbereiten und Bearbeiten von Daten, z. B. alle Wörter in einem bestimmten Text sollen großgeschrieben werden</p></li>
+<li><p>Anreichern von Daten, z. B. alle Eigennamen in einem Text sollen getaggt werden, je nachdem, ob es sich um eine Person, einen Ort oder eine Institution handelt</p></li>
+<li><p>Filtern von Daten, z. B. alle Bilder, die einen R-Mittelwert (im RGB-Farbraum) von über 150 aufweisen</p></li>
+<li><p>Auswerten von Daten, z. B. Zählen des Vorkommens bestimmter Formulierungen in einem Text, Errechnen von Schlüsselwörtern für einen Text</p></li>
 </ul>
 <p>Darüber hinaus lassen sich Daten mithilfe von Programmierkenntnissen auch sehr gut statistisch auswerten sowie visualisieren. All diese Techniken werden wir im Verlauf des Kurses kennenlernen.</p>
-<p>Python ist nun eine formale Sprache, mit der wir programmieren können. Sie hat eine <em>Syntax</em>, ähnlich wie auch natürliche Sprachen (z. B. Deutsch), die wir lernen und befolgen müssen, um <em>Programme</em> in ihr schreiben zu können. Programme, die wir in Python schreiben, enthalten <em>Code</em>. Etwas grob formuliert weist dieser Code den Computer an, was er zu tun hat.</p>
+<p>Python ist nun eine formale Sprache, mit der wir programmieren können. Sie hat eine <em>Syntax</em>, ähnlich wie auch natürliche Sprachen (z. B. Deutsch), die wir lernen und befolgen müssen, um <em>Programme</em> in ihr schreiben zu können. Programme, die wir in Python schreiben, enthalten <em>Code</em>. Etwas grob formuliert weist dieser Code den Computer an, was er zu tun hat.</p>
 <section id="von-oben-nach-unten">
 <h2>Von oben nach unten<a class="headerlink" href="#von-oben-nach-unten" title="Link zu dieser Überschrift">#</a></h2>
 <p>Wenn wir ein Programm <em>ausführen</em>, dann werden unsere Anweisungen <strong>von oben nach unten</strong> durchgegangen. Hier ein Beispiel. Führe den Code aus, indem Du in die Zelle klickst und dann <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> drückst:</p>
@@ -609,7 +605,7 @@ und am Ende das.
 <li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> für Subtraktion</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> für Multiplikation</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/</span></code> für Division</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">**</span></code> fürs Potenzieren (z. B. 2<sup>3</sup> bzw. ausgeschrieben: 2 hoch 3)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**</span></code> fürs Potenzieren (z. B. 2<sup>3</sup> bzw. ausgeschrieben: 2 hoch 3)</p></li>
 </ul>
 <p>Der folgende Code illustriert, dass es wirklich keine Rolle spielt, ob wir direkt mit Objekten (hier Zahlen) oder mit stellvertretenden Variablen rechnen:</p>
 <div class="cell docutils container">
@@ -649,7 +645,7 @@ und am Ende das.
 </div>
 <hr class="docutils" />
 <p>Übrigens, wie bereits im Einführungsvideo erwähnt, musst Du einmal definierte Variablen nicht immer bis zum letzten Buchstaben ausschreiben, sondern kannst Dir das Leben mit der <strong>Autovervollständigungsfunktion</strong> erleichtern. Schreibe die ersten paar Zeichen und drücke dann <code class="docutils literal notranslate"><span class="pre">tab</span></code>. Kommt nur noch eine Vervollständigung in Frage, wird die Variable automatisch fertig geschrieben. Kommen mehrere Vervollständigungen in Frage, kannst Du aus einem Dropdown-Menü die richtige wählen. Nutze dazu auch <code class="docutils literal notranslate"><span class="pre">tab</span></code> oder die Pfeiltasten.</p>
-<p>Die Autovervollständigung funktioniert nicht nur bei selbst definierten Namen, sondern auch bei solchen, die in Python bereits eine Bedeutung haben, z. B. bei <code class="docutils literal notranslate"><span class="pre">print</span></code>. Probier’s aus, z. B. in Deiner eigenen neuen Code-Zelle, die Du über das <code class="docutils literal notranslate"><span class="pre">+</span></code>-Symbol in der Kopfleiste hinzufügst.</p>
+<p>Die Autovervollständigung funktioniert nicht nur bei selbst definierten Namen, sondern auch bei solchen, die in Python bereits eine Bedeutung haben, z. B. bei <code class="docutils literal notranslate"><span class="pre">print</span></code>. Probier’s aus, z. B. in Deiner eigenen neuen Code-Zelle, die Du über das <code class="docutils literal notranslate"><span class="pre">+</span></code>-Symbol in der Kopfleiste hinzufügst.</p>
 <p>Zurück zu den Operatoren: <em>Erweiterte Zuweisungsoperatoren</em> kombinieren nun den Zuweisungsoperator <code class="docutils literal notranslate"><span class="pre">=</span></code> mit den arithmetischen Operatoren. Damit können wir den nachfolgend oberen Code wie unten gezeigt vereinfachen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -702,7 +698,7 @@ und am Ende das.
 <p>Wir lernen zwei Sachen hier:</p>
 <ul class="simple">
 <li><p>Wir können kommasepariert mehrere Variablen auf einmal zuweisen (wobei die Anzahl an Variablennamen und zuzuweisenden Objekten natürlich gleich sein muss).</p></li>
-<li><p>Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion konkateniert die einzelnen <em>Argumente</em>, die wir ihr übergeben, automatisch mit einem Leerschlag dazwischen (im Notebook „Input und Output“ besprechen wir die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail).</p></li>
+<li><p>Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion konkateniert die einzelnen <em>Argumente</em>, die wir ihr übergeben, automatisch mit einem Leerschlag dazwischen (im Notebook „Input und Output Teil 2“ besprechen wir die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail).</p></li>
 </ul>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 3:</strong> Für einen Kalender möchtest Du alle sieben Wochentage 52 Mal ausdrucken, für jede Woche des Jahres einmal. Das Ergebnis soll also wie folgt aussehen:</p>
@@ -727,7 +723,7 @@ Di </br></p>
 </div>
 <hr class="docutils" />
 <p>Was Du hier gemacht hast, nennt sich <em>Replikation</em> und es zeigt sich, dass auch hier der <code class="docutils literal notranslate"><span class="pre">*</span></code>-Operator unterschliedlich funktioniert, je nachdem, ob in einem Ausdruck nur Zahlen, eine Zeichenkette und/oder eine Zahl verwendet werden (schau gerne nach was passiert, wenn Du versuchst, zwei Zeichenketten miteinander zu multiplizieren).</p>
-<p>Schon hier sehen wir: Manuelles copy-pasting hätte länger gedauert und Du hättest genau mitzählen müssen, um auch wirklich 52 Mal zu kopieren. Nun haben wir eine statische Zeichenkette repliziert, bald lernen wir auch, wie sich die Zeichenkette bei jeder Wiederholung dynamisch anpassen lässt. So, dass wir z. B. jeweils das Datum mitausgeben können: „Samstag, 1. Januar 2022, Sonntag, 2. Januar 2022, …“.</p>
+<p>Schon hier sehen wir: Manuelles copy-pasting hätte länger gedauert und Du hättest genau mitzählen müssen, um auch wirklich 52 Mal zu kopieren. Nun haben wir eine statische Zeichenkette repliziert, bald lernen wir auch, wie sich die Zeichenkette bei jeder Wiederholung dynamisch anpassen lässt. So, dass wir z. B. jeweils das Datum mitausgeben können: „Samstag, 1. Januar 2022, Sonntag, 2. Januar 2022, …“.</p>
 <p>Nun schneiden wir noch eine weitere Art von Operatoren an: <em>Vergleichsoperatoren</em>. Vergleichoperatoren vergleichen den Wert zweier Objekte und schauen, ob der erste Wert</p>
 <ul class="simple">
 <li><p>gleich: <code class="docutils literal notranslate"><span class="pre">==</span></code></p></li>
@@ -791,7 +787,7 @@ abc ist gleich abc
 </div>
 </div>
 <p>Die nicht eingerückte Zeile wird <em>Anweisungskopf</em> genannt, sie endet <strong>immer</strong> mit einem Doppelpunkt. Die Zeilen darunter heißen <em>Anweisungskörper</em>, sie müssen <strong>eingerückt</strong> werden.</p>
-<p>Ganz wichtig: Wir müssen immer konsistent einrücken. Grundsätzlich kann man selbst festlegen, ob man stets um einen, vier oder sonst eine beliebige Anzahl an Leerschlägen einrücken will. Standard ist jedoch, mittels der Tabulatortaste <code class="docutils literal notranslate"><span class="pre">tab</span></code> einzurücken, was vier Leerschlägen entspricht. Bei inkonsistenter Einrückung liegt ein Syntaxfehler vor und der Code crasht. JupyterLab sowie viele andere Editoren helfen einem beim konsistenten Einrücken, etwa indem nach dem Schreiben eines Anweisungskopfs (inkl. Doppelpunkt) beim Drücken von <code class="docutils literal notranslate"><span class="pre">Enter</span></code> (für einen Zeilenumbruch) automatisch um ein Tab eingerückt wird, sowie indem inkonsistente Einrückungen farblich hervorgehoben werden (probier’s aus, indem Du oben um nur drei Leerschläge einrückst).</p>
+<p>Ganz wichtig: Wir müssen immer konsistent einrücken. Grundsätzlich kann man selbst festlegen, ob man stets um einen, vier oder sonst eine beliebige Anzahl an Leerschlägen einrücken will. Standard ist jedoch, mittels der Tabulatortaste <code class="docutils literal notranslate"><span class="pre">tab</span></code> einzurücken, was vier Leerschlägen entspricht. Bei inkonsistenter Einrückung liegt ein Syntaxfehler vor und der Code crasht. Die meisten Editoren wie etwa JupyterLab und Visual Studio Code helfen einem beim konsistenten Einrücken, etwa indem nach dem Schreiben eines Anweisungskopfs (inkl. Doppelpunkt) beim Drücken von <code class="docutils literal notranslate"><span class="pre">Enter</span></code> (für einen Zeilenumbruch) automatisch um ein Tab eingerückt wird, sowie indem inkonsistente Einrückungen farblich hervorgehoben werden (probier’s aus, indem Du oben um nur drei Leerschläge einrückst).</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 5:</strong> In einem eingerückten Anweisungskörper kann sich wiederum eine Anweisung befinden (und im zugehörigen Anweisungskörper wiederum die nächste Anweisung etc.). Dafür wird einfach jeweils um ein weiteres <code class="docutils literal notranslate"><span class="pre">tab</span></code> eingerückt. Auch wenn wir die beiden Kontrollstrukturen <code class="docutils literal notranslate"><span class="pre">for</span></code> und <code class="docutils literal notranslate"><span class="pre">if</span></code> noch nicht eingeführt haben: Versuch den obigen Code so anzupassen, dass bei jedem <code class="docutils literal notranslate"><span class="pre">character</span></code> in <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> überprüft wird, ob es sich um ein „a“ handelt. Nur falls diese Bedingung zutrifft, soll der jeweilige <code class="docutils literal notranslate"><span class="pre">character</span></code> mittels der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ausgegeben werden. Wenn Du den Code richtig schreibst,  sollte Dir also ein einziges „a“ ausgegeben werden.</p>
 <div class="cell docutils container">
@@ -807,7 +803,7 @@ abc ist gleich abc
 <h2>Kommentare<a class="headerlink" href="#kommentare" title="Link zu dieser Überschrift">#</a></h2>
 <p>Schauen wir noch kurz das Konzept der Kommentare an, das sich bereits in viele der obigen Codes eingeschlichen hat.</p>
 <p>Kommentare sind Teile des Codes, die für uns als Codeschreibende und -lesende von Interesse sind, Python jedoch überliest sie komplett. Kommentare werden einerseits dazu verwendet, Codeteile zu erläutern (für einen selbst oder andere in einem kollaborativen Projekt), wobei die Devise lautet: <strong>besser zu viel erklären, als zu wenig</strong>. Man selbst und andere werden es einem später danken. Das sog. <em>Eagleson’s Law</em> beschreibt, dass Code von einem selbst nach sechs Monaten genau so gut von jemand anderem stammen könnte, so wenig nachvollziehbar findet man ihn auf den ersten Blick. In Wahrheit handelt es sich vermutlich um weniger als sechs Monate (vgl. <a class="reference external" href="https://learning.oreilly.com/library/view/weniger-schlecht-programmieren/9783955615697/?ar">Passig/Jander 2013</a>).</p>
-<p>Andererseits werden Kommentare dazu verwendet, bestimmte Teile des Codes zwischenzeitlich „auszuschalten“, d. h. Python übergeht diese Teile dann einfach. Das ist z. B. beim <em>Debugging</em> nützlich, also wenn sich ein Fehler (<em>Bug</em>) eingeschlichen hat und es darum geht herauszufinden, welcher Codeteil den Fehler verursacht. Code temporär „auszuschalten/auszukommentieren“ wird <em>comment out</em> genannt.</p>
+<p>Andererseits werden Kommentare dazu verwendet, bestimmte Teile des Codes zwischenzeitlich „auszuschalten“, d. h. Python übergeht diese Teile dann einfach. Das ist z. B. beim <em>Debugging</em> nützlich, also wenn sich ein Fehler (<em>Bug</em>) eingeschlichen hat und es darum geht herauszufinden, welcher Codeteil den Fehler verursacht. Code temporär „auszuschalten/auszukommentieren“ wird <em>comment out</em> genannt.</p>
 <p>Kommentare, die nur eine Zeile umfassen, werden mit einem Hashtag <code class="docutils literal notranslate"><span class="pre">#</span></code> begonnen. Für mehrzeilige Kommentare werden drei Anführungszeichen, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;Kommentar&quot;&quot;&quot;</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">'''Kommentar'''</span></code>, verwendet (das jeweils andere Anführungszeichen kann dann auch im Kommentar verwendet werden):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -817,7 +813,7 @@ abc ist gleich abc
 <span class="sd">&#39;&#39;&#39;hier haben  </span>
 <span class="sd">wir einen</span>
 <span class="sd">&quot;langen&quot;</span>
-<span class="sd">Kommentar&#39;&#39;&#39;</span> <span class="c1">#JupyterLab gibt diesen Kommentar beim Ausführen verwirrenderweise aus, da JuypterLab stets die letzte Zeile ausgibt (und alles, was innerhalb dreifacher Anführungszeichen steht als eine Zeile auffasst). </span>
+<span class="sd">Kommentar&#39;&#39;&#39;</span> <span class="c1">#Jupyter gibt diesen Kommentar beim Ausführen verwirrenderweise aus, da JuypterLab stets die letzte Zeile ausgibt (und alles, was innerhalb dreifacher Anführungszeichen steht als eine Zeile auffasst). </span>
 </pre></div>
 </div>
 </div>
@@ -829,7 +825,7 @@ abc ist gleich abc
 </div>
 <p>Rückblickend auf das, was wir im Video über algorithmisches Denken gelernt haben, empfiehlt es sich übrigens, das grobe „Code-Gerüst“ (also die einzelnen Schritte, die zur Lösung eines Problems führen sollen) erst einmal in Form von Kommentaren festzuhalten. Dadurch verliert man sich nicht gleich in der Umsetzung eines einzelnen Schrittes, sondern investiert aktiv Zeit in einen durchdachten Code-Aufbau. 💡</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 6:</strong> Definier zwei Variablen, eine Zeichenkette (z. B. „Boeing“) und eine Zahl (z. B. 747). Führ nun eine dritte Variable ein, die die beiden Objekte miteinander konkateniert (also „Boeing 747“). Funktioniert das mithilfe des <code class="docutils literal notranslate"><span class="pre">+</span></code>-Operators? Wenn nein, lies die Fehlermeldung und überleg Dir, wie Du den Code dennoch zum Laufen bringen könntest.</p>
+<p>✏️ <strong>Übung 6:</strong> Definier zwei Variablen, eine Zeichenkette (z. B. „Boeing“) und eine Zahl (z. B. 747). Führ nun eine dritte Variable ein, die die beiden Objekte miteinander konkateniert (also „Boeing 747“). Funktioniert das mithilfe des <code class="docutils literal notranslate"><span class="pre">+</span></code>-Operators? Wenn nein, lies die Fehlermeldung und überleg Dir, wie Du den Code dennoch zum Laufen bringen könntest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>

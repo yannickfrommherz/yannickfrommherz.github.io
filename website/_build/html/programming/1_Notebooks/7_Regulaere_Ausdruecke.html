@@ -1,0 +1,1692 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Reguläre Ausdrücke / RegEx &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/7_Regulaere_Ausdruecke';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/7_Regulaere_Ausdruecke.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../phd.html">PhD project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output.html">5. Input und Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/1_Einfuehrung_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/2_Datentypen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/2_Datentypen_Uebungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/1_Notebooks/7_Regulaere_Ausdruecke.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/yannickfrommherz/yfrommherz.ch/blob/main/website/programming/1_Notebooks/7_Regulaere_Ausdruecke.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/7_Regulaere_Ausdruecke.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/programming/1_Notebooks/7_Regulaere_Ausdruecke.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Reguläre Ausdrücke / RegEx</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-1-inputvalidierung">Beispiel 1: Inputvalidierung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-2-musterbasierte-suche">Beispiel 2: Musterbasierte Suche</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-der-pizzabot">🔧 Anwendungsfall: Der Pizzabot 🍕🤖</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-bezogene-aufgabe">RegEx-bezogene Aufgabe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentationsaufgabe">Dokumentationsaufgabe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-suchsprache-im-detail">Die Suchsprache im Detail</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#literale-zeichen">Literale Zeichen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sonderzeichen">Sonderzeichen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcard">Wildcard</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quantifikatoren">Quantifikatoren</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenklassen">Zeichenklassen</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#weitere-sonderzeichen">Weitere Sonderzeichen</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gruppen">Gruppen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-re-modul">Das <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matchen">Matchen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-findall-und-re-search"><code class="docutils literal notranslate"><span class="pre">re.findall</span></code> und <code class="docutils literal notranslate"><span class="pre">re.search</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-finditer-fortgeschritten"><code class="docutils literal notranslate"><span class="pre">re.finditer</span></code> (fortgeschritten)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-match-und-re-fullmatch"><code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matchen-und-ersetzen-re-sub">Matchen und Ersetzen: <code class="docutils literal notranslate"><span class="pre">re.sub</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matchen-und-splitten-re-split">Matchen und Splitten: <code class="docutils literal notranslate"><span class="pre">re.split</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: Der Pizzabot 🍕🤖</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">RegEx-bezogene Aufgabe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Dokumentationsaufgabe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cheat-sheet">Cheat Sheet</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="regulare-ausdrucke-regex">
+<h1>Reguläre Ausdrücke / RegEx<a class="headerlink" href="#regulare-ausdrucke-regex" title="Link zu dieser Überschrift">#</a></h1>
+<p>In diesem Notebook lernen wir sog. <em>Reguläre Ausdrücke</em> (engl.: <em>regular expressions</em>, abgekürzt: <em>RegEx</em>) kennen. RegEx bezeichnet eine sehr leistungsfähige Suchsprache, die es uns erlaubt, komplexe, abstrakte Muster zum Suchen zu verwenden, anstatt bloß literaler (wörtlicher) Suchbegriffe (z. B. ein bestimmtes Wort, nach welchem wir einen Text durchsuchen). Um das zu veranschaulichen und gleichzeitig den immensen Nutzen von RegEx herauszuarbeiten, nähern wir uns dem Thema über zwei Beispiele von konkreten Anwendungen.</p>
+<section id="beispiel-1-inputvalidierung">
+<h2>Beispiel 1: Inputvalidierung<a class="headerlink" href="#beispiel-1-inputvalidierung" title="Link zu dieser Überschrift">#</a></h2>
+<p>Beim Ausfüllen von Formularen auf einer Webseite, z. B. beim Bestellen in einem Onlineshop, wurdest Du sicherlich schon einmal darauf hingewiesen, dass eine Deiner Angaben nicht korrekt ist. Wie hier bei der Eingabe einer Lieferadresse:</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Inputvalidierung.png"><p>Wieso kommt der Onlineshop zum Schluss, dass diese Eingabe fehlerhaft ist? Hier findet keine Abfrage in einer Datenbank mit allen existierenden Adressen in Deutschland (oder sonst wo) statt, das wäre zu umständlich. Diese sog. <em>Inputvalidierung</em> verläuft viel simpler: Im Hintergrund wurde ein mehr oder minder abstrakter, regulärer Ausdruck definiert, der beschreibt, wie der Input, hier die Adresse, auszusehen hat.</p>
+<p>Dieser reguläre Ausdruck scheint nicht nur eine Straße (vermutlich operationalisiert als Abfolge alphabetischer Zeichen, ggf. mit Leerzeichen für Fälle wie „Dresdner Straße“), sondern ebenfalls eine Zahl für die Hausnummer zu verlangen. Bei jeder neuen Eingabe ver<em>sucht</em> das System, den regulären Ausdruck wie eine Schablone über den Input zu legen. Lässt er sich darüber legen, so haben wir einen sog. <em>match</em>. Das bedeutet, dass die Eingabe dem regulären Ausdruck entspricht bzw. im Beispiel hier, dass die Eingabe korrekt ist. Andernfalls „spuckt“ das System eine Fehlermeldung wie oben „aus“.</p>
+</section>
+<section id="beispiel-2-musterbasierte-suche">
+<h2>Beispiel 2: Musterbasierte Suche<a class="headerlink" href="#beispiel-2-musterbasierte-suche" title="Link zu dieser Überschrift">#</a></h2>
+<p>Neben der Inputvalidierung sind reguläre Ausdrücke äußerst hilfreich, um bestimmte Elemente in einer großen Datenmenge aufzuspüren. Damit sind nicht <em>identische</em> Elemente gemeint, denn da würde ja eine literale Suche ausreichen. Gemeint sind Elemente, die zwar nicht identisch sind, wohl aber insgesamt einem einheitlichen <em>Muster</em> entsprechen. Ein bestimmter regulärer Ausdruck wird daher auch oft <em>Muster</em> bzw. <em>pattern</em> auf Englisch genannt.</p>
+<p>In folgendem Ausschnitt des Quelltexts der <a class="reference external" href="https://tu-dresden.de">Homepage der TU Dresden</a> verbergen sich fünf Links auf andere Webseiten, die zwar allesamt identisch beginnen, aber nicht identisch enden (sonst wäre es ja fünfmal derselbe Link).</p>
+<img src="../3_Dateien/Grafiken_und_Videos/HTML_Regex.png"><p>Nun wollen wir alle Links aus dem Quelltext extrahieren, z. B. um auch den Quelltext der verlinkten Seiten automatisiert herunterzuladen (diese Technik nennt sich wie im Notebook „Einführung“ erwähnt <em>Web Scraping</em>, ein Aufbaumodul wird sich ihr ausführlich widmen). Dazu können wir den HTML-Code nach folgendem regulären Ausdruck absuchen:</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Regex_Link.png"><p>Dieser reguläre Ausdruck verlangt, dass ein Link mit der literalen Zeichenfolge „<a class="reference external" href="https://tu-dresden.de/">https://tu-dresden.de/</a>“ beginnt (gelb markiert). Nun folgen ein paar auf den ersten Blick kryptische Zeichen, die regulären Ausdrücken jedoch ihre Leistungsfähigkeit verleihen, indem sie statt ihrer literalen Bedeutung eine Sonderbedeutung haben. Wir gehen unten detailiert auf diese Sonderzeichen ein. Hier ein kurzer Vorausblick: Die Zeichen definieren, dass im Anschluss an die literale Zeichenfolge beliebig viele, aber mindestens ein Zeichen (für diese Bedingung sorgt der Quantifikator <code class="docutils literal notranslate"><span class="pre">+</span></code> (grün)) der von den eckigen Klammern (pink) umrahmten Zeichen bzw. Zeichenklassen folgen dürfen. Diese Zeichen können entweder alphanumerische Zeichen sein (konkret: große/kleine Buchstaben, Zahlen sowie der Unterstrich). Für diese Gruppe von erlaubten Zeichen steht <code class="docutils literal notranslate"><span class="pre">\w</span></code> (blau). Alternativ darf auch ein Bindestrich (gelb) vorkommen. Dieser steht literal im Suchbegriff, da er für sich selbst steht und keine Sonderbedeutung hat.</p>
+<p>Im Screenshot oben wurde der Quelltext nach diesem regulären Ausdruck durchsucht. Die Ergebnisse sind mit einem dünnen Strich umrahmt. Die Anführungszeichen nach den Links werden jeweils nicht mehr <em>gematcht</em>, da sie nicht zu den innerhalb der eckigen Klammern definierten Zeichen bzw. Zeichenklassen gehören.</p>
+<p>Unser regulärer Ausdruck funktioniert für die fünf gegebenen Links. Bei längeren Links, die auf „tiefere“ Unterseiten verlinken (mit weiteren „/“ konkateniert), müsste er aber verfeinert werden. Natürlich ließe er sich auch derart modifizieren, dass optional auch nicht-verschlüsselte Links (also ohne „s“ nach „http“) oder solche mit „www“ zwischen „https://“ und Domain (hier: „tu-dresden“) gematcht werden. Wie das geht, lernen wir weiter unten.</p>
+<p>Wir fassen zusammen: Sowohl bei der Inputvalidierung als auch bei der musterbasierten Suche ist das Prinzip von RegEx das gleiche:</p>
+<p><strong>Wir formulieren <em>einen</em> regulären Ausdruck auf eine ausreichend abstrakte Weise, sodass er alle gewünschten Fälle auf einmal abdeckt.</strong></p>
+<p>Genau wie bei bedingten Anweisungen müssen wir stets darauf achten, dass wir nicht „über das Ziel hinausschießen“, das Muster also <em>zu</em> abstrakt formulieren und dadurch womöglich unerwünschte Fälle matchen (vgl. auch Wahrheitsmatrix im Notebook „Input und Output Teil 1“).</p>
+<p>Auch in diesem Notebook gibt es einen Anwendungsfall.</p>
+</section>
+<hr class="docutils" />
+<section id="anwendungsfall-der-pizzabot">
+<h2>🔧 Anwendungsfall: Der Pizzabot 🍕🤖<a class="headerlink" href="#anwendungsfall-der-pizzabot" title="Link zu dieser Überschrift">#</a></h2>
+<p>Beim Pizzabot in der nächsten Zelle kannst Du Dir eine Pizza bestellen. Der Bot ist leider noch ein wenig unflexibel und akzeptiert nur sehr spezifischen Input. Wenn er Dich nicht versteht, gibt er Dir aber Hinweise dazu, was er verarbeiten kann. Bestell gleich ein paar Pizzen, indem Du die nächste Zelle mehrmals hintereinander ausführst und Dich so mit ihm vertraut machst. Eventuell musst Du jeweils erst ins Antwortfeld unter der Frage klicken, sodass der Cursor blinkt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Diese beiden Zeilen kannst Du ignorieren (sie sind nötig, da sich das zu importierende Modul </span>
+<span class="sd">in einem anderen Verzeichnis als das Notebook befindet (vgl. Notebook &quot;Funktionen und Methoden Teil 2&quot;).&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Module&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">pizzabot</span>
+
+<span class="c1">#Hier aktivieren wir den Pizzabot.</span>
+<span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">pizzabot</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#Hier aktivieren wir den Pizzabot.</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
+
+<span class="nn">File ~/Documents/Repositories/yfrommherz.ch/website/programming/1_Notebooks/../3_Dateien/Module/pizzabot.py:28,</span> in <span class="ni">order_pizza</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">def</span> <span class="nf">order_pizza</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> 
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="c1">#------------&gt; CHOOSE PIZZA &lt;------------ </span>
+<span class="ne">---&gt; </span><span class="mi">28</span>     <span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hallo, ich bin der Pizzabot 🍕🤖</span><span class="se">\n</span><span class="s2">Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">first_prompt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Super &quot;</span> <span class="o">+</span> <span class="n">user_name</span> <span class="o">+</span> <span class="s2">&quot;, welche Pizza möchtest Du bestellen?</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie Du siehst, funktioniert der Pizzabot prinzipiell ganz gut. Der Code dafür, der sich bereits fertig in den Modulen <code class="docutils literal notranslate"><span class="pre">pizzabot</span></code> und <code class="docutils literal notranslate"><span class="pre">pizza_functions</span></code> im Ordner „3_Dateien/Module“ befindet, tut also seinen Dienst. Einzig störend ist die Tatsache, dass Benutzer:innen genau wissen müssen, welchen Input der Bot verarbeiten kann. Das ist nicht sehr kund:innenfreundlich.</p>
+<p>Der Anwendungsfall in diesem Notebook besteht aus zwei Teilaufgaben: Bei der RegEx-bezogenen Aufgabe wirst Du Deine in diesem Notebook erlernten Kenntnisse zu regulären Ausdrücken einsetzen. Bei der Dokumentationsaufgabe geht es darum, Code, den jemand anderes geschrieben hat, zu verstehen und zu dokumentieren.</p>
+<section id="regex-bezogene-aufgabe">
+<h3>RegEx-bezogene Aufgabe<a class="headerlink" href="#regex-bezogene-aufgabe" title="Link zu dieser Überschrift">#</a></h3>
+<p>Die RegEx-bezogene Aufgabe besteht darin, den Pizzabot flexibler in Bezug auf Input zu machen. Dafür wirst Du die regulären Ausdrücke erweitern müssen, die schon jetzt im Code dafür benutzt werden, den User:innen-Input zu validieren.</p>
+<p>Beispielsweise wird die Antwort auf Ja-Nein-Fragen momentan nur nach den strings „Ja“ und „Nein“ (unabhängig von Groß- und Kleinschreibung) abgesucht. Durch Deine regulären Ausdrücke sollen Kund:innen in Zukunft ohne Probleme auch mit „nö“, „ne“, „nope“ etc. antworten können. Ebenfalls soll der Pizzabot mit Rechtschreibfehlern bei den Pizzanamen umgehen können (etwa „Margharita“), um Kund:innen nicht unnötig vor den Kopf zu stoßen. Letztlich besteht ein großes Manko des Pizzabots noch darin, dass er nur an eine einzige Adresse liefern kann, nämlich an die what3words-Adresse „falschen.fliegen.beliebten“, was übrigens der <a class="reference external" href="https://w3w.co/falschen.fliegen.beliebten">nordöstlichen Ecke der Zentralbibliothek der TU Dresden (SLUB)</a> entspricht. Das musst Du ändern, sodass der Pizzabot in Zukunft weltweit liefern kann, und zwar an jedes beliebige 3 x 3 m große Quadrat auf der Erdoberfläche. what3words hat nämlich jedes dieser Quadrate mit einer Adresse bestehend aus drei Wörtern analog zu „falschen.fliegen.beliebten“ versehen. Solche Adressen erlauben einerseits eine viel genauere Angabe als konventionelle Straßennamen (z. B. auch Orte in einem Park oder am Strand) und sind andererseits wesentlich „menschenfreundlicher“ als Koordinaten. Genauere Instruktionen, wie Du die regulären Ausdrücke erweitern sollst, findest Du weiter unten.</p>
+</section>
+<section id="dokumentationsaufgabe">
+<h3>Dokumentationsaufgabe<a class="headerlink" href="#dokumentationsaufgabe" title="Link zu dieser Überschrift">#</a></h3>
+<p>Die Dokumentationsaufgabe besteht darin, dass Du Dir den Code, der ja schon fertig ist, genau anschaust und ihn mithilfe von Kommentaren dokumentierst. Auch wenn Du hier nicht selbst programmieren musst, ist Dein Verständnis von Python sehr gefragt. Das Nachvollziehen von Code, den jemand anderes geschrieben hat, ist zuweilen eine mühselige Aufgabe, weil wir alle unseren eigenen Programmierstil pflegen. Gleichzeitig lernen wir dadurch andere, vielleicht effizientere Herangehensweisen und erweitern so unser Programmierrepertoire. Auch hierzu findest Du nähere Instruktionen weiter unten.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="die-suchsprache-im-detail">
+<h2>Die Suchsprache im Detail<a class="headerlink" href="#die-suchsprache-im-detail" title="Link zu dieser Überschrift">#</a></h2>
+<p>Reguläre Ausdrücke basieren auf einer Suchsprache, die literale Zeichen mit Sonderzeichen kombiniert. Genau diese Sonderzeichen verleihen der Suchsprache ihre große Leistungsfähigkeit. Wir werden die wichtigsten unter ihnen im Folgenden kennenlernen und anwenden.</p>
+<p>Zunächst: Reguläre Ausdrücke sind keine Erfindung von Python. Die Suchsprache ist in diversen Programmiersprachen implementiert, ebenso wie in vielen Texteditoren wie z. B. Sublime Text (vgl. Notebook „Funktionen und Methoden Teil 2“) und in einer abgewandelten Version auch in Microsoft Word. Was Du hier lernst, wirst Du also auch außerhalb Pythons anwenden können. Innerhalb Pythons sind reguläre Ausdrücke im <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul der Standardbibliothek implementiert. Dieses importierst Du, indem Du die nächste Zelle ausführst:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dem Modul und seinen Funktionen und Methoden ist weiter unten ein eigener Abschnitt gewidmet. Wir werden es im Folgenden aber bereits einsetzen, um erlernte Sonderzeichen gleich auszuprobieren. Konzentrier Dich vorerst nur auf die regulären Ausdrücke, die wir jeweils mit der Variable <code class="docutils literal notranslate"><span class="pre">regex</span></code> referenzieren. Die Syntax von <code class="docutils literal notranslate"><span class="pre">re</span></code>-Funktionen/Methoden, denen wir <code class="docutils literal notranslate"><span class="pre">regex</span></code> übergeben, kannst Du bis auf Weiteres ignorieren.</p>
+<section id="literale-zeichen">
+<h3>Literale Zeichen<a class="headerlink" href="#literale-zeichen" title="Link zu dieser Überschrift">#</a></h3>
+<p>Wie gesagt, reguläre Ausdrücke kombinieren literale Zeichen mit Sonderzeichen. Zu den literalen Zeichen gibt es nicht mehr zu sagen, als dass sie schlicht sich selbst bedeuten. Das gilt etwa für alle Buchstaben und Zahlen, wobei bei Buchstaben wie immer Groß- und Kleinschreibung eine Rolle spielt.</p>
+<p>Steht etwa ein „h“ in einem regulären Ausdruck, wie oben bei der Link-RegEx, so hat dieses „h“ keine Sonderbedeutung, sondern steht nur für sich selbst und matcht folglich <em>einmal</em> den kleinen Buchstaben „h“. Die Betonung liegt auf <em>einmal</em>, denn alle Zeichen in einem regulären Ausdruck (auch Sonderzeichen) matchen standardmäßig <em>ein</em> einziges Zeichen. Ein (fehlerhafter) Link, der mit „hhttps://…“ beginnt, wäre oben folglich nicht gematcht worden. Dieses Verhalten kann natürlich angepasst werden, dazu gleich mehr unter „Quantifikatoren“.</p>
+<p>Nun zum eigentlich Spannenden an der Suchsprache:</p>
+</section>
+<section id="sonderzeichen">
+<h3>Sonderzeichen<a class="headerlink" href="#sonderzeichen" title="Link zu dieser Überschrift">#</a></h3>
+<p>Das simpelste aller Sonderzeichen ist die sog. Wildcard.</p>
+<section id="wildcard">
+<h4>Wildcard<a class="headerlink" href="#wildcard" title="Link zu dieser Überschrift">#</a></h4>
+<p>Der <code class="docutils literal notranslate"><span class="pre">.</span></code> matcht ganz einfach ein beliebiges Zeichen, wie in der folgenden Tabelle ersichtlich ist. Solche Tabellen mit einer konzisen Zusammenfassung der Sonderzeichen gibt es zu allen Sonderzeichen und eine Zusammenstellung aller Tabellen findet sich am Ende dieses Notebooks.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-center head"><p><strong>Bemerkungen</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
+<td class="text-left"><p>matcht ein beliebiges Zeichen  </p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">H.nd</span></code> matcht z. B. <em>Hund</em>, <em>Hand</em>   </p></td>
+<td class="text-center"><p>einzige Ausnahme: <code class="docutils literal notranslate"><span class="pre">.</span></code> matcht keinen Zeilenumbruch</p></td>
+</tr>
+</tbody>
+</table>
+<p>Auch die Wildcard matcht standardmäßig <em>ein</em> einziges Zeichen. Der reguläre Ausdruck <code class="docutils literal notranslate"><span class="pre">H.nd</span></code> matcht also z. B. nicht „H<em>olla</em>nd“.</p>
+</section>
+<section id="quantifikatoren">
+<h4>Quantifikatoren<a class="headerlink" href="#quantifikatoren" title="Link zu dieser Überschrift">#</a></h4>
+<p>Mithilfe von Quantifikatoren können wir dieses Verhalten anpassen. Quantifikatoren stehen jeweils nach dem Zeichen, bei welchem wir (abweichend vom standardmäßig einmaligen Auftreten) definieren möchten, wie oft es vorkommen darf bzw. muss, damit ein match vorliegt. Dazu können wir einerseits die Sonderzeichen <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code> und <code class="docutils literal notranslate"><span class="pre">?</span></code> für die gängigsten quantitativen Bedingungen verwenden. Andererseits können wir mithilfe geschweifter Klammern auch eigene quantitative Bedingungen aufstellen. In folgenden Beispielen kommt neben den Quantifikatoren auch die bereits eingeführte Wildcard <code class="docutils literal notranslate"><span class="pre">.</span></code> zum Einsatz:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-left head"><p><strong>Bemerkungen</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td class="text-left"><p>das davor stehende Zeichen darf 0 bis <em>n</em> mal vorkommen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hund.*</span></code> matcht z. B. <em>Hund</em>, <em>Hunde</em>, <em>Hundehütte</em></p></td>
+<td class="text-left"><p>ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>; vgl. Übung 2 für sinnvolle Anwendung)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td class="text-left"><p>das davor stehende Zeichen darf 1 bis <em>n</em> mal vorkommen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hund.+</span></code> matcht z. B. <em>Hunde</em>, <em>Hundehütte</em></p></td>
+<td class="text-left"><p>ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td class="text-left"><p>das davor stehende Zeichen darf 0 bis 1 mal vorkommen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hund.?</span></code> matcht z. B. <em>Hund</em>, <em>Hunde</em>, <em>Hunds</em></p></td>
+<td class="text-left"><p>–</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{n}</span></code></p></td>
+<td class="text-left"><p>das davor stehende Zeichen darf genau <em>n</em> mal vorkommen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hu{7}nd</span></code> matcht <em>Huuuuuuund</em></p></td>
+<td class="text-left"><p>–</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{n,m}</span></code></p></td>
+<td class="text-left"><p>das davor stehende Zeichen darf min. <em>n</em> und max. <em>m</em> mal vorkommen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hu{2,3}nd</span></code> matcht <em>Huund</em>, <em>Huuund</em></p></td>
+<td class="text-left"><p>bleiben <em>n</em> / <em>m</em> leer, werden nach unten / oben beliebig viele Zeichen gematcht; ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>)</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 1:</strong> Find heraus, wie viele Male drei aufeinanderfolgende „f“ im string <code class="docutils literal notranslate"><span class="pre">text</span></code> vorkommen. <code class="docutils literal notranslate"><span class="pre">regex</span></code> soll Deinen regulären Ausdruck referenzieren. Es handelt sich dabei ebenfalls um einen string, allerdings mit einem dem öffnenden Anführungszeichen vorangestellten „r“/“R“. Wie bei f-strings im Notebook „Input und Output Teil 2“ teilen wir Python damit mit, dass der folgende string anders als ein normaler string zu interpretieren ist (wie genau, sind technische Details, die für uns nicht relevant sind, vgl. ebenfalls Notebook „Input und Output Teil 1“ zu Dateipfaden bei Windows).</p>
+<p>Der Rest des Codes ist bereits fertig geschrieben. Grob formuliert, nimmt die <code class="docutils literal notranslate"><span class="pre">findall</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls Deinen regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">regex</span></code>) und sucht <code class="docutils literal notranslate"><span class="pre">text</span></code> von links nach rechts danach ab. Alle matches landen in einer Liste, die mit <code class="docutils literal notranslate"><span class="pre">matches</span></code> referenziert wird und deren Länge wir uns abschließend ausgeben lassen. Die Ausgabe sollte natürlich <code class="docutils literal notranslate"><span class="pre">3</span></code> sein, sobald Du den korrekten regulären Ausdruck bei <code class="docutils literal notranslate"><span class="pre">regex</span></code> ausgefüllt hast.</p>
+<p>💡 Tipp: Verwend bei dieser und bei den folgenden Übungen <a class="reference external" href="https://regexr.com">RegExr</a>. Auf dieser Webseite kannst Du verschiedene reguläre Ausdrücke ausprobieren (im Feld oben) und siehst dabei direkt, welche matches in einem zu durchsuchenden Text (den Du im Feld in der Mitte eingibst) gefunden werden. Oben drauf wird Dir im Feld unten jedes Zeichen Deines regulären Ausdrucks erklärt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Schadstofffreie Schifffahrt dank Auspufffilter&quot;</span>
+
+<span class="c1">#Hier regulären Ausdruck einfügen</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+
+<span class="sd">&quot;&quot;&quot;Da wir das gesamte Modul (und nicht spezifisch die Funktion &#39;findall&#39;) importiert haben, </span>
+<span class="sd">müssen wir den Modulnamen vor den Funktionsnamen setzen (vgl. Notebook &quot;Funktionen und Methoden Teil 2&quot;).&quot;&quot;&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>47
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Sehr gut! Machen wir weiter mit den Zeichenklassen.</p>
+</section>
+<section id="zeichenklassen">
+<h4>Zeichenklassen<a class="headerlink" href="#zeichenklassen" title="Link zu dieser Überschrift">#</a></h4>
+<p>Zeichenklassen definieren, wie es der Name sagt, eine Klasse von Zeichen, die an einer bestimmten Stelle gematcht werden sollen. Anstatt eines einzigen Zeichens dürfen an dieser Stelle also alle Zeichen in der gegebenen Klasse, aber keine anderen, stehen.</p>
+<p>Einerseits gibt es fertige Zeichenklassen für die gängigsten Kombinationen. Dafür haben wir im regulären Ausdruck zum Absuchen des Quelltexts von <a class="reference external" href="https://tu-dresden.de">tu-dresden.de</a> bereits ein Beispiel gesehen, nämlich <code class="docutils literal notranslate"><span class="pre">\w</span></code>, das alphanumerische Zeichen matcht. Andererseits können wir mithilfe von eckigen Klammern unsere eigenen Klassen von Zeichen definieren (auch das haben wir in der Link-RegEx bereits gesehen). In der Tabelle findest Du erst drei fertige Zeichenklassen, dann zusammengefasst ihre jeweiligen Negationen und anschließend verschiedene Ausführungen eigener Klassen:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-left head"><p><strong>Bemerkungen</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\w</span></code></p></td>
+<td class="text-left"><p>matcht ein beliebiges alphanumerisches <a class="reference external" href="https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a>-Zeichen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">N\w*t</span></code> matcht z. B. <em>Nacht</em>, <em>N8t</em>, <em>Nimmersatt</em></p></td>
+<td class="text-left"><p>Fertige Zeichenklasse; ASCII beinhält A-Z, a-z, 0-9, Unterstrich, aber nicht die dt. Buchstaben ä, ö, ü, ß!</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\d</span></code></p></td>
+<td class="text-left"><p>matcht eine Zahl</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\d{4}</span> <span class="pre">\d{4}</span> <span class="pre">\d{4}</span> <span class="pre">\d{4}</span></code> matcht Kreditkartennummern im gängigen Schreibformat</p></td>
+<td class="text-left"><p>Fertige Zeichenklasse</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\s</span></code></p></td>
+<td class="text-left"><p>matcht ein whitespace-Zeichen (Leerschlag, Tabstopp, Zeilenumbruch)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\s{2,}</span></code> matcht alle Vorkommen von mehrfachen Leerschlägen (und anderem whitespace)</p></td>
+<td class="text-left"><p>Fertige Zeichenklasse</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\W</span></code>,<code class="docutils literal notranslate"><span class="pre">\D</span></code>,<code class="docutils literal notranslate"><span class="pre">\S</span></code></p></td>
+<td class="text-left"><p>matcht jeweils das Gegenteil von <code class="docutils literal notranslate"><span class="pre">\w</span></code>, <code class="docutils literal notranslate"><span class="pre">\d</span></code> bzw.<code class="docutils literal notranslate"><span class="pre">\s</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\W+</span></code> matcht z. B. <em>äöüñßå!!</em></p></td>
+<td class="text-left"><p>Fertige Zeichenklassen</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[...]</span></code></p></td>
+<td class="text-left"><p>eigene Zeichenklasse</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">[\wÄäÖöÜüß]*</span></code> matcht beliebig viele Buchstaben des dt. Alphabets</p></td>
+<td class="text-left"><p>erlaubte Zeichen (inkl. fertiger Zeichenklassen) werden schlicht aneinandergereiht; Sonderzeichen (mit Ausnahme fertiger Klassen) verlieren ihre Sonderbedeutung innerhalb von Klassen (<code class="docutils literal notranslate"><span class="pre">.</span></code> steht für „.“, also keine Wildcard)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[a-z]</span></code></p></td>
+<td class="text-left"><p>eigene Zeichenklasse mit Range</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">[1-3]{2}</span></code> matcht <em>11</em>, <em>12</em>, <em>13</em>, <em>21</em>, <em>22</em>, <em>23</em>, <em>31</em>, <em>32</em>, <em>33</em></p></td>
+<td class="text-left"><p>Range mittels Bindestrich funktioniert bei Groß-/Kleinbuchstaben und Zahlen</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[^...]</span></code></p></td>
+<td class="text-left"><p>matcht ein Zeichen, das sich nicht in der Klasse befindet</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">[^aeiouAEIOU]</span></code> matcht einen Konsonanten oder ein anderes nicht-alphabetisches Zeichen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">^</span></code> hat außerhalb von Klassen eine andere Sonderbedeutung (s. u.)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Auch eine Zeichenklasse matcht standardmäßig ein einziges erlaubtes Zeichen. <code class="docutils literal notranslate"><span class="pre">N\wt</span></code> matcht also beispielsweise „Not“ und „N8t“ (und natürlich auch „NFT“, „N_t“ etc.), aber nicht „Nacht“ und „Nimmersatt“. Dafür benötigen wir wie im Beispiel oben einen entsprechenden Quantifikator. Wichtig: Bei eigenen Zeichenklassen stehen Quantifikatoren immer nach der schließenden eckigen Klammer (siehe fünftes Beispiel oben).</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Kopier den Text eines beliebigen Artikels einer Online-Zeitung (z. B. von <a class="reference external" href="https://www.zeit.de">ZEIT Online</a>, <a class="reference external" href="https://www.tagesschau.de">tagesschau.de</a> oder den <a class="reference external" href="https://www.dnn.de">Dresdner Neuesten Nachrichten</a>). Einzige Bedingung: Der Artikel sollte Zitate beinhalten. Füg den Text als string bei <code class="docutils literal notranslate"><span class="pre">text</span></code> unten ein. Formulier nun reguläre Ausdrücke für folgende Suchaufträge:</p>
+<ol class="arabic simple">
+<li><p>alle kleingeschriebenen Wörter mit drei Buchstaben</p></li>
+<li><p>alle Wörter mit Großbuchstaben am Anfang</p></li>
+<li><p>alle Zitate (dieser reguläre Ausdruck beinhaltet vermutlich doppelte Anführungszeichen; umschließ den string zwecks korrekter Abgrenzung daher mit drei einfachen Anführungszeichen)</p></li>
+</ol>
+<p>Lass Dir anschließend alle Listen schön formatiert ausgeben.</p>
+<p>👆 Hinweis: Nach oben uneingeschränkte Quantifikatoren sind <em>gierig</em>. Will heißen: Sie matchen so viele Zeichen wie nur möglich. Wenn wir beim dritten Suchauftrag etwa spezifizieren, dass beliebig viele beliebige Zeichen (<code class="docutils literal notranslate"><span class="pre">.*</span></code>) innerhalb von Anführungszeichen vorkommen dürfen, führt das dazu, dass die Zitate nicht einzeln gematcht werden, sondern dass fälschlicherweise ein langes Zitat – beginnend beim ersten öffnenden Anführungszeichen und endend beim letzten schließenden Anführungszeichen – ausgegeben wird. Um diese <em>Gier</em> zu bändigen und stattdessen alle kürzesten, vollständigen matches, also alle Zitate einzeln, zu erhalten, können wir dem Quantifikator ganz einfach ein <code class="docutils literal notranslate"><span class="pre">?</span></code> anfügen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="sd">&quot;&quot;&quot;Dreifache Anführungszeichen rund um den string erlauben das Vorkommen einfacher Anführungszeichen</span>
+<span class="sd">im string selbst, wie sie in diesem Fall bei Zitaten zu erwarten sind; außerdem kann der string </span>
+<span class="sd">dadurch über mehrere Zeilen verteilt werden (wie auch in diesem Kommentar hier!).&quot;&quot;&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;...&quot;&quot;&quot;</span>
+
+<span class="n">regex_1</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="n">regex_2</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="n">regex_3</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&#39;&#39;...&#39;&#39;&#39;</span>
+
+<span class="n">three_letter_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="n">capital_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_2</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="n">quotes</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_3</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Angelehnt an das Beispiel mit den Links auf <a class="reference external" href="https://tu-dresden.de">tu-dresden.de</a> sollst Du in dieser Übung ebenfalls Links von einer bestimmten Webseite (bzw. aus dessen Quelltext) extrahieren.</p>
+<ol class="arabic">
+<li><p>Öffne dazu den <a class="reference external" href="https://www.weltfussball.de/alle_spiele/bundesliga-2019-2020/">Spielplan der Bundesligasaison 2019-2020 auf weltfussball.de</a>. Nun wollen wir den Quelltext dieser Seite herunterladen. Da wir noch über keine Web-Scraping-Skills verfügen, machen wir es manuell. Geh dazu je nach Browser wie folgt vor:</p>
+<ul class="simple">
+<li><p>bei Google Chrome im Menü „Anzeigen“ &gt; „Entwickler“ &gt; „Quelltext anzeigen“ wählen</p></li>
+<li><p>bei Safari mittels Rechtsklick „Seitenquelltext einblenden“ wählen</p></li>
+<li><p>bei Firefox mittels Rechtsklick „Seitenquelltext anzeigen“ wählen</p></li>
+</ul>
+ <br>
+<p>Markier und kopier nun den kompletten Quelltext und speicher ihn in einem neuen Dokument, das Du unter dem Namen „quelltext.txt“ im Ordner „3_Dateien/Fussball“ abspeicherst. Für diesen Vorgang empfiehlt sich das im Notebook „Funktionen und Methoden Teil 2“ erwähnte <a class="reference external" href="https://www.sublimetext.com">Sublime Text</a>.</p>
+<p>Der Quelltext im Browser sollte übrigens so oder so ähnlich ausschauen:</p>
+</li>
+</ol>
+<img src="../3_Dateien/Grafiken_und_Videos/Quelltext.png">
+<ol class="arabic simple" start="2">
+<li><p>Öffne das Dokument wie im Notebook „Input und Output Teil 1“ gelernt, lies es ein und weis es der Variablen <code class="docutils literal notranslate"><span class="pre">source_code</span></code> zu.</p></li>
+<li><p>Geh noch einmal zum <a class="reference external" href="https://www.weltfussball.de/alle_spiele/bundesliga-2019-2020/">Spielplan</a> im Browser und öffne einige Spielberichte, indem Du auf die jeweiligen Spielergebnisse klickst. Schau Dir die Adresszeile an und analysier, wie die Links aufgebaut sind sowie worin sie sich unterscheiden. Schau ebenfalls im Quelltext nach, wie die Links da aussehen (💡 Tipp: Die Links im Quelltext sind abgekürzt).</p></li>
+<li><p>Formulier darauf aufbauend einen regulären Ausdruck, der sämtliche Links zu allen Spielberichten im Quelltext matcht. Füg ihn als string bei der Variablen <code class="docutils literal notranslate"><span class="pre">regex</span></code> ein. Ist der reguläre Ausdruck korrekt, sollte <code class="docutils literal notranslate"><span class="pre">matches</span></code> 306 Links beinhalten. Sowohl bei <code class="docutils literal notranslate"><span class="pre">regex</span></code> als auch bei <code class="docutils literal notranslate"><span class="pre">matches</span></code> musst Du natürlich noch die Hashtags entfernen.</p></li>
+<li><p>Erstell eine Liste mit vollständigen Links zu allen Spielberichten und lass sie Dir ausgeben. Probier einige der Links aus.</p></li>
+</ol>
+<p>Quelle: Übung modifiziert übernommen von Prof. Simon Meier-Vierackers Kurs <a class="reference external" href="https://padlet.com/simonmeiervieracker/readingmachines">Reading Machines - Einführung in die Korpuslinguistik</a>, der unter dem angegebenen Link frei zugänglich ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="c1">#Hier Code zu Schritte 2 einfügen</span>
+
+<span class="c1">#Hier regulären Ausdruck (Schritt 4) einfügen</span>
+<span class="c1">#regex = r&quot;&quot;</span>
+<span class="c1">#matches = re.findall(regex, source_code)</span>
+
+<span class="c1">#Hier Code zu Schritt 5 einfügen</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="weitere-sonderzeichen">
+<h4>Weitere Sonderzeichen<a class="headerlink" href="#weitere-sonderzeichen" title="Link zu dieser Überschrift">#</a></h4>
+<p>Zusätzlich zu den uns bereits bekannten Sonderzeichen gibt es noch folgende:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-left head"><p><strong>Bemerkungen</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\n</span></code></p></td>
+<td class="text-left"><p>matcht einen Zeilenumbruch</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\t</span></code></p></td>
+<td class="text-left"><p>matcht einen Tabstopp</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\b</span></code></p></td>
+<td class="text-left"><p>matcht Wortgrenzen (whitespace oder nicht-alphanumerische Zeichen)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\b[a-zäöüß]{3}\b</span></code> matcht ein kleingeschriebenes Wort mit drei Buchstaben und stellt eine elegantere Lösung für Übung 2.1 dar (s. o. bzw. im Lösungsnotebook)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\B</span></code> matcht das Gegenteil, also ein Zeichen, das keine Wortgrenze ist</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td class="text-left"><p>matcht den Anfang eines strings</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">^[A-ZÄÖÜ]\w+\b</span></code> matcht das erste Wort eines strings, sofern dieses mit einem Großbuchstaben beginnt</p></td>
+<td class="text-left"><p>hat eine andere Bedeutung in eigenen Zeichenklassen (s. o.)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td class="text-left"><p>matcht das Ende eines strings</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">te$</span></code> matcht <em>te</em>, sofern diese Zeichen die letzten beiden eines strings sind</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\</span></code></p></td>
+<td class="text-left"><p>„maskiert“ (engl. <em>escapes</em>) Sonderzeichen, wenn diese literal interpretiert werden sollen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\.</span></code> matcht „.“, anstatt ein beliebiges Zeichen (Wildcard, s. o.)</p></td>
+<td class="text-left"><p>Maskierung ist innerhalb eigener Zeichenklassen nicht nötig (s. o.)</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> Lies das Märchen „Des Kaisers neue Kleider“ von Hans Christian Andersen aus dem Ordner „3_Dateien“ ein und weis es <code class="docutils literal notranslate"><span class="pre">fairytale</span></code> zu. Formulier nun reguläre Ausdrücke für folgende Suchaufträge:</p>
+<ol class="arabic simple">
+<li><p>das erste Wort des Märchens</p></li>
+<li><p>regelmäßige Verben in der 3. Person Singular/Plural im Präteritum (z. B. „lebte“ oder „sagten“; es ist in Ordnung, wenn Du mit diesem regulären Ausdruck auch ein paar falsch positive matches kriegst 🤫, vgl. Wahrheitsmatrix im Notebook „Input und Output Teil 1“)</p></li>
+<li><p>letzte Wörter von Sätzen, die mit einem Punkt enden (z. B. „einherzugehen“, vgl. erster Satz des Märchens)</p></li>
+<li><p>Wörter mit Doppel-a (z. B. „Saal“)</p></li>
+<li><p>das letzte Wort des Märchens</p></li>
+</ol>
+<p>Da wir bei der ersten und letzten Aufgabe nicht nach <em>allen</em> matches suchen, sondern nur an einem einzigen interessiert sind (es kann ja auch nur jeweils einen match geben), verwenden wir eine neue Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">search</span></code>, auf die wir unten genauer eingehen. Dabei erhalten wir keine Liste zurück, sondern ein sog. <em>match-Objekt</em>, wobei wir auf den eigentlichen match wie im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement bereits vorgegeben zugreifen können. Überhaupt sollte das <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement das Ergebnis aller fünf Suchaufträge schön formatiert ausgeben.</p>
+<p>👆 Hinweis: Je komplexer die Suchaufträge, desto mehr Möglichkeiten gibt es, einen regulären Ausdruck dafür zu konstruieren. Oft steht man vor der Frage, eine fertige Zeichenklasse wie z. B. <code class="docutils literal notranslate"><span class="pre">\w</span></code> einzubauen oder lieber eine eigene Zeichenklasse zusammenzustellen, um auch Nicht-ASCII-Zeichen zu matchen. Manchmal erreicht man sein Ziel auch aus der umgekehrten Richtung, z. B. mithilfe von <code class="docutils literal notranslate"><span class="pre">\S</span></code>, um alles <em>außer</em> whitespace zu matchen (was ja sämtliche Buchstaben, ASCII hin oder her, umfasst). Letzlich gilt wie immer zwischen Genauigkeit und Effizienz abzuwägen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">regex_1</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="n">regex_2</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="n">regex_3</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="n">regex_4</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="n">regex_5</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+
+<span class="n">first_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="n">verbs</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_2</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="n">last_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_3</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="n">double_vowel</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_4</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="n">last_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_5</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+
+<span class="c1">#Hashtag entfernen, um Ergebnisse auszugeben</span>
+<span class="c1">#print(first_word.group(), &quot;\n\n&quot;, verbs, &quot;\n\n&quot;, [word.strip(&quot;.&quot;) for word in last_words], &quot;\n\n&quot;, double_vowel, &quot;\n\n&quot;, last_word.group().strip(&quot;.&quot;))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">regex_4</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">regex_5</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">first_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">verbs</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_2</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">last_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_3</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;fairytale&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 5:</strong> Im Notebook „Funktionen und Methoden Teil 1“ in Übung 2 haben wir gesehen, dass das Wort „Klima“ viel häufiger im Koalitionsvertrag von 2021 als in demjenigen von 2018 vorkommt. Nun wollen wir herausfinden, in welcher Form das Wort verwendet wird. Neben dem alleinstehenden Auftreten von „Klima“ (als sog. <em>Simplex</em>, da es aus nur einem Morphem besteht) ist „Klima“ bzw. „klima“ häufig Teil von zusammengesetzten Wörtern, also sog. <em>Komposita</em>, wie etwa in „Klimakrise“ oder „klimapolitisch“.</p>
+<p>Lies den Koalitionsvertrag von 2021 noch einmal ein und weis ihn der Variablen <code class="docutils literal notranslate"><span class="pre">kv21</span></code> zu. Durchsuch ihn nun nach einem regulären Ausdruck, der sämtliche Komposita, in denen „Klima“ bzw. „klima“ vorkommt, matcht. Häng alle Komposita der Liste <code class="docutils literal notranslate"><span class="pre">climate_compounds</span></code> an und lass Dir abschließend die Liste ausgeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+
+<span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">kv21</span><span class="p">):</span>
+    <span class="k">pass</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">kv21</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">pass</span>
+
+<span class="ne">NameError</span>: name &#39;kv21&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Damit kennen wir erst einmal die wichtigsten Sonderzeichen.</p>
+<p>Bisher haben wir bei unseren regulären Ausdrücken nur jeweils definiert, welches bzw. welche Zeichen wo und wie oft vorkommen müssen, damit ein match vorliegt. Wir konnten bei Aufgabe 4 in Übung 4 beispielsweise festlegen, dass zwischen beliebig vielen anderen Buchstaben zwei „a“ aufeinanderfolgen müssen. Was aber, wenn wir nicht bloß an Doppel-„a“s, sondern generell an Doppelvokalen interessiert wären? Der reguläre Ausdruck <code class="docutils literal notranslate"><span class="pre">r&quot;\w*[aeiou]{2}\w*&quot;</span></code> ist dafür keine Lösung, da er auch „gemischte“ Doppelvokale wie z. B. den Diphtong „ie“ in „schief“ matchen würde. Hier kommen sog. <em>Gruppen</em> ins Spiel:</p>
+</section>
+</section>
+<section id="gruppen">
+<h3>Gruppen<a class="headerlink" href="#gruppen" title="Link zu dieser Überschrift">#</a></h3>
+<p>Gruppen machen es möglich, verschiedene Alternativen für eine bestimmte Position im regulären Ausdruck zu definieren. Sie werden mit runden Klammern abgegrenzt und die Alternativen mit senkrechten Strich voneinander unterschieden. In der Tabelle unten folgt auch gleich die Auflösung, wie ein regulärer Ausdruck für Wörter mit Doppelvokalen ausschaut:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-left head"><p><strong>Bemerkungen</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">(...)</span></code></p></td>
+<td class="text-left"><p>Gruppe</p></td>
+<td class="text-left"><p>siehe Beispiel eine Zeile weiter unten</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">⎮</span></code></p></td>
+<td class="text-left"><p>Alternative</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\w*(aa⎮ee⎮ii⎮oo⎮uu)\w*</span></code> oder <code class="docutils literal notranslate"><span class="pre">\w*(a{2}⎮e{2}⎮i{2}⎮o{2}⎮u{2})\w*</span></code></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 6:</strong> Find alle Substantive mit definitem Artikel (z. B. „der“ oder „dem“) in <code class="docutils literal notranslate"><span class="pre">text</span></code>, der der Einleitung des <a class="reference external" href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck"> Wikipedia-Artikels zu regulären Ausdrücken</a> entspricht (Stand: 26.10.2022). Der Artikel (des Substantivs) sollte jeweils mitgemacht werden.</p>
+<p>⚠️ Achtung: Sobald wir eine Gruppe in unserem regulären Ausdruck verwenden, beschränkt sich die <code class="docutils literal notranslate"><span class="pre">findall</span></code>-Funktion darauf, denjenigen Teil des gesamten matches, der von der Gruppe abgedeckt wird, zu speichern. Bei mehreren Gruppen speichert <code class="docutils literal notranslate"><span class="pre">findall</span></code> sämtliche matches, die von Gruppen abgedeckt werden, separat in einem Tupel. Das ist eine durchaus praktische Eigenschaft, die wir unten produktiv einsetzen werden. Da wir hier aber am gesamten match interessiert sind (in unserem Fall Artikel + Substantiv) können wir zusätzlich den gesamten Ausdruck in runde Klammern setzen. Dadurch erhalten wir den gesamten match als Hauptgruppe sowie alle weiteren darin befindlichen Gruppen als Tupel von <code class="docutils literal notranslate"><span class="pre">findall</span></code> zurück. In den gegebenen <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehlen kannst Du Dir erstens nur den gesamten match (erstes Element im Tupel) oder zweitens die Hauptgruppe sowie alle anderen Gruppen ausgeben lassen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ein regulärer Ausdruck (englisch regular expression, Abkürzung RegExp oder Regex) ist in der theoretischen Informatik eine Zeichenkette, die der Beschreibung von Mengen von Zeichenketten mit Hilfe bestimmter syntaktischer Regeln dient. Reguläre Ausdrücke finden vor allem in der Softwareentwicklung Verwendung. Neben Implementierungen in vielen Programmiersprachen verarbeiten auch viele Texteditoren reguläre Ausdrücke in der Funktion „Suchen und Ersetzen“. Ein einfacher Anwendungsfall von regulären Ausdrücken sind Wildcards.</span>
+<span class="s2">Reguläre Ausdrücke können als Filterkriterien in der Textsuche verwendet werden, indem der Text mit dem Muster des regulären Ausdrucks abgeglichen wird. Dieser Vorgang wird auch Pattern Matching genannt. So ist es beispielsweise möglich, alle Wörter aus einer Wortliste herauszusuchen, die mit S beginnen und auf D enden, ohne die dazwischen liegenden Buchstaben oder deren Anzahl explizit vorgeben zu müssen.</span>
+<span class="s2">Der Begriff des regulären Ausdrucks geht im Wesentlichen auf den Mathematiker Stephen Kleene zurück, der die ähnliche Bezeichnung reguläre Menge verwendete.&quot;&quot;&quot;</span>
+
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;()&quot;</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="c1">#Hashtags entfernen, um Ergebnisse auszugeben</span>
+<span class="c1">#Nur den gesamten match (Hauptgruppe) ausgeben lassen</span>
+<span class="c1">#print([match[0] for match in matches])</span>
+    
+<span class="c1">#Den gesamten match (Hauptgruppe) und alle anderen Gruppen ausgeben lassen</span>
+<span class="c1">#print([match for match in matches])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Einerseits können wir Gruppen in Kombination mit dem senkrechten Strich dazu einsetzen, verschiedene Alternativen für eine bestimmte Position im regulären Ausdruck zu definieren, also z. B. „er“, „ie“ etc. im Anschluss an „d“, um verschiedene Varianten des definiten Artikels gleichzeitig abzudecken.</p>
+<p>Andererseits bieten Gruppen den praktischen Vorteil, dass wir nicht nur einen Gesamtmatch zurückerhalten (sofern wir den gesamten regulären Ausdruck ebenfalls in eine runde Klammer setzen, siehe Übung 6), sondern auch beliebig viele Teilmatches. Alles, was in einem regulären Ausdruck von einer runden Klammer umrahmt wird, wird als Teilmatch in einem Tupel zurückgegeben, wobei die Reihenfolge im Tupel der Reihenfolge der öffnenden Klammern im regulären Ausdruck entspricht.</p>
+<p>Wir müssen innerhalb von Gruppen übrigens nicht unbedingt Alternativen definieren. In bestimmten Anwendungsfällen reicht uns eine Option, es ist uns aber wichtig, dass wir separat auf den Teil des Gesamtmatches zugreifen können, der von den entsprechenden runden Klammern umrahmt wird. Machen wir es in folgender Übung konkret:</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 7 (fortgeschritten):</strong> Gegeben sind kurze Beschreibungen von fünf Personen in <code class="docutils literal notranslate"><span class="pre">people</span></code>. In jeder Beschreibung findet sich der Vor- und Nachname, das Geburtsdatum sowie die E-Mailadresse der Person. Wir wollen daraus ein kleines Adressbuch in tabellarischer Form schaffen. Ziel ist es, die Daten wie im Screenshot gezeigt in die Datei „address_book.tsv“ im Ordner „3_Dateien/Output“ zu schreiben:</p>
+<img src="../3_Dateien/Grafiken_und_Videos/address_book.png">
+<p>Zwischen den Namen und dem Geburtstag sowie dem Geburtstag und der E-Mailadresse soll also ein Tab stehen, da Dateien mit der Endung „.tsv“ tabulatorsepariert sind (dem gleichen Prinzip wie kommaseparierte Dateien folgend, vgl. Notebook „Input und Output Teil 2“).</p>
+<p>Formulier <em>einen</em> regulären Ausdruck, um fünf matches zu erhalten (einen pro Person), und nutz Gruppen, um die Elemente <em>Nachname</em>, <em>Vorname</em>, <em>Geburtstag</em> und <em>E-Mailadresse</em> als Teilmatch separat zu erhalten. Öffne und beschreib anschließend die Datei „address_book.tsv“, sodass jede Person in einer eigenen Zeile sowie jedes Element in einer eigenen Spalte abgespeichert wird.</p>
+<p>💡 Tipp: <code class="docutils literal notranslate"><span class="pre">findall</span></code> findet stets den längstmöglichen match. Da die Wildcard alle beliebigen Zeichen <em>außer</em> einem Zeilenumbruch matcht, kannst Du sie getrost in Deinen regulären Ausdruck einbauen, z. B. für die erste Gruppe der Vornamen, etwa so <code class="docutils literal notranslate"><span class="pre">(.+)</span></code>. Indem Du danach eine Gruppe für den Nachnamen anhängst, kann die durch den Quantifikator <code class="docutils literal notranslate"><span class="pre">+</span></code> „ungebändigte“ Wildcard nicht einfach die ganze Personenbeschreibung matchen (man spricht angesichts dieser Gier auch von <em>fressen</em>). Dies, da sie ja keinen Zeilenumbruch matchen kann und nach dem Zeilenumbruch nun mal nichts kommt, das von Deiner zweiten Gruppe sowie dem restlichen regulären Ausdruck gematcht werden könnte.</p>
+<p>Quelle: Übung modifiziert übernommen von Prof. Simon Meier-Vierackers Kurs <a class="reference external" href="https://padlet.com/simonmeiervieracker/readingmachines">Reading Machines - Einführung in die Korpuslinguistik</a>, der unter dem angegebenen Link frei zugänglich ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">people</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Detlef SCHULZ hat am 21.03.1967 Geburtstag, und das ist seine Emailadresse: schulz-detlef@gmail.net </span>
+<span class="s2">Ina SCHULTER wurde am 02.04.1992 geboren und ihre E-Mail-Adresse lautet: inaschulter@gmx.de</span>
+<span class="s2">Katharina Anne LAMAI ist ein Dezemberkind, ihr Geburtstag ist der 08.12.1955 geboren und ihre E-Mail-Adresse lautet: KaAnLa@yahoo.com</span>
+<span class="s2">Anuk MARGA ist am 15.01.1988 auf die Welt gekommen, ihre E-Mail-Adresse lautet: MargAnuk@gmail.com</span>
+<span class="s2">Albus Percival Wulfric Brian DUMBLEDORE hat 17.06.1881 das Licht der Welt erblickt. Er hat sogar eine Emailadresse: fresh-dumbledore@hogwarts.com&quot;&quot;&quot;</span>
+ 
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">people</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Sehr gut!</p>
+<p>Weiter unten folgen noch weitere Beispiele, in denen wir mit Teilmatches arbeiten, die aus Gruppen im regulären Ausdruck erwachsen.</p>
+<p>Bevor wir uns dem <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul zuwenden, soll auf weitere Tutorials zu regulären Ausdrücken verwiesen werden, die zusätzliche Funktionalitäten thematisieren:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://danielfett.de/2006/03/20/regulaere-ausdruecke-tutorial/">Umfangreiche und dennoch konzise Einführung von Dr. Daniel Fett, die weitere Features wie Lookaheads und Lookbehinds bespricht</a></p></li>
+<li><p><a class="reference external" href="https://www.bubenhofer.com/korpuslinguistik/kurs/index.php?id=regexp.html">Kurzes, auf die Korpuslinguistik zugeschnittenes Tutorial von Prof. Dr. Noah Bubenhofer von der Universität Zürich</a></p></li>
+<li><p><a class="reference external" href="http://regenechsen.de/wp/">Gut gegliederte, umfangreiche Anleitung mit Übungen</a></p></li>
+</ul>
+</section>
+</section>
+<section id="das-re-modul">
+<h2>Das <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul<a class="headerlink" href="#das-re-modul" title="Link zu dieser Überschrift">#</a></h2>
+<p>Nun schauen wir uns das Modul <code class="docutils literal notranslate"><span class="pre">re</span></code> genauer an. Grundsätzlich kann man unterscheiden zwischen Funktionen zum bloßen Matchen regulärer Ausdrücke sowie weiteren zum Matchen und Ersetzen bzw. Matchen und Splitten von strings basierend auf regulären Ausdrücken.</p>
+<section id="matchen">
+<h3>Matchen<a class="headerlink" href="#matchen" title="Link zu dieser Überschrift">#</a></h3>
+<p>Zum Matchen haben wir oben bereits <code class="docutils literal notranslate"><span class="pre">re.findall</span></code> und <code class="docutils literal notranslate"><span class="pre">re.search</span></code> genutzt.</p>
+<section id="re-findall-und-re-search">
+<h4><code class="docutils literal notranslate"><span class="pre">re.findall</span></code> und <code class="docutils literal notranslate"><span class="pre">re.search</span></code><a class="headerlink" href="#re-findall-und-re-search" title="Link zu dieser Überschrift">#</a></h4>
+<p>Beide Funktionen nehmen als erstes Argument einen regulären Ausdruck und als zweites einen string, den sie nach dem regulären Ausdruck absuchen. Als weiteres, bisher noch unbekanntes Argument, kann man ihnen, wie auch allen folgenden Funktionen, sog. Flags übergeben, die Eigenschaften des regulären Ausdrucks spezifizieren. Nützlich ist hier vor allem die <code class="docutils literal notranslate"><span class="pre">re.IGNORECASE</span></code>- bzw. abgekürzt <code class="docutils literal notranslate"><span class="pre">re.I</span></code>-Flag, die definiert, dass Groß- und Kleinschreibung nicht beachtet werden soll. Ein Beispiel dafür sehen wir weiter unten.</p>
+<p><code class="docutils literal notranslate"><span class="pre">re.findall</span></code> gibt alle matches (bzw. Teilmatches bei Gruppen, s. o.) auf einer Liste zurück. <code class="docutils literal notranslate"><span class="pre">re.search</span></code> gibt dagegen <em>ein</em> sog. match-Objekt zurück, bestehend aus dem ersten gefundenen match und dessen Position im abgesuchten string in Form von Indizes. Auf dieses match-Objekt können wir die etwas kryptisch benannten Methoden <code class="docutils literal notranslate"><span class="pre">group</span></code> und <code class="docutils literal notranslate"><span class="pre">span</span></code> anwenden, um separat auf match bzw. Indizes zuzugreifen. Der Unterschied wird in folgendem Code noch einmal veranschaulicht:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_notice</span> <span class="o">=</span> <span class="s2">&quot;Lena erblickte am 1. September 2022 genau 17 Sekunden nach Punkt 1 Uhr früh das Licht der Welt, sie wog 3403 Gramm und maß 51 cm.&quot;</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d+&quot;</span>
+<span class="n">all_matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">birth_notice</span><span class="p">)</span>
+<span class="n">first_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">birth_notice</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">([</span><span class="n">match</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">all_matches</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_match</span><span class="o">.</span><span class="n">group</span><span class="p">(),</span> <span class="n">first_match</span><span class="o">.</span><span class="n">span</span><span class="p">())</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1&#39;, &#39;2022&#39;, &#39;17&#39;, &#39;1&#39;, &#39;3403&#39;, &#39;51&#39;]
+1 (18, 19)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der erste match befindet sich also zwischen den Indizes 18 und 19 (der Startindex ist wie immer inklusiv und der Endindex exklusiv).</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 8:</strong> Bei <code class="docutils literal notranslate"><span class="pre">birth_notices</span></code> handelt es nun um eine Liste mit mehreren Geburtsanzeigen. Deine Aufgabe ist es, die Geburtsdaten der Neugeboreren mithilfe eines regulären Ausdrucks sowie einer geeigneten Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls aus den Anzeigen zu extrahieren und einer Liste namens <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> anzuhängen. Lass Dir abschließend <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> ausgeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">birth_notices</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Lena erblickte am 1. September 2022 die Welt.&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Petra kam am 28. Februar 2022 zur Welt.&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Yusuf strahlte uns am 14. Dezember 2022 mit glänzenden Äuglein an.&quot;</span><span class="p">,</span> 
+                 <span class="s2">&quot;Juans Leben begann am sonnigen 19. August 2022.&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Robert bereichert seit dem 5. Mai 2022 unser Leben.&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Mi beglückt uns seit dem 1. März 2022.&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Super!</p>
+</section>
+<section id="re-finditer-fortgeschritten">
+<h4><code class="docutils literal notranslate"><span class="pre">re.finditer</span></code> (fortgeschritten)<a class="headerlink" href="#re-finditer-fortgeschritten" title="Link zu dieser Überschrift">#</a></h4>
+<p>Angenommen, wir sind sowohl an allen matches in einem string als auch an deren jeweiligen Position interessiert, so können wir die <code class="docutils literal notranslate"><span class="pre">re.finditer</span></code>-Funktion verwenden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_matches_with_indices</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">birth_notice</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">all_matches_with_indices</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Die Zahl&quot;</span><span class="p">,</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(),</span> <span class="s2">&quot;befindet sich zwischen Index&quot;</span><span class="p">,</span> <span class="n">match</span><span class="o">.</span><span class="n">span</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;und&quot;</span><span class="p">,</span> <span class="n">match</span><span class="o">.</span><span class="n">span</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;in der Geburtsanzeige.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Zahl 1 befindet sich zwischen Index 18 und 19 in der Geburtsanzeige.
+Die Zahl 2022 befindet sich zwischen Index 31 und 35 in der Geburtsanzeige.
+Die Zahl 17 befindet sich zwischen Index 42 und 44 in der Geburtsanzeige.
+Die Zahl 1 befindet sich zwischen Index 65 und 66 in der Geburtsanzeige.
+Die Zahl 3403 befindet sich zwischen Index 104 und 108 in der Geburtsanzeige.
+Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie bei <code class="docutils literal notranslate"><span class="pre">re.findall</span></code> landen alle matches in einer Art Liste (aber siehe Randnotiz unten). Die einzelnen Elemente sind wiederum match-Objekte, auf die wir wie bei <code class="docutils literal notranslate"><span class="pre">re.search</span></code> die Methoden <code class="docutils literal notranslate"><span class="pre">group</span></code> und <code class="docutils literal notranslate"><span class="pre">span</span></code> anwenden können, um auf den jeweiligen match bzw. die Indizes zuzugreifen.</p>
+<p>Kurze Randnotiz, die Du auch gerne überlesen kannst: <code class="docutils literal notranslate"><span class="pre">finditer</span></code> gibt keine normale Liste zurück, sondern eine andere Art von iterierbarem Objekt, das nach einer einzigen Iteration leer (engl. <em>exhausted</em>) ist (überprüf es, indem Du eine neue Code-Zelle einfügst und noch einmal versuchst über <code class="docutils literal notranslate"><span class="pre">all_matches_with_indices</span></code> zu iterieren). Das bietet effizienztechnische Vorteile (wenn’s Dich interessiert: <a class="reference external" href="https://stackoverflow.com/questions/628903/performance-advantages-to-iterators">hier</a> eine Diskussion zum Thema), ist für gewöhnliche Programmierer:innen aber irritierend. 🙈</p>
+</section>
+<section id="re-match-und-re-fullmatch">
+<h4><code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code><a class="headerlink" href="#re-match-und-re-fullmatch" title="Link zu dieser Überschrift">#</a></h4>
+<p>Daneben gibt es noch die Funktionen <code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code>. Erstere überprüft bei einem string, ob dessen Anfang den regulären Ausdruck matcht (wodurch <code class="docutils literal notranslate"><span class="pre">^</span></code> überflüssig wird, s. o.) und letztere, ob der gesamte string den regulären Ausdruck matcht (wodurch <code class="docutils literal notranslate"><span class="pre">^</span></code> und <code class="docutils literal notranslate"><span class="pre">$</span></code> überflüssig werden).</p>
+<p>Der folgende, recht „dreiste“ Code, der so ähnlich im Pizzabot integriert ist, endet nur, wenn Du einer Pizza mit „Ja“ zustimmst. Schau, was passiert, wenn Du z. B. mit „Ja, wobei nein doch nicht“ antwortest.</p>
+<div class="cell tag_&quot;hide-output&quot; docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Willst Du eine Pizza?&quot;</span>
+<span class="n">yes_regex</span><span class="p">,</span> <span class="n">no_regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Ja&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;Nein&quot;</span>
+<span class="n">reaction_to_invalid_input</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Ich akzeptiere nur ein &#39;Ja&#39;.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+
+    <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">yes_regex</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das ist die richtige Entscheidung!&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">reaction_to_invalid_input</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">reaction_to_invalid_input</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Ich akzeptiere nur ein &#39;Ja&#39;.</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">yes_regex</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das ist die richtige Entscheidung!&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Je nach Anwendungsfall macht es Sinn, etwas flexibler nur den Anfang eines strings zu matchen (<code class="docutils literal notranslate"><span class="pre">re.match</span></code>), oder strikt den kompletten string (<code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code>). Im Pizzabot wird <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code> eingesetzt, um z. B. den (wenn auch wenig wahrscheinlichen) Input „Ja, wobei nein doch nicht“ korrekt zu „handeln“.</p>
+<p>💡 In diesem Code sehen wir außerdem ein Verhalten Pythons, dem wir zwar schon einmal <em>en passant</em> im Notebook „Input und Output“ begegnet sind, das wir aber noch nicht explizit besprochen haben: Wenn wir uns die bedingte Anweisung <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">re.match(regex,</span> <span class="pre">text)</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">re.fullmatch(regex,</span> <span class="pre">text)</span></code> (vgl. auch Abschnitt zu Miss Sara Sampson im Notebook „Input und Output Teil 2“) angucken, könnte der Eindruck entstehen, dass diese Funktionen die Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> zurückgeben, je nachdem ob ein match vorliegt oder nicht. Tatsächlich geben sie aber ein gewöhnliches match-Objekt zurück, wenn sie einen match finden, ansonsten <code class="docutils literal notranslate"><span class="pre">None</span></code>, also <em>kein</em> Objekt. In der bedingten Anweisung oben machen wir uns den Umstand zunutze, dass <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">object</span> <span class="pre">==</span> <span class="pre">None</span></code> (auf das es ja hinausläuft) für Python immer <code class="docutils literal notranslate"><span class="pre">False</span></code> ergibt und alles andere (also, wenn das Objekt <em>nicht</em> <code class="docutils literal notranslate"><span class="pre">None</span></code> ist) immer <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt. Dieses Verhalten gilt natürlich nicht nur im Zusammenhang mit regulären Ausdrücken. Wir können es produktiv einsetzen, wann immer es Sinn macht, den Ablauf des Codes von der Existenz eines Objekts abhängig zu machen (im Code des Pizzabots kommt es übrigens auch vor).</p>
+<p>Damit kennen wir alle wesentlichen Funktionen zum Matchen regulärer Ausdrücke.</p>
+</section>
+</section>
+<section id="matchen-und-ersetzen-re-sub">
+<h3>Matchen und Ersetzen: <code class="docutils literal notranslate"><span class="pre">re.sub</span></code><a class="headerlink" href="#matchen-und-ersetzen-re-sub" title="Link zu dieser Überschrift">#</a></h3>
+<p>Aufbauend auf den Funktionen zum Matchen regulärer Ausdrücke, bietet das <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul auch die praktische Funktion <code class="docutils literal notranslate"><span class="pre">re.sub</span></code>, die alle matches des regulären Ausdrucks (<code class="docutils literal notranslate"><span class="pre">regex</span></code>) mit dem als zweiten Argument übergebenen string <code class="docutils literal notranslate"><span class="pre">replacement</span></code> im als drittes Argument übergegeben string (unten: <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code>) ersetzt. Im folgenden Code nutzen wir <code class="docutils literal notranslate"><span class="pre">re.sub</span></code>, um Geburtsdaten zu schwärzen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_dates</span> <span class="o">=</span> <span class="s2">&quot;Ich bin am 09.08.1992 geboren, meine Schwester am 3.4.95 und unser Bruder am 9.10.1998&quot;</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d{1,2}\.\d{1,2}\.(19)?\d</span><span class="si">{2}</span><span class="s2">&quot;</span>
+<span class="n">replacement</span> <span class="o">=</span> <span class="s2">&quot;◾◾.◾◾.◾◾◾◾&quot;</span> 
+<span class="n">blackened</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">replacement</span><span class="p">,</span> <span class="n">birth_dates</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">blackened</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ich bin am ◾◾.◾◾.◾◾◾◾ geboren, meine Schwester am ◾◾.◾◾.◾◾◾◾ und unser Bruder am ◾◾.◾◾.◾◾◾◾
+</pre></div>
+</div>
+</div>
+</div>
+<p>Klappt doch super!</p>
+<p><code class="docutils literal notranslate"><span class="pre">replacement</span></code> kann übrigens auch ein regulärer Ausdruck sein, in dem wir mithilfe von Gruppen separierte Teilmatches des Ausdrucks <code class="docutils literal notranslate"><span class="pre">regex</span></code> referenzieren. Wie oben gelernt, speichern viele Funktionen des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls Teilmatches als Tupel ab, so auch <code class="docutils literal notranslate"><span class="pre">re.sub</span></code>. Innerhalb eines regulären Ausdrucks für <code class="docutils literal notranslate"><span class="pre">replacement</span></code> können wir den Inhalt der einzelnen Teilmatches einbauen. Der erste Teilmatch wird mit der Rückreferenz <code class="docutils literal notranslate"><span class="pre">\1</span></code> eingebaut, der zweite mit <code class="docutils literal notranslate"><span class="pre">\2</span></code>, etc. Die Reihenfolge der Teilmatches enspricht wie gesagt der Reihenfolge der öffnenden Klammern im regulären Ausdruck <code class="docutils literal notranslate"><span class="pre">regex</span></code>.</p>
+<p>Machen wir es konkret und formatieren die Preisangaben in <code class="docutils literal notranslate"><span class="pre">prices</span></code> einheitlich um. Hier kommt außerdem die Flag <code class="docutils literal notranslate"><span class="pre">re.I</span></code> zum Einsatz, d. h. Groß- und Kleinschreibung werden beim Matchen ignoriert:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span> <span class="o">=</span> <span class="s2">&quot;Der Apfel kostet 0,99 EUR, die Banane 1,49 €, das Brot 2,49 Euro und die Kaugummipackung 1 Euro.&quot;</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\d+,?\d{0,2}) (euro?|€)&quot;</span>
+<span class="n">replacement</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;EUR \1&quot;</span>
+<span class="n">prices_standardized</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">replacement</span><span class="p">,</span> <span class="n">prices</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span> <span class="c1">#Mit flag</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prices_standardized</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Apfel kostet EUR 0,99, die Banane EUR 1,49, das Brot EUR 2,49 und die Kaugummipackung EUR 1.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">regex</span></code> matchen wir mit der ersten Gruppe den Betrag und bauen diesen mittels der Rückreferenz <code class="docutils literal notranslate"><span class="pre">\1</span></code> in <code class="docutils literal notranslate"><span class="pre">replacement</span></code> ein. Konkret heißt das: Sobald der gesamte reguläre Ausdruck einen match in <code class="docutils literal notranslate"><span class="pre">prices</span></code> findet, wird derjenige Teil des matches, der von der ersten Gruppe gemacht wird, in genau der gleichen Form in der Ersetzung eingebaut. Die zweite Gruppe hingegen dient nur dem Definieren von Alternativen. Dieser Teilmatch wird nicht in <code class="docutils literal notranslate"><span class="pre">replacement</span></code> eingebaut.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 9:</strong> Gegeben sind in <code class="docutils literal notranslate"><span class="pre">people</span></code> noch einmal die Personenbeschreibungen aus Übung 7 sowie die Musterlösung für den regulären Ausdruck in <code class="docutils literal notranslate"><span class="pre">regex</span></code>. <code class="docutils literal notranslate"><span class="pre">regex</span></code> beinhaltet Gruppen, auf deren Teilmatches wir zurückgreifen können. Formulier unter Zuhilfenahme von Rückreferenzen einen regulären Ausdruck für <code class="docutils literal notranslate"><span class="pre">replacement</span></code>, um anschließend <code class="docutils literal notranslate"><span class="pre">people</span></code> mithilfe von <code class="docutils literal notranslate"><span class="pre">re.sub</span></code> in dasselbe Format wie in Übung 7 zu bringen:</p>
+<p>„Nachname, Vorname \t Geburtsdatum \t E-Mailadresse“</p>
+<p>Es reicht diesmal, wenn Du das Dir das Ergebnis einfach ausgeben lässt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">people</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Detlef SCHULZ hat am 21.03.1967 Geburtstag, und das ist seine Emailadresse: schulz-detlef@gmail.net </span>
+<span class="s2">Ina SCHULTER wurde am 02.04.1992 geboren und ihre E-Mail-Adresse lautet: inaschulter@gmx.de</span>
+<span class="s2">Katharina Anne LAMAI ist ein Dezemberkind, ihr Geburtstag ist der 08.12.1955 geboren und ihre E-Mail-Adresse lautet: KaAnLa@yahoo.com</span>
+<span class="s2">Anuk MARGA ist am 15.01.1988 auf die Welt gekommen, ihre E-Mail-Adresse lautet: MargAnuk@gmail.com</span>
+<span class="s2">Albus Percival Wulfric Brian DUMBLEDORE hat 17.06.1881 das Licht der Welt erblickt. Er hat sogar eine Emailadresse: fresh-dumbledore@hogwarts.com&quot;&quot;&quot;</span>
+
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(.+) ([A-Z]+) .+ (\d</span><span class="si">{2}</span><span class="s2">\.\d</span><span class="si">{2}</span><span class="s2">\.\d</span><span class="si">{4}</span><span class="s2">) .+ (\S+@\S+)&quot;</span>
+<span class="n">replacement</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Anstatt eines string, ob nun ein normaler oder ein regulärer Ausdruck, kann anstelle von <code class="docutils literal notranslate"><span class="pre">replacement</span></code> übrigens auch eine Funktion stehen.</p>
+<p>Der Funktion wird iterativ jedes einzelne match-Objekt übergeben. Innerhalb der Funktion wird mithilfe der <code class="docutils literal notranslate"><span class="pre">group</span></code>-Methode auf Teilmatches zugegriffen. Die <code class="docutils literal notranslate"><span class="pre">group</span></code>-Methode nimmt nämlich optional einen Parameter in Klammern, z. B. eine Eins, wenn wir den ersten Teilmatch referenzieren wollen oder eine Drei für den dritten, etc. (in den bisherigen Anwendungsbeispielen von <code class="docutils literal notranslate"><span class="pre">group</span></code> war die Klammer stets leer, da es gar keine Teilmatches gab). Am Ende der Funktion steht wie immer ein <code class="docutils literal notranslate"><span class="pre">return</span></code>-Statement (siehe Notebook „Funktionen und Methoden Teil 2“). Das, was die Funktion zurückgibt, ersetzt den match im abgesuchten string.</p>
+<p>Die Verwendung einer Funktion für die Ersetzung macht immer dann Sinn, wenn bloßes Rearrangieren der Teilmatches mithilfe von Rückreferenzen nicht ausreicht, sondern die einzelnen Teilmatches zusätzlich modifiziert werden müssen, wie in der folgenden Übung.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 10:</strong> <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> von oben ist nun etwas länger und beinhaltet mehr Geburtsdaten. Ziel ist es, sämtliche Geburtsdaten in das Datumsformat nach <a class="reference external" href="https://de.wikipedia.org/wiki/Datumsformat#ISO_8601_und_EN_28601">ISO 8601</a>, also YYYY/MM/DD, zu bringen. Geh dazu wie folgt vor:</p>
+<ol class="arabic simple">
+<li><p>Wenn nötig, pass <code class="docutils literal notranslate"><span class="pre">regex</span></code> an, damit auch alle neuen Geburtsdaten gematcht werden.</p></li>
+<li><p>Setz Klammern in <code class="docutils literal notranslate"><span class="pre">regex</span></code>, um relevante Teile eines matches zu gruppieren.</p></li>
+<li><p>Pass die Funktion <code class="docutils literal notranslate"><span class="pre">to_ISO_format</span></code> an, damit jedes einzelne match-Objekt entsprechend IS0 8601 umstrukturiert wird. Hierzu einige Bemerkungen und Tipps:</p>
+<ul class="simple">
+<li><p>Bei zweistelligen Jahreszahlen unter und gleich 22 kannst Du davon ausgehen, dass sie sich auf das 21. Jahrhundert beziehen, ansonsten auf das 20. Jahrhundert.</p></li>
+<li><p>Verwend f-strings zur Formatierung der Teilmatches (vgl. Notebook „Input und Output Teil 2“).</p></li>
+<li><p>Der Funktionsaufruf innerhalb von <code class="docutils literal notranslate"><span class="pre">re.sub(...)</span></code> ist korrekt, so wie er gegeben ist (es fehlen also keine Klammern!).</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">birth_dates</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ich bin am 09.08.1992 geboren, meine Schwester am 3.4.95 und unser Bruder am 9.10.1998. </span>
+<span class="s2">Unsere Mutter ist am 23.10.1967 geboren und unser Vater am 14.1.68. </span>
+<span class="s2">Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 1.1.2022 geboren wurde.&quot;&quot;&quot;</span>
+
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d{1,2}\.\d{1,2}\.(19)?\d</span><span class="si">{2}</span><span class="s2">&quot;</span>
+
+<span class="k">def</span> <span class="nf">to_ISO_format</span><span class="p">(</span><span class="n">match_object</span><span class="p">):</span>
+    <span class="k">pass</span>
+     
+<span class="n">iso_dates</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">to_ISO_format</span><span class="p">,</span> <span class="n">birth_dates</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iso_dates</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ich bin am  geboren, meine Schwester am  und unser Bruder am . 
+Unsere Mutter ist am  geboren und unser Vater am . 
+Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wurde.
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Toll!</p>
+<p>So viel zur <code class="docutils literal notranslate"><span class="pre">re.sub</span></code>-Funktion.</p>
+</section>
+<section id="matchen-und-splitten-re-split">
+<h3>Matchen und Splitten: <code class="docutils literal notranslate"><span class="pre">re.split</span></code><a class="headerlink" href="#matchen-und-splitten-re-split" title="Link zu dieser Überschrift">#</a></h3>
+<p>Widmen wir uns abschließend kurz der Funktion <code class="docutils literal notranslate"><span class="pre">re.split</span></code>, die dem Splitten von strings basierend auf einem regulären Ausdruck dient. Im Gegensatz zur <code class="docutils literal notranslate"><span class="pre">split</span></code>-Methode für strings können wir also nicht bloß ein Zeichen (bzw. eine Zeichenkette) definieren, bei welchem der string jeweils unterteilt wird, sondern ein komplexeres Muster, z. B. mehrere Zeichen, bei (all) denen  gesplittet werden soll:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Das ist ein Satz. Aber ist das ein Satz? Das hingegen ist definitiv ein Satz: Das ist ein Satz!&quot;</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[.?!:]&quot;</span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">sentence</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Das ist ein Satz&#39;, &#39;Aber ist das ein Satz&#39;, &#39;Das hingegen ist definitiv ein Satz&#39;, &#39;Das ist ein Satz&#39;, &#39;&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">re.split</span></code> eignet sich also hervorragend zum Splitten eines string nicht nur in Aussagesätze, sondern ebenfalls in Frage- und Exklamativsätze (mit „!“). Alles, was nach dem letzten match im zu splittenden string folgt, landet übrigens in einem eigenen Element auf der Liste, kurioserweise auch, wenn kein Zeichen mehr nach dem letzten match folgt (wie im Code oben, in dem ein leeres Element die Liste beendet).</p>
+<p>☝️ Eine letzte Bemerkung zum <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul: Die oben verwendeten Funktionen begegnen einem in fremdem Code oft auch in Form von Methoden, z. B. in folgender Form: <code class="docutils literal notranslate"><span class="pre">regex.split(string)</span></code>. Dieses Statement ist gleichbedeutend mit <code class="docutils literal notranslate"><span class="pre">re.split(regex,</span> <span class="pre">string)</span></code>. Aber beachte: Um eine Methode auf einen regulären Ausdruck anwenden zu können, muss dieser erst mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">re.compile</span></code> in ein kompiliertes <em>regular expression object</em> umgewandelt werden. Nur auf ein kompiliertes Objekt können dann <code class="docutils literal notranslate"><span class="pre">re</span></code>-Methoden angewandt werden. Die Methoden bieten einige Finetuning-Parameter, die wir bei den Funktionen nicht nutzen können. In aller Regel sind die Funktionen aber praktischer, da der Kompilierschritt entfällt. Dennoch ist es gut, beide Herangehensweisen zu kennen, um nicht von einer abweichenden Syntax (Methode statt Funktion) verwirrt zu werden.</p>
+<p>Wenden wir uns nun dem Anwendungsfall für dieses Notebook zu.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h2>🔧 Anwendungsfall: Der Pizzabot 🍕🤖<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">#</a></h2>
+<p>Der Anwendungsfall besteht wie erwähnt aus zwei Teilaufgaben. In der RegEx-bezogenen Aufgabe baust Du bereits existierende, aber noch sehr primitive reguläre Ausdrücke aus, um den Pizzabot flexibler und kund:innenfreundlicher werden zu lassen. In der Dokumentationsaufgabe schaust Du Dir den – abgesehen von den mangelhaften regulären Ausdrücken fertigen – Code zum Pizzabot genau an und dokumentierst ihn Schritt für Schritt.</p>
+<section id="id2">
+<h3>RegEx-bezogene Aufgabe<a class="headerlink" href="#id2" title="Link zu dieser Überschrift">#</a></h3>
+<p>In der Datei „<a class="reference external" href="http://pizzabot.py">pizzabot.py</a>“ im Ordner „3_Dateien/Module“ befinden sich unter „REGEX PATTERNS“ sechs reguläre Ausdrücke: drei für die verschiedenen Pizzen, die der Bot im Angebot hat, zwei zur Normalisierung und Validierung von Antworten (Input) auf Ja-/Nein-Fragen und einen zur Validierung von what3words-Adressen, an die die Bestellung geliefert werden soll.</p>
+<p>Jeder dieser Ausdrücke dient dazu, den Input von User:innen zu validieren („handelt es sich um eine Pizza im Angebot?“, „handelt es sich um eine gültige Antwort auf die Ja-/Nein-Frage?“, „handelt es sich um eine gültige Lieferadresse?“). Die regulären Ausdrücke für die Pizzen und diejenige für „Ja“ bzw. „Nein“ haben zusätzlich die Aufgabe, den Input zu normalisieren. Will heißen: Die Bestellung einer „Margerita“ (mit Rechtschreibfehler) soll der dem Bot verständlichen Kategorie „Margherita“ zugeordnet werden, ebenso wie ein „jap“ im Code zu „yes“ werden soll, wobei „yes“ dann den weiteren Codeablauf steuert (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">answer</span> <span class="pre">==</span> <span class="pre">&quot;yes&quot;</span></code>, siehe Code in „pizza_functions.py“).</p>
+<p>Erweiter nun die befindlichen regulären Ausdrücke derart, dass der Pizzabot</p>
+<ol class="arabic simple">
+<li><p>für die drei Pizzen jeweils mindestens folgende Alternativschreibweisen erkennt:</p>
+<ul class="simple">
+<li><p>margherita: margerita, margarita, margarita, mergerita, margarita</p></li>
+<li><p>prosciutto: proschutto, schinken, procciuto, prosciuto, proschuto</p></li>
+<li><p>vegetariana: vegetarisch, vegi, vegetariano, vegetaria, vegetario</br></br></p></li>
+</ul>
+</li>
+<li><p>bei der Normalisierung und Validierung des Inputs auf Ja-/Nein-Fragen mindestens mit folgendem alternativen Input umgehen kann:</p>
+<ul class="simple">
+<li><p>ja: jo, jup, jop, jap, jaa, ja klar, klaro, mmhm, mhm, yes, si, oui, ja bitte, yes please, ja danke, yas, yeah</p></li>
+<li><p>nein: ne, nee, nö, nein danke, niemals, bitte nicht, no, never, ne danke, nö danke, nee danke, nope, nene, no thanks, no, niet</br></br></p></li>
+</ul>
+</li>
+<li><p>bei der Validierung der <a class="reference external" href="https://w3w.co/">what3words</a>-Adressen sämtlichen Input bestehend aus drei Wörtern des deutschen Alphabets, konkateniert durch je einen Punkt akzeptiert.</p></li>
+</ol>
+<p>Groß- und Kleinschreibung musst Du nicht beachten, da <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code> in „pizza_functions.py“ jeweils die <code class="docutils literal notranslate"><span class="pre">re.I</span></code>-Flag (s. o.) übergeben wird. Versuch, möglichst kurze reguläre Ausdrücke zu formulieren.</p>
+<p>Zum Überprüfen, ob der Pizzabot durch Deine angepassten regulären Ausdrücke mit alternativem Input umgehen kann, kannst folgende Zelle ausführen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Module&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span> 
+
+<span class="sd">&quot;&quot;&quot;Falls der Pizzabot noch nicht importiert wurde (d. h. der Name &quot;pizzabot&quot; ist noch keine sog. lokale Variable, </span>
+<span class="sd">was wir über &#39;locals()&#39; überprüfen können), importieren wir ihn wie gewöhnlich.&quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="s2">&quot;pizzabot&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">pizzabot</span>
+<span class="c1">#Falls er schon einmal importiert wurde (sich also unter den lokalen Namen befindet), laden wir ihn erneut mithilfe von &#39;reload&#39;, um neueste Änderungen ausprobieren zu können, ohne den Kernel neuzustarten.</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">reload</span><span class="p">(</span><span class="n">pizzabot</span><span class="p">)</span>
+
+<span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#Falls er schon einmal importiert wurde (sich also unter den lokalen Namen befindet), laden wir ihn erneut mithilfe von &#39;reload&#39;, um neueste Änderungen ausprobieren zu können, ohne den Kernel neuzustarten.</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">reload</span><span class="p">(</span><span class="n">pizzabot</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
+
+<span class="nn">File ~/Documents/Repositories/yfrommherz.ch/website/programming/1_Notebooks/../3_Dateien/Module/pizzabot.py:28,</span> in <span class="ni">order_pizza</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">def</span> <span class="nf">order_pizza</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> 
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="c1">#------------&gt; CHOOSE PIZZA &lt;------------ </span>
+<span class="ne">---&gt; </span><span class="mi">28</span>     <span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hallo, ich bin der Pizzabot 🍕🤖</span><span class="se">\n</span><span class="s2">Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">first_prompt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Super &quot;</span> <span class="o">+</span> <span class="n">user_name</span> <span class="o">+</span> <span class="s2">&quot;, welche Pizza möchtest Du bestellen?</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Funktion <code class="docutils literal notranslate"><span class="pre">reload</span></code> sorgt dafür, dass jeweils die neuste gespeicherte Version des Moduls <code class="docutils literal notranslate"><span class="pre">pizzabot</span></code> geladen wird. Standardmäßig geschieht dies aus Arbeitsspeichergründen erst nach einem Neustart des Kernels.</p>
+</section>
+<section id="id3">
+<h3>Dokumentationsaufgabe<a class="headerlink" href="#id3" title="Link zu dieser Überschrift">#</a></h3>
+<p>Öffne die Datei „<a class="reference external" href="http://pizzabot.py">pizzabot.py</a>“ in Sublime Text (vgl. Notebook „Funktionen und Methoden Teil 2“) und versuch Schritt für Schritt nachzuvollziehen, was in der darin befindlichen Funktion <code class="docutils literal notranslate"><span class="pre">order_pizza</span></code> geschieht. Unter anderem werden darin die Funktionen <code class="docutils literal notranslate"><span class="pre">choose_pizza</span></code>, <code class="docutils literal notranslate"><span class="pre">remove_ingredient</span></code>, <code class="docutils literal notranslate"><span class="pre">add_ingredient</span></code>, <code class="docutils literal notranslate"><span class="pre">request_address</span></code> und <code class="docutils literal notranslate"><span class="pre">yn_validator</span></code> aus dem Modul <code class="docutils literal notranslate"><span class="pre">pizza_functions</span></code> importiert und aufgerufen. Öffne parallel auch diese Datei („pizza_function.py“) und versuch zu verstehen, was in den einzelnen Funktionen passiert und wie sie mit <code class="docutils literal notranslate"><span class="pre">order_pizza</span></code> interagieren.</p>
+<p>Konkret sollst Du folgendes tun:</p>
+<ol class="arabic simple">
+<li><p>Füg möglichst vor jeder Code-Zeile einen Kommentar ein, in welchem Du dokumentierst, was in der folgenden Zeile passiert (vgl. Notebook „Einführung“ zu Kommentaren).</p></li>
+<li><p>Ergänz alle Funktionen um docstrings, die sich anschließend über das <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-Attribut abrufen lassen (vgl. Notebook „Funktionen und Methoden Teil 2“ zu Modulen).</p></li>
+</ol>
+<p>💡 Tipp: In dieser Aufgabe lohnt es sich wirklich, <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle in den Code einzubauen, um etwa Zwischenresultate zurückzukriegen oder um zu verstehen, wann eine bedingte Anweisung „greift“. Auch hier gilt: Wann immer Du den Code veränderst und ihn erneut ausprobieren willst, musst Du das betreffende Modul speichern und den Bot mithilfe von <code class="docutils literal notranslate"><span class="pre">reload</span></code> erneut laden (s. o.).</p>
+<p>Nach getaner Arbeit kannst Du hier die docstrings sämtlicher Funktionen inspizieren:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;reload&#39; bei Änderungen, gleiche Logik wie oben</span>
+<span class="k">if</span> <span class="s2">&quot;pizza_functions&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">pizzabot</span><span class="o">,</span> <span class="nn">pizza_functions</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">reload</span><span class="p">(</span><span class="n">pizzabot</span><span class="p">)</span>
+    <span class="n">reload</span><span class="p">(</span><span class="n">pizza_functions</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;order_pizza:&quot;</span><span class="p">,</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yn_validator:&quot;</span><span class="p">,</span> <span class="n">pizza_functions</span><span class="o">.</span><span class="n">yn_validator</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;choose_pizza:&quot;</span><span class="p">,</span> <span class="n">pizza_functions</span><span class="o">.</span><span class="n">choose_pizza</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;remove_ingredient:&quot;</span><span class="p">,</span> <span class="n">pizza_functions</span><span class="o">.</span><span class="n">remove_ingredient</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;add_ingredient:&quot;</span><span class="p">,</span> <span class="n">pizza_functions</span><span class="o">.</span><span class="n">add_ingredient</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;request_address:&quot;</span><span class="p">,</span> <span class="n">pizza_functions</span><span class="o">.</span><span class="n">request_address</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>order_pizza: None 
+
+yn_validator: None 
+
+choose_pizza: None 
+
+remove_ingredient: None 
+
+add_ingredient: None 
+
+request_address: None 
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Das war’s. Sehr gute Arbeit!</p>
+</section>
+</section>
+<section id="cheat-sheet">
+<h2>Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Link zu dieser Überschrift">#</a></h2>
+<p>Unten findest Du noch eine Zusammenstellung aller hier vorgestellten Sonderzeichen in einer Tabelle.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-center head"><p><strong>Bemerkungen</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
+<td class="text-left"><p>matcht ein beliebiges Zeichen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">H.nd</span></code> matcht z. B. <em>Hund</em>, <em>Hand</em></p></td>
+<td class="text-center"><p>einzige Ausnahme: <code class="docutils literal notranslate"><span class="pre">.</span></code> matcht keinen Zeilenumbruch</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td class="text-left"><p>das davor stehende Zeichen darf 0 bis <em>n</em> mal vorkommen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hund.*</span></code> matcht z. B. <em>Hund</em>, <em>Hunde</em>, <em>Hundehütte</em></p></td>
+<td class="text-center"><p>ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td class="text-left"><p>das davor stehende Zeichen darf 1 bis <em>n</em> mal vorkommen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hund.+</span></code> matcht z. B. <em>Hunde</em>, <em>Hundehütte</em></p></td>
+<td class="text-center"><p>ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td class="text-left"><p>das davor stehende Zeichen darf 0 bis 1 mal vorkommen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hund.?</span></code> matcht z. B. <em>Hund</em>, <em>Hunde</em>, <em>Hunds</em></p></td>
+<td class="text-center"><p>–</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{n}</span></code></p></td>
+<td class="text-left"><p>das davor stehende Zeichen darf genau <em>n</em> mal vorkommen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hu{7}nd</span></code> matcht <em>Huuuuuuund</em></p></td>
+<td class="text-center"><p>–</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">{n,m}</span></code></p></td>
+<td class="text-left"><p>das davor stehende Zeichen darf min. <em>n</em> und max. <em>m</em> mal vorkommen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Hu{2,3}nd</span></code> matcht <em>Huund</em>, <em>Huuund</em></p></td>
+<td class="text-center"><p>bleiben <em>n</em> / <em>m</em> leer, werden nach unten / oben beliebig viele Zeichen gematcht; ist <em>gierig</em> (engl. <em>greedy</em>), matcht also so viele Zeichen wie möglich; kann durch Anfügen von <code class="docutils literal notranslate"><span class="pre">?</span></code> <em>gebändigt</em> werden (engl. <em>non-greedy/lazy quantifier</em>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\w</span></code></p></td>
+<td class="text-left"><p>matcht ein beliebiges alphanumerisches <a class="reference external" href="https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a>-Zeichen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">N\w*t</span></code> matcht z. B. <em>Nacht</em>, <em>N8t</em>, <em>Nimmersatt</em></p></td>
+<td class="text-center"><p>Fertige Zeichenklasse; ASCII beinhält A-Z, a-z, 0-9, Unterstrich, aber nicht die dt. Buchstaben ä, ö, ü, ß!</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\d</span></code></p></td>
+<td class="text-left"><p>matcht eine Zahl</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\d{4}</span> <span class="pre">\d{4}</span> <span class="pre">\d{4}</span> <span class="pre">\d{4}</span></code> matcht Kreditkartennummern im gängigen Schreibformat</p></td>
+<td class="text-center"><p>Fertige Zeichenklasse</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\s</span></code></p></td>
+<td class="text-left"><p>matcht ein whitespace-Zeichen (Leerschlag, Tabstopp, Zeilenumbruch)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\s{2,}</span></code> matcht alle Vorkommen von mehrfachen Leerschlägen (und anderem whitespace)</p></td>
+<td class="text-center"><p>Fertige Zeichenklasse</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\W</span></code>,<code class="docutils literal notranslate"><span class="pre">\D</span></code>,<code class="docutils literal notranslate"><span class="pre">\S</span></code></p></td>
+<td class="text-left"><p>matcht jeweils das Gegenteil von <code class="docutils literal notranslate"><span class="pre">\w</span></code>, <code class="docutils literal notranslate"><span class="pre">\d</span></code> bzw.<code class="docutils literal notranslate"><span class="pre">\s</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\W+</span></code> matcht z. B. <em>äöüñßå!!</em></p></td>
+<td class="text-center"><p>Fertige Zeichenklassen</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[...]</span></code></p></td>
+<td class="text-left"><p>eigene Zeichenklasse</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">[\wÄäÖöÜüß]*</span></code> matcht beliebig viele Buchstaben des dt. Alphabets</p></td>
+<td class="text-center"><p>erlaubte Zeichen (inkl. fertiger Zeichenklassen) werden schlicht aneinandergereiht; Sonderzeichen (mit Ausnahme fertiger Klassen) verlieren ihre Sonderbedeutung innerhalb von Klassen (<code class="docutils literal notranslate"><span class="pre">.</span></code> steht für „.“, also keine Wildcard)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[a-z]</span></code></p></td>
+<td class="text-left"><p>eigene Zeichenklasse mit Range</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">[1-3]{2}</span></code> matcht <em>11</em>, <em>12</em>, <em>13</em>, <em>21</em>, <em>22</em>, <em>23</em>, <em>31</em>, <em>32</em>, <em>33</em></p></td>
+<td class="text-center"><p>Range mittels Bindestrich funktioniert bei Groß-/Kleinbuchstaben und Zahlen</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">[^...]</span></code></p></td>
+<td class="text-left"><p>matcht ein Zeichen, das sich nicht in der Klasse befindet</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">[^aeiouAEIOU]</span></code> matcht einen Konsonanten oder ein anderes nicht-alphabetisches Zeichen</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code> hat außerhalb von Klassen eine andere Sonderbedeutung (s. u.)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\n</span></code></p></td>
+<td class="text-left"><p>matcht einen Zeilenumbruch</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\t</span></code></p></td>
+<td class="text-left"><p>matcht einen Tabstopp</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\b</span></code></p></td>
+<td class="text-left"><p>matcht Wortgrenzen (whitespace oder nicht-alphanumerische Zeichen)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\b[a-zäöüß]{3}\b</span></code> matcht ein kleingeschriebenes Wort mit drei Buchstaben</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\B</span></code> matcht das Gegenteil, also ein Zeichen, das keine Wortgrenze ist</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td class="text-left"><p>matcht den Anfang eines strings</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">^[A-ZÄÖÜ]\w+\b</span></code> matcht das erste Wort eines strings, sofern dieses mit einem Großbuchstaben beginnt</p></td>
+<td class="text-center"><p>hat eine andere Bedeutung in eigenen Zeichenklassen (s. o.)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td class="text-left"><p>matcht das Ende eines strings</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">te$</span></code> matcht <em>te</em>, sofern diese Zeichen die letzten beiden eines strings sind</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">\</span></code></p></td>
+<td class="text-left"><p>„maskiert“ (engl. <em>escapes</em>) Sonderzeichen, wenn diese literal interpretiert werden sollen</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\.</span></code> matcht „.“, anstatt ein beliebiges Zeichen (Wildcard, s. o.)</p></td>
+<td class="text-center"><p>Maskierung ist innerhalb eigener Zeichenklassen nicht nötig (s. o.)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">(...)</span></code></p></td>
+<td class="text-left"><p>Gruppe</p></td>
+<td class="text-left"><p>siehe Beispiel eine Zeile weiter unten</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">⎮</span></code></p></td>
+<td class="text-left"><p>Alternative</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">\w*(aa⎮ee⎮ii⎮oo⎮uu)\w*</span></code> oder <code class="docutils literal notranslate"><span class="pre">\w*(a{2}⎮e{2}⎮i{2}⎮o{2}⎮u{2})\w*</span></code> matcht ein Wort mit Doppelvokal</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-1-inputvalidierung">Beispiel 1: Inputvalidierung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-2-musterbasierte-suche">Beispiel 2: Musterbasierte Suche</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-der-pizzabot">🔧 Anwendungsfall: Der Pizzabot 🍕🤖</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-bezogene-aufgabe">RegEx-bezogene Aufgabe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentationsaufgabe">Dokumentationsaufgabe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-suchsprache-im-detail">Die Suchsprache im Detail</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#literale-zeichen">Literale Zeichen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sonderzeichen">Sonderzeichen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcard">Wildcard</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#quantifikatoren">Quantifikatoren</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenklassen">Zeichenklassen</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#weitere-sonderzeichen">Weitere Sonderzeichen</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gruppen">Gruppen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-re-modul">Das <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matchen">Matchen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-findall-und-re-search"><code class="docutils literal notranslate"><span class="pre">re.findall</span></code> und <code class="docutils literal notranslate"><span class="pre">re.search</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-finditer-fortgeschritten"><code class="docutils literal notranslate"><span class="pre">re.finditer</span></code> (fortgeschritten)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-match-und-re-fullmatch"><code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matchen-und-ersetzen-re-sub">Matchen und Ersetzen: <code class="docutils literal notranslate"><span class="pre">re.sub</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matchen-und-splitten-re-split">Matchen und Splitten: <code class="docutils literal notranslate"><span class="pre">re.split</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: Der Pizzabot 🍕🤖</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">RegEx-bezogene Aufgabe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Dokumentationsaufgabe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cheat-sheet">Cheat Sheet</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
