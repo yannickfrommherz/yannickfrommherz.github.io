@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Funktionen und Methoden &#8212; Yannick Frommherz</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -470,10 +469,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="funktionen-und-methoden">
-<h1>Funktionen und Methoden<a class="headerlink" href="#funktionen-und-methoden" title="Permalink to this heading">#</a></h1>
+<h1>Funktionen und Methoden<a class="headerlink" href="#funktionen-und-methoden" title="Link zu dieser Überschrift">#</a></h1>
 <p>In diesem Notebook lernen wir Funktionen und Methoden kennen. Nach einer Einführung in <em>Code Reuse</em> schauen wir uns Funktionen und Methoden besonders wichtiger Datentypen anhand eines konkreten Anwendungsfalls an. Wir lernen, wie wir selbst Funktionen schreiben können und abschließend, wie wir von fertigem Code für spezifische Anwendungsfelder in Form von Modulen profitieren können.</p>
 <section id="code-reuse">
-<h2>Code Reuse<a class="headerlink" href="#code-reuse" title="Permalink to this heading">#</a></h2>
+<h2>Code Reuse<a class="headerlink" href="#code-reuse" title="Link zu dieser Überschrift">#</a></h2>
 <p>Die allermeisten Operationen, die wir beim Programmieren unternehmen, haben andere (und ab einem gewissen Zeitpunkt meist wir selbst auch) schon unzählige Male vorher ausgeführt. Wir stehen zwar erst am Anfang unserer Programmierer:innenkarriere, dennoch haben wir uns bereits mehrfach die Länge von einem Objekt (mithilfe der <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion) ausgeben lassen. Auch die<code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion haben wir schon viele Male genutzt.</p>
 <p>Ohne zu überlegen, haben wir vorgefertigte „Bausteine“ von Python eingesetzt. Wenn man darüber nachdenkt, macht etwa die <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion nichts Außergewöhnliches. Wir könnten sie einfach nachbilden, indem wir zum Beispiel bei einem <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekt über dessen einzelne Zeichen iterieren und bei jedem Zeichen einen Zähler um eins erhöhen. Der finale Stand des Zählers entspräche dann der Länge des string:</p>
 <div class="cell docutils container">
@@ -502,7 +501,7 @@ document.write(`
 <p>Wir lernen ja programmieren, weil wir damit gewisse Aufgaben effizienter ausführen können (oder sie gar erst in Angriff nehmen können, wie beim Web-Scraping-Beispiel im Notebook „Einführung“). Mit Funktionen, Methoden und Modulen können wir bereits geschriebenen Code (wieder)verwenden, weshalb man auch von <em>Code Reuse</em> spricht. Indem wir lernen, diese vorgefertigten Bausteine miteinander zu kombinieren, je nachdem, was wir mit unserem Code erreichen wollen, lernen wir (effizient) zu programmieren.</p>
 </section>
 <section id="funktionen-vs-methoden">
-<h2>Funktionen vs. Methoden<a class="headerlink" href="#funktionen-vs-methoden" title="Permalink to this heading">#</a></h2>
+<h2>Funktionen vs. Methoden<a class="headerlink" href="#funktionen-vs-methoden" title="Link zu dieser Überschrift">#</a></h2>
 <p>Bevor wir uns konkrete Funktionen und Methoden anhand eines Anwendungsfalls anschauen, folgen ein paar grundsätzliche Bemerkungen. Funktionen haben stets folgende Syntax:</p>
 <p><code class="docutils literal notranslate"><span class="pre">function(object)</span></code></p>
 <p>Anstelle von <em>function</em> steht der Funktionsname, z. B. <code class="docutils literal notranslate"><span class="pre">len</span></code> und bei <em>object</em> wird der Funktion ein Objekt übergeben, etwa ein string. Wie wir bei der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion gesehen haben, können bei einigen Funktionen kommasepariert auch mehrere Objekte angegeben werden. Weiter können je nach Funktion optional kommasepariert Parameter (also eine [von den Standardwerten abweichende] Spezifierung, wie die Funktion ausgeführt werden soll) angegeben werden (z. B. den <code class="docutils literal notranslate"><span class="pre">sep</span></code>-Parameter bei der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion, siehe Notebook „Datentypen“).</p>
@@ -514,7 +513,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="anwendungsfall-errechnen-von-schlusselwortern">
-<h2>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#anwendungsfall-errechnen-von-schlusselwortern" title="Permalink to this heading">#</a></h2>
+<h2>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#anwendungsfall-errechnen-von-schlusselwortern" title="Link zu dieser Überschrift">#</a></h2>
 <p>Stellen wir uns vor, wir haben einen langen Text und würden gerne wissen, welche Wörter darin besonders oft vorkommen, sog. <em>Schlüsselwörter</em>. Gehen wir noch einen Schritt weiter und stellen uns vor, wir hätten zwei Texte, die wir gerne im Hinblick auf Schlüsselwörter vergleichen wollen. Ein solcher Vergleich wäre z. B. bei Parteiprogrammen oder Koalitionsverträgen spannend, um zu sehen, worauf die jeweiligen Texte ihren Fokus legen und worin sie sich unterscheiden. Sagen wir, wir wollen die deutschen Koalitionsverträge von 2018 (CDU, CSU, SPD) und 2021 (SPD, Grüne, FDP) miteinander vergleichen. Die beiden Texte sind im Ordner „3_Dateien“ gespeichert. Mit folgendem Code können wir sie in den Arbeitsspeicher laden und uns mittels Slicing jeweils die ersten 100 Zeichen ausgeben lassen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -579,7 +578,7 @@ Koalitionsvertr
 <p>Eine Übersicht aller wichtigen Funktionen und Methoden findet sich in den jeweiligen Cheat Sheets im Ordner „2_Cheat_Sheets“.</p>
 </section>
 <section id="operationen-bei-zeichenketten-strings">
-<h2>Operationen bei Zeichenketten / strings<a class="headerlink" href="#operationen-bei-zeichenketten-strings" title="Permalink to this heading">#</a></h2>
+<h2>Operationen bei Zeichenketten / strings<a class="headerlink" href="#operationen-bei-zeichenketten-strings" title="Link zu dieser Überschrift">#</a></h2>
 <p>Bei einem langen Text verliert man schnell den Überblick darüber, was beim Ausführen von Code genau geschieht. Deswegen wollen wir erst mit einem simplen string arbeiten, um die Funktionsweise der einzelnen Operationen genau zu verstehen. Das erlernte Wissen übertragen wir später einfach auf die beiden Koalitionstexte. Der Beispielstring lautet:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -832,7 +831,7 @@ Der Satz fängt mit einem maskulinen Artikel an.
 </section>
 <hr class="docutils" />
 <section id="operationen-bei-listen">
-<h2>Operationen bei Listen<a class="headerlink" href="#operationen-bei-listen" title="Permalink to this heading">#</a></h2>
+<h2>Operationen bei Listen<a class="headerlink" href="#operationen-bei-listen" title="Link zu dieser Überschrift">#</a></h2>
 <p>Machen wir weiter mit dem Datentyp <code class="docutils literal notranslate"><span class="pre">list</span></code>. Oben hatten wir es ja kurzzeitig mit einer Liste zu tun, die wir dann aber pro forma wieder in einen string konvertiert haben. Wenn man Wörter in einem Text bereinigen will, etwa mit dem Ziel, Schlüsselwörter zu errechnen, ist es tatsächlich aber viel praktischer, mit einer Liste weiterzuarbeiten. Während ein string einfach <em>eine</em> lange Aneinanderkettung von Zeichen ist, liegen uns die Wörter auf einer Liste in <em>diskreten Einheiten</em> vor. Mittels Iteration können wir dann bestimmte Schritte des <em>preprocessing</em> (so nennt sich diese Technik) Wort für Wort vornehmen.</p>
 <p>Das typische Vorgehen beim preprocessing ist also</p>
 <ol class="arabic simple">
@@ -1201,7 +1200,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <p>In diesem Beispiel hätte <code class="docutils literal notranslate"><span class="pre">sort</span></code> natürlich den gleichen Effekt gehabt. Soviel zum Thema Listen.</p>
 <p>Bevor wir zu dictionaries übergehen, werfen wir noch einen Blick auf die Technik <em>List Comprehension</em>. Es handelt sich dabei um eine fortgeschrittene Technik, mit der Listen auf sehr elegante Weise erzeugt werden können. Alles, was wir gleich mithilfe einer List Comprehension angehen, kannst Du bereits mithilfe anderer Techniken lösen. Der Vorteil von List Comprehensions besteht darin, dass wir viele Schritte auf eine einzige Zeile Code komprimieren können. Ob Du zukünftig List Comprehension verwendest oder nicht, steht Dir frei. In jedem Fall macht es Sinn, dass Du die Technik gesehen hast und weißt, wozu sie eingesetzt wird.</p>
 <section id="exkurs-list-comprehension">
-<h3>Exkurs: List Comprehension<a class="headerlink" href="#exkurs-list-comprehension" title="Permalink to this heading">#</a></h3>
+<h3>Exkurs: List Comprehension<a class="headerlink" href="#exkurs-list-comprehension" title="Link zu dieser Überschrift">#</a></h3>
 <p>Am Anfang des Abschnitts <em>Operationen bei Listen</em> (s. o.) haben wir die bis dahin erlernten Schritte des preprocessing wie folgt zusammengefasst:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1236,9 +1235,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gesagt&#39;, &#39;ist&#39;, &#39;gesagt&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1290,9 +1286,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;unantastbar&#39;, &#39;Verpflichtung&#39;, &#39;staatlichen&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1349,7 +1342,7 @@ True
 </section>
 <hr class="docutils" />
 <section id="operationen-bei-dictionaries">
-<h2>Operationen bei dictionaries<a class="headerlink" href="#operationen-bei-dictionaries" title="Permalink to this heading">#</a></h2>
+<h2>Operationen bei dictionaries<a class="headerlink" href="#operationen-bei-dictionaries" title="Link zu dieser Überschrift">#</a></h2>
 <p>Um abschließend Operationen bei dictionaries kennenzulernen, verwenden wir folgendes dictionary mit österreichischen Bundesländern:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1382,7 +1375,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2013</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">46</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -1573,9 +1566,7 @@ Eisenstadt
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vorarlberg
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tirol
+Tirol
 Kärnten
 Steiermark
 Wien
@@ -1615,7 +1606,7 @@ Burgenland
 </section>
 <hr class="docutils" />
 <section id="id1">
-<h2>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">#</a></h2>
 <p>Gegeben sind die Koalitionsverträge von 2018 und 2021 in <code class="docutils literal notranslate"><span class="pre">kv18</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">kv21</span></code>. Zusätzlich ist <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> gegeben, eine Liste mit sog. Stoppwörtern, also hochfrequenten Wörtern wie <em>und</em>, <em>der</em>, <em>die</em>, <em>das</em> etc., die wir von der Berechnung von Schlüsselwörtern ausschließen wollen.</p>
 <p>Bereinige sämtliche Wörter und entfern alle Stoppwörter. Errechne anschließend für jeden Wort<em>type</em> (vgl. Notebook „Datentypen“), wie oft er vorkommt und speicher diese paarweise Information in einem geeigneten Objekt ab. Sortier dieses Objekt in absteigender Reihenfolge und lass Dir die zehn häufigsten Schlüsselwörter ausgeben. Wiederhol diese Schritte für den zweiten Text, um die Schlüsselwörter vergleichen zu können.</p>
 <div class="cell docutils container">
@@ -1743,7 +1734,7 @@ Burgenland
 <p>Hier haben wir es also mit Code zu tun, den wir mehr als einmal ausführen wollen. Ein klassischer Fall für <em>Code Reuse</em>, und konkreter: für unsere erste eigene Funktion.</p>
 </section>
 <section id="funktionen-selbst-definieren">
-<h2>Funktionen selbst definieren<a class="headerlink" href="#funktionen-selbst-definieren" title="Permalink to this heading">#</a></h2>
+<h2>Funktionen selbst definieren<a class="headerlink" href="#funktionen-selbst-definieren" title="Link zu dieser Überschrift">#</a></h2>
 <p>Funktionen selbst zu definieren lohnt sich immer dann, wenn wir (fast) den gleichen Code für strukturell ähnliche Objekte mehrfach ausführen müssen (und nicht bereits eine eingebaute bzw. über ein Modul importierbare Funktion/Methode dafür besteht, vgl. unten).</p>
 <p>Wie bei Kontrollstrukturen verwenden wir Variablen im Code einer Funktionsdefinition. Anstatt <code class="docutils literal notranslate"><span class="pre">kv18</span></code> werden wir also einen Platzhalter, z. B. namens <code class="docutils literal notranslate"><span class="pre">text</span></code> in den Code schreiben (<code class="docutils literal notranslate"><span class="pre">text</span></code> ist keine schlechte Idee, denn tatsächlich lässt sich unser Code ja nicht nur auf Koalitionsverträge anwenden, sondern auf strings jeglicher Art). Bei jedem Funktionsaufruf übergeben wir unserer Funktion ein Objekt, das bei der Variablen <code class="docutils literal notranslate"><span class="pre">text</span></code> im Funktionscode eingesetzt werden soll. Damit unterscheidet sich unsere Funktion in keiner Weise von eingebauten Funktionen wie <code class="docutils literal notranslate"><span class="pre">print</span></code> oder <code class="docutils literal notranslate"><span class="pre">len</span></code>, denen wir ja auch in Klammern ein Objekt übergeben.</p>
 <p>Um nun eine Funktion zu definieren, brauchen wir das <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement mit folgender Syntax:</p>
@@ -1911,7 +1902,7 @@ KV18: dazu                 KV21: schaffen
 <p>Abschließend schauen wir uns Module an. Da noch einmal einiges an Informationen auf Dich zukommt, lohnt es sich, mit einem „frischen Kopf“ an diesen letzten Teil des Notebooks heranzugehen.</p>
 </section>
 <section id="module">
-<h2>Module<a class="headerlink" href="#module" title="Permalink to this heading">#</a></h2>
+<h2>Module<a class="headerlink" href="#module" title="Link zu dieser Überschrift">#</a></h2>
 <p>Bis zu diesem Punkt haben wir mit Funktionen/Methoden aus der Grundausstattung von Python gearbeitet. Diese haben zweifelsohne einiges drauf. Dennoch kommt man als Programmier:in bald an einen Punkt, an dem sich bestimmte Anwendungsfälle effizienter lösen lassen, wenn man über die Funktionen/Methoden der Grundausstattung hinaus anwendungsspezifischeren Code verwendet. Für viele Anwendungsfelder – etwa für den Umgang mit Text, zum Scrapen von Webseiten oder zur Visualisierung von Daten – gibt es sog. <em>Module</em> (oder <em>Packages</em> bzw. <em>Bibliotheken</em>, siehe Bemerkung zum Schluss), mit denen wir diese spezifischen Probleme wesentlich effizienter angehen können.</p>
 <p>Solche Module stammen entweder von Python selbst oder von Entwickler:innen aus der Python-Community. Mit Modulen von Python sind Module gemeint, die Teil der sog. <em>Standardbibliothek</em> sind, nicht aber der Grundausstattung. In der Praxis bedeutet das Folgendes: Wenn wir Python installieren, werden die Module der Standardbibliothek automatisch mitinstalliert. Sobald wir ein solches Modul in unserem Code verwenden wollen, müssen wir es jedoch importieren, da es nicht zur Grundausstattung gehört. Module von anderen Entwickler:innen müssen wir immer zuerst (zusätzlich zu Python) installieren, bevor wir sie importieren und verwenden können.</p>
 <p>Ein Modul an sich ist ganz simpel aufgebaut: Es handelt sich schlicht um eine Python-Datei mit dem Dateisuffix „.py“, die Code enthält. Machen wir es konkret, und zwar vorerst an einem eigenen Modul. Denn auch wir können unsere eigenen Module erstellen.</p>
@@ -2008,7 +1999,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cybermobbing&#39;, 1), (&#39;bildungsoffensive&#39;, 1), (&#39;finanzanlagevermittler&#39;, 1), (&#39;genehmigungsund&#39;, 1), (&#39;verkehrstoten&#39;, 1), (&#39;truppe&#39;, 1), (&#39;fluglärmkommissionen&#39;, 1), (&#39;wohnfläche&#39;, 1), (&#39;bargeldlos&#39;, 1), (&#39;triebfeder&#39;, 1)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ausgewählten&#39;, 1), (&#39;grausamen&#39;, 1), (&#39;liste&#39;, 1), (&#39;spitzensport&#39;, 1), (&#39;feste&#39;, 1), (&#39;kunde&#39;, 1), (&#39;anwendungsnahe&#39;, 1), (&#39;theatern&#39;, 1), (&#39;tierschutzes&#39;, 1), (&#39;rohstoffbasis&#39;, 1)]
 </pre></div>
 </div>
 </div>
@@ -2043,7 +2034,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11, 49, 75, 78, 95, 39, 55, 34, 45, 67]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[59, 41, 33, 95, 91, 69, 41, 88, 93, 11]
 </pre></div>
 </div>
 </div>

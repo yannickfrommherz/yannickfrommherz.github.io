@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/6_Datenanalyse_Teil_2.html" />
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="Reguläre Ausdrücke / RegEx" href="7_Regulaere_Ausdruecke.html" />
+    <link rel="prev" title="Datenanalyse Teil 1" href="6_Datenanalyse_Teil_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   </head>
@@ -155,33 +157,51 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung.html">1. Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="2_Datentypen.html">2. Datentypen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
-<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output.html">5. Input und Output</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../notebooks.html">Notebooks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden_Teil_1.html">Funktionen und Methoden Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden_Teil_2.html">Funktionen und Methoden Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output_Teil_1.html">Input und Output Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output_Teil_2.html">Input und Output Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Datenanalyse_Teil_1.html">Datenanalyse Teil 1</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Datenanalyse Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_Regulaere_Ausdruecke.html">Reguläre Ausdrücke</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/1_Einfuehrung_Loesungen.html">1. Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/2_Datentypen_Loesungen.html">2. Datentypen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/1_Einfuehrung_Loesungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/2_Datentypen_Loesungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Teil_1_Loesungen.html">Funktionen und Methoden Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Teil_2_Loesungen.html">Funktionen und Methoden Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Teil_1_Loesungen.html">Input und Output Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Teil_2_Loesungen.html">Input und Output Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/6_Datenanalyse_Teil_1_Loesungen.html">Datenanalyse Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/6_Datenanalyse_Teil_2_Loesungen.html">Datenanalyse Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/7_Regulaere_Ausdruecke_Loesungen.html">Reguläre Ausdrücke</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">1. Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/2_Datentypen_Uebungen.html">2. Datentypen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/2_Datentypen_Uebungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/4_Funktionen_und_Methoden_Uebungen.html">Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/5_Input_und_Output_Uebungen.html">Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/6_Datenanalyse_Uebungen.html">Datenanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/7_Regulaere_Ausdruecke_Uebungen.html">Reguläre Ausdrücke</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">1. Einführung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">2. Datentypen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/4_Funktionen_und_Methoden_Uebungen_Loesungen.html">Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/5_Input_und_Output_Uebungen_Loesungen.html">Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/6_Datenanalyse_Uebungen_Loesungen.html">Datenanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/7_Regulaere_Ausdruecke_Uebungen_Loesungen.html">Reguläre Ausdrücke</a></li>
 </ul>
 </li>
 </ul>
@@ -1716,28 +1736,28 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>16</td>
-      <td>51</td>
+      <td>0</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>53</td>
-      <td>96</td>
+      <td>11</td>
+      <td>71</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>51</td>
-      <td>93</td>
+      <td>46</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>20</td>
-      <td>24</td>
+      <td>68</td>
+      <td>36</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>22</td>
-      <td>49</td>
+      <td>16</td>
+      <td>57</td>
     </tr>
   </tbody>
 </table>
@@ -1784,33 +1804,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>16</td>
-      <td>51</td>
-      <td>816</td>
+      <td>0</td>
+      <td>8</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>53</td>
-      <td>96</td>
-      <td>5088</td>
+      <td>11</td>
+      <td>71</td>
+      <td>781</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>51</td>
-      <td>93</td>
-      <td>4743</td>
+      <td>46</td>
+      <td>1</td>
+      <td>46</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>20</td>
-      <td>24</td>
-      <td>480</td>
+      <td>68</td>
+      <td>36</td>
+      <td>2448</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>22</td>
-      <td>49</td>
-      <td>1078</td>
+      <td>16</td>
+      <td>57</td>
+      <td>912</td>
     </tr>
   </tbody>
 </table>
@@ -1860,33 +1880,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>16</td>
-      <td>51</td>
-      <td>816</td>
+      <td>0</td>
+      <td>8</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>53</td>
-      <td>96</td>
-      <td>5088</td>
+      <td>11</td>
+      <td>71</td>
+      <td>781</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>51</td>
-      <td>93</td>
-      <td>4743</td>
+      <td>46</td>
+      <td>1</td>
+      <td>46</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>20</td>
-      <td>24</td>
-      <td>480</td>
+      <td>68</td>
+      <td>36</td>
+      <td>2448</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>22</td>
-      <td>49</td>
-      <td>1078</td>
+      <td>16</td>
+      <td>57</td>
+      <td>912</td>
     </tr>
   </tbody>
 </table>
@@ -1900,9 +1920,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.008266448974609375 
-for-Loop 14.400739192962646 
-Faktor: 1742.0707775726812
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.008652925491333008 
+for-Loop 15.260395526885986 
+Faktor: 1763.6111095803599
 </pre></div>
 </div>
 </div>
@@ -2107,9 +2127,9 @@ Faktor: 1742.0707775726812
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.5687246322631836 
-for-Loop 0.877558708190918 
-Faktor: 2.9271256820624503
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 2.7998123168945312 
+for-Loop 0.8313674926757812 
+Faktor: 3.367719259605943
 </pre></div>
 </div>
 </div>
@@ -2443,7 +2463,7 @@ Faktor: 2.9271256820624503
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fc8a3b98910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fdfd067c610&gt;
 </pre></div>
 </div>
 <img alt="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" src="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" />
@@ -2500,6 +2520,24 @@ Faktor: 2.9271256820624503
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="6_Datenanalyse_Teil_1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title">Datenanalyse Teil 1</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="7_Regulaere_Ausdruecke.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title">Reguläre Ausdrücke / RegEx</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
