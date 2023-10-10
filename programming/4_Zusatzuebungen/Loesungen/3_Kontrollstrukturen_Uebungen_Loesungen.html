@@ -163,8 +163,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/5_Input_und_Output.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/7_Datenanalyse.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -173,8 +171,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/7_Datenanalyse_Loesungen.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -520,7 +516,7 @@ No prognosis possible due to missing value.
 </ul>
 <ol class="arabic" start="3">
 <li><p>Mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> soll das monatliche Einkommen einer bestimmten Person referenziert werden. Beträgt es 6000€ oder mehr, fällt es in die höchste Einkommensklasse. Bei einem Betrag von unter 2000€ handelt es sich um ein Einkommen in der tiefsten Einkommensklasse. Zwischen 2000€ und unter 3000€, 3000€ und unter 4500€ sowie 4500€ und unter 6000€ fällt es in die Einkommensklasse „untere Mitte“, „Mitte“ bzw. „obere Mitte“. Formulier bedingte Anweisungen, die die entsprechende Einkommensklasse je nach Höhe von <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ausgeben.</p>
-<p>📌 Herausforderung: Was passiert, wenn das Einkommen anstatt als Zahl z. B. so vorliegt: „dreitausendsiebenhundert“? Und was, wenn mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ein noch weniger sinnvolles Objekt referenziert wird, z. B. eine Liste? Verhinder in jedem Fall, dass es zu einer Fehlermeldung kommt.</p>
+<p>📌 Herausforderung: Was passiert, wenn das Einkommen anstatt als Zahl z. B. so vorliegt: „dreitausendsiebenhundert“? Und was, wenn mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ein noch weniger sinnvolles Objekt referenziert wird, z. B. eine Liste? Verhinder in jedem Fall, dass es zu einer Fehlermeldung kommt.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -691,7 +687,7 @@ Helga
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2594</span><span class="o">/</span><span class="mf">559681748.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2997</span><span class="o">/</span><span class="mf">559681748.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> <span class="c1">#Konkatenation eines prompts mit dem jeweiligen Wort</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span> 
 <span class="ne">---&gt; </span><span class="mi">11</span>         <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="c1">#Abfrage der Übersetzung und Speichern der Antwort in &#39;answer&#39;</span>
@@ -751,7 +747,7 @@ Helga
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2594</span><span class="o">/</span><span class="mf">707143864.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2997</span><span class="o">/</span><span class="mf">707143864.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> <span class="c1">#Konkatenation eines prompts mit dem jeweiligen Wort</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> 
 <span class="ne">---&gt; </span><span class="mi">13</span>         <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="c1">#Abfrage der Übersetzung und Speichern der Antwort in &#39;answer&#39;</span>
@@ -773,8 +769,8 @@ Helga
 <ul class="simple">
 <li><p>Ideen für weitere Verbesserungsmöglichkeiten:</p>
 <ul>
-<li><p>zufällige Sortierung der Vokabeln bei jeder neuen Iteration – umsetzbar z. B. mithilfe von <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> (vgl. Notebook „Funktionen und Methoden“).</p></li>
-<li><p>Einführen eines Grenzwerts, der definiert, wie oft ein Wort korrekt übersetzt werden muss, bis es aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt wird – umsetzbar z. B., indem <code class="docutils literal notranslate"><span class="pre">learnt_during_interaction</span></code> ein dictionary (statt eine Liste) ist, wobei der Wert die Anzahl an korrekten Übersetzungen pro Wort (Schlüssel) speichert. Bei jeder korrekten Übersetzung wird der Wert um eins erhöht. Alle Schlüssel, deren Werte den Grenzwert erreichen, werden aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt.</p></li>
+<li><p>zufällige Sortierung der Vokabeln bei jeder neuen Iteration – umsetzbar z. B. mithilfe von <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> (vgl. Notebook „Funktionen und Methoden Teil 2“).</p></li>
+<li><p>Einführen eines Grenzwerts, der definiert, wie oft ein Wort korrekt übersetzt werden muss, bis es aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt wird – umsetzbar z. B., indem <code class="docutils literal notranslate"><span class="pre">learnt_during_interaction</span></code> ein dictionary (statt eine Liste) ist, wobei der Wert die Anzahl an korrekten Übersetzungen pro Wort (Schlüssel) speichert. Bei jeder korrekten Übersetzung wird der Wert um eins erhöht. Alle Schlüssel, deren Werte den Grenzwert erreichen, werden aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt.</p></li>
 </ul>
 </li>
 </ul>

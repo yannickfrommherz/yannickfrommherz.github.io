@@ -1,0 +1,1235 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Input und Output Teil 1 &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/5_Input_und_Output_Teil_1';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/5_Input_und_Output_Teil_1.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../phd.html">PhD project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output.html">5. Input und Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/1_Einfuehrung_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/2_Datentypen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/2_Datentypen_Uebungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/1_Notebooks/5_Input_und_Output_Teil_1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/yannickfrommherz/yfrommherz.ch/blob/main/website/programming/1_Notebooks/5_Input_und_Output_Teil_1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/5_Input_und_Output_Teil_1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/programming/1_Notebooks/5_Input_und_Output_Teil_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Input und Output Teil 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dateipfade">Dateipfade</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-dateipfade">Absolute Dateipfade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-dateipfade">Relative Dateipfade</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-os-modul">Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-open-funktion">Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">Input</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textdateien">Textdateien</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-die-wahrheitsmatrix">Exkurs: Die Wahrheitsmatrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren">🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="input-und-output-teil-1">
+<h1>Input und Output Teil 1<a class="headerlink" href="#input-und-output-teil-1" title="Permalink to this heading">#</a></h1>
+<p>In den vergangenen Notebooks haben wir gelernt, dass wir in Python effizient mit Objekten verschiedenster Datentypen arbeiten, indem wir sie Variablen zuweisen. Am Anfang hatten wir es bloß mit kleinen Objekten zu tun – etwa mit einzelnen Wörtern oder, wenn’s hoch kam, mit Sätzen. Diese haben wir bei der Variablenzuweisung jeweils komplett ausgeschrieben:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sentence</span> <span class="pre">=</span> <span class="pre">&quot;Am</span> <span class="pre">Anfang</span> <span class="pre">haben</span> <span class="pre">wir</span> <span class="pre">eine</span> <span class="pre">Zeichenkette</span> <span class="pre">noch</span> <span class="pre">ausgeschrieben.&quot;</span></code></p>
+<p>Im zweiteiligen Notebook „Funktionen und Methoden“ haben wir dann zum ersten Mal mit größeren Objekten gearbeitet, nämlich mit den Koalitionsverträgen. Aufgrund der Größe (und der Tatsache, dass wir die Texte bereits extern in einer Datei vorliegen hatten) haben wir uns die Texte vom externen Speicherort in den Arbeitsspeicher geladen und Variablen zugewiesen.</p>
+<p>Da wir fortan häufig mit größeren externen Dateien arbeiten, schauen wir uns in diesem ebenfalls zweigeteilten Notebook genauer an, wie der sog. <em>Input</em> von Dateien funktioniert. Ebenso schauen wir uns das andere Ende an, nämlich den <em>Output</em> von Dateien, also das Speichern dieser auf einem externen Laufwerk. Im ersten (und teilweise zweiten) Teil des Notebooks geht es also nicht primär darum, wie wir mit Daten <em>in</em> Python arbeiten, sondern wie diese Daten überhaupt erst für Python verarbeitbar werden und wie wir sie nach einer Verarbeitung durch Python wiederum für die Welt außerhalb Pythons zugänglich machen.</p>
+<p>Im zweiten Teil lernen wir weiterhin, wie Benutzer:innen über Input für ein laufendes Programm dessen Ablauf beeinflussen oder kontrollieren können (wir haben diese Funktion bereits im Notebook „Kontrollstrukturen“ beim Oktopus-Ratespiel benutzt). Dadurch können wir interaktive Programme schreiben. Abschließend gehen wir detailliert auf die allgegenwärtige <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ein. Diese stellt ja auch eine Form von Output bereit, zwar (standardmäßig) nicht als Datei, aber als Zeichenkette in der Ausgabe.</p>
+<p>Auch zum Thema „Input und Output“ gibt es wieder einen Anwendungsfall, den wir im zweiten Teil unter Einbezug der meisten hier erlernten Techniken lösen können. Mehr dazu später.</p>
+<section id="dateipfade">
+<h2>Dateipfade<a class="headerlink" href="#dateipfade" title="Permalink to this heading">#</a></h2>
+<p>Um Dateien von einem bestimmten Ort auf dem Laufwerk einzulesen bzw. an einem bestimmten Ort auszugeben, müssen wir uns mit Dateipfaden vertraut machen. Jede Datei auf Deinem Computer hat bekanntlich einen Namen, ein Dateisuffix (etwa <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, wird z. T. ausgeblendet) und die Datei befindet sich in einem bestimmten Verzeichnis (auch <em>Ordner</em> genannt). Dieses Verzeichnis befindet sich wiederum in einem Verzeichnis, und so weiter, bis zum obersten Verzeichnis, dem Stamm des Laufwerks. Jede Datei hat also eine <em>einzigartige</em> Adresse und diese Adresse wird <em>Dateipfad</em> genannt.</p>
+<p>Wie Du gleich sehen wirst, gibt es zwei Arten, einen Dateipfad anzugeben, nämlich <strong>absolut</strong> und <strong>relativ</strong>. Zusätzlich unterscheiden sich Dateipfade zwischen macOS und Windows. Dateipfade zu verstehen, ist überaus wichtig, um frustrierenden <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>-Fehlern vorzubeugen.</p>
+<section id="absolute-dateipfade">
+<h3>Absolute Dateipfade<a class="headerlink" href="#absolute-dateipfade" title="Permalink to this heading">#</a></h3>
+<p>Ein Dateipfad kann immer absolut, d. h. vollständig vom Stamm des Laufwerks bis zur gewünschten Datei, angegeben werden. Um an den absoluten Pfad einer beliebigen Datei heranzukommen, gibt es folgende Tricks:</p>
+<ul class="simple">
+<li><p>Unter <strong>macOS</strong>: Navigier im Finder zur gewünschten Datei und klick die Datei mit zwei Fingern an (Rechtsklick), es öffnet sich ein Menüfenster. Drück die Taste <code class="docutils literal notranslate"><span class="pre">Option</span> <span class="pre">⌥</span></code>, wodurch sich einige Menüoptionen ändern. Wähl <em>„Datei“ als Pfadname kopieren</em>. Ein vollständiger Pfad unter macOS sieht z. B. so aus: „/Users/Name/Documents/Project/Folder/Notebook.ipynb“. Beachte, dass Schrägstriche „/“ verwendet werden sowie, dass der absolute Pfad mit einem Schrägstrich beginnt.</p></li>
+<li><p>Unter <strong>Windows</strong>: Navigier im Explorer zur gewünschten Datei und klick diese mit einem Rechtsklick an, während Du <code class="docutils literal notranslate"><span class="pre">Shift</span></code> gedrückt hältst. Es öffnet sich ein Menüfenster. Wähl <em>Als Pfad kopieren</em>. Ein vollständiger Pfad unter Windows sieht z. B. so aus: „C:\Users\Name\Documents\Project\Folder\Notebook.ipynb“. Beachte, dass Backslashes „&quot; verwendet werden sowie, dass der absolute Pfad ohne Backslash beginnt. <br>⚠️ Achtung: Der Backslash „&quot; hat bei Python eine Spezialbedeutung innerhalb von strings, wie etwa bei „\n“, das bekanntlich für einen Zeilenumbruch steht. Um Python bei einem Windows-Dateipfad mitzuteilen, dass die darin verwendeten Backslashes nicht als Spezialzeichen interpretiert werden sollen, müssen wir ein „r“ vor das öffnende Anführungszeichen stellen. Obiger Pfad innerhalb von Python-Code muss also so ausschauen: r“C:\Users\Name\Documents\Project\Folder\Notebook.ipynb“.</p></li>
+<li><p>Unter <strong>Linux</strong>: Hier gibt es mehrere Möglichkeiten, außerdem kann sich das Vorgehen je nach Distribution etwas unterscheiden. Öffne die Dateiverwaltung, navigier zur gewünschten Datei und klick diese an (Rechtsklick). Wähl nun <em>Eigenschaften</em>, dort kannst Du den absoluten Pfad kopieren. Du kannst auch die Datei auswählen und kommst mit <code class="docutils literal notranslate"><span class="pre">Shift</span></code> + Rechtsklick in ein Menü, in welchem Du den Pfad kopieren kannst. Alternativ – und das funktioniert unter allen gängigen Linux-Distributionen – kannst Du das Terminal im entsprechenden Ordner öffnen und in die Konsole den Befehl <code class="docutils literal notranslate"><span class="pre">pwd</span></code> eingeben. Dir wird anschließend der absolute Dateipfad <strong>zum Ordner</strong> ausgegeben. Du musst ihn dann noch um den Namen der Datei (mit Dateisuffix) ergänzen. Wie auch bei macOS beginnen absolute Pfade mit einem Schrägstrich.</p></li>
+</ul>
+<p>In ersteren beiden Fällen wird der Pfad in die Zwischenablage kopiert, unter Linux musst Du ihn ggf. noch selbst kopieren. Du kannst den Pfad anschließend in Deinen Code einfügen (am besten mit der Tastenkombination <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">⌘</span></code>+ <code class="docutils literal notranslate"><span class="pre">V</span></code> (macOS) / <code class="docutils literal notranslate"><span class="pre">Strg</span></code>+ <code class="docutils literal notranslate"><span class="pre">V</span></code> (Windows; Linux)).</p>
+<p>Beachte, dass die obersten Verzeichnisse eines absoluten Pfades, also diejenigen, die vom System vorgegeben sind, z. T. auf Englisch angegeben werden (selbst wenn sie in Deinem Dateimanager auf Deutsch angezeigt werden). Im vollständigen Pfad steht also ggf. <em>Users</em> und nicht <em>Benutzer</em>. Das geschieht aber automatisch, wenn Du den Pfad wie oben beschrieben kopierst.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 1:</strong> Navigier in Deinem Dateimanager zu fünf beliebigen Dateien in fünf verschiedenen Verzeichnissen. Kopier die absoluten Dateipfade wie oben beschrieben und weis je einen Dateipfad einer der folgenden Variablen zu (innerhalb der Anführungszeichen).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben (so viel zu coden gibt es hier nicht 😅).</span>
+
+<span class="n">path_file1</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">path_file2</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">path_file3</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">path_file4</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">path_file5</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="relative-dateipfade">
+<h3>Relative Dateipfade<a class="headerlink" href="#relative-dateipfade" title="Permalink to this heading">#</a></h3>
+<p>Ein Dateipfad kann stets auch relativ, d. h. vom aktuellen <em>Arbeitsverzeichnis</em> (das ist das Verzeichnis, in dem man sich gerade befindet) aus gesehen, angegeben werden. Am einfachsten ist das natürlich bei einer Datei, die sich im aktuellen Arbeitsverzeichnis befindet. Um auf diese zuzugreifen, geben wir bloß ihren Namen als Pfad an.</p>
+<p>Weiter können wir vom aktuellen Arbeitsverzeichnis aus in ein (darin befindliches) Unterverzeichnis navigieren. Dazu beginnt der relative Pfad mit dem Namen des Unterverzeichnisses, gefolgt von einem Schrägstrich sowie dem Namen der Datei. Diese Schreibweise mit dem Schrägstrich funktioniert innerhalb Pythons auf allen Betriebssystemen. Unsere Schnittstelle zu externen Dateien, die weiter unten vorgestellte <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion, kümmert sich bei relativen Pfaden wenn nötig um die Konversion von Schrägstrich zu Backslash.</p>
+<p>Letztlich können wir vom aktuellen Arbeitsverzeichnis aus auch aufwärts (zum Stamm des Laufwerks hin) navigieren. Indem wir zwei Punkte und einen Schrägstrich, also „../“, an den Anfang des relativen Pfads stellen, rücken wir eine Ebene nach oben (und durch „../../“ zwei Ebenen, etc.). Im Anschluss an den Schrägstrich folgt der Name der Datei, die sich im Oberverzeichnis befindet. Natürlich können wir vom Oberverzeichnis aus auch in ein <em>anderes</em> Unterverzeichnis als das aktuelle Arbeitsverzeichnis (eine Art „Schwesterverzeichnis“) navigieren.</p>
+<p>Relative Dateipfade sind zwar fehleranfälliger als die einfach zu kopierenden, absoluten Dateipfade. Sie sind aber aus dreierlei Gründen zu bevorzugen: Erstens sind sie i. d. R. kürzer. Zweitens funktionieren sie auf allen Betriebssystemen. Drittens sind sie stabiler, da sie auch nach dem Verschieben oder Teilen eines Notebooks funktionieren, sofern die darin aufgerufenen Dateien entsprechend mitverschoben bzw. mitgeteilt wurden. Aus diesem Grund werden in diesen Notebooks auch stets relative Dateipfade verwendet und Du wurdest anfangs darum gebeten, die Ordnerstruktur der heruntergeladenen Dateien nicht zu verändern. Die hier verwendeten, relativen Dateipfade funktionieren solange, wie Du die Ordnerstruktur (konkret: das Verzeichnis „3_Dateien“ und die darin befindlichen Ordner und Dateien) nicht veränderst.</p>
+<p>Versuch also immer, <strong>relative</strong> Dateipfade zu verwenden.</p>
+</section>
+</section>
+<section id="das-os-modul">
+<h2>Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul<a class="headerlink" href="#das-os-modul" title="Permalink to this heading">#</a></h2>
+<p>Im Zusammenhang mit Dateien auf Deinem Laufwerk ist das Modul <code class="docutils literal notranslate"><span class="pre">os</span></code> mit den Funktionen <code class="docutils literal notranslate"><span class="pre">getcwd</span></code>, <code class="docutils literal notranslate"><span class="pre">chdir</span></code> und <code class="docutils literal notranslate"><span class="pre">listdir</span></code> äußerst hilfreich. Sie werden in der folgenden Zelle angewandt und mithilfe von Kommentaren beschrieben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1">#Gibt das aktuelle Arbeitsverzeichnis aus (&quot;get current working directory&quot;).</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuelles Arbeitsverzeichnis:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="sd">&quot;&quot;&quot;Mit dieser Funktion könnte man das aktuelle Arbeitsverzeichnis ändern; das tun wir aber nicht, </span>
+<span class="sd">da die relativen Dateipfade weiter unten im Notebook sonst nicht mehr korrekt wären (s. o.).&quot;&quot;&quot;</span>
+<span class="c1">#os.chdir(&quot;new_path&quot;)</span>
+
+<span class="sd">&quot;&quot;&quot;Gibt die im aktuellen Arbeitsverzeichnis (oder beim in Klammern angegebenen Pfad) befindlichen Unterverzeichnisse </span>
+<span class="sd">und Dateien als Liste aus; darunter auch einige, die vom Dateimanager i. d. R. ausgeblendet werden.&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Darin befindliche Unterverzeichnisse und Dateien: &quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuelles Arbeitsverzeichnis: /home/runner/work/yfrommherz.ch/yfrommherz.ch/website/programming/1_Notebooks
+
+Darin befindliche Unterverzeichnisse und Dateien: 
+6_Datenanalyse.ipynb
+6_Datenanalyse_Teil_2.ipynb
+Loesungen
+5_Input_und_Output.ipynb
+4_Funktionen_und_Methoden.ipynb
+5_Input_und_Output_Teil_2.ipynb
+5_Input_und_Output_Teil_1.ipynb
+2_Datentypen.ipynb
+4_Funktionen_und_Methoden_Teil_2.ipynb
+1_Einfuehrung.ipynb
+6_Datenanalyse_Teil_1.ipynb
+4_Funktionen_und_Methoden_Teil_1.ipynb
+3_Kontrollstrukturen.ipynb
+7_Regulaere_Ausdruecke.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+<p>Denk daran, dass Du ein externes Modul wie <code class="docutils literal notranslate"><span class="pre">os</span></code> am Anfang jedes Notebooks importieren musst, um damit arbeiten zu können.</p>
+<p>Wie im Notebook „Funktionen und Methoden Teil 2“ erklärt, müssen wir vor den Funktionsnamen jeweils den Modulnamen sowie einen Punkt setzen (z. B. <code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code>), damit Python weiß, wo sich die gewünschte Funktion befindet. Alternativ könnten wir auch den <code class="docutils literal notranslate"><span class="pre">import</span></code>-Befehl zu <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">os</span> <span class="pre">import</span> <span class="pre">getcwd,</span> <span class="pre">chdir,</span> <span class="pre">listdir</span></code> ändern, um so die entsprechenden Funktionen ohne Modulnamen davor aufzurufen.</p>
+<p>Wenn Du es versäumst, <code class="docutils literal notranslate"><span class="pre">os</span></code> am Anfang zu importieren, erhältst Du <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'os'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code> zurück. Das ist die gleiche Fehlermeldung, wie wenn Du versuchst, mit einer (noch) nicht definierten Variable zu arbeiten. In beiden Fällen kann Python schlicht nichts mit den <em>Namen</em> anfangen.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Das aktuelle Arbeitsverzeichnis auf einem Windows-Rechner sei „C:\Users\Name\Documents\Project\Folder“. Du möchtest auf eine Datei zugreifen, die folgenden absoluten Dateipfad besitzt: „C:\Users\Name\Documents\Resources\file.csv“. Mithilfe welchen relativen Pfads können wir in Python auf „file.csv“ zugreifen?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben (immer noch nichts zu coden 😅).</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="die-open-funktion">
+<h2>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion<a class="headerlink" href="#die-open-funktion" title="Permalink to this heading">#</a></h2>
+<p>Die Schnittstelle zu externen Dateien bietet in Python die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion. Sie öffnet externe Dateien mittels folgender grundlegender Syntax:</p>
+<p><code class="docutils literal notranslate"><span class="pre">open(file,</span> <span class="pre">mode)</span></code></p>
+<p>Bei <code class="docutils literal notranslate"><span class="pre">file</span></code> setzen wir den absoluten oder relativen Dateipfad zur zu öffnenden Datei ein, und zwar als Zeichenkette, inklusive des <strong>Dateisuffixes</strong> und natürlich umrahmt von <strong>Anführungszeichen</strong>. Über den Parameter <code class="docutils literal notranslate"><span class="pre">mode</span></code> müssen bzw. können wir spezifizieren, was wir mit der zu öffnenden Datei machen wollen. <code class="docutils literal notranslate"><span class="pre">open</span></code> stellt drei verschiedene Modi zur Verfügung:</p>
+<ul class="simple">
+<li><p>den <strong>Lesemodus</strong> für Input (<code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>): Dies ist der Standardmodus, der Parameter <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> wird deswegen i. d. R. weggelassen (vgl. Notebook „Funktionen und Methoden“ beim Öffnen der Koalitionsverträge).</p></li>
+<li><p>den <strong>Schreibmodus</strong> für Output (<code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>): Dieser überprüft, ob die angegebene Datei im Verzeichnis existiert; wenn ja, wird deren Inhalt <em>über</em>schrieben; wenn nein, wird die Datei geschaffen und <em>be</em>schrieben.</p></li>
+<li><p>den <strong>„Anhängmodus“</strong> für Output (<code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> von <em>append</em>): Er überprüft, ob die angegebene Datei im Verzeichnis existiert; wenn ja, werden Daten (z. B. neue Zeilen bei einer Datei in Tabellenform) im Anschluss an die bereits existierenden Daten in der angegebenen Datei angehängt; wenn nein, wird die Datei geschaffen und <em>be</em>schrieben.</p></li>
+</ul>
+<p>Zum Schreiben bzw. Anhängen sieht der Funktionsaufruf also so aus:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">open(file,</span> <span class="pre">&quot;w&quot;)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open(file,</span> <span class="pre">&quot;a&quot;)</span></code></p></li>
+</ul>
+<p>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion akzeptiert neben <code class="docutils literal notranslate"><span class="pre">file</span></code> und <code class="docutils literal notranslate"><span class="pre">mode</span></code> weitere Parameter, u. a. <code class="docutils literal notranslate"><span class="pre">encoding</span></code>, wo wir spezifizieren können, <em>wie</em> eine Datei enkodiert ist. Das Encoding einer Datei legt fest, nach welchem Schlüssel sämtliche Zeichen (Buchstaben in lateinischer Schrift sowie den allermeisten anderen Sprachen, Zahlen, Emojis…) in Nullen und Einsen übersetzt werden. Natürlich geht nichts ohne den korrekten Schlüssel. <a class="reference external" href="https://de.wikipedia.org/wiki/UTF-8">UTF-8</a> von <a class="reference external" href="https://de.wikipedia.org/wiki/Unicode">Unicode</a> ist Standard, sodass wir uns i. d. R. nicht den Kopf darüber zerbrechen müssen. Um Problemen vorzubeugen (insbesondere unter Windows), lohnt es sich trotzdem, standardmäßig <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code> zu spezifizieren, und zwar beim Input sowie beim Output.</p>
+<section id="input">
+<h3>Input<a class="headerlink" href="#input" title="Permalink to this heading">#</a></h3>
+<p>Wie wir bei den Koalitionsverträgen im Notebook „Funktionen und Methoden“ bereits gesehen haben, wird die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion zum Lesen von externen Dateien wie folgt syntaktisch eingebunden:</p>
+<p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(file,</span> <span class="pre">encoding=&quot;utf-8&quot;)</span> <span class="pre">as</span> <span class="pre">read_file:</span></code><br>
+          <code class="docutils literal notranslate"><span class="pre">variable</span> <span class="pre">=</span> <span class="pre">read_file.read()</span></code></p>
+<p>Wir benutzen hier den sog. <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager: Im <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement öffnen wir mittels <code class="docutils literal notranslate"><span class="pre">open</span></code> das übergebene <code class="docutils literal notranslate"><span class="pre">file</span></code> und weisen die geöffnete Datei direkt einer Variablen zu (hier <code class="docutils literal notranslate"><span class="pre">read_file</span></code>, aber wie immer kann man einen beliebigen Variablennamen wählen).</p>
+<p>Eingerückt darunter wenden wir die <code class="docutils literal notranslate"><span class="pre">read</span></code>-Methode auf <code class="docutils literal notranslate"><span class="pre">read_file</span></code> an, d. h. die bislang nur geöffnete Datei wird nun eingelesen. Je nachdem, wie die externe Datei formatiert ist, müssen wir <code class="docutils literal notranslate"><span class="pre">read</span></code> durch eine andere geeignete Lesemethode ersetzen (s. u.). Das Resultat weisen wir in jedem Fall einer sinnvoll genannten <code class="docutils literal notranslate"><span class="pre">variable</span></code> zu. Die externe Datei befindet sich damit als Objekt im Arbeitsspeicher.</p>
+<p>Diese Syntax für den Dateiinput entspricht natürlichsprachlich ungefähr: „Mit (<code class="docutils literal notranslate"><span class="pre">with</span></code>) der zu öffnenden (<code class="docutils literal notranslate"><span class="pre">open</span></code>) Datei (<code class="docutils literal notranslate"><span class="pre">file</span></code>) als (<code class="docutils literal notranslate"><span class="pre">as</span></code>), nennen wir es, <code class="docutils literal notranslate"><span class="pre">read_file</span></code>, tu alles, was nach dem Doppelpunkt (<code class="docutils literal notranslate"><span class="pre">:</span></code>) darunter eingerückt (<code class="docutils literal notranslate"><span class="pre">⇥</span></code>) steht (hier: lies (<code class="docutils literal notranslate"><span class="pre">read</span></code>) das <code class="docutils literal notranslate"><span class="pre">read_file</span></code> und weis es <code class="docutils literal notranslate"><span class="pre">variable</span></code> zu (<code class="docutils literal notranslate"><span class="pre">=</span></code>)).“</p>
+<p>Indem wir anschließend die Einrückung wieder verlassen, schließt der <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager die externe Datei <em>automatisch</em>. Die brauchen wir ja auch nicht mehr, da wir deren Inhalt nun in einem Python-Objekt im Arbeitsspeicher haben. Die Verwendung von <code class="docutils literal notranslate"><span class="pre">with</span></code> beim Umgang mit externen Dateien ist <em>Best Practice</em>. Abweichend davon begegnet man auch folgender Herangehensweise:</p>
+<p><code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">=</span> <span class="pre">open(&quot;path&quot;,</span> <span class="pre">encoding=&quot;utf-8&quot;)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">content</span> <span class="pre">=</span> <span class="pre">file.read()</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">file.close()</span> </code></p>
+<p>In der ersten Zeile wird die externe Datei geöffnet und in der zweiten gelesen. Anschließend muss die Datei wieder <em>manuell</em> geschlossen werden. Oft wird jedoch genau dieser letzte Schritt vergessen. Gewöhn Dir also an, stets den <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager im Umgang mit externen Dateien zu benutzen.</p>
+</section>
+<section id="output">
+<h3>Output<a class="headerlink" href="#output" title="Permalink to this heading">#</a></h3>
+<p>Für den Output von Dateien verwenden wir ebenfalls den <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontextmanager sowie die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion, aber wie oben erwähnt mit dem zusätzlichen Parameter <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> oder <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(file,</span> <span class="pre">&quot;w&quot;,</span> <span class="pre">encoding=&quot;utf-8&quot;)</span> <span class="pre">as</span> <span class="pre">write_file:</span></code><br>
+          <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span> <span class="pre">data:</span></code><br>
+                    <code class="docutils literal notranslate"><span class="pre">write_file.write(line</span> <span class="pre">+</span> <span class="pre">&quot;\n&quot;)</span></code></p>
+<p>In diesem Beispiel iterieren wir über ein mit <code class="docutils literal notranslate"><span class="pre">data</span></code> referenziertes Listenobjekt (das wir im Code davor auf irgendeine Weise geschaffen haben) und schreiben mittels der <code class="docutils literal notranslate"><span class="pre">write</span></code>-Methode jedes Element (<code class="docutils literal notranslate"><span class="pre">line</span></code>) in eine neue Zeile von <code class="docutils literal notranslate"><span class="pre">write_file</span></code> (die neue Zeile kommt durch den abschließenden Zeilenumbruch im <code class="docutils literal notranslate"><span class="pre">write</span></code>-Befehl zustande, wobei dieser mit der jeweiligen <code class="docutils literal notranslate"><span class="pre">line</span></code> zu <em>einem</em> string konkateniert wird, da <code class="docutils literal notranslate"><span class="pre">write</span></code> nur <em>ein</em> Argument akzeptiert). Wie beim Input wird <code class="docutils literal notranslate"><span class="pre">write_file</span></code> nach Verlassen der (äußeren) Einrückung automatisch geschlossen. Je nach gewünschtem Outputformat (z. B. als Textdatei oder als Tabelle) kommen andere Schreibmethoden als <code class="docutils literal notranslate"><span class="pre">write</span></code> zum Einsatz (s. u.).</p>
+<p>Im Folgenden schauen wir uns genauer an, wie wir mit den beiden wichtigsten Datenformaten, <em>Textdateien</em> und <em>tabellarische Dateien</em>, beim Input und Output umgehen.</p>
+</section>
+</section>
+<section id="textdateien">
+<h2>Textdateien<a class="headerlink" href="#textdateien" title="Permalink to this heading">#</a></h2>
+<p>Textdateien sind grundlegend nach Zeilen strukturierte Dateien. Das trifft sowohl auf Microsoft Office-Dokumente mit dem Suffix „.docx“ zu als auch auf sog. <em>Plain Text Files</em> (mit dem Suffix „.txt“). Letztere sind <strong>nur</strong> nach Zeilen strukturiert und können von den meisten Programmen auf sämtlichen Betriebssystemen und natürlich auch von Python geöffnet werden. Deshalb beschränken wir uns im Folgenden auf Plain Text Files.</p>
+<p>Am Ende jeder Zeile in einer solchen Textdatei steht ein Zeilenumbruch, der als <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> (ausgesprochen: <em>backslash n</em> oder <em>newline</em>) kodiert wird. Wenn wir eine „.txt“-Datei z. B. in Microsoft Word öffnen, werden uns i. d. R. nur die Zeilenumbrüche, nicht aber die dafür verantwortlichen Zeichen angezeigt (links im Screenshot unten). Optional können wir sie uns aber einblenden lassen (rechts im Screenshot unten).</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Miss_Sara_Sampson.png"><p>Hier handelt es sich um die ersten paar Zeilen aus Gotthold Ephraim Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/sampson/sampson.html"><em>Miss Sara Sampson</em></a>.</p>
+<p>An den sichtbar gemachten Zeichen für Zeilenumbrüche sehen wir, dass die letzten beiden Redebeiträge jeweils nur in einer einzigen Zeile gespeichert sind. Hier werden sie bloß aufgrund der horizontalen Begrenzung des Fensters auf mehreren Zeilen angezeigt.</p>
+<p>Auch bei Python werden Zeilenumbrüche nur in gewissen Fällen als Zeichen angezeigt, wie wir gleich sehen werden. Damit arbeiten können wir aber in jedem Fall, also auch wenn Zeilenumbrüche als Zeichen bei einer Ausgabe mal nicht angezeigt werden.</p>
+<p>Das wollen wir jetzt ausprobieren. Dazu lesen wir den im Screenshot gezeigten Text sowie den Rest des ersten Aufzugs aus dem Trauerspiel in Python ein. Die Datei befindet sich im Ordner „3_Dateien/Miss_Sara_Sampson“. Die simpelste Methode zum Einlesen einer Datei heißt, wie oben erwähnt, <code class="docutils literal notranslate"><span class="pre">read</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Um in den Ordner &quot;3_Dateien&quot; zu gelangen, navigieren wir mit &quot;../&quot; erst eine Ordnerebene nach oben</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Miss_Sara_Sampson/Miss_Sara_Sampson_Aufzug_1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    <span class="n">miss_sara_sampson</span> <span class="o">=</span> <span class="n">read_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">miss_sara_sampson</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">200</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Tipp: Im Output hier werden Zeilenumbrüche nicht als Zeichen angezeigt; </span>
+<span class="sd">will man dies forcieren, kann man die &#39;repr&#39;-Funktion verwenden.&quot;&quot;&quot;</span>
+<span class="c1">#print(repr(miss_sara_sampson[0:200]))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">miss_sara_sampson</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erster Aufzug
+
+Erster Auftritt
+
+Der Schauplatz ist ein Saal im Gasthofe.
+
+Sir William Sampson und Waitwell treten in Reisekleidern herein.
+
+Sir William. Hier meine Tochter? Hier in diesem elenden Wirt 
+
+26960
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bei <code class="docutils literal notranslate"><span class="pre">read</span></code> wird die gesamte Textdatei in einen einzigen langen string überführt. Da der erste Aufzug recht umfangreich ist (26960 Zeichen), geben wir hier mithilfe von Slicing nur die ersten 200 Zeichen aus. Indem Du die eckigen Klammern entfernst, kannst Du Dir den gesamten ersten Aufzug zu Gemüte führen (das ist nicht nötig, aber fürs weitere Verständnis lohnt es sich, ihn zumindest zu überfliegen).</p>
+<p>Natürlich wollen wir den Text nicht nur lesen. Dafür hätten wir ein beliebiges Textverarbeitungsprogramm verwenden und uns das Programmieren sparen können. Programmieren bringt erst dann einen Vorteil, wenn wir es mit sinnvoll strukturierten Daten zu tun haben (dieses Merkmal ist hier ja u. a. durch die Zeilenumbrüche gegeben) und wir uns diese Strukturiertheit bei der Verarbeitung und Auswertung der Daten zunutze machen können.</p>
+<p>Machen wir es konkret und stellen uns vor, wir würden gerne sämtliche Redebeiträge der Protagonistin Sara extrahieren. Wie bereits erwähnt, entspricht jeder Redebeitrag einer Zeile. Es macht in einem ersten Schritt also Sinn, dass wir das strukturelle Merkmal der Zeilenumbrüche ausnutzen und den Text in Zeilen (und damit in Redebeiträge) unterteilen. Dazu könnten wir <code class="docutils literal notranslate"><span class="pre">split(&quot;\n&quot;)</span></code> auf <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code> anwenden. Es gibt aber genau dafür auch eine eigene Lesemethode:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Miss_Sara_Sampson/Miss_Sara_Sampson_Aufzug_1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    <span class="n">miss_sara_sampson</span> <span class="o">=</span> <span class="n">read_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">miss_sara_sampson</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Erster Aufzug\n&#39;, &#39;\n&#39;, &#39;Erster Auftritt\n&#39;, &#39;\n&#39;, &#39;Der Schauplatz ist ein Saal im Gasthofe.\n&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">readlines</span></code> werden die einzelnen Zeilen einer Textdatei als string-Elemente in eine Liste aufgenommen. Über den <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl lassen wir uns die ersten fünf Elemente, also die ersten fünf Zeilen, ausgeben. Wir sehen, dass einige Zeilen nur aus einem <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code> bestehen (natürlich zeigten sich diese leeren Zeilen auch schon bei der vorherigen Ausgabe). Diese leeren Zeilen können wir mithilfe der (bisher uneingeführten) string-Methode <code class="docutils literal notranslate"><span class="pre">isspace</span></code> entfernen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Wir iterieren über alle Elemente in &#39;miss_sara_sampson&#39;.</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">miss_sara_sampson</span><span class="p">:</span>
+    
+    <span class="c1">#Wenn das Element nur (!) aus whitespace-Zeichen (und dazu gehören Zeilenumbrüche) besteht...</span>
+    <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">isspace</span><span class="p">():</span>
+        
+        <span class="c1">#...dann entfernen wir das betreffende Element aus der Liste.</span>
+        <span class="n">miss_sara_sampson</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">miss_sara_sampson</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Erster Aufzug\n&#39;, &#39;Erster Auftritt\n&#39;, &#39;Der Schauplatz ist ein Saal im Gasthofe.\n&#39;, &#39;Sir William Sampson und Waitwell treten in Reisekleidern herein.\n&#39;, &#39;Sir William. Hier meine Tochter? Hier in diesem elenden Wirtshause?\n&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hat geklappt!</p>
+<p>Wir sehen auch, dass jeder string noch mit einem kodierten Zeilenumbruch endet. Dies ist überflüssig, da die Struktur, die im Fließtext durch die Zeilenumbrüche entstand, bereits in Form der Elemente auf der Liste widergespiegelt wird. Die kodierten Zeilenumbrüche können wir so entfernen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessed</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">miss_sara_sampson</span><span class="p">:</span>
+    <span class="c1">#Hier entfernen wir sämtliche whitespace-Zeichen am rechten Rand (trailing whitespace) und hängen das Resultat &#39;preprocessed&#39; an.</span>
+    <span class="n">preprocessed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Erster Aufzug&#39;, &#39;Erster Auftritt&#39;, &#39;Der Schauplatz ist ein Saal im Gasthofe.&#39;, &#39;Sir William Sampson und Waitwell treten in Reisekleidern herein.&#39;, &#39;Sir William. Hier meine Tochter? Hier in diesem elenden Wirtshause?&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Klappt ebenfalls.</p>
+<p>Zeilenumbrüche (sowie sonstige whitespace-Zeichen) am rechten Rand können aber bereits beim Einlesen einer Textdatei entfernt werden. Dabei muss noch nicht einmal eine Lesemethode verwendet werden. Zwar können wir uns die geöffnete Datei <code class="docutils literal notranslate"><span class="pre">read_file</span></code> nicht direkt als Zeichenkette ausgeben lassen (dafür brauchen wir die Lesemethoden <code class="docutils literal notranslate"><span class="pre">read</span></code> oder <code class="docutils literal notranslate"><span class="pre">readlines</span></code>; überzeug Dich selbst davon, indem Du versuchst, <code class="docutils literal notranslate"><span class="pre">read_file</span></code> auszugeben), aber es ist praktischerweise möglich, über <code class="docutils literal notranslate"><span class="pre">read_file</span></code> zu iterieren. Die einzelnen Elemente entsprechen ganz einfach den Zeilen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Dieser Code erledigt alle Schritte von oben auf einmal.</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Miss_Sara_Sampson/Miss_Sara_Sampson_Aufzug_1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    <span class="n">miss_sara_sampson</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">read_file</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">isspace</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="n">miss_sara_sampson</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+
+    <span class="c1">#Hier sparen wir uns noch mehr Zeilen mithilfe einer List Comprehension.</span>
+    <span class="c1">#miss_sara_sampson = [line.rstrip() for line in read_file if not line.isspace()]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">miss_sara_sampson</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sir William Sampson und Waitwell treten in Reisekleidern herein.
+Sir William. Hier meine Tochter? Hier in diesem elenden Wirtshause?
+Waitwell. Ohne Zweifel hat Mellefont mit Fleiß das allerelendeste im ganzen Städtchen zu seinem Aufenthalte gewählt. Böse Leute suchen immer das Dunkle, weil sie böse Leute sind. Aber was hilft es ihnen, wenn sie sich auch vor der ganzen Welt verbergen könnten? Das Gewissen ist doch mehr als eine ganze uns verklagende Welt. – Ach, Sie weinen schon wieder, schon wieder, Sir! – Sir!
+Sir William. Laß mich weinen, alter ehrlicher Diener. Oder verdient sie etwa meine Tränen nicht?
+Waitwell. Ach! sie verdient sie, und wenn es blutige Tränen wären.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier überprüfen wir erst, ob die Zeile nur aus whitespace besteht, und wenn ja, dann überspringen wir sie (<code class="docutils literal notranslate"><span class="pre">continue</span></code>). Andernfalls hängen wir die am rechten Rand von whitespace bereinigte Zeile <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code> an. Das Ergebnis ist das gleiche wie oben, nur haben wir uns dabei ein paar Zeilen Code gespart.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Lies den ersten Aufzug aus Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/nathan/chap002.html"><em>Nathan der Weise</em></a> ein. Die Datei befindet sich im Unterverzeichnis „Nathan_der_Weise“ im Dateienordner. Find heraus, welche der Figuren des Stücks (bereitgestellt in <code class="docutils literal notranslate"><span class="pre">characters</span></code>) am häufigsten erwähnt wird (wir unterscheiden nicht zwischen Erwähnungen in Redebeiträgen und sonst wo im Text, z. B. in der Sprecherkennzeichung).</p>
+<p>Um Deine Fertigkeiten aus dem Notebook „Funktionen und Methoden Teil 1“ gleich wieder einzusetzen, könntest Du dazu auch eine sortierte Frequenzliste mit allen Figuren und ihren jeweiligen Erwähnungshäufigkeiten erstellen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sultan Saladin&quot;</span><span class="p">,</span> <span class="s2">&quot;Sittah&quot;</span><span class="p">,</span> <span class="s2">&quot;Nathan&quot;</span><span class="p">,</span> <span class="s2">&quot;Recha&quot;</span><span class="p">,</span> <span class="s2">&quot;Daja&quot;</span><span class="p">,</span> <span class="s2">&quot;Tempelherr&quot;</span><span class="p">,</span> <span class="s2">&quot;Derwisch&quot;</span><span class="p">,</span> <span class="s2">&quot;Patriarch von Jerusalem&quot;</span><span class="p">,</span> <span class="s2">&quot;Klosterbruder&quot;</span><span class="p">,</span> <span class="s2">&quot;Emir&quot;</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Die Antwort ist natürlich keine große Überraschung. 🙈</p>
+<p>Zurück zu <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>, das ja mittlerweile eine Liste mit von trailing whitespace befreiten Zeilen darstellt. Die Liste enthält neben Redebeiträgen auch noch Metakommentare wie <em>Sir William Sampson und Waitwell treten in Reisekleidern herein.</em> (Index <code class="docutils literal notranslate"><span class="pre">3</span></code>).</p>
+<p>Um nun Saras Redebeiträge zu extrahieren, können wir uns den strukturellen Umstand zunutze machen, dass am Anfang aller Redebeiträge der Name der Figur gefolgt von einem Punkt steht:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saras_turns</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">turn</span> <span class="ow">in</span> <span class="n">miss_sara_sampson</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">turn</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Sara.&quot;</span><span class="p">):</span> 
+        <span class="n">saras_turns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">turn</span><span class="p">)</span>
+
+<span class="c1">#Als List Comprehension</span>
+<span class="c1">#saras_turns = [turn for turn in miss_sara_sampson if turn.startswith(&quot;Sara.&quot;)]</span>
+
+<span class="c1">#Hier geben wir zur Überprüfung die Redebeiträge mit Indizes 10, 11, 12, 13, 14 aus</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">saras_turns</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">saras_turns</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sara. Meiner Tugend? Nennen Sie mir dieses Wort nicht! – Sonst klang es mir süße, aber itzt schallt mir ein schrecklicher Donner darin! 
+
+Sara. Mit den Augen der Liebe, Mellefont. 
+
+Sara. Einige Tage! Wie ist ein Tag schon so lang! 
+
+Sara. Mit der es Ihnen zuletzt doch wohl noch fehlschlägt. 
+
+Sara. Diese sollen die Zeugen unserer Verbindung sein? – Grausamer! so soll diese Verbindung nicht in meinem Vaterlande geschehen? So soll ich mein Vaterland als eine Verbrecherin verlassen? Und als eine solche, glauben Sie, würde ich Mut genug haben, mich der See zu vertrauen? Dessen Herz muß ruhiger oder muß ruchloser sein als meines, welcher nur einen Augenblick zwischen sich und dem Verderben mit Gleichgültigkeit nichts als ein schwankendes Brett sehen kann. In jeder Welle, die an unser Schiff schlüge, würde mir der Tod entgegenrauschen; jeder Wind würde mir von den väterlichen Küsten Verwünschungen nachbrausen, und der kleinste Sturm würde mich ein Blutgericht über mein Haupt zu sein dünken. – Nein, Mellefont, so ein Barbar können Sie gegen mich nicht sein. Wenn ich noch das Ende Ihres Vergleichs erlebe, so muß es Ihnen auf einen Tag nicht ankommen, den wir hier länger zubringen. Es muß dieses der Tag sein, an dem Sie mich die Martern aller hier verweinten Tage vergessen lehren. Es muß dieses der heilige Tag sein – Ach! welcher wird es denn endlich sein? 
+
+22
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">startswith</span></code> tut ganz klar seinen Dienst.</p>
+<section id="exkurs-die-wahrheitsmatrix">
+<h3>Exkurs: Die Wahrheitsmatrix<a class="headerlink" href="#exkurs-die-wahrheitsmatrix" title="Permalink to this heading">#</a></h3>
+<p>An dieser Stelle lohnt sich nochmal ein Blick in <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>, zur Vergewisserung, dass wir mit obiger Bedingung auch wirklich alle Redebeiträge von Sara extrahiert haben. Es könnte ja z. B. sein, dass ihr Name vor einem Redebeitrag aus welchem Grund auch immer kleingeschrieben ist („sara.“) oder aber, dass zwischen ihrem Namen und dem Punkt eine Klammer mit Metakommentaren steht.</p>
+<p>Und tatsächlich – ein Redebeitrag beginnt so: „Sara (sie setzt sich).“ (Index <code class="docutils literal notranslate"><span class="pre">71</span></code> in <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code>). Nach eingehender Prüfung wissen wir, dass dies auch der einzige Redebeitrag ist, der nicht von <code class="docutils literal notranslate"><span class="pre">turn.startswith(&quot;Sara.&quot;)</span></code> „eingefangen“ wird. Wir könnten nun etwas unelegant die zusätzliche Bedingung <code class="docutils literal notranslate"><span class="pre">or</span> <span class="pre">turn.startswith(&quot;Sara</span> <span class="pre">(sie</span> <span class="pre">setzt</span> <span class="pre">sich).&quot;)</span></code> aufstellen.</p>
+<p>Um sicherzustellen, dass der Code wiederverwendbar ist (z. B. beim zweiten Aufzug), wählen wir den eleganteren Weg der regulären Ausdrücke (engl.: <em>regular expressions</em>, abgekürzt: <em>RegEx</em>). Reguläre Ausdrücke sind ein äußerst praktisches Werkzeug, das wir uns im Notebook „Reguläre Ausdrücke“ im Detail anschauen. Kurz gesagt: Wir definieren hier <em>einen</em> regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">pattern</span></code>), der sowohl Redebeiträge mit als auch solche ohne Metakommentar abdeckt. Lässt sich der definierte reguläre Ausdruck wie eine Schablone über den Anfang eines Elements in  <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code> legen, dann haben wir einen sog. <em>match</em> und wir hängen das Element an <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> an. Wie wir sehen, erhalten wir dadurch 23 statt bisher 22 Redebeiträge zurück:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">saras_turns</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1">#Sieht kryptisch aus 🤯 und Du musst diesen regulären Ausdruck im Moment noch nicht nachvollziehen können.</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Sara(\(\s\S*\))?.&quot;</span>
+
+<span class="k">for</span> <span class="n">turn</span> <span class="ow">in</span> <span class="n">miss_sara_sampson</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">turn</span><span class="p">):</span>
+        <span class="n">saras_turns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">turn</span><span class="p">)</span>
+        
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">saras_turns</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">saras_turns</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sara. Mellefont. Norton. 
+
+Sara. Ach, Mellefont, wenn es nichts als eine unruhige Nacht wäre – – 
+
+Sara. Mellefont. 
+
+Sara (sie setzt sich). Ich beunruhige Sie sehr früh; und werden Sie mir es vergeben, daß ich meine Klagen wieder mit dem Morgen anfange? 
+
+Sara. Was sollte ich Ihnen nicht vergeben? Sie wissen, was ich Ihnen bereits vergeben habe. Aber die neunte Woche, Mellefont, die neunte Woche fängt heute an, und dieses elende Haus sieht mich noch immer auf eben dem Fuße als den ersten Tag. 
+
+23
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Überprüfen, ob wir mit der aufgestellten Bedingung auch wirklich alle wahren Redebeiträge von Sara abdecken, ist ein sehr wichtiger Schritt. Konkret verhindern wir dadurch sog. <em>false negatives</em> im Sinne einer <a class="reference external" href="https://de.wikipedia.org/wiki/Beurteilung_eines_bin%C3%A4ren_Klassifikators#Wahrheitsmatrix:_Richtige_und_falsche_Klassifikationen">Wahrheitsmatrix</a>:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>ein Redebeitrag von Sara</p></th>
+<th class="head"><p>kein Redebeitrag von Sara</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Test positiv</p></td>
+<td><p><font color=green><em>true positive</em></font></p></td>
+<td><p><font color=red><em>false positive</em></font></p></td>
+</tr>
+<tr class="row-odd"><td><p>Test negativ</p></td>
+<td><p><font color=red><em>false negative</em></font></p></td>
+<td><p><font color=green><em>true negative</em></font></p></td>
+</tr>
+</tbody>
+</table>
+<p><em>False negatives</em> sind Fälle, die in Wahrheit Redebeiträge von Sara sind, die aber fälschlicherweise nicht als solche erkannt wurden. Mit anderen Worten: Der Test (die Bedingung, die wir aufgestellt haben) fiel negativ aus (die Bedingung ergab <code class="docutils literal notranslate"><span class="pre">False</span></code>), aber dieses Testresultat ist falsch. <em>True</em>/<em>False</em> bezieht sich bei allen vier Begriffspaaren jeweils auf die Richtigkeit des Testresultats und <em>positive</em>/<em>negative</em> auf das gefällte Testresultat.</p>
+<p>Konsequenterweise müssen wir umgekehrt sicherstellen, dass wir mit der aufgestellten Bedingung nicht übers Ziel hinaus schießen und <em>false positives</em> „einfangen“, also Redebeiträge, die nicht von Sara sind, aber fälschlicherweise als solche erkannt wurden. Tatsächlich sind das erste und dritte Element in <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> (Indizes <code class="docutils literal notranslate"><span class="pre">0</span></code> und <code class="docutils literal notranslate"><span class="pre">2</span></code>) keine Redebeiträge von Sara, sondern bloß Metakommentare:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Dies sind die beiden &quot;false positives&quot;.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">saras_turns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Sara. Mellefont. Norton.&#39;, &#39;Sara. Mellefont.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ein Blick auf alle Elemente in <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> verrät, dass diese die einzigen beiden <em>false positives</em> sind.</p>
+<p>Wir müssen also eine zweite Bedingung aufstellen, um diese beiden Fälle auszuschließen. Sie haben gemeinsam, dass nach „Sara.“ „Mellefont.“ steht. Bevor wir eine entsprechende Ausschlussbedingung aufstellen, müssen wir überprüfen, ob dies nicht auch auf wahre Redebeiträge (<em>true positives</em>) zutrifft (es ist ja denkbar, dass Sara einen Beitrag mit „Mellefont.“ anfängt). Dies ist aber nicht der Fall.</p>
+<p>Die zweite Bedingung stellen wir so auf: Das zweite Wort (Index <code class="docutils literal notranslate"><span class="pre">1</span></code>) auf einer Liste mit allen Wörtern im jeweiligen <code class="docutils literal notranslate"><span class="pre">turn</span></code> (die Wörterliste erhalten wir mittels <code class="docutils literal notranslate"><span class="pre">split</span></code>) darf nicht (<code class="docutils literal notranslate"><span class="pre">!=</span></code>, vgl. Vergleichsoperatoren) „Mellefont.“ sein. Wenn dies wahr ist, und die erste Bedingung ebenfalls (<code class="docutils literal notranslate"><span class="pre">and</span></code>), dann hängen wir den <code class="docutils literal notranslate"><span class="pre">turn</span></code> an <code class="docutils literal notranslate"><span class="pre">saras_turns</span></code> an.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">saras_turns</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;Sara( \S*)?.&quot;</span>
+
+<span class="k">for</span> <span class="n">turn</span> <span class="ow">in</span> <span class="n">miss_sara_sampson</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">turn</span><span class="p">)</span> <span class="ow">and</span> <span class="n">turn</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;Mellefont.&quot;</span><span class="p">:</span>
+        <span class="n">saras_turns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">turn</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">saras_turns</span><span class="p">))</span>
+
+<span class="c1">#for turn in saras_turns:</span>
+    <span class="c1">#print(turn, &quot;\n&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eine letzte Überprüfung zeigt, dass wir damit wirklich alle wahren Redebeiträge von Sara (alle <em>true positives</em>) extrahiert haben (um das Bild zu vervollständigen: Alle nicht extrahierten Elemente sind die <em>true negatives</em>).</p>
+<p>Dieses Beispiel lehrt uns, dass wir iterativ vorgehen müssen, wenn wir mit strukturellen Merkmalen arbeiten. Selten denken wir von Anfang an an alle Ausnahmen, die beachtet werden müssen, um wirklich das gewünschte Ergebnis zu errechnen.</p>
+<p>Übrigens haben wir für die letzte Bedingung keine besonders elegante Lösung gewählt. Sie schließt nur spezifisch Mellefont aus und keine weiteren Figuren. Gleichzeitig deckt sie wie gesagt theoretisch auch Fälle ab, wo „Mellefont.“ das erste Wort eines Redebeitrags von Sara ist. Während wir es bei der ersten zusätzlichen Bedingung noch mit einfacher fassbaren strukturellen Merkmalen (nämlich den optionalen Metakommentaren in <strong>Klammern</strong>) zu tun hatten, zeigen sich hier die Grenzen von Datenfilterung basierend auf strukturellen Merkmalen. Denn „Mellefont.“ besteht strukturell aus Buchstaben und einem Punkt, wie sie auch in wahren Redebeiträgen von Sara vorkommen. Neben der iterativen Herangehensweise sind in solchen Fällen also auch sehr spezifische und vermeintlich unelegante Bedingungen in Ordnung.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> Im Gegensatz zu <em>Miss Sara Sampson</em> ist <em>Nathan der Weise</em> etwas anders formatiert, z. B. verteilen sich Redebeiträge z. T. über mehrere Zeilen.</p>
+<p>Lies den ersten Aufzug aus <em>Nathan der Weise</em> abermals ein. Schau Dir die Formatierung des Textes genau an, um ein strukturelles Merkmal zu finden, anhand dessen Du eine Liste mit zusammengehörigen Redebeiträgen und Metakommentaren erstellen kannst. Ein über mehrere Zeilen verteilter Redebeitrag oder Metakommentar soll jeweils in ein Element einfließen.</p>
+<p>Bereinige anschließend die Liste von allem, was kein Redebeitrag darstellt. Auch hierfür musst Du Dir die Liste gut anschauen, um ein strukturelles Merkmal zu identifizieren, anhand dessen Du die „Spreu vom Weizen“ trennen kannst. Sollte sich ein Metakommentar innerhalb eines Redebeitrags befinden, kannst Du dies ignorieren. Stell durch einen iterativen Ansatz sicher, dass Du am Ende wirklich alle Redebeiträge und nur Redebeiträge auf der Liste hast (also die <em>true positives</em>).</p>
+<p>Dir steht wiederum eine Liste mit Figuren zur Verfügung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sultan Saladin&quot;</span><span class="p">,</span> <span class="s2">&quot;Sittah&quot;</span><span class="p">,</span> <span class="s2">&quot;Nathan&quot;</span><span class="p">,</span> <span class="s2">&quot;Recha&quot;</span><span class="p">,</span> <span class="s2">&quot;Daja&quot;</span><span class="p">,</span> <span class="s2">&quot;Tempelherr&quot;</span><span class="p">,</span> <span class="s2">&quot;Derwisch&quot;</span><span class="p">,</span> <span class="s2">&quot;Patriarch von Jerusalem&quot;</span><span class="p">,</span> <span class="s2">&quot;Klosterbruder&quot;</span><span class="p">,</span> <span class="s2">&quot;Emir&quot;</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Nun haben wir verschiedene Techniken zum Einlesen von Textdateien kennengelernt. Hier folgt eine kurze Zusammenfassung, wann Du welche Technik anwenden kannst:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read</span></code> überführt die gesamte Datei in einen einzigen string.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">readlines</span></code> überführt die einzelnen Zeilen der Datei in Elemente auf einer Liste.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">line</span> <span class="pre">in</span> <span class="pre">read_file</span></code> iteriert über die geöffnete Datei (ohne jegliche Lesemethode), wobei <code class="docutils literal notranslate"><span class="pre">line</span></code> einer Zeile in der Datei entspricht.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strip</span></code> (meistens spezifisch <code class="docutils literal notranslate"><span class="pre">rstrip</span></code>) entfernt (trailing) whitespace, insbesondere Zeilenumbrüche.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isspace</span></code> in einem <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement mit <code class="docutils literal notranslate"><span class="pre">continue</span></code> überspringt leere Zeilen.</p></li>
+</ul>
+<p>Schauen wir uns nun an, wie wir Text in eine Datei schreiben können. Wir arbeiten dafür mit dem Ergebnis der letzten Übung, also mit der Liste an Redebeiträgen im ersten Aufzug von <em>Nathan der Weise</em>, weiter. Damit wir auf dem gleichen Stand sind, steht in der nächsten Zelle eine mögliche Lösung der Aufgabe. Wenn Du sie ausführst, siehst Du bereits anhand der ersten fünf Redebeiträge, dass diese <em>in sich</em> unterschiedlich formatiert sind. Zum Teil folgt auf den Figurennamen nach dem Punkt ein Zeilenumbruch, zum Teil mehrere Leerschläge.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sultan Saladin&quot;</span><span class="p">,</span> <span class="s2">&quot;Sittah&quot;</span><span class="p">,</span> <span class="s2">&quot;Nathan&quot;</span><span class="p">,</span> <span class="s2">&quot;Recha&quot;</span><span class="p">,</span> <span class="s2">&quot;Daja&quot;</span><span class="p">,</span> <span class="s2">&quot;Tempelherr&quot;</span><span class="p">,</span> <span class="s2">&quot;Derwisch&quot;</span><span class="p">,</span> <span class="s2">&quot;Patriarch von Jerusalem&quot;</span><span class="p">,</span> <span class="s2">&quot;Klosterbruder&quot;</span><span class="p">,</span> <span class="s2">&quot;Emir&quot;</span><span class="p">]</span> 
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Nathan_der_Weise/Nathan_der_Weise_Aufzug_1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    <span class="n">nathan_der_weise</span> <span class="o">=</span> <span class="n">read_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">belongs_together</span> <span class="o">=</span> <span class="n">nathan_der_weise</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">actual_turns</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">belongs_together</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">characters</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">character</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">):</span>
+            <span class="n">actual_turns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">actual_turns</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daja. 
+Er ist es! Nathan! – Gott sei ewig Dank, 
+Daß Ihr doch endlich einmal wiederkommt. 
+
+Nathan. 
+Ja, Daja; Gott sei Dank! Doch warum endlich? 
+Hab ich denn eher wiederkommen wollen? 
+Und wiederkommen können? Babylon 
+Ist von Jerusalem, wie ich den Weg, 
+Seitab bald rechts, bald links, zu nehmen bin 
+Genötigt worden, gut zweihundert Meilen; 
+Und Schulden einkassieren, ist gewiß 
+Auch kein Geschäft, das merklich födert, das 
+So von der Hand sich schlagen läßt. 
+
+Daja.       O Nathan, 
+Wie elend, elend hättet Ihr indes 
+Hier werden können! Euer Haus ... 
+
+Nathan.       Das brannte. 
+So hab ich schon vernommen. – Gebe Gott, 
+Daß ich nur alles schon vernommen habe! 
+
+Daja. 
+Und wäre leicht von Grund aus abgebrannt. 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unser Ziel ist es, die Redebeiträge in einheitlicher Formatierung in eine externe Datei zu schreiben. Der folgende Code übernimmt die einheitliche Formatierung. Lies die Kommentare aufmerksam, um den Code nachzuvollziehen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Am Ende hängen wir die vereinheitlichten Redebeiträge an diese Liste an.</span>
+<span class="n">standardized_turns</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1">#Wir iterieren über die einzelnen Redebeiträge in &#39;actual_turns&#39;.</span>
+<span class="k">for</span> <span class="n">turn</span> <span class="ow">in</span> <span class="n">actual_turns</span><span class="p">:</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Als Nächstes splitten wir den &#39;turn&#39; ein einziges Mal beim ersten Punkt, der ja auf den </span>
+<span class="sd">    Figurennamen folgt (damit wir nur einmal splitten und nicht bei jedem Punkt, setzen wir den</span>
+<span class="sd">    optionalen Parameter &#39;maxsplit&#39; auf 1). Dadurch entsteht eine Liste, wobei das erste Element </span>
+<span class="sd">    (mit Index 0) der Figurenname ist. Diesen weisen wir &#39;turn_speaker&#39; zu.&quot;&quot;&quot;</span>
+    <span class="n">turn_speaker</span> <span class="o">=</span> <span class="n">turn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1">#Das zweite Element (mit Index 1) ist ja der eigentliche Redebeitrag, wir weisen ihn &#39;turn_words&#39; zu.</span>
+    <span class="n">turn_words</span> <span class="o">=</span> <span class="n">turn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Genau dieser Redebeitrag enthält nun leading whitespace (was sowohl Zeilenumbrüche als auch </span>
+<span class="sd">    Leerschläge umfasst). Wir entfernen diese und weisen das Resultat &#39;turn_words_stripped&#39; zu.&quot;&quot;&quot;</span>
+    <span class="n">turn_words_stripped</span> <span class="o">=</span> <span class="n">turn_words</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
+    
+    <span class="c1">#Nun konkatenieren wir einheitlich Figurenname und Redebeitrag mit einem Doppelpunkt und Zeilenumbruch dazwischen.</span>
+    <span class="n">standardized_turn</span> <span class="o">=</span> <span class="n">turn_speaker</span> <span class="o">+</span> <span class="s2">&quot;:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">turn_words_stripped</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Den standardisierten Redebeitrag hängen wir an &#39;standardized_turns&#39; an.&quot;&quot;&quot;</span>
+    <span class="n">standardized_turns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">standardized_turn</span><span class="p">)</span>
+    
+    <span class="c1">#Sämtliche Schritte in einem Statement sähe übrigens so aus:</span>
+    <span class="c1">#standardized_turns.append(turn.split(&quot;.&quot;, 1)[0] + &quot;:\n&quot; + turn.split(&quot;.&quot;, 1)[1].lstrip())</span>
+    
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">standardized_turns</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daja:
+Er ist es! Nathan! – Gott sei ewig Dank, 
+Daß Ihr doch endlich einmal wiederkommt. 
+
+Nathan:
+Ja, Daja; Gott sei Dank! Doch warum endlich? 
+Hab ich denn eher wiederkommen wollen? 
+Und wiederkommen können? Babylon 
+Ist von Jerusalem, wie ich den Weg, 
+Seitab bald rechts, bald links, zu nehmen bin 
+Genötigt worden, gut zweihundert Meilen; 
+Und Schulden einkassieren, ist gewiß 
+Auch kein Geschäft, das merklich födert, das 
+So von der Hand sich schlagen läßt. 
+
+Daja:
+O Nathan, 
+Wie elend, elend hättet Ihr indes 
+Hier werden können! Euer Haus ... 
+
+Nathan:
+Das brannte. 
+So hab ich schon vernommen. – Gebe Gott, 
+Daß ich nur alles schon vernommen habe! 
+
+Daja:
+Und wäre leicht von Grund aus abgebrannt. 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das schaut doch gleich viel besser aus. Zeilenumbrüche innerhalb der Redebeiträge haben wir übrigens unberührt gelassen, schließlich handelt es sich um ein dramatisches Gedicht.</p>
+<p>Nun wollen wir die Redebeiträge in eine externe Datei schreiben. Wie oben erklärt, öffnen wir dazu die gewünschte Datei im Schreibmodus (<code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>). Da die unten angegebene Datei noch nicht im Verzeichnis existiert, wird sie <strong>automatisch</strong> neu geschaffen. Anschließend iterieren wir über <code class="docutils literal notranslate"><span class="pre">standardized_turns</span></code> und schreiben Element für Element (Zeile für Zeile) in die geöffnete Datei (<code class="docutils literal notranslate"><span class="pre">write</span></code>). Wichtig: Die Zeilenumbrüche müssen wir explizit reinschreiben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Hier geben wir einerseits den Speicherort an, gleichzeitig geben wir der Datei</span>
+<span class="sd">auch einen Namen; bei Textdateien hängen wir stets &#39;.txt&#39; als Dateisuffix an!&quot;&quot;&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/Nathan_der_Weise_Aufzug_1_standardisiert.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">standardized_turns</span><span class="p">:</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Da es auch innerhalb der Redebeiträge Zeilenumbrüche gibt, schreiben wir</span>
+<span class="sd">        wie in der ursprünglichen Datei zwei Zeilenumbrüche nach jedem Redebeitrag.&quot;&quot;&quot;</span>
+        <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">element</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Konkatenation zu einem string mittels +-Operator, damit ein Argument (also nicht kommasepariert zwei Argumente!)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun solltest Du die neue Datei im angegebenen Verzeichnis vorfinden. Du kannst sie entweder wieder in Python einlesen, oder mit einem Textverarbeitungsprogramm auf Deinem Computer öffnen.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 5:</strong> Bisher haben wir nur mit dem ersten Aufzug aus <em>Miss Sara Sampson</em> gearbeitet. Das Trauerspiel besteht aber aus fünf Aufzügen, die sich allesamt im gleichen Verzeichnis wie der erste Aufzug befinden.</p>
+<p>Öffne eine neue Textdatei mit dem Namen „Miss_Sara_Sampson_komplett.txt“ im Verzeichnis „Output“ und schreib alle fünf Aufzüge in der richtigen Reihenfolge in diese Datei.</p>
+<p>Anstatt jede Datei über ihren Pfad einzeln zu öffnen, kannst Du die oben bereits vorgestellte <code class="docutils literal notranslate"><span class="pre">listdir</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">os</span></code>-Moduls verwenden. Als Argument übergibst Du ihr den Pfad zum betreffenden Verzeichnis. Du kriegst eine Liste mit den darin befindlichen Dateien und Unterverzeichnissen (jeweils als string) zurück. Über diese Liste kannst Du dann wie gewohnt iterieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Abschließend ein kleiner Ausblick in den Anwendungsfall, den Du im zweiten Teil des Notebooks bearbeiten wirst.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="anwendungsfall-einen-gedankenprotokollanten-programmieren">
+<h2>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren" title="Permalink to this heading">#</a></h2>
+<p>Wir wollen ein interaktives Programm schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Die Benutzerin soll durch das Programm geführt werden und entscheiden können, wo, d. h. in welchem (externen) Dokument, sie ihre Gedanken festhalten will. Sie soll sowohl neue Dokumente anlegen können als auch in bestehende reinschreiben. Anschließend soll sie beliebig viele Gedanken in dieses Dokument einfügen können. Das folgende Video zeigt das fertige Programm „in Aktion“:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Führ diese Zelle aus, um das Video einzubetten.</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;RlshSCCX55E&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/RlshSCCX55E"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>Ohne dieses Programm würde die Benutzerin vermutlich ein Microsoft Word-Dokument öffnen, ihre Gedanken reinschreiben, das Dokument speichern und dann wieder schließen. Das Anlegen/Öffnen/Speichern/Schließen des Dokuments wollen wir ihr abnehmen und ihr stattdessen ermöglichen, ihre Gedanken über eine freundliche, aber sehr minimale Benutzeroberfläche (engl.: <em>user interface</em>, abgekürzt: <em>UI</em>) zu protokollieren.</p>
+<p>Überleg bereits an dieser Stelle, wie Du beim Programmieren des Gedankenprotokollanten vorgehen könntest. Nun hast Du aber erst einmal das Ende dieses ersten Teils erreicht. Gute Arbeit bis hierhin!</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dateipfade">Dateipfade</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-dateipfade">Absolute Dateipfade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-dateipfade">Relative Dateipfade</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-os-modul">Das <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-open-funktion">Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input">Input</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textdateien">Textdateien</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-die-wahrheitsmatrix">Exkurs: Die Wahrheitsmatrix</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren">🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

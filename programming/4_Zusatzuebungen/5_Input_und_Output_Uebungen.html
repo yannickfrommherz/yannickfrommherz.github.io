@@ -162,8 +162,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/5_Input_und_Output.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/7_Datenanalyse.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -172,8 +170,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/Loesungen/7_Datenanalyse_Loesungen.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -453,59 +449,87 @@ document.write(`
   <section id="zusatzubungen-zum-notebook-input-und-output">
 <h1>Zusatzübungen zum Notebook „Input und Output“<a class="headerlink" href="#zusatzubungen-zum-notebook-input-und-output" title="Permalink to this heading">#</a></h1>
 <ol class="arabic">
-<li><p>Lies das erste Kapitel von <a class="reference external" href="https://www.projekt-gutenberg.org/lagerloe/nielsho1/titlepage.html">Niels Holgersens wunderbare Reise mit den Wildgänsen</a> von Selma Lagerlöf ein und weise es <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> zu. Entferne dabei sämtliche Zeilenumbrüche, sodass ein Fließtext entsteht. Lass Dir die ersten 1000 Zeichen ausgeben.</p>
-<p>📌 Herausforderung: Löse die Übung mithilfe einer List Comprehension.</p>
+<li><p>Lies das erste Kapitel von <a class="reference external" href="https://www.projekt-gutenberg.org/lagerloe/nielsho1/titlepage.html">Niels Holgersens wunderbare Reise mit den Wildgänsen</a> von Selma Lagerlöf ein und weis es <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> zu. Entfern dabei sämtliche Zeilenumbrüche, sodass ein Fließtext entsteht. Lass Dir die ersten 1000 Zeichen ausgeben.</p>
+<p>📌 Herausforderung: Lös die Übung mithilfe einer List Comprehension.</p>
 </li>
 </ol>
 <ol class="arabic" start="2">
 <li><p>Lass Dir <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> als Blocksatz mit jeweils 100 Zeichen pro Zeile ausgeben. Wörter dürfen sich über Zeilenumbrüche hinweg erstrecken, ein Bindestrich ist nicht nötig.</p>
-<p>📌 Herausforderung: Löse die Übung mithilfe einer List Comprehension.</p>
+<p>📌 Herausforderung: Lös die Übung mithilfe einer List Comprehension.</p>
 </li>
 </ol>
 <ol class="arabic" start="3">
-<li><p>Extrahiere sämtliche Fälle von direkter Rede aus <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> und speichere sie auf der Liste <code class="docutils literal notranslate"><span class="pre">direct_speech</span></code> ab. Ein zu extrahierendes Beispiel lautet</p>
+<li><p>Extrahier sämtliche Fälle von direkter Rede aus <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> und speicher sie auf der Liste <code class="docutils literal notranslate"><span class="pre">direct_speech</span></code> ab. Ein zu extrahierendes Beispiel lautet</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> »Wartet! Wartet! ich komme.«
 </pre></div>
 </div>
 </br>
- Verwende hierfür keine regulären Ausdrücke (vgl. sechstes Notebook).</li>
+ Nutz hierfür keine regulären Ausdrücke (vgl. Notebook "Reguläre Ausdrücke").</li>
 </ol>
 <ol class="arabic" start="4">
-<li><p>Schaffe einen irrwitzigen Dialog zwischen den Figuren auf <code class="docutils literal notranslate"><span class="pre">subjects</span></code> (füge gerne weitere amüsante Charaktere hinzu). Verwende dazu sämtliche Redebeiträge auf der Liste <code class="docutils literal notranslate"><span class="pre">direct_speech</span></code> aus der Übung 3 in zufälliger Reihenfolge. Die Figuren sollen abwechselnd zu Wort kommen, wobei sie ihren Redebeitrag über ein jeweils zufälliges Sprechaktverb der Liste <code class="docutils literal notranslate"><span class="pre">verbs</span></code> äußern (auch hier kannst Du gerne weitere Verben hinzufügen). Der Dialog soll wie folgt aussehen:</p>
+<li><p>Schaff einen irrwitzigen Dialog zwischen den Figuren auf <code class="docutils literal notranslate"><span class="pre">subjects</span></code> (füg gerne weitere amüsante Charaktere hinzu). Verwend dazu sämtliche Redebeiträge auf der Liste <code class="docutils literal notranslate"><span class="pre">direct_speech</span></code> aus der Übung 3 in zufälliger Reihenfolge. Die Figuren sollen abwechselnd zu Wort kommen, wobei sie ihren Redebeitrag über ein jeweils zufälliges Sprechaktverb der Liste <code class="docutils literal notranslate"><span class="pre">verbs</span></code> äußern (auch hier kannst Du gerne weitere Verben hinzufügen). Der Dialog soll wie folgt aussehen:</p>
  <img src="../3_Dateien/Grafiken_und_Videos/Irrwitziger_Dialog.png">
 <p>und so weiter.</p>
 <p>Um eine zufällige Reihenfolge bzw. eine zufällige Auswahl zu generieren, musst Du ein Dir bekanntes Modul importieren. Lies ggf. in der Dokumentation des Moduls nach, welche Funktionen die benötigten Operationen implementieren.</p>
 </li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subjects</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Der Witwer&quot;</span><span class="p">,</span> <span class="s2">&quot;Die Diva&quot;</span><span class="p">,</span> <span class="s2">&quot;Der Kobold (der heimlich zugegen war)&quot;</span><span class="p">,</span> <span class="s2">&quot;Die misanthrope Ente&quot;</span><span class="p">]</span>
+<span class="n">verbs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;meinte&quot;</span><span class="p">,</span> <span class="s2">&quot;schrie&quot;</span><span class="p">,</span> <span class="s2">&quot;flüsterte&quot;</span><span class="p">,</span> <span class="s2">&quot;hielt dagegen&quot;</span><span class="p">,</span> <span class="s2">&quot;verkündete&quot;</span><span class="p">,</span> <span class="s2">&quot;jauchzte&quot;</span><span class="p">,</span> <span class="s2">&quot;raunte&quot;</span><span class="p">,</span> <span class="s2">&quot;soufflierte&quot;</span><span class="p">,</span> <span class="s2">&quot;röchelte&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple" start="5">
-<li><p>Führe den Code, den Du in Übung 4 geschrieben hast, ein paar Mal aus, bis Du einen besonders lustigen Dialog erhältst. Speichere nun diesen Dialog als Textdatei im Ordner „Output“. Formatiere dabei den Text wie ein Drama (vgl. <em>Nathan der Weise</em> im Lehrnotebook). Die Textdatei soll zudem einen Titel sowie eine Auflistung der Figuren beinhalten.</p></li>
+<li><p>Führ den Code, den Du in Übung 4 geschrieben hast, ein paar Mal aus, bis Du einen besonders lustigen Dialog erhältst. Speicher nun diesen Dialog als Textdatei im Ordner „Output“. Formatier dabei den Text wie ein Drama (vgl. <em>Nathan der Weise</em> im Lehrnotebook). Die Textdatei soll zudem einen Titel sowie eine Auflistung der Figuren beinhalten.</p></li>
 </ol>
 <ol class="arabic simple" start="6">
-<li><p>Füge Deiner eben geschaffenen Datei (mithilfe von Python!) den Satz „An dieser Stelle endet die die Zusammenkunft abrupt.“ an.</p></li>
+<li><p>Füg Deiner eben geschaffenen Datei (mithilfe von Python!) den Satz „An dieser Stelle endet die Zusammenkunft abrupt.“ an.</p></li>
 </ol>
 <ol class="arabic" start="7">
-<li><p>Lass Dir das aktuelles Arbeitsverzeichnis sowie die darin befindlichen Dateien und Verzeichnisse ausgeben.</p>
-<p>📌 Herausforderung: Schaffe ein neues Verzeichnis namens „new_dir“ im aktuellen Arbeitsverzeichnis und überprüfe anschließend (mithilfe von Python), ob es geklappt hat.</p>
+<li><p>Lass Dir das aktuelle Arbeitsverzeichnis sowie die darin befindlichen Dateien und Verzeichnisse ausgeben.</p>
+<p>📌 Herausforderung: Schaff mithilfe von Python ein neues Verzeichnis namens „new_dir“ im aktuellen Arbeitsverzeichnis und überprüf anschließend ebenfalls mithilfe von Python, ob es geklappt hat.</p>
 </li>
 </ol>
 <ol class="arabic simple" start="8">
-<li><p>Lies aufbauend auf der Zusatzübung 7 zum dritten Notebook die Datei „de_sv.csv“ aus dem Ordner „Tabellarische_Daten“ ein. Darin befinden sich nun mehr als nur eine Handvoll Vokabeln Deutsch-Schwedisch. Genauer gesagt, handelt es sich um die 100 wichtigsten Vokabeln gemäß ChatGPT. Überführe die Daten in ein geeignetes Objekt und „füttere“ damit den bereits programmierten Vokabeltrainer. Beim Einlesen dürfte die Dir noch unbekannte <code class="docutils literal notranslate"><span class="pre">next</span></code>-Funktion hilfreich sein – erkundige selbständig, wie Du sie einsetzen kannst. Implementiere außerdem einen Mechanismus, über den Benutzer:innen die Lernsession vorzeitig beenden können, falls sie nicht alle 100 Vokabeln lernen möchten.</p></li>
+<li><p>Lies aufbauend auf der Zusatzübung 7 zum Notebook „Kontrollstrukturen“ die Datei „de_sv.csv“ aus dem Ordner „Tabellarische_Daten“ ein. Darin befinden sich nun mehr als nur eine Handvoll Vokabeln Deutsch-Schwedisch. Genauer gesagt handelt es sich um die 100 wichtigsten Vokabeln gemäß ChatGPT. Überführ die Daten in ein geeignetes Objekt und „fütter“ damit den bereits programmierten Vokabeltrainer. Beim Einlesen dürfte die Dir noch unbekannte <code class="docutils literal notranslate"><span class="pre">next</span></code>-Funktion hilfreich sein – erkunde selbständig, wie Du sie einsetzen kannst. Implementier außerdem einen Mechanismus, über den Benutzer:innen die Lernsession vorzeitig beenden können, falls sie nicht alle 100 Vokabeln lernen möchten.</p></li>
 </ol>
 <ol class="arabic" start="9">
-<li><p>Passe den Code aus Übung 8 derart an, dass Benutzer:innen eine Übersicht über die korrekt übersetzten bzw. falsch übersetzten Vokabeln gegeben wird, sobald sie die Lernsession beenden. Überleg Dir, wie Du diese Übersicht visuell ansprechend formatieren kannst. Folgender Screenshot ist eine Idee, Du kannst die Ausgabe auch gerne anders gestalten:</p>
+<li><p>Pass den Code aus Übung 8 derart an, dass Benutzer:innen eine Übersicht über die korrekt übersetzten bzw. falsch übersetzten Vokabeln gegeben wird, sobald sie die Lernsession beenden. Überleg Dir, wie Du diese Übersicht visuell ansprechend formatieren kannst. Folgender Screenshot ist eine Idee, Du kannst die Ausgabe auch gerne anders gestalten:</p>
  <img src="../3_Dateien/Grafiken_und_Videos/Formatierung.png" width="300"/></li>
 </ol>
 <ol class="arabic" start="10">
-<li><p>In dieser letzten Übung begeben wir uns in unbekanntes Terrain. Den Großteil der Arbeit erledigen wir nämlich nicht wie gewohnt aus JupypterLab heraus, sondern über die Command Line (Terminal unter macOS/Eingabeaufforderung unter Windows; Achtung: Übung funktioniert nicht innerhalb von GitHub Codespace). Manche Tools stehen nämlich nur für die Command Line bereit und nicht für Python. So auch <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/">TreeTagger</a>, ein Tool, mit dem wir Text in verschiedenen Sprachen mit metalinguistischen Informationen wie Lemma (also die Form eines Wortes, die in einem Wörterbuch steht, z.B. „Kindes“ &gt; „Kind“) oder Part-of-Speech-Tags (Wortarten; abgekürzt: <em>POS</em>) anreichern können.</p>
+<li><p>Wirklich gute Texte bringen die Sache tatsächlich auch jeweils klar auf den Punkt.</p>
+<p>Dieser Satz ist wahr, aber schlecht formuliert, da fünf von dreizehn Wörtern Füllwörter sind. Füllwörter tragen wenig zur Aussage eines Satzes bei und schmälern dadurch insgesamt seine Aussagekraft. In dieser Übung kannst Du überprüfen, wie es um von Dir verfasste Texte in Bezug auf Füllwörter steht. Such Dir dazu einen längeren Text aus (z. B. eine Seminararbeit). Es soll sich um eine Microsoft Word-Datei handeln.</p>
+<ol class="arabic simple">
+<li><p>Installier das Modul <code class="docutils literal notranslate"><span class="pre">docx2txt</span></code> über das Terminal bzw. die Eingabeaufforderung (<code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">docx2txt</span></code>) und importier es anschließend hier. Deinen Text kannst Du mihilfe der Funktion <code class="docutils literal notranslate"><span class="pre">process</span></code> unter Angabe seines Dateipfads einlesen, also so: <code class="docutils literal notranslate"><span class="pre">docx2txt.process(path)</span></code>. Splitte Deinen Text in Wörter und nimm sinnvolle Preprocessing-Schritte vor.</p></li>
+<li><p>Lies die Datei „fuellwoerter.txt“ aus dem gleichnamigen Ordner ein und schaff eine Liste mit Füllwörtern.</p></li>
+<li><p>Zähl sämtliche Füllwörter in Deinem Text aus und lass Dir die zehn häufigsten Füllwörter inklusive ihrer Vorkommenshäufigkeit ausgeben.</p></li>
+</ol>
+</li>
+</ol>
+<ol class="arabic simple" start="11">
+<li><p>Es gibt ja diese Theorie, dass man die Reihenfolge der Buchstaben in Wörtern zufällig mischen kann. Solange der erste und letzte Buchstabe erhalten bleiben, können wir das Wort trotzdem flüssig lesen. Überprüfen wir das an dieser Aufgabenstellung. Schreib dazu einen Code, der die Buchstaben in den Wörtern dieser Aufgabenstellung zufällig mischt, wobei der jeweilige Anfangs- und Endbuchstabe eines Wortes gleich bleiben sollen. Die Reihenfolge der Wörter soll natürlich ebenfalls gleich bleiben. Zur zufälligen Mischung kannst Du wie oben die Funktion <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> benutzen. Zeig das Resultat einer uneingeweihten Person und schau, ob diese den manipulierten Text lesen kann.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Es gibt ja diese Theorie, dass man die Reihenfolge der Buchstaben in Wörtern zufällig mischen kann. Solange der erste und letzte Buchstabe erhalten bleiben, können wir das Wort trotzdem flüssig lesen. Überprüfen wir das an dieser Aufgabenstellung. Schreib dazu einen Code, der die Buchstaben in den Wörtern dieser Aufgabenstellung zufällig mischt, wobei der jeweilige Anfangs- und Endbuchstabe eines Wortes gleich bleiben sollen. Die Reihenfolge der Wörter soll natürlich ebenfalls gleich bleiben. Zur zufälligen Mischung kannst Du wie oben die Funktion shuffle des Moduls random benutzen. Zeig das Resultat einer uneingeweihten Person und schau, ob diese den manipulierten Text lesen kann.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="12">
+<li><p>In dieser letzten Übung begeben wir uns in unbekanntes Terrain. Den Großteil der Arbeit erledigen wir nämlich nicht wie gewohnt aus dem Jupyter Notebook heraus, sondern über die Command Line (Terminal unter macOS und Linux/Eingabeaufforderung unter Windows; Achtung: Übung funktioniert nicht innerhalb von GitHub Codespace). Manche Tools stehen nämlich nur für die Command Line bereit und nicht für Python. So auch <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/">TreeTagger</a>, ein Tool, mit dem wir Text in verschiedenen Sprachen mit metalinguistischen Informationen wie Lemmata (also die jeweiligen Formen von Wörtern, die in einem Wörterbuch stehen, z. B. „Kindes“ &gt; „Kind“) oder Part-of-Speech-Tags (Wortarten; abgekürzt: <em>POS</em>) anreichern können.</p>
 <ol class="arabic">
-<li><p>Installiere TreeTagger über die Schritte 1-5 auf der oben verlinkten Seite. Bei den „parameter files“ lädst Du das <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/german.par.gz">German parameter file</a> herunter. Speichere alle Dateien im gleichen Verzeichnis und achte darauf, dass der Dateipfad dorthin keine Leerschläge enthält. Entpacke keine der Dateien. Bei Schritt 5 ist es wichtig, dass Du die Command Line entweder direkt aus dem Verzeichnis mit den TreeTagger-Dateien heraus öffnest (i.d.R. möglich über Rechtsklick im Verzeichnis), oder mittels <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">path</span></code> zum Verzeichnis navigierst. Dadurch hat die Command Line das Verzeichnis der TreeTagger-Dateien als aktuelles Arbeitsverzeichnis.</p></li>
+<li><p>Installier TreeTagger über die Schritte 1-5 auf der oben verlinkten Seite. Bei den „parameter files“ lädst Du das <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/german.par.gz">German parameter file</a> herunter. Speicher alle Dateien im gleichen Verzeichnis und achte darauf, dass der Dateipfad dorthin keine Leerschläge enthält. Entpack keine der Dateien. Bei Schritt 5 ist es wichtig, dass Du die Command Line entweder direkt aus dem Verzeichnis mit den TreeTagger-Dateien heraus öffnest (i. d. R. möglich über Rechtsklick im Verzeichnis), oder mittels <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">path</span></code> zum Verzeichnis navigierst. Dadurch hat die Command Line das Verzeichnis der TreeTagger-Dateien als aktuelles Arbeitsverzeichnis.</p></li>
 <li><p>Schau, ob die Installation geklappt hat, indem Du in der Command Line (mit dem TreeTagger-Verzeichnis als Arbeitsverzeichnis!) den Befehl <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">'Hallo</span> <span class="pre">Welt!'</span> <span class="pre">|</span> <span class="pre">cmd/tree-tagger-german</span></code> eingibst. Ggf. verhindert Dein Betriebssystem die Ausführung des Befehls, weil TreeTagger nicht von einem verifizierten Entwickler stammt. Über die Einstellungen Deines Betriebssystems solltest Du diese Blockierung aufheben können. Die Ausgabe sollte folgendermaßen ausschauen:</p>
  <img src="../3_Dateien/Grafiken_und_Videos/Terminal_Output.png" width="450"/>
-<p>Die erste Spalte enthält die ursprünglichen Wörter unserer Eingabe in tokenisierter Form (ein Token pro Zeile). Die zweite Spalte enthält die POS-Tags (die deutsche Legende findest Du <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/STTS-Tagset.pdf">hier</a>) und die dritte die Lemmas.</p>
+<p>Die erste Spalte enthält die ursprünglichen Wörter unserer Eingabe in tokenisierter Form (ein Token pro Zeile). Die zweite Spalte enthält die POS-Tags (die deutsche Legende findest Du <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/STTS-Tagset.pdf">hier</a>) und die dritte die Lemmata.</p>
 </li>
-<li><p>Nun wollen wir einen längeren Text taggen. Speichere dazu den in Übung 1 erstellten Fließtext mit Niels Holgersens erstem Kapitel im gleichen Verzeichnis wie die TreeTagger-Dateien unter dem Namen „niels_holgersen.txt“ ab.</p></li>
-<li><p>Führe den Befehl <code class="docutils literal notranslate"><span class="pre">cmd/tree-tagger-german</span> <span class="pre">niels_holgersen.txt</span> <span class="pre">&gt;</span> <span class="pre">niels_holgersen_tagged.txt</span></code> in der Command Line (mit dem TreeTagger-Verzeichnis als Arbeitsverzeichnis!) aus. Dadurch übergeben wir „niels_holgersen.txt“ dem Pogramm „tree-tagger-german“ (das sich im Unterverzeichnis „cmd/“ befindet). Das Programm tokenisiert, POS-taggt und lemmatisiert den Text in „niels_holgersen.txt“ und speichert das Ergebnis in „niels_holgersen_tagged.txt“. Öffne die neue Datei (z.B. mit Sublime Text) und inspiziere sie.</p></li>
-<li><p>Lies die Datei hier in JupyterLab ein und finde heraus, welches POS-Tag am häufigsten vorkommt. Es sollte sich um Nomen (NN) handeln.</p></li>
+<li><p>Nun wollen wir einen längeren Text taggen. Speicher dazu den in Übung 1 erstellten Fließtext mit Niels Holgersens erstem Kapitel im gleichen Verzeichnis wie die TreeTagger-Dateien unter dem Namen „niels_holgersen.txt“ ab.</p></li>
+<li><p>Führ den Befehl <code class="docutils literal notranslate"><span class="pre">cmd/tree-tagger-german</span> <span class="pre">niels_holgersen.txt</span> <span class="pre">&gt;</span> <span class="pre">niels_holgersen_tagged.txt</span></code> in der Command Line (mit dem TreeTagger-Verzeichnis als Arbeitsverzeichnis!) aus. Dadurch übergeben wir „niels_holgersen.txt“ dem Programm „tree-tagger-german“ (das sich im Unterverzeichnis „cmd/“ befindet). Das Programm tokenisiert, POS-taggt und lemmatisiert den Text in „niels_holgersen.txt“ und speichert das Ergebnis in „niels_holgersen_tagged.txt“. Öffne die neue Datei (z. B. mit Sublime Text) und inspizier sie.</p></li>
+<li><p>Lies die Datei hier ein und find heraus, welches POS-Tag am häufigsten vorkommt. Es sollte sich um Nomen (NN) handeln.</p></li>
 </ol>
 </li>
 </ol>

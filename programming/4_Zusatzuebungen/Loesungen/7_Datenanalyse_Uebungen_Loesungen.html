@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Lösungen zu den Zusatzübungen zum Notebook „Datenanalyse“ &#8212; Yannick Frommherz</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
@@ -451,7 +450,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="losungen-zu-den-zusatzubungen-zum-notebook-datenanalyse">
-<h1>Lösungen zu den Zusatzübungen zum Notebook „Datenanalyse“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-datenanalyse" title="Permalink to this heading">#</a></h1>
+<h1>Lösungen zu den Zusatzübungen zum Notebook „Datenanalyse“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-datenanalyse" title="Link zu dieser Überschrift">#</a></h1>
 <p>☝️ Beachte 1: es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
 <p>☝️ Beachte 2:  In diesem Notebook arbeiten wir größtenteils mit einer Datei, die Du in Übung 1 selbst herunterladen musst. Die meisten Lösungen lassen sich folglich erst ausführen, wenn Du den korrekten Pfad zur heruntergeladenen Datei bei <code class="docutils literal notranslate"><span class="pre">path</span></code> eingesetzt hast.</p>
 <p>☝️ Beachte 3:  Anders als im siebten Notebook kommt hier auch die dot-Notation für den Spaltenzugriff (<code class="docutils literal notranslate"><span class="pre">df.column</span></code> statt <code class="docutils literal notranslate"><span class="pre">df[&quot;column&quot;]</span></code>) zum Einsatz.</p>
@@ -485,68 +484,82 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">84905062.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">Anstatt</span> <span class="n">einer</span> <span class="n">ominösen</span> <span class="mi">3</span><span class="p">,</span> <span class="n">kannst</span> <span class="n">Du</span> <span class="n">auch</span> <span class="n">zusätzlich</span> <span class="n">das</span> <span class="n">Modul</span> <span class="n">csv</span> <span class="n">importieren</span> <span class="n">und</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONE</span> <span class="n">spezifizieren</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">die</span> <span class="n">beiden</span> <span class="n">Optionen</span> <span class="n">sind</span> <span class="n">gleichbedeutend</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">13</span><span class="s2"> news_df = pd.read_csv(path, sep=&quot;</span><span class="se">\t</span><span class="s2">&quot;, encoding=&quot;utf-8&quot;, names=[&quot;sentence_id&quot;, &quot;sentence&quot;], quoting=3)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="s2"> print(news_df.shape) #Ausgabe der Anzahl an Spalten und Zeilen des DataFrames: das DataFrame sollte 1 Million Zeilen umfassen</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Einlesen der Daten, Spezifizieren der Spaltennamen, sowie Steuern des Verhaltens bei Anführungszeichen:</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd"> Der Parameter &#39;quoting&#39; löst das Problem, dass mehr als ein Satz in einer Zeile landet. Das Problem entsteht bei Sätzen,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd"> die ein öffnendes Anführungszeichen beinhalten, aber kein schließendes. pandas interpretiert dadurch die folgenden Trennzeichen &#39;\t&#39;</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span><span class="sd"> Anstatt einer ominösen 3, kannst Du auch zusätzlich das Modul csv importieren und quoting=csv.QUOTE_NONE spezifizieren,</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span><span class="sd"> die beiden Optionen sind gleichbedeutend.&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">news_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sentence_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sentence&quot;</span><span class="p">],</span> <span class="n">quoting</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="nb">print</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1">#Ausgabe der Anzahl an Spalten und Zeilen des DataFrames: das DataFrame sollte 1 Million Zeilen umfassen</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">news_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#Ausgabe der ersten zehn Zeilen</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span><span class="s2">                     stacklevel=stacklevel,</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span><span class="s2">                 )</span>
-<span class="ne">--&gt; </span><span class="mi">311</span><span class="s2">             return func(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="s2">         return wrapper</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/pandas/util/_decorators.py:211,</span> in <span class="ni">deprecate_kwarg.&lt;locals&gt;._deprecate_kwarg.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>         <span class="n">kwargs</span><span class="p">[</span><span class="n">new_arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_arg_value</span>
+<span class="ne">--&gt; </span><span class="mi">211</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">584</span><span class="s2">     kwds.update(kwds_defaults)</span>
-<span class="g g-Whitespace">    </span><span class="mi">585</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">586</span><span class="s2">     return _read(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2"> </span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/pandas/util/_decorators.py:331,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">_format_argument_list</span><span class="p">(</span><span class="n">allow_args</span><span class="p">)),</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">331</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">480</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">481</span><span class="s2">     # Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">482</span><span class="s2">     parser = TextFileReader(filepath_or_buffer, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">483</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">484</span><span class="s2">     if chunksize or iterator:</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/pandas/io/parsers/readers.py:950,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">946</span>     <span class="n">defaults</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;delimiter&quot;</span><span class="p">:</span> <span class="s2">&quot;,&quot;</span><span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">948</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">950</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">809</span><span class="s2">             self.options[&quot;has_index_names&quot;] = kwds[&quot;has_index_names&quot;]</span>
-<span class="g g-Whitespace">    </span><span class="mi">810</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">811</span><span class="s2">         self._engine = self._make_engine(self.engine)</span>
-<span class="g g-Whitespace">    </span><span class="mi">812</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">813</span><span class="s2">     def close(self):</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/pandas/io/parsers/readers.py:605,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">602</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">604</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">605</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="k">return</span> <span class="n">parser</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1038</span><span class="s2">             )</span>
-<span class="g g-Whitespace">   </span><span class="mi">1039</span><span class="s2">         # error: Too many arguments for &quot;ParserBase&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1040</span><span class="s2">         return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1041</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1042</span><span class="s2">     def _failover_to_python(self):</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1442,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1439</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1441</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1442</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span><span class="s2">         # open handles</span>
-<span class="ne">---&gt; </span><span class="mi">51</span><span class="s2">         self._open_handles(src, kwds)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span><span class="s2">         assert self.handles is not None</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span><span class="s2"> </span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1735,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1733</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1734</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1735</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1736</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1737</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1738</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1739</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1740</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1741</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1742</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1743</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1744</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1745</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1746</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span><span class="s2">             memory_map=kwds.get(&quot;memory_map&quot;, False),</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span><span class="s2">             storage_options=kwds.get(&quot;storage_options&quot;, None),</span>
-<span class="ne">--&gt; </span><span class="mi">229</span><span class="s2">             errors=kwds.get(&quot;encoding_errors&quot;, &quot;strict&quot;),</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span><span class="s2">         )</span>
-<span class="g g-Whitespace">    </span><span class="mi">231</span><span class="s2"> </span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">                 encoding=ioargs.encoding,</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">                 errors=errors,</span>
-<span class="ne">--&gt; </span><span class="mi">707</span><span class="s2">                 newline=&quot;&quot;,</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span><span class="s2">             )</span>
-<span class="g g-Whitespace">    </span><span class="mi">709</span><span class="s2">         else:</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/pandas/io/common.py:865,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">863</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">864</span>         <span class="c1"># Binary mode</span>
+<span class="ne">--&gt; </span><span class="mi">865</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span>     <span class="n">handles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="c1"># Convert BytesIO or file objects passed with an encoding</span>
 
 <span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;&#39;
 </pre></div>
@@ -570,12 +583,10 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">1283505984.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ukraine</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Ukraine&quot;</span><span class="p">)]</span> <span class="c1">#Filtern des DataFrames nach dem Vorkommen von &quot;Ukraine&quot; in der Spalte &quot;sentence&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">corona</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Corona&quot;</span><span class="p">)]</span> <span class="c1">#Filtern des DataFrames nach dem Vorkommen von &quot;Corona&quot; in der Spalte &quot;sentence&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#Ausgabe der Länge der beiden Sub-DataFrames</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sätze mit &#39;Ukraine&#39;:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ukraine</span><span class="p">))</span>
 
 <span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
 </pre></div>
@@ -602,12 +613,10 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">2080315774.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">#Zählen der Leerschläge und Addieren von 1, um Anzahl Wörter pro Satz auszurechnen</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1">#Ausgabe des maximalen, minimalen und durchschnittlichen Werts in der Spalte &quot;length&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
 <span class="nn">      4 #Filtern des DataFrames danach, dass</span> in <span class="ni">der Spale &quot;length&quot; der maximale bzw. minmale Wert verzeichnet steht, Ausgabe der Werte mithilfe der &#39;values&#39;-Methode </span><span class="nt">(um nur die Werte zu erhalten)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
 </pre></div>
@@ -628,7 +637,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">983016777.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Sortieren des DataFrames nach den Werten der Spalte &quot;length&quot; sowie sinnvollerweise Zurücksetzen der Indizes inkl. &quot;droppen&quot; der alten Indizes</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">news_df</span>
@@ -669,12 +678,13 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">1659539673.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span> <span class="c1">#Rückgabe eines wieder als string zusammengesetzten Satzes mit bereinigten Wörtern</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#Überschreiben der Spalte &quot;sentence&quot;</span>
 <span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;sentence&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">)</span> <span class="c1">#Anwenden der benutzerdefinierten Funktion auf alle Zeilen in der Spalte &quot;sentence&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> 
 <span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1">#Herausforderung</span>
+<span class="nn">     15 #news_df[&quot;sentence&quot;] = news_df.sentence.apply(lambda sentence: &quot; &quot;.join([word.strip(specials_signs_str) for word</span> in <span class="ni">sentence.split(&quot; &quot;) if len(word.strip</span><span class="nt">(specials_signs_str)) &gt; 0]))</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">news_df</span>
 
 <span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
 </pre></div>
@@ -696,9 +706,9 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">1061076737.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Splitten der Sätze in Wörter, Indizieren des ersten Elements, Berechnen der Häufigkeitsverteilung und Ausgabe der obersten zehn Elemente</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> 
 
 <span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
 </pre></div>
@@ -718,9 +728,9 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">259983597.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Splitten der Sätze in Wörter, Indizieren des letzten Elements, Berechnen der Häufigkeitsverteilung und Ausgabe der obersten zehn Elemente</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> 
 
 <span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
 </pre></div>
@@ -765,12 +775,10 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">1257780226.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">news_df_enriched</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Spezifizieren der Pfade zur einzulesenden Datei (hier leer, da individueller Speicherort)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sources</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;source_id&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">mapping</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;source_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sentence_id&quot;</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
 </pre></div>
@@ -811,11 +819,9 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">2336589509.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df_enriched</span> <span class="c1">#&quot;Zurückverweisen&quot; von news_df_enriched auf news_df, da dies der simplere Variablenname ist</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">re</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#Definieren der RegEx: ein Punkt (escaped mit Backslash), gefolgt von zwei oder mehr kleingeschriebenen Buchstaben, gefolgt von Schrägstrich (escaped mit Backslash)</span>
 
 <span class="ne">NameError</span>: name &#39;news_df_enriched&#39; is not defined
@@ -837,7 +843,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">3267149204.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Schaffen eines Sub-DataFrames, indem news_df in der Spalte &quot;country&quot; nach den Werten &quot;de&quot;, &quot;at&quot; und &quot;ch&quot; gefiltert wird</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dach_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="s2">&quot;at&quot;</span><span class="p">,</span> <span class="s2">&quot;ch&quot;</span><span class="p">])]</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dach_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#Ausgabe der obersten Zeilen des Sub-DataFrames</span>
@@ -890,15 +896,13 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2713</span><span class="o">/</span><span class="mf">2695093634.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#Importieren von matplotlib.pyplot</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">dach_df</span> <span class="o">=</span> <span class="n">dach_df</span><span class="p">[</span><span class="n">dach_df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;2022&quot;</span><span class="p">)]</span> <span class="c1">#Wegfiltern von Daten außerhalb des Jahres 2022</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#Importieren von matplotlib.pyplot</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dach_df</span> <span class="o">=</span> <span class="n">dach_df</span><span class="p">[</span><span class="n">dach_df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;2022&quot;</span><span class="p">)]</span> <span class="c1">#Wegfiltern von Daten außerhalb des Jahres 2022</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">dach_df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dach_df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#Schaffen einer neuen Spalte mit Monaten durch Splitten nach &quot;-&quot; und Indizieren des zweiten Elements</span>
 
-<span class="ne">NameError</span>: name &#39;dach_df&#39; is not defined
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
 </div>

@@ -1,0 +1,1033 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Funktionen und Methoden Teil 2 &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/4_Funktionen_und_Methoden_Teil_2';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/4_Funktionen_und_Methoden_Teil_2.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../phd.html">PhD project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output.html">5. Input und Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/1_Einfuehrung_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/2_Datentypen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/2_Datentypen_Uebungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/1_Notebooks/4_Funktionen_und_Methoden_Teil_2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/yannickfrommherz/yfrommherz.ch/blob/main/website/programming/1_Notebooks/4_Funktionen_und_Methoden_Teil_2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/4_Funktionen_und_Methoden_Teil_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/programming/1_Notebooks/4_Funktionen_und_Methoden_Teil_2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Funktionen und Methoden Teil 2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-errechnen-von-schlusselwortern">🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-selbst-definieren">Funktionen selbst definieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module">Module</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="funktionen-und-methoden-teil-2">
+<h1>Funktionen und Methoden Teil 2<a class="headerlink" href="#funktionen-und-methoden-teil-2" title="Permalink to this heading">#</a></h1>
+<p>Willkommen zurück! Auch in diesem Notebook geht es um Funktionen und Methoden. Konkret lernst du, wie Du Funktionen selbst definieren kannst und was Module sind. Wie versprochen erwartet Dich als Erstes aber unser Anwendungsfall - das Errechnen von Schlüsselwörtern in den Koalitionsverträgen.</p>
+<section id="anwendungsfall-errechnen-von-schlusselwortern">
+<h2>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#anwendungsfall-errechnen-von-schlusselwortern" title="Permalink to this heading">#</a></h2>
+<p>Gegeben sind die Koalitionsverträge von 2018 und 2021 in <code class="docutils literal notranslate"><span class="pre">kv18</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">kv21</span></code>. Zusätzlich ist <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> gegeben, eine Liste mit sog. Stoppwörtern, also hochfrequenten Wörtern wie <em>und</em>, <em>der</em>, <em>die</em>, <em>das</em> etc., die wir von der Berechnung von Schlüsselwörtern ausschließen wollen.</p>
+<p>Bereinige sämtliche Wörter und entfern alle Stoppwörter. Errechne anschließend für jeden Wort<em>type</em> (vgl. Notebook „Datentypen“), wie oft er vorkommt und speicher diese paarweise Information in einem geeigneten Objekt ab. Sortier dieses Objekt in absteigender Reihenfolge und lass Dir die zehn häufigsten Schlüsselwörter ausgeben. Wiederhol diese Schritte für den zweiten Text, um die Schlüsselwörter vergleichen zu können.</p>
+<p>Du kannst Dich entscheiden, ob Du die Aufgabe von hier an selbst lösen möchtest, oder, alternativ, Schritt für Schritt zur Lösung geleitet werden willst. Die Aufgabe ist dann bereits in sinnvolle Schritte heruntergebrochen, die einzelnen Schritte musst Du aber immer noch selbst lösen. Am Ende kannst Du alle Schritte zu einem Skript zusammenfügen.</p>
+<p>Wenn Du es selbst probieren willst, füg Deinen Code direkt nach der Aufgabenbeschreibung ein. Die Schritt-für-Schritt-Anleitung folgt im Anschluss.</p>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2018.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">kv18</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+    <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="n">stopwords</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="k">as</span> <span class="n">h</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
+        <span class="n">stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Schritt-für-Schritt-Anleitung</strong></p>
+<ol class="arabic simple">
+<li><p>Lad die drei Dateien in den Arbeitsspeicher, indem Du folgenden Code ausführst.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2018.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">kv18</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+    <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="n">stopwords</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
+        <span class="n">stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im Folgenden arbeiten wir erst einmal mit <code class="docutils literal notranslate"><span class="pre">kv18</span></code>, derselbe Code lässt sich anschließend auch auf <code class="docutils literal notranslate"><span class="pre">kv21</span></code> anwenden. Als erstes wollen wir von <em>einem</em> langen string mit dem ganzen Koalitionsvertrag zu einer Liste mit Wörtern kommen.</p>
+<ol class="arabic simple" start="2">
+<li><p>Tokenisier <code class="docutils literal notranslate"><span class="pre">kv18</span></code> und lass Dir zum Überprüfen eine Schnittmenge davon ausgeben, z. B. alle Wörter vom hundertsten bis zum hundertzwanzigsten.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie Du weißt (und vermutlich auch anhand der ausgegebenen Wörter sehen kannst), müssen wir die Wörter nun bereinigen, um sie anschließend „fair“ auszählen zu können:</p>
+<ol class="arabic simple" start="3">
+<li><p>Änder sämtliche Wörter in Kleinbuchstaben und entfern alle Satz- und Sonderzeichen an den Wortenden (hier ist ein iterativer Ansatz nötig, indem Du Dir das Resultat mehrfach ausgeben lässt [trial and error!] und schaust, welche weiteren Zeichen entfernt werden müssen, bis alle weg sind). Überprüf anschließend für jedes bereinigte Wort, ob es in <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> ist. Wenn ja, überspring es, wenn nein, häng es einer Liste namens <code class="docutils literal notranslate"><span class="pre">preprocessed_words</span></code> an.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um die Häufigkeit pro Worttype ausrechnen zu können, müssen wir erst einmal wissen, welche Worttypes in <code class="docutils literal notranslate"><span class="pre">preprocessed_words</span></code> überhaupt vorkommen.</p>
+<ol class="arabic simple" start="4">
+<li><p>Verwend den Casting-Operator eines hierfür geeigneten Datentyps (vgl. Notebook „Datentypen“), um nur die einzigartigen Elemente zu erhalten. Weis das Ergebnis einer Variable namens <code class="docutils literal notranslate"><span class="pre">types</span></code> zu.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Gut. Jetzt haben wir ein Set an Types. Für jeden Type können wir nun ausrechnen, wie oft er in <code class="docutils literal notranslate"><span class="pre">preprocessed_words</span></code> vorkommt. Dadurch erhalten wir für jeden Type eine Zahl. Diese paarweise Information wollen wir in einem geeigneten Format, konkret einem dictionary, abspeichern.</p>
+<ol class="arabic simple" start="5">
+<li><p>Initialisier ein leeres dictionary names <code class="docutils literal notranslate"><span class="pre">freq_dict</span></code></p></li>
+<li><p>Iterier über <code class="docutils literal notranslate"><span class="pre">types</span></code></p></li>
+<li><p>Schaff für jeden Type ein Schlüssel-Werte-Paar mit dem Type als Schlüssel und dem Vorkommen des jeweiligen Types in <code class="docutils literal notranslate"><span class="pre">preprocessed_words</span></code> als Wert. Wie man Schlüssel-Werte-Paare in einem dictionary schafft, haben wir oben gelernt (<code class="docutils literal notranslate"><span class="pre">dict[&quot;key&quot;]</span> <span class="pre">=</span> <span class="pre">&quot;value&quot;</span></code>). Denk daran, dass anstelle von Objekten, hier strings, immer auch Variablen stehen können.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Schlüssel-Werte-Paare in <code class="docutils literal notranslate"><span class="pre">freq_dict</span></code> sind noch ungeordnet.</p>
+<ol class="arabic simple" start="8">
+<li><p>Verwend eine Dir bekannte Funktion, um eine nach Häufigkeit (Werten) sortierte Liste zu erstellen und weis diese der Variablen <code class="docutils literal notranslate"><span class="pre">freq_sorted</span></code> zu.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wunderbar! Schauen wir uns die zehn häufigsten Wörter an:</p>
+<ol class="arabic simple" start="9">
+<li><p>Nutz eine Kontrollstruktur in Kombination mit der <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion (vgl. Notebook „Kontrollstrukturen“), um Dir die ersten zehn Type-Vorkommen-Paare ausgeben zu lassen.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Füg unten sämtliche Codeteile in der richtigen Reihenfolge zusammen.</p>
+<ol class="arabic simple" start="10">
+<li><p>Verwend Kommentare (<code class="docutils literal notranslate"><span class="pre">#</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;...&quot;&quot;&quot;</span></code>), um jeden einzelnen Schritt zu dokumentieren (als Programmierer:innen denken  wir direkt nach dem Fertigschreiben eines Codes oft, dass dieser selbsterklärend sei, i. d. R. versteht man nach einiger Zeit aber nicht mal seinen eigenen Code auf Anhieb. Mach es Dir also zur Gewohnheit, Deine Codes stets ausführlich zu dokumentieren).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Um Schlüsselwörter für <code class="docutils literal notranslate"><span class="pre">kv21</span></code> auszurechnen, könntest Du nun einfach <code class="docutils literal notranslate"><span class="pre">kv18</span></code> durch <code class="docutils literal notranslate"><span class="pre">kv21</span></code> im <code class="docutils literal notranslate"><span class="pre">split</span></code>-Befehl ersetzen. Alternativ könntest Du den Code auch einfach noch einmal für <code class="docutils literal notranslate"><span class="pre">kv21</span></code> angepasst darunter kopieren. Beide Varianten sind aber nicht sonderlich elegant. Sie erfordern entweder manuelles Ändern einer Variablen oder sind unnötig lang. Und stell Dir vor, Du müsstest Schlüsselwörter für alle Koalitionsverträge seit 1945 ausrechnen… 😱</p>
+<p>Hier haben wir es also mit Code zu tun, den wir mehr als einmal ausführen wollen. Ein klassischer Fall für <em>Code Reuse</em>, und konkreter: für unsere erste eigene Funktion.</p>
+</section>
+<section id="funktionen-selbst-definieren">
+<h2>Funktionen selbst definieren<a class="headerlink" href="#funktionen-selbst-definieren" title="Permalink to this heading">#</a></h2>
+<p>Funktionen selbst zu definieren lohnt sich immer dann, wenn wir (fast) den gleichen Code für strukturell ähnliche Objekte mehrfach ausführen müssen (und nicht bereits eine eingebaute bzw. über ein Modul importierbare Funktion/Methode dafür besteht, vgl. unten).</p>
+<p>Wie bei Kontrollstrukturen verwenden wir Variablen im Code einer Funktionsdefinition. Anstatt <code class="docutils literal notranslate"><span class="pre">kv18</span></code> werden wir also einen Platzhalter, z. B. namens <code class="docutils literal notranslate"><span class="pre">text</span></code> in den Code schreiben (<code class="docutils literal notranslate"><span class="pre">text</span></code> ist keine schlechte Idee, denn tatsächlich lässt sich unser Code ja nicht nur auf Koalitionsverträge anwenden, sondern auf strings jeglicher Art). Bei jedem Funktionsaufruf übergeben wir unserer Funktion ein Objekt, das bei der Variablen <code class="docutils literal notranslate"><span class="pre">text</span></code> im Funktionscode eingesetzt werden soll. Damit unterscheidet sich unsere Funktion in keiner Weise von eingebauten Funktionen wie <code class="docutils literal notranslate"><span class="pre">print</span></code> oder <code class="docutils literal notranslate"><span class="pre">len</span></code>, denen wir ja auch in Klammern ein Objekt übergeben.</p>
+<p>Um nun eine Funktion zu definieren, brauchen wir das <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement mit folgender Syntax:</p>
+<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">name(argument):</span></code></p>
+<p>Bei <code class="docutils literal notranslate"><span class="pre">name</span></code> setzen wir einen beliebigen Funktionsnamen ein, den wir später beim Funktionsaufruf verwenden. Bei <code class="docutils literal notranslate"><span class="pre">argument</span></code> definieren wir, was der Funktion übergeben werden muss bzw. kann, wenn sie aufgerufen wird. In unserem Fall wollen wir jeweils nur einen Koalitionsvertrag übergeben. Wir nennen unser Argument <code class="docutils literal notranslate"><span class="pre">text</span></code>. Der Name des Arguments definiert gleichzeitig den Namen der betreffenden Variablen im Code. Überall wo <code class="docutils literal notranslate"><span class="pre">text</span></code> im Funktionscode steht, wird das eingesetzt, was der Funktion für dieses Argument übergeben wird.</p>
+<p>Abgeschlossen wird das <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement von einem Doppelpunkt. Unter dem Doppelpunkt eingerückt folgt nun der Code, wobei wir wie gesagt das hardgecodete <code class="docutils literal notranslate"><span class="pre">kv18</span></code> durch die Variable <code class="docutils literal notranslate"><span class="pre">text</span></code> ersetzen. Im Folgenden siehst Du die Musterlösung zur obigen Aufgabe, verwandelt in eine Funktion:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_freqs</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    
+    <span class="n">stopwords</span> <span class="o">=</span> <span class="p">[]</span>
+        
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
+            <span class="n">stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+    
+    <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> 
+        <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,():&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+    <span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span>
+
+    <span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> 
+
+    <span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
+        <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
+
+    <span class="n">freq_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">freq_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;kommt&quot;</span><span class="p">,</span> <span class="n">freq_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;oft vor.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn Du diese Zelle ausführst, passiert vordergründig nichts. Im Hintergrund allerdings wurde die Funktion definiert und wir können sie nun über die uns vertraute Syntax für beide Koalitionsverträge aufrufen (die Ausführung kann einige Sekunden dauern, Python hat ja einiges auszurechnen).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">get_freqs</span><span class="p">(</span><span class="n">kv21</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>werden kommt 1032 oft vor.
+wollen kommt 905 oft vor.
+ist kommt 263 oft vor.
+stärken kommt 215 oft vor.
+deutschland kommt 194 oft vor.
+wird kommt 186 oft vor.
+sind kommt 178 oft vor.
+insbesondere kommt 162 oft vor.
+unterstützen kommt 143 oft vor.
+dazu kommt 137 oft vor.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>werden kommt 985 oft vor.
+wollen kommt 492 oft vor.
+stärken kommt 236 oft vor.
+ist kommt 169 oft vor.
+unterstützen kommt 166 oft vor.
+wird kommt 159 oft vor.
+setzen kommt 156 oft vor.
+sind kommt 128 oft vor.
+deutschland kommt 121 oft vor.
+schaffen kommt 120 oft vor.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Interessanterweise sind die Schlüsselwörter ziemlich ähnlich, trotz der Tatsache, dass sie von unterschiedlichen Parteien kommen. Vielleicht gibt es so was wie genrespezifische Wörter bei Koalitionsverträgen?</p>
+<p>Wir haben in dieser Zelle übrigens keine <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle benutzt, denn die sind bereits im Funktionscode.</p>
+<p>Wenn wir mit den errechneten Frequenzlisten weiterarbeiten wollen (anstatt bloß die zehn häufigsten Wörter zu erhalten), müssen wir den Funktionscode noch einmal leicht anpassen. Konkret streichen wir sämtliche <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle und fügen stattdessen ein <code class="docutils literal notranslate"><span class="pre">return</span></code>-Statement am Ende ein. Dieses benutzt man immer, wenn man will, dass eine Funktion etwas zurückgibt. Die eingebaute Funktion <code class="docutils literal notranslate"><span class="pre">sorted</span></code> tut dies zum Beispiel: Sie gibt eine sortierte Liste zurück. Diese sortierte Liste haben wir oben jeweils direkt einer neuen Variable zugewiesen. Gleiches tun wir unten im Anschluss an den modifizierten Code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_freqs</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        
+    <span class="n">stopwords</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
+            <span class="n">stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+    
+    <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> 
+        <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,():&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+    <span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span>
+
+    <span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> 
+
+    <span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
+        <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
+
+    <span class="n">freq_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">freq_sorted</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keywords_kv18</span> <span class="o">=</span> <span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">)</span>
+<span class="n">keywords_kv21</span> <span class="o">=</span> <span class="n">get_freqs</span><span class="p">(</span><span class="n">kv21</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun wird mit den beiden Variablen <code class="docutils literal notranslate"><span class="pre">keywords_kv18</span></code> und <code class="docutils literal notranslate"><span class="pre">keywords_kv21</span></code> eine sortierte Frequenzliste für den jeweiligen Koalitionsvertrag referenziert. Mit einer <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife in Kombination mit <code class="docutils literal notranslate"><span class="pre">range</span></code> können wir uns jetzt die zehn häufigsten Wörter sogar parallel für die beiden Koalitionsverträge ausgeben lassen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    
+    <span class="c1">#Die Ausgabe wird mittels sog. f-strings in zwei Spalten formatiert, die wir uns im Notebook &#39;Input und Output Teil 2&#39; genauer anschauen.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;KV18:&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">keywords_kv18</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">20</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;KV21:&quot;</span><span class="p">,</span> <span class="n">keywords_kv21</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KV18: werden               KV21: werden
+KV18: wollen               KV21: wollen
+KV18: ist                  KV21: stärken
+KV18: stärken              KV21: ist
+KV18: deutschland          KV21: unterstützen
+KV18: wird                 KV21: wird
+KV18: sind                 KV21: setzen
+KV18: insbesondere         KV21: sind
+KV18: unterstützen         KV21: deutschland
+KV18: dazu                 KV21: schaffen
+</pre></div>
+</div>
+</div>
+</div>
+<p>Probier Deine Funktion gerne an einem anderen Text aus. Du kannst dazu eine neue <code class="docutils literal notranslate"><span class="pre">.txt</span></code>-Datei in den Arbeitsspeicher laden (indem Du den Dateipfad zum Koalitionsvertrag im Einlese-Befehl von oben durch den Pfad zur neuen Datei ersetzt, alle Details zum Input von Dateien im zweiteiligen Notebook „Input und Output“) oder alternativ den Text als string einer Variable zuweisen und diese dann <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> übergeben.</p>
+<p>Wie wir bereits bei Funktionen der Grundausstattung (etwa <code class="docutils literal notranslate"><span class="pre">sorted</span></code>) gesehen haben und unten bei einer modifizierten Version von <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> sehen werden, ist es möglich, mehrere obligatorische und auch optionale Argumente bei einer Funktion zu definieren. Optional bedeutet, dass es einen Standardwert gibt, mit dem die Funktion rechnet, wenn ihr kein Wert für dieses Argument übergeben wird. Die einzelnen Argumente werden im <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement kommasepariert. Beim Funktionsaufruf muss die Reihenfolge der zu übergebenden Argumente der Reihenfolge in der Funktionsdefinition entsprechen.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 1:</strong> Definier eine Funktion <code class="docutils literal notranslate"><span class="pre">sum_div</span></code>, die drei Argumente nimmt. Das erste soll mit dem zweiten addiert werden. Das Ergebnis davon soll durch das dritte Argument geteilt werden. Dieses Ergebnis soll zurückgegeben werden. Entfern anschließend den Hashtag vor der bereits existierenden Code-Zeile. Wenn Du <code class="docutils literal notranslate"><span class="pre">True</span></code> erhältst, hast Du alles richtig gemacht!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+
+<span class="c1">#sum_div(2,3,2) == 2.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Abschließend schauen wir uns Module an. Da noch einmal einiges an Informationen auf Dich zukommt, lohnt es sich, mit einem „frischen Kopf“ an diesen letzten Teil des Notebooks heranzugehen.</p>
+</section>
+<section id="module">
+<h2>Module<a class="headerlink" href="#module" title="Permalink to this heading">#</a></h2>
+<p>Bis zu diesem Punkt haben wir mit Funktionen/Methoden aus der Grundausstattung von Python gearbeitet. Diese haben zweifelsohne einiges drauf. Dennoch kommt man als Programmier:in bald an einen Punkt, an dem sich bestimmte Anwendungsfälle effizienter lösen lassen, wenn man über die Funktionen/Methoden der Grundausstattung hinaus anwendungsspezifischeren Code verwendet. Für viele Anwendungsfelder – etwa für den Umgang mit Text, zum Scrapen von Webseiten oder zur Visualisierung von Daten – gibt es sog. <em>Module</em> (oder <em>Packages</em> bzw. <em>Bibliotheken</em>, siehe Bemerkung zum Schluss), mit denen wir diese spezifischen Probleme wesentlich effizienter angehen können.</p>
+<p>Solche Module stammen entweder von Python selbst oder von Entwickler:innen aus der Python-Community. Mit Modulen von Python sind Module gemeint, die Teil der sog. <em>Standardbibliothek</em> sind, nicht aber der Grundausstattung. In der Praxis bedeutet das Folgendes: Wenn wir Python installieren, werden die Module der Standardbibliothek automatisch mitinstalliert. Sobald wir ein solches Modul in unserem Code verwenden wollen, müssen wir es jedoch importieren, da es nicht zur Grundausstattung gehört. Module von anderen Entwickler:innen müssen wir immer zuerst (zusätzlich zu Python) installieren, bevor wir sie importieren und verwenden können.</p>
+<p>Ein Modul an sich ist ganz simpel aufgebaut: Es handelt sich schlicht um eine Python-Datei mit dem Dateisuffix „.py“, die Code enthält. Machen wir es konkret, und zwar vorerst an einem eigenen Modul. Denn auch wir können unsere eigenen Module erstellen.</p>
+<p>Der Code der Schlüsselwortfunktion von oben befindet sich bereits als Modul mit dem Namen <code class="docutils literal notranslate"><span class="pre">keywords</span></code> im Verzeichnis „3_Dateien/Module/“. Öffne die Datei und schau Dir den Code an. Wie Du sehen wirst, gibt es einen Unterschied zum Code von oben: Die Funktion erwartet neben <code class="docutils literal notranslate"><span class="pre">text</span></code> auch <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> als zweites Argument. <code class="docutils literal notranslate"><span class="pre">text</span></code> soll weiterhin als string übergeben werden, <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> hingegen als Liste. Mit der Ausklammerung der Stoppwortdatei aus dem Funktionscode im Modul wird Letzteres überall einsetzbar. Der Pfad zur Stoppwortdatei ändert sich nämlich in Abhängigkeit des Speicherorts des Moduls. Dieses Problem umgehen wir, indem wir die Stoppwörter beim Funktionsaufruf übergeben. Diese Abstraktion macht es uns auch möglich, bei Bedarf andere Stoppwortlisten zu verwenden. Im Notebook „Input und Output Teil 1“ lernen wir mehr über Dateipfade. Erst einmal ist nur wichtig, dass die Funktion im Modul neu auch Stoppwörter als zweites Argument erwartet.</p>
+<p>Bevor wir unser Modul importieren, laden wir uns die Koalitionstexte sowie die Stoppwörter zur Sicherheit noch einmal in den Arbeitsspeicher. Führ dazu die folgende Zelle aus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2018.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">kv18</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+    <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="n">stopwords_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
+        <span class="n">stopwords_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+
+<span class="sd">&quot;&quot;&quot;Diese beiden Zeilen kannst Du ignorieren (sie sind nötig, da sich das anschließend zu importierende Modul </span>
+<span class="sd">in einem anderen Verzeichnis als das Notebook befindet; ironischerweise importieren wir für diese </span>
+<span class="sd">Operation auch ein Modul, nämlich &#39;sys&#39;)&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Module&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Anstatt nun den Code aus der Moduldatei händisch in unseren Code hineinzukopieren, können wir ihn über folgenden simplen Befehl <em>importieren</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keywords</span> <span class="kn">import</span> <span class="n">get_freqs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nach <code class="docutils literal notranslate"><span class="pre">from</span></code> geben wir den Namen des Moduls (d. h. der „.py“-Datei, aber ohne Suffix) an, gefolgt von <code class="docutils literal notranslate"><span class="pre">import</span></code> und dem Namen der zur importierenden Funktion.</p>
+<p>Indem wir hier eine spezifische Funktion importieren, etablieren wir <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> im sog. <em>Namespace</em> von Python. Der Namespace umfasst alle Namen, die Python in der aktuellen Sitzung kennt und zuordnen kann. Neben den vordefinierten Namen wie z. B. <code class="docutils literal notranslate"><span class="pre">len</span></code> für die entsprechende Funktion sind dies alle Namen, die wir selbst im Laufe einer Sitzung einführen, etwa als Variablennamen, um irgendein Objekt zu referenzieren, oder, um eine Funktion zu bezeichnen. <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> wird hier also unter diesem Namen eingeführt und wenn wir fortan <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> aufrufen, weiß Python, worauf wir uns beziehen.</p>
+<p>Dadurch gibt es dann auch keinen syntaktischen Unterschied zwischen dem Aufruf einer importierten Funktion und einer aus der Grundausstattung:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_ten</span> <span class="o">=</span> <span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="c1">#Hier weisen wir die zehn häufigsten Schlüsselwörter direkt einer Variable zu.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_ten</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;werden&#39;, 1032), (&#39;wollen&#39;, 905), (&#39;ist&#39;, 263), (&#39;stärken&#39;, 215), (&#39;deutschland&#39;, 194), (&#39;wird&#39;, 186), (&#39;sind&#39;, 178), (&#39;insbesondere&#39;, 162), (&#39;unterstützen&#39;, 143), (&#39;dazu&#39;, 137)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie erwähnt, müssen wir hier im Unterschied zu oben <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> zusätzlich zu <code class="docutils literal notranslate"><span class="pre">kv18</span></code> (für das Argument <code class="docutils literal notranslate"><span class="pre">text</span></code>) auch <code class="docutils literal notranslate"><span class="pre">stopwords_list</span></code> (für <code class="docutils literal notranslate"><span class="pre">stopwords</span></code>) übergeben.</p>
+<p>Welche Argumente unsere Funktion erwartet und was sie im Gegenzug zurückgibt, können wir uns übrigens über das <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-Attribut ausgeben lassen. Dazu hängt man einen Punkt, zwei Unterstriche, dann „doc“ und noch einmal zwei Unterstriche an den Funktionsnamen an:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">get_freqs</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Takes in text as string and stopwords as list, returns frequency for all types in text, excluding stopwords.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dies ist ein sog. <em>docstring</em>. Praktisch handelt es sich schlicht um den string, der direkt im Anschluss an das <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement der Funktion steht (dieser string ist Dir sicherlich in der Moduldatei aufgefallen). Wenn Du fortan eigene Funktionen schreibst, lohnt es sich, auf diese Weise einen kurzen docstring einzufügen. Funktionen von Python und solche anderer Entwickler:innen verfügen in aller Regel über einen docstring, der Dir bei Bedarf kurz und knapp erläutert, wozu die Funktion dient. Wie im Notebook „Einführung“ erwähnt, ist Codedokumentation über Kommentare äußerst wichtig. Docstrings erfüllen den gleichen Zweck, mit dem zusätzlichen Vorteil, dass wir nicht in den Code reinschauen müssen, sondern die wichtigsten Informationen bequem über das <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-Attribut abrufen können.</p>
+<p>Zurück zum Import von Modulen: Folgender Code tut genau das gleiche wie oben, aber mit dem Unterschied, dass wir hier nur unser Modul importieren, nicht aber eine spezifische Funktion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keywords</span>
+
+<span class="n">top_ten</span> <span class="o">=</span> <span class="n">keywords</span><span class="o">.</span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">top_ten</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;werden&#39;, 1032), (&#39;wollen&#39;, 905), (&#39;ist&#39;, 263), (&#39;stärken&#39;, 215), (&#39;deutschland&#39;, 194), (&#39;wird&#39;, 186), (&#39;sind&#39;, 178), (&#39;insbesondere&#39;, 162), (&#39;unterstützen&#39;, 143), (&#39;dazu&#39;, 137)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wir so vorgehen, wird <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> nicht im Namespace etabliert. Deswegen müssen wir beim Funktionsaufruf erst den Modulnamen gefolgt von einem Punkt angeben. Nur so weiß Python, wo sich die Funktion befindet, auf die wir uns beziehen (es handelt sich also um eine Art <em>Adresse</em> zur Funktion). Der Punkt zwischen Modul- und Funktionsnamen könnte den Eindruck erwecken, dass es sich bei <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> um eine Methode handelt (s. o.), das ist aber natürlich nicht der Fall.</p>
+<p>Um die obige Syntax zu vereinfachen, können wir dem Modul beim Import übrigens auch einen Namen geben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keywords</span> <span class="k">as</span> <span class="nn">kw</span>
+
+<span class="n">bottom_ten</span> <span class="o">=</span> <span class="n">kw</span><span class="o">.</span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="o">-</span><span class="mi">11</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">bottom_ten</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;alphabetisierung&#39;, 1), (&#39;vorlage-&#39;, 1), (&#39;finanzierte&#39;, 1), (&#39;sicht&#39;, 1), (&#39;flexibilisierung&#39;, 1), (&#39;dateninhaberinnen&#39;, 1), (&#39;vorgabe&#39;, 1), (&#39;armutsbedingte&#39;, 1), (&#39;unterrichts&#39;, 1), (&#39;jugendfreiwilligendienste&#39;, 1)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn Du in Zukunft Schlüsselwörter ausrechnen willst, kannst Du ganz einfach unser selbst geschriebenes Modul <code class="docutils literal notranslate"><span class="pre">keywords</span></code> importieren. Das <code class="docutils literal notranslate"><span class="pre">import</span></code>-Statement funktioniert problemlos, wenn sich die entsprechende „.py“-Datei im selben Verzeichnis wie das Python-Skript, in das Du das Modul importieren willst, befindet.</p>
+<p>Um weitere eigene Module zu erstellen, musst Du lediglich fertigen Code (i. d. R. eine oder mehrere Funktionen) in eine leere Datei packen und diese mit dem Suffix „.py“ abspeichern. Der Texteditor <a class="reference external" href="https://www.sublimetext.com">Sublime Text</a>, der auf macOS, Windows und Linux läuft, empfiehlt sich hierfür.</p>
+<p>Nun haben wir gesehen, dass das Speichern und Importieren eines eigenen Moduls wirklich simpel ist. Bei längerem Code lohnt sich das sog. <em>Modularisieren</em>, also das Aufteilen und Auslagern des Codes in sinnvollen Einheiten als Module, um diese dann, wo benötigt, zu importieren. Am Anfang einer Programmierkarriere ist das aber noch nicht relevant. Viel wichtiger als eigene Module sind im Moment noch die oben angesprochenen Module aus der Standardbibliothek von Python bzw. der Community für spezifische Anwendungsfelder. Ab dem zweiteiligen Notebook „Input und Output“ werden wir immer mehr von solchen Modulen Gebrauch machen.</p>
+<p>Wie wir unten am Beispiel des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls zur Generierung zufälliger Zahlen sehen, werden solche Module gleich importiert wie unser eigenes Modul oben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import des ganzen Moduls und Aufruf der Funktion mittels Voranstellen des Modulnamens</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">import random</span>
+
+<span class="sd">random_numbers = []</span>
+
+<span class="sd">for i in range(10):</span>
+<span class="sd">    random_numbers.append(random.randint(0,100))</span>
+
+<span class="sd">print(random_numbers)&quot;&quot;&quot;</span>
+
+<span class="c1">#Import einer spezifischen Funktion aus dem Modul</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="n">random_numbers</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">random_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">random_numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[43, 13, 22, 37, 69, 65, 62, 10, 65, 44]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Funktion <code class="docutils literal notranslate"><span class="pre">randint</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> generiert zufällige Zahlen (integer) innerhalb des angegebenen Bereichs (0-99). Entsprechend schaut <code class="docutils literal notranslate"><span class="pre">random_numbers</span></code> bei jeder Ausführung der Zelle anders aus. Bei <code class="docutils literal notranslate"><span class="pre">random</span></code> handelt es sich übrigens um ein Modul aus der <a class="reference external" href="https://docs.python.org/3/library/">Standardbibliothek</a> von Python.</p>
+<p>Abschließend noch ein paar Worte zur Terminologie: Neben <em>Modulen</em> hört man oft auch die Begriffe <em>Package</em> und <em>Bibliothek</em> (engl. <em>library</em>). Die Begriffe werden gerne vermischt, was nicht weiter schlimm ist. Falls Dich die Unterschiede interessieren: Wenn mehrere <em>Module</em> zusammengefasst werden, entsteht ein <em>Package</em> (praktisch handelt es sich um nichts anderes als ein Verzeichnis, das mehrere Module beinhaltet). Genau wie man eine Funktion aus einem Modul importieren kann, kann man ein spezifisches Modul innerhalb eines Packages importieren: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">module</span></code>. <em>Bibliotheken</em> wiederum umfassen mehrere Packages und Module.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Importier die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls. <code class="docutils literal notranslate"><span class="pre">sample</span></code> generiert eine zufällige Auswahl von Elementen, z. B. zehn zufällige Elemente aus einer Grundgesamtheit mit allen Elementen. Die Funktion erwartet als erstes Argument die Grundgesamtheit in Form einer Liste und als zweites eine Ganzzahl, mit der die Anzahl der zufällig auszuwählenden Elemente definiert wird. Die Grundgesamtheit in dieser Übung ist das <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> von der Übung von oben bzw. aus dem Notebook „Kontrollstrukturen“. Die Anzahl der zufällig auszuwählenden Elemente beträgt in diesem Fall vier. Wir wollen also zufällige Spielzusammensetzungen mit jeweils vier Teilnehmer:innen erhalten.</p>
+<p>Deine Aufgabe besteht nun darin, so viele zufällige Spielzusammensetzungen zu genererieren, bis eine Zusammensetzung doppelt vorkommt. Verwend dazu eine passende Kontrollstruktur, die Deinen Code so oft wiederholt, bis die Bedingung, dass eine zufällige Zusammensetzung bereits einmal zuvor generiert wurde, zutrifft. In diesem Fall soll die Iteration abbrechen und die Anzahl der notwendigen Wiederholungen bis zur identischen Zusammensetzung ausgegeben werden.</p>
+<p>Beachte, dass es für diese Anzahl der notwendigen Wiederholungen keine richtige Antwort gibt, da es in der Natur der zufälligen Auswahl liegt, dass es manchmal etwas mehr und manchmal etwas weniger Wiederholungen braucht.</p>
+<p>📌 Herausforderung: Verpack Deinen gesamten Code in eine (andere) Kontrollstruktur, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl, bis zwei Zusammensetzungen doppelt vorkommen, auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code class="docutils literal notranslate"><span class="pre">sum</span></code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">participants_pool</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Janine&quot;</span><span class="p">,</span> <span class="s2">&quot;Hussein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Mia&quot;</span><span class="p">,</span> <span class="s2">&quot;Marianne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dolores&quot;</span><span class="p">,</span> <span class="s2">&quot;Yin&quot;</span><span class="p">,</span> <span class="s2">&quot;Margareth&quot;</span><span class="p">,</span> <span class="s2">&quot;Benni&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Damit sind wir am Ende des Notebooks angelangt. 🎉</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-errechnen-von-schlusselwortern">🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-selbst-definieren">Funktionen selbst definieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module">Module</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Reguläre Ausdrücke / RegEx &#8212; Yannick Frommherz</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -498,16 +497,16 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="regulare-ausdrucke-regex">
-<h1>Reguläre Ausdrücke / RegEx<a class="headerlink" href="#regulare-ausdrucke-regex" title="Permalink to this heading">#</a></h1>
+<h1>Reguläre Ausdrücke / RegEx<a class="headerlink" href="#regulare-ausdrucke-regex" title="Link zu dieser Überschrift">#</a></h1>
 <p>In diesem Notebook lernen wir sog. <em>Reguläre Ausdrücke</em> (engl.: <em>regular expressions</em>, abgekürzt: <em>RegEx</em>) kennen. RegEx bezeichnet eine sehr leistungsfähige Suchsprache, die es uns erlaubt, komplexe, abstrakte Muster zum Suchen zu verwenden, anstatt bloß literaler (wörtlicher) Suchbegriffe (z.B. ein bestimmtes Wort, nach welchem wir einen Text durchsuchen). Um das zu veranschaulichen und gleichzeitig den immensen Nutzen von RegEx herauszuarbeiten, nähern wir uns dem Thema über zwei Beispiele von konkreten Anwendungen.</p>
 <section id="beispiel-1-inputvalidierung">
-<h2>Beispiel 1: Inputvalidierung<a class="headerlink" href="#beispiel-1-inputvalidierung" title="Permalink to this heading">#</a></h2>
+<h2>Beispiel 1: Inputvalidierung<a class="headerlink" href="#beispiel-1-inputvalidierung" title="Link zu dieser Überschrift">#</a></h2>
 <p>Beim Ausfüllen von Formularen auf einer Webseite, z.B. beim Bestellen in einem Onlineshop, wurdest Du sicherlich schon mal darauf hingewiesen, dass eine Deiner Angaben nicht korrekt ist. Wie hier bei der Eingabe einer Lieferadresse:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Inputvalidierung.png"><p>Wieso kommt der Onlineshop zum Schluss, dass diese Eingabe fehlerhaft ist? Hier findet keine Abfrage in einer Datenbank mit allen existierenden Adressen in Deutschland (oder sonst wo) statt, das wäre zu umständlich. Diese sog. <em>Inputvalidierung</em> verläuft viel simpler: Im Hintergrund wurde ein mehr oder minder abstrakter, regulärer Ausdruck definiert, der beschreibt, wie der Input, hier die Adresse, auszusehen hat.</p>
 <p>Dieser reguläre Ausdruck scheint nicht nur eine Straße (vermutlich operationalisiert als Abfolge alphabetischer Zeichen, ggf. mit Leerzeichen für Fälle wie „Dresdner Straße“), sondern ebenfalls eine Zahl für die Hausnummer zu verlangen. Bei jeder neuen Eingabe ver<em>sucht</em> das System, den regulären Ausdruck wie eine Schablone über den Input zu legen. Lässt er sich darüber legen, so haben wir einen sog. <em>match</em>. Das bedeutet, dass die Eingabe dem regulären Ausdruck entspricht bzw. im Beispiel hier, dass die Eingabe korrekt ist. Andernfalls „spuckt“ das System eine Fehlermeldung wie oben „aus“.</p>
 </section>
 <section id="beispiel-2-musterbasierte-suche">
-<h2>Beispiel 2: Musterbasierte Suche<a class="headerlink" href="#beispiel-2-musterbasierte-suche" title="Permalink to this heading">#</a></h2>
+<h2>Beispiel 2: Musterbasierte Suche<a class="headerlink" href="#beispiel-2-musterbasierte-suche" title="Link zu dieser Überschrift">#</a></h2>
 <p>Neben der Inputvalidierung sind reguläre Ausdrücke äußerst hilfreich, um bestimmte Elemente in einer großen Datenmenge aufzuspüren. Damit sind nicht <em>identische</em> Elemente gemeint, denn da würde ja eine literale Suche ausreichen. Gemeint sind Elemente, die zwar nicht identisch sind, wohl aber insgesamt einem einheitlichen <em>Muster</em> entsprechen. Ein bestimmter regulärer Ausdruck wird daher auch oft <em>Muster</em> bzw. <em>pattern</em> auf Englisch genannt.</p>
 <p>In folgendem Ausschnitt des Quelltexts der <a class="reference external" href="https://tu-dresden.de">Homepage der TU Dresden</a> verbergen sich fünf Links auf andere Webseiten, die zwar allesamt identisch beginnen, aber nicht identisch enden (sonst wäre es ja fünf mal derselbe Link).</p>
 <img src="../3_Dateien/Grafiken_und_Videos/HTML_Regex.png"><p>Nun wollen wir alle Links aus dem Quelltext extrahieren, z.B. um auch den Quelltext der verlinkten Seiten automatisiert herunterzuladen (diese Technik nennt sich wie im ersten Notebook erwähnt <em>Web Scraping</em>, ein Aufbaumodul wird sich ihr ausführlich widmen). Dazu können wir den HTML-Code nach folgendem regulären Ausdruck absuchen:</p>
@@ -521,7 +520,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="anwendungsfall-der-pizzabot">
-<h2>🔧 Anwendungsfall: Der Pizzabot 🍕🤖<a class="headerlink" href="#anwendungsfall-der-pizzabot" title="Permalink to this heading">#</a></h2>
+<h2>🔧 Anwendungsfall: Der Pizzabot 🍕🤖<a class="headerlink" href="#anwendungsfall-der-pizzabot" title="Link zu dieser Überschrift">#</a></h2>
 <p>Beim Pizzabot in der nächsten Zelle kannst Du Dir eine Pizza bestellen. Der Bot ist leider noch ein wenig unflexibel und akzeptiert nur sehr spezifischen Input. Wenn er Dich nicht versteht, gibt er Dir aber Hinweise dazu, was er verarbeiten kann. Bestell gleich ein paar Pizzen, indem Du die nächste Zelle mehrmals hintereinander ausführst und Dich so mit ihm vertraut machst. Eventuell musst Du jeweils erst ins Antwortfeld unter der Frage klicken, sodass der Cursor blinkt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,24 +539,36 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2168</span><span class="o">/</span><span class="mf">3505986274.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">pizzabot</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#hier aktivieren wir den Pizzabot</span>
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
 
-<span class="nn">~/work/yfrommherz.ch/yfrommherz.ch/website/programming/3_Dateien/Module/pizzabot.py</span> in <span class="ni">order_pizza</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="c1">#------------&gt; CHOOSE PIZZA &lt;------------</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> 
+<span class="nn">File ~/Documents/Repositories/yfrommherz.ch/website/programming/1_Notebooks/../3_Dateien/Module/pizzabot.py:28,</span> in <span class="ni">order_pizza</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">def</span> <span class="nf">order_pizza</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> 
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="c1">#------------&gt; CHOOSE PIZZA &lt;------------ </span>
 <span class="ne">---&gt; </span><span class="mi">28</span>     <span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hallo, ich bin der Pizzabot 🍕🤖</span><span class="se">\n</span><span class="s2">Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> 
 <span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">first_prompt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Super &quot;</span> <span class="o">+</span> <span class="n">user_name</span> <span class="o">+</span> <span class="s2">&quot;, welche Pizza möchtest Du bestellen?</span><span class="se">\n</span><span class="s2">&quot;</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1174</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">1175</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1176</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
 
 <span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
@@ -567,18 +578,18 @@ document.write(`
 <p>Wie Du siehst, funktioniert der Pizzabot prinzipiell ganz gut. Der Code dafür, der sich bereits fertig in den Modulen <code class="docutils literal notranslate"><span class="pre">pizzabot</span></code> und <code class="docutils literal notranslate"><span class="pre">pizza_functions</span></code> im Ordner „3_Dateien/Module“ befindet, tut also seinen Dienst. Einzig störend ist die Tatsache, dass Benutzer:innen genau wissen müssen, welchen Input der Bot verarbeiten kann. Das ist nicht sehr kund:innenfreundlich.</p>
 <p>Der Anwendungsfall in diesem Notebook besteht aus zwei Teilaufgaben: Bei der RegEx-bezogenen Aufgabe, wirst Du Deine in diesem Notebook erlernten Kenntnisse zu regulären Ausdrücken einsetzen. Bei der Dokumentationsaufgabe geht es darum, Code, den jemand anderes geschrieben hat, zu verstehen und zu dokumentieren.</p>
 <section id="regex-bezogene-aufgabe">
-<h3>RegEx-bezogene Aufgabe<a class="headerlink" href="#regex-bezogene-aufgabe" title="Permalink to this heading">#</a></h3>
+<h3>RegEx-bezogene Aufgabe<a class="headerlink" href="#regex-bezogene-aufgabe" title="Link zu dieser Überschrift">#</a></h3>
 <p>Die RegEx-bezogene Aufgabe besteht darin, den Pizzabot flexibler in Bezug auf Input zu machen. Dafür wirst Du die regulären Ausdrücke erweitern müssen, die schon jetzt im Code dafür benutzt werden, den User-Input zu validieren.</p>
 <p>Beispielsweise wird die Antwort auf Ja-Nein-Fragen momentan nur nach den strings „Ja“ und „Nein“ (unabhängig von Groß- und Kleinschreibung) abgesucht. Durch Deine regulären Ausdrücke sollen Kund:innen in Zukunft ohne Probleme auch mit „nö“, „ne“, „nope“ etc. antworten können. Ebenfalls soll der Pizzabot mit Rechtschreibfehlern bei den Pizzanamen umgehen können (etwa „Margharita“), um Kund:innen nicht unnötig vor den Kopf zu stoßen. Letztlich besteht ein großes Manko des Pizzabots noch darin, dass er nur an eine einzige Adresse liefern kann, nämlich an die what3words-Adresse „falschen.fliegen.beliebten“, was übrigens der <a class="reference external" href="https://w3w.co/falschen.fliegen.beliebten">nordöstlichen Ecke der Zentralbibliothek der TU Dresden (SLUB)</a> entspricht. Das musst Du ändern, sodass der Pizzabot in Zukunft weltweit liefern kann, und zwar an jedes beliebige 3 x 3 m große Quadrat auf der Erdoberfläche. what3words hat nämlich jedes dieser Quadrate mit einer Adresse bestehend aus drei Wörtern analog zu „falschen.fliegen.beliebten“ versehen. Solche Adressen erlauben einerseits eine viel genauere Angabe als konventionelle Straßennamen (z.B. auch Orte in einem Park oder am Strand) und sind andererseits wesentlich „menschenfreundlicher“ als Koordinaten. Genauere Instruktionen, wie Du die regulären Ausdrücke erweitern sollst, findest Du weiter unten.</p>
 </section>
 <section id="dokumentationsaufgabe">
-<h3>Dokumentationsaufgabe<a class="headerlink" href="#dokumentationsaufgabe" title="Permalink to this heading">#</a></h3>
+<h3>Dokumentationsaufgabe<a class="headerlink" href="#dokumentationsaufgabe" title="Link zu dieser Überschrift">#</a></h3>
 <p>Die Dokumentationsaufgabe besteht darin, dass Du Dir den Code, der ja schon fertig ist, genau anschaust und ihn mithilfe von Kommentaren dokumentierst. Auch wenn Du hier nicht selbst programmieren musst, ist Dein Verständnis von Python sehr gefragt. Das Nachvollziehen von Code, den jemand anderes geschrieben hat, ist zuweilen eine mühselige Aufgabe, weil wir alle unseren eigenen Programmierstil pflegen. Gleichzeitig lernen wir dadurch andere, vielleicht effizientere Herangehensweisen und erweitern so unser Programmierrepertoire. Auch hierzu findest Du nähere Instruktionen weiter unten.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="die-suchsprache-im-detail">
-<h2>Die Suchsprache im Detail<a class="headerlink" href="#die-suchsprache-im-detail" title="Permalink to this heading">#</a></h2>
+<h2>Die Suchsprache im Detail<a class="headerlink" href="#die-suchsprache-im-detail" title="Link zu dieser Überschrift">#</a></h2>
 <p>Reguläre Ausdrücke basieren auf einer Suchsprache, die literale Zeichen mit Sonderzeichen kombiniert. Genau diese Sonderzeichen verleihen der Suchsprache ihre große Leistungsfähigkeit. Wir werden die wichtigsten unter ihnen im Folgenden kennenlernen und anwenden.</p>
 <p>Zunächst: Reguläre Ausdrücke sind keine Erfindung von Python. Die Suchsprache ist in diversen Programmiersprachen implementiert, ebenso wie in vielen Texteditoren wie z.B. Sublime Text (vgl. viertes Notebook) und in einer abgewandelten Version auch in Microsoft Word. Was Du hier lernst, wirst Du also auch außerhalb Pythons anwenden können. Innerhalb Pythons sind reguläre Ausdrücke im <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul der Standardbibliothek implementiert. Dieses importierst Du, indem Du die nächste Zelle ausführst:</p>
 <div class="cell docutils container">
@@ -590,23 +601,23 @@ document.write(`
 </div>
 <p>Dem Modul und seinen Funktionen und Methoden ist weiter unten ein eigener Abschnitt gewidmet. Wir werden es im Folgenden aber bereits einsetzen, um erlernte Sonderzeichen gleich auszuprobieren. Konzentriere Dich vorerst nur auf die regulären Ausdrücke, die wir jeweils mit der Variable <code class="docutils literal notranslate"><span class="pre">regex</span></code> referenzieren. Die Syntax von <code class="docutils literal notranslate"><span class="pre">re</span></code>-Funktionen/Methoden, denen wir <code class="docutils literal notranslate"><span class="pre">regex</span></code> übergeben, kannst Du bis auf Weiteres ignorieren.</p>
 <section id="literale-zeichen">
-<h3>Literale Zeichen<a class="headerlink" href="#literale-zeichen" title="Permalink to this heading">#</a></h3>
+<h3>Literale Zeichen<a class="headerlink" href="#literale-zeichen" title="Link zu dieser Überschrift">#</a></h3>
 <p>Wie gesagt, reguläre Ausdrücke kombinieren literale Zeichen mit Sonderzeichen. Zu den literalen Zeichen gibt es nicht mehr zu sagen, als dass sie schlicht sich selbst bedeuten. Das gilt etwa für alle Buchstaben und Zahlen, wobei bei Buchstaben wie immer Groß- und Kleinschreibung eine Rolle spielt.</p>
 <p>Steht etwa ein „h“ in einem regulären Ausdruck, wie oben bei der Link-RegEx, so hat dieses „h“ keine Sonderbedeutung, sondern steht nur für sich selbst und matcht folglich <em>einmal</em> den kleinen Buchstaben „h“. Die Betonung liegt auf <em>einmal</em>, denn alle Zeichen in einem regulären Ausdruck (auch Sonderzeichen) matchen standardmäßig <em>ein</em> einziges Zeichen. Ein (fehlerhafter) Link, der mit „hhttps://…“ beginnt, wäre oben folglich nicht gematcht worden. Dieses Verhalten kann natürlich angepasst werden, dazu gleich mehr unter „Quantifikatoren“.</p>
 <p>Nun zum eigentlich Spannenden an der Suchsprache:</p>
 </section>
 <section id="sonderzeichen">
-<h3>Sonderzeichen<a class="headerlink" href="#sonderzeichen" title="Permalink to this heading">#</a></h3>
+<h3>Sonderzeichen<a class="headerlink" href="#sonderzeichen" title="Link zu dieser Überschrift">#</a></h3>
 <p>Das simpelste aller Sonderzeichen ist die sog. Wildcard.</p>
 <section id="wildcard">
-<h4>Wildcard<a class="headerlink" href="#wildcard" title="Permalink to this heading">#</a></h4>
+<h4>Wildcard<a class="headerlink" href="#wildcard" title="Link zu dieser Überschrift">#</a></h4>
 <p>Der <code class="docutils literal notranslate"><span class="pre">.</span></code> matcht ganz einfach ein beliebiges Zeichen, wie in der folgenden Tabelle ersichtlich ist. Solche Tabellen mit einer konzisen Zusammenfassung der Sonderzeichen gibt es zu allen Sonderzeichen und eine Zusammenstellung aller Tabellen findet sich am Ende dieses Notebooks.</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p><strong>Zeichen</strong></p></th>
-<th class="head text-left"><p><strong>Sonderbedeutung</strong></p></th>
-<th class="head text-left"><p><strong>Beispiel</strong></p></th>
-<th class="head text-center"><p><strong>Bemerkungen</strong></p></th>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-center head"><p><strong>Bemerkungen</strong></p></th>
 </tr>
 </thead>
 <tbody>
@@ -620,14 +631,14 @@ document.write(`
 <p>Auch die Wildcard matcht standardmäßig <em>ein</em> einziges Zeichen. Der reguläre Ausdruck <code class="docutils literal notranslate"><span class="pre">H.nd</span></code> matcht also z.B. nicht „H<em>olla</em>nd“.</p>
 </section>
 <section id="quantifikatoren">
-<h4>Quantifikatoren<a class="headerlink" href="#quantifikatoren" title="Permalink to this heading">#</a></h4>
+<h4>Quantifikatoren<a class="headerlink" href="#quantifikatoren" title="Link zu dieser Überschrift">#</a></h4>
 <p>Mithilfe von Quantifikatoren können wir dieses Verhalten anpassen. Quantifikatoren stehen jeweils nach dem Zeichen, bei welchem wir (abweichend vom standardmäßig einmaligen Auftreten) definieren möchten, wie oft es vorkommen darf bzw. muss, damit ein Match vorliegt. Dazu können wir einerseits die Sonderzeichen <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code> und <code class="docutils literal notranslate"><span class="pre">?</span></code> für die gängigsten quantitativen Bedingungen verwenden. Andererseits können wir mithilfe geschweifter Klammern auch eigene quantitative Bedingungen aufstellen. In folgenden Beispielen kommt neben den Quantifikatoren auch die bereits eingeführte Wildcard <code class="docutils literal notranslate"><span class="pre">.</span></code> zum Einsatz:</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p><strong>Zeichen</strong></p></th>
-<th class="head text-left"><p><strong>Sonderbedeutung</strong></p></th>
-<th class="head text-left"><p><strong>Beispiel</strong></p></th>
-<th class="head text-left"><p><strong>Bemerkungen</strong></p></th>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-left head"><p><strong>Bemerkungen</strong></p></th>
 </tr>
 </thead>
 <tbody>
@@ -688,15 +699,15 @@ document.write(`
 <p>Sehr gut! Machen wir weiter mit den Zeichenklassen.</p>
 </section>
 <section id="zeichenklassen">
-<h4>Zeichenklassen<a class="headerlink" href="#zeichenklassen" title="Permalink to this heading">#</a></h4>
+<h4>Zeichenklassen<a class="headerlink" href="#zeichenklassen" title="Link zu dieser Überschrift">#</a></h4>
 <p>Zeichenklassen definieren, wie es der Name sagt, eine Klasse von Zeichen, die an einer bestimmten Stelle gematcht werden sollen. Anstatt eines einzigen Zeichens dürfen an dieser Stelle also alle Zeichen in der gegebenen Klasse, aber keine anderen, stehen.</p>
 <p>Einerseits gibt es fertige Zeichenklassen für die gängigsten Kombinationen. Dafür haben wir im regulären Ausdruck zum Absuchen des Quelltexts von <a class="reference external" href="https://tu-dresden.de">tu-dresden.de</a> bereits ein Beispiel gesehen, nämlich <code class="docutils literal notranslate"><span class="pre">\w</span></code>, das alphanumerische Zeichen matcht. Andererseits können wir mithilfe von eckigen Klammern unsere eigenen Klassen von Zeichen definieren (auch das haben wir in der Link-RegEx bereits gesehen). In der Tabelle findest Du erst drei fertige Zeichenklassen, dann zusammengefasst ihre jeweiligen Negationen und anschließend verschiedene Ausführungen eigener Klassen:</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p><strong>Zeichen</strong></p></th>
-<th class="head text-left"><p><strong>Sonderbedeutung</strong></p></th>
-<th class="head text-left"><p><strong>Beispiel</strong></p></th>
-<th class="head text-left"><p><strong>Bemerkungen</strong></p></th>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-left head"><p><strong>Bemerkungen</strong></p></th>
 </tr>
 </thead>
 <tbody>
@@ -807,14 +818,14 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="weitere-sonderzeichen">
-<h4>Weitere Sonderzeichen<a class="headerlink" href="#weitere-sonderzeichen" title="Permalink to this heading">#</a></h4>
+<h4>Weitere Sonderzeichen<a class="headerlink" href="#weitere-sonderzeichen" title="Link zu dieser Überschrift">#</a></h4>
 <p>Zusätzlich zu den uns bereits bekannten Sonderzeichen gibt es noch folgende:</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p><strong>Zeichen</strong></p></th>
-<th class="head text-left"><p><strong>Sonderbedeutung</strong></p></th>
-<th class="head text-left"><p><strong>Beispiel</strong></p></th>
-<th class="head text-left"><p><strong>Bemerkungen</strong></p></th>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-left head"><p><strong>Bemerkungen</strong></p></th>
 </tr>
 </thead>
 <tbody>
@@ -885,9 +896,9 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2168</span><span class="o">/</span><span class="mf">165035356.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">regex_4</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">regex_5</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> 
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">first_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">verbs</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_2</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">last_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_3</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
@@ -915,12 +926,11 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2168</span><span class="o">/</span><span class="mf">3006339820.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">kv21</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">pass</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
 
 <span class="ne">NameError</span>: name &#39;kv21&#39; is not defined
 </pre></div>
@@ -933,14 +943,14 @@ document.write(`
 </section>
 </section>
 <section id="gruppen">
-<h3>Gruppen<a class="headerlink" href="#gruppen" title="Permalink to this heading">#</a></h3>
+<h3>Gruppen<a class="headerlink" href="#gruppen" title="Link zu dieser Überschrift">#</a></h3>
 <p>Gruppen machen es möglich verschiedene Alternativen für eine bestimmte Position im regulären Ausdruck zu definieren. Sie werden mit runden Klammern abgegrenzt und die Alternativen mit senkrechten Strich voneinander unterschieden. In der Tabelle unten folgt auch gleich die Auflösung, wie ein regulärer Ausdruck für Wörter mit Doppelvokalen ausschaut:</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p><strong>Zeichen</strong></p></th>
-<th class="head text-left"><p><strong>Sonderbedeutung</strong></p></th>
-<th class="head text-left"><p><strong>Beispiel</strong></p></th>
-<th class="head text-left"><p><strong>Bemerkungen</strong></p></th>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-left head"><p><strong>Bemerkungen</strong></p></th>
 </tr>
 </thead>
 <tbody>
@@ -1021,13 +1031,13 @@ document.write(`
 </section>
 </section>
 <section id="das-re-modul">
-<h2>Das <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul<a class="headerlink" href="#das-re-modul" title="Permalink to this heading">#</a></h2>
+<h2>Das <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul<a class="headerlink" href="#das-re-modul" title="Link zu dieser Überschrift">#</a></h2>
 <p>Nun schauen wir uns das Modul <code class="docutils literal notranslate"><span class="pre">re</span></code> genauer an. Grundsätzlich kann man unterscheiden zwischen Funktionen zum bloßen Matchen regulärer Ausdrücke sowie weiteren zum Matchen und Ersetzen bzw. Matchen und Splitten von strings basierend auf regulären Ausdrücken.</p>
 <section id="matchen">
-<h3>Matchen<a class="headerlink" href="#matchen" title="Permalink to this heading">#</a></h3>
+<h3>Matchen<a class="headerlink" href="#matchen" title="Link zu dieser Überschrift">#</a></h3>
 <p>Zum Matchen haben wir oben bereits <code class="docutils literal notranslate"><span class="pre">re.findall</span></code> und <code class="docutils literal notranslate"><span class="pre">re.search</span></code> genutzt.</p>
 <section id="re-findall-und-re-search">
-<h4><code class="docutils literal notranslate"><span class="pre">re.findall</span></code> und <code class="docutils literal notranslate"><span class="pre">re.search</span></code><a class="headerlink" href="#re-findall-und-re-search" title="Permalink to this heading">#</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">re.findall</span></code> und <code class="docutils literal notranslate"><span class="pre">re.search</span></code><a class="headerlink" href="#re-findall-und-re-search" title="Link zu dieser Überschrift">#</a></h4>
 <p>Beide Funktionen nehmen als erstes Argument einen regulären Ausdruck und als zweites einen string, den sie nach dem regulären Ausdruck absuchen. Als weiteres, bisher noch unbekanntes Argument kann man ihnen, wie auch allen folgenden Funktionen, sog. Flags übergeben, die Eigenschaften des regulären Ausdrucks spezifizieren. Nützlich ist hier vor allem die <code class="docutils literal notranslate"><span class="pre">re.IGNORECASE</span></code>- bzw. abgekürzt <code class="docutils literal notranslate"><span class="pre">re.I</span></code>-Flag, die definiert, dass Groß- und Kleinschreibung nicht beachtet werden soll. Ein Beispiel dafür sehen wir weiter unten.</p>
 <p><code class="docutils literal notranslate"><span class="pre">re.findall</span></code> gibt alle matches (bzw. Teilmatches bei Gruppen, s.o.) auf einer Liste zurück. <code class="docutils literal notranslate"><span class="pre">re.search</span></code> gibt dagegen <em>ein</em> sog. match-Objekt zurück, bestehend aus dem ersten gefundenen match und dessen Position im abgesuchten string in Form von Indizes. Auf dieses match-Objekt können wir die etwas kryptisch benannten Methoden <code class="docutils literal notranslate"><span class="pre">group</span></code> und <code class="docutils literal notranslate"><span class="pre">span</span></code> anwenden, um separat auf match bzw. Indizes zuzugreifen. Der Unterschied wird in folgendem Code nochmal veranschaulicht:</p>
 <div class="cell docutils container">
@@ -1070,7 +1080,7 @@ document.write(`
 <p>Super!</p>
 </section>
 <section id="re-finditer-fortgeschritten">
-<h4><code class="docutils literal notranslate"><span class="pre">re.finditer</span></code> (fortgeschritten)<a class="headerlink" href="#re-finditer-fortgeschritten" title="Permalink to this heading">#</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">re.finditer</span></code> (fortgeschritten)<a class="headerlink" href="#re-finditer-fortgeschritten" title="Link zu dieser Überschrift">#</a></h4>
 <p>Angenommen, wir sind sowohl an allen matches in einem string als auch an deren jeweiligen Position interessiert, so können wir die <code class="docutils literal notranslate"><span class="pre">re.finditer</span></code>-Funktion verwenden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1096,7 +1106,7 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 <p>Kurze Randnotiz, die Du auch gerne überlesen kannst: <code class="docutils literal notranslate"><span class="pre">finditer</span></code> gibt keine normale Liste zurück, sondern eine andere Art von iterierbarem Objekt, das nach einer einzigen Iteration leer (engl. <em>exhausted</em>) ist (überprüf es, indem Du eine neue Code-Zelle einfügst und nochmal versuchst über <code class="docutils literal notranslate"><span class="pre">all_matches_with_indices</span></code> zu iterieren). Das bietet effizienztechnische Vorteile (wenn’s Dich interessiert: <a class="reference external" href="https://stackoverflow.com/questions/628903/performance-advantages-to-iterators">hier</a> eine Diskussion zum Thema), ist für gewöhnliche Programmierer:innen aber irritierend. 🙈</p>
 </section>
 <section id="re-match-und-re-fullmatch">
-<h4><code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code><a class="headerlink" href="#re-match-und-re-fullmatch" title="Permalink to this heading">#</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code><a class="headerlink" href="#re-match-und-re-fullmatch" title="Link zu dieser Überschrift">#</a></h4>
 <p>Daneben gibt es noch die Funktionen <code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code>. Erstere überprüft bei einem string, ob dessen Anfang den regulären Ausdruck matcht (wodurch <code class="docutils literal notranslate"><span class="pre">^</span></code> überflüssig wird, s.o.) und letztere, ob der gesamte string den regulären Ausdruck matcht (wodurch <code class="docutils literal notranslate"><span class="pre">^</span></code> und <code class="docutils literal notranslate"><span class="pre">$</span></code> überflüssig werden).</p>
 <p>Der folgende, recht „dreiste“ Code, der so ähnlich im Pizzabot integriert ist, endet nur, wenn Du einer Pizza mit „Ja“ zustimmst. Schau, was passiert, wenn Du z.B. mit „Ja, wobei nein doch nicht“ antwortest.</p>
 <div class="cell tag_&quot;hide-output&quot; docutils container">
@@ -1120,19 +1130,30 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2168</span><span class="o">/</span><span class="mf">3433418646.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">reaction_to_invalid_input</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Ich akzeptiere nur ein &#39;Ja&#39;.</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
 <span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> 
 <span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">yes_regex</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das ist die richtige Entscheidung!&quot;</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1174</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">1175</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1176</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
 
 <span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
@@ -1145,7 +1166,7 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 </section>
 </section>
 <section id="matchen-und-ersetzen-re-sub">
-<h3>Matchen und Ersetzen: <code class="docutils literal notranslate"><span class="pre">re.sub</span></code><a class="headerlink" href="#matchen-und-ersetzen-re-sub" title="Permalink to this heading">#</a></h3>
+<h3>Matchen und Ersetzen: <code class="docutils literal notranslate"><span class="pre">re.sub</span></code><a class="headerlink" href="#matchen-und-ersetzen-re-sub" title="Link zu dieser Überschrift">#</a></h3>
 <p>Aufbauend auf den Funktionen zum Matchen regulärer Ausdrücke, bietet das <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul auch die praktische Funktion <code class="docutils literal notranslate"><span class="pre">re.sub</span></code>, die alle matches des regulären Ausdrucks (<code class="docutils literal notranslate"><span class="pre">regex</span></code>) mit dem als zweiten Argument übergebenen string <code class="docutils literal notranslate"><span class="pre">replacement</span></code> im als drittes Argument übergegeben string (unten: <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code>) ersetzt. Im folgenden Code nutzen wir <code class="docutils literal notranslate"><span class="pre">re.sub</span></code>, um Geburtsdaten zu schwärzen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1251,7 +1272,7 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 <p>Soviel zur <code class="docutils literal notranslate"><span class="pre">re.sub</span></code>-Funktion.</p>
 </section>
 <section id="matchen-und-splitten-re-split">
-<h3>Matchen und Splitten: <code class="docutils literal notranslate"><span class="pre">re.split</span></code><a class="headerlink" href="#matchen-und-splitten-re-split" title="Permalink to this heading">#</a></h3>
+<h3>Matchen und Splitten: <code class="docutils literal notranslate"><span class="pre">re.split</span></code><a class="headerlink" href="#matchen-und-splitten-re-split" title="Link zu dieser Überschrift">#</a></h3>
 <p>Widmen wir uns abschließend kurz der Funktion <code class="docutils literal notranslate"><span class="pre">re.split</span></code>, die dem Splitten von strings basierend auf einem regulären Ausdruck dient. Im Gegensatz zur <code class="docutils literal notranslate"><span class="pre">split</span></code>-Methode für strings können wir also nicht bloß ein Zeichen (bzw. eine Zeichenkette) definieren, bei welchem der string jeweils unterteilt wird, sondern ein komplexeres Muster, z.B. mehrere Zeichen, bei denen (allen) gesplittet werden soll:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1275,10 +1296,10 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 </section>
 <hr class="docutils" />
 <section id="id1">
-<h2>🔧 Anwendungsfall: Der Pizzabot 🍕🤖<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>🔧 Anwendungsfall: Der Pizzabot 🍕🤖<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">#</a></h2>
 <p>Der Anwendungsfall besteht wie erwähnt aus zwei Teilaufgaben. In der RegEx-bezogenen Aufgabe baust Du bereits existierende, aber noch sehr primitive reguläre Ausdrücke aus, um den Pizzabot flexibler und kund:innenfreundlicher werden zu lassen. In der Dokumentationsaufgabe schaust Du Dir den – abgesehen von den mangelhaften regulären Ausdrücken fertigen – Code zum Pizzabot genau an und dokumentierst ihn Schritt für Schritt.</p>
 <section id="id2">
-<h3>RegEx-bezogene Aufgabe<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>RegEx-bezogene Aufgabe<a class="headerlink" href="#id2" title="Link zu dieser Überschrift">#</a></h3>
 <p>In der Datei „<a class="reference external" href="http://pizzabot.py">pizzabot.py</a>“ im Ordner „3_Dateien/Module“ befinden sich unter „REGEX PATTERNS“ sechs reguläre Ausdrücke: drei für die verschiedenen Pizzen, die der Bot im Angebot hat, zwei zur Normalisierung und Validierung von Antworten (Input) auf Ja-/Nein-Fragen und einen zur Validierung von what3words-Adressen, an die die Bestellung geliefert werden soll.</p>
 <p>Jeder dieser Ausdrücke dient dazu, den Input von User:innen zu validieren („handelt es sich um eine Pizza im Angebot?“, „handelt es sich um eine gültige Antwort auf die Ja-/Nein-Frage?“, „handelt es sich um eine gültige Lieferadresse?“). Die regulären Ausdrücke für die Pizzen und diejenige für „Ja“ bzw. „Nein“ haben zusätzlich die Aufgabe, den Input zu normalisieren. Will heißen: die Bestellung einer „Margerita“ (mit Rechtschreibfehler) soll der dem Bot verständlichen Kategorie „Margherita“ zugeordnet werden, ebenso wie ein „jap“ zu „yes“ im Code werden soll, wobei „yes“ dann den weiteren Codeablauf steuert (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">answer</span> <span class="pre">==</span> <span class="pre">&quot;yes&quot;</span></code>, siehe Code in „pizza_functions.py“).</p>
 <p>Erweitere nun die befindlichen regulären Ausdrücke derart, dass der Pizzabot</p>
@@ -1321,24 +1342,37 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2168</span><span class="o">/</span><span class="mf">2327317937.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#falls er schon einmal importiert wurde (sich also unter den lokalen Namen befindet), laden wir ihn erneut mithilfe von reload, um neueste Änderungen ausprobieren zu können, ohne den Kernel neuzustarten</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">reload</span><span class="p">(</span><span class="n">pizzabot</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
 
-<span class="nn">~/work/yfrommherz.ch/yfrommherz.ch/website/programming/3_Dateien/Module/pizzabot.py</span> in <span class="ni">order_pizza</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="c1">#------------&gt; CHOOSE PIZZA &lt;------------</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> 
+<span class="nn">File ~/Documents/Repositories/yfrommherz.ch/website/programming/1_Notebooks/../3_Dateien/Module/pizzabot.py:28,</span> in <span class="ni">order_pizza</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">def</span> <span class="nf">order_pizza</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> 
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="c1">#------------&gt; CHOOSE PIZZA &lt;------------ </span>
 <span class="ne">---&gt; </span><span class="mi">28</span>     <span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Hallo, ich bin der Pizzabot 🍕🤖</span><span class="se">\n</span><span class="s2">Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> 
 <span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">first_prompt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Super &quot;</span> <span class="o">+</span> <span class="n">user_name</span> <span class="o">+</span> <span class="s2">&quot;, welche Pizza möchtest Du bestellen?</span><span class="se">\n</span><span class="s2">&quot;</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1174</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">1175</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1176</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1167</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Forward raw_input to frontends</span>
+<span class="g g-Whitespace">   </span><span class="mi">1168</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1169</span><span class="sd"> Raises</span>
+<span class="g g-Whitespace">   </span><span class="mi">1170</span><span class="sd"> ------</span>
+<span class="g g-Whitespace">   </span><span class="mi">1171</span><span class="sd"> StdinNotImplementedError if active frontend doesn&#39;t support stdin.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1172</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1174</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1175</span>         <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1178</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1179</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1180</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1181</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1182</span> <span class="p">)</span>
 
 <span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
@@ -1348,7 +1382,7 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">reload</span></code> sorgt dafür, dass jeweils die neuste gespeicherte Version des Moduls <code class="docutils literal notranslate"><span class="pre">pizzabot</span></code> geladen wird. Standardmäßig geschieht dies aus Arbeitsspeichergründen erst nach einem Neustart des Kernels.</p>
 </section>
 <section id="id3">
-<h3>Dokumentationsaufgabe<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>Dokumentationsaufgabe<a class="headerlink" href="#id3" title="Link zu dieser Überschrift">#</a></h3>
 <p>Öffne die Datei „<a class="reference external" href="http://pizzabot.py">pizzabot.py</a>“ in Sublime Text (vgl. viertes Notebook) und versuche Schritt für Schritt nachzuvollziehen, was in der darin befindlichen Funktion <code class="docutils literal notranslate"><span class="pre">order_pizza</span></code> geschieht. Unter anderem werden darin die Funktionen <code class="docutils literal notranslate"><span class="pre">choose_pizza</span></code>, <code class="docutils literal notranslate"><span class="pre">remove_ingredient</span></code>, <code class="docutils literal notranslate"><span class="pre">add_ingredient</span></code>, <code class="docutils literal notranslate"><span class="pre">request_address</span></code> und <code class="docutils literal notranslate"><span class="pre">yn_validator</span></code> aus dem Modul <code class="docutils literal notranslate"><span class="pre">pizza_functions</span></code> importiert und aufgerufen. Öffne parallel auch diese Datei („pizza_function.py“) und versuche zu verstehen, was in den einzelnen Funktionen passiert und wie sie mit <code class="docutils literal notranslate"><span class="pre">order_pizza</span></code> interagieren.</p>
 <p>Konkret sollst Du folgendes tun:</p>
 <ol class="arabic simple">
@@ -1396,14 +1430,14 @@ request_address: None
 </section>
 </section>
 <section id="cheat-sheet">
-<h2>Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Permalink to this heading">#</a></h2>
+<h2>Cheat Sheet<a class="headerlink" href="#cheat-sheet" title="Link zu dieser Überschrift">#</a></h2>
 <p>Unten findest Du noch eine Zusammenstellung aller hier vorgestellten Sonderzeichen in einer Tabelle.</p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p><strong>Zeichen</strong></p></th>
-<th class="head text-left"><p><strong>Sonderbedeutung</strong></p></th>
-<th class="head text-left"><p><strong>Beispiel</strong></p></th>
-<th class="head text-center"><p><strong>Bemerkungen</strong></p></th>
+<tr class="row-odd"><th class="text-center head"><p><strong>Zeichen</strong></p></th>
+<th class="text-left head"><p><strong>Sonderbedeutung</strong></p></th>
+<th class="text-left head"><p><strong>Beispiel</strong></p></th>
+<th class="text-center head"><p><strong>Bemerkungen</strong></p></th>
 </tr>
 </thead>
 <tbody>

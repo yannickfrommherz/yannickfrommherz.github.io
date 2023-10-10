@@ -164,8 +164,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="7_Datenanalyse.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -174,8 +172,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Loesungen/7_Datenanalyse_Loesungen.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -540,7 +536,7 @@ document.write(`
 </section>
 <section id="listen-list">
 <h2>Listen / list<a class="headerlink" href="#listen-list" title="Permalink to this heading">#</a></h2>
-<p>Ein weiterer äußerst nützlicher Datentyp in Python sind Listen, genannnt <code class="docutils literal notranslate"><span class="pre">list</span></code>, die wir im Alltag z. B. in Form von To-Do-Listen oder Einkaufslisten kennen. Nachfolgend ein Beispiel für eine Liste mit allen Wochentagen:</p>
+<p>Ein weiterer äußerst nützlicher Datentyp in Python sind Listen, genannnt <code class="docutils literal notranslate"><span class="pre">list</span></code>, die wir im Alltag z. B. in Form von To-Do-Listen oder Einkaufslisten kennen. Nachfolgend ein Beispiel für eine Liste mit allen Wochentagen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Montag&quot;</span><span class="p">,</span> <span class="s2">&quot;Dienstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Mittwoch&quot;</span><span class="p">,</span> <span class="s2">&quot;Donnerstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Freitag&quot;</span><span class="p">,</span> <span class="s2">&quot;Samstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonntag&quot;</span><span class="p">]</span>
@@ -581,7 +577,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Indexing schauen wir uns weiter unten im Detail an. Weitere sog. <em>Methoden</em> zum Bearbeiten von Listen lernen wir im Notebook „Funktionen und Methoden“ kennen.</p>
+<p>Indexing schauen wir uns weiter unten im Detail an. Weitere sog. <em>Methoden</em> zum Bearbeiten von Listen lernen wir im Notebook „Funktionen und Methoden Teil 1“ kennen.</p>
 </section>
 <section id="dictionaries">
 <h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h2>
@@ -605,10 +601,10 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>Wenn Du alles richtig gemacht hast, kannst Du anschließend „key“ durch einen beliebigen Schlüssel (z. B. „Sommer“) in folgender Syntax einsetzen:</p>
+<p>Wenn Du alles richtig gemacht hast, kannst Du anschließend „key“ durch einen beliebigen Schlüssel (z. B. „Sommer“) in folgender Syntax einsetzen:</p>
 <p><code class="docutils literal notranslate"><span class="pre">season[&quot;key&quot;]</span></code></p>
 <p>Probier es in der Code-Zelle oben aus.</p>
-<p>Dadurch greifst Du nicht auf das <em>n</em>-te Element eines dictionaries zu, wie beim Indexing für Listen (das ginge auch nicht, da dictionaries im Gegensatz zu Listen keine Reihenfolge „abspeichern“; dazu mehr unter „Sequentialität“ unten). Stattdessen „sprichst“ Du einen bestimmten Wert über den zugehörigen Schlüssel „an“. Weitere Methoden, um mit dictionaries zu arbeiten, lernen wir ebenfalls im Notebook „Funktionen und Methoden“.</p>
+<p>Dadurch greifst Du nicht auf das <em>n</em>-te Element eines dictionary zu, wie beim Indexing für Listen (das ginge auch nicht, da dictionaries im Gegensatz zu Listen keine Reihenfolge „abspeichern“; dazu mehr unter „Sequentialität“ unten). Stattdessen „sprichst“ Du einen bestimmten Wert über den zugehörigen Schlüssel „an“. Weitere Methoden, um mit dictionaries zu arbeiten, lernen wir ebenfalls im Notebook „Funktionen und Methoden Teil 1“.</p>
 </section>
 <section id="mengen-set">
 <h2>Mengen / set<a class="headerlink" href="#mengen-set" title="Permalink to this heading">#</a></h2>
@@ -643,7 +639,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dem&#39;, &#39;zur&#39;, &#39;Holz.&#39;, &#39;Bank&#39;, &#39;eine&#39;, &#39;stand&#39;, &#39;Eingang&#39;, &#39;Vor&#39;, &#39;aus&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dem&#39;, &#39;zur&#39;, &#39;Vor&#39;, &#39;stand&#39;, &#39;eine&#39;, &#39;aus&#39;, &#39;Bank&#39;, &#39;Holz.&#39;, &#39;Eingang&#39;}
 </pre></div>
 </div>
 </div>
@@ -664,7 +660,7 @@ document.write(`
 </div>
 <p>Unser Satz beinhält also zehn Tokens und neun Types. Der Datentyp <code class="docutils literal notranslate"><span class="pre">set</span></code> bietet sich immer dann an, wenn wir nicht an der Häufigkeit von Elementen interessiert sind, sondern nur an deren bloßem Vorkommen.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 3:</strong> Stell Dir vor, Du und Dein:e Partner:in haben, ohne Euch zu verständigen, jeweils eine Einkaufsliste angefertigt. Zwischen den Einkaufslisten gibt es viele Übereinstimmungen, z. B. habt ihr beide „Hafermilch“ aufgeschrieben. Andere Lebensmittel finden sich nur auf jeweils einer der beiden Listen. Definier zwei Listen mit teils gleichen, teils unterschiedlichen Lebensmitteln und versuch anschließend, eine Einkaufsliste daraus zu machen, die keine Lebensmittel doppelt enthält. Euch fehlt zwar Hafermilch, aber ihr braucht nicht die doppelte Menge, nur weil beide „Hafermilch“ aufgeschrieben haben. Lass Dir dann die fertige Einkaufsliste ausgeben.</p>
+<p>✏️ <strong>Übung 3:</strong> Stell Dir vor, Du und Dein:e Partner:in haben, ohne Euch zu verständigen, jeweils eine Einkaufsliste angefertigt. Zwischen den Einkaufslisten gibt es viele Übereinstimmungen, z. B. habt ihr beide „Hafermilch“ aufgeschrieben. Andere Lebensmittel finden sich nur auf jeweils einer der beiden Listen. Definier zwei Listen mit teils gleichen, teils unterschiedlichen Lebensmitteln und versuch anschließend, eine Einkaufsliste daraus zu machen, die keine Lebensmittel doppelt enthält. Euch fehlt zwar Hafermilch, aber ihr braucht nicht die doppelte Menge, nur weil beide „Hafermilch“ aufgeschrieben haben. Lass Dir dann die fertige Einkaufsliste ausgeben.</p>
 <p>💡 Tipp: Ein Operator, den wir bereits im Notebook „Einführung“ verwendet haben, lässt sich auch hier einsetzen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,8 +788,8 @@ c is not &#39;a&#39;
 </div>
 </div>
 <p>Streng genommen sind Datentypen sog. <em>Klassen</em> in Python, daher die Bezeichnung <code class="docutils literal notranslate"><span class="pre">class</span></code> in der Ausgabe. Klassen können wir selbst auch definieren, d. h. wir könnten auch unsere eigenen Datentypen entwerfen. Das ist aber fortgeschritten und wir werden Klassen in den folgenden Notebooks höchstens am Rande begegnen.</p>
-<p>Den Datentyp zu überprüfen macht dann Sinn, wenn wir uns bei einer Variable nicht (mehr) sicher sind, was für ein Objekt durch sie referenziert wird. Viele Funktionen und Methoden (dazu mehr im Notebook „Funktionen und Methoden“) lassen sich nur auf bestimmte Datentypen anwenden, wie Du selbst sehen kannst, indem Du die bereits eingeführte <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion auf Objekte verschiedener Datentypen anwendest. Entfern die Hashtags im untenstehenden Codeblock, um die einzelnen <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle auszuführen. <br></p>
-<p>💡 Tipp: Die Fehlermeldung <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> kriegen wir zurück, wenn wir eine Operation auf einen Datentyp anwenden wollen, der nicht dafür vorgesehen ist. Sobald Python die Fehlermeldung ausgibt, stoppt die Ausführung des Programmcodes. Um die nachfolgenden <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle ausführen zu können, solltest du die problematischen Zeilen durch einen Hashtag <em>auskommentieren</em> (dies macht man sich z. B. auch beim <em>Debugging</em> zunutze, also wenn sich ein Fehler (<em>Bug</em>) eingeschlichen hat und der dafür verantwortliche Codeteil gesucht wird).</p>
+<p>Den Datentyp zu überprüfen macht dann Sinn, wenn wir uns bei einer Variable nicht (mehr) sicher sind, was für ein Objekt durch sie referenziert wird. Viele Funktionen und Methoden (dazu mehr im zweiteiligen Notebook „Funktionen und Methoden“) lassen sich nur auf bestimmte Datentypen anwenden, wie Du selbst sehen kannst, indem Du die bereits eingeführte <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion auf Objekte verschiedener Datentypen anwendest. Entfern die Hashtags im untenstehenden Codeblock, um die einzelnen <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle auszuführen. <br></p>
+<p>💡 Tipp: Die Fehlermeldung <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> kriegen wir zurück, wenn wir eine Operation auf einen Datentyp anwenden wollen, der nicht dafür vorgesehen ist. Sobald Python die Fehlermeldung ausgibt, stoppt die Ausführung des Programmcodes. Um die nachfolgenden <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle ausführen zu können, solltest du die problematischen Zeilen durch einen Hashtag <em>auskommentieren</em> (dies macht man sich z. B. auch beim <em>Debugging</em> zunutze, also wenn sich ein Fehler (<em>Bug</em>) eingeschlichen hat und der dafür verantwortliche Codeteil gesucht wird).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
@@ -813,7 +809,7 @@ c is not &#39;a&#39;
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2027</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1975</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">an_integer</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print(len(a_float))</span>
@@ -841,12 +837,12 @@ Ersetz <code class="docutils literal notranslate"><span class="pre">set</span></
 <span class="nb">print</span><span class="p">(</span><span class="n">integer_from_float</span><span class="p">,</span> <span class="s2">&quot;ist vom Typ&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">integer_from_float</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">string_from_integer</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">integer_from_float</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">string_from_integer</span><span class="p">,</span> <span class="s2">&quot;ist vom Typ&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">string_from_integer</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Beachte: JupyterLab umrahmt strings in der Ausgabe nicht mit Anführungszeichen.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_from_integer</span><span class="p">,</span> <span class="s2">&quot;ist vom Typ&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">string_from_integer</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Beachte: Jupyter umrahmt strings in der Ausgabe nicht mit Anführungszeichen.</span>
 
 <span class="n">tuple_from_list</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tuple_from_list</span><span class="p">,</span> <span class="s2">&quot;ist vom Typ&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">tuple_from_list</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="c1">#Interessantes Verhalten beim Casten eines strings in eine Liste (das hat mit der Sequentialität von strings zu tun, siehe unten)</span>
+<span class="c1">#Interessantes Verhalten beim Casten eines string in eine Liste (das hat mit der Sequentialität von strings zu tun, siehe unten)</span>
 <span class="n">list_from_string</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a_string</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="n">list_from_string</span><span class="p">,</span> <span class="s2">&quot;ist vom Typ&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">list_from_string</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1027,7 +1023,7 @@ e
 </div>
 </div>
 </div>
-<p>Mit <code class="docutils literal notranslate"><span class="pre">join</span></code> haben wir unsere erste sog. <em>Methode</em> kennengelernt. Zusammen mit <em>Funktionen</em> (von denen wir u. a. schon <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">len</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code> und die Castingfunktionen kennen) machen sie Programmieren sehr effizient, denn sie sind im Grunde nichts anderes als vordefinierter Code, den wir mithilfe simpler Syntax benutzen können, anstatt ihn selbst schreiben zu müssen. Das Notebook „Funktionen und Methoden“ widmet sich ihnen im Detail.</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">join</span></code> haben wir unsere erste sog. <em>Methode</em> kennengelernt. Zusammen mit <em>Funktionen</em> (von denen wir u. a. schon <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">len</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code> und die Castingfunktionen kennen) machen sie Programmieren sehr effizient, denn sie sind im Grunde nichts anderes als vordefinierter Code, den wir mithilfe simpler Syntax benutzen können, anstatt ihn selbst schreiben zu müssen. Das zweiteilige Notebook „Funktionen und Methoden“ widmet sich ihnen im Detail.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -1035,7 +1031,7 @@ e
 <h2>2. Iterierbarkeit<a class="headerlink" href="#iterierbarkeit" title="Permalink to this heading">#</a></h2>
 <p>Datentypen unterscheiden sich zweitens hinsichtlich ihrer <em>Iterierbarkeit</em> (engl. <em>iterability</em>). Iterierbare Objekte sind Objekte, die die in ihnen enthaltenen Elemente einzeln ausgeben können. Dazu zählen folgende Datentypen:</p>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code></p>
-<p>Bei <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code> und <code class="docutils literal notranslate"><span class="pre">dict</span></code> sind mit den einzelnen Elementen natürlich die Elemente auf der Liste, im Tupel, im Set bzw. Schlüssel-Werte-Paare im dictionary gemeint (wobei bei dictionaries auch nur auf die Schlüssel oder nur auf die Werte einzeln zugegriffen werden kann, wie wir im Notebook „Funktionen und Methoden“ lernen werden). Bei <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekten sind wie schon beim Thema „Sequentialität“ die einzelnen Zeichen gemeint.</p>
+<p>Bei <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code> und <code class="docutils literal notranslate"><span class="pre">dict</span></code> sind mit den einzelnen Elementen natürlich die Elemente auf der Liste, im Tupel, im Set bzw. Schlüssel-Werte-Paare im dictionary gemeint (wobei bei dictionaries auch nur auf die Schlüssel oder nur auf die Werte einzeln zugegriffen werden kann, wie wir im Notebook „Funktionen und Methoden Teil 1“ lernen werden). Bei <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekten sind wie schon beim Thema „Sequentialität“ die einzelnen Zeichen gemeint.</p>
 <p>Um die einzelnen Elemente eines iterierbaren Objekts nacheinander auszugeben, wird eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife benutzt, der wir schon verschiedentlich begegnet sind und die im Notebook „Kontrollstrukturen“ im Detail besprochen wird. Hier noch einmal ein Ausblick auf eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife zum Iterieren über eine Liste:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1113,9 +1109,9 @@ Sonntag
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False 
-→ denn 140479934802032 ist ungleich 140479934543152
+→ denn 140498522573296 ist ungleich 140498522632880
 Das list-Objekt ist immer noch das gleiche: True 
-→ denn 140479934460224 ist gleich 140479934460224
+→ denn 140498522548656 ist gleich 140498522548656
 </pre></div>
 </div>
 </div>
@@ -1125,7 +1121,7 @@ Das list-Objekt ist immer noch das gleiche: True
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">list2</span> <span class="o">=</span> <span class="n">list1</span>
-<span class="n">list2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#Die Listenmethode &#39;append&#39; hängt das Element in Klammern der Liste vor dem Punkt an (vgl. Notebook &quot;Funktionen und Methoden&quot;).</span>
+<span class="n">list2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#Die Listenmethode &#39;append&#39; hängt das Element in Klammern der Liste vor dem Punkt an (vgl. Notebook &quot;Funktionen und Methoden Teil 1&quot;).</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="c1">#Gibt [0,1,2,3] zurück</span>
 </pre></div>
 </div>
@@ -1172,7 +1168,7 @@ Dieselbe ID: False
 </div>
 </div>
 </div>
-<p>Im ersten Fall vergleichen wir die Werte der beiden Listen und das ergibt <code class="docutils literal notranslate"><span class="pre">True</span></code>. Im zweiten Fall schauen wir, ob es sich auch um dasselbe Objekt handelt und dies ergibt <code class="docutils literal notranslate"><span class="pre">False</span></code>. Der Grund dafür: Python erstellt beim Initialisieren einer Variable i. d. R. jeweils ein neues Objekt (selbst wenn ein Objekt mit denselben Werten bereits im Arbeitsspeicher existiert) und so wurden auch hier zwei Objekte erstellt (es gibt wenige Ausnahmen bei kleinen Ganzzahlen und strings ohne Sonderzeichen, die trotz getrennt initialisierter Variablen auf das gleiche Objekt zeigen).</p>
+<p>Im ersten Fall vergleichen wir die Werte der beiden Listen und das ergibt <code class="docutils literal notranslate"><span class="pre">True</span></code>. Im zweiten Fall schauen wir, ob es sich auch um dasselbe Objekt handelt und dies ergibt <code class="docutils literal notranslate"><span class="pre">False</span></code>. Der Grund dafür: Python erstellt beim Initialisieren einer Variable i. d. R. jeweils ein neues Objekt (selbst wenn ein Objekt mit denselben Werten bereits im Arbeitsspeicher existiert) und so wurden auch hier zwei Objekte erstellt (es gibt wenige Ausnahmen bei kleinen Ganzzahlen und strings ohne Sonderzeichen, die trotz getrennt initialisierter Variablen auf das gleiche Objekt zeigen).</p>
 <p>Den Unterschied zwischen <code class="docutils literal notranslate"><span class="pre">id(object1)</span> <span class="pre">==</span> <span class="pre">id(object2)</span></code>/<code class="docutils literal notranslate"><span class="pre">object1</span> <span class="pre">is</span> <span class="pre">object2</span></code> und <code class="docutils literal notranslate"><span class="pre">object1</span> <span class="pre">==</span> <span class="pre">object2</span></code> gibt es auch im Deutschen: Im ersten Fall handelt es sich um dasselbe Objekt, im zweiten Fall nur um das gleiche Objekt. Du hast vielleicht die gleichen Schuhe wie Dein:e Freund:in, aber wohl nicht dieselben. Im Deutschen ist das aber kaum so eineindeutig wie bei Python. 😅</p>
 <p>Wenn <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">is</span> <span class="pre">b</span></code> gilt, dann gilt natürlich immer auch <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code>, aber nicht unbedingt umgekehrt.</p>
 <p>Das war’s zum Thema Datentypen. Im Ordner „2_Cheat_Sheets“ gibt es übrigens eine Übersicht über alle Datentypen, die wir hier kennengelernt haben – inklusive ihrer Kurzform, Syntax und ihren Eigenschaften.</p>

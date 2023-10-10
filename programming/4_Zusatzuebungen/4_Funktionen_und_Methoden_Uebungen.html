@@ -162,8 +162,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/5_Input_und_Output.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/6_Regulaere_Ausdruecke.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/7_Datenanalyse.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -172,8 +170,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/Loesungen/6_Regulaere_Ausdruecke_Loesungen.html">6. Reguläre Ausdrücke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../1_Notebooks/Loesungen/7_Datenanalyse_Loesungen.html">7. Datenanalyse</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -453,14 +449,14 @@ document.write(`
   <section id="zusatzubungen-zum-notebook-funktionen-und-methoden">
 <h1>Zusatzübungen zum Notebook „Funktionen und Methoden“<a class="headerlink" href="#zusatzubungen-zum-notebook-funktionen-und-methoden" title="Permalink to this heading">#</a></h1>
 <ol class="arabic simple">
-<li><p>Identifiziere für sämtliche der folgenden Befehle, ob darin eine Funktion oder eine Methode verwendet wird. Überlege Dir zusätzlich, warum <code class="docutils literal notranslate"><span class="pre">reverse.count(&quot;e&quot;)</span></code> nicht immer den gleichen Wert zurückgibt.</p></li>
+<li><p>Identifizier für sämtliche der folgenden Befehle, ob darin eine Funktion oder eine Methode verwendet wird. Überleg Dir zusätzlich, warum <code class="docutils literal notranslate"><span class="pre">reverse.count(&quot;e&quot;)</span></code> nicht immer den gleichen Wert zurückgibt.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="n">string</span>  <span class="o">=</span> <span class="s2">&quot;Benutzen wir hier eine Funktion oder doch eine Methode?&quot;</span>
 
-<span class="c1">#hier geht&#39;s los:</span>
+<span class="c1">#Hier geht&#39;s los:</span>
 <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 <span class="n">lowered</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 <span class="n">a_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">lowered</span><span class="p">)</span>
@@ -473,14 +469,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
 </div>
 <ol class="arabic" start="2">
-<li><p>Finde alle in Klammern stehenden Wörter im Koalitionsvertrag von 2021 (z.B. „(SPD)“) und speichere sie ohne die Klammern auf einer Liste. Mehrere Wörter bzw. Sätze in Klammern kannst Du ignorieren. Die Länge der Liste sollte 104 betragen. Wie viele einzigartige Wörter in Klammern kommen im Text vor?</p>
-<p>📌 Herausforderung: Formuliere Deinen Code als List Comprehension in einer einzigen Zeile.</p>
+<li><p>Find alle in Klammern stehenden Wörter im Koalitionsvertrag von 2021 (z. B. „(SPD)“) und speicher sie ohne die Klammern auf einer Liste. Mehrere Wörter bzw. Sätze in Klammern kannst Du ignorieren. Die Länge der Liste sollte 104 betragen. Wie viele einzigartige Wörter in Klammern kommen im Text vor?</p>
+<p>📌 Herausforderung: Formulier Deinen Code als List Comprehension <strong>in einer einzigen Zeile</strong>. Das Öffnen und Einlesen der Datei sowie die Ausgabe der Resultate sind von der Zeilenbegrenzung ausgenommen.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -493,7 +489,7 @@ document.write(`
 </div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>Schreibe den Koalitionsvertrag von 2021 in umgekehrter Wortreihenfolge. Das letzte Wort soll an erster Stelle stehen, das zweitletzte an zweiter, etc. Lass Dir den umgekehrten Text bis und mit zum (ersten Vorkommen des) Wort(es) „Vorschlagsrecht“ ausgeben.</p></li>
+<li><p>Schreib den Koalitionsvertrag von 2021 in umgekehrter Wortreihenfolge. Das letzte Wort soll an erster Stelle stehen, das zweitletzte an zweiter, etc. Lass Dir den umgekehrten Text bis einschließlich des ersten Vorkommens des Wortes „Vorschlagsrecht“ ausgeben.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -525,8 +521,8 @@ document.write(`
 </div>
 </div>
 <ol class="arabic" start="5">
-<li><p>Aus wievielen Sätzen besteht der Koalitionsvertrag von 2021? Bestehen mehr Sätze aus zehn und mehr Wörtern oder aus weniger als zehn Wörtern?</p>
-<p>📌 Herausforderung: Formuliere den Code mithilfe von List Comprehensions kompakter.</p>
+<li><p>Aus wie vielen Sätzen besteht der Koalitionsvertrag von 2021? Bestehen mehr Sätze aus zehn und mehr Wörtern oder aus weniger als zehn Wörtern?</p>
+<p>📌 Herausforderung: Formulier den Code mithilfe von List Comprehensions kompakter.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -540,7 +536,7 @@ document.write(`
 </div>
 </div>
 <ol class="arabic simple" start="6">
-<li><p>Welcher Buchstabe kommt am häufigsten im Koalitionsvertrag 2021 vor?</p></li>
+<li><p>Welcher Buchstabe kommt am häufigsten im Koalitionsvertrag von 2021 vor?</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -553,8 +549,8 @@ document.write(`
 </div>
 </div>
 <ol class="arabic" start="7">
-<li><p>Du stehst vor der Aufgabe, <code class="docutils literal notranslate"><span class="pre">message</span></code> zu verschlüsseln. Dazu sollst Du einen einfachen Verschlüsselungscode verwenden, der ganz einfach jeden Buchstaben durch einen bestimmten anderen Buchstaben ersetzt. Die gleich langen Listen <code class="docutils literal notranslate"><span class="pre">encoding</span></code> und <code class="docutils literal notranslate"><span class="pre">decoding</span></code> enthalten jeden Buchstaben ein einziges Mal, in alphabetischer Reihenfolge (<code class="docutils literal notranslate"><span class="pre">encoding</span></code>) bzw. in zufälliger Reihenfolge (<code class="docutils literal notranslate"><span class="pre">decoding</span></code>). Verwende sie, um ein Objekt eines geeigneten Datentyps zu erstellen, in welchem zu jedem unverschlüsselten Buchstaben der Liste <code class="docutils literal notranslate"><span class="pre">encoding</span></code> der jeweilige verschlüsselte Buchstabe der Liste <code class="docutils literal notranslate"><span class="pre">decoding</span></code> eingetragen ist. Sorge anschließend dafür, dass <code class="docutils literal notranslate"><span class="pre">message</span></code> entsprechend Deines Verschlüsselungscode kodiert wird. Welche zwei Schritte sind nötig, damit wirklich sämtliche Zeichen verschlüsselt werden? Lass Dir zum Schluss sowohl die kodierte Nachrichte als auch den Verschlüsselungscode ausgeben.</p>
-<p>📌 Herausforderung: Füge an zwanzig <em>zufälligen</em> Stellen in der verschlüsselten Nachricht <em>zufällige</em> Ablenkungszeichen ein, die einen potenziellen Codeknacker zusätzlich verwirren. Definiere dazu eine Liste mit ca. zehn Ablenkungszeichen (z.B. „&amp;“ oder „#“). Um die zwanzig Stellen, an denen Du ein Ablenkungszeichen einfügst, <em>zufällig</em> auszuwählen, kannst Du die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> verwenden. Um <em>zufällig</em> ein Zeichen Deiner Ablenkungszeichen auszuwählen, kannst Du die Funktion <code class="docutils literal notranslate"><span class="pre">choice</span></code> desselben Moduls verwenden. Schaue ggf. in der <a class="reference external" href="https://docs.python.org/3/library/random.html">Dokumentation</a> nach, wie man diese Funktionen benutzt.</p>
+<li><p>Du stehst vor der Aufgabe, <code class="docutils literal notranslate"><span class="pre">message</span></code> zu verschlüsseln. Dazu sollst Du einen einfachen Verschlüsselungscode verwenden, der ganz einfach jeden Buchstaben durch einen bestimmten anderen Buchstaben ersetzt. Die gleich langen Listen <code class="docutils literal notranslate"><span class="pre">encoding</span></code> und <code class="docutils literal notranslate"><span class="pre">decoding</span></code> enthalten jeden Buchstaben ein einziges Mal, in alphabetischer Reihenfolge (<code class="docutils literal notranslate"><span class="pre">encoding</span></code>) bzw. in zufälliger Reihenfolge (<code class="docutils literal notranslate"><span class="pre">decoding</span></code>). Verwend sie, um ein Objekt eines geeigneten Datentyps zu erstellen, in welchem zu jedem unverschlüsselten Buchstaben der Liste <code class="docutils literal notranslate"><span class="pre">encoding</span></code> der jeweilige verschlüsselte Buchstabe der Liste <code class="docutils literal notranslate"><span class="pre">decoding</span></code> eingetragen ist. Sorg anschließend dafür, dass <code class="docutils literal notranslate"><span class="pre">message</span></code> entsprechend Deines Verschlüsselungscodes kodiert wird. Welche zwei Schritte sind nötig, damit wirklich sämtliche Zeichen verschlüsselt werden? Lass Dir zum Schluss sowohl die kodierte Nachricht als auch den Verschlüsselungscode ausgeben.</p>
+<p>📌 Herausforderung: Füg an zwanzig <em>zufälligen</em> Stellen in der verschlüsselten Nachricht <em>zufällige</em> Ablenkungszeichen ein, die einen potenziellen Codeknacker zusätzlich verwirren. Definier dazu eine Liste mit ca. zehn Ablenkungszeichen (z. B. „&amp;“ oder „#“). Um die zwanzig Stellen, an denen Du ein Ablenkungszeichen einfügst, <em>zufällig</em> auszuwählen, kannst Du die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> verwenden. Um <em>zufällig</em> ein Zeichen Deiner Ablenkungszeichen auszuwählen, kannst Du die Funktion <code class="docutils literal notranslate"><span class="pre">choice</span></code> desselben Moduls verwenden. Schau ggf. in der <a class="reference external" href="https://docs.python.org/3/library/random.html">Dokumentation</a> nach, wie man diese Funktionen benutzt.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -573,7 +569,7 @@ document.write(`
 </div>
 <ol class="arabic" start="8">
 <li><p>Berechne alle Wort-Trigramme für die ersten hundert Sätze im Koalitionsvertrag von 2021 und lass Dir die ersten zehn davon ausgeben.</p>
-<p>📌 Herausforderung: Verwende eine List Comprehension zum Erstellen der Liste mit Trigrammen.</p>
+<p>📌 Herausforderung: Verwend eine List Comprehension zum Erstellen der Liste mit Trigrammen.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -586,10 +582,17 @@ document.write(`
 </div>
 </div>
 <ol class="arabic" start="9">
-<li><p>Schaffe aufbauend auf Übung 8 eine Funktion namens <code class="docutils literal notranslate"><span class="pre">ngrammer</span></code>, die wir fortan zum Ausrechnen von n-grammen benutzen können. Die Funktion soll neben einem string, aus dem die n-gramme errechnet werden, auch eine Ganzzahl als Argument akzeptieren. Letzere definiert die Größe der n-gramme, sprich: n. Die Funktion soll die Liste mit n-grammen der gewünschten Größe zurückgeben. Wende sie anschließend auf <code class="docutils literal notranslate"><span class="pre">kv21</span></code> an und überprüfe, ob die ersten zehn Trigramme dieselben wie die in in Übung 8 errechneten sind.</p>
-<p>📌 Herausforderung: Begrenze den Funktionscode auf eine einzige Zeile.</p>
+<li><p>Schaff aufbauend auf Übung 8 eine Funktion namens <code class="docutils literal notranslate"><span class="pre">ngrammer</span></code>, die wir fortan zum Ausrechnen von n-grammen benutzen können. Die Funktion soll neben einem string, aus dem die n-gramme errechnet werden, auch eine Ganzzahl als Argument akzeptieren. Letztere definiert die Größe der n-gramme, sprich: n. Die Funktion soll die Liste mit n-grammen der gewünschten Größe zurückgeben. Wend sie anschließend auf <code class="docutils literal notranslate"><span class="pre">kv21</span></code> an und überprüf, ob die ersten zehn Trigramme dieselben wie die in der Übung 8 errechneten sind.</p>
+<p>📌 Herausforderung: Begrenz den Funktionscode auf eine einzige Zeile.</p>
 </li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple" start="10">
 <li><p>Der folgende Code soll die Liste <code class="docutils literal notranslate"><span class="pre">some_letters</span></code> alphabetisch sortieren. Was läuft schief?</p></li>
 </ol>
@@ -608,7 +611,7 @@ document.write(`
 </div>
 </div>
 <ol class="arabic simple" start="11">
-<li><p>Verwende eine List Comprehension, um die string-Methode <code class="docutils literal notranslate"><span class="pre">title</span></code> nachzuprogrammieren und Dir <code class="docutils literal notranslate"><span class="pre">my_english_title</span></code> als englischsprachigen Titel gemäß der Methode ausgeben zu lassen. Baue zusätzlich eine Bedingung ein, sodass nur Wörter von einer Länge von über drei Buchstaben großgeschrieben werden. Damit nähern wir uns den komplizierten Regeln von <a class="reference external" href="https://en.wikipedia.org/wiki/Title_case">Title Case</a> zumindest etwas mehr als die sehr brachiale <code class="docutils literal notranslate"><span class="pre">title</span></code>-Methode.</p></li>
+<li><p>Verwend eine List Comprehension, um die string-Methode <code class="docutils literal notranslate"><span class="pre">title</span></code> nachzuprogrammieren und Dir <code class="docutils literal notranslate"><span class="pre">my_english_title</span></code> als englischsprachigen Titel gemäß der Methode ausgeben zu lassen. Bau zusätzlich eine Bedingung ein, sodass nur Wörter von einer Länge von über drei Buchstaben großgeschrieben werden. Damit nähern wir uns den komplizierten Regeln von <a class="reference external" href="https://en.wikipedia.org/wiki/Title_case">Title Case</a> zumindest etwas mehr als die sehr brachiale <code class="docutils literal notranslate"><span class="pre">title</span></code>-Methode.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -618,9 +621,37 @@ document.write(`
 </div>
 </div>
 <ol class="arabic" start="12">
-<li><p>Copy-paste die im Notebook erstellte Funktion <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> in die Code-Zelle unten. Lösche den Part mit den Stoppwörtern, da wir diese bei der Berechnung von n-grammen nicht entfernen wollen (tatsächlich sind diese „kleinen“ Wörter in n-grammen sehr bedeutungsvoll).</p>
-<p>Kombiniere den Code nun mit der Funktion <code class="docutils literal notranslate"><span class="pre">ngrammer</span></code> von oben, sodass wahlweise die Frequenzen von Wörtern (Unigrammen) oder n-grammen (mit n&gt;1) berechnet und zurückgegeben werden. Lass Dir anschließend Quadrigramm-Frequenzen im Koalitionsvertrag von 2021 ausgeben (die Berechnung dauert womöglich eine Weile).</p>
-<p>📌 Finde heraus, wie Du einen Standardwert für <code class="docutils literal notranslate"><span class="pre">n</span></code> von 1 festlegen kannst, sodass Wortfrequenzen berechnet werden, sofern beim Funktionsaufruf kein abweichender Wert für <code class="docutils literal notranslate"><span class="pre">n</span></code> übergeben wird. Implementiere diesen Standardwert in Deine Funktion.</p>
+<li><p>Nicht nur <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen können ineinander verschachtelt werden, sondern auch List Comprehensions. Der folgende (funktionierende) Code iteriert über drei Listen bestehend aus Vornamen, Nachnamen und E-Maildomänen und generiert daraus komplette, fiktive E-Mailadressen, wie sie für eine Spam-Mailattacke benutzt werden könnten.</p>
+<p>Wandle den gegebenen Code in <strong>eine</strong> List Comprehension um, um dasselbe Resultat zu erzielen.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Ute&quot;</span><span class="p">,</span> <span class="s2">&quot;Catarina&quot;</span><span class="p">]</span>
+<span class="n">surnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Schulze&quot;</span><span class="p">,</span> <span class="s2">&quot;Rodriguez&quot;</span><span class="p">,</span> <span class="s2">&quot;Meier&quot;</span><span class="p">,</span> <span class="s2">&quot;Markov&quot;</span><span class="p">]</span>
+<span class="n">domains</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gmx.de&quot;</span><span class="p">,</span> <span class="s2">&quot;gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;icloud.com&quot;</span><span class="p">,</span> <span class="s2">&quot;web.de&quot;</span><span class="p">]</span>
+
+
+<span class="n">emails</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">surname</span> <span class="ow">in</span> <span class="n">surnames</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">domain</span> <span class="ow">in</span> <span class="n">domains</span><span class="p">:</span>
+            <span class="n">emails</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">surname</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;@&quot;</span> <span class="o">+</span> <span class="n">domain</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">emails</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>64
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="13">
+<li><p>Copy-paste die im Notebook erstellte Funktion <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> in die Code-Zelle unten. Lösch den Part mit den Stoppwörtern, da wir diese bei der Berechnung von n-grammen nicht entfernen wollen (tatsächlich sind diese „kleinen“ Wörter in n-grammen sehr bedeutungsvoll).</p>
+<p>Kombinier den Code nun mit der Funktion <code class="docutils literal notranslate"><span class="pre">ngrammer</span></code> von oben, sodass wahlweise die Frequenzen von Wörtern (Unigrammen) oder n-grammen (mit n&gt;1) berechnet und zurückgegeben werden. Lass Dir anschließend Quadrigramm-Frequenzen im Koalitionsvertrag von 2021 ausgeben (die Berechnung dauert womöglich eine Weile).</p>
+<p>📌 Herausforderung: Find heraus, wie Du einen Standardwert für <code class="docutils literal notranslate"><span class="pre">n</span></code> von <code class="docutils literal notranslate"><span class="pre">1</span></code> festlegen kannst, sodass Wortfrequenzen berechnet werden, sofern beim Funktionsaufruf kein abweichender Wert für <code class="docutils literal notranslate"><span class="pre">n</span></code> übergeben wird. Implementier diesen Standardwert in Deine Funktion.</p>
 </li>
 </ol>
 <div class="cell docutils container">
@@ -634,9 +665,16 @@ document.write(`
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="13">
-<li><p>Speicher die in Übung 12 erstellte Funktion als Modul und importiere sie.</p></li>
+<ol class="arabic simple" start="14">
+<li><p>Speicher die in Übung 13 erstellte Funktion als Modul und importier sie.</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

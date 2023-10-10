@@ -1,0 +1,993 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Input und Output Teil 2 &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/5_Input_und_Output_Teil_2';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/5_Input_und_Output_Teil_2.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../phd.html">PhD project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output.html">5. Input und Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/1_Einfuehrung_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/2_Datentypen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">3. Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Loesungen.html">4. Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Loesungen.html">5. Input und Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/2_Datentypen_Uebungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">1. Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">2. Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">3. Kontrollstrukturen</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/1_Notebooks/5_Input_und_Output_Teil_2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/yannickfrommherz/yfrommherz.ch/blob/main/website/programming/1_Notebooks/5_Input_und_Output_Teil_2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/5_Input_und_Output_Teil_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/programming/1_Notebooks/5_Input_und_Output_Teil_2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Input und Output Teil 2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabellarische-dateien">Tabellarische Dateien</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-csv-modul">Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-innen-input-fur-interaktive-programme">User:innen-Input für interaktive Programme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren">🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-print-funktion-im-detail">Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">f-strings</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="input-und-output-teil-2">
+<h1>Input und Output Teil 2<a class="headerlink" href="#input-und-output-teil-2" title="Permalink to this heading">#</a></h1>
+<p>Willkommen zurück! Auch in diesem Notebook geht es um Input und Output. Zunächst lernst Du, wie Du bei Python mit tabellarischen Dateien arbeiten kannst. Anschließend erfährst Du, wie sich mittels User:innen-Input der Ablauf eines laufenden Programms kontrollieren lässt. Abschließend gehen wir detailliert auf die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ein. Wie versprochen erwartet Dich wieder ein Anwendungsfall - das Programmieren des Gedankenprotokollanten. Viel Erfolg!</p>
+<section id="tabellarische-dateien">
+<h2>Tabellarische Dateien<a class="headerlink" href="#tabellarische-dateien" title="Permalink to this heading">#</a></h2>
+<p>Tabellarische Dateien kennst Du von Microsoft Excel (oder vergleichbaren Programmen). An der Benutzeroberfläche sind sie in Spalten und Zeilen organisiert, wie wir hier am Beispiel einer Tabelle über die <a class="reference external" href="https://de.wikipedia.org/wiki/Liste_der_fl%C3%A4chengr%C3%B6%C3%9Ften_Gemeinden_Deutschlands">zehn flächengrößten Gemeinden Deutschlands</a> sehen:</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_Tabelle.png"><p>Der einzige strukturelle Unterschied zu Textdateien ist, dass es neben Zeilen auch eine zweite Strukturdimension gibt, nämlich die Spalten.</p>
+<p>„Hinter den Kulissen“ werden die einzelnen Spalten durch ein Trennzeichen (verwirrenderweise teils <em>separator</em>, teils <em>delimiter</em> auf Englisch) strukturiert. Bei dieser Datei sind dies Semikola (Strichpunkte), wie wir hier sehen:</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Flächengrösste_Gemeinden_roh.png"><p>Die Zeilen wiederum werden wie bei Textdateien durch Zeilenumbrüche strukturiert, wobei die dafür zuständigen Zeichen im Screenshot oben einmal mehr nicht sichtbar sind.</p>
+<p>Wenn wir tabellarische Dateien einlesen, müssen wir wissen, mithilfe welchen Trennzeichens sie auf der Spaltenebene strukturiert sind, damit die Daten einer Zeile an den richtigen Orten in Spalten unterteilt werden. Neben Semikola (<code class="docutils literal notranslate"><span class="pre">&quot;;&quot;</span></code>) sind Kommata (<code class="docutils literal notranslate"><span class="pre">&quot;,&quot;</span></code>) oder Tabs (<code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>) übliche Trennzeichen. Wenn, wie oben, Semikola das Trennzeichen sind, können die anderen üblichen Trennzeichen ohne Weiteres zwischen den Semikola vorkommen (siehe z. B. die Kommata in den Flächenangaben). Auch beim Schreiben von tabellarischen Dateien müssen bzw. können wir spezifizieren, welches Trennzeichen verwendet werden soll.</p>
+<p>Zur Arbeit mit tabellarischen Daten (sowie generell für fortgeschrittene Datenanalyse) gibt es die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, der das zweiteilige Notebook „Datenanalyse“ gewidmet ist. Hier schauen wir uns das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul an, das sich für den einfachen Umgang mit tabellarischen Daten eignet.</p>
+<section id="das-csv-modul">
+<h3>Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul<a class="headerlink" href="#das-csv-modul" title="Permalink to this heading">#</a></h3>
+<p>Wie üblich importieren wir das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul zu Beginn. Ebenfalls setzen wir stets <code class="docutils literal notranslate"><span class="pre">csv.</span></code> vor den Namen von Funktionen aus diesem Modul (vgl. oben zum <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul).</p>
+<p>Die Datei mit den flächengrößten Gemeinden lesen wir natürlich auch mittels <code class="docutils literal notranslate"><span class="pre">open</span></code>, eingebettet in ein <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement, ein. Das <code class="docutils literal notranslate"><span class="pre">read_file</span></code> übergeben wir zusammen mit dem korrekten Trennzeichen (<code class="docutils literal notranslate"><span class="pre">delimiter=&quot;;&quot;</span></code>) der <code class="docutils literal notranslate"><span class="pre">reader</span></code>-Funktion (beachte die „agentive“ Benennung von Funktionen im <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul). Standardtrennzeichen ist übrigens das Komma (der Name des Moduls ist nämlich eine Abkürzung für <em>comma-separated values</em>), das wie immer nicht angegeben werden muss.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">reader</span></code>-Funktion gibt uns nun nicht ein gewöhnliches Python-Objekt zurück (etwa einen string oder eine Liste wie beim Textinput), sondern ein <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code>, das wir mit <code class="docutils literal notranslate"><span class="pre">data</span></code> referenzieren. Über dieses <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code> können wir wie gewohnt iterieren und die einzelnen Zeilen einer Liste anhängen. Wir müssen das innerhalb der Einrückung machen, da  das <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code> zusammen mit <code class="docutils literal notranslate"><span class="pre">read_file</span></code> wieder geschlossen wird, sobald wir die Einrückung verlassen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Tabellarische_Daten/Liste_der_flächengrössten_Gemeinden_Deutschlands.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+    
+    <span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">read_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+    <span class="n">biggest_municipalities</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">biggest_municipalities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">biggest_municipalities</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Rang&#39;, &#39;Fläche in km²&#39;, &#39;Gemeinde&#39;, &#39;Status/Kreiszugehörigkeit&#39;, &#39;Land&#39;]
+[&#39;1&#39;, &#39;891,12&#39;, &#39;Berlin&#39;, &#39;Kreisfreie Stadt&#39;, &#39;Berlin&#39;]
+[&#39;2&#39;, &#39;755,09&#39;, &#39;Hamburg&#39;, &#39;Kreisfreie Stadt&#39;, &#39;Hamburg&#39;]
+[&#39;3&#39;, &#39;632,55&#39;, &#39;Gardelegen&#39;, &#39;Stadt im Altmarkkreis Salzwedel&#39;, &#39;Sachsen-Anhalt&#39;]
+[&#39;4&#39;, &#39;523,95&#39;, &#39;Möckern&#39;, &#39;Stadt im Landkreis Jerichower Land&#39;, &#39;Sachsen-Anhalt&#39;]
+[&#39;5&#39;, &#39;468,03&#39;, &#39;Zerbst/Anhalt&#39;, &#39;Stadt im Landkreis Anhalt-Bitterfeld&#39;, &#39;Sachsen-Anhalt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 1:</strong> Find heraus, wie viele der 100 flächengrößten Gemeinden zu jedem der 16 Bundesländer gehören. Du kannst direkt mit <code class="docutils literal notranslate"><span class="pre">biggest_municipalities</span></code> weiterarbeiten. Dir steht ein dictionary mit Bundesländern zur Verfügung. Ziel ist es, den Wert (jetzt noch null für alle Bundesländer) für jedes Bundesland korrekt zu berechnen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">federal_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Baden-Württemberg&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Bayern&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Berlin&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Brandenburg&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Bremen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Hamburg&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Hessen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+                <span class="s1">&#39;Mecklenburg-Vorpommern&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Niedersachsen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Nordrhein-Westfalen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Rheinland-Pfalz&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Saarland&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+                <span class="s1">&#39;Sachsen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Sachsen-Anhalt&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Schleswig-Holstein&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Thüringen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Sehr gut – in Brandenburg befinden sich also die meisten der 100 flächengrößten Gemeinden Deutschlands.</p>
+<p>Das dictionary <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> wollen wir nun als Tabelle extern speichern. Die Tabelle wird ganz einfach aus zwei Spalten sowie 17 Zeilen (eine Zeile mit Spaltenüberschriften + 16 Bundesländer) bestehen.</p>
+<p>Der Output von tabellarischen Dateien funktioniert wie gewohnt in einem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement über die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion mit dem Parameter <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>. Nun kommt das Pendant zu <code class="docutils literal notranslate"><span class="pre">reader</span></code>, nämlich <code class="docutils literal notranslate"><span class="pre">writer</span></code>, zum Einsatz, dies jedoch auf ziemlich unintuitive Art. Wenn es Dich interessiert, wird im Folgenden erklärt, was da genau geschieht. Andernfalls ist es auch in Ordnung, die Syntax unten einfach zu copy-pasten, wann immer Du tabellarische Daten schreiben musst.</p>
+<ol class="arabic simple">
+<li><p>Wir initialisieren ein <code class="docutils literal notranslate"><span class="pre">_csv.writer</span> <span class="pre">object</span></code>, indem wir der <code class="docutils literal notranslate"><span class="pre">writer</span></code>-Funktion die zu beschreibende Datei (<code class="docutils literal notranslate"><span class="pre">write_file</span></code>) als Argument übergeben. Das <code class="docutils literal notranslate"><span class="pre">_csv.writer</span> <span class="pre">object</span></code> weisen wir der Variable <code class="docutils literal notranslate"><span class="pre">federal_states_writer</span></code> zu. Was wir nun in dieses Objekt reinschreiben, landet am Schluss in der externen Datei.</p></li>
+<li><p>Wir wenden die Methode <code class="docutils literal notranslate"><span class="pre">writerow</span></code> auf das <code class="docutils literal notranslate"><span class="pre">_csv.writer</span> <span class="pre">object</span></code> an, um unsere Daten Zeile für Zeile zu schreiben:</p>
+<ul class="simple">
+<li><p>Wir schreiben die Spaltenüberschriften (<code class="docutils literal notranslate"><span class="pre">header</span></code>) in die erste Zeile.</p></li>
+<li><p>Wir iterieren danach über <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> und schreiben Zeile für Zeile in <code class="docutils literal notranslate"><span class="pre">federal_states_writer</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Damit wir auf dem gleichen Stand sind, wird das dictionary mit den korrekten Werten pro Schlüssel hier noch einmal initialisiert.</span>
+<span class="n">federal_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Baden-Württemberg&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Bayern&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Berlin&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Brandenburg&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;Bremen&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Hamburg&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Hessen&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+                  <span class="s1">&#39;Mecklenburg-Vorpommern&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Niedersachsen&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;Nordrhein-Westfalen&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;Rheinland-Pfalz&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+                  <span class="s1">&#39;Saarland&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Sachsen&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Sachsen-Anhalt&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Schleswig-Holstein&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Thüringen&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/Anzahl_der_groessten_Gemeinden_pro_Bundesland.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+    
+    <span class="n">federal_states_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">write_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+    
+    <span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bundesland&quot;</span><span class="p">,</span> <span class="s2">&quot;Anzahl der 100 flächengrößten Gemeinden&quot;</span><span class="p">]</span>
+    
+    <span class="n">federal_states_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">federal_states_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Nun kennen wir die zwei grundlegenden Techniken zum Input bzw. Output von tabellarischen Dateien.</p>
+</section>
+</section>
+<section id="user-innen-input-fur-interaktive-programme">
+<h2>User:innen-Input für interaktive Programme<a class="headerlink" href="#user-innen-input-fur-interaktive-programme" title="Permalink to this heading">#</a></h2>
+<p>Wie wir bereits im Notebook „Kontrollstrukturen“ gesehen haben, ist es ganz einfach, User:innen-Input in Programme einzubauen. Wir verwenden dafür die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion und übergeben ihr einen sog. <em>prompt</em> als string. Dieser <em>prompt</em> ist die Aufforderung, die der Benutzerin angezeigt wird, sobald Python die Code-Zeile mit der <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion erreicht. Das, was die Benutzerin nun eingibt (und durch Drücken von <code class="docutils literal notranslate"><span class="pre">Enter</span></code> „abschickt“), weisen wir direkt einer Variablen zu.</p>
+<p>Python interpretiert den Input standardmäßig als string. Wenn wir z. B. eine Ganzzahl erwarten (und der anschließende Code darauf ausgerichtet ist), müssen wir den Input vor der Variablenzuweisung entsprechend casten (s. u.).</p>
+<p>Führ die folgende Zelle aus und agier im Anschluss als Benutzer:in. Eventuell musst Du erst ins Antwortfeld unter der Frage klicken, sodass der Cursor blinkt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">#Handelt es sich um einen anderen Datentyp als string, muss der Input gecastet werden.</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+
+<span class="c1">#Ohne Casting würde diese bedingte Anweisung fehlschlagen, da strings nicht größer gleich 18 sein können.</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Freut mich, &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;. Du darfst natürlich in den Club! 🎉&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Freut mich, &quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;. Du darfst leider nicht in den Club! 😢&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2335</span><span class="o">/</span><span class="mf">3341218118.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Handelt es sich um einen anderen Datentyp als string, muss der Input gecastet werden.</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1174</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1175</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Solltest Du im Folgenden beim Ausführen einer Code-Zelle auf die Fehlermeldung <code class="docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">not</span> <span class="pre">executed</span> <span class="pre">due</span> <span class="pre">to</span> <span class="pre">pending</span> <span class="pre">input</span></code> stoßen, lies im Notebook „Kontrollstrukturen“ nach, woran das liegt.</p>
+<p>Das ist auch schon alles, das wir über User:innen-Input wissen müssen.</p>
+<p>Nun können wir uns unserem Anwendungsfall zuwenden.</p>
+</section>
+<hr class="docutils" />
+<section id="anwendungsfall-einen-gedankenprotokollanten-programmieren">
+<h2>🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren<a class="headerlink" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren" title="Permalink to this heading">#</a></h2>
+<p>Deine Aufgabe ist es also, ein kleines interaktives Programm zu schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Hier folgt nochmal das gleiche Video vom Anfang:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Führ diese Zelle aus, um das Video einzubetten.</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;RlshSCCX55E&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="400"
+            height="300"
+            src="https://www.youtube.com/embed/RlshSCCX55E"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>Ergänzend zu diesem Video siehst Du unten eine Liste an einfachen Schritten, die – korrekt implementiert – die Aufgabe lösen und das im Video gezeigte Endprodukt verwirklichen. Diese einzelnen Schritte entsprechen dem zweiten Punkt beim algorithmischen Denken (nach der initialen Problemanalyse und vor der konkreten Implementierung).</p>
+<p>Überleg Dir für jeden einzelnen Schritt, wie Du ihn konkret implementieren kannst, d. h. welche Funktionen oder Methoden sowie Kontrollstrukturen Du dafür benötigst. Schreib zu jedem Punkt alle Techniken auf, mithilfe welcher Du den jeweiligen Punkt konkret in Code umsetzen kannst. Ignorier dabei erst einmal, wie und in welcher Reihenfolge Du die Schritte anschließend miteinander verbindest:</p>
+<ol class="arabic simple">
+<li><p>Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet.</p></li>
+<li><p>Die Benutzerin wird aufgefordert, anzugeben, in welchem Dokument sie ihre(n) Gedanke(n) festhalten will. Handelt es sich um ein noch nicht existierendes Dokument, so wird es für sie geschaffen. Existiert das Dokument bereits, so soll(en) ihr(e) Gedanke(n) an dessen Ende gehängt werden.</p></li>
+<li><p>Die Benutzerin wird aufgefordert, ihren Gedanken einzugeben.</p></li>
+<li><p>Der Gedanke wird in das gewählte Dokument geschrieben.</p></li>
+<li><p>Die Benutzerin wird zur Entscheidung aufgefordert, ob sie einen weiteren Gedanken im selben Dokument festhalten oder das Programm verlassen will.</p>
+<ol class="arabic simple">
+<li><p>Will die Benutzerin einen weiteren Gedanken festhalten, so soll das Programm zu Schritt 3 zurückspringen.</p></li>
+<li><p>Will die Benutzerin das Programm verlassen, so soll sie verabschiedet werden.</p></li>
+</ol>
+</li>
+</ol>
+<p>Du kannst nun wählen, ob Du von hier aus selbst weiter machen willst. Der nächste Arbeitsschritt besteht natürlich darin, die einzelnen Techniken <em>in der richtigen Reihenfolge</em> in Code zu implementieren. Verwend dafür die folgende Code-Zelle. Sollte Dir nicht zu allen fünf Schritten eine mögliche Technik einfallen, so findest Du nach der Code-Zelle mögliche Implementierungslösungen für jeden einzelnen Schritt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier siehst Du, wie die einzelnen Schritte implementiert werden können.</p>
+<ol class="arabic">
+<li><p>Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet. <br><br></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print(&quot;Gruß&quot;)</span></code> bietet sich an, um die Benutzerin initial zu grüßen.</p></li>
+<li><p>Alternativ könnte man den Gruß auch in den <code class="docutils literal notranslate"><span class="pre">input</span></code>-<em>prompt</em> von Schritt 2 integrieren (<code class="docutils literal notranslate"><span class="pre">input(&quot;Gruß</span> <span class="pre">+</span> <span class="pre">prompt&quot;)</span></code>; so wurde das im Video umgesetzt), an der Benutzeroberfläche sind beide Alternativen gleichwertig.</p></li>
+<li><p>Wie stellen wir sicher, dass der Gruß nur wirklich am Anfang angezeigt wird, und nicht noch einmal, wenn die Benutzerin einen weiteren Gedanken festhalten will (vgl. Schritt 5.A.)? Wir führen eine Variable <code class="docutils literal notranslate"><span class="pre">first_time</span></code> ein und setzen sie ganz am Anfang auf <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">True</span></code>); das <code class="docutils literal notranslate"><span class="pre">print(&quot;Gruß&quot;)</span></code>-Statement bzw. das kombinierte <code class="docutils literal notranslate"><span class="pre">input(&quot;Gruß</span> <span class="pre">+</span> <span class="pre">prompt&quot;)</span></code>-Statement führen wir nur aus, wenn <code class="docutils literal notranslate"><span class="pre">first_time</span></code> <code class="docutils literal notranslate"><span class="pre">True</span></code> ist (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">first_time</span> <span class="pre">==</span> <span class="pre">True</span></code>); nach dem ersten Durchlauf setzen wir <code class="docutils literal notranslate"><span class="pre">first_time</span></code> auf <code class="docutils literal notranslate"><span class="pre">False</span></code> (<code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">False</span></code>), der Gruß wird somit nicht mehr ausgegeben.<br><br></p></li>
+</ul>
+</li>
+<li><p>Die Benutzerin wird aufgefordert, anzugeben, in welchem Dokument sie ihre(n) Gedanke(n) festhalten will. Handelt es sich um ein noch nicht existierendes Dokument, so wird es für sie geschaffen. Existiert das Dokument bereits, so soll(en) ihr(e) Gedanke(n) an dessen Ende gehängt werden.</p>
+<ul class="simple">
+<li><p>Den Namen des gewünschten Dokuments fragen wir über <code class="docutils literal notranslate"><span class="pre">input(prompt)</span></code> ab (ggf. mit dem Gruß davor, s. o.), das Resultat weisen wir einer Variablen namens <code class="docutils literal notranslate"><span class="pre">file_name</span></code> zu.</p></li>
+<li><p>Wie unter 1. erwähnt, soll dieser <code class="docutils literal notranslate"><span class="pre">input</span></code>-Befehl nur bedingt ausgeführt werden, nämlich nur, wenn <code class="docutils literal notranslate"><span class="pre">first_time</span></code> <code class="docutils literal notranslate"><span class="pre">True</span></code> ist (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">first_time</span> <span class="pre">==</span> <span class="pre">True</span></code>).</p></li>
+<li><p>Das gewünschte Dokument öffnen wir in einem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement mittels <code class="docutils literal notranslate"><span class="pre">open</span></code> im <em>append</em>-Modus (<code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>) und <code class="docutils literal notranslate"><span class="pre">&quot;encoding=utf-8&quot;</span></code>. Der <em>append</em>-Modus schafft das gewünschte Dokument, sollte es noch nicht existieren. Wenn es bereits existiert, wird der neue Inhalt an das gewünschte Dokument angehängt. Wichtig: Als Pfad übergeben wir der <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion einen konkatenierten string bestehend aus dem Pfad zum Verzeichnis (das kannst Du selbst auswählen), dem <code class="docutils literal notranslate"><span class="pre">file_name</span></code> sowie dem Suffix „.txt“. Das geöffnete Dokument weisen wir wie üblich einer Variablen zu: <code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">write_file</span></code>.<br><br></p></li>
+</ul>
+</li>
+<li><p>Die Benutzerin wird aufgefordert, ihren Gedanken einzugeben.</p>
+<ul class="simple">
+<li><p>Dafür verwenden wir wieder die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion und weisen das Resultat der Variablen <code class="docutils literal notranslate"><span class="pre">thought</span></code> zu. Es spielt keine Rolle, ob wir dies vor oder eingerückt unter dem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement (s. o.) tun.<br><br></p></li>
+</ul>
+</li>
+<li><p>Der Gedanke wird in das gewählte Dokument geschrieben.</p>
+<ul class="simple">
+<li><p>Eingerückt unter dem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement wenden wir die <code class="docutils literal notranslate"><span class="pre">write</span></code>-Methode auf <code class="docutils literal notranslate"><span class="pre">write_file</span></code> an, in die Klammern setzen wir <code class="docutils literal notranslate"><span class="pre">thought</span></code> sowie einen finalen Zeilenumbruch. <code class="docutils literal notranslate"><span class="pre">thought</span></code> wird jetzt also auf eine eigene Zeile in <code class="docutils literal notranslate"><span class="pre">write_file</span></code> geschrieben. Durch das Verlassen der Einrückung des <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statements wird das Dokument mit der neuen Zeile gespeichert und geschlossen.<br><br></p></li>
+</ul>
+</li>
+<li><p>Die Benutzerin wird zur Entscheidung aufgefordert, ob sie einen weiteren Gedanken im selben Dokument festhalten oder das Programm verlassen will.</p>
+<ul class="simple">
+<li><p>Hier kommt noch einmal <code class="docutils literal notranslate"><span class="pre">input</span></code> zum Einsatz. Da die Benutzerin ihre Entscheidung nicht über eine binäre „Ja/Nein“-Taste mitteilen kann, empfiehlt es sich, sie zur Eingabe eines „Y“ (oder sonst eines bestimmten Buchstaben) aufzufordern, sollte sie noch einen weiteren Gedanken festhalten wollen. Andernfalls soll sie irgendeine andere Eingabe tätigen. Ihre Eingabe weisen wir der Variablen <code class="docutils literal notranslate"><span class="pre">repeat</span></code> zu.</p></li>
+<li><p>Spätestens an dieser Stelle fällt uns auf, dass wir den gesamten vorherigen Code in eine Schleife einbauen müssen. Nämlich in eine (potentielle) Endlosschleife, die nur dann abgebrochen wird, wenn sich die Benutzerin dazu entscheidet, <em>keinen</em> weiteren Gedanken festzuhalten (vgl. Schritt 5.B.). Dafür verwenden wir <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> (vgl. Notebook „Kontrollstrukturen“), eine Schleife, die sich unendlich wiederholt, es sei denn, Python trifft auf ein <code class="docutils literal notranslate"><span class="pre">break</span></code>-Statement.</p></li>
+<li><p>Am Ende des Codeblocks innerhalb der <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife müssen wir also prüfen, ob <code class="docutils literal notranslate"><span class="pre">repeat</span></code> „Y“ (oder einem anderen festgelegten Zeichen) entspricht und abhängig davon die Schleife abbrechen (<code class="docutils literal notranslate"><span class="pre">break</span></code>) oder nicht.<br><br></p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Will die Benutzerin einen weiteren Gedanken festhalten, so soll das Programm zu Schritt 3 zurückspringen.</p>
+<ul class="simple">
+<li><p>In diesem Fall müssen wir nichts weiter machen, die Schleife läuft ja von allein weiter. Einzig wichtig ist, dass der Gruß sowie die Aufforderung nach dem Namen des gewünschten Dokuments (Schritt 1 und 2) nicht wiederholt werden, indem wir hier <code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">False</span></code> setzen.
+<br><br></p></li>
+</ul>
+</li>
+<li><p>Will die Benutzerin das Programm verlassen, so soll sie verabschiedet werden.</p>
+<ul class="simple">
+<li><p>Entspricht <code class="docutils literal notranslate"><span class="pre">repeat</span></code> nicht „Y“ (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">repeat</span> <span class="pre">!=</span> <span class="pre">&quot;Y&quot;</span></code>), dann verabschieden wir uns von der Benutzerin über eine <code class="docutils literal notranslate"><span class="pre">print</span></code>-Ausgabe und brechen die Endlossschleife ab (<code class="docutils literal notranslate"><span class="pre">break</span></code>).</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>Solltest Du den Anwendungsfall nicht bereits gelöst haben, versuch es nun mithilfe all dieser Techniken in der Code-Zelle oben.</p>
+<hr class="docutils" />
+<p>Damit sind wir in der Lage, unsere Python-Programme über User:innen-Input interaktiv zu gestalten. 😎</p>
+<p>Abschließend schauen wir uns noch die vermutlich am häufigsten benutzte Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">print</span></code>, genauer an.</p>
+</section>
+<section id="die-print-funktion-im-detail">
+<h2>Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail<a class="headerlink" href="#die-print-funktion-im-detail" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">print</span></code> gibt bekanntlich null, ein oder mehrere Objekte als string aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="nb">print</span><span class="p">()</span> <span class="c1">#&#39;print&#39; ohne Argument gibt einfach eine leere Zeile aus</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hier wird ein Objekt ausgegeben.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hier werden zwei Objekte&quot;</span><span class="p">,</span> <span class="s2">&quot;ausgegeben.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hier&quot;</span><span class="p">,</span> <span class="s2">&quot;werden&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="s2">&quot;Objekte&quot;</span><span class="p">,</span> <span class="s2">&quot;ausgegeben.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hier wird ein Objekt ausgegeben.
+Hier werden zwei Objekte ausgegeben.
+Hier werden 5 Objekte ausgegeben.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Am dritten und vierten Beispiel sehen wir, dass <code class="docutils literal notranslate"><span class="pre">print</span></code> die einzelnen Objekte mit einem Leerschlag dazwischen konkateniert. Verantwortlich dafür ist der <code class="docutils literal notranslate"><span class="pre">sep</span></code>-Parameter, der standardmäßig einem Leerschlag entspricht, aber natürlich anders spezifiziert werden kann:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leer&quot;</span><span class="p">,</span> <span class="s2">&quot;schlag&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1988</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; / &quot;</span><span class="p">)</span> <span class="c1">#Deutsche Schreibweise</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1988</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="c1">#US-amerikanische Schreibweise</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Leerschlag
+13.10.1988 / 10-13-1988
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im zweiten Beispiel haben wir zudem einen <code class="docutils literal notranslate"><span class="pre">end</span></code>-Parameter spezifiziert. Überleg Dir für einen Augenblick, was hier der Standardwert sein könnte.</p>
+<p>Genau, ein Zeilenumbruch.</p>
+<p>Der letzte optionale Parameter der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion heißt <code class="docutils literal notranslate"><span class="pre">file</span></code>. Statt das/die übergegebe(n) Argument(e) standardmäßig im Outputfeld auszugeben, können wir den Output in eine externe Datei <em>umleiten</em>. Wichtig dabei ist, dass die Datei geöffnet ist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/print_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;So können wir in eine externe Datei schreiben.&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">write_file</span><span class="p">)</span>
+    
+    <span class="c1">#Dabei besteht übrigens kein Unterschied zur oben kennengelernten &#39;write&#39;-Methode</span>
+    <span class="c1">#write_file.write(&quot;So können wir in eine externe Datei schreiben.&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn Du diese Zelle mehrfach ausführst, schreibst Du jedes Mal eine weitere Zelle in die externe Datei. Dies liegt natürlich am <em>append</em>-Modus.</p>
+<section id="f-strings">
+<h3>f-strings<a class="headerlink" href="#f-strings" title="Permalink to this heading">#</a></h3>
+<p>Im Zusammenhang mit <code class="docutils literal notranslate"><span class="pre">print</span></code> sind auch die sog. <em>f-strings</em> (abgekürzt für <em>formatted string literals</em>) zu erwähnen. Gleich wie <code class="docutils literal notranslate"><span class="pre">print</span></code> (für die Ausgabe) und die Zeichenketten-Konkatenation mithilfe von <code class="docutils literal notranslate"><span class="pre">+</span></code> (vgl. Notebook „Einführung“) können wir f-strings dazu nutzen, beliebig viele Werte zu einem string zusammenzusetzen. Das sieht syntaktisch so aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letter</span> <span class="o">=</span> <span class="s2">&quot;f&quot;</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Ein f-string beginnt mit einem kleinen &#39;</span><span class="si">{</span><span class="n">letter</span><span class="si">}</span><span class="s2">&#39; oder großen &#39;</span><span class="si">{</span><span class="n">letter</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ein f-string beginnt mit einem kleinen &#39;f&#39; oder großen &#39;F&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Steht ein „f“/“F“ vor dem öffnenden Anführungszeichen eines string, können wir beliebig viele Werte, jeweils umrahmt von geschweiften Klammern, <em>in</em> den string reinpacken. Der Wert kann dabei direkt von einer Variablen kommen (oben <code class="docutils literal notranslate"><span class="pre">letter</span></code>) oder das Ergebnis eines komplexen Ausdrucks sein (oben bei <code class="docutils literal notranslate"><span class="pre">letter.upper()</span></code>).</p>
+<p>Als Erinnerung (vom Notebook „Einführung“): Ein komplexer Ausdruck wie eine arithmetische Operation (<code class="docutils literal notranslate"><span class="pre">2*3</span></code>), eine Funktion (<code class="docutils literal notranslate"><span class="pre">sorted</span></code> oder <code class="docutils literal notranslate"><span class="pre">len</span></code>), eine Methode (s. o.), ein Werteabruf in einem dictionary (<code class="docutils literal notranslate"><span class="pre">dictionary[key]</span></code>) etc. gibt immer <em>einen</em> Wert zurück (<code class="docutils literal notranslate"><span class="pre">6</span></code> beim Beispiel für die arithmetische Operation). Genau dieser Wert wird dann an der Stelle der geschweiften Klammern im string eingesetzt.</p>
+<p>Derselben Logik entsprechend lassen sich auch bedingte Anweisungen in einen f-string integrieren. Folgenden Code kennen wir bereits von oben. Dank f-strings ist er nun aber wesentlich kürzer:</p>
+<div class="cell tag_&quot;hide-output&quot; docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?&quot;</span><span class="p">)</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Freut mich, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. Du darfst </span><span class="si">{</span><span class="s1">&#39;leider nicht&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;natürlich&#39;</span><span class="si">}</span><span class="s2"> in den Club.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2335</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Freut mich, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. Du darfst </span><span class="si">{</span><span class="s1">&#39;leider nicht&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;natürlich&#39;</span><span class="si">}</span><span class="s2"> in den Club.&quot;</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1174</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1175</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1176</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1177</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Spannender als das Einbauen von Werten in strings sind aber die durch f-strings entstehenden, unzähligen Möglichkeiten, diese Werte zu <em>formatieren</em>. Im Folgenden wollen wir uns auf die zwei wichtigsten Formatiermöglichkeiten konzentrieren. Weitere findest Du im Cheat Sheet zu f-strings.</p>
+<ol class="arabic simple">
+<li><p>Nachkommastellen: Besonders praktisch ist die Möglichkeit, die Anzahl an Nachkommastellen bei Dezimalzahlen festzulegen:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mf">23.238457584</span>
+
+<span class="c1">#Hier runden wir &#39;value&#39; auf zwei Nachkommastellen</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zahl mit nur zwei Nachkommastellen: </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Zahl mit nur zwei Nachkommastellen: 23.24
+</pre></div>
+</div>
+</div>
+</div>
+<p>Egal wie ein Wert formatiert werden soll, die Formatierung wird durch einen Doppelpunkt nach dem Wert eingeleitet.</p>
+<p>Danach wird spezifiziert, wie der Wert formatiert werden soll: <code class="docutils literal notranslate"><span class="pre">.2</span></code> definiert im Beispiel oben, dass <code class="docutils literal notranslate"><span class="pre">value</span></code> auf zwei Nachkommastellen gekürzt werden soll, das <code class="docutils literal notranslate"><span class="pre">f</span></code> definiert, als welcher Datentyp der formatierte Wert ausgegeben werden soll (hier als Dezimalzahl, wobei das <em>f</em> von der englischen Bezeichnung <em>float</em> herrührt).</p>
+<ol class="arabic simple" start="2">
+<li><p>Ausrichten von Zahlen: Ebenso praktisch ist es, mehrere Zahlen, die aus einer unterschiedlichen Anzahl an Ziffern bestehen, einheitlich untereinander auszurichten:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">value1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">value2</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schön ausgerichtete Zahl: </span><span class="si">{</span><span class="n">value1</span><span class="si">:</span><span class="s2">3</span><span class="si">}</span><span class="s2"> (ohne &#39;Auffüllung&#39;)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schön ausgerichtete Zahl: </span><span class="si">{</span><span class="n">value1</span><span class="si">:</span><span class="s2">03</span><span class="si">}</span><span class="s2"> (mit Nullen &#39;aufgefüllt&#39;)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Schön ausgerichtete Zahl: </span><span class="si">{</span><span class="n">value2</span><span class="si">:</span><span class="s2">3</span><span class="si">}</span><span class="s2"> (keine &#39;Auffüllung&#39;, da dreiziffrig)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Schön ausgerichtete Zahl:   1 (ohne &#39;Auffüllung&#39;)
+Schön ausgerichtete Zahl: 001 (mit Nullen &#39;aufgefüllt&#39;)
+Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier definieren wir nach dem Doppelpunkt einen sog. <em>digit space</em>, also die Anzahl an Stellen, die zur Ausgabe verwendet werden soll. In den Beispielen oben wird der digit space als aus drei Stellen bestehend definiert. Optional können wir davor angeben, ob etwaige leere Stellen (da die Zahl aus weniger Ziffern als Stellen des digit space besteht) mit Nullen „aufgefüllt“ werden sollen (engl.: <em>zero padding</em>). Zahlen, die aus weniger Ziffern als der digit space bestehen und nicht zero-gepaddet werden, werden rechtsbündig ausgegeben. Wie Du diese Ausrichtung innerhalb des vorgegebenen digit space ändern kannst (engl.: <em>alignment</em>), findest Du im Cheat Sheet.</p>
+<p>Digit space und Nachkommastellen können natürlich auch zusammen definiert werden, die syntaktische Reihenfolge sieht dann so aus (die Leerschläge dienen nur der besseren Lesbarkeit und müssen im Code entfernt werden!):</p>
+<p><code class="docutils literal notranslate"><span class="pre">f&quot;{value:</span> <span class="pre">(zero_padding)</span> <span class="pre">digit_space</span> <span class="pre">.</span> <span class="pre">decimals</span> <span class="pre">type}</span></code></p>
+<p>Genau diese Kombination aus digit space und Nachkommastellen kannst Du nun in der letzten Übung einsetzen.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Einkaufskorb.png"><p>Hinweis 1: Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ fünf.</p>
+<p>Hinweis 2: Wie erwähnt werden Zahlen innerhalb des digit space standardmäßig rechtsbündig ausgerichtet. Strings werden hingegen innerhalb des digit space standardmäßig linksbündig ausgerichtet (Tabellenkalkulationsprogramme legen das gleiche Verhalten an den Tag, wie Dir vielleicht schon aufgefallen ist). Um die Darstellung im Screenshot umzusetzen, musst Du Dich folglich nicht um das Alignment kümmern, da es dem Standard entspricht.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">shopping_list</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Apple&quot;</span><span class="p">:</span> <span class="mf">0.77</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">,</span> <span class="s2">&quot;Oat Milk&quot;</span><span class="p">:</span> <span class="mf">1.944</span><span class="p">,</span> <span class="s2">&quot;Olive Oil Extra Vergine&quot;</span><span class="p">:</span> <span class="mf">11.17</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Damit wissen wir alles Wichtige rund um In- und Output von Daten. Gute Arbeit!</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabellarische-dateien">Tabellarische Dateien</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-csv-modul">Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-innen-input-fur-interaktive-programme">User:innen-Input für interaktive Programme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren">🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-print-funktion-im-detail">Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">f-strings</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

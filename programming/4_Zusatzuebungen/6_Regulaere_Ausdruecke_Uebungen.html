@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Zusatzübungen zum Notebook „Reguläre Ausdrücke“ &#8212; Yannick Frommherz</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -451,7 +450,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="zusatzubungen-zum-notebook-regulare-ausdrucke">
-<h1>Zusatzübungen zum Notebook „Reguläre Ausdrücke“<a class="headerlink" href="#zusatzubungen-zum-notebook-regulare-ausdrucke" title="Permalink to this heading">#</a></h1>
+<h1>Zusatzübungen zum Notebook „Reguläre Ausdrücke“<a class="headerlink" href="#zusatzubungen-zum-notebook-regulare-ausdrucke" title="Link zu dieser Überschrift">#</a></h1>
 <p>👆 Je komplexer die Suchaufträge, desto mehr Möglichkeiten gibt es, einen regulären Ausdruck dafür zu konstruieren. Bei der Abwägung zwischen Genauigkeit (decke ich alle gewünschten Fälle und nur diese ab?) und Effizienz (wie lange brauche ich, um den regulären Ausdruck zu konstruieren?) gibt es nicht immer Richtig und Falsch.</p>
 <ol class="arabic">
 <li><p>Um das Formulieren von regulären Ausdrücken zu üben, laden wir uns den <a class="reference external" href="https://de.wikipedia.org/wiki/Quantenphysik">Wikipedia-Artikel zur Quantenphysik</a> herunter. Dies tun wir mithilfe des Moduls <code class="docutils literal notranslate"><span class="pre">wikipediaapi</span></code>, das die offizielle Schnittstelle von Wikipedia (die sog. <em>API</em>) für Python zugänglich macht.</p>
@@ -475,12 +474,11 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2513</span><span class="o">/</span><span class="mf">2085477444.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">mail_address</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#trage hier Deine Mailadresse ein</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">wikipediaapi</span> <span class="c1">#kein Bindestrich beim Import</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#Initialisieren der Schnittstelle mittels Angabe von user_agent, Sprache und Extraktionsformat</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#Initialisieren der Schnittstelle mittels Angabe von user_agent, Sprache und Extraktionsformat </span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Wiki_API</span> <span class="o">=</span> <span class="n">wikipediaapi</span><span class="o">.</span><span class="n">Wikipedia</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Programmierenlernen, </span><span class="si">{</span><span class="n">mail_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="n">extract_format</span><span class="o">=</span><span class="n">wikipediaapi</span><span class="o">.</span><span class="n">ExtractFormat</span><span class="o">.</span><span class="n">WIKI</span><span class="p">)</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;wikipediaapi&#39;
 </pre></div>
