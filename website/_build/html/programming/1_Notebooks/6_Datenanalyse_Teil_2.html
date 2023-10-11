@@ -466,7 +466,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-filtern">DataFrame filtern</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-zahlen">Werte zählen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-bearbeiten">Werte bearbeiten</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-werte">Numerische Werte</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern">Datentyp ändern</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-bearbeitung">Bedingte Bearbeitung</a></li>
@@ -743,7 +743,7 @@ document.write(`
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 2:</strong> Erstell das gleiche Sub-DataFrame wie in Übung 9 (also eines, das nur Tokens beinhaltet, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stell sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
+<p>✏️ <strong>Übung 2:</strong> Erstell das gleiche Sub-DataFrame wie in Übung 1 (also eines, das nur Tokens beinhaltet, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stell sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -911,7 +911,7 @@ document.write(`
 <p>Die Möglichkeiten der Bearbeitung hängen natürlich vom Datentyp der Werte ab. In unserem DataFrame haben wir einerseits strings und andererseits numerische Werte. Spalten weisen jeweils einen homogen Datentyp auf.</p>
 <p>Die Logik ist unabhängig davon, was wir wie bearbeiten, immer die gleiche: Wir greifen auf den gewünschten Ausschnitt des DataFrame zu (s. o.) und überschreiben ihn mit demselben Ausschnitt in bearbeiteter Form. Anstatt sie zu überschreiben können wir die bearbeiteten Werte natürlich immer auch einer neuen Spalte oder Zeile (desgleichen oder eines neuen DataFrame) zuweisen, sofern die jeweiligen Dimensionen übereinstimmen  (s. o.).</p>
 <section id="strings">
-<h3>Strings<a class="headerlink" href="#strings" title="Link zu dieser Überschrift">#</a></h3>
+<h3>strings<a class="headerlink" href="#strings" title="Link zu dieser Überschrift">#</a></h3>
 <p>Auf strings angewandt sieht das so aus, wenn wir etwa alle Tokens kleinschreiben wollen. Auch hier setzen wir <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die pandas-string-Methode:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1735,28 +1735,28 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>61</td>
-      <td>92</td>
+      <td>14</td>
+      <td>87</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>96</td>
-      <td>38</td>
+      <td>99</td>
+      <td>53</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>60</td>
-      <td>32</td>
+      <td>50</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>77</td>
-      <td>91</td>
+      <td>20</td>
+      <td>93</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>24</td>
-      <td>63</td>
+      <td>28</td>
+      <td>56</td>
     </tr>
   </tbody>
 </table>
@@ -1803,33 +1803,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>61</td>
-      <td>92</td>
-      <td>5612</td>
+      <td>14</td>
+      <td>87</td>
+      <td>1218</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>96</td>
-      <td>38</td>
-      <td>3648</td>
+      <td>99</td>
+      <td>53</td>
+      <td>5247</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>60</td>
-      <td>32</td>
-      <td>1920</td>
+      <td>50</td>
+      <td>5</td>
+      <td>250</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>77</td>
-      <td>91</td>
-      <td>7007</td>
+      <td>20</td>
+      <td>93</td>
+      <td>1860</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>24</td>
-      <td>63</td>
-      <td>1512</td>
+      <td>28</td>
+      <td>56</td>
+      <td>1568</td>
     </tr>
   </tbody>
 </table>
@@ -1879,33 +1879,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>61</td>
-      <td>92</td>
-      <td>5612</td>
+      <td>14</td>
+      <td>87</td>
+      <td>1218</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>96</td>
-      <td>38</td>
-      <td>3648</td>
+      <td>99</td>
+      <td>53</td>
+      <td>5247</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>60</td>
-      <td>32</td>
-      <td>1920</td>
+      <td>50</td>
+      <td>5</td>
+      <td>250</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>77</td>
-      <td>91</td>
-      <td>7007</td>
+      <td>20</td>
+      <td>93</td>
+      <td>1860</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>24</td>
-      <td>63</td>
-      <td>1512</td>
+      <td>28</td>
+      <td>56</td>
+      <td>1568</td>
     </tr>
   </tbody>
 </table>
@@ -1919,9 +1919,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.0029828548431396484 
-for-Loop 7.465792179107666 
-Faktor: 2502.9016065862043
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.0044710636138916016 
+for-Loop 7.438490867614746 
+Faktor: 1663.696048632219
 </pre></div>
 </div>
 </div>
@@ -2126,9 +2126,9 @@ Faktor: 2502.9016065862043
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.5149378776550293 
-for-Loop 0.4915938377380371 
-Faktor: 3.0816860614561175
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.5561573505401611 
+for-Loop 0.4882500171661377 
+Faktor: 3.187214123559661
 </pre></div>
 </div>
 </div>
@@ -2462,7 +2462,7 @@ Faktor: 3.0816860614561175
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1478835b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x16bf83580&gt;
 </pre></div>
 </div>
 <img alt="../../_images/8dfc2ca002bb9fc53652a7058bac16fb1cd86610f1ea4d81b35361a722210980.png" src="../../_images/8dfc2ca002bb9fc53652a7058bac16fb1cd86610f1ea4d81b35361a722210980.png" />
@@ -2558,7 +2558,7 @@ Faktor: 3.0816860614561175
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe-filtern">DataFrame filtern</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-zahlen">Werte zählen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-bearbeiten">Werte bearbeiten</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-werte">Numerische Werte</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern">Datentyp ändern</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-bearbeitung">Bedingte Bearbeitung</a></li>

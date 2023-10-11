@@ -480,21 +480,11 @@ document.write(`
 <span class="c1">#Umbenennen der Spalten</span>
 <span class="n">songkorpus</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">,</span> <span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span>
 
-<span class="c1">#Anfügen einer Spalte für das Jahrzehnt</span>
-<span class="n">decades</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]):</span>
-    <span class="n">decade</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;0&quot;</span>
-    <span class="n">decades</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decade</span><span class="p">)</span>
-    
-<span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">decades</span>
-<span class="n">original_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">)</span>
+<span class="c1">#Anfügen einer Spalte für das Jahrzehnt (hier mittels List Comprehension)</span>
+<span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;0&quot;</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]]</span>
 
-<span class="c1">#Anfügen einer Spalte für die Länge</span>
-<span class="n">lengths</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]:</span>
-    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">))</span> 
-    <span class="n">lengths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
-<span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lengths</span>
+<span class="c1">#Anfügen einer Spalte für die Länge der Tokens (hier mittels List Comprehension)</span>
+<span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">token</span><span class="p">))</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -628,7 +618,7 @@ document.write(`
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 2:</strong> Erstell das gleiche Sub-DataFrame wie in Übung 9 (also eines, das nur Tokens beinhaltet, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stell sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
+<p>✏️ <strong>Lösung 2:</strong> Erstell das gleiche Sub-DataFrame wie in Übung 1 (also eines, das nur Tokens beinhaltet, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stell sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long_words_2</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">]</span>
@@ -636,11 +626,11 @@ document.write(`
 <span class="c1">#Überprüfen, ob die beiden Ergebnisse identisch sind:</span>
 
 <span class="c1">#Unsichere Methode, da ja in den Zeilen andere Werte stehen könnten:</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">long_words_2</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">long_words</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">long_words_2</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">long_words</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1">#Sichere Methode, da wir erst sämtliche Werte vergleichen und dann &#39;True&#39; bzw. &#39;False&#39; auszählen</span>
 <span class="n">same_values</span> <span class="o">=</span> <span class="n">long_words_2</span> <span class="o">==</span> <span class="n">long_words</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">same_values</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> <span class="c1">#Es kommt nur jeweils &#39;True&#39; vor, also sind die beiden Ergebnisse identisch</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">same_values</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Es kommt nur jeweils &#39;True&#39; vor, also sind die beiden Ergebnisse identisch</span>
 
 <span class="c1">#Pandas bietet dafür auch eine Methode, nämlich &#39;equals()&#39;:</span>
 <span class="n">long_words_2</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">long_words</span><span class="p">)</span>
@@ -648,10 +638,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True 
+
 Token  Jahr  Häufigkeit  Jahrzehnt  Länge
 True   True  True        True       True     1060
-dtype: int64
+dtype: int64 
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -1142,7 +1133,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x133611fc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x161d0dfc0&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/e9c3f08e63796fd69b2fe14b1d3d9bffd987c9a753259669502a3342b439d6e3.png" src="../../../_images/e9c3f08e63796fd69b2fe14b1d3d9bffd987c9a753259669502a3342b439d6e3.png" />
