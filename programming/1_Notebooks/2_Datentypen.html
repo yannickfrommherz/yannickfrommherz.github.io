@@ -474,13 +474,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolsche-werte-boolean-values">Boolsche Werte / Boolean values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-uberprufen">Datentyp überprüfen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern-casting">Datentyp ändern / Casting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentialitat">1. Sequentialität</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentialitat">Sequentialität</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterierbarkeit">2. Iterierbarkeit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderlichkeit-fortgeschritten">3. Veränderlichkeit (fortgeschritten)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterierbarkeit">Iterierbarkeit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderlichkeit-fortgeschritten">Veränderlichkeit (fortgeschritten)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unveranderliche-datentypen">Unveränderliche Datentypen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderliche-datentypen">Veränderliche Datentypen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-zur-identitat-von-objekten">Exkurs zur Identität von Objekten</a></li>
@@ -657,7 +657,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Eingang&#39;, &#39;Holz.&#39;, &#39;aus&#39;, &#39;Bank&#39;, &#39;eine&#39;, &#39;dem&#39;, &#39;zur&#39;, &#39;stand&#39;, &#39;Vor&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;eine&#39;, &#39;Holz.&#39;, &#39;aus&#39;, &#39;stand&#39;, &#39;zur&#39;, &#39;dem&#39;, &#39;Bank&#39;, &#39;Eingang&#39;, &#39;Vor&#39;}
 </pre></div>
 </div>
 </div>
@@ -827,7 +827,7 @@ c is not &#39;a&#39;
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1949</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2057</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">an_integer</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print(len(a_float))</span>
@@ -881,7 +881,7 @@ Ersetz <code class="docutils literal notranslate"><span class="pre">set</span></
 <p>Abschließend lernen wir drei grundlegende Eigenschaften von Datentypen kennen: <em>Sequentialität</em>, <em>Iterierbarkeit</em> und <em>Veränderlichkeit</em>. Die letzte Eigenschaft ist schon fortgeschritteneres Wissen, es schadet aber nicht, schon einmal davon gehört zu haben.</p>
 </section>
 <section id="sequentialitat">
-<h2>1. Sequentialität<a class="headerlink" href="#sequentialitat" title="Permalink to this heading">#</a></h2>
+<h2>Sequentialität<a class="headerlink" href="#sequentialitat" title="Permalink to this heading">#</a></h2>
 <p>Datentypen unterscheiden sich erstens hinsichtlich ihrer <em>Sequentialität</em> (engl. <em>sequentiality</em>). Sequentielle Objekte „speichern“ die in ihnen enthaltenen Elemente in einer bestimmten Reihenfolge „ab“. Als Metapher kann man sich eine einseitig bebaute Straße vorstellen, entlang welcher einzelne Häuser mit einer jeweils eigenen Hausnummer (1, 2, 3, 4 usw.) stehen. Das Haus mit der Hausnummer 3 steht immer am gleichen Ort in der Straße zwischen den Häusern 2 und 4.</p>
 <p>Zu den sequentiellen Datentypen gehören:</p>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
@@ -1022,6 +1022,9 @@ e
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[26, 28, 30, 32, 34, 36]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <hr class="docutils" />
@@ -1046,7 +1049,7 @@ e
 </section>
 <hr class="docutils" />
 <section id="iterierbarkeit">
-<h2>2. Iterierbarkeit<a class="headerlink" href="#iterierbarkeit" title="Permalink to this heading">#</a></h2>
+<h2>Iterierbarkeit<a class="headerlink" href="#iterierbarkeit" title="Permalink to this heading">#</a></h2>
 <p>Datentypen unterscheiden sich zweitens hinsichtlich ihrer <em>Iterierbarkeit</em> (engl. <em>iterability</em>). Iterierbare Objekte sind Objekte, die die in ihnen enthaltenen Elemente einzeln ausgeben können. Dazu zählen folgende Datentypen:</p>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code></p>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code> und <code class="docutils literal notranslate"><span class="pre">dict</span></code> sind mit den einzelnen Elementen natürlich die Elemente auf der Liste, im Tupel, im Set bzw. Schlüssel-Werte-Paare im dictionary gemeint (wobei bei dictionaries auch nur auf die Schlüssel oder nur auf die Werte einzeln zugegriffen werden kann, wie wir im Notebook „Funktionen und Methoden Teil 1“ lernen werden). Bei <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekten sind wie schon beim Thema „Sequentialität“ die einzelnen Zeichen gemeint.</p>
@@ -1086,7 +1089,7 @@ Sonntag
 </section>
 <hr class="docutils" />
 <section id="veranderlichkeit-fortgeschritten">
-<h2>3. Veränderlichkeit (fortgeschritten)<a class="headerlink" href="#veranderlichkeit-fortgeschritten" title="Permalink to this heading">#</a></h2>
+<h2>Veränderlichkeit (fortgeschritten)<a class="headerlink" href="#veranderlichkeit-fortgeschritten" title="Permalink to this heading">#</a></h2>
 <p>Drittens unterscheiden sich Datentypen hinsichtlich ihrer <em>Veränderlichtkeit</em> (engl. <em>mutability</em>). Das haben wir bereits im Zusammenhang mit den dictionaries angeschnitten.</p>
 <section id="unveranderliche-datentypen">
 <h3>Unveränderliche Datentypen<a class="headerlink" href="#unveranderliche-datentypen" title="Permalink to this heading">#</a></h3>
@@ -1126,10 +1129,13 @@ Sonntag
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False 
-→ denn 139782670521456 ist ungleich 139782670586032
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> False 
+→ denn 140252703362416 ist ungleich 140252703442352
 Das list-Objekt ist immer noch das gleiche: True 
-→ denn 139782670747360 ist gleich 139782670747360
+→ denn 140252703345152 ist gleich 140252703345152
 </pre></div>
 </div>
 </div>
@@ -1271,13 +1277,13 @@ Dieselbe ID: False
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolsche-werte-boolean-values">Boolsche Werte / Boolean values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-uberprufen">Datentyp überprüfen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern-casting">Datentyp ändern / Casting</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentialitat">1. Sequentialität</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequentialitat">Sequentialität</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">Slicing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterierbarkeit">2. Iterierbarkeit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderlichkeit-fortgeschritten">3. Veränderlichkeit (fortgeschritten)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterierbarkeit">Iterierbarkeit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderlichkeit-fortgeschritten">Veränderlichkeit (fortgeschritten)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unveranderliche-datentypen">Unveränderliche Datentypen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderliche-datentypen">Veränderliche Datentypen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-zur-identitat-von-objekten">Exkurs zur Identität von Objekten</a></li>
