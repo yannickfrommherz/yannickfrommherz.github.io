@@ -946,6 +946,9 @@ Der Satz fängt mit einem maskulinen Artikel an.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pretoria&#39;, &#39;Buenos Aires&#39;, &#39;Malaga&#39;]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">pop</span></code> dagegen geben wir nicht das zu entfernende Element an, sondern dessen Index. Geben wir keinen Index an, so wird standardmäßig das letzte Element auf der Liste (also dasjenige mit dem Index <code class="docutils literal notranslate"><span class="pre">-1</span></code>) entfernt. Bevor ein Element aus der Liste entfernt wird, gibt <code class="docutils literal notranslate"><span class="pre">pop</span></code> das betreffende Element noch zurück. Um dies zu verstehen, führe die folgende Zelle solange aus, bis Du eine Fehlermeldung erhältst:</p>
@@ -1127,10 +1130,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Alpha&#39;, &#39;Beta&#39;, &#39;Delta&#39;, &#39;Gamma&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [1, 2, 3, 4, 5, 6]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Alpha&#39;, &#39;Beta&#39;, &#39;Delta&#39;, &#39;Gamma&#39;] [1, 2, 3, 4, 5, 6]
 </pre></div>
 </div>
 </div>
@@ -1160,9 +1160,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Beta&#39;, &#39;Alpha&#39;, &#39;Delta&#39;, &#39;Gamma&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1216,9 +1213,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;, &#39;j&#39;, &#39;k&#39;, &#39;l&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;p&#39;, &#39;q&#39;, &#39;r&#39;, &#39;s&#39;, &#39;t&#39;, &#39;u&#39;, &#39;v&#39;, &#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1299,9 +1293,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Die&#39;, &#39;des&#39;, &#39;ist&#39;, &#39;Sie&#39;, &#39;zu&#39;, &#39;und&#39;, &#39;zu&#39;, &#39;ist&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Wie oben erwähnt kann, wie hier, bei <code class="docutils literal notranslate"><span class="pre">expression</span></code> nur die Variable für <code class="docutils literal notranslate"><span class="pre">element</span></code> stehen. So verwenden wir die List Comprehension schlicht zum Erstellen einer gefilterten Liste, ohne dabei die Elemente, die es „in die Liste schaffen“ zusätzlich zu modifizieren.</p>
@@ -1341,9 +1332,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dIE wÜRDE DES mENSCHEN IST UNANTASTBAR. sIE ZU ACHTEN UND ZU SCHÜTZEN IST vERPFLICHTUNG ALLER STAATLICHEN gEWALT.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
 </pre></div>
 </div>
 </div>
@@ -1406,7 +1395,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2102</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2111</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
