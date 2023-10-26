@@ -946,9 +946,6 @@ Der Satz fängt mit einem maskulinen Artikel an.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pretoria&#39;, &#39;Buenos Aires&#39;, &#39;Malaga&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">pop</span></code> dagegen geben wir nicht das zu entfernende Element an, sondern dessen Index. Geben wir keinen Index an, so wird standardmäßig das letzte Element auf der Liste (also dasjenige mit dem Index <code class="docutils literal notranslate"><span class="pre">-1</span></code>) entfernt. Bevor ein Element aus der Liste entfernt wird, gibt <code class="docutils literal notranslate"><span class="pre">pop</span></code> das betreffende Element noch zurück. Um dies zu verstehen, führe die folgende Zelle solange aus, bis Du eine Fehlermeldung erhältst:</p>
@@ -1101,9 +1098,6 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <hr class="docutils" />
@@ -1185,10 +1179,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.41, 1.42, 1.43, 1.44]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.41, 1.42, 1.43, 1.44] 
  [(&#39;sein&#39;, 35), (&#39;haben&#39;, 28)] 
  [&#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
 &lt;class &#39;list&#39;&gt;
@@ -1263,6 +1254,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gesagt&#39;, &#39;ist&#39;, &#39;gesagt&#39;]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Das ist eine List Comprehension. Sie verpackt sämtliche Schritte von oben in <em>eine</em> Zeile Code. Das Resultat ist dasselbe.</p>
@@ -1315,6 +1309,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;unantastbar&#39;, &#39;Verpflichtung&#39;, &#39;staatlichen&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1404,7 +1401,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1975</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2003</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -1450,9 +1447,6 @@ True
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Linz
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Angenommen, ein Bundesland erhielte eine neue Hauptstadt, so könnten wir gleichermaßen ein bestehendes Schlüssel-Werte-Paar überschreiben (probier’s aus!).</p>
@@ -1466,9 +1460,6 @@ True
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Tirol&#39;: &#39;Innsbruck&#39;, &#39;Kärnten&#39;: &#39;Klagenfurt&#39;, &#39;Steiermark&#39;: &#39;Graz&#39;, &#39;Oberösterreich&#39;: &#39;Linz&#39;}
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1497,9 +1488,6 @@ True
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Tirol&#39;: &#39;Innsbruck&#39;, &#39;Kärnten&#39;: &#39;Klagenfurt&#39;, &#39;Steiermark&#39;: &#39;Graz&#39;}
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Was passiert, wenn Du den <code class="docutils literal notranslate"><span class="pre">pop</span></code>-Befehl noch einmal ausführst?</p>
@@ -1521,9 +1509,6 @@ True
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Vorarlberg&#39;: &#39;Bregenz&#39;, &#39;Tirol&#39;: &#39;Innsbruck&#39;, &#39;Kärnten&#39;: &#39;Klagenfurt&#39;, &#39;Steiermark&#39;: &#39;Graz&#39;, &#39;Wien&#39;: &#39;Wien&#39;, &#39;Niederösterreich&#39;: &#39;Sankt Pölten&#39;, &#39;Oberösterreich&#39;: &#39;Linz&#39;, &#39;Salzburg&#39;: &#39;Salzburg&#39;, &#39;Burgenland&#39;: &#39;Eisenstadt&#39;}
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Anstatt alle Schlüssel-Werte-Paare auf einmal zurückzubekommen, ist es wie bei Listen in der Regel sinnvoller, über ein dictionary zu iterieren und Schlüssel-Werte-Paare nacheinander einzeln zurückzukriegen. Dazu gibt es die bereits verwendete <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode, die wir direkt im Schleifenkopf anwenden:</p>
@@ -1536,9 +1521,7 @@ True
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Vorarlberg&#39;, &#39;Bregenz&#39;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Tirol&#39;, &#39;Innsbruck&#39;)
+(&#39;Tirol&#39;, &#39;Innsbruck&#39;)
 (&#39;Kärnten&#39;, &#39;Klagenfurt&#39;)
 (&#39;Steiermark&#39;, &#39;Graz&#39;)
 (&#39;Wien&#39;, &#39;Wien&#39;)
