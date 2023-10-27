@@ -656,7 +656,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;stand&#39;, &#39;Holz.&#39;, &#39;zur&#39;, &#39;dem&#39;, &#39;aus&#39;, &#39;eine&#39;, &#39;Eingang&#39;, &#39;Vor&#39;, &#39;Bank&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dem&#39;, &#39;zur&#39;, &#39;stand&#39;, &#39;Eingang&#39;, &#39;eine&#39;, &#39;Holz.&#39;, &#39;Bank&#39;, &#39;Vor&#39;, &#39;aus&#39;}
 </pre></div>
 </div>
 </div>
@@ -853,7 +853,7 @@ c is not &#39;a&#39;
 Ersetz <code class="docutils literal notranslate"><span class="pre">set</span></code> durch den jeweiligen Kurznamen des gewünschten Datentyps und <code class="docutils literal notranslate"><span class="pre">object</span></code> durch das zu konvertierende Objekt. Hier einige Beispiele anhand der oben initialisierten Objekte:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integer_from_float</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a_float</span><span class="p">)</span> <span class="c1">#Die Dezimalzahl wird ganz einfach gerundet.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integer_from_float</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a_float</span><span class="p">)</span> <span class="c1">#Die Dezimalzahl wird ganz einfach gerundet (um genau zu sein: abgerundet)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">integer_from_float</span><span class="p">,</span> <span class="s2">&quot;ist vom Typ&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">integer_from_float</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">string_from_integer</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">integer_from_float</span><span class="p">)</span>
@@ -1024,9 +1024,6 @@ e
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[26, 28, 30, 32, 34, 36]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <hr class="docutils" />
@@ -1132,9 +1129,9 @@ Sonntag
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False 
-→ denn 4394555504 ist ungleich 4390233136
+→ denn 4403433392 ist ungleich 4399009904
 Das list-Objekt ist immer noch das gleiche: True 
-→ denn 4394645312 ist gleich 4394645312
+→ denn 4403469632 ist gleich 4403469632
 </pre></div>
 </div>
 </div>
