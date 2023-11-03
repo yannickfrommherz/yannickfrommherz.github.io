@@ -741,40 +741,40 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verschlüsselungscode:
-a x
-b w
-c t
-d ß
-e m
-f z
-g l
-h b
+a ß
+b a
+c m
+d e
+e z
+f t
+g w
+h j
 i q
-j r
-k d
-l j
-m u
-n n
-o ü
-p y
-q a
-r i
-s e
-t o
-u v
-v p
-w h
-x ö
-y c
-z k
-ä s
-ö g
-ü ä
-ß f
+j f
+k n
+l ü
+m b
+n g
+o k
+p r
+q ö
+r c
+s y
+t d
+u o
+v u
+w s
+x i
+y v
+z x
+ä l
+ö h
+ü p
+ß ä
 
-Verschlüsselte Nachricht: ßmi$lüjßwxiimn$qeo$qn$ßmi$oqmzdäbjoivbm$qn$mqnmu$qdmx$ziqetbbxjomwmvomj$uqo$wiüddüjqigetbmn$pmieomtdo$
+Verschlüsselte Nachricht: ezc$wküeaßcczg$qyd$qg$ezc$dqztnpjüdcojz$qg$zqgzb$qnzß$tcqymjjßüdzazodzü$bqd$acknnküqchymjzg$uzcydzmnd$
 
-Verschlüsselte Nachricht mit Ablenkungszeichen: ßmi$l/üjßwx&amp;iimn$qe*o$)qn$ß{m&#39;i$oq≠m)*zdäbjoivbm$|qn$mqn“mu$qdmx$ziqe=tbbxj?o*mwmvo|mj$}uqo$w&#39;iü%ddüjqige¶tbm=n$pmieomtdo$
+Verschlüsselte Nachricht mit Ablenkungszeichen: “ezc$wküe*aßcc(zg$&#39;{qyd$qg$e*zc$*¢dqztnpjüdco%&#39;jz$qg$zqgzb$q&#39;nz|&amp;]ß$tcqymjjßüdza{zod[zü$bqd?)$acknnküqchymjzg/$)uzcydzmnd$
 </pre></div>
 </div>
 </div>
@@ -1000,21 +1000,16 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: ßmi$l/üjßwx&amp;iimn$qe*o$)q
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2560</span><span class="o">/</span><span class="mf">2241548606.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span> 
-<span class="ne">---&gt; </span><span class="mi">59</span> <span class="n">ngram_freqs</span><span class="p">(</span><span class="n">kv21</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-
-<span class="nn">/tmp/ipykernel_2560/2241548606.py</span> in <span class="ni">ngram_freqs</span><span class="nt">(text, n)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> 
-<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">ngrams</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> 
-<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;wir setzen uns für&#39;, 41),
+ (&#39;gemeinsam mit den ländern&#39;, 20),
+ (&#39;setzen uns für eine&#39;, 14),
+ (&#39;auf den weg bringen&#39;, 12),
+ (&#39;ausbau der erneuerbaren energien&#39;, 8),
+ (&#39;setzen wir uns für&#39;, 8),
+ (&#39;uns dafür ein dass&#39;, 8),
+ (&#39;setzen uns für ein&#39;, 8),
+ (&#39;bündnis 90 / die&#39;, 7),
+ (&#39;im dialog mit den&#39;, 7)]
 </pre></div>
 </div>
 </div>
