@@ -1079,6 +1079,20 @@ Und wäre leicht von Grund aus abgebrannt.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2195</span><span class="o">/</span><span class="mf">2350043971.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Hier geben wir einerseits den Speicherort an, gleichzeitig geben wir der Datei</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> auch einen Namen; bei Textdateien hängen wir stets &#39;.txt&#39; als Dateisuffix an!&quot;&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/Nathan_der_Weise_Aufzug_1_standardisiert.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">standardized_turns</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../3_Dateien/Output/Nathan_der_Weise_Aufzug_1_standardisiert.txt&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Nun solltest Du die neue Datei im angegebenen Verzeichnis vorfinden. Du kannst sie entweder wieder in Python einlesen, oder mit einem Textverarbeitungsprogramm auf Deinem Computer öffnen.</p>
 <hr class="docutils" />
