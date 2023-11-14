@@ -473,12 +473,13 @@ document.write(`
 <p>✏️ <strong>Lösung 1:</strong> Find heraus, wie viele der 100 flächengrößten Gemeinden zu jedem der 16 Bundesländer gehören. Du kannst direkt mit <code class="docutils literal notranslate"><span class="pre">biggest_municipalities</span></code> weiterarbeiten. Dir steht ein dictionary mit Bundesländern zur Verfügung. Ziel ist es, den Wert (jetzt noch null für alle Bundesländer) für jedes Bundesland korrekt zu berechnen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Da es sich hier um ein anderes Skript handelt, muss die Datei hier erst eingelesen werden.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Da es sich um ein anderes Notebook handelt, müssen wir das csv-Modul auch hier importieren sowie &#39;biggest_municipalities&#39; erst schaffen</span>
 <span class="kn">import</span> <span class="nn">csv</span>
 
 <span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Tabellarische_Daten/Liste_der_flächengrössten_Gemeinden_Deutschlands.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
     
+    <span class="c1">#Erklärung dieses Codes siehe Lehrnotebook unter &quot;Das csv-Modul&quot;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">read_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
     
     <span class="n">biggest_municipalities</span> <span class="o">=</span> <span class="p">[]</span>
@@ -490,12 +491,16 @@ document.write(`
                 <span class="s1">&#39;Mecklenburg-Vorpommern&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Niedersachsen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Nordrhein-Westfalen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Rheinland-Pfalz&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Saarland&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
                 <span class="s1">&#39;Sachsen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Sachsen-Anhalt&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Schleswig-Holstein&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Thüringen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 
+<span class="c1">#hier startet der eigentliche Lösungscode</span>
+<span class="c1">#Iteration über &#39;biggest_municipalities&#39; mittels der &#39;range&#39;-Funktion und &#39;i&#39; als Zählervariable</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">biggest_municipalities</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">biggest_municipalities</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="n">state</span><span class="p">:</span>
-            <span class="n">federal_states</span><span class="p">[</span><span class="n">state</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span> <span class="c1">#Iterieren über die Schlüssel in &#39;federal_states&#39;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Überprüfen, ob das jeweilige Bundesland (&#39;state&#39;) dem Bundesland der jeweiligen (mittels &#39;i&#39; indizierten)</span>
+<span class="sd">        Gemeinde auf &#39;biggest_municipalities&#39; entspricht (das Bundeland ist das fünfte Element in der Liste pro Gemeinde)&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">biggest_municipalities</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="n">state</span><span class="p">:</span> 
+            <span class="n">federal_states</span><span class="p">[</span><span class="n">state</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#Wenn das zutrifft, wird der zum Bundesland zugehörige Wert im dictionary um eins erhöht.</span>
 
-<span class="k">for</span> <span class="n">state</span><span class="p">,</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">state</span><span class="p">,</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="c1">#Ausgabe der Ergebnisse durch Iterieren über das dictionary</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -539,40 +544,48 @@ Thüringen 1
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
 <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../../3_Dateien/Output/&quot;</span>
 
-<span class="n">first_time</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">first_time</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1">#Initiieren der Variable mit dem boolschen Wert &#39;True&#39;</span>
 
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
     
-    <span class="k">if</span> <span class="n">first_time</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">first_time</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span> <span class="c1">#Solange &#39;first_time&#39; den Wert &#39;True&#39; hat....</span>
+        <span class="c1">#...wird der folgende Output erzeugt, welcher zur Eingabe eines Dateinamens auffordert. Der Dateiname wird in einer Variable gespeichert.</span>
         <span class="n">file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Hallo! Bitte gib den Namen der Datei an, in der Du Deinen Gedanken festhalten willst.</span><span class="se">\n\n</span><span class="s2">Sollte die Datei noch nicht existieren, lege ich sie für Dich an.</span><span class="se">\n\n</span><span class="s2">An das Dateisuffix musst Du nicht denken.</span><span class="se">\n\n</span><span class="s2">⇥&quot;&quot;&quot;</span><span class="p">)</span>
-        
+    
+    <span class="c1">#Öffnen/Anlegen der Datei: Wenn diese bereits existiert, wird sie durch &quot;a&quot; erweitert, wenn nicht, wird sie neu angelegt.</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file_name</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
         
+        <span class="c1">#Aufforderung, einen Gedanken einzugeben. Auch dieser wird in einer Variablen gespeichert.</span>
         <span class="n">thought</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Wunderbar. Welchen Gedanken möchtest Du festhalten?</span><span class="se">\n\n</span><span class="s2">⇥&quot;</span><span class="p">)</span>
         
+        <span class="c1">#Der in der Variable gespeicherte Gedanke wird in die geöffnete Datei geschrieben und von einem Zeilenumbruch abgeschlossen.</span>
         <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">thought</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        
+    
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Toller Gedanke!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     
+    <span class="c1">#Aufforderung, für einen weiteren Gedanken ein &#39;Y&#39; einzugeben oder eine andere Taste zu drücken. Der Input wird wieder in einer Variablen gespeichert.</span>
     <span class="n">repeat</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Möchtest Du einen weiteren Gedanken in der gleichen Datei festhalten? Dann drück &#39;Y&#39;. Wenn nicht, drück eine beliebige andere Taste.</span><span class="se">\n\n</span><span class="s2">⇥&quot;</span><span class="p">)</span>
     
+    <span class="c1">#Die Variable &#39;first_time&#39; wird mit dem boolschen Wert &#39;False&#39; überschrieben. Somit wird die erste if-Bedingung nicht mehr erfüllt.</span>
     <span class="n">first_time</span> <span class="o">=</span> <span class="kc">False</span>
     
-    <span class="k">if</span> <span class="n">repeat</span> <span class="o">!=</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Super, hab noch einen schönen Tag!&quot;</span><span class="p">)</span>
-        <span class="k">break</span>
+    <span class="k">if</span> <span class="n">repeat</span> <span class="o">!=</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="c1">#Wenn der Inhalt der Variable ungleich einem &quot;Y&quot; ist,...</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Super, hab noch einen schönen Tag!&quot;</span><span class="p">)</span> <span class="c1">#wird User:in verabschiedet...</span>
+        <span class="k">break</span> <span class="c1">#...und die Schleife abgebrochen</span>
+        
+        <span class="c1">#Andernfalls folgt der nächste Durchlauf (jedoch ohne Begrüssung und Instruktion, da &#39;first_time&#39; mittlerweile &#39;False&#39; ist)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2375</span><span class="o">/</span><span class="mf">3728175521.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">if</span> <span class="n">first_time</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">9</span>         <span class="n">file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Hallo! Bitte gib den Namen der Datei an, in der Du Deinen Gedanken festhalten willst.</span><span class="se">\n\n</span><span class="s2">Sollte die Datei noch nicht existieren, lege ich sie für Dich an.</span><span class="se">\n\n</span><span class="s2">An das Dateisuffix musst Du nicht denken.</span><span class="se">\n\n</span><span class="s2">⇥&quot;&quot;&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file_name</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2375</span><span class="o">/</span><span class="mf">4117395504.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">if</span> <span class="n">first_time</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span> <span class="c1">#Solange &#39;first_time&#39; den Wert &#39;True&#39; hat....</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="c1">#...wird der folgende Output erzeugt, welcher zur Eingabe eines Dateinamens auffordert. Der Dateiname wird in einer Variable gespeichert.</span>
+<span class="ne">---&gt; </span><span class="mi">10</span>         <span class="n">file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Hallo! Bitte gib den Namen der Datei an, in der Du Deinen Gedanken festhalten willst.</span><span class="se">\n\n</span><span class="s2">Sollte die Datei noch nicht existieren, lege ich sie für Dich an.</span><span class="se">\n\n</span><span class="s2">An das Dateisuffix musst Du nicht denken.</span><span class="se">\n\n</span><span class="s2">⇥&quot;&quot;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> 
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="c1">#Öffnen/Anlegen der Datei: Wenn diese bereits existiert, wird sie durch &quot;a&quot; erweitert, wenn nicht, wird sie neu angelegt.</span>
 
 <span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/ipykernel/kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1173</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
@@ -594,13 +607,15 @@ Thüringen 1
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shopping_list</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Apple&quot;</span><span class="p">:</span> <span class="mf">0.77</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">,</span> <span class="s2">&quot;Oat Milk&quot;</span><span class="p">:</span> <span class="mf">1.944</span><span class="p">,</span> <span class="s2">&quot;Olive Oil Extra Vergine&quot;</span><span class="p">:</span> <span class="mf">11.17</span><span class="p">}</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Product&#39;</span><span class="si">:</span><span class="s2">25</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Price&#39;</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Product&#39;</span><span class="si">:</span><span class="s2">25</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Price&#39;</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Festlegen des digit space und printen der beiden Kategorien &quot;Product&quot; und &quot;Price&quot;</span>
 
+<span class="c1">#Iteration über das dictionary, wobei wir auf die jeweiligen Schlüssel und Werte über zwei verschiedene Variablen zugreifen können</span>
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">shopping_list</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;&#39;key&#39; erhält einen digit space von 20 Stellen, die linksbündig befüllt werden (da es sich um strings handelt);</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;&#39;key&#39; erhält einen digit space von 25 Stellen, die linksbündig befüllt werden (da es sich um strings handelt);</span>
 <span class="sd">    &#39;value&#39; erhält einen digit space von fünf Stellen, die rechtsbündig befüllt werden (da es sich um Zahlen handelt);</span>
-<span class="sd">    &#39;value&#39; wird auf zwei Dezimalstellen gerundet als float ausgegeben.&quot;&quot;&quot;</span>
+<span class="sd">    &#39;value&#39; wird auf zwei Dezimalstellen gerundet als float ausgegeben. Nacheinander werden die Elemente des dictionary so</span>
+<span class="sd">    ausgegeben.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">25</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">5.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>

@@ -480,33 +480,43 @@ document.write(`
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2018.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">kv18</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
-<span class="n">stopwords</span> <span class="o">=</span> <span class="p">[]</span>
-        
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
-        <span class="n">stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+    <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
-<span class="n">words</span> <span class="o">=</span> <span class="n">kv18</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">stopwords</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die unten die Stoppwörter gehängt werden</span>
 
-<span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span> <span class="c1">#Zeile für Zeile werden Stoppwörter ...</span>
+        <span class="n">stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span> <span class="c1">#...rechtsseitig von whitespace-Zeichen bereinigt und der Liste &#39;stopwords&#39; angefügt</span>
+    
+<span class="n">words</span> <span class="o">=</span> <span class="n">kv18</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1">#Splitten bei whitespace-Zeichen - dadurch erhalten wir eine Liste mit einzelnen Wörtern</span>
 
+<span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initiieren einer leeren Liste, an die unten die bereinigten Wörter gehängt werden</span>
+
+<span class="c1">#Iteration über die einzelnen Wörter</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> 
-    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,():&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">:</span>
-        <span class="k">continue</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1">#Kleinschreibung des jeweiligen Worts zur besseren Weiterverarbeitung und Datenauswertung</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,():&quot;</span><span class="p">)</span> <span class="c1">#Bereinigen des Worts durch Entfernen der in Klammern festgelegten Zeichen an Wortanfang und -ende</span>
+    
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">:</span> <span class="c1">#Wenn das Wort in der Liste &#39;stopwords&#39; vorkommt... </span>
+        <span class="k">continue</span> <span class="c1">#...überspringen wir den Rest des aktuellen Durchlaufs</span>
+    
+    <span class="c1">#Wenn das Wort dagegen nicht in &#39;stopwords&#39; vorkommt, also die if-Bedingung nicht erfüllt wurde, wird das Wort der Liste angehängt.</span>
     <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
 
-<span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span>
+<span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span> <span class="c1">#Erstellen einer Menge, damit keine Elemente doppelt vorhanden sind</span>
 
-<span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> 
+<span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#Initiieren eines leeren dictionary, an die unten Wort-Vorkommen-Paare gehängt werden</span>
 
+<span class="c1">#Iterieren über die Menge &#39;types&#39;</span>
+<span class="c1">#Der Unterstrich nach &#39;type&#39; dient der Unterscheidung zum Python-Schlüsselwort &#39;type&#39;.</span>
 <span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
-    <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
+    <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span> <span class="c1">#Schlüssel im dictionary ist &#39;type_&#39;, der Wert die Vorkommenshäufigkeit von &#39;type_&#39; in &#39;preprocessed_words&#39;</span>
 
-<span class="n">freq_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">freq_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#Sortieren in absteigender Reihenfolge mit &#39;reverse=True&#39;</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="c1">#Ausgabe der zehn häufigsten Wörter</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="c1">#&#39;range&#39;-Funktion führt Schleife insgesamt zehn Mal aus</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">freq_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;kommt&quot;</span><span class="p">,</span> <span class="n">freq_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;oft vor.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -539,11 +549,11 @@ dazu kommt 137 oft vor.
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
-<span class="n">stopwords</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">stopwords</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die unten die Stoppwörter angehängt werden</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
-        <span class="n">stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span> <span class="c1">#Zeile für Zeile werden Stoppwörter ...</span>
+        <span class="n">stopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span> <span class="c1">#...rechtsseitig von whitespace-Zeichen bereinigt und der Liste &#39;stopwords&#39; angefügt</span>
 </pre></div>
 </div>
 </div>
@@ -553,8 +563,8 @@ dazu kommt 137 oft vor.
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">kv18</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">99</span><span class="p">:</span><span class="mi">119</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">kv18</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1">#Splitten bei whitespace-Zeichen - dadurch erhalten wir eine Liste mit einzelnen Wörtern</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">99</span><span class="p">:</span><span class="mi">119</span><span class="p">])</span> <span class="c1">#Ausgeben einiger Listenelemente zum Prüfen, ob Splitten erfolgreich war</span>
 </pre></div>
 </div>
 </div>
@@ -569,13 +579,17 @@ dazu kommt 137 oft vor.
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initiieren einer leeren Liste, an die unten die bereinigten Wörter gehängt werden</span>
 
+<span class="c1">#Iteration über die einzelnen Wörter</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
-    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> 
-    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,():&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">:</span>
-        <span class="k">continue</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1">#Kleinschreibung des jeweiligen Worts zur besseren Weiterverarbeitung und Datenauswertung</span>
+    <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,():&quot;</span><span class="p">)</span> <span class="c1">#Bereinigen des Worts durch Entfernen der in Klammern festgelegten Zeichen an Wortanfang und -ende</span>
+    
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="p">:</span> <span class="c1">#Wenn das Wort in der Liste &#39;stopwords&#39; vorkommt... </span>
+        <span class="k">continue</span> <span class="c1">#...überspringen wir den Rest des aktuellen Durchlaufs</span>
+    
+    <span class="c1">#Wenn das Wort dagegen nicht in &#39;stopwords&#39; vorkommt, also die if-Bedingung nicht erfüllt wurde, wird das Wort der Liste angehängt.</span>
     <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
     
 <span class="nb">print</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">[</span><span class="mi">99</span><span class="p">:</span><span class="mi">119</span><span class="p">])</span>
@@ -593,7 +607,7 @@ dazu kommt 137 oft vor.
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span> <span class="c1">#Erstellen einer Menge, damit keine Elemente doppelt vorhanden sind</span>
 </pre></div>
 </div>
 </div>
@@ -601,11 +615,12 @@ dazu kommt 137 oft vor.
 <p>5., 6. und 7. Schritt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#Initiieren eines leeren dictionary, an die unten Wort-Vorkommen-Paare gehängt werden</span>
 
+<span class="c1">#Iterieren über die Menge &#39;types&#39;</span>
 <span class="c1">#Der Unterstrich nach &#39;type&#39; dient der Unterscheidung zum Python-Schlüsselwort &#39;type&#39;.</span>
 <span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
-    <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
+    <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span> <span class="c1">#Schlüssel im dictionary ist &#39;type_&#39;, der Wert die Vorkommenshäufigkeit von &#39;type_&#39; in &#39;preprocessed_words&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -615,7 +630,7 @@ dazu kommt 137 oft vor.
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freq_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#Sortieren in absteigender Reihenfolge mit &#39;reverse=True&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -625,7 +640,8 @@ dazu kommt 137 oft vor.
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ausgabe der zehn häufigsten Wörter</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span> <span class="c1">#&#39;range&#39;-Funktion führt Schleife insgesamt zehn Mal aus</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">freq_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;kommt&quot;</span><span class="p">,</span> <span class="n">freq_sorted</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;oft vor.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -652,10 +668,11 @@ dazu kommt 137 oft vor.
 <p>✏️ <strong>Lösung 1:</strong> Definier eine Funktion <code class="docutils literal notranslate"><span class="pre">sum_div</span></code>, die drei Argumente nimmt. Das erste soll mit dem zweiten addiert werden. Das Ergebnis davon soll durch das dritte Argument geteilt werden. Dieses Ergebnis soll zurückgegeben werden. Entfern anschließend den Hashtag vor der bereits existierenden Code-Zeile. Wenn Du <code class="docutils literal notranslate"><span class="pre">True</span></code> erhältst, hast Du alles richtig gemacht!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">c</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Definieren einer Funktion &#39;sum_div&#39;, welcher drei Argumente (&#39;a,b,c&#39;) übergeben werden müssen</span>
+<span class="k">def</span> <span class="nf">sum_div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="n">c</span> <span class="c1">#Hier wird definiert, was mit &#39;a&#39;, &#39;b&#39; und &#39;c&#39; gemacht werden soll. Das Ergebnis wird durch &#39;return&#39; zurückgegeben.</span>
 
-<span class="n">sum_div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span>
+<span class="n">sum_div</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mf">2.5</span> <span class="c1">#Überprüfung ob der durch &#39;sum_div&#39; errechnete Wert 2.5 enspricht</span>
 </pre></div>
 </div>
 </div>
@@ -672,59 +689,59 @@ dazu kommt 137 oft vor.
 <p>📌 Herausforderung: Verpack Deinen gesamten Code in eine (andere) Kontrollstruktur, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl, bis zwei Zusammensetzungen doppelt vorkommen, auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code class="docutils literal notranslate"><span class="pre">sum</span></code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
-
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span> <span class="c1">#Importieren der Funktion &#39;sample&#39; aus dem Modul &#39;random&#39;</span>
 
 <span class="n">participants_pool</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Janine&quot;</span><span class="p">,</span> <span class="s2">&quot;Hussein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Mia&quot;</span><span class="p">,</span> <span class="s2">&quot;Marianne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dolores&quot;</span><span class="p">,</span> <span class="s2">&quot;Yin&quot;</span><span class="p">,</span> <span class="s2">&quot;Margareth&quot;</span><span class="p">,</span> <span class="s2">&quot;Benni&quot;</span><span class="p">]</span>
 
-<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Zählervariable mit null initiieren</span>
 
-<span class="n">all_compositions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">all_compositions</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Definieren einer leeren Liste für die Kombinationen</span>
 
+<span class="c1">#Starten einer Schleife, die solange ausgeführt wird, bis die Abbruchbedingung erfüllt ist</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     
-    <span class="n">current_composition</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">participants_pool</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">current_composition</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">participants_pool</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">#Zufällige Kombination mit vier Teilnehmer:innen aus der Liste</span>
     
-    <span class="k">if</span> <span class="n">current_composition</span> <span class="ow">in</span> <span class="n">all_compositions</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
-        <span class="k">break</span>
+    <span class="k">if</span> <span class="n">current_composition</span> <span class="ow">in</span> <span class="n">all_compositions</span><span class="p">:</span> <span class="c1">#Wenn die aktuelle Kombination bereits in der Liste vorhanden ist...</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="c1">#...wird der Wert für &#39;count&#39; ausgegeben...</span>
+        <span class="k">break</span> <span class="c1">#...und die Schleife abgebrochen</span>
     
-    <span class="n">all_compositions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_composition</span><span class="p">)</span>
+    <span class="n">all_compositions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_composition</span><span class="p">)</span> <span class="c1">#Anfügen der aktuellen Kombination an die Liste aller Kombinationen</span>
     
-    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#Erhöhen der Zählervariable um eins</span>
     
 <span class="c1">#Herausforderung</span>
-<span class="n">all_counts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">all_counts</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initiieren einer Liste, in der die Anzahl der Kombinationen gezählt wird, bis eine Zusammensetzung doppelt vorkommt</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span> <span class="c1">#Ausführung der Schleife durch &#39;range&#39;-Funktion 1000 Mal</span>
     
-    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Zählervariable bekommt den Wert null zugewiesen</span>
 
-    <span class="n">all_compositions</span> <span class="o">=</span> <span class="p">[]</span>
-
+    <span class="n">all_compositions</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initiieren einer leeren Liste für die Kombinationen</span>
+    
+    <span class="c1">#Starten einer Schleife, die solange ausgeführt wird, bis die Abbruchbedingung erfüllt ist</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 
-        <span class="n">current_composition</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">participants_pool</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="n">current_composition</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">participants_pool</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">#Zufällige Kombination mit vier Teilnehmer:innen aus der Liste</span>
 
-        <span class="k">if</span> <span class="n">current_composition</span> <span class="ow">in</span> <span class="n">all_compositions</span><span class="p">:</span>
-            <span class="k">break</span>
+        <span class="k">if</span> <span class="n">current_composition</span> <span class="ow">in</span> <span class="n">all_compositions</span><span class="p">:</span> <span class="c1">#Wenn die aktuelle Kombination bereits in der Liste vorhanden ist...</span>
+            <span class="k">break</span> <span class="c1">#...wird die Schleife abgebrochen</span>
 
-        <span class="n">all_compositions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_composition</span><span class="p">)</span>
-
-        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">all_compositions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_composition</span><span class="p">)</span> <span class="c1">#Anfügen der aktuellen Kombination an die Liste aller Kombinationen</span>
+        
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#Erhöhen der Zählervariable um eins</span>
     
-    <span class="n">all_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">all_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="c1">#Anfügen der Zahl an die Liste &#39;all_counts&#39;</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">all_counts</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">all_counts</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">all_counts</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">all_counts</span><span class="p">))</span> <span class="c1">#Berechnung des Mittelwertes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>94
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>64
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>109.607
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>109.295
 </pre></div>
 </div>
 </div>
