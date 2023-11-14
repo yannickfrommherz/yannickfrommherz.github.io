@@ -492,7 +492,8 @@ document.write(`
 <p>✏️ <strong>Lösung 1:</strong> Erstell ein Sub-DataFrame, das nur Tokens beinhaltet, die mindestens 20 Zeichen lang sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long_words</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Wir erstellen ein neues DataFrame &#39;long_words&#39;, das nur die Zeilen aus dem DataFrame &#39;songkorpus&#39; enthält, bei denen der Wert in der Spalte &#39;Länge&#39; größer oder gleich 20 ist.</span>
+<span class="n">long_words</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">]</span>
 <span class="n">long_words</span>
 </pre></div>
 </div>
@@ -621,7 +622,8 @@ document.write(`
 <p>✏️ <strong>Lösung 2:</strong> Erstell das gleiche Sub-DataFrame wie in Übung 1 (also eines, das nur Tokens beinhaltet, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stell sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">long_words_2</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Anwendung der Methode &#39;len&#39; (Wichtig: &#39;str&#39; muss vorangestellt werden) auf die Spalte &#39;Token&#39;</span>
+<span class="n">long_words_2</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">]</span>
 
 <span class="c1">#Überprüfen, ob die beiden Ergebnisse identisch sind:</span>
 
@@ -654,8 +656,16 @@ dtype: int64
 <p>✏️ <strong>Lösung 3:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Geh abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst pandas-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt_ohne_Loop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;0&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Wir greifen auf die Spalte &#39;Jahr&#39; zu und wenden auf diese mehrere Methoden an:</span>
+<span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt_ohne_Loop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;0&quot;</span>
+<span class="c1">#Erklärungen zu den verwendeten Methoden:</span>
+<span class="c1">#&#39;astype&#39; casted in einen string</span>
+<span class="c1">#&#39;slice&#39; (mit vorangestelltem &#39;str&#39;) übergeben wir den Start- und Endindex (Achtung: runde Klammern), slicen also vom ersten Element bis zum vorletzten</span>
+<span class="c1">#anschließend fügen wir eine null an.</span>
+
+<span class="c1">#Nutzung der Methode &#39;equals&#39;, um die beiden Spalten zu vergleichen</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt_ohne_Loop&quot;</span><span class="p">]))</span>
+
 <span class="n">songkorpus</span>
 </pre></div>
 </div>
@@ -799,8 +809,17 @@ dtype: int64
 <p>✏️ <strong>Lösung 4:</strong> Bearbeite die Werte in der Spalte „Token“ so, dass jedes Wort, das aus genau fünf Buchstaben besteht, großgeschrieben wird. Einfach weil wir’s können! 😉</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Importieren von numpy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+
 <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">])</span>
+<span class="sd">&#39;&#39;&#39;Erklärung: &#39;np.where&#39; fordert drei Argumente. Zuerst eine Bedingung, als zweites eine Anweisung, die ausgeführt wird, </span>
+<span class="sd">wenn die Bedingung wahr ist und als drittes eine Anweisung, die ausgeführt wird, wenn die Bedingung falsch ist.</span>
+
+<span class="sd">Konkret: Wenn der jeweilige Wert der Spalte &#39;Länge&#39; fünf ist, wird die als zweites Argument übergebene Anweisung ausgeführt: </span>
+<span class="sd">Das Element in der Spalte &#39;Token&#39; wird großgeschrieben. Wenn nicht, wird die als drittes Argument übergebene Anweisung</span>
+<span class="sd">ausgeführt: Das Element in der Spalte &#39;Token&#39; wird unverändert gelassen.&#39;&#39;&#39;</span>
+
 <span class="n">songkorpus</span>
 </pre></div>
 </div>
@@ -941,8 +960,11 @@ dtype: int64
 <p>✏️ <strong>Lösung 5:</strong> Caste sämtliche Werte in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> in strings.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="c1">#&#39;str&#39; ist ja auch eine Funktion!</span>
-<span class="c1">#songkorpus = songkorpus.astype(str) #Alternative</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;applymap&#39; wendet die in Klammern übergegebene Funktion auf das gesamte DataFrame an</span>
+<span class="n">songkorpus</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="c1">#&#39;str&#39; ist ja auch eine Funktion!</span>
+
+<span class="c1">#Alternative</span>
+<span class="c1">#songkorpus = songkorpus.astype(str)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">songkorpus</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;Jahrzehnt_ohne_Loop&quot;</span><span class="p">]))</span> <span class="c1">#Überprüfung an einem bestimmten Wert</span>
 </pre></div>
 </div>
@@ -970,7 +992,7 @@ dtype: int64
 
 <span class="c1">#Abfragen der zu plottenden Wörter</span>
 <span class="n">words</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Welche Wörter sollen geplotted werden? Bsp.: &#39;ich, du&#39;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span> <span class="c1">#Entfernen von etwaigem whitespace bei den zu plottenden Wörtern</span>
 
 <span class="c1">#Iterieren über die zu plottenden Wörter</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
@@ -1000,7 +1022,7 @@ dtype: int64
 <span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1">#Abfragen der zu plottenden Wörter</span>
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">words</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Welche Wörter sollen geplotted werden? Bsp.: &#39;ich, du&#39;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span> <span class="c1">#Entfernen von etwaigem whitespace bei den zu plottenden Wörtern</span>
 <span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1">#Iterieren über die zu plottenden Wörter</span>
 
 <span class="nn">File ~/miniconda3/lib/python3.10/site-packages/ipykernel/kernelbase.py:1174,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
@@ -1085,7 +1107,7 @@ dtype: int64
 
 <span class="c1">#Interaktive Abfrage</span>
 <span class="c1">#words = input(&quot;Welche Wörter sollen geplotted werden? Bsp.: &#39;ich, du&#39;.&quot;).split(&quot;,&quot;)</span>
-<span class="c1">#words = [word.strip() for word in words]</span>
+<span class="c1">#words = [word.strip() for word in words] #Entfernen von etwaigem whitespace bei den zu plottenden Wörtern</span>
 </pre></div>
 </div>
 </div>
@@ -1133,7 +1155,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1523265f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x13242e5c0&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/e9c3f08e63796fd69b2fe14b1d3d9bffd987c9a753259669502a3342b439d6e3.png" src="../../../_images/e9c3f08e63796fd69b2fe14b1d3d9bffd987c9a753259669502a3342b439d6e3.png" />

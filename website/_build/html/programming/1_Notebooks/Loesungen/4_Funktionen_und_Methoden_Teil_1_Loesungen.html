@@ -472,16 +472,19 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderere Pfade als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+
+<span class="c1">#Einlesen der Dateien (dazu mehr im Notebook &quot;Input und Output Teil 1&quot; </span>
 <span class="c1">#Die zwei Punkte im Pfadnamen bedeuten &quot;eine Ebene zurück im Pfad&quot;.</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2018.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">kv18</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
     
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kv18</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">kv21</span><span class="p">):</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kv18</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">kv21</span><span class="p">):</span> <span class="c1">#Wenn Vertrag von 2018 länger ist als von 2021, wird Folgendes ausgegeben:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Koalitionsvertrag von 2018 ist länger.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1">#Sonst wird folgender string ausgegeben:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Koalitionsvertrag von 2021 ist länger.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -502,22 +505,29 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buzzwords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sozial&quot;</span><span class="p">,</span> <span class="s2">&quot;Klima&quot;</span><span class="p">,</span> <span class="s2">&quot;Europa&quot;</span><span class="p">,</span> <span class="s2">&quot;Verkehr&quot;</span><span class="p">,</span> <span class="s2">&quot;Landwirtschaft&quot;</span><span class="p">,</span> <span class="s2">&quot;Umwelt&quot;</span><span class="p">,</span> <span class="s2">&quot;Corona&quot;</span><span class="p">]</span>
 
-<span class="n">count18</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="c1">#Initiieren zweier leerer dictionaries </span>
+<span class="n">count18</span> <span class="o">=</span> <span class="p">{}</span> 
 <span class="n">count21</span> <span class="o">=</span> <span class="p">{}</span>
 
+<span class="c1">#Iterieren über die Element von &#39;buzzwords&#39;</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">buzzwords</span><span class="p">:</span>
-    <span class="n">count18</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">kv18</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Zählen der Vorkommen des jeweiligen Wortes in beiden Verträgen </span>
+<span class="sd">    und Abspeichern der Ergebnisse im dictionary als Schlüssel-Werte-Paar (hier: Wort-Vorkommen-Paar)&quot;&quot;&quot;</span>
+    <span class="n">count18</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">kv18</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> 
     <span class="n">count21</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">kv21</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
 
+<span class="c1">#Erneutes Iterieren über die Liste</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">buzzwords</span><span class="p">:</span>
     
+    <span class="c1">#Vergleich der Vorkommenshäufigkeit des Wortes in beiden Verträgen und Abspeichern in der Variable &#39;trend&#39;</span>
     <span class="k">if</span> <span class="n">count18</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">count21</span><span class="p">[</span><span class="n">word</span><span class="p">]:</span>
         <span class="n">trend</span> <span class="o">=</span> <span class="s2">&quot;📉&quot;</span>
     <span class="k">elif</span> <span class="n">count18</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">count21</span><span class="p">[</span><span class="n">word</span><span class="p">]:</span>
         <span class="n">trend</span> <span class="o">=</span> <span class="s2">&quot;📈&quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">trend</span> <span class="o">=</span> <span class="s2">&quot;🟰&quot;</span>
-        
+    
+    <span class="c1">#Ausgabe der Ergebnisse (wie im Bild oben gefordert) am Ende jeden Durchlaufs</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;word: &quot;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2018: &quot;</span><span class="p">,</span> <span class="n">count18</span><span class="p">[</span><span class="n">word</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2021: &quot;</span><span class="p">,</span> <span class="n">count21</span><span class="p">[</span><span class="n">word</span><span class="p">])</span>
@@ -568,8 +578,11 @@ trend: 📈
 <p>✏️ <strong>Lösung 3:</strong> Die beiden Koalitionsverträge stammen von unterschiedlichen Parteien (CDU, CSU, SPD bzw. SPD, Grüne, FDP). Find heraus, welche beiden Parteien es mit ihrem Kurznamen in beide Verträge geschafft haben. Stell sicher, dass die Zelle mit dem Dateiinput oben ausgeführt ist, damit die Variablen <code class="docutils literal notranslate"><span class="pre">kv18</span></code> und <code class="docutils literal notranslate"><span class="pre">kv21</span></code> mit dem jeweiligen Text initialisiert sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parties</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CDU&quot;</span><span class="p">,</span> <span class="s2">&quot;CSU&quot;</span><span class="p">,</span> <span class="s2">&quot;SPD&quot;</span><span class="p">,</span> <span class="s2">&quot;Grüne&quot;</span><span class="p">,</span> <span class="s2">&quot;FDP&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parties</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CDU&quot;</span><span class="p">,</span> <span class="s2">&quot;CSU&quot;</span><span class="p">,</span> <span class="s2">&quot;SPD&quot;</span><span class="p">,</span> <span class="s2">&quot;Grüne&quot;</span><span class="p">,</span> <span class="s2">&quot;FDP&quot;</span><span class="p">]</span> <span class="c1">#Definieren einer Liste mit den Kurznamen der Parteien</span>
+
+<span class="c1">#Iterieren über die Parteinamen</span>
 <span class="k">for</span> <span class="n">party</span> <span class="ow">in</span> <span class="n">parties</span><span class="p">:</span>
+    <span class="c1">#Prüfen, ob der gegebene Parteiname in beiden Verträgen vorkommt, indem die beiden separaten Statements durch &#39;and&#39; verknüpft werden</span>
     <span class="k">if</span> <span class="n">party</span> <span class="ow">in</span> <span class="n">kv18</span> <span class="ow">and</span> <span class="n">party</span> <span class="ow">in</span> <span class="n">kv21</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">party</span><span class="p">)</span>
 </pre></div>
@@ -589,9 +602,9 @@ Grüne
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Die beiden verliebten sich ineinander. Und wenn sie nicht gestorben sind, kann&#39;s sein dass, sie sich heute noch küssen.Es waren einmal ein Hase und ein Fuchs.&quot;&quot;&quot;</span>
 
-<span class="n">sentences</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-<span class="n">newtext</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;. &quot;</span> <span class="o">+</span> <span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">sentences</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">newtext</span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span> <span class="c1">#Splitten des string beim Punkt</span>
+<span class="n">newtext</span> <span class="o">=</span> <span class="n">sentences</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;. &quot;</span> <span class="o">+</span> <span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">sentences</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#Konkatenieren der Sätze in der richtigen Reihenfolge mithilfe von Indexing und speichern in einer neuen Variable</span>
+<span class="n">newtext</span> <span class="c1">#Ausgabe des neuen string (hier ohne &#39;print&#39;, da JupyterLab die letzte Zeile des Codeblocks standardmäßig ausgibt)</span>
 </pre></div>
 </div>
 </div>
@@ -606,9 +619,11 @@ Grüne
 <p>Benutz anschließend die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode, um „gesagt“ in <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> zu zählen. Das Resultat sollte natürlich zwei sein.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gesagt&#39;</span><span class="p">,</span> <span class="s1">&#39;ist&#39;</span><span class="p">,</span> <span class="s1">&#39;gesagt&#39;</span><span class="p">]</span>
-<span class="n">sentence_again</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
-<span class="n">sentence_again</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;gesagt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Hinweis: Die Variable &#39;words&#39; ist bei Dir ggf. noch von der Ausführung der vorherigen Code-Zellen im Arbeitsspeicher vorhanden.</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gesagt&#39;</span><span class="p">,</span> <span class="s1">&#39;ist&#39;</span><span class="p">,</span> <span class="s1">&#39;gesagt&#39;</span><span class="p">]</span> 
+
+<span class="n">sentence_again</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="c1">#Konkatenieren der Listenelemente durch Leerschläge mittels der &#39;join&#39;-Funktion </span>
+<span class="n">sentence_again</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;gesagt&quot;</span><span class="p">)</span> <span class="c1">#Auszählen der Vorkommen von &quot;gesagt&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -623,18 +638,25 @@ Grüne
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="s2">&quot;Name: Martin Berger name: Kirsten Hauser NAME: Michaela Kircher nAME: Fritz Hofer&quot;</span>
-<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">)</span>
+
+<span class="c1">#Entfernen von &quot;Name: &quot; am Anfang des string</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">)</span> 
+
+<span class="c1">#Kleinschreiben aller Zeichen im string und Auftrennen des string an &quot; name: &quot;</span>
+<span class="c1">#Die Elemente, die durch &#39;split&#39; entstehen, werden automatisch in eine Liste geschrieben.</span>
 <span class="n">names_list</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; name: &quot;</span><span class="p">)</span>
-<span class="n">names_list_title</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names_list</span><span class="p">:</span>
-    <span class="n">names_list_title</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+
+<span class="n">names_list_title</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Anlegen einer leeren Liste</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names_list</span><span class="p">:</span> <span class="c1">#Iteration über &#39;names_list&#39; mittels for-Schleife</span>
+    <span class="n">names_list_title</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span> <span class="c1">#&#39;append&#39; hängt jedes Element der Iteration an die Liste an, durch &#39;title&#39; wird zuvor jeder erste Buchstabe großgeschrieben</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">names_list_title</span><span class="p">)</span>
+
 
 <span class="c1">#Alternative Lösung</span>
 <span class="n">names</span> <span class="o">=</span> <span class="s2">&quot;Name: Martin Berger name: Kirsten Hauser NAME: Michaela Kircher nAME: Fritz Hofer&quot;</span>
-<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">)</span>
-<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;nAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span>
-<span class="n">single_names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; Name: &quot;</span><span class="p">)</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">)</span> <span class="c1">#Wegstrippen von &quot;Name: &quot; am Anfang des string</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;nAME&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">)</span> <span class="c1">#&#39;replace&#39; ersetzt die als erstes Argument übergebene Zeichenkette durch die als zweites Argument übergebene in &#39;names&#39; </span>
+<span class="n">single_names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; Name: &quot;</span><span class="p">)</span> <span class="c1">#Splitten von &#39;names&#39; bei &quot; Name: &quot; (da ja nun einheitlich)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">single_names</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -656,8 +678,8 @@ Grüne
 
 <span class="n">participants_game</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="n">min_participants</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">max_participants</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">min_participants</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1">#Festlegen einer Mindestzahl an Teilnehmer:innen</span>
+<span class="n">max_participants</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1">#Festlegen einer maximalen Teilnehmer:innenzahl</span>
 
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">participants_pool</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_participants</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
@@ -667,10 +689,11 @@ Grüne
         <span class="c1">#Zur Überprüfung der aktuellen Teilnehmer:innenliste</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">continue</span>
-        
-    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_participants</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leider muss uns nun&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;verlassen&quot;</span><span class="p">)</span>
-        <span class="n">participants_game</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1">#Neuer Code-Abschnitt</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_participants</span><span class="p">:</span> <span class="c1">#Überprüfen, ob die maximale Teilnehmer:innenzahl erreicht ist</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leider muss uns nun&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;verlassen&quot;</span><span class="p">)</span> <span class="c1">#Ausgabe, wer als Erstes in der Liste steht und das Spiel somit verlassen muss</span>
+        <span class="n">participants_game</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#Entfernen des ersten Teilnehmenden (mit dem Index null)</span>
         
     <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Spiel läuft 😍&quot;</span><span class="p">)</span>
@@ -729,25 +752,26 @@ Aktuell auf der Liste: [&#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;, &#
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Ich gehe am Abend noch spazieren.&quot;</span>
 
-<span class="n">all_ngrams</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">current_ngram</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">#Initiieren zweier leerer Listen...</span>
+<span class="n">all_ngrams</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#...eine, in die alle gefundenen n-Gramme gespeichert werden</span>
+<span class="n">current_ngram</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#...und eine, in der jeweils nur das beim jeweiligen Durchlauf gefundene n-Gramm gespeichert wird</span>
 
-<span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1">#Splitten des Satzes (hier standardmäßig bei whitespace-Zeichen)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1">#Zwei, da Bigramme ermittelt werden sollen</span>
 
+<span class="c1">#Iteration über &#39;words&#39;</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="c1">#Überprüfen, ob &#39;current_ngram&#39; weniger als &#39;n&#39; Elemente umfasst</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_ngram</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-        <span class="n">current_ngram</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Da wir an Bigrammen interessiert sind, und &#39;len(current_ngram)&#39; noch &lt; 2 ist </span>
-<span class="sd">        (also noch keine zwei Wörter auf der Liste sind), überspringen wir den </span>
-<span class="sd">        Rest dieser Iteration mithilfe von &#39;continue&#39;&quot;&quot;&quot;</span>
+        <span class="n">current_ngram</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="c1">#Anhängen des jeweiligen Worts an &#39;current_ngram&#39;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Da wir an Bigrammen interessiert sind, und &#39;len(current_ngram)&#39; zumindest vor &#39;append&#39; noch &lt; 2 war </span>
+<span class="sd">        (also noch keine zwei Wörter auf der Liste waren), überspringen wir den </span>
+<span class="sd">        Rest dieses Durchlaufs mithilfe von &#39;continue&#39;&quot;&quot;&quot;</span>
         <span class="k">continue</span> 
-<span class="w">    </span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Hier hängen wir das Bigramm an die Liste aller Bigramme.&quot;&quot;&quot;</span>
-    <span class="n">all_ngrams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_ngram</span><span class="p">))</span>
+    
+    <span class="n">all_ngrams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_ngram</span><span class="p">))</span> <span class="c1">#Hier hängen wir das Bigramm an die Liste aller Bigramme.</span>
 
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Hier entfernen wir das erste Wort im Bigramm auf der Liste des gegenwärtigen Bigramms...&quot;&quot;&quot;</span>
-    <span class="n">current_ngram</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">current_ngram</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#Hier entfernen wir das erste Wort im Bigramm auf der Liste des gegenwärtigen Bigramms...</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;...und hängen sogleich das nächste Wort an die Liste des gegenwärtigen Bigramms, wodurch wir wieder ein Bigramm erhalten, </span>
 <span class="sd">    welches zu Beginn der nächsten Iteration an die Liste aller Bigramme angehängt werden wird.&quot;&quot;&quot;</span>
@@ -774,9 +798,9 @@ Aktuell auf der Liste: [&#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;, &#
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_shopping_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Brot&quot;</span><span class="p">,</span> <span class="s2">&quot;Orangen&quot;</span><span class="p">,</span> <span class="s2">&quot;Feldsalat&quot;</span><span class="p">,</span> <span class="s2">&quot;Hafermilch&quot;</span><span class="p">]</span>
 <span class="n">partner_shopping_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hafermilch&quot;</span><span class="p">,</span> <span class="s2">&quot;Kekse&quot;</span><span class="p">,</span> <span class="s2">&quot;Mehl&quot;</span><span class="p">,</span> <span class="s2">&quot;Brot&quot;</span><span class="p">]</span>
 
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">partner_shopping_list</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">my_shopping_list</span><span class="p">:</span>
-        <span class="n">my_shopping_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">partner_shopping_list</span><span class="p">:</span> <span class="c1">#Iterieren über die zweite Liste</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">my_shopping_list</span><span class="p">:</span> <span class="c1">#Prüfen, ob das jeweilige Element nicht (!) in der ersten Liste vorkommt</span>
+        <span class="n">my_shopping_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="c1">#Wenn es nicht auf beiden Listen vorkommt, wird es der ersten Liste angefügt</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">my_shopping_list</span><span class="p">)</span>
 </pre></div>
@@ -802,19 +826,20 @@ Aktuell auf der Liste: [&#39;Mia&#39;, &#39;Marianne&#39;, &#39;Dolores&#39;, &#
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mf">18.6</span><span class="p">,</span> <span class="mf">23.4</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="mf">12.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.1</span><span class="p">,</span> <span class="mf">33.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">17.8</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">9.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">8.6</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="mf">39.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">29.8</span><span class="p">]</span>
 
+<span class="c1">#Vorbereitung der Daten: Es werden nur die Werte in &#39;temperatures_preprocessed&#39; geschrieben, welche nicht den Wert &quot;NA&quot; besitzen.</span>
 <span class="n">temperatures_preprocessed</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">temperatures</span> <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;NA&quot;</span><span class="p">]</span>
 
-<span class="c1">#Alternativer Code</span>
+<span class="c1">#Alternativer Code zur Vorbereitung der Daten über den Datentyp</span>
 <span class="c1">#temperatures_preprocessed = [value for value in temperatures if type(value) == float]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperaturen ohne fehlende Werte:&quot;</span><span class="p">,</span> <span class="n">temperatures_preprocessed</span><span class="p">)</span>
 
+<span class="c1">#Ersetzen aller positiven Werte (value &gt; 0) durch 0.0 mittels List Comprehension</span>
 <span class="n">positives_replaced</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">temperatures_preprocessed</span><span class="p">]</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Positive Messwerte genullt:&quot;</span><span class="p">,</span> <span class="n">positives_replaced</span><span class="p">)</span>
 
+<span class="c1">#Hier werden durch die List Comprehension nur Werte in die Liste &#39;only_positives&#39; geschrieben, deren Wert über null liegt</span>
 <span class="n">only_positives</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">temperatures_preprocessed</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nur positive Messwerte:&quot;</span><span class="p">,</span> <span class="n">only_positives</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -833,7 +858,8 @@ Nur positive Messwerte: [18.6, 23.4, 12.2, 33.7, 7.0, 9.1, 8.6, 39.4]
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">federal_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Vorarlberg&#39;</span><span class="p">:</span> <span class="s1">&#39;Bregenz&#39;</span><span class="p">,</span> <span class="s1">&#39;Tirol&#39;</span><span class="p">:</span> <span class="s1">&#39;Innsbruck&#39;</span><span class="p">,</span> <span class="s1">&#39;Kärnten&#39;</span><span class="p">:</span> <span class="s1">&#39;Klagenfurt&#39;</span><span class="p">,</span> <span class="s1">&#39;Steiermark&#39;</span><span class="p">:</span> <span class="s1">&#39;Graz&#39;</span><span class="p">,</span> <span class="s1">&#39;Wien&#39;</span><span class="p">:</span> <span class="s1">&#39;Wien&#39;</span><span class="p">,</span> <span class="s1">&#39;Niederösterreich&#39;</span><span class="p">:</span> <span class="s1">&#39;Sankt Pölten&#39;</span><span class="p">,</span> <span class="s1">&#39;Oberösterreich&#39;</span><span class="p">:</span> <span class="s1">&#39;Linz&#39;</span><span class="p">,</span> <span class="s1">&#39;Salzburg&#39;</span><span class="p">:</span> <span class="s1">&#39;Salzburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Burgenland&#39;</span><span class="p">:</span> <span class="s1">&#39;Eisenstadt&#39;</span><span class="p">}</span>
 
-<span class="n">federal_states_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">federal_states</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1">#Sortieren des dictionary in aufsteigender Reihenfolge nach den Werten (denn: null für Sortierung nach Schlüsseln, bei eins nach Werten)</span>
+<span class="n">federal_states_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">federal_states</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> 
 <span class="nb">print</span><span class="p">(</span><span class="n">federal_states_sorted</span><span class="p">)</span>
 </pre></div>
 </div>

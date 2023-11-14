@@ -471,11 +471,13 @@ document.write(`
 <p>✏️ <strong>Lösung 1:</strong> Erstell eine Liste mit allen Monaten des Jahres, allerdings gruppiert nach meteorologischen Jahreszeiten, also <em>März, April, Mai</em> zusammen in einer Liste für Frühlingsmonate, etc. Am Ende solltest Du also vier Listen für die vier Jahreszeiten haben, die wiederum Elemente einer einzigen Liste sind. Eine Variable namens <code class="docutils literal notranslate"><span class="pre">seasons</span></code> soll auf diese Liste zeigen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spring</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;März&quot;</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">,</span> <span class="s2">&quot;Mai&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Erstellen von vier Listen, je eine pro Jahreszeit</span>
+<span class="n">spring</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;März&quot;</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">,</span> <span class="s2">&quot;Mai&quot;</span><span class="p">]</span>
 <span class="n">summer</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Juni&quot;</span><span class="p">,</span> <span class="s2">&quot;Juli&quot;</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">]</span>
 <span class="n">fall</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;September&quot;</span><span class="p">,</span> <span class="s2">&quot;Oktober&quot;</span><span class="p">,</span> <span class="s2">&quot;November&quot;</span><span class="p">]</span>
 <span class="n">winter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Dezember&quot;</span><span class="p">,</span> <span class="s2">&quot;Januar&quot;</span><span class="p">,</span> <span class="s2">&quot;Februar&quot;</span><span class="p">]</span>
-<span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="n">spring</span><span class="p">,</span> <span class="n">summer</span><span class="p">,</span> <span class="n">fall</span><span class="p">,</span> <span class="n">winter</span><span class="p">]</span>
+
+<span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="n">spring</span><span class="p">,</span> <span class="n">summer</span><span class="p">,</span> <span class="n">fall</span><span class="p">,</span> <span class="n">winter</span><span class="p">]</span> <span class="c1">#Definieren einer neuen Liste, welche die vier zuvor erstellten Listen als Elemente beinhaltet</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -490,8 +492,9 @@ document.write(`
 <p>✏️ <strong>Lösung 2:</strong> Bau auf der Jahreszeitenliste der vorherigen Übung auf und erstell ein dictionary mit den Jahreszeiten als Schlüssel und einer Liste mit den jeweiligen drei Monaten als Werte. Verwend wieder (d. h. <em>überschreib</em>) die Variable <code class="docutils literal notranslate"><span class="pre">seasons</span></code>, um das dictionary zu referenzieren. Pass auf, dass Du jeweils die richtigen Klammern verwendest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seasons</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;spring&quot;</span><span class="p">:</span> <span class="n">spring</span><span class="p">,</span> <span class="s2">&quot;summer&quot;</span><span class="p">:</span> <span class="n">summer</span><span class="p">,</span> <span class="s2">&quot;fall&quot;</span><span class="p">:</span> <span class="n">fall</span><span class="p">,</span> <span class="s2">&quot;winter&quot;</span><span class="p">:</span> <span class="n">winter</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="s2">&quot;spring&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Erstellen eines dictionary, das für jeden der vier Schlüssel die jeweilige, oben definierte Liste als Wert enthält</span>
+<span class="n">seasons</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;spring&quot;</span><span class="p">:</span> <span class="n">spring</span><span class="p">,</span> <span class="s2">&quot;summer&quot;</span><span class="p">:</span> <span class="n">summer</span><span class="p">,</span> <span class="s2">&quot;fall&quot;</span><span class="p">:</span> <span class="n">fall</span><span class="p">,</span> <span class="s2">&quot;winter&quot;</span><span class="p">:</span> <span class="n">winter</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seasons</span><span class="p">[</span><span class="s2">&quot;spring&quot;</span><span class="p">])</span> <span class="c1">#Ausgabe der Liste der Frühlingsmonate, indem der Schlüssel &#39;spring&#39; vom dictionary angesprochen wird</span>
 </pre></div>
 </div>
 </div>
@@ -508,9 +511,9 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hislist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Pasta&quot;</span><span class="p">,</span> <span class="s2">&quot;Hafermilch&quot;</span><span class="p">,</span> <span class="s2">&quot;Marmelade&quot;</span><span class="p">,</span> <span class="s2">&quot;Brötchen&quot;</span><span class="p">]</span>
 <span class="n">herlist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Brokkoli&quot;</span><span class="p">,</span> <span class="s2">&quot;Hafermilch&quot;</span><span class="p">,</span> <span class="s2">&quot;Brot&quot;</span><span class="p">,</span> <span class="s2">&quot;Marmelade&quot;</span><span class="p">]</span>
 
-<span class="n">theirlist</span> <span class="o">=</span> <span class="n">hislist</span> <span class="o">+</span> <span class="n">herlist</span>
-<span class="n">theirset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">theirlist</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">theirset</span><span class="p">)</span>
+<span class="n">theirlist</span> <span class="o">=</span> <span class="n">hislist</span> <span class="o">+</span> <span class="n">herlist</span> <span class="c1">#Zusammenfügen der beiden Listen mit dem +-Operator</span>
+<span class="n">theirset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">theirlist</span><span class="p">)</span> <span class="c1">#Casten in eine Menge, sodass keine Elemente doppelt vorkommen </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">theirset</span><span class="p">)</span> <span class="c1">#Ausgabe der Menge (deshalb steht der Output in geschweiften Klammern)</span>
 
 <span class="c1">#Auch möglich ohne Anlegen einer dritten Liste:</span>
 <span class="c1">#theirset = set(hislist + herlist)</span>
@@ -519,7 +522,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Pasta&#39;, &#39;Marmelade&#39;, &#39;Brötchen&#39;, &#39;Hafermilch&#39;, &#39;Brokkoli&#39;, &#39;Brot&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Brötchen&#39;, &#39;Marmelade&#39;, &#39;Brot&#39;, &#39;Hafermilch&#39;, &#39;Pasta&#39;, &#39;Brokkoli&#39;}
 </pre></div>
 </div>
 </div>
@@ -531,6 +534,9 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_words1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Satz&quot;</span><span class="p">,</span> <span class="s2">&quot;daraus&quot;</span><span class="p">,</span> <span class="s2">&quot;Mach&quot;</span><span class="p">,</span> <span class="s2">&quot;bitte&quot;</span><span class="p">,</span> <span class="s2">&quot;sinnvollen&quot;</span><span class="p">,</span> <span class="s2">&quot;einen&quot;</span><span class="p">]</span>
 <span class="n">conjunction</span> <span class="o">=</span> <span class="s2">&quot;und&quot;</span>
 <span class="n">list_of_words2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ende&quot;</span><span class="p">,</span> <span class="s2">&quot;ausgeben.&quot;</span><span class="p">,</span> <span class="s2">&quot;lass&quot;</span><span class="p">,</span> <span class="s2">&quot;am&quot;</span><span class="p">,</span> <span class="s2">&quot;Dir&quot;</span><span class="p">,</span> <span class="s2">&quot;ihn&quot;</span><span class="p">]</span>
+
+<span class="sd">&quot;&quot;&quot;Elemente der drei Listen werden mittels Indexing in die richtige Reihenfolge gebracht. Beachte: Das erste Listenelement</span>
+<span class="sd">besitzt immer den Index [0]. Negatives Indexing ist außerdem sehr effektiv, um auf die hinteren Listenelemente zuzugreifen.&quot;&quot;&quot;</span>
 <span class="n">meaningful</span> <span class="o">=</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">conjunction</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">list_of_words2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">meaningful</span><span class="p">)</span>
 </pre></div>
@@ -553,8 +559,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words_for_sentence</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Füge&quot;</span><span class="p">,</span> <span class="s2">&quot;Satz&quot;</span><span class="p">,</span> <span class="s2">&quot;bitte&quot;</span><span class="p">,</span> <span class="s2">&quot;zusammen&quot;</span><span class="p">,</span> <span class="s2">&quot;diesen&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">]</span>
-<span class="n">wordlist</span> <span class="o">=</span> <span class="n">words_for_sentence</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">words_for_sentence</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wordlist</span><span class="p">)</span>
+<span class="n">wordlist</span> <span class="o">=</span> <span class="n">words_for_sentence</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">words_for_sentence</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="c1">#Slicing mit step=2, aber mit jeweils unterschiedlichen Startindizes</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wordlist</span><span class="p">)</span> <span class="c1">#&#39;join&#39; konkateniert die einzelnen Elemente auf &#39;wordlist&#39; mit einem Leerschlag dazwischen</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -571,8 +577,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wild_mix</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Montag&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Friday&quot;</span><span class="p">:</span> <span class="s2">&quot;Freitag&quot;</span><span class="p">,</span> <span class="s2">&quot;Saturday&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Samstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonnabend&quot;</span><span class="p">]}]</span>
 
-<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">wild_mix</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">wild_mix</span><span class="p">:</span> <span class="c1">#Iterieren über jedes einzele Element der Liste &#39;wild_mix&#39; (mehr dazu im Notebook &quot;Kontrollstrukturen&quot;)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">element</span><span class="p">))</span> <span class="c1">#Ausgabe des Datentyps für jedes Element </span>
+
+<span class="sd">&quot;&quot;&quot;Hinweis: Das dictionary wird bei der Interation nicht weiter &quot;auseinandergenommen&quot;, da es sich als Ganzes um nur ein </span>
+<span class="sd">Element der Liste handelt, welches mit geschweiften Klammern beginnt und endet.&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -581,6 +590,9 @@ document.write(`
 &lt;class &#39;int&#39;&gt;
 &lt;class &#39;float&#39;&gt;
 &lt;class &#39;dict&#39;&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hinweis: Das dictionary wird bei der Interation nicht weiter &quot;auseinandergenommen&quot;, da es sich als Ganzes um nur ein \nElement der Liste handelt, welches mit geschweiften Klammern beginnt und endet.&#39;
 </pre></div>
 </div>
 </div>
