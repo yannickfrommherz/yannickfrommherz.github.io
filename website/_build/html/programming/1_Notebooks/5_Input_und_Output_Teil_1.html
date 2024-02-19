@@ -514,7 +514,10 @@ document.write(`
 <p>Beachte, dass die obersten Verzeichnisse eines absoluten Pfades, also diejenigen, die vom System vorgegeben sind, z. T. auf Englisch angegeben werden (selbst wenn sie in Deinem Dateimanager auf Deutsch angezeigt werden). Im vollständigen Pfad steht also ggf. <em>Users</em> und nicht <em>Benutzer</em>. Das geschieht aber automatisch, wenn Du den Pfad wie oben beschrieben kopierst.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 1:</strong> Navigier in Deinem Dateimanager zu fünf beliebigen Dateien in fünf verschiedenen Verzeichnissen. Kopier die absoluten Dateipfade wie oben beschrieben und weis je einen Dateipfad einer der folgenden Variablen zu (innerhalb der Anführungszeichen).</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp für Windows-Nutzer:innen </summary>
+    <br>Beachte, dass Du die Backslashes maskieren musst (s. o.).
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben (so viel zu coden gibt es hier nicht 😅).</span>
 
@@ -584,7 +587,10 @@ Loesungen
 <p>Wenn Du es versäumst, <code class="docutils literal notranslate"><span class="pre">os</span></code> am Anfang zu importieren, erhältst Du <code class="docutils literal notranslate"><span class="pre">NameError:</span> <span class="pre">name</span> <span class="pre">'os'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code> zurück. Das ist die gleiche Fehlermeldung, wie wenn Du versuchst, mit einer (noch) nicht definierten Variable zu arbeiten. In beiden Fällen kann Python schlicht nichts mit den <em>Namen</em> anfangen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 2:</strong> Das aktuelle Arbeitsverzeichnis auf einem Windows-Rechner sei „C:\Users\Name\Documents\Project\Folder“. Du möchtest auf eine Datei zugreifen, die folgenden absoluten Dateipfad besitzt: „C:\Users\Name\Documents\Resources\file.csv“. Mithilfe welchen relativen Pfads können wir in Python auf „file.csv“ zugreifen?</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp</summary>
+    <br>Bei relativen Dateipfaden ist es auch bei Windows möglich, einen sog. <i>forward slash</i> (/) statt eines Backslash (\) zu nutzen. Wenn Du Windows-Nutzer:in bist: Gewöhn Dir die generelle Nutzung von forward slashes bei relativen Pfaden an, denn so sparst Du Dir die Maskierungszeichen am Anfang des Pfades und ermöglichst das betriebssystemübergreifende Arbeiten mit Deinen Skripten, da auch macOS und Linux damit arbeiten können.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben (immer noch nichts zu coden 😅).</span>
 </pre></div>
@@ -607,7 +613,7 @@ Loesungen
 <li><p><code class="docutils literal notranslate"><span class="pre">open(file,</span> <span class="pre">&quot;w&quot;)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">open(file,</span> <span class="pre">&quot;a&quot;)</span></code></p></li>
 </ul>
-<p>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion akzeptiert neben <code class="docutils literal notranslate"><span class="pre">file</span></code> und <code class="docutils literal notranslate"><span class="pre">mode</span></code> weitere Parameter, u. a. <code class="docutils literal notranslate"><span class="pre">encoding</span></code>, wo wir spezifizieren können, <em>wie</em> eine Datei enkodiert ist. Das Encoding einer Datei legt fest, nach welchem Schlüssel sämtliche Zeichen (Buchstaben in lateinischer Schrift sowie den allermeisten anderen Sprachen, Zahlen, Emojis…) in Nullen und Einsen übersetzt werden. Natürlich geht nichts ohne den korrekten Schlüssel. <a class="reference external" href="https://de.wikipedia.org/wiki/UTF-8">UTF-8</a> von <a class="reference external" href="https://de.wikipedia.org/wiki/Unicode">Unicode</a> ist Standard, sodass wir uns i. d. R. nicht den Kopf darüber zerbrechen müssen. Um Problemen vorzubeugen (insbesondere unter Windows), lohnt es sich trotzdem, standardmäßig <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code> zu spezifizieren, und zwar beim Input sowie beim Output.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion akzeptiert neben <code class="docutils literal notranslate"><span class="pre">file</span></code> und <code class="docutils literal notranslate"><span class="pre">mode</span></code> weitere Parameter, u. a. <code class="docutils literal notranslate"><span class="pre">encoding</span></code>, wo wir spezifizieren können, <em>wie</em> eine Datei enkodiert ist. Das Encoding einer Datei legt fest, nach welchem Schlüssel sämtliche Zeichen (Buchstaben in lateinischer Schrift sowie den allermeisten anderen Sprachen, Zahlen, Emojis…) in Nullen und Einsen übersetzt werden. Natürlich geht nichts ohne den korrekten Schlüssel. <a class="reference external" href="https://de.wikipedia.org/wiki/UTF-8">UTF-8</a> von <a class="reference external" href="https://de.wikipedia.org/wiki/Unicode">Unicode</a> ist Standard, sodass wir uns i. d. R. nicht den Kopf darüber zerbrechen müssen. Um Problemen vorzubeugen (insbesondere unter Windows!), lohnt es sich trotzdem, standardmäßig <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code> zu spezifizieren, und zwar beim Input sowie beim Output.</p>
 <section id="input">
 <h3>Input<a class="headerlink" href="#input" title="Link zu dieser Überschrift">#</a></h3>
 <p>Wie wir bei den Koalitionsverträgen im Notebook „Funktionen und Methoden“ bereits gesehen haben, wird die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion zum Lesen von externen Dateien wie folgt syntaktisch eingebunden:</p>
@@ -766,7 +772,11 @@ Waitwell. Ach! sie verdient sie, und wenn es blutige Tränen wären.
 <p>Hier überprüfen wir erst, ob die Zeile nur aus whitespace besteht, und wenn ja, dann überspringen wir sie (<code class="docutils literal notranslate"><span class="pre">continue</span></code>). Andernfalls hängen wir die am rechten Rand von whitespace bereinigte Zeile <code class="docutils literal notranslate"><span class="pre">miss_sara_sampson</span></code> an. Das Ergebnis ist das gleiche wie oben, nur haben wir uns dabei ein paar Zeilen Code gespart.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 3:</strong> Lies den ersten Aufzug aus Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/nathan/chap002.html"><em>Nathan der Weise</em></a> ein. Die Datei befindet sich im Unterverzeichnis „Nathan_der_Weise“ im Dateienordner. Find heraus, welche der Figuren des Stücks (bereitgestellt in <code class="docutils literal notranslate"><span class="pre">characters</span></code>) am häufigsten erwähnt wird (wir unterscheiden nicht zwischen Erwähnungen in Redebeiträgen und sonst wo im Text, z. B. in der Sprecherkennzeichung).</p>
-<p>Um Deine Fertigkeiten aus dem Notebook „Funktionen und Methoden Teil 1“ gleich wieder einzusetzen, könntest Du dazu auch eine sortierte Frequenzliste mit allen Figuren und ihren jeweiligen Erwähnungshäufigkeiten erstellen.</p>
+<p>Um Deine Fertigkeiten aus dem Notebook „Funktionen und Methoden Teil 1“ gleich wieder einzusetzen, kannst Du dazu eine sortierte Frequenzliste mit allen Figuren und ihren jeweiligen Erwähnungshäufigkeiten erstellen.</p>
+<details>
+  <summary>💡 Tipp </summary>
+    <br>Zum Auszählen der Häufigkeiten kannst Du eine bereits aus dem Notebook "Funktionen und Methoden Teil 1" bekannte string-Methode nutzen.
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -923,9 +933,12 @@ Sara. Was sollte ich Ihnen nicht vergeben? Sie wissen, was ich Ihnen bereits ver
 <hr class="docutils" />
 <p>✏️ <strong>Übung 4:</strong> Im Gegensatz zu <em>Miss Sara Sampson</em> ist <em>Nathan der Weise</em> etwas anders formatiert, z. B. verteilen sich Redebeiträge z. T. über mehrere Zeilen.</p>
 <p>Lies den ersten Aufzug aus <em>Nathan der Weise</em> abermals ein. Schau Dir die Formatierung des Textes genau an, um ein strukturelles Merkmal zu finden, anhand dessen Du eine Liste mit zusammengehörigen Redebeiträgen und Metakommentaren erstellen kannst. Ein über mehrere Zeilen verteilter Redebeitrag oder Metakommentar soll jeweils in ein Element einfließen.</p>
-<p>Bereinige anschließend die Liste von allem, was kein Redebeitrag darstellt. Auch hierfür musst Du Dir die Liste gut anschauen, um ein strukturelles Merkmal zu identifizieren, anhand dessen Du die „Spreu vom Weizen“ trennen kannst. Sollte sich ein Metakommentar innerhalb eines Redebeitrags befinden, kannst Du dies ignorieren. Stell durch einen iterativen Ansatz sicher, dass Du am Ende wirklich alle Redebeiträge und nur Redebeiträge auf der Liste hast (also die <em>true positives</em>).</p>
+<p>Bereinige anschließend die Liste von allem, was keinen Redebeitrag darstellt. Auch hierfür musst Du Dir die Liste gut anschauen, um ein strukturelles Merkmal zu identifizieren, anhand dessen Du die „Spreu vom Weizen“ trennen kannst. Sollte sich ein Metakommentar innerhalb eines Redebeitrags befinden, kannst Du dies ignorieren. Stell durch einen iterativen Ansatz sicher, dass Du am Ende wirklich alle Redebeiträge und nur Redebeiträge auf der Liste hast (also die <em>true positives</em>).</p>
 <p>Dir steht wiederum eine Liste mit Figuren zur Verfügung.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+    <br>Um die Redebeiträge zu extrahieren, kann Dir u. a. die Methode <code>startswith</code> helfen.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1083,8 +1096,10 @@ Und wäre leicht von Grund aus abgebrannt.
 <hr class="docutils" />
 <p>✏️ <strong>Übung 5:</strong> Bisher haben wir nur mit dem ersten Aufzug aus <em>Miss Sara Sampson</em> gearbeitet. Das Trauerspiel besteht aber aus fünf Aufzügen, die sich allesamt im gleichen Verzeichnis wie der erste Aufzug befinden.</p>
 <p>Öffne eine neue Textdatei mit dem Namen „Miss_Sara_Sampson_komplett.txt“ im Verzeichnis „Output“ und schreib alle fünf Aufzüge in der richtigen Reihenfolge in diese Datei.</p>
-<p>Anstatt jede Datei über ihren Pfad einzeln zu öffnen, kannst Du die oben bereits vorgestellte <code class="docutils literal notranslate"><span class="pre">listdir</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">os</span></code>-Moduls verwenden. Als Argument übergibst Du ihr den Pfad zum betreffenden Verzeichnis. Du kriegst eine Liste mit den darin befindlichen Dateien und Unterverzeichnissen (jeweils als string) zurück. Über diese Liste kannst Du dann wie gewohnt iterieren.</p>
-<div class="cell docutils container">
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Anstatt jede Datei über ihren Pfad einzeln zu öffnen, kannst Du die oben bereits vorgestellte <code>listdir</code>-Funktion des <code>os</code>-Moduls verwenden. Als Argument übergibst Du ihr den Pfad zum betreffenden Verzeichnis. Du kriegst eine Liste mit den darin befindlichen Dateien und Unterverzeichnissen (jeweils als string) zurück. Über diese Liste kannst Du dann wie gewohnt iterieren.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>

@@ -532,10 +532,68 @@ Name: Token, dtype: object
 <span class="c1">#Vergeben von Spaltenbezeichnungen. Beachte: Es müssen nur zwei Spaltentitel vergeben werden, da die erste Spalte als Indexspalte keinen Titel bekommt.</span>
 <span class="n">songkorpus_labelled_rows</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span> 
 
-<span class="c1">#Zu 3.: Zeilennamen können mehrfach vorkommen</span>
+<span class="c1">#Zu 3.: Zeilennamen können mehrfach vorkommen, beispielsweise &quot;wir&quot;:</span>
+<span class="n">songkorpus_labelled_rows</span><span class="p">[</span><span class="n">songkorpus_labelled_rows</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="s2">&quot;wir&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Jahr</th>
+      <th>Häufigkeit</th>
+    </tr>
+    <tr>
+      <th>CO_TOKEN</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>wir</th>
+      <td>1969</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>wir</th>
+      <td>1970</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <th>wir</th>
+      <td>1971</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>wir</th>
+      <td>1972</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th>wir</th>
+      <td>1973</td>
+      <td>148</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 3:</strong> Setz die Tatsache, dass Zeilennamen mehrfach vorkommen dürfen, produktiv ein und find heraus, wie oft „Dresden“ in <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> vorkommt, indem Du die Häufigkeiten in allen Jahren, in denen das Wort gesungen wird, zusammenzählst.</p>
@@ -657,7 +715,6 @@ Name: Token, dtype: object
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 5:</strong> Vereinfache den Code von oben, mit dessen Hilfe wir die Spalte „Jahrzehnt“ hinzugefügt haben, indem Du ihn mittels List Comprehension (vgl. Notebook „Funktionen und Methoden Teil 1“) auf eine einzige Zeile reduzierst. Hol den Abschnitt zu List Comprehensions nach, falls Du ihn damals ausgelassen hast, da er als fortgeschritten markiert war.</p>
-<p>Hinweis: <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> verfügt ja bereits über eine Spalte mit dem Namen „Jahrzehnt“. Indem Du das Resultat Deiner List Comprehension <code class="docutils literal notranslate"><span class="pre">songkorpus[&quot;Jahrzehnt&quot;]</span></code> zuweist, überschreibst Du die befindliche Spalte ganz einfach.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Slicing und Anhängen von null wird nacheinander auf jedes Element der Spalte &#39;Jahr&#39; angewendet.</span>
@@ -790,43 +847,43 @@ Name: Token, dtype: object
   <tbody>
     <tr>
       <th>386505</th>
-      <td>﻿Vierzehn</td>
+      <td>Vierzehn</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>9</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>386506</th>
-      <td>﻿Was</td>
+      <td>Was</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>386507</th>
-      <td>﻿Weißer</td>
+      <td>Weißer</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>7</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>386508</th>
-      <td>﻿Wie</td>
+      <td>Wie</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>386509</th>
+      <td>Wozu</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
       <td>4</td>
-    </tr>
-    <tr>
-      <th>386509</th>
-      <td>﻿Wozu</td>
-      <td>2020</td>
-      <td>1</td>
-      <td>2020</td>
-      <td>5</td>
     </tr>
   </tbody>
 </table>
@@ -875,7 +932,7 @@ Max. 1 %: 1, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>104934
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>104907
 </pre></div>
 </div>
 </div>

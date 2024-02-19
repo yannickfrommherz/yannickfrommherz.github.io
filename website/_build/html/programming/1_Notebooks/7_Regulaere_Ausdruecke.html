@@ -686,11 +686,17 @@ document.write(`
 <hr class="docutils" />
 <p>✏️ <strong>Übung 1:</strong> Find heraus, wie viele Male drei aufeinanderfolgende „f“ im string <code class="docutils literal notranslate"><span class="pre">text</span></code> vorkommen. <code class="docutils literal notranslate"><span class="pre">regex</span></code> soll Deinen regulären Ausdruck referenzieren. Es handelt sich dabei ebenfalls um einen string, allerdings mit einem dem öffnenden Anführungszeichen vorangestellten „r“/“R“. Wie bei f-strings im Notebook „Input und Output Teil 2“ teilen wir Python damit mit, dass der folgende string anders als ein normaler string zu interpretieren ist (wie genau, sind technische Details, die für uns nicht relevant sind, vgl. ebenfalls Notebook „Input und Output Teil 1“ zu Dateipfaden bei Windows).</p>
 <p>Der Rest des Codes ist bereits fertig geschrieben. Grob formuliert, nimmt die <code class="docutils literal notranslate"><span class="pre">findall</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls Deinen regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">regex</span></code>) und sucht <code class="docutils literal notranslate"><span class="pre">text</span></code> von links nach rechts danach ab. Alle matches landen in einer Liste, die mit <code class="docutils literal notranslate"><span class="pre">matches</span></code> referenziert wird und deren Länge wir uns abschließend ausgeben lassen. Die Ausgabe sollte natürlich <code class="docutils literal notranslate"><span class="pre">3</span></code> sein, sobald Du den korrekten regulären Ausdruck bei <code class="docutils literal notranslate"><span class="pre">regex</span></code> ausgefüllt hast.</p>
-<p>💡 Tipp: Verwend bei dieser und bei den folgenden Übungen <a class="reference external" href="https://regexr.com">RegExr</a>. Auf dieser Webseite kannst Du verschiedene reguläre Ausdrücke ausprobieren (im Feld oben) und siehst dabei direkt, welche matches in einem zu durchsuchenden Text (den Du im Feld in der Mitte eingibst) gefunden werden. Oben drauf wird Dir im Feld unten jedes Zeichen Deines regulären Ausdrucks erklärt.</p>
-<div class="cell docutils container">
+<details>
+<summary> 💡 Tipp </summary>
+<br>Um nach <i>drei</i> aufeinanderfolgenden "f" zu suchen, kannst Du in geschweiften Klammern angeben, wie oft das zu suchende Zeichen vorkommen soll. Sieh dazu in der Tabelle oben nach.
+</details>
+<br>
+<details>
+<summary> 💡 Weiterführender Tipp </summary>
+<br>Verwend bei dieser und bei den folgenden Übungen <a href="https://regexr.com">RegExr</a>. Auf dieser Webseite kannst Du verschiedene reguläre Ausdrücke ausprobieren (im Feld oben) und siehst dabei direkt, welche matches in einem zu durchsuchenden Text (den Du im Feld in der Mitte eingibst) gefunden werden. Oben drauf wird Dir im Feld unten jedes Zeichen Deines regulären Ausdrucks erklärt.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
-
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Schadstofffreie Schifffahrt dank Auspufffilter&quot;</span>
 
 <span class="c1">#Hier regulären Ausdruck einfügen</span>
@@ -771,8 +777,10 @@ document.write(`
 <li><p>alle Zitate (dieser reguläre Ausdruck beinhaltet vermutlich doppelte Anführungszeichen; umschließ den string zwecks korrekter Abgrenzung daher mit drei einfachen Anführungszeichen)</p></li>
 </ol>
 <p>Lass Dir anschließend alle Listen schön formatiert ausgeben.</p>
-<p>👆 Hinweis: Nach oben uneingeschränkte Quantifikatoren sind <em>gierig</em>. Will heißen: Sie matchen so viele Zeichen wie nur möglich. Wenn wir beim dritten Suchauftrag etwa spezifizieren, dass beliebig viele beliebige Zeichen (<code class="docutils literal notranslate"><span class="pre">.*</span></code>) innerhalb von Anführungszeichen vorkommen dürfen, führt das dazu, dass die Zitate nicht einzeln gematcht werden, sondern dass fälschlicherweise ein langes Zitat – beginnend beim ersten öffnenden Anführungszeichen und endend beim letzten schließenden Anführungszeichen – ausgegeben wird. Um diese <em>Gier</em> zu bändigen und stattdessen alle kürzesten, vollständigen matches, also alle Zitate einzeln, zu erhalten, können wir dem Quantifikator ganz einfach ein <code class="docutils literal notranslate"><span class="pre">?</span></code> anfügen.</p>
-<div class="cell docutils container">
+<details>
+<summary>💡 Tipp für den 3. regulären Ausdruck </summary>
+    <br>Nach oben uneingeschränkte Quantifikatoren sind <i>gierig</i>. Will heißen: Sie matchen so viele Zeichen wie nur möglich. Wenn wir beim dritten Suchauftrag also spezifizieren, dass beliebig viele beliebige Zeichen (<code>.*</code>) innerhalb von Anführungszeichen vorkommen dürfen, führt das dazu, dass die Zitate nicht einzeln gematcht werden, sondern dass fälschlicherweise ein langes Zitat – beginnend beim ersten öffnenden Anführungszeichen und endend beim letzten schließenden Anführungszeichen – ausgegeben wird. Um diese <i>Gier</i> zu bändigen und stattdessen alle kürzesten, vollständigen matches, also alle Zitate einzeln, zu erhalten, können wir dem Quantifikator ganz einfach ein <code>?</code> anfügen.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -797,9 +805,8 @@ document.write(`
 <ol class="arabic">
 <li><p>Öffne dazu den <a class="reference external" href="https://www.weltfussball.de/alle_spiele/bundesliga-2019-2020/">Spielplan der Bundesligasaison 2019-2020 auf weltfussball.de</a>. Nun wollen wir den Quelltext dieser Seite herunterladen. Da wir noch über keine Web-Scraping-Skills verfügen, machen wir es manuell. Geh dazu je nach Browser wie folgt vor:</p>
 <ul class="simple">
-<li><p>bei Google Chrome im Menü „Anzeigen“ &gt; „Entwickler“ &gt; „Quelltext anzeigen“ wählen</p></li>
+<li><p>bei Google Chrome und Firefox mittels Rechtsklick „Seitenquelltext anzeigen“ wählen</p></li>
 <li><p>bei Safari mittels Rechtsklick „Seitenquelltext einblenden“ wählen</p></li>
-<li><p>bei Firefox mittels Rechtsklick „Seitenquelltext anzeigen“ wählen</p></li>
 </ul>
  <br>
 <p>Markier und kopier nun den kompletten Quelltext und speicher ihn in einem neuen Dokument, das Du unter dem Namen „quelltext.txt“ im Ordner „3_Dateien/Fussball“ abspeicherst. Für diesen Vorgang empfiehlt sich das im Notebook „Funktionen und Methoden Teil 2“ erwähnte <a class="reference external" href="https://www.sublimetext.com">Sublime Text</a>.</p>
@@ -809,8 +816,15 @@ document.write(`
 <img src="../3_Dateien/Grafiken_und_Videos/Quelltext.png">
 <ol class="arabic simple" start="2">
 <li><p>Öffne das Dokument wie im Notebook „Input und Output Teil 1“ gelernt, lies es ein und weis es der Variablen <code class="docutils literal notranslate"><span class="pre">source_code</span></code> zu.</p></li>
-<li><p>Geh noch einmal zum <a class="reference external" href="https://www.weltfussball.de/alle_spiele/bundesliga-2019-2020/">Spielplan</a> im Browser und öffne einige Spielberichte, indem Du auf die jeweiligen Spielergebnisse klickst. Schau Dir die Adresszeile an und analysier, wie die Links aufgebaut sind sowie worin sie sich unterscheiden. Schau ebenfalls im Quelltext nach, wie die Links da aussehen (💡 Tipp: Die Links im Quelltext sind abgekürzt).</p></li>
-<li><p>Formulier darauf aufbauend einen regulären Ausdruck, der sämtliche Links zu allen Spielberichten im Quelltext matcht. Füg ihn als string bei der Variablen <code class="docutils literal notranslate"><span class="pre">regex</span></code> ein. Ist der reguläre Ausdruck korrekt, sollte <code class="docutils literal notranslate"><span class="pre">matches</span></code> 306 Links beinhalten. Sowohl bei <code class="docutils literal notranslate"><span class="pre">regex</span></code> als auch bei <code class="docutils literal notranslate"><span class="pre">matches</span></code> musst Du natürlich noch die Hashtags entfernen.</p></li>
+<li><p>Geh noch einmal zum <a class="reference external" href="https://www.weltfussball.de/alle_spiele/bundesliga-2019-2020/">Spielplan</a> im Browser und öffne einige Spielberichte, indem Du auf die jeweiligen <b>Spielergebnisse</b> klickst. Schau Dir die Adresszeile an und analysier, wie die Links aufgebaut sind sowie worin sie sich unterscheiden. Schau ebenfalls im Quelltext nach, wie die Links da aussehen.</p></li>
+</ol>
+<details>
+<summary>💡 Tipp </summary>
+<br>Die Links im Quelltext sind abgekürzt – soll heißen, dass der erste Teil der URL (Protokoll, Subdomain und Domain) "https://www.weltfussball.de/" nicht vor jedem Link im Quelltext steht.
+</details>
+<br>
+4. Formulier darauf aufbauend einen regulären Ausdruck, der sämtliche Links zu allen Spielberichten im Quelltext matcht. Füg ihn als string bei der Variablen ```regex``` ein. Ist der reguläre Ausdruck korrekt, sollte ```matches``` 306 Links beinhalten. Sowohl bei ```regex``` als auch bei ```matches``` musst Du natürlich noch die Hashtags entfernen.
+<ol class="arabic simple" start="5">
 <li><p>Erstell eine Liste mit vollständigen Links zu allen Spielberichten und lass sie Dir ausgeben. Probier einige der Links aus.</p></li>
 </ol>
 <p>Quelle: Übung modifiziert übernommen von Prof. Simon Meier-Vierackers Kurs <a class="reference external" href="https://padlet.com/simonmeiervieracker/readingmachines">Reading Machines - Einführung in die Korpuslinguistik</a>, der unter dem angegebenen Link frei zugänglich ist.</p>
@@ -885,8 +899,15 @@ document.write(`
 <li><p>das letzte Wort des Märchens</p></li>
 </ol>
 <p>Da wir bei der ersten und letzten Aufgabe nicht nach <em>allen</em> matches suchen, sondern nur an einem einzigen interessiert sind (es kann ja auch nur jeweils einen match geben), verwenden wir eine neue Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">search</span></code>, auf die wir unten genauer eingehen. Dabei erhalten wir keine Liste zurück, sondern ein sog. <em>match-Objekt</em>, wobei wir auf den eigentlichen match wie im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement bereits vorgegeben zugreifen können. Überhaupt sollte das <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement das Ergebnis aller fünf Suchaufträge schön formatiert ausgeben.</p>
-<p>👆 Hinweis: Je komplexer die Suchaufträge, desto mehr Möglichkeiten gibt es, einen regulären Ausdruck dafür zu konstruieren. Oft steht man vor der Frage, eine fertige Zeichenklasse wie z. B. <code class="docutils literal notranslate"><span class="pre">\w</span></code> einzubauen oder lieber eine eigene Zeichenklasse zusammenzustellen, um auch Nicht-ASCII-Zeichen zu matchen. Manchmal erreicht man sein Ziel auch aus der umgekehrten Richtung, z. B. mithilfe von <code class="docutils literal notranslate"><span class="pre">\S</span></code>, um alles <em>außer</em> whitespace zu matchen (was ja sämtliche Buchstaben, ASCII hin oder her, umfasst). Letzlich gilt wie immer zwischen Genauigkeit und Effizienz abzuwägen.</p>
-<div class="cell docutils container">
+<details>
+<summary> 👆 Allgemeiner Hinweis </summary>
+<br>Je komplexer die Suchaufträge, desto mehr Möglichkeiten gibt es, einen regulären Ausdruck dafür zu konstruieren. Oft steht man vor der Frage, eine fertige Zeichenklasse wie z. B. <code>\w</code> einzubauen oder lieber eine eigene Zeichenklasse zusammenzustellen, um auch Nicht-ASCII-Zeichen zu matchen. Manchmal erreicht man sein Ziel auch aus der umgekehrten Richtung, z. B. mithilfe von <code>\S</code>, um alles <i>außer</i> whitespace zu matchen (was ja sämtliche Buchstaben, ASCII hin oder her, umfasst). Letzlich gilt es wie immer zwischen Genauigkeit und Effizienz abzuwägen. 
+</details>
+<br>
+<details>
+<summary>💡 Tipp </summary>
+<br>Bedenk, dass es sich bei der eingelesenen Datei um einen einzigen string handelt. So kannst Du die Teilaufgaben 1 und 5 unkompliziert lösen, indem Du Dich an der Position des Wortes im string orientierst und die entsprechenden Sonderzeichen aus der über der Übung stehenden Tabelle nutzt. Für die anderen Teilaufgaben musst Du dagegen nach anderen strukturellen Merkmalen suchen.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -925,6 +946,10 @@ document.write(`
 <hr class="docutils" />
 <p>✏️ <strong>Übung 5:</strong> Im Notebook „Funktionen und Methoden Teil 1“ in Übung 2 haben wir gesehen, dass das Wort „Klima“ viel häufiger im Koalitionsvertrag von 2021 als in demjenigen von 2018 vorkommt. Nun wollen wir herausfinden, in welcher Form das Wort verwendet wird. Neben dem alleinstehenden Auftreten von „Klima“ (als sog. <em>Simplex</em>, da es aus nur einem Morphem besteht) ist „Klima“ bzw. „klima“ häufig Teil von zusammengesetzten Wörtern, also sog. <em>Komposita</em>, wie etwa in „Klimakrise“ oder „klimapolitisch“.</p>
 <p>Lies den Koalitionsvertrag von 2021 noch einmal ein und weis ihn der Variablen <code class="docutils literal notranslate"><span class="pre">kv21</span></code> zu. Durchsuch ihn nun nach einem regulären Ausdruck, der sämtliche Komposita, in denen „Klima“ bzw. „klima“ vorkommt, matcht. Häng alle Komposita der Liste <code class="docutils literal notranslate"><span class="pre">climate_compounds</span></code> an und lass Dir abschließend die Liste ausgeben.</p>
+<details>
+<summary>💡 Tipp </summary>
+<br>Beachte, dass sowohl Komposita beginnend mit einer Majuskel (Großbuchstabe) als auch mit Minuskel (Kleinbuchstabe) gefunden werden sollen. Es reicht außerdem in dieser Übung, wenn Du Dich auf zusammengeschriebene Komposita konzentrierst (Du kannst also solche mit Bindestrichschreibung ignorieren).
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -975,8 +1000,8 @@ document.write(`
 </tbody>
 </table>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 6:</strong> Find alle Substantive mit definitem Artikel (z. B. „der“ oder „dem“) in <code class="docutils literal notranslate"><span class="pre">text</span></code>, der der Einleitung des <a class="reference external" href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck"> Wikipedia-Artikels zu regulären Ausdrücken</a> entspricht (Stand: 26.10.2022). Der Artikel (des Substantivs) sollte jeweils mitgemacht werden.</p>
-<p>⚠️ Achtung: Sobald wir eine Gruppe in unserem regulären Ausdruck verwenden, beschränkt sich die <code class="docutils literal notranslate"><span class="pre">findall</span></code>-Funktion darauf, denjenigen Teil des gesamten matches, der von der Gruppe abgedeckt wird, zu speichern. Bei mehreren Gruppen speichert <code class="docutils literal notranslate"><span class="pre">findall</span></code> sämtliche matches, die von Gruppen abgedeckt werden, separat in einem Tupel. Das ist eine durchaus praktische Eigenschaft, die wir unten produktiv einsetzen werden. Da wir hier aber am gesamten match interessiert sind (in unserem Fall Artikel + Substantiv) können wir zusätzlich den gesamten Ausdruck in runde Klammern setzen. Dadurch erhalten wir den gesamten match als Hauptgruppe sowie alle weiteren darin befindlichen Gruppen als Tupel von <code class="docutils literal notranslate"><span class="pre">findall</span></code> zurück. In den gegebenen <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehlen kannst Du Dir erstens nur den gesamten match (erstes Element im Tupel) oder zweitens die Hauptgruppe sowie alle anderen Gruppen ausgeben lassen.</p>
+<p>✏️ <strong>Übung 6:</strong> Find alle Substantive mit definitem Artikel (z. B. „der“ oder „dem“) in <code class="docutils literal notranslate"><span class="pre">text</span></code>, der der Einleitung des <a class="reference external" href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck">Wikipedia-Artikels zu regulären Ausdrücken</a> entspricht (Stand: 26.10.2022). Der Artikel (des Substantivs) sollte jeweils mitgemacht werden.</p>
+<p>⚠️ Achtung: Sobald wir eine Gruppe in unserem regulären Ausdruck verwenden, beschränkt sich die <code>findall</code>-Funktion darauf, denjenigen Teil des gesamten matches, der von der Gruppe abgedeckt wird, zu speichern. Bei mehreren Gruppen speichert <code>findall</code> sämtliche matches, die von Gruppen abgedeckt werden, separat in einem Tupel. Das ist eine durchaus praktische Eigenschaft, die wir unten produktiv einsetzen werden. Da wir hier aber am gesamten match interessiert sind (in unserem Fall Artikel + Substantiv) können wir zusätzlich den gesamten Ausdruck in runde Klammern setzen. Dadurch erhalten wir den gesamten match als Hauptgruppe sowie alle weiteren darin befindlichen Gruppen als Tupel von <code>findall</code> zurück. In den gegebenen <code>print</code>-Befehlen kannst Du Dir erstens nur den gesamten match (erstes Element im Tupel) oder zweitens die Hauptgruppe sowie alle anderen Gruppen ausgeben lassen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1008,7 +1033,11 @@ document.write(`
 <img src="../3_Dateien/Grafiken_und_Videos/address_book.png">
 <p>Zwischen den Namen und dem Geburtstag sowie dem Geburtstag und der E-Mailadresse soll also ein Tab stehen, da Dateien mit der Endung „.tsv“ tabulatorsepariert sind (dem gleichen Prinzip wie kommaseparierte Dateien folgend, vgl. Notebook „Input und Output Teil 2“).</p>
 <p>Formulier <em>einen</em> regulären Ausdruck, um fünf matches zu erhalten (einen pro Person), und nutz Gruppen, um die Elemente <em>Nachname</em>, <em>Vorname</em>, <em>Geburtstag</em> und <em>E-Mailadresse</em> als Teilmatch separat zu erhalten. Öffne und beschreib anschließend die Datei „address_book.tsv“, sodass jede Person in einer eigenen Zeile sowie jedes Element in einer eigenen Spalte abgespeichert wird.</p>
-<p>💡 Tipp: <code class="docutils literal notranslate"><span class="pre">findall</span></code> findet stets den längstmöglichen match. Da die Wildcard alle beliebigen Zeichen <em>außer</em> einem Zeilenumbruch matcht, kannst Du sie getrost in Deinen regulären Ausdruck einbauen, z. B. für die erste Gruppe der Vornamen, etwa so <code class="docutils literal notranslate"><span class="pre">(.+)</span></code>. Indem Du danach eine Gruppe für den Nachnamen anhängst, kann die durch den Quantifikator <code class="docutils literal notranslate"><span class="pre">+</span></code> „ungebändigte“ Wildcard nicht einfach die ganze Personenbeschreibung matchen (man spricht angesichts dieser Gier auch von <em>fressen</em>). Dies, da sie ja keinen Zeilenumbruch matchen kann und nach dem Zeilenumbruch nun mal nichts kommt, das von Deiner zweiten Gruppe sowie dem restlichen regulären Ausdruck gematcht werden könnte.</p>
+<details>
+<summary>💡 Tipp </summary> 
+<br> <code>findall</code> findet stets den längstmöglichen match. Da die Wildcard alle beliebigen Zeichen <i>außer</i> einen Zeilenumbruch matcht, kannst Du sie getrost in Deinen regulären Ausdruck einbauen, z. B. für die erste Gruppe der Vornamen, etwa so <code>(.+)</code>. Indem Du danach eine Gruppe für den Nachnamen anhängst, kann die durch den Quantifikator <code>+</code> "ungebändigte" Wildcard nicht einfach die ganze Personenbeschreibung matchen (man spricht angesichts dieser Gier auch von <i>fressen</i>). Dies, da sie ja keinen Zeilenumbruch matchen kann und nach dem Zeilenumbruch nun mal nichts kommt, das von Deiner zweiten Gruppe sowie dem restlichen regulären Ausdruck gematcht werden könnte.
+</details>
+<br>
 <p>Quelle: Übung modifiziert übernommen von Prof. Simon Meier-Vierackers Kurs <a class="reference external" href="https://padlet.com/simonmeiervieracker/readingmachines">Reading Machines - Einführung in die Korpuslinguistik</a>, der unter dem angegebenen Link frei zugänglich ist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1070,7 +1099,10 @@ document.write(`
 <p>Der erste match befindet sich also zwischen den Indizes 18 und 19 (der Startindex ist wie immer inklusiv und der Endindex exklusiv).</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 8:</strong> Bei <code class="docutils literal notranslate"><span class="pre">birth_notices</span></code> handelt es nun um eine Liste mit mehreren Geburtsanzeigen. Deine Aufgabe ist es, die Geburtsdaten der Neugeboreren mithilfe eines regulären Ausdrucks sowie einer geeigneten Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls aus den Anzeigen zu extrahieren und einer Liste namens <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> anzuhängen. Lass Dir abschließend <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> ausgeben.</p>
-<div class="cell docutils container">
+<details>
+<summary>💡 Tipp </summary>
+<br>Achte darauf, dass Du den Punkt mit einem backslash escapen musst, sonst wird er zur Wildcard.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1216,7 +1248,11 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 <p>✏️ <strong>Übung 9:</strong> Gegeben sind in <code class="docutils literal notranslate"><span class="pre">people</span></code> noch einmal die Personenbeschreibungen aus Übung 7 sowie die Musterlösung für den regulären Ausdruck in <code class="docutils literal notranslate"><span class="pre">regex</span></code>. <code class="docutils literal notranslate"><span class="pre">regex</span></code> beinhaltet Gruppen, auf deren Teilmatches wir zurückgreifen können. Formulier unter Zuhilfenahme von Rückreferenzen einen regulären Ausdruck für <code class="docutils literal notranslate"><span class="pre">replacement</span></code>, um anschließend <code class="docutils literal notranslate"><span class="pre">people</span></code> mithilfe von <code class="docutils literal notranslate"><span class="pre">re.sub</span></code> in dasselbe Format wie in Übung 7 zu bringen:</p>
 <p>„Nachname, Vorname \t Geburtsdatum \t E-Mailadresse“</p>
 <p>Es reicht diesmal, wenn Du das Dir das Ergebnis einfach ausgeben lässt.</p>
-<div class="cell docutils container">
+<details>
+<summary>💡 Tipp </summary>
+<br>Achte darauf, neben den Rückreferenzen auch die Tabs in <code>replacement</code> zu schreiben. 
+</details>
+<br><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1241,14 +1277,13 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 <ol class="arabic simple">
 <li><p>Wenn nötig, pass <code class="docutils literal notranslate"><span class="pre">regex</span></code> an, damit auch alle neuen Geburtsdaten gematcht werden.</p></li>
 <li><p>Setz Klammern in <code class="docutils literal notranslate"><span class="pre">regex</span></code>, um relevante Teile eines matches zu gruppieren.</p></li>
-<li><p>Pass die Funktion <code class="docutils literal notranslate"><span class="pre">to_ISO_format</span></code> an, damit jedes einzelne match-Objekt entsprechend IS0 8601 umstrukturiert wird. Hierzu einige Bemerkungen und Tipps:</p>
-<ul class="simple">
-<li><p>Bei zweistelligen Jahreszahlen unter und gleich 22 kannst Du davon ausgehen, dass sie sich auf das 21. Jahrhundert beziehen, ansonsten auf das 20. Jahrhundert.</p></li>
-<li><p>Verwend f-strings zur Formatierung der Teilmatches (vgl. Notebook „Input und Output Teil 2“).</p></li>
-<li><p>Der Funktionsaufruf innerhalb von <code class="docutils literal notranslate"><span class="pre">re.sub(...)</span></code> ist korrekt, so wie er gegeben ist (es fehlen also keine Klammern!).</p></li>
-</ul>
-</li>
+<li><p>Pass die Funktion <code class="docutils literal notranslate"><span class="pre">to_ISO_format</span></code> an, damit jedes einzelne match-Objekt entsprechend IS0 8601 umstrukturiert wird. Bei zweistelligen Jahreszahlen unter und gleich 22 kannst Du davon ausgehen, dass sie sich auf das 21. Jahrhundert beziehen, ansonsten auf das 20. Jahrhundert.</p></li>
 </ol>
+<p>Der Funktionsaufruf innerhalb von <code class="docutils literal notranslate"><span class="pre">re.sub(...)</span></code> ist korrekt, so wie er gegeben ist (es fehlen also keine Klammern!).</p>
+<details>
+<summary>💡 Tipp </summary>
+<br>Verwend f-strings zur Formatierung der Teilmatches (vgl. Notebook "Input und Output Teil 2").
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1397,12 +1432,17 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 <li><p>Füg möglichst vor jeder Code-Zeile einen Kommentar ein, in welchem Du dokumentierst, was in der folgenden Zeile passiert (vgl. Notebook „Einführung“ zu Kommentaren).</p></li>
 <li><p>Ergänz alle Funktionen um docstrings, die sich anschließend über das <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-Attribut abrufen lassen (vgl. Notebook „Funktionen und Methoden Teil 2“ zu Modulen).</p></li>
 </ol>
-<p>💡 Tipp: In dieser Aufgabe lohnt es sich wirklich, <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle in den Code einzubauen, um etwa Zwischenresultate zurückzukriegen oder um zu verstehen, wann eine bedingte Anweisung „greift“. Auch hier gilt: Wann immer Du den Code veränderst und ihn erneut ausprobieren willst, musst Du das betreffende Modul speichern und den Bot mithilfe von <code class="docutils literal notranslate"><span class="pre">reload</span></code> erneut laden (s. o.).</p>
-<p>Nach getaner Arbeit kannst Du hier die docstrings sämtlicher Funktionen inspizieren:</p>
-<div class="cell docutils container">
+<details>
+<summary>💡 Tipp </summary>
+<br> In dieser Aufgabe lohnt es sich wirklich, <code>print</code>-Befehle in den Code einzubauen, um etwa Zwischenresultate zurückzukriegen oder um zu verstehen, wann eine bedingte Anweisung "greift". Auch hier gilt: Wann immer Du den Code veränderst und ihn erneut ausprobieren willst, musst Du das betreffende Modul speichern und den Bot mithilfe von <code>reload</code> erneut laden (s. o.). 
+</details>
+<br>
+Nach getaner Arbeit kannst Du hier die docstrings sämtlicher Funktionen inspizieren:<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;reload&#39; bei Änderungen, gleiche Logik wie oben</span>
 <span class="k">if</span> <span class="s2">&quot;pizza_functions&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Module&quot;</span><span class="p">)</span>
     <span class="kn">import</span> <span class="nn">pizzabot</span><span class="o">,</span> <span class="nn">pizza_functions</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">reload</span><span class="p">(</span><span class="n">pizzabot</span><span class="p">)</span>

@@ -599,9 +599,6 @@ dazu kommt 137 oft vor.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;deutschland&#39;, &#39;mobilisieren&#39;, &#39;chancen&#39;, &#39;digitalisierung&#39;, &#39;nutzen&#39;, &#39;deutschland&#39;, &#39;braucht&#39;, &#39;wirtschaftlichen&#39;, &#39;sozialen&#39;, &#39;fortschritt&#39;, &#39;teilhaben&#39;, &#39;wollen&#39;, &#39;wohlstand&#39;, &#39;menschen&#39;, &#39;ankommt&#39;, &#39;wahlergebnis&#39;, &#39;hat&#39;, &#39;gezeigt&#39;, &#39;menschen&#39;, &#39;unzufrieden&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <ol class="arabic simple" start="4">
@@ -688,8 +685,10 @@ dazu kommt 137 oft vor.
 <p>✏️ <strong>Lösung 2:</strong> Importier die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls. <code class="docutils literal notranslate"><span class="pre">sample</span></code> generiert eine zufällige Auswahl von Elementen, z. B. zehn zufällige Elemente aus einer Grundgesamtheit mit allen Elementen. Die Funktion erwartet als erstes Argument die Grundgesamtheit in Form einer Liste und als zweites eine Ganzzahl, mit der die Anzahl der zufällig auszuwählenden Elemente definiert wird. Die Grundgesamtheit in dieser Übung ist das <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> von der Übung von oben bzw. aus dem Notebook „Kontrollstrukturen“. Die Anzahl der zufällig auszuwählenden Elemente beträgt in diesem Fall vier. Wir wollen also zufällige Spielzusammensetzungen mit jeweils vier Teilnehmer:innen erhalten.</p>
 <p>Deine Aufgabe besteht nun darin, so viele zufällige Spielzusammensetzungen zu genererieren, bis eine Zusammensetzung doppelt vorkommt. Verwend dazu eine passende Kontrollstruktur, die Deinen Code so oft wiederholt, bis die Bedingung, dass eine zufällige Zusammensetzung bereits einmal zuvor generiert wurde, zutrifft. In diesem Fall soll die Iteration abbrechen und die Anzahl der notwendigen Wiederholungen bis zur identischen Zusammensetzung ausgegeben werden.</p>
 <p>Beachte, dass es für diese Anzahl der notwendigen Wiederholungen keine richtige Antwort gibt, da es in der Natur der zufälligen Auswahl liegt, dass es manchmal etwas mehr und manchmal etwas weniger Wiederholungen braucht.</p>
-<p>📌 Herausforderung: Verpack Deinen gesamten Code in eine (andere) Kontrollstruktur, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl, bis zwei Zusammensetzungen doppelt vorkommen, auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code class="docutils literal notranslate"><span class="pre">sum</span></code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.</p>
-<div class="cell docutils container">
+<details>
+  <summary>📌 Herausforderung zur Übung </summary>
+    <br>Verpack Deinen gesamten Code in eine (andere) Kontrollstruktur, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl, bis zwei Zusammensetzungen doppelt vorkommen, auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code>sum</code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span> <span class="c1">#Importieren der Funktion &#39;sample&#39; aus dem Modul &#39;random&#39;</span>
 
@@ -740,10 +739,10 @@ dazu kommt 137 oft vor.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>171
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>38
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>110.77
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>111.882
 </pre></div>
 </div>
 </div>

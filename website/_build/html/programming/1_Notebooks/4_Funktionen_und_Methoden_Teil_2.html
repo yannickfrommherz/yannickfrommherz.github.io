@@ -479,7 +479,7 @@ document.write(`
                   
   <section id="funktionen-und-methoden-teil-2">
 <h1>Funktionen und Methoden Teil 2<a class="headerlink" href="#funktionen-und-methoden-teil-2" title="Link zu dieser Überschrift">#</a></h1>
-<p>Willkommen zurück! Auch in diesem Notebook geht es um Funktionen und Methoden. Konkret lernst du, wie Du Funktionen selbst definieren kannst und was Module sind. Wie versprochen erwartet Dich als Erstes aber unser Anwendungsfall - das Errechnen von Schlüsselwörtern in den Koalitionsverträgen.</p>
+<p>Willkommen zurück! Auch in diesem Notebook geht es um Funktionen und Methoden. Konkret lernst Du, wie Du Funktionen selbst definieren kannst und was Module sind. Wie versprochen erwartet Dich als Erstes aber unser Anwendungsfall - das Errechnen von Schlüsselwörtern in den Koalitionsverträgen.</p>
 <section id="anwendungsfall-errechnen-von-schlusselwortern">
 <h2>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#anwendungsfall-errechnen-von-schlusselwortern" title="Link zu dieser Überschrift">#</a></h2>
 <p>Gegeben sind die Koalitionsverträge von 2018 und 2021 in <code class="docutils literal notranslate"><span class="pre">kv18</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">kv21</span></code>. Zusätzlich ist <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> gegeben, eine Liste mit sog. Stoppwörtern, also hochfrequenten Wörtern wie <em>und</em>, <em>der</em>, <em>die</em>, <em>das</em> etc., die wir von der Berechnung von Schlüsselwörtern ausschließen wollen.</p>
@@ -532,7 +532,10 @@ document.write(`
 <ol class="arabic simple" start="2">
 <li><p>Tokenisier <code class="docutils literal notranslate"><span class="pre">kv18</span></code> und lass Dir zum Überprüfen eine Schnittmenge davon ausgeben, z. B. alle Wörter vom hundertsten bis zum hundertzwanzigsten.</p></li>
 </ol>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+    <br><i>Tokenisieren</i> bedeutet, den Koalitionsvertrag bei jedem Leerzeichen zu teilen und ihn so in eine Liste mit Wörtern zu überführen.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
 </pre></div>
@@ -543,7 +546,10 @@ document.write(`
 <ol class="arabic simple" start="3">
 <li><p>Änder sämtliche Wörter in Kleinbuchstaben und entfern alle Satz- und Sonderzeichen an den Wortenden (hier ist ein iterativer Ansatz nötig, indem Du Dir das Resultat mehrfach ausgeben lässt [trial and error!] und schaust, welche weiteren Zeichen entfernt werden müssen, bis alle weg sind). Überprüf anschließend für jedes bereinigte Wort, ob es in <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> ist. Wenn ja, überspring es, wenn nein, häng es einer Liste namens <code class="docutils literal notranslate"><span class="pre">preprocessed_words</span></code> an.</p></li>
 </ol>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+    <br>Wenn Du die Wörter kleinschreibst sowie Satz- und Sonderzeichen entfernst, musst Du darauf achten, die bereinigten Wörter jeweils in einer neuen Variable zu speichern. Da strings unveränderlich sind (vgl. Notebook "Datentypen"), verändern string-Methoden nämlich nicht das ursprüngliche Objekt.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
 </pre></div>
@@ -563,11 +569,14 @@ document.write(`
 </div>
 <p>Gut. Jetzt haben wir ein Set an Types. Für jeden Type können wir nun ausrechnen, wie oft er in <code class="docutils literal notranslate"><span class="pre">preprocessed_words</span></code> vorkommt. Dadurch erhalten wir für jeden Type eine Zahl. Diese paarweise Information wollen wir in einem geeigneten Format, konkret einem dictionary, abspeichern.</p>
 <ol class="arabic simple" start="5">
-<li><p>Initialisier ein leeres dictionary names <code class="docutils literal notranslate"><span class="pre">freq_dict</span></code></p></li>
-<li><p>Iterier über <code class="docutils literal notranslate"><span class="pre">types</span></code></p></li>
+<li><p>Initialisier ein leeres dictionary names <code class="docutils literal notranslate"><span class="pre">freq_dict</span></code>.</p></li>
+<li><p>Iterier über <code class="docutils literal notranslate"><span class="pre">types</span></code>.</p></li>
 <li><p>Schaff für jeden Type ein Schlüssel-Werte-Paar mit dem Type als Schlüssel und dem Vorkommen des jeweiligen Types in <code class="docutils literal notranslate"><span class="pre">preprocessed_words</span></code> als Wert. Wie man Schlüssel-Werte-Paare in einem dictionary schafft, haben wir oben gelernt (<code class="docutils literal notranslate"><span class="pre">dict[&quot;key&quot;]</span> <span class="pre">=</span> <span class="pre">&quot;value&quot;</span></code>). Denk daran, dass anstelle von Objekten, hier strings, immer auch Variablen stehen können.</p></li>
 </ol>
-<div class="cell docutils container">
+<details>
+    <summary>💡 Tipp</summary>
+    <br>Zum Auszählen der Häufigkeiten kannst Du eine aus dem Notebook "Funktionen und Methoden Teil 1" bekannte string-Methode nutzen.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
 </pre></div>
@@ -766,6 +775,10 @@ KV18: dazu                 KV21: schaffen
 <p>Wie wir bereits bei Funktionen der Grundausstattung (etwa <code class="docutils literal notranslate"><span class="pre">sorted</span></code>) gesehen haben und unten bei einer modifizierten Version von <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> sehen werden, ist es möglich, mehrere obligatorische und auch optionale Argumente bei einer Funktion zu definieren. Optional bedeutet, dass es einen Standardwert gibt, mit dem die Funktion rechnet, wenn ihr kein Wert für dieses Argument übergeben wird. Die einzelnen Argumente werden im <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement kommasepariert. Beim Funktionsaufruf muss die Reihenfolge der zu übergebenden Argumente der Reihenfolge in der Funktionsdefinition entsprechen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 1:</strong> Definier eine Funktion <code class="docutils literal notranslate"><span class="pre">sum_div</span></code>, die drei Argumente nimmt. Das erste soll mit dem zweiten addiert werden. Das Ergebnis davon soll durch das dritte Argument geteilt werden. Dieses Ergebnis soll zurückgegeben werden. Entfern anschließend den Hashtag vor der bereits existierenden Code-Zeile. Wenn Du <code class="docutils literal notranslate"><span class="pre">True</span></code> erhältst, hast Du alles richtig gemacht!</p>
+<details>
+  <summary>💡 Tipp </summary>
+    <br>Vergiss nicht, ein Statement in die Funktion einzubauen, das dafür sorgt, dass die Funktion den errechneten Wert zurückgibt.
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -877,7 +890,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;lärmkonzept&#39;, 1), (&#39;klimaneutralen&#39;, 1), (&#39;bauverbänden&#39;, 1), (&#39;antriebskonzepte&#39;, 1), (&#39;katastrophenschutzes&#39;, 1), (&#39;aussagekraft&#39;, 1), (&#39;risikoarmen&#39;, 1), (&#39;agg&#39;, 1), (&#39;zugänglichmachung&#39;, 1), (&#39;fertiggestellten&#39;, 1)]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;fahrzeugzulassung&#39;, 1), (&#39;dublin-verfahrens&#39;, 1), (&#39;„aufstiegs-&#39;, 1), (&#39;bauträgers&#39;, 1), (&#39;berufsbild&#39;, 1), (&#39;anschlüsse&#39;, 1), (&#39;bahnkunden&#39;, 1), (&#39;parkleitsysteme&#39;, 1), (&#39;identitätstäuschungen&#39;, 1), (&#39;kostenlosen&#39;, 1)]
 </pre></div>
 </div>
 </div>
@@ -912,7 +925,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[25, 76, 37, 89, 9, 44, 16, 7, 49, 9]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[43, 83, 70, 78, 35, 88, 4, 70, 89, 7]
 </pre></div>
 </div>
 </div>
@@ -923,7 +936,15 @@ KV18: dazu                 KV21: schaffen
 <p>✏️ <strong>Übung 2:</strong> Importier die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls. <code class="docutils literal notranslate"><span class="pre">sample</span></code> generiert eine zufällige Auswahl von Elementen, z. B. zehn zufällige Elemente aus einer Grundgesamtheit mit allen Elementen. Die Funktion erwartet als erstes Argument die Grundgesamtheit in Form einer Liste und als zweites eine Ganzzahl, mit der die Anzahl der zufällig auszuwählenden Elemente definiert wird. Die Grundgesamtheit in dieser Übung ist das <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> von der Übung von oben bzw. aus dem Notebook „Kontrollstrukturen“. Die Anzahl der zufällig auszuwählenden Elemente beträgt in diesem Fall vier. Wir wollen also zufällige Spielzusammensetzungen mit jeweils vier Teilnehmer:innen erhalten.</p>
 <p>Deine Aufgabe besteht nun darin, so viele zufällige Spielzusammensetzungen zu genererieren, bis eine Zusammensetzung doppelt vorkommt. Verwend dazu eine passende Kontrollstruktur, die Deinen Code so oft wiederholt, bis die Bedingung, dass eine zufällige Zusammensetzung bereits einmal zuvor generiert wurde, zutrifft. In diesem Fall soll die Iteration abbrechen und die Anzahl der notwendigen Wiederholungen bis zur identischen Zusammensetzung ausgegeben werden.</p>
 <p>Beachte, dass es für diese Anzahl der notwendigen Wiederholungen keine richtige Antwort gibt, da es in der Natur der zufälligen Auswahl liegt, dass es manchmal etwas mehr und manchmal etwas weniger Wiederholungen braucht.</p>
-<p>📌 Herausforderung: Verpack Deinen gesamten Code in eine (andere) Kontrollstruktur, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl, bis zwei Zusammensetzungen doppelt vorkommen, auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code class="docutils literal notranslate"><span class="pre">sum</span></code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.</p>
+<details>
+  <summary>💡 Tipp </summary>
+    <br>Um die Anzahl der Kombinationen zu zählen, empfiehlt es sich, eine Zählervariable zu definieren und diese bei jeder Iteration um eins zu erhöhen.
+</details>
+<br>
+<details>
+  <summary>📌 Herausforderung zur Übung </summary>
+    <br>Verpack Deinen gesamten Code in eine (andere) Kontrollstruktur, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl, bis zwei Zusammensetzungen doppelt vorkommen, auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code>sum</code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>

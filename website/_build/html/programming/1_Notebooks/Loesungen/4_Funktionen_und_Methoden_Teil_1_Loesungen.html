@@ -651,7 +651,6 @@ Grüne
     <span class="n">names_list_title</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span> <span class="c1">#&#39;append&#39; hängt jedes Element der Iteration an die Liste an, durch &#39;title&#39; wird zuvor jeder erste Buchstabe großgeschrieben</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">names_list_title</span><span class="p">)</span>
 
-
 <span class="c1">#Alternative Lösung</span>
 <span class="n">names</span> <span class="o">=</span> <span class="s2">&quot;Name: Martin Berger name: Kirsten Hauser NAME: Michaela Kircher nAME: Fritz Hofer&quot;</span>
 <span class="n">names</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span><span class="p">)</span> <span class="c1">#Wegstrippen von &quot;Name: &quot; am Anfang des string</span>
@@ -691,7 +690,7 @@ Grüne
         <span class="k">continue</span>
     
     <span class="c1">#Neuer Code-Abschnitt</span>
-    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_participants</span><span class="p">:</span> <span class="c1">#Überprüfen, ob die maximale Teilnehmer:innenzahl erreicht ist</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">==</span> <span class="n">max_participants</span><span class="p">:</span> <span class="c1">#Überprüfen, ob die maximale Teilnehmer:innenzahl erreicht ist</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leider muss uns nun&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;verlassen&quot;</span><span class="p">)</span> <span class="c1">#Ausgabe, wer als Erstes in der Liste steht und das Spiel somit verlassen muss</span>
         <span class="n">participants_game</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#Entfernen des ersten Teilnehmenden (mit dem Index null)</span>
         

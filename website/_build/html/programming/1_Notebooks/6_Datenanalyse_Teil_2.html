@@ -743,7 +743,15 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 2:</strong> Erstell das gleiche Sub-DataFrame wie in Übung 1 (also eines, das nur Tokens beinhaltet, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stell sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp 1 </summary>
+  <br>Beachte, dass Du, wenn Du bei pandas Methoden auf strings anwenden möchtest, <code>str</code> voranstellen musst.
+</details>
+<br>
+<details>
+  <summary>💡 Tipp 2 </summary>
+  <br>Pandas bietet zum Vergleichen von DataFrames eine eigene Methode an. Begib Dich mit Hilfe des Internets selbst auf die Suche nach dieser Methode.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -996,43 +1004,43 @@ document.write(`
     </tr>
     <tr>
       <th>386505</th>
-      <td>﻿vierzehn</td>
+      <td>vierzehn</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>9</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>386506</th>
-      <td>﻿was</td>
+      <td>was</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>386507</th>
-      <td>﻿weißer</td>
+      <td>weißer</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>7</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>386508</th>
-      <td>﻿wie</td>
+      <td>wie</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>386509</th>
+      <td>wozu</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
       <td>4</td>
-    </tr>
-    <tr>
-      <th>386509</th>
-      <td>﻿wozu</td>
-      <td>2020</td>
-      <td>1</td>
-      <td>2020</td>
-      <td>5</td>
     </tr>
   </tbody>
 </table>
@@ -1208,43 +1216,43 @@ document.write(`
     </tr>
     <tr>
       <th>386505</th>
-      <td>﻿vierzehn</td>
+      <td>vierzehn</td>
       <td>2020</td>
       <td>2</td>
       <td>2020</td>
-      <td>9</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>386506</th>
-      <td>﻿was</td>
+      <td>was</td>
       <td>2020</td>
       <td>2</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>386507</th>
-      <td>﻿weißer</td>
+      <td>weißer</td>
       <td>2020</td>
       <td>2</td>
       <td>2020</td>
-      <td>7</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>386508</th>
-      <td>﻿wie</td>
+      <td>wie</td>
+      <td>2020</td>
+      <td>2</td>
+      <td>2020</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>386509</th>
+      <td>wozu</td>
       <td>2020</td>
       <td>2</td>
       <td>2020</td>
       <td>4</td>
-    </tr>
-    <tr>
-      <th>386509</th>
-      <td>﻿wozu</td>
-      <td>2020</td>
-      <td>2</td>
-      <td>2020</td>
-      <td>5</td>
     </tr>
   </tbody>
 </table>
@@ -1340,43 +1348,43 @@ document.write(`
     </tr>
     <tr>
       <th>386505</th>
-      <td>﻿vierzehn</td>
+      <td>vierzehn</td>
       <td>2020</td>
       <td>1.0</td>
       <td>2020</td>
-      <td>9</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>386506</th>
-      <td>﻿was</td>
+      <td>was</td>
       <td>2020</td>
       <td>1.0</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>386507</th>
-      <td>﻿weißer</td>
+      <td>weißer</td>
       <td>2020</td>
       <td>1.0</td>
       <td>2020</td>
-      <td>7</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>386508</th>
-      <td>﻿wie</td>
+      <td>wie</td>
+      <td>2020</td>
+      <td>1.0</td>
+      <td>2020</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>386509</th>
+      <td>wozu</td>
       <td>2020</td>
       <td>1.0</td>
       <td>2020</td>
       <td>4</td>
-    </tr>
-    <tr>
-      <th>386509</th>
-      <td>﻿wozu</td>
-      <td>2020</td>
-      <td>1.0</td>
-      <td>2020</td>
-      <td>5</td>
     </tr>
   </tbody>
 </table>
@@ -1468,43 +1476,43 @@ document.write(`
     </tr>
     <tr>
       <th>386505</th>
-      <td>﻿vierzehn</td>
+      <td>vierzehn</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>9</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>386506</th>
-      <td>﻿was</td>
+      <td>was</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>386507</th>
-      <td>﻿weißer</td>
+      <td>weißer</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>7</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>386508</th>
-      <td>﻿wie</td>
+      <td>wie</td>
+      <td>2020</td>
+      <td>1</td>
+      <td>2020</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>386509</th>
+      <td>wozu</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
       <td>4</td>
-    </tr>
-    <tr>
-      <th>386509</th>
-      <td>﻿wozu</td>
-      <td>2020</td>
-      <td>1</td>
-      <td>2020</td>
-      <td>5</td>
     </tr>
   </tbody>
 </table>
@@ -1513,8 +1521,10 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 3:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Geh abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst pandas-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<p>💡 Tipp: Es sind dieselben einzelnen Schritte wie im <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop oben nötig, allerdings formuliert in pandas-Syntax. Gegebenfalls musst Du in der <a class="reference external" href="https://pandas.pydata.org/docs/">pandas-Dokumentation</a> nachschlagen, wie die jeweilige Syntax der pandas-Pendants ausschaut.</p>
-<div class="cell docutils container">
+<details>
+<summary>💡 Tipp </summary> 
+<br>Es sind dieselben Schritte wie im <code>for</code>-Loop oben nötig, allerdings formuliert in pandas-Syntax. Ggf. musst Du in der <a href="https://pandas.pydata.org/docs/">pandas Dokumentation</a> nachschlagen, wie die jeweilige Syntax der pandas-Pendants ausschaut.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1633,47 +1643,47 @@ document.write(`
     </tr>
     <tr>
       <th>386505</th>
-      <td>﻿vierzehn</td>
+      <td>vierzehn</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>9</td>
+      <td>8</td>
       <td>21. Jhd.</td>
     </tr>
     <tr>
       <th>386506</th>
-      <td>﻿was</td>
+      <td>was</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
       <td>21. Jhd.</td>
     </tr>
     <tr>
       <th>386507</th>
-      <td>﻿weißer</td>
+      <td>weißer</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>7</td>
+      <td>6</td>
       <td>21. Jhd.</td>
     </tr>
     <tr>
       <th>386508</th>
-      <td>﻿wie</td>
+      <td>wie</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
       <td>21. Jhd.</td>
     </tr>
     <tr>
       <th>386509</th>
-      <td>﻿wozu</td>
+      <td>wozu</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>5</td>
+      <td>4</td>
       <td>21. Jhd.</td>
     </tr>
   </tbody>
@@ -1685,7 +1695,10 @@ document.write(`
 <p>In diesem Fall haben wir als „then“ bzw. „else“ ganz einfach strings übergeben, die je nachdem in der neuen Spalte „Jahrhundert“ eingetragen wurden. In der folgenden Übung wollen wir bei „then“ und „else“ bestimmte Werte in der jeweilige Zeile bearbeiten.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 4:</strong> Bearbeite die Werte in der Spalte „Token“ so, dass jedes Wort, das aus genau fünf Buchstaben besteht, großgeschrieben wird. Einfach weil wir’s können! 😉</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Zum Großschreiben kannst Du eine bereits im Notebook "Funktionen und Methoden Teil 1" kennengelernte Funktion nutzen.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -1735,28 +1748,28 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>51</td>
-      <td>39</td>
+      <td>54</td>
+      <td>13</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>89</td>
-      <td>32</td>
+      <td>64</td>
+      <td>66</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>99</td>
-      <td>89</td>
+      <td>12</td>
+      <td>55</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>55</td>
-      <td>78</td>
+      <td>43</td>
+      <td>22</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>38</td>
-      <td>56</td>
+      <td>35</td>
+      <td>32</td>
     </tr>
   </tbody>
 </table>
@@ -1803,33 +1816,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>51</td>
-      <td>39</td>
-      <td>1989</td>
+      <td>54</td>
+      <td>13</td>
+      <td>702</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>89</td>
-      <td>32</td>
-      <td>2848</td>
+      <td>64</td>
+      <td>66</td>
+      <td>4224</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>99</td>
-      <td>89</td>
-      <td>8811</td>
+      <td>12</td>
+      <td>55</td>
+      <td>660</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>55</td>
-      <td>78</td>
-      <td>4290</td>
+      <td>43</td>
+      <td>22</td>
+      <td>946</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>38</td>
-      <td>56</td>
-      <td>2128</td>
+      <td>35</td>
+      <td>32</td>
+      <td>1120</td>
     </tr>
   </tbody>
 </table>
@@ -1879,33 +1892,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>51</td>
-      <td>39</td>
-      <td>1989</td>
+      <td>54</td>
+      <td>13</td>
+      <td>702</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>89</td>
-      <td>32</td>
-      <td>2848</td>
+      <td>64</td>
+      <td>66</td>
+      <td>4224</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>99</td>
-      <td>89</td>
-      <td>8811</td>
+      <td>12</td>
+      <td>55</td>
+      <td>660</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>55</td>
-      <td>78</td>
-      <td>4290</td>
+      <td>43</td>
+      <td>22</td>
+      <td>946</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>38</td>
-      <td>56</td>
-      <td>2128</td>
+      <td>35</td>
+      <td>32</td>
+      <td>1120</td>
     </tr>
   </tbody>
 </table>
@@ -1919,9 +1932,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.0029420852661132812 
-for-Loop 7.692917823791504 
-Faktor: 2614.784116693679
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.003046751022338867 
+for-Loop 7.785549879074097 
+Faktor: 2555.361374129431
 </pre></div>
 </div>
 </div>
@@ -2126,9 +2139,9 @@ Faktor: 2614.784116693679
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.5363149642944336 
-for-Loop 0.5088298320770264 
-Faktor: 3.019309929261119
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.8802309036254883 
+for-Loop 0.5197229385375977 
+Faktor: 3.617756239345724
 </pre></div>
 </div>
 </div>
@@ -2136,7 +2149,10 @@ Faktor: 3.019309929261119
 <p>Wir können festhalten, dass Vektorisierung bei Zahlen unglaublich effizient ist. Bei der Bearbeitung von strings hinken pandas-Operationen, jedenfalls bei großen Datenmengen, nativem Python-Code hinterher. Es sei denn Du hast riesige Mengen an strings zu bearbeiten, empfiehlt sich der Einsatz von pandas-Operationen der Einheitlichkeit halber i. d. R. dennoch.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 5:</strong> Caste sämtliche Werte in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> in strings.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Du kannst Dir zunutze machen, dass <code>str</code> auch eine Funktion ist (vgl. Notebook "Datentypen" zum Thema Casting). Diese musst Du dann nur noch mit einer geeigneten Methode auf das gesamte DataFrame anwenden.  
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -2151,15 +2167,22 @@ Faktor: 3.019309929261119
 <p>Im Anwendungsfall für dieses Notebook wollen wir wie gesagt Wortverlaufskurven visualisieren. Das heißt, wir wollen die Häufigkeit, mit der ein beliebiges Wort auftritt, über die Zeit hinweg darstellen. Für die vier Personalpronomen „ich“, „du“, „er“ und „sie“ sieht das z. B. wie in der kombinierten Grafik unten aus. Die linke Darstellung visualisiert die Daten nach einzelnen Jahren (wie der originale Datensatz), in der mittleren und rechten Darstellung werden die Daten aggregiert nach Fünfjahresabschnitten bzw. Zehnjahresabschnitten visualisiert. Einzelne Aussschläge nach oben und unten werden so ausgebügelt und Trends sind leichter zu erkennen:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Wortverlaufskurve_kombiniert.png"><p>Deine Aufgabe ist es erst einmal, Code zu schreiben, der die linke Grafik für beliebige Wörter produziert. Die erforderliche Aggregation für die mittlere und rechte Darstellung schauen wir uns im Anschluss an den Anwendungsfall gemeinsam an.</p>
 <p>Wie in den Notebooks „Funktionen und Methoden Teil 2“ und „Input und Output Teil 2“ hast Du wieder die Wahl, den Anwendungsfall ohne weitere Anleitung in Angriff zu nehmen oder einer Schritt-für-Schritt-Anleitung zu folgen. In letzterem Fall kannst Du jetzt ans Ende der nächsten Code-Zelle springen. Wenn Du es alleine probieren möchtest, dann analysiere das gewünschte Resultat oben links und frag Dich, welche Daten wie und wo visualisiert werden.</p>
-<p>💡 Tipp 1: Die relativen Häufigkeiten pro Wort und Jahr liegen noch nicht in unserem DataFrame vor. Du musst sie also erst ausrechnen. Überleg Dir genau, wie Du von den existierenden, absoluten Häufigkeiten zu den relativen Häufigkeiten pro Jahr kommst. Dazu seien zwei nützliche Methoden erwähnt (klick auf ihren Namen, um zur offiziellen Dokumentation zu gelangen):</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a>: Nach dem Motto „split-apply-combine“ erlaubt Dir diese Methode, das DataFrame nach den Werten der Spalte „Jahr“ zu gruppieren (aufzu<em>split</em>ten). Indem Du im gleichen Statement die <code class="docutils literal notranslate"><span class="pre">sum</span></code>-Methode auf die Spalte „Häufigkeit“ jedes durch <code class="docutils literal notranslate"><span class="pre">groupby</span></code> entstehenden Sub-DataFrame anwendest (<em>apply</em>), erhältst Du eine zusammengeführte Series (<em>combine</em>), die für jedes Jahr die Summe aller Häufigkeiten aller Tokens enthält. Schau Dir diese Series genau an.</p></li>
-<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.replace.html"><code class="docutils literal notranslate"><span class="pre">replace</span></code></a>: Diese Methode lässt sich auf eine Series (etwa eine Spalte in unserem DataFrame) anwenden und nimmt u. a. eine zweite Series als Argument (etwa eine durch <code class="docutils literal notranslate"><span class="pre">groupby([...])[...].sum()</span></code> entstandene). <code class="docutils literal notranslate"><span class="pre">replace</span></code> schaut dann, ob sich Indizes der zweiten Series als Werte in der ersten Series befinden und wenn ja, ersetzt sie diese durch die dazugehörigen Werte aus der zweiten Series. Die dictionary-Analogie von oben macht den Prozess greifbarer: <code class="docutils literal notranslate"><span class="pre">replace</span></code> ersetzt in der Series, auf die sie angewandt wird, Schlüssel durch ihre jeweiligen Werte aus der als Argument übergebenen Series.</p></li>
-</ul>
-<p>💡 Tipp 2: Mach Dich in der <a class="reference external" href="https://matplotlib.org/stable/users/index.html">Dokumentation</a> von matplotlib, der Bibliothek zum Visualisieren von Daten, schlau, wie Du die errechneten Werte visualisieren kannst.</p>
 <p>Beginne in jedem Fall damit, die Datei „songkorpus.tsv“ neu einzulesen und die Spalten wie am Anfang des Notebooks umzubenennen. Dadurch stellst Du sicher, dass Du auch wirklich mit den ursprünglichen Daten arbeitest.</p>
-<p>Viel Erfolg! 🙌</p>
-<div class="cell docutils container">
+<details>
+<summary>💡 Tipp 1</summary> 
+<br>Die relativen Häufigkeiten pro Wort und Jahr liegen noch nicht in unserem DataFrame vor. Du musst sie also erst ausrechnen. Überleg Dir genau, wie Du von den existierenden, absoluten Häufigkeiten zu den relativen Häufigkeiten pro Jahr kommst. Dazu seien zwei nützliche Methoden erwähnt (klick auf den Funktionnamen, um zur offiziellen Dokumentation zu gelangen):
+<ul>
+<li><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code>groupby</code></a>: Nach dem Motto "split-apply-combine" erlaubt Dir diese Methode, das DataFrame nach den Werten der Spalte "Jahr" zu gruppieren (aufzu<i>split</i>ten). Indem Du im gleichen Statement die <code>sum</code>-Methode auf die Spalte "Häufigkeit" jedes durch <code>groupby</code> entstehenden Sub-DataFrame anwendest (<i>apply</i>), erhältst Du eine zusammengeführte Series (<i>combine</i>), die für jedes Jahr die Summe aller Häufigkeiten aller Tokens enthält. Schau Dir diese Series genau an.</li>
+<li><a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.replace.html"><code>replace</code></a>: Diese Methode lässt sich auf eine Series (etwa eine Spalte in unserem DataFrame) anwenden und nimmt u. a. eine zweite Series als Argument (etwa eine durch <code>groupby([...])[...].sum()</code> entstandene). <code>replace</code> schaut dann, ob sich Indizes der zweiten Series als Werte in der ersten Series befinden und wenn ja, ersetzt sie diese durch die dazugehörigen Werte aus der zweiten Series. Die dictionary-Analogie von oben macht den Prozess greifbarer: <code>replace</code> ersetzt in der Series, auf die sie angewandt wird, Schlüssel durch ihre jeweiligen Werte aus der als Argument übergebenen Series.</li>
+</ul>
+</details>
+<br>
+<details>
+<summary>💡 Tipp 2 </summary>
+<br>Mach Dich in der <a href="https://matplotlib.org/stable/users/index.html">Dokumentation</a> von matplotlib, der Bibliothek zum Visualisieren von Daten, schlau, wie Du die errechneten Werte visualisieren kannst.
+</details>
+<br>
+Viel Erfolg! 🙌<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -2171,7 +2194,10 @@ Faktor: 3.019309929261119
 <ol class="arabic simple">
 <li><p>Um sicherzugehen, dass wir wirklich mit den originalen Daten arbeiten, lies die Datei „songkorpus_token.tsv“ abermals ein.</p></li>
 </ol>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Achte auf das Angeben des richtigen Trennzeichens bei <code>sep</code>.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
 </pre></div>
@@ -2188,13 +2214,18 @@ Faktor: 3.019309929261119
 </div>
 </div>
 </div>
-<ol class="arabic" start="3">
-<li><p>Im DataFrame verfügen wir bislang nur über absolute Häufigkeiten. Um die Werte zwischen einzelnen Jahren besser vergleichbar zu machen, wollen wir aber relative Häufigkeiten für die Visualisierung verwenden. Schaff dazu eine Spalte „Relative Häufigkeit“, die für jedes Token vermerkt, wie häufig es in Relation zur Summe aller Häufigkeiten aller Tokens im gegebenen Jahr vorkommt. Für diese Berechnung brauchst Du jeweils zwei Werte: erstens die absolute Häufigkeit (bereits in der Spalte „Häufigkeit“) und zweitens die Summe aller Häufigkeiten aller Tokens im gegebenen Jahr.</p>
-<p>Verwend die Methode <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a> zur Berechnung der Summe aller Häufigkeiten pro Jahr. Nach dem Motto „split-apply-combine“ erlaubt Dir diese Methode, das DataFrame nach den Werten der Spalte „Jahr“ zu gruppieren (aufzu<em>split</em>ten). Indem Du im gleichen Statement die <code class="docutils literal notranslate"><span class="pre">sum</span></code>-Methode auf die Spalte „Häufigkeit“ jedes durch <code class="docutils literal notranslate"><span class="pre">groupby</span></code> entstehenden Sub-DataFrame anwendest (<em>apply</em>), erhältst Du eine zusammengeführte Series (<em>combine</em>), die für jedes Jahr die Summe aller Häufigkeiten aller Tokens enthält. Weis die Series der Variablen <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code> zu und inspizier sie.</p>
-<p>Um nun zur relativen Häufigkeit zu gelangen, musst Du für jedes Token in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> den Wert in der Spalte „Häufigkeit“ durch die jeweilige Summe an Häufigkeiten im gegebenen Jahr teilen. Da wir letzteren Wert in einer anderen Series (nämlich in <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code>) vorliegen haben, müssen wir zu einem Trick greifen: Wend die <code class="docutils literal notranslate"><span class="pre">replace</span></code>-Methode auf die Spalte „Jahr“ an und übergib ihr <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code>. Wir machen uns hier den Umstand zunutze, dass eine Series wie ein dictionary funktioniert. Will heißen: <code class="docutils literal notranslate"><span class="pre">replace</span></code> ersetzt kurzerhand jedes Jahr (Schlüssel) durch die jeweilige Summe der Häufigkeiten pro Jahr (Wert).</p>
-</li>
+<ol class="arabic simple" start="3">
+<li><p>Im DataFrame verfügen wir bislang nur über absolute Häufigkeiten. Um die Werte zwischen einzelnen Jahren besser vergleichbar zu machen, wollen wir aber relative Häufigkeiten für die Visualisierung verwenden. Schaff dazu eine Spalte „Relative Häufigkeit“, die für jedes Token vermerkt, wie häufig es in Relation zur Summe aller Häufigkeiten aller Tokens im gegebenen Jahr vorkommt. Für diese Berechnung brauchst Du jeweils zwei Werte: erstens die absolute Häufigkeit (bereits in der Spalte „Häufigkeit“) und zweitens die Summe aller Häufigkeiten aller Tokens im gegebenen Jahr.</p></li>
 </ol>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp 1 </summary>
+  <br>Verwend die Methode <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code>groupby</code></a> zur Berechnung der Summe aller Häufigkeiten pro Jahr (klick auf den Namen der Methode, um zur offiziellen Dokumentation zu gelangen). Nach dem Motto "split-apply-combine" erlaubt Dir diese Methode, das DataFrame nach den Werten der Spalte "Jahr" zu gruppieren (aufzu<i>split</i>ten). Indem Du im gleichen Statement die <code>sum</code>-Methode auf die Spalte "Häufigkeit" jedes durch <code>groupby</code> entstehenden Sub-DataFrame anwendest (<i>apply</i>), erhältst Du eine zusammengeführte Series (<i>combine</i>), die für jedes Jahr die Summe aller Häufigkeiten aller Tokens enthält. Weis die Series der Variablen <code>total_freq_per_year</code> zu und inspizier sie.
+</details>
+<br>
+<details>
+<summary>💡 Tipp 2 </summary>
+<br>Um nun zur relativen Häufigkeit zu gelangen, musst Du für jedes Token in <code>songkorpus</code> den Wert in der Spalte "Häufigkeit" durch die jeweilige Summe an Häufigkeiten im gegebenen Jahr teilen. Da wir letzteren Wert in einer anderen Series (nämlich in <code>total_freq_per_year</code>) vorliegen haben, müssen wir zu einem Trick greifen: Wend die <code>replace</code>-Methode auf die Spalte "Jahr" an und übergib ihr <code>total_freq_per_year</code>. Wir machen uns hier den Umstand zunutze, dass eine Series wie ein dictionary funktioniert. Will heißen: <code>replace</code> ersetzt kurzerhand jedes Jahr (Schlüssel) durch die jeweilige Summe der Häufigkeiten pro Jahr (Wert).
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
 </pre></div>
@@ -2230,23 +2261,26 @@ Faktor: 3.019309929261119
 </ul>
 </li>
 </ol>
-<ol class="arabic simple" start="7">
-<li><p>Nachdem Du alle Wörter der Liste entsprechend geplotted hast, kannst Du <strong>in derselben Zelle</strong> folgende Funktionen verwenden, um den Plot zu verfeinern:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code>, um einen Titel zu setzen.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xlabel</span></code> und  <code class="docutils literal notranslate"><span class="pre">ylabel</span></code>, um die Achsen zu beschriften.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xlim</span></code>, um der x-Achse Grenzen zu setzen, z. B. von 1969 bis 2022 (dies vereinheitlicht die Plots, da diese sonst automatisch an den Wertebereich der zu plottenden Wörter angepasst wird und der Plot dadurch mitunter anders beschnitten sein kann).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">legend</span></code>, um eine Legende einzufügen, indem Du der Funktion die Liste mit Wörtern übergibst</p></li>
-</ul>
-</li>
-</ol>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Um die Wortverlaufskurven nacheinander in das Diagramm einzufügen, musst Du über die Liste mit Deinen Wörtern iterieren und Wort für Wort separat plotten. Nutz dafür eine for-Schleife.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Aufgabe schreiben.</span>
 </pre></div>
 </div>
 </div>
 </div>
+<ol class="arabic simple" start="7">
+<li><p>Nachdem Du alle Wörter der Liste entsprechend geplotted hast, kannst Du <strong>in derselben Zelle</strong> (aber unter dem Code aus Schritt 6) folgende Funktionen verwenden, um den Plot zu verfeinern:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code>, um einen Titel zu setzen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xlabel</span></code> und  <code class="docutils literal notranslate"><span class="pre">ylabel</span></code>, um die Achsen zu beschriften.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xlim</span></code>, um der x-Achse Grenzen zu setzen, z. B. von 1969 bis 2022 (dies vereinheitlicht die Plots, da diese sonst automatisch an den Wertebereich der zu plottenden Wörter angepasst wird und der Plot dadurch mitunter anders beschnitten sein kann).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">legend</span></code>, um eine Legende einzufügen, indem Du der Funktion die Liste mit Wörtern übergibst.</p></li>
+</ul>
+</li>
+</ol>
 <hr class="docutils" />
 <p>Super! 🤩</p>
 <p>Bevor wir uns zum Abschluss noch den Output von DataFrames anschauen, wollen wir die Daten wie gesagt zu größeren Zeiteinheiten aggregieren, und zwar zu Zehn- und Fünfjahresabschnitten.</p>
@@ -2462,7 +2496,7 @@ Faktor: 3.019309929261119
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17d99fb50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17c57fcd0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/8dfc2ca002bb9fc53652a7058bac16fb1cd86610f1ea4d81b35361a722210980.png" src="../../_images/8dfc2ca002bb9fc53652a7058bac16fb1cd86610f1ea4d81b35361a722210980.png" />

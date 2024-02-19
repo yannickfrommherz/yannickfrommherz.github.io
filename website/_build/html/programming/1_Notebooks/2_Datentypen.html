@@ -610,7 +610,10 @@ document.write(`
 <p>Jeder Schlüssel darf nur ein einziges Mal vorkommen. Typischerweise sind Schlüssel Zeichenketten (aber Objekte anderer sog. <em>unveränderlicher Datentypen</em> funktionieren auch; zur (Un)veränderlichkeit von Objekten bald mehr). Werte können theoretisch jeden Datentyp annehmen (bei <code class="docutils literal notranslate"><span class="pre">wild_mix</span></code> etwa eine Liste zum Schlüssel „Saturday“) und dürfen auch mehrfach im selben dictionary vorkommen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 2:</strong> Bau auf der Jahreszeitenliste der vorherigen Übung auf und erstell ein dictionary mit den Jahreszeiten als Schlüssel und einer Liste mit den jeweiligen drei Monaten als Werte. Verwend wieder (d. h. <em>überschreib</em>) die Variable <code class="docutils literal notranslate"><span class="pre">seasons</span></code>, um das dictionary zu referenzieren. Pass auf, dass Du jeweils die richtigen Klammern verwendest.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Du kannst die bereits bestehenden Listen aus der vorherigen Übung verwenden, indem Du in Dein dictionary als Werte die entsprechenden Variablen einsetzt.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -656,7 +659,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;eine&#39;, &#39;aus&#39;, &#39;Holz.&#39;, &#39;Eingang&#39;, &#39;Vor&#39;, &#39;Bank&#39;, &#39;stand&#39;, &#39;zur&#39;, &#39;dem&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;dem&#39;, &#39;stand&#39;, &#39;Vor&#39;, &#39;Eingang&#39;, &#39;eine&#39;, &#39;Holz.&#39;, &#39;Bank&#39;, &#39;aus&#39;, &#39;zur&#39;}
 </pre></div>
 </div>
 </div>
@@ -678,7 +681,10 @@ document.write(`
 <p>Unser Satz beinhält also zehn Tokens und neun Types. Der Datentyp <code class="docutils literal notranslate"><span class="pre">set</span></code> bietet sich immer dann an, wenn wir nicht an der Häufigkeit von Elementen interessiert sind, sondern nur an deren bloßem Vorkommen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 3:</strong> Stell Dir vor, Du und Dein:e Partner:in haben, ohne Euch zu verständigen, jeweils eine Einkaufsliste angefertigt. Zwischen den Einkaufslisten gibt es viele Übereinstimmungen, z. B. habt ihr beide „Hafermilch“ aufgeschrieben. Andere Lebensmittel finden sich nur auf jeweils einer der beiden Listen. Definier zwei Listen mit teils gleichen, teils unterschiedlichen Lebensmitteln und versuch anschließend, eine Einkaufsliste daraus zu machen, die keine Lebensmittel doppelt enthält. Euch fehlt zwar Hafermilch, aber ihr braucht nicht die doppelte Menge, nur weil beide „Hafermilch“ aufgeschrieben haben. Lass Dir dann die fertige Einkaufsliste ausgeben.</p>
-<p>💡 Tipp: Ein Operator, den wir bereits im Notebook „Einführung“ verwendet haben, lässt sich auch hier einsetzen.</p>
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Ein Operator, den wir bereits im Notebook "Einführung" verwendet haben, lässt sich auch hier einsetzen.
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -806,7 +812,7 @@ c is not &#39;a&#39;
 </div>
 <p>Streng genommen sind Datentypen sog. <em>Klassen</em> in Python, daher die Bezeichnung <code class="docutils literal notranslate"><span class="pre">class</span></code> in der Ausgabe. Klassen können wir selbst auch definieren, d. h. wir könnten auch unsere eigenen Datentypen entwerfen. Das ist aber fortgeschritten und wir werden Klassen in den folgenden Notebooks höchstens am Rande begegnen.</p>
 <p>Den Datentyp zu überprüfen macht dann Sinn, wenn wir uns bei einer Variable nicht (mehr) sicher sind, was für ein Objekt durch sie referenziert wird. Viele Funktionen und Methoden (dazu mehr im zweiteiligen Notebook „Funktionen und Methoden“) lassen sich nur auf bestimmte Datentypen anwenden, wie Du selbst sehen kannst, indem Du die bereits eingeführte <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion auf Objekte verschiedener Datentypen anwendest. Entfern die Hashtags im untenstehenden Codeblock, um die einzelnen <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle auszuführen. <br></p>
-<p>💡 Tipp: Die Fehlermeldung <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> kriegen wir zurück, wenn wir eine Operation auf einen Datentyp anwenden wollen, der nicht dafür vorgesehen ist. Sobald Python die Fehlermeldung ausgibt, stoppt die Ausführung des Programmcodes. Um die nachfolgenden <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle ausführen zu können, solltest du die problematischen Zeilen durch einen Hashtag <em>auskommentieren</em> (dies macht man sich z. B. auch beim <em>Debugging</em> zunutze, also wenn sich ein Fehler (<em>Bug</em>) eingeschlichen hat und der dafür verantwortliche Codeteil gesucht wird).</p>
+<p>💡 Hinweis: Die Fehlermeldung <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> kriegen wir zurück, wenn wir eine Operation auf einen Datentyp anwenden wollen, der nicht dafür vorgesehen ist. Sobald Python die Fehlermeldung ausgibt, stoppt die Ausführung des Programmcodes. Um die nachfolgenden <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle ausführen zu können, solltest Du die problematischen Zeilen durch einen Hashtag <em>auskommentieren</em> (dies macht man sich z. B. auch beim <em>Debugging</em> zunutze, also wenn sich ein Fehler (<em>Bug</em>) eingeschlichen hat und der dafür verantwortliche Codeteil gesucht wird).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
@@ -961,7 +967,10 @@ e
 <p>Befindet sich innerhalb des zweiten sequentiellen Objekts ein drittes, kann man ein bestimmtes Element innerhalb des dritten Objekts mit einer dritten eckigen Klammer „ansprechen“, etc. (tatsächlich ist dies hier der Fall, denn „mit“ ist als string ja auch ein sequentielles Objekt; versuch gerne, Dir nur das „m“ mittels Indexing ausgeben zu lassen).</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 4:</strong> Kombinier Indexing mit einer weiteren bereits erlernten Technik, um aus den einzelnen Elementen in <code class="docutils literal notranslate"><span class="pre">list_of_words1</span></code> und  <code class="docutils literal notranslate"><span class="pre">list_of_words2</span></code> sowie aus <code class="docutils literal notranslate"><span class="pre">conjunction</span></code> einen string zu generieren, der natürlichsprachlich Sinn macht. Denk dabei auch an Leerschläge zwischen den einzelnen Wörtern. Definier für den fertigen string eine neue Variable und lass sie Dir am Ende ausgeben.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Die Leerschläge kannst Du jeweils mit <code>" "</code> zwischen die Wörter schreiben.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1034,7 +1043,10 @@ e
 <p>Zur Veranschaulichung von <code class="docutils literal notranslate"><span class="pre">join</span></code> folgt ein Beispiel:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sentence</span> <span class="pre">=</span> <span class="pre">&quot;</span> <span class="pre">&quot;.join([&quot;Mach&quot;,</span> <span class="pre">&quot;einen&quot;,</span> <span class="pre">&quot;Satz&quot;,</span> <span class="pre">&quot;aus&quot;,</span> <span class="pre">&quot;mir.&quot;])</span></code></p>
 <p>In die runden Klammern von <code class="docutils literal notranslate"><span class="pre">join</span></code> setzen wir eine Liste. <code class="docutils literal notranslate"><span class="pre">join</span></code> verbindet nun alle Elemente dieser Liste durch einen Leerschlag zu insgesamt einer Zeichenkette. Diese wird <code class="docutils literal notranslate"><span class="pre">sentence</span></code> zugewiesen. <code class="docutils literal notranslate"><span class="pre">sentence</span></code> referenziert also den string „Mach einen Satz aus mir.“</p>
-<p>💡 Tipp: Erstell erst eine neue Liste mit den Wörtern des ersten Satzteils, dann eine Liste mit den Wörtern des zweiten Satzteils und verbind dann die beiden Listen zu einer Liste, in der alle Wörter in der richtigen Reihenfolge stehen. Wend nun <code class="docutils literal notranslate"><span class="pre">join</span></code> wie oben gezeigt an, um daraus einen string zu schaffen.</p>
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Erstell erst eine neue Liste mit den Wörtern des ersten Satzteils, dann eine Liste mit den Wörtern des zweiten Satzteils und verbind dann die beiden Listen zu einer Liste, in der alle Wörter in der richtigen Reihenfolge stehen. Wend nun <code>join</code> wie oben gezeigt an, um daraus einen string zu schaffen.
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1077,7 +1089,10 @@ Sonntag
 <p>Die Iteration hört dann auf, wenn das Objekt aufgebraucht (engl. <em>exhausted</em>) ist.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 6:</strong> Orientier Dich an dem Beispiel oben und benutz eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife, um über die Liste <code class="docutils literal notranslate"><span class="pre">wild_mix</span></code> von oben zu iterieren (stell zuvor sicher, dass die Variable noch initialisiert ist, indem Du die entsprechende Zelle noch einmal ausführst). Lass Dir für jedes Element den Datentyp ausgeben.</p>
-<p>💡 Tipp: Zwischen <code class="docutils literal notranslate"><span class="pre">for</span></code> und <code class="docutils literal notranslate"><span class="pre">in</span></code> kannst Du irgendeinen Variablennamen verwenden. Im obigen Beispiel ist <code class="docutils literal notranslate"><span class="pre">day</span></code> intuitiv verständlich, Du könntest aber theoretisch irgendeine andere Variable wählen (<em>theoretisch</em>, denn auch diese Variable soll nach Möglichkeit sprechend sein, vgl. Notebook „Einführung“). Wichtig ist in jedem Fall, dass Du im Anweisungskörper die entsprechende Variable wiederverwendest (siehe „day“ im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl oben).</p>
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Zwischen <code>for</code> und <code>in</code> kannst Du irgendeinen Variablennamen verwenden. Im obigen Beispiel ist <code>day</code> intuitiv verständlich, Du könntest aber theoretisch irgendeine andere Variable wählen (<i>theoretisch</i>, denn auch diese Variable soll nach Möglichkeit sprechend sein, vgl. Notebook "Einführung"). Wichtig ist aber, dass Du im Anweisungskörper die entsprechende Variable wiederverwendest (siehe "day" im <code>print</code>-Befehl oben).
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1129,9 +1144,9 @@ Sonntag
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False 
-→ denn 4405997488 ist ungleich 4405997616
+→ denn 4601538096 ist ungleich 4601443440
 Das list-Objekt ist immer noch das gleiche: True 
-→ denn 4411723008 ist gleich 4411723008
+→ denn 4601595584 ist gleich 4601595584
 </pre></div>
 </div>
 </div>

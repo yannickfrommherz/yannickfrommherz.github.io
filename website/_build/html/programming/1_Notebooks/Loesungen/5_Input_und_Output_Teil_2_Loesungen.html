@@ -476,7 +476,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">csv</span>
 
 <span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Tabellarische_Daten/Liste_der_flächengrössten_Gemeinden_Deutschlands.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Tabellarische_Daten/Liste_der_flaechengroessten_Gemeinden_Deutschlands.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
     
     <span class="c1">#Erklärung dieses Codes siehe Lehrnotebook unter &quot;Das csv-Modul&quot;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">read_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
@@ -490,7 +490,7 @@ document.write(`
                 <span class="s1">&#39;Mecklenburg-Vorpommern&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Niedersachsen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Nordrhein-Westfalen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Rheinland-Pfalz&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Saarland&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
                 <span class="s1">&#39;Sachsen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Sachsen-Anhalt&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Schleswig-Holstein&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Thüringen&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 
-<span class="c1">#hier startet der eigentliche Lösungscode</span>
+<span class="c1">#Hier startet der eigentliche Lösungscode</span>
 <span class="c1">#Iteration über &#39;biggest_municipalities&#39; mittels der &#39;range&#39;-Funktion und &#39;i&#39; als Zählervariable</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">biggest_municipalities</span><span class="p">)):</span>
     <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span> <span class="c1">#Iterieren über die Schlüssel in &#39;federal_states&#39;</span>
@@ -525,6 +525,7 @@ Thüringen 1
 </div>
 </div>
 </div>
+<hr class="docutils" />
 <p>🔧 <strong>Anwendungsfall (Lösung):</strong> Deine Aufgabe ist es also, ein kleines interaktives Programm zu schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Konkret müssen folgende Schritte umgesetzt werden:</p>
 <ol class="arabic simple">
 <li><p>Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet.</p></li>
@@ -613,9 +614,7 @@ Thüringen 1
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 2:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben.</p>
-<p>Hinweis 1: Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ fünf.</p>
-<p>Hinweis 2: Wie erwähnt werden Zahlen innerhalb des digit space standardmäßig rechtsbündig ausgerichtet. Strings werden hingegen innerhalb des digit space standardmäßig linksbündig ausgerichtet (Tabellenkalkulationsprogramme legen das gleiche Verhalten an den Tag, wie Dir vielleicht schon aufgefallen ist). Um die Darstellung im Screenshot umzusetzen, musst Du Dich folglich nicht um das Alignment kümmern, da es dem Standard entspricht.</p>
+<p>✏️ <strong>Lösung 2:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben. Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ fünf.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shopping_list</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Apple&quot;</span><span class="p">:</span> <span class="mf">0.77</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">,</span> <span class="s2">&quot;Oat Milk&quot;</span><span class="p">:</span> <span class="mf">1.944</span><span class="p">,</span> <span class="s2">&quot;Olive Oil Extra Vergine&quot;</span><span class="p">:</span> <span class="mf">11.17</span><span class="p">}</span>

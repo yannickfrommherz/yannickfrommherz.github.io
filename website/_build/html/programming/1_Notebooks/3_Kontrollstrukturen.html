@@ -773,9 +773,12 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">durchschnittlich</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> zwischen 170cm und 180cm ist</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">kleiner</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> kleiner als 170cm ist</p></li>
 </ul>
-<p>Der Code soll zudem überprüfen, ob die Zahl in <code class="docutils literal notranslate"><span class="pre">height</span></code> sinnvoll ist. Sie muss dafür mindestens dreistellig sein, darf aber auch nicht mehr als 200 betragen. Ist dies nicht der Fall, soll eine Fehlermeldung zurückgegeben werden.</p>
+<p>Der Code soll zudem überprüfen, ob die Zahl in <code class="docutils literal notranslate"><span class="pre">height</span></code> sinnvoll ist. Sie muss dafür mindestens dreistellig sein, darf aber auch nicht mehr als 200 betragen. Wenn die Zahl nicht sinnvoll ist, soll eine Fehlermeldung zurückgegeben werden.</p>
 <p>Wenn Du fertig bist, probier Deinen Code aus, indem Du verschiedene Werte bei <code class="docutils literal notranslate"><span class="pre">height</span></code> einsetzt.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+    <br>Mindestens dreistellig bedeutet, dass die Zahl größer als 99 sein soll, zugleich aber laut Aufgabe auch kleiner als 201. Diese Bedingungen kannst Du direkt an den Beginn Deines Codes stellen und die weiteren Fallunterscheidungen dann darunter einrücken.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 <span class="n">height</span> <span class="o">=</span> <span class="mi">182</span>
@@ -981,7 +984,10 @@ y
 <p>✏️ <strong>Übung 3:</strong> Im Isländischen setzen sich Nachnamen aus dem Vornamen eines Elternteils (traditionell, aber nicht immer, des Vaters) und der binären Bezeichnung „son“ bzw. „dottir“ zusammen (i. d. R. mit Genitiv-S dazwischen). „Johannsdottir“ ist also z. B. die Tochter von Johann. Lass Dir für jeden Namen auf <code class="docutils literal notranslate"><span class="pre">surnames</span></code> ausgeben, ob es sich um eine Person vermutlich isländischer Abstammung handelt, oder nicht. Wenn ja, lass Dir zudem ausgeben, ob es sich aufgrund des Nachnamens um eine Frau oder einen Mann handelt.</p>
 <p>In der Ausgabe sollte der betreffende Name vorkommen, also z. B. für einen nicht-isländischen Namen: <br>
 <code class="docutils literal notranslate"><span class="pre">Mensch</span> <span class="pre">Müller</span> <span class="pre">kommt</span> <span class="pre">vermutlich</span> <span class="pre">nicht</span> <span class="pre">aus</span> <span class="pre">Island.</span></code>.</p>
-<p>💡 Tipp: In der bedingten Anweisung kannst Du das Pendant zum bereits bekannten <code class="docutils literal notranslate"><span class="pre">startswith</span></code>, nämlich <code class="docutils literal notranslate"><span class="pre">endswith</span></code>, benutzen, das für einen string überprüft, ob er mit der in Klammern angegebenen Zeichenkette endet oder nicht. <code class="docutils literal notranslate"><span class="pre">&quot;string&quot;.endswith(&quot;g&quot;)</span></code> überprüft etwa, ob <code class="docutils literal notranslate"><span class="pre">string</span></code> mit „g“ endet. Wie immer kannst Du anstatt der Zeichenketten auch Variablen verwenden, die einen string referenzieren.</p>
+<details>
+  <summary>💡 Tipp </summary>
+  <br>In der bedingten Anweisung kannst Du das Pendant zum bereits bekannten <code>startswith</code>, nämlich <code>endswith</code>, benutzen, das für einen string überprüft, ob er mit der in Klammern angegebenen Zeichenkette endet oder nicht. <code>"string".endswith("g")</code> überprüft etwa, ob <code>string</code> auf "g" endet. Wie immer kannst Du anstatt der Zeichenketten auch Variablen verwenden, die einen string referenzieren.
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1218,7 +1224,10 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
 <p>Beim dritten Durchlauf will nun Janine beitreten. Mit Max und Moritz sind vor ihrem Beitritt zwei Leute auf der Liste, daher wird die Bedingung noch erfüllt: Janine tritt innerhalb des Anweisungskörpers bei und Python geht wegen des <code class="docutils literal notranslate"><span class="pre">continue</span></code>-Statements wieder direkt zum nächsten Durchlauf. Nun kommt Hussein und da bereits drei Leute auf der Liste sind, wird die Bedingung nicht mehr erfüllt. Python überspringt also den eingerückten Code und macht direkt nach der Einrückung weiter. Dort tritt Hussein dem Spiel bei. Nun läuft das Spiel.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 4:</strong> In der Zelle unten steht noch einmal der gleiche Code. Modifizier ihn derart, dass bei sechs Teilnehmer:innen Schluss ist. Die Iteration soll abbrechen. Vorher wollen wir aber darüber informiert werden, dass das Spiel bereits voll besetzt ist sowie darüber, wer daran teilnimmt.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Zum Abbrechen des Codes benötigst Du ein oben erlerntes Statement, das Du im Schleifenkörper platzierst.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1280,21 +1289,22 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
 <hr class="docutils" />
 <section id="id1">
 <h2>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">#</a></h2>
-<p>Deine Aufgabe ist es also, 365 vollständige Daten vom Format „Wochentag, Tag. Monat Jahr“ auszugeben:</p>
+<p>Deine Aufgabe ist es nun also, 365 vollständige Daten vom Format „Wochentag, Tag. Monat Jahr“ auszugeben:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Samstag,</span> <span class="pre">1.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">Sonntag,</span> <span class="pre">2.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">Montag,</span> <span class="pre">3.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br></p>
 <p>Als Ausgangspunkt stehen Dir ein dictionary mit allen Monaten und der jeweiligen Anzahl Tage als Schlüssel-Werte-Paare und ebenfalls eine Liste mit allen Wochentagen zur Verfügung. Wie Du über Listen iterierst, weißt Du ja bereits. Zum Iterieren über dictionaries kannst Du wie oben im Video die <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode verwenden (mehr dazu im Notebook „Funktionen und Methoden Teil 1“), sie steht Dir ebenfalls bereits im Code zur Verfügung. Die Variablen <code class="docutils literal notranslate"><span class="pre">month</span></code> und <code class="docutils literal notranslate"><span class="pre">days</span></code> stehen dabei stellvertretend für den Schlüssel (Monatsnamen) und Wert (Anzahl Tage) des jeweiligen Schlüssel-Werte-Paars im dictionary. Nutz diese Variablen im Schleifenkörper, um auf den jeweiligen Schlüssel bzw. Wert zuzugreifen.</p>
 <p>Hinweis: Diese Übung ist durchaus komplex. Überleg Dir deshalb erst, in welche kleineren Schritte Du die Aufgabe zerlegen kannst und vergewisser Dich dann bei jedem (Zwischen-)Schritt, dass Dein Code das tut, was er soll (trial and error!).</p>
 <p>Letzte Bemerkung: <code class="docutils literal notranslate"><span class="pre">pass</span></code> steht als Platzhalter für Deinen Code da. Ein leerer Anweisungskörper erzeugt bei Python nämlich eine Fehlermeldung. Ersetz <code class="docutils literal notranslate"><span class="pre">pass</span></code> durch Deinen Code.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+    <br>Um auf den jeweiligen Tag in der Liste <code>weekdays</code> zuzugreifen, benötigst Du eine Zählervariable. Da Samstag der erste Tag im Jahr 2022 ist, musst Du sie zu Beginn bei fünf initialisieren. Nun iterierst Du über das dictionary (Code bereits vorgegeben) und die Wochentage (Code fehlt noch). Am Ende jedes Durchlaufes erhöhst Du die Zählervariable um eins. Ab einem gewissen Wert musst Du die Variable aber auf null zurücksetzen. </details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
 <span class="n">months</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Januar&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;Februar&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;März&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Mai&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;Juni&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Juli&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;August&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;September&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Oktober&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span> <span class="s2">&quot;November&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Dezember&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">}</span>
 <span class="n">weekdays</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Montag&quot;</span><span class="p">,</span> <span class="s2">&quot;Dienstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Mittwoch&quot;</span><span class="p">,</span> <span class="s2">&quot;Donnerstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Freitag&quot;</span><span class="p">,</span> <span class="s2">&quot;Samstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonntag&quot;</span><span class="p">]</span>
 
-<span class="n">j</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">for</span> <span class="n">month</span><span class="p">,</span> <span class="n">days</span> <span class="ow">in</span> <span class="n">months</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="k">pass</span>
 </pre></div>

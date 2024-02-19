@@ -937,6 +937,13 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 <li><p>Benenn die Spalten wie bei <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> um. Falls Du hier eine Fehlermeldung kriegst, lies sie aufmerksam und pass Deinen Code entsprechend an.</p></li>
 <li><p>Überleg Dir, was die Tatsache, dass wir nun Tokens als Zeilennamen verwenden, zur Konsequenz hat. Experimentier dazu gerne mit dem DataFrame herum und greif auf verschiedene Zeilen über Namen zu.</p></li>
 </ol>
+<details>
+<summary>💡 Tipp zu Schritt 1</summary>
+<br>Achte beim Einlesen darauf, das richtige Trennzeichen bei <code>sep</code> anzugeben.</details>
+<br>
+<details>
+<summary>💡 Tipp zu Schritt 3</summary>
+<br>Greif z. B. auf das Token "wir" in der Indexspalte zu und schau Dir das Ergebnis an.</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben. </span>
@@ -948,8 +955,9 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 <p>Im Gegensatz zu Spaltennamen (und Schlüsseln bei dictionaries) dürfen Zeilennamen mehrfach vorkommen. Der Zugriff auf eine oder mehrere Zeilen funktioniert ungeachtet dessen gleich wie bei DataFrames, die mit numerischen Indizes durchnummeriert sind, also mittels <code class="docutils literal notranslate"><span class="pre">.loc[index]</span></code>.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 3:</strong> Setz die Tatsache, dass Zeilennamen mehrfach vorkommen dürfen, produktiv ein und find heraus, wie oft „Dresden“ in <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> vorkommt, indem Du die Häufigkeiten in allen Jahren, in denen das Wort gesungen wird, zusammenzählst.</p>
-<p>💡 Tipp: Der erste Schritt besteht darin, aus dem gesamten DataFrame <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> ein kleineres, sog. <em>Sub-DataFrame</em> zu erstellen, das mit einer neuen Variablen referenziert wird. Der zweite Schritt besteht darin, eine Series aus diesem Sub-DataFrame „herauszuschneiden“, die Du anschließend wie eine Liste behandeln kannst, um schließlich zur Anzahl der Nennungen von „Dresden“ zu gelangen.</p>
-<div class="cell docutils container">
+<details>
+<summary>💡 Tipp </summary>
+<br> Der erste Schritt besteht darin, aus dem gesamten DataFrame <code>songkorpus_labelled_rows</code> ein kleineres, sog. <i>Sub-DataFrame</i> zu erstellen, das mit einer neuen Variablen referenziert wird. Der zweite Schritt besteht darin, eine Series aus diesem Sub-DataFrame "herauszuschneiden", die Du anschließend wie eine Liste behandeln kannst, um schließlich zur Anzahl der Nennungen von "Dresden" zu gelangen.</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -1079,7 +1087,9 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 <hr class="docutils" />
 <p>✏️ <strong>Übung 4:</strong></p>
 <p>Füg <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> eine weitere Spalte mit dem Namen „Länge“ hinzu, in der die Anzahl an Buchstaben je Token steht.</p>
-<div class="cell docutils container">
+<details>
+<summary>💡 Tipp</summary>
+<br>Da manche Tokens Zahlen sind, kannst Du ihre Länge nicht einfach mit <code>len</code> auszählen. Überleg Dir, wie Du vorgehen kannst, um dennoch die Länge der Zahlen zu ermitteln.</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -1088,7 +1098,9 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 5:</strong> Vereinfache den Code von oben, mit dessen Hilfe wir die Spalte „Jahrzehnt“ hinzugefügt haben, indem Du ihn mittels List Comprehension (vgl. Notebook „Funktionen und Methoden Teil 1“) auf eine einzige Zeile reduzierst. Hol den Abschnitt zu List Comprehensions nach, falls Du ihn damals ausgelassen hast, da er als fortgeschritten markiert war.</p>
-<p>Hinweis: <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> verfügt ja bereits über eine Spalte mit dem Namen „Jahrzehnt“. Indem Du das Resultat Deiner List Comprehension <code class="docutils literal notranslate"><span class="pre">songkorpus[&quot;Jahrzehnt&quot;]</span></code> zuweist, überschreibst Du die befindliche Spalte ganz einfach.</p>
+<details>
+<summary>💡 Tipp </summary>
+<br> <code>songkorpus</code> verfügt ja bereits über eine Spalte mit dem Namen "Jahrzehnt". Indem Du das Resultat Deiner List Comprehension <code>songkorpus["Jahrzehnt"]</code> zuweist, überschreibst Du die befindliche Spalte ganz einfach.</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1152,7 +1164,10 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 <p><code class="docutils literal notranslate"><span class="pre">DataFrame.drop(index_or_name,</span> <span class="pre">axis=0)</span></code></p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 6:</strong> Führ die Zelle oben, in der wir <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> Zeilen mit Fantasiewörtern hinzugefügt haben, noch ein paar Mal aus, ohne darauf zu achten wie oft. Verwend nun <code class="docutils literal notranslate"><span class="pre">drop</span></code> in einer geeigneten Kontrollstruktur (vgl. Notebook „Kontrollstrukturen“) sowie die anfangs eingeführte Variable <code class="docutils literal notranslate"><span class="pre">original_len</span></code>, um die Fantasiewörter wieder zu entfernen und <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code>, was die Anzahl an Zeilen betrifft, wieder in seinen Originalzustand zu bringen.</p>
-<div class="cell docutils container">
+<details>
+<summary>💡 Tipp </summary>
+<br>Als Kontrollstruktur bietet sich eine while-Schleife an, die Deinen Code zum Entfernen der Zeilen so lange ausführt, bis die Länge des DataFrame <code>original_len</code> erreicht.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -1271,7 +1286,9 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 <p>So lässt sich leicht ablesen, dass fast die Hälfte aller Tokens in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> aus den Nuller- und Zehnerjahren stammen. Dieses Ungleichgewicht müssen wir bei künftigen Analysen im Hinterkopf behalten.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 7:</strong> Mithilfe von <code class="docutils literal notranslate"><span class="pre">describe</span></code> haben wir oben herausgefunden, dass die durchschnittliche Wortlänge in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> 6.88 Buchstaben beträgt. Die maximale Wortlänge beträgt hingegen sagenhafte 53 Buchstaben. Die Verteilung scheint alles andere als gleichmäßig zu sein, was wir auch an den sog. <em>Quartilen</em> 25% und 75% sehen (Quartile werden wie der Median berechnet, nur geht es nicht um den Mittelwert, sondern um die Werte nach einem Viertel bzw. drei Vierteln aller aufgereihten Werte). Find heraus, welche Wortlängen für jeweils mindestens 10 % aller Wörter gelten. Find ebenfalls heraus, welche Wortlängen für jeweils maximal 1 % aller Wörter gelten.</p>
-<p>💡 Tipp: Einer von verschiedenen denkbaren Lösungswegen involviert die Tatsache, dass DataFrames und Series mit dictionaries verwandt sind und sich auch in ein solches casten lassen.</p>
+<details>
+<summary>💡 Tipp </summary>
+<br>Einer von verschiedenen denkbaren Lösungswegen involviert die Tatsache, dass DataFrames und Series mit dictionaries verwandt sind und sich auch in ein solches casten lassen.</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>

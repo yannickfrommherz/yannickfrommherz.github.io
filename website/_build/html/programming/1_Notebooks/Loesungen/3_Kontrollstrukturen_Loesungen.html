@@ -509,7 +509,7 @@ Mensch arbeitet vermutlich
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="mi">182</span>
 
 <span class="c1">#Überprüfen, ob die mit &#39;height&#39; referenzierte Zahl sinnvoll ist, d.h., ob sie zwischen 100 und 199 liegt</span>
-<span class="k">if</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">99</span> <span class="ow">and</span> <span class="n">height</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">99</span> <span class="ow">and</span> <span class="n">height</span> <span class="o">&lt;</span> <span class="mi">201</span><span class="p">:</span>
     <span class="c1">#Wir beginnen von oben und überprüfen, ob &#39;height&#39; größer als 180 ist</span>
     <span class="k">if</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;groß&quot;</span><span class="p">)</span>
@@ -637,11 +637,11 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <span class="sd">begonnen wird (Erinnerung: Index beginnt bei null), da der 1. Januar im hier gewählten Jahr 2022 ein Samstag war&quot;&quot;&quot;</span>
 <span class="n">j</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="c1">#Über dictionary iterieren (dies lernst du ausführlich im Notebook &quot;Funktionen und Methoden Teil 1&quot;)</span>
+<span class="c1">#Über dictionary iterieren (dies lernst Du ausführlich im Notebook &quot;Funktionen und Methoden Teil 1&quot;)</span>
 <span class="k">for</span> <span class="n">month</span><span class="p">,</span> <span class="n">days</span> <span class="ow">in</span> <span class="n">months</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Nutzung der &#39;range&#39;-Funktion, die jeweils so viele Iterationen durchführt, wie &#39;days&#39; im dictionary definiert ist (bei Januar 31, etc.)</span>
 <span class="sd">    und mit &#39;i&#39; jeweils eine zweite Zählervariable zurückgibt, angefangen bei null bis zum jeweiligen Wert von &#39;days&#39;, d.h. wenn &#39;month&#39; Januar</span>
-<span class="sd">    entspricht von 0 bis 30 (Indizes beginnen bei null!)&quot;&quot;&quot;</span>
+<span class="sd">    entspricht von null bis 30 (Indizes beginnen bei null!)&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">days</span><span class="p">):</span> 
         <span class="c1">#Ausgabe des Wochentages entsprechend des Indexes &#39;j&#39;, des Tages (&#39;i+1&#39;), des Monats sowie der Jahreszahl</span>
         <span class="c1">#Parameter &#39;sep&#39; legt fest, wodurch Elemente im &#39;print&#39;-Befehl konkateniert werden</span>
