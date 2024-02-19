@@ -475,7 +475,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt </span>
-<span class="n">songkorpus</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Songkorpus/songkorpus_token.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">songkorpus</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Songkorpus/songkorpus_token.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
     
 <span class="c1">#Umbenennen der Spalten</span>
 <span class="n">songkorpus</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">,</span> <span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span>
@@ -757,47 +757,47 @@ dtype: int64
     </tr>
     <tr>
       <th>386505</th>
-      <td>﻿Vierzehn</td>
+      <td>Vierzehn</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>9</td>
+      <td>8</td>
       <td>2020</td>
     </tr>
     <tr>
       <th>386506</th>
-      <td>﻿Was</td>
+      <td>Was</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
       <td>2020</td>
     </tr>
     <tr>
       <th>386507</th>
-      <td>﻿Weißer</td>
+      <td>Weißer</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>7</td>
+      <td>6</td>
       <td>2020</td>
     </tr>
     <tr>
       <th>386508</th>
-      <td>﻿Wie</td>
+      <td>Wie</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
       <td>2020</td>
     </tr>
     <tr>
       <th>386509</th>
-      <td>﻿Wozu</td>
+      <td>Wozu</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>5</td>
+      <td>4</td>
       <td>2020</td>
     </tr>
   </tbody>
@@ -908,47 +908,47 @@ dtype: int64
     </tr>
     <tr>
       <th>386505</th>
-      <td>﻿Vierzehn</td>
+      <td>Vierzehn</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>9</td>
+      <td>8</td>
       <td>2020</td>
     </tr>
     <tr>
       <th>386506</th>
-      <td>﻿Was</td>
+      <td>Was</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
       <td>2020</td>
     </tr>
     <tr>
       <th>386507</th>
-      <td>﻿Weißer</td>
+      <td>Weißer</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>7</td>
+      <td>6</td>
       <td>2020</td>
     </tr>
     <tr>
       <th>386508</th>
-      <td>﻿Wie</td>
+      <td>Wie</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>4</td>
+      <td>3</td>
       <td>2020</td>
     </tr>
     <tr>
       <th>386509</th>
-      <td>﻿WOZU</td>
+      <td>Wozu</td>
       <td>2020</td>
       <td>1</td>
       <td>2020</td>
-      <td>5</td>
+      <td>4</td>
       <td>2020</td>
     </tr>
   </tbody>
@@ -1018,7 +1018,7 @@ dtype: int64
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2337</span><span class="o">/</span><span class="mf">530584246.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2267</span><span class="o">/</span><span class="mf">530584246.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> 
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1">#Abfragen der zu plottenden Wörter</span>
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">words</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Welche Wörter sollen geplotted werden? Bsp.: &#39;ich, du&#39;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
@@ -1060,11 +1060,8 @@ dtype: int64
 </div>
 </div>
 </div>
-<ol class="arabic" start="3">
-<li><p>Im DataFrame verfügen wir bislang nur über absolute Häufigkeiten. Um die Werte zwischen einzelnen Jahren besser vergleichbar zu machen, wollen wir aber relative Häufigkeiten für die Visualisierung verwenden. Schaff dazu eine Spalte „Relative Häufigkeit“, die für jedes Token vermerkt, wie häufig es in Relation zur Summe aller Häufigkeiten aller Tokens im gegebenen Jahr vorkommt. Für diese Berechnung brauchst Du jeweils zwei Werte: erstens die absolute Häufigkeit (bereits in der Spalte „Häufigkeit“) und zweitens die Summe aller Häufigkeiten aller Tokens im gegebenen Jahr.</p>
-<p>Verwend die Methode <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a> zur Berechnung der Summe aller Häufigkeiten pro Jahr. Nach dem Motto „split-apply-combine“ erlaubt Dir diese Methode, das DataFrame nach den Werten der Spalte „Jahr“ zu gruppieren (aufzu<em>split</em>ten). Indem Du im gleichen Statement die <code class="docutils literal notranslate"><span class="pre">sum</span></code>-Methode auf die Spalte „Häufigkeit“ jedes durch <code class="docutils literal notranslate"><span class="pre">groupby</span></code> entstehenden Sub-DataFrame anwendest (<em>apply</em>), erhältst Du eine zusammengeführte Series (<em>combine</em>), die für jedes Jahr die Summe aller Häufigkeiten aller Tokens enthält. Weis die Series der Variablen <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code> zu und inspizier sie.</p>
-<p>Um nun zur relativen Häufigkeit zu gelangen, musst Du für jedes Token in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> den Wert in der Spalte „Häufigkeit“ durch die jeweilige Summe an Häufigkeiten im gegebenen Jahr teilen. Da wir letzteren Wert in einer anderen Series (nämlich in <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code>) vorliegen haben, müssen wir zu einem Trick greifen: Wend die <code class="docutils literal notranslate"><span class="pre">replace</span></code>-Methode auf die Spalte „Jahr“ an und übergib ihr <code class="docutils literal notranslate"><span class="pre">total_freq_per_year</span></code>. Wir machen uns hier den Umstand zunutze, dass eine Series wie ein dictionary funktioniert. Will heißen: <code class="docutils literal notranslate"><span class="pre">replace</span></code> ersetzt kurzerhand jedes Jahr (Schlüssel) durch die jeweilige Summe der Häufigkeiten pro Jahr (Wert).</p>
-</li>
+<ol class="arabic simple" start="3">
+<li><p>Im DataFrame verfügen wir bislang nur über absolute Häufigkeiten. Um die Werte zwischen einzelnen Jahren besser vergleichbar zu machen, wollen wir aber relative Häufigkeiten für die Visualisierung verwenden. Schaff dazu eine Spalte „Relative Häufigkeit“, die für jedes Token vermerkt, wie häufig es in Relation zur Summe aller Häufigkeiten aller Tokens im gegebenen Jahr vorkommt. Für diese Berechnung brauchst Du jeweils zwei Werte: erstens die absolute Häufigkeit (bereits in der Spalte „Häufigkeit“) und zweitens die Summe aller Häufigkeiten aller Tokens im gegebenen Jahr.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1110,16 +1107,6 @@ dtype: int64
 </ul>
 </li>
 </ol>
-<ol class="arabic simple" start="7">
-<li><p>Nachdem Du alle Wörter der Liste entsprechend geplotted hast, kannst Du <strong>in derselben Zelle</strong> folgende Funktionen verwenden, um den Plot zu verfeinern:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code>, um einen Titel zu setzen.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xlabel</span></code> und  <code class="docutils literal notranslate"><span class="pre">ylabel</span></code>, um die Achsen zu beschriften.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">xlim</span></code>, um der x-Achse Grenzen zu setzen, z. B. von 1969 bis 2022 (dies vereinheitlicht die Plots, da diese sonst automatisch an den Wertebereich der zu plottenden Wörter angepasst wird und der Plot dadurch mitunter anders beschnitten sein kann).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">legend</span></code>, um eine Legende einzufügen, indem Du der Funktion die Liste mit Wörtern übergibst</p></li>
-</ul>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Iterieren über die zu plottenden Wörter</span>
@@ -1134,7 +1121,7 @@ dtype: int64
     <span class="c1">#Eigentliches Plotten</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
 
-<span class="c1">#Zusätzliches Verfeinern und Beschriften des Plots</span>
+<span class="c1">#Zusätzliches Verfeinern und Beschriften des Plots (Schritt 7)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wortverlaufskurve für </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">word</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">words</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative Häufigkeit&quot;</span><span class="p">)</span>
@@ -1144,12 +1131,22 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9a990a8c90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f069b786390&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/25f1e25f3666ecaab06d466d66c594f6215c39b915dc2f3adb2278af5a64ee07.png" src="../../../_images/25f1e25f3666ecaab06d466d66c594f6215c39b915dc2f3adb2278af5a64ee07.png" />
 </div>
 </div>
+<ol class="arabic simple" start="7">
+<li><p>Nachdem Du alle Wörter der Liste entsprechend geplotted hast, kannst Du <strong>in derselben Zelle</strong> (aber unter dem Code aus Schritt 6) folgende Funktionen verwenden, um den Plot zu verfeinern:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code>, um einen Titel zu setzen.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xlabel</span></code> und  <code class="docutils literal notranslate"><span class="pre">ylabel</span></code>, um die Achsen zu beschriften.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xlim</span></code>, um der x-Achse Grenzen zu setzen, z. B. von 1969 bis 2022 (dies vereinheitlicht die Plots, da diese sonst automatisch an den Wertebereich der zu plottenden Wörter angepasst wird und der Plot dadurch mitunter anders beschnitten sein kann).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">legend</span></code>, um eine Legende einzufügen, indem Du der Funktion die Liste mit Wörtern übergibst</p></li>
+</ul>
+</li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">

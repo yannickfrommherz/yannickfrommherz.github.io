@@ -602,7 +602,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2015</span><span class="o">/</span><span class="mf">3341218118.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2012</span><span class="o">/</span><span class="mf">3341218118.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Handelt es sich um einen anderen Datentyp als string, muss der Input gecastet werden.</span>
@@ -650,7 +650,7 @@ document.write(`
         </div></div>
 </div>
 <p>Ergänzend zu diesem Video siehst Du unten eine Liste an einfachen Schritten, die – korrekt implementiert – die Aufgabe lösen und das im Video gezeigte Endprodukt verwirklichen. Diese einzelnen Schritte entsprechen dem zweiten Punkt beim algorithmischen Denken (nach der initialen Problemanalyse und vor der konkreten Implementierung).</p>
-<p>Überleg Dir für jeden einzelnen Schritt, wie Du ihn konkret implementieren kannst, d. h. welche Funktionen oder Methoden sowie Kontrollstrukturen Du dafür benötigst. Schreib zu jedem Punkt alle Techniken auf, mithilfe welcher Du den jeweiligen Punkt konkret in Code umsetzen kannst. Ignorier dabei erst einmal, wie und in welcher Reihenfolge Du die Schritte anschließend miteinander verbindest:</p>
+<p>Überleg Dir für jeden einzelnen Schritt, wie Du ihn konkret implementieren kannst, d. h. welche Funktionen oder Methoden sowie Kontrollstrukturen Du dafür benötigst. Schreib zu jedem Punkt alle Techniken auf, mithilfe welcher Du den jeweiligen Punkt konkret in Code umsetzen kannst (z. B. als Kommentare in die Code-Zelle). Ignorier dabei erst einmal, wie und in welcher Reihenfolge Du die Schritte anschließend miteinander verbindest:</p>
 <ol class="arabic simple">
 <li><p>Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet.</p></li>
 <li><p>Die Benutzerin wird aufgefordert, anzugeben, in welchem Dokument sie ihre(n) Gedanke(n) festhalten will. Handelt es sich um ein noch nicht existierendes Dokument, so wird es für sie geschaffen. Existiert das Dokument bereits, so soll(en) ihr(e) Gedanke(n) an dessen Ende gehängt werden.</p></li>
@@ -671,54 +671,55 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Hier siehst Du, wie die einzelnen Schritte implementiert werden können.</p>
-<ol class="arabic">
-<li><p>Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet. <br><br></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">print(&quot;Gruß&quot;)</span></code> bietet sich an, um die Benutzerin initial zu grüßen.</p></li>
-<li><p>Alternativ könnte man den Gruß auch in den <code class="docutils literal notranslate"><span class="pre">input</span></code>-<em>prompt</em> von Schritt 2 integrieren (<code class="docutils literal notranslate"><span class="pre">input(&quot;Gruß</span> <span class="pre">+</span> <span class="pre">prompt&quot;)</span></code>; so wurde das im Video umgesetzt), an der Benutzeroberfläche sind beide Alternativen gleichwertig.</p></li>
-<li><p>Wie stellen wir sicher, dass der Gruß nur wirklich am Anfang angezeigt wird, und nicht noch einmal, wenn die Benutzerin einen weiteren Gedanken festhalten will (vgl. Schritt 5.A.)? Wir führen eine Variable <code class="docutils literal notranslate"><span class="pre">first_time</span></code> ein und setzen sie ganz am Anfang auf <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">True</span></code>); das <code class="docutils literal notranslate"><span class="pre">print(&quot;Gruß&quot;)</span></code>-Statement bzw. das kombinierte <code class="docutils literal notranslate"><span class="pre">input(&quot;Gruß</span> <span class="pre">+</span> <span class="pre">prompt&quot;)</span></code>-Statement führen wir nur aus, wenn <code class="docutils literal notranslate"><span class="pre">first_time</span></code> <code class="docutils literal notranslate"><span class="pre">True</span></code> ist (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">first_time</span> <span class="pre">==</span> <span class="pre">True</span></code>); nach dem ersten Durchlauf setzen wir <code class="docutils literal notranslate"><span class="pre">first_time</span></code> auf <code class="docutils literal notranslate"><span class="pre">False</span></code> (<code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">False</span></code>), der Gruß wird somit nicht mehr ausgegeben.<br><br></p></li>
+<p>Hier erfährst Du, wie die einzelnen Schritte implementiert werden können. Klick dazu auf den jeweiligen Schritt, für den Du weitere Tipps brauchst.</p>
+<details>
+<summary> 1. Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet. </summary>
+<ul>
+<li> <code>print("Gruß")</code> bietet sich an, um die Benutzerin initial zu grüßen.</li>
+<li> Alternativ könnte man den Gruß auch in den <code>input</code>-<i>prompt</i> von Schritt 2 integrieren (<code>input("Gruß + prompt")</code>; so wurde das im Video umgesetzt), an der Benutzeroberfläche sind beide Alternativen gleichwertig. </li>
+<li> Wie stellen wir sicher, dass der Gruß nur wirklich am Anfang angezeigt wird, und nicht noch einmal, wenn die Benutzerin einen weiteren Gedanken festhalten will (vgl. Schritt 5.A.)? Wir führen eine Variable <code>first_time</code> ein und setzen sie ganz am Anfang auf <code>True</code> (<code>first_time = True</code>); das <code>print("Gruß")</code>-Statement bzw. das kombinierte <code>input("Gruß + prompt")</code>-Statement führen wir nur aus, wenn <code>first_time</code> <code>True</code> ist (<code>if first_time == True</code>); nach dem ersten Durchlauf setzen wir <code>first_time</code> auf <code>False</code> (<code>first_time = False</code>), der Gruß wird somit nicht mehr ausgegeben.</li>
 </ul>
-</li>
-<li><p>Die Benutzerin wird aufgefordert, anzugeben, in welchem Dokument sie ihre(n) Gedanke(n) festhalten will. Handelt es sich um ein noch nicht existierendes Dokument, so wird es für sie geschaffen. Existiert das Dokument bereits, so soll(en) ihr(e) Gedanke(n) an dessen Ende gehängt werden.</p>
-<ul class="simple">
-<li><p>Den Namen des gewünschten Dokuments fragen wir über <code class="docutils literal notranslate"><span class="pre">input(prompt)</span></code> ab (ggf. mit dem Gruß davor, s. o.), das Resultat weisen wir einer Variablen namens <code class="docutils literal notranslate"><span class="pre">file_name</span></code> zu.</p></li>
-<li><p>Wie unter 1. erwähnt, soll dieser <code class="docutils literal notranslate"><span class="pre">input</span></code>-Befehl nur bedingt ausgeführt werden, nämlich nur, wenn <code class="docutils literal notranslate"><span class="pre">first_time</span></code> <code class="docutils literal notranslate"><span class="pre">True</span></code> ist (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">first_time</span> <span class="pre">==</span> <span class="pre">True</span></code>).</p></li>
-<li><p>Das gewünschte Dokument öffnen wir in einem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement mittels <code class="docutils literal notranslate"><span class="pre">open</span></code> im <em>append</em>-Modus (<code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>) und <code class="docutils literal notranslate"><span class="pre">&quot;encoding=utf-8&quot;</span></code>. Der <em>append</em>-Modus schafft das gewünschte Dokument, sollte es noch nicht existieren. Wenn es bereits existiert, wird der neue Inhalt an das gewünschte Dokument angehängt. Wichtig: Als Pfad übergeben wir der <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion einen konkatenierten string bestehend aus dem Pfad zum Verzeichnis (das kannst Du selbst auswählen), dem <code class="docutils literal notranslate"><span class="pre">file_name</span></code> sowie dem Suffix „.txt“. Das geöffnete Dokument weisen wir wie üblich einer Variablen zu: <code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">write_file</span></code>.<br><br></p></li>
+</details>
+<br>
+<details>
+<summary> 2. Die Benutzerin wird aufgefordert, anzugeben, in welchem Dokument sie ihre(n) Gedanke(n) festhalten will. Handelt es sich um ein noch nicht existierendes Dokument, so wird es für sie geschaffen. Existiert das Dokument bereits, so soll(en) ihr(e) Gedanke(n) an dessen Ende gehängt werden. </summary>
+<ul>
+<li> Den Namen des gewünschten Dokuments fragen wir über <code>input(prompt)</code> ab (ggf. mit dem Gruß davor, s. o.), das Resultat weisen wir einer Variablen namens <code>file_name</code> zu. </li>
+<li> Wie unter 1. erwähnt, soll dieser <code>input</code>-Befehl nur bedingt ausgeführt werden, nämlich nur, wenn <code>first_time</code> <code>True</code> ist (<code>if first_time == True</code>). </li>
+<li> Das gewünschte Dokument öffnen wir in einem <code>with</code>-Statement mittels <code>open</code> im <i>append</i>-Modus (<code>"a"</code> ) und <code>"encoding=utf-8"</code>. Der <i>append</i>-Modus schafft das gewünschte Dokument, sollte es noch nicht existieren. Wenn es bereits existiert, wird der neue Inhalt an das gewünschte Dokument angehängt. Wichtig: Als Pfad übergeben wir der <code>open</code>-Funktion einen konkatenierten string bestehend aus dem Pfad zum Verzeichnis (das kannst Du selbst auswählen), dem <code>file_name</code> sowie dem Suffix ".txt". Das geöffnete Dokument weisen wir wie üblich einer Variablen zu: <code>as write_file</code>.</li>
 </ul>
-</li>
-<li><p>Die Benutzerin wird aufgefordert, ihren Gedanken einzugeben.</p>
-<ul class="simple">
-<li><p>Dafür verwenden wir wieder die <code class="docutils literal notranslate"><span class="pre">input</span></code>-Funktion und weisen das Resultat der Variablen <code class="docutils literal notranslate"><span class="pre">thought</span></code> zu. Es spielt keine Rolle, ob wir dies vor oder eingerückt unter dem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement (s. o.) tun.<br><br></p></li>
+</details>
+<br>
+<details>
+<summary> 3. Die Benutzerin wird aufgefordert, ihren Gedanken einzugeben. </summary>
+<ul>
+<li> Dafür verwenden wir wieder die <code>input</code>-Funktion und weisen das Resultat der Variablen <code>thought</code> zu. Es spielt keine Rolle, ob wir dies vor oder eingerückt unter dem <code>with</code>-Statement (s. o.) tun.</li>
 </ul>
-</li>
-<li><p>Der Gedanke wird in das gewählte Dokument geschrieben.</p>
-<ul class="simple">
-<li><p>Eingerückt unter dem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement wenden wir die <code class="docutils literal notranslate"><span class="pre">write</span></code>-Methode auf <code class="docutils literal notranslate"><span class="pre">write_file</span></code> an, in die Klammern setzen wir <code class="docutils literal notranslate"><span class="pre">thought</span></code> sowie einen finalen Zeilenumbruch. <code class="docutils literal notranslate"><span class="pre">thought</span></code> wird jetzt also auf eine eigene Zeile in <code class="docutils literal notranslate"><span class="pre">write_file</span></code> geschrieben. Durch das Verlassen der Einrückung des <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statements wird das Dokument mit der neuen Zeile gespeichert und geschlossen.<br><br></p></li>
+</details>
+<br>
+<details>
+<summary> 4. Der Gedanke wird in das gewählte Dokument geschrieben. </summary>
+<ul>
+<li> Eingerückt unter dem <code>with</code>-Statement wenden wir die <code>write</code>-Methode auf <code>write_file</code> an, in die Klammern setzen wir <code>thought</code> sowie einen finalen Zeilenumbruch. <code>thought</code> wird jetzt also auf eine eigene Zeile in <code>write_file</code> geschrieben. Durch das Verlassen der Einrückung des <code>with</code>-Statements wird das Dokument mit der neuen Zeile gespeichert und geschlossen.</li>
 </ul>
-</li>
-<li><p>Die Benutzerin wird zur Entscheidung aufgefordert, ob sie einen weiteren Gedanken im selben Dokument festhalten oder das Programm verlassen will.</p>
-<ul class="simple">
-<li><p>Hier kommt noch einmal <code class="docutils literal notranslate"><span class="pre">input</span></code> zum Einsatz. Da die Benutzerin ihre Entscheidung nicht über eine binäre „Ja/Nein“-Taste mitteilen kann, empfiehlt es sich, sie zur Eingabe eines „Y“ (oder sonst eines bestimmten Buchstaben) aufzufordern, sollte sie noch einen weiteren Gedanken festhalten wollen. Andernfalls soll sie irgendeine andere Eingabe tätigen. Ihre Eingabe weisen wir der Variablen <code class="docutils literal notranslate"><span class="pre">repeat</span></code> zu.</p></li>
-<li><p>Spätestens an dieser Stelle fällt uns auf, dass wir den gesamten vorherigen Code in eine Schleife einbauen müssen. Nämlich in eine (potentielle) Endlosschleife, die nur dann abgebrochen wird, wenn sich die Benutzerin dazu entscheidet, <em>keinen</em> weiteren Gedanken festzuhalten (vgl. Schritt 5.B.). Dafür verwenden wir <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code> (vgl. Notebook „Kontrollstrukturen“), eine Schleife, die sich unendlich wiederholt, es sei denn, Python trifft auf ein <code class="docutils literal notranslate"><span class="pre">break</span></code>-Statement.</p></li>
-<li><p>Am Ende des Codeblocks innerhalb der <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife müssen wir also prüfen, ob <code class="docutils literal notranslate"><span class="pre">repeat</span></code> „Y“ (oder einem anderen festgelegten Zeichen) entspricht und abhängig davon die Schleife abbrechen (<code class="docutils literal notranslate"><span class="pre">break</span></code>) oder nicht.<br><br></p></li>
+</details>
+<br>
+<details>
+<summary> 5. Die Benutzerin wird zur Entscheidung aufgefordert, ob sie einen weiteren Gedanken im selben Dokument festhalten oder das Programm verlassen will. </summary>
+<ul>
+<li> Hier kommt noch einmal <code>input</code> zum Einsatz. Da die Benutzerin ihre Entscheidung nicht über eine binäre "Ja/Nein"-Taste mitteilen kann, empfiehlt es sich, sie zur Eingabe eines "Y" (oder sonst eines bestimmten Buchstaben) aufzufordern, sollte sie noch einen weiteren Gedanken festhalten wollen. Andernfalls soll sie irgendeine andere Eingabe tätigen. Ihre Eingabe weisen wir der Variablen <code>repeat</code> zu. </li>
+<li> Spätestens an dieser Stelle fällt uns auf, dass wir den gesamten vorherigen Code in eine Schleife einbauen müssen. Nämlich in eine (potentielle) Endlosschleife, die nur dann abgebrochen wird, wenn sich die Benutzerin dazu entscheidet, <i>keinen</i> weiteren Gedanken festzuhalten (vgl. Schritt 5.B.). Dafür verwenden wir <code>while True</code> (vgl. Notebook "Kontrollstrukturen"), eine Schleife, die sich unendlich wiederholt, es sei denn, Python trifft auf ein <code>break</code>-Statement. </li>
+<li> Am Ende des Codeblocks innerhalb der <code>while</code>-Schleife müssen wir also prüfen, ob <code>repeat</code> "Y" (oder einem anderen festgelegten Zeichen) entspricht und abhängig davon die Schleife abbrechen (<code>break</code>) oder nicht.</li>
+    <br>
+A. Will die Benutzerin einen weiteren Gedanken festhalten, so soll das Programm zu Schritt 3 zurückspringen: <br>
+    In diesem Fall müssen wir nichts weiter machen, die Schleife läuft ja von allein weiter. Einzig wichtig ist, dass der Gruß sowie die Aufforderung nach dem Namen des gewünschten Dokuments (Schritt 1 und 2) nicht wiederholt werden, indem wir hier <code>first_time = False</code> setzen.
+        <br><br>
+B. Will die Benutzerin das Programm verlassen, so soll sie verabschiedet werden: <br>
+    Entspricht <code>repeat</code> nicht "Y" (<code>if repeat != "Y"</code>), dann verabschieden wir uns von der Benutzerin über eine <code>print</code>-Ausgabe und brechen die Endlossschleife ab (<code>break</code>). 
 </ul>
-<ol class="arabic simple">
-<li><p>Will die Benutzerin einen weiteren Gedanken festhalten, so soll das Programm zu Schritt 3 zurückspringen.</p>
-<ul class="simple">
-<li><p>In diesem Fall müssen wir nichts weiter machen, die Schleife läuft ja von allein weiter. Einzig wichtig ist, dass der Gruß sowie die Aufforderung nach dem Namen des gewünschten Dokuments (Schritt 1 und 2) nicht wiederholt werden, indem wir hier <code class="docutils literal notranslate"><span class="pre">first_time</span> <span class="pre">=</span> <span class="pre">False</span></code> setzen.
-<br><br></p></li>
-</ul>
-</li>
-<li><p>Will die Benutzerin das Programm verlassen, so soll sie verabschiedet werden.</p>
-<ul class="simple">
-<li><p>Entspricht <code class="docutils literal notranslate"><span class="pre">repeat</span></code> nicht „Y“ (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">repeat</span> <span class="pre">!=</span> <span class="pre">&quot;Y&quot;</span></code>), dann verabschieden wir uns von der Benutzerin über eine <code class="docutils literal notranslate"><span class="pre">print</span></code>-Ausgabe und brechen die Endlossschleife ab (<code class="docutils literal notranslate"><span class="pre">break</span></code>).</p></li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<p>Solltest Du den Anwendungsfall nicht bereits gelöst haben, versuch es nun mithilfe all dieser Techniken in der Code-Zelle oben.</p>
+</details>
+<br>
+Solltest Du den Anwendungsfall nicht bereits gelöst haben, versuch es mithilfe all dieser Techniken in der Code-Zelle oben.
 <hr class="docutils" />
 <p>Damit sind wir in der Lage, unsere Python-Programme über User:innen-Input interaktiv zu gestalten. 😎</p>
 <p>Abschließend schauen wir uns noch die vermutlich am häufigsten benutzte Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">print</span></code>, genauer an.</p>
@@ -808,7 +809,7 @@ Hier werden 5 Objekte ausgegeben.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2015</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2012</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?&quot;</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
@@ -873,9 +874,11 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
 <p><code class="docutils literal notranslate"><span class="pre">f&quot;{value:</span> <span class="pre">(zero_padding)</span> <span class="pre">digit_space</span> <span class="pre">.</span> <span class="pre">decimals</span> <span class="pre">type}</span></code></p>
 <p>Genau diese Kombination aus digit space und Nachkommastellen kannst Du nun in der letzten Übung einsetzen.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 2:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben.</p>
-<img src="../3_Dateien/Grafiken_und_Videos/Einkaufskorb.png"><p>Hinweis 1: Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ fünf.</p>
-<p>Hinweis 2: Wie erwähnt werden Zahlen innerhalb des digit space standardmäßig rechtsbündig ausgerichtet. Strings werden hingegen innerhalb des digit space standardmäßig linksbündig ausgerichtet (Tabellenkalkulationsprogramme legen das gleiche Verhalten an den Tag, wie Dir vielleicht schon aufgefallen ist). Um die Darstellung im Screenshot umzusetzen, musst Du Dich folglich nicht um das Alignment kümmern, da es dem Standard entspricht.</p>
+<p>✏️ <strong>Übung 2:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben. Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ fünf.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Einkaufskorb.png"><details>
+  <summary>💡 Tipp</summary>
+  <br>Wie erwähnt werden Zahlen innerhalb des digit space standardmäßig rechtsbündig ausgerichtet. Strings werden hingegen innerhalb des digit space standardmäßig linksbündig ausgerichtet (Tabellenkalkulationsprogramme legen das gleiche Verhalten an den Tag, wie Dir vielleicht schon aufgefallen ist). Um die Darstellung im Screenshot umzusetzen, musst Du Dich folglich nicht um das Alignment kümmern, da es dem Standard entspricht.
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>

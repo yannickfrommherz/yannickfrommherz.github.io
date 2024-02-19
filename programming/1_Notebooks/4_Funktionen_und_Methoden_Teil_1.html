@@ -580,7 +580,15 @@ Koalitionsvertr
 <p><code class="docutils literal notranslate"><span class="pre">&quot;Schifffahrtsgesellschaft&quot;.count(&quot;f&quot;)</span></code> ergäbe etwa vier.</p>
 <p>Was bei einem Wort funktioniert, geht auch bei langen strings wie bei unseren Koalitionsverträgen.</p>
 <p>Berechne nun, wie oft jeder Begriff  auf <code class="docutils literal notranslate"><span class="pre">buzzwords</span></code> in den beiden Verträgen vorkommt und verwend einen geeigneten Datentyp, um Deine Ergebnisse (separat für jeden Vertrag) abzuspeichern. Lass Dir anschließend für jeden Begriff die beiden Frequenzen sowie einen Trend über die Zeit (z. B. mittels der Emojis 📈, 📉, 🟰) ausgeben. Das Ergebnis für „Corona“ sollte z. B. so aussehen:</p>
-<img src="../3_Dateien/Grafiken_und_Videos/Frequenz_Corona.png"><div class="cell docutils container">
+<img src="../3_Dateien/Grafiken_und_Videos/Frequenz_Corona.png">
+<details>
+  <summary>💡 Tipp 1 </summary>
+    <br>Zum Abspeichern der Häufigkeiten empfiehlt sich die Nutzung von zwei dictionaries (je eins pro Jahr).<br><br>
+</details>
+<details>
+  <summary>💡 Tipp 2 </summary>
+    <br>Um die Ausgabe zu erzeugen, kannst Du eine <code>if</code>-<code>elif</code>-<code>else</code>-Struktur nutzen.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -634,7 +642,10 @@ Koalitionsvertr
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 3:</strong> Die beiden Koalitionsverträge stammen von unterschiedlichen Parteien (CDU, CSU, SPD bzw. SPD, Grüne, FDP). Find heraus, welche beiden Parteien es mit ihrem Kurznamen in beide Verträge geschafft haben. Stell sicher, dass die Zelle mit dem Dateiinput oben ausgeführt ist, damit die Variablen <code class="docutils literal notranslate"><span class="pre">kv18</span></code> und <code class="docutils literal notranslate"><span class="pre">kv21</span></code> mit dem jeweiligen Text initialisiert sind.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+    <br>Zum Überprüfen, ob ein Wort in einem Text vorkommt, kannst Du folgenden Ausdruck verwenden: <code>if word in text</code>. Verwend einen logischen Operator (vgl. Notebook "Kontrollstrukturen"), um beide Texte in einer Codezeile auf das Vorkommen des jeweiligen Wortes zu prüfen. 
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -722,8 +733,10 @@ Testwort
 <hr class="docutils" />
 <p>✏️ <strong>Übung 4:</strong> Anstelle von whitespace, das standardmäßig als Trennzeichen von <code class="docutils literal notranslate"><span class="pre">split</span></code> verwendet wird (und deswegen auch nicht angegeben werden muss), können wir strings auch bei anderen Trennzeichen aufsplitten. Dazu geben wir das gewünschte Trennzeichen in den Klammern an, etwa <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code>, wenn wir einen string in Sätze aufsplitten wollen.</p>
 <p>Bring die Geschichte, die in <code class="docutils literal notranslate"><span class="pre">sentence</span></code> in komischer Reihenfolge erzählt wird, in die richtige Reihenfolge. Das Resultat sollte ein string mit drei richtig geordneten Sätzen sein.</p>
-<p>💡 Tipp: Auf dem Weg dorthin solltest Du <code class="docutils literal notranslate"><span class="pre">split</span></code>, Indexing und Konkatenation mithilfe des <code class="docutils literal notranslate"><span class="pre">+</span></code>-Operators verwenden (beide Techniken haben wir in den vorigen Notebooks kennengelernt).</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Kombinier <code>split</code>, Indexing und Konkatenation mithilfe des <code>+</code>-Operators (beide Techniken haben wir in den vorigen Notebooks kennengelernt).
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -753,7 +766,10 @@ Testwort
 <hr class="docutils" />
 <p>✏️ <strong>Übung 5:</strong> Selbstverständlich kann man das Vorkommen eines Wortes auf einer Liste auszählen lassen (das lernen wir bei den Methoden für Listen). Hier wollen wir aber die oben bereits kennengelernte <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode für strings noch einmal anwenden. Dazu müssen wir die Listenelemente wieder zu einem string konkatenieren. Verwend eine Dir bereits bekannte <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methode, um aus <code class="docutils literal notranslate"><span class="pre">words</span></code> wieder einen string zu kreieren. Eine Variable namens <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> soll auf diesen string zeigen.</p>
 <p>Benutz anschließend die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode, um „gesagt“ in <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> zu zählen. Das Resultat sollte natürlich zwei sein.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Zum Konkatenieren der Listenelemente kannst Du die <code>join</code>-Methode nutzen (vgl. Notebook "Datentypen").
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -839,7 +855,10 @@ Der Satz fängt mit einem maskulinen Artikel an.
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 6:</strong> Verwend <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methoden, um aus <code class="docutils literal notranslate"><span class="pre">names</span></code> eine Liste mit Namen wie folgt zu kreieren: <code class="docutils literal notranslate"><span class="pre">['Martin</span> <span class="pre">Berger',</span> <span class="pre">'Kirsten</span> <span class="pre">Hauser',</span> <span class="pre">'Michaela</span> <span class="pre">Kircher',</span> <span class="pre">'Fritz</span> <span class="pre">Hofer']</span></code>. Die Namen sollen vollkommen von leading und trailing whitespace bereingt und mit korrekter Groß-/Kleinschreibung vorliegen.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp</summary>
+    <br>Diese Übung erfordert die Kombination mehrerer Methoden. Schau am besten noch einmal in den vorigen Abschnitten nach, welche Methoden sich hierfür anbieten. Du musst zunächst ein strukturelles Merkmal identifizieren, anhand dessen Du den string splitten kannst. Um Groß- und Kleinschreibung dabei ignorieren zu können, empfiehlt sich die Nutzung von <code>lower</code>.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 <span class="n">names</span> <span class="o">=</span> <span class="s2">&quot;Name: Martin Berger name: Kirsten Hauser NAME: Michaela Kircher nAME: Fritz Hofer&quot;</span>
@@ -969,7 +988,10 @@ Die Liste beinhaltet nun noch: [&#39;Pretoria&#39;, &#39;Buenos Aires&#39;]
 <p>Bemühen wir dafür noch mal das Gesellschaftsspiel-Skript aus dem Notebook „Kontrollstrukturen“. In der Übung dazu hast Du ein Skript geschrieben, bei dem der Beitritt ins Spiel nicht mehr möglich ist (die Iteration wird mit <code class="docutils literal notranslate"><span class="pre">break</span></code> abgebrochen), sobald sechs Teilnehmer:innen im Spiel sind. In der Zelle unten steht die Musterlösung zu jener Aufgabe, neu mit einer längeren Liste an Spielanwärter:innen und einer nicht mehr hardgecodeten Mindest- und Maximalanzahl an Teilnehmer:innen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 7:</strong> Modifizier den Code nun derart, dass bei sechs Teilnehmer:innen diejenige Person aus dem Spiel „gekickt“ wird, die bereits am längsten daran teilnimmt (bzw. sich bereits am längsten auf der Teilnehmer:innenliste befindet). Im gleichen Zug soll die nächste Person aus <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> ins Spiel gelassen werden. Wie beim letzten Mal auch, möchten wir bei jeder Iteration informiert werden, wer gerade im Spiel ist.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp</summary>
+  <br>Um die Person, die am längsten dabei ist, zu entfernen, musst Du lediglich diejenige mit dem Index null auf der Teilnehmer:innenliste aus dem Spiel entfernen. Nutz dazu eine der oben erlernten Listen-Methoden.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -989,13 +1011,11 @@ Die Liste beinhaltet nun noch: [&#39;Pretoria&#39;, &#39;Buenos Aires&#39;]
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuell auf der Liste:&quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">continue</span>
         
-    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_participants</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">==</span> <span class="n">max_participants</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Leider ist das Spiel voll 🥲&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aktuelle Teilnehmer:innen: &quot;</span><span class="p">,</span> <span class="n">participants_game</span><span class="p">)</span>
         <span class="k">break</span>
-        
-    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">participants_game</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_participants</span><span class="p">:</span>
-        <span class="n">participants_game</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
         
     <span class="n">participants_game</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Spiel läuft 😍&quot;</span><span class="p">)</span>
@@ -1037,7 +1057,10 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <hr class="docutils" />
 <p>✏️ <strong>Übung 8:</strong> Deine Aufgabe ist es nun, ein Skript zu schreiben, das den oben im Beispiel verwendeten Satz nimmt und die darin vorkommenden Wort-Bigramme auf der Liste <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> speichert. Neben <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> wirst Du als Zwischenschritt beim Zusammentragen der Wort-Bigramme eine zweite Liste namens <code class="docutils literal notranslate"><span class="pre">current_ngrams</span></code> brauchen. Beide Listen sind bereits im Code gegeben und werden leer initialisiert.</p>
 <p>Wie erwähnt ist dieses Problem dem obigen im Gesellschaftsspiel-Skript sehr ähnlich. Denk daran, so wenig wie möglich zu hardcoden. Konkret: Definier, wo möglich, Variablen, sodass Dein Skript problemlos auch für andere Sätze oder zum Errechnen von Tri-, Quadrigrammen etc. benutzt werden kann.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Du musst zunächst den Satz bei Leerzeichen splitten. Dann kannst Du über die dabei entstehenden Elemente iterieren und das erste Bigramm (also die ersten beiden Wörter) in der Liste  <code>current_ngrams</code> zusammenfügen. Weitere n-gramme errechnest Du, indem Du jeweils ein Wort auf der Liste <code>current_ngrams</code> entfernst und die Liste stattdessen um ein neues Wort erweiterst.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1104,7 +1127,10 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 9:</strong> Erinnerst Du Dich an die Übung mit den beiden Einkaufslisten, die zu einer zusammengeführt werden sollten, aus dem Notebook „Datentypen“? Damals haben wir mithilfe von <code class="docutils literal notranslate"><span class="pre">set</span></code> sichergestellt, dass keine doppelten Elemente auf der zusammengeführten Einkaufsliste vorkommen. In dieser Übung wollen wir es etwas manueller machen (zu Übungszwecken sehen wir vom oben verkündeten Code-Reuse-Mantra ab). Iterier über eine der beiden Listen und füg der anderen Liste sämtliche Lebensmittel an, sofern sie nicht bereits auf dieser anderen Liste stehen. Lass Dir anschließend die andere Liste ausgeben. Diese sollte dann einer zusammengeführten Liste entsprechen.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp </summary>
+    <br>Zum Überprüfen, ob ein Element auf der anderen Liste <b>nicht</b> vorkommt, kannst Du das Statement <code>if element not in list</code> verwenden.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1348,7 +1374,10 @@ True
 <li><p><code class="docutils literal notranslate"><span class="pre">positives_replaced</span></code> soll eine Liste referenzieren, auf der sämtliche positiven Werte durch 0.0 ersetzt werden.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">only_positives</span></code> soll eine Liste referenzieren, die nur positive Werte beinhaltet.</p></li>
 </ol>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp</summary>
+  <br>Nur numerische Werte bedeutet, dass Du in der List Comprehension alle Werte ausschließen musst, die den Wert "NA" haben. Nutz dazu einen Vergleichsoperator.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1394,7 +1423,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1952</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1945</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -1611,7 +1640,10 @@ Burgenland
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 11:</strong> Eine Funktion zum Sortieren von dictionaries kennst Du bereits von oben. Sortier <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> alphabetisch nach ihren Hauptstädten. Das Resultat sollte eine Liste mit Tupeln bestehend aus Bundesland und Hauptstadt sein.</p>
-<div class="cell docutils container">
+<details>
+  <summary>💡 Tipp</summary>
+  <br>In der Sortierfunktion kannst Du für den Zugriff auf die Schlüssel-Werte-Paare die <code>items</code>-Methode verwenden. Außerdem kommt ein griechischer Buchstabe in der Lösung vor.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>

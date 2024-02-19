@@ -589,9 +589,8 @@ Zitate:
 <ol class="arabic">
 <li><p>Öffne dazu den <a class="reference external" href="https://www.weltfussball.de/alle_spiele/bundesliga-2019-2020/">Spielplan der Bundesligasaison 2019-2020 auf weltfussball.de</a>. Nun wollen wir den Quelltext dieser Seite herunterladen. Da wir noch über keine Web-Scraping-Skills verfügen, machen wir es manuell. Geh dazu je nach Browser wie folgt vor:</p>
 <ul class="simple">
-<li><p>bei Google Chrome im Menü „Anzeigen“ &gt; „Entwickler“ &gt; „Quelltext anzeigen“ wählen</p></li>
+<li><p>bei Google Chrome und Firefox mittels Rechtsklick „Seitenquelltext anzeigen“ wählen</p></li>
 <li><p>bei Safari mittels Rechtsklick „Seitenquelltext einblenden“ wählen</p></li>
-<li><p>bei Firefox mittels Rechtsklick „Seitenquelltext anzeigen“ wählen</p></li>
 </ul>
  <br>
 <p>Markier und kopier nun den kompletten Quelltext und speicher ihn in einem neuen Dokument, das Du unter dem Namen „quelltext.txt“ im Ordner „3_Dateien/Fussball“ abspeicherst. Für diesen Vorgang empfiehlt sich das im Notebook „Funktionen und Methoden Teil 2“ erwähnte <a class="reference external" href="https://www.sublimetext.com">Sublime Text</a>.</p>
@@ -625,7 +624,7 @@ Zitate:
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2364</span><span class="o">/</span><span class="mf">1227267066.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2295</span><span class="o">/</span><span class="mf">1227267066.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#Code funktioniert erst, nachdem Du das Dokument &quot;quelltext.txt&quot; erstellt hast!</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Fussball/quelltext.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -689,10 +688,11 @@ Zitate:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+<span class="kn">import</span> <span class="nn">re</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">kv21</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     
-<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[Kk]lima\S+\b&quot;</span> <span class="c1">#groß- oder kleingeschriebenes &#39;k&#39;, gefolgt von literal &#39;lima&#39;, einem oder mehr Zeichen, die nicht whitespace sind und einer Wortgrenze</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[Kk]lima\S+\b&quot;</span> <span class="c1">#Groß- oder kleingeschriebenes &#39;k&#39;, gefolgt von literal &#39;lima&#39;, einem oder mehr Zeichen, die nicht whitespace sind und einer Wortgrenze</span>
 
 <span class="n">climate_compounds</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">kv21</span><span class="p">)</span>
     
@@ -708,7 +708,6 @@ Zitate:
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 6:</strong> Find alle Substantive mit definitem Artikel (z. B. „der“ oder „dem“) in <code class="docutils literal notranslate"><span class="pre">text</span></code>, der der Einleitung des <a class="reference external" href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck"> Wikipedia-Artikels zu regulären Ausdrücken</a> entspricht (Stand: 26.10.2022). Der Artikel (des Substantivs) sollte jeweils mitgemacht werden.</p>
-<p>⚠️ Achtung: Sobald wir eine Gruppe in unserem regulären Ausdruck verwenden, beschränkt sich die <code class="docutils literal notranslate"><span class="pre">findall</span></code>-Funktion darauf, denjenigen Teil des gesamten matches, der von der Gruppe abgedeckt wird, zu speichern. Bei mehreren Gruppen speichert <code class="docutils literal notranslate"><span class="pre">findall</span></code> sämtliche matches, die von Gruppen abgedeckt werden, separat in einem Tupel. Das ist eine durchaus praktische Eigenschaft, die wir unten produktiv einsetzen werden. Da wir hier aber am gesamten match interessiert sind (in unserem Fall Artikel + Substantiv) können wir zusätzlich den gesamten Ausdruck in runde Klammern setzen. Dadurch erhalten wir den gesamten match als Hauptgruppe sowie alle weiteren darin befindlichen Gruppen als Tupel von <code class="docutils literal notranslate"><span class="pre">findall</span></code> zurück. In den gegebenen <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehlen kannst Du Dir erstens nur den gesamten match (erstes Element im Tupel) oder zweitens die Hauptgruppe sowie alle anderen Gruppen ausgeben lassen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ein regulärer Ausdruck (englisch regular expression, Abkürzung RegExp oder Regex) ist in der theoretischen Informatik eine Zeichenkette, die der Beschreibung von Mengen von Zeichenketten mit Hilfe bestimmter syntaktischer Regeln dient. Reguläre Ausdrücke finden vor allem in der Softwareentwicklung Verwendung. Neben Implementierungen in vielen Programmiersprachen verarbeiten auch viele Texteditoren reguläre Ausdrücke in der Funktion „Suchen und Ersetzen“. Ein einfacher Anwendungsfall von regulären Ausdrücken sind Wildcards.</span>
@@ -835,14 +834,9 @@ DUMBLEDORE, Albus Percival Wulfric Brian	17.06.1881	fresh-dumbledore@hogwarts.co
 <ol class="arabic simple">
 <li><p>Wenn nötig, pass <code class="docutils literal notranslate"><span class="pre">regex</span></code> an, damit auch alle neuen Geburtsdaten gematcht werden.</p></li>
 <li><p>Setz Klammern in <code class="docutils literal notranslate"><span class="pre">regex</span></code>, um relevante Teile eines matches zu gruppieren.</p></li>
-<li><p>Pass die Funktion <code class="docutils literal notranslate"><span class="pre">to_ISO_format</span></code> an, damit jedes einzelne match-Objekt entsprechend IS0 8601 umstrukturiert wird. Hierzu einige Bemerkungen und Tipps:</p>
-<ul class="simple">
-<li><p>Bei zweistelligen Jahreszahlen unter und gleich 22 kannst Du davon ausgehen, dass sie sich auf das 21. Jahrhundert beziehen, ansonsten auf das 20. Jahrhundert.</p></li>
-<li><p>Verwend f-strings zur Formatierung der Teilmatches (vgl. Notebook „Input und Output Teil 2“).</p></li>
-<li><p>Der Funktionsaufruf innerhalb von <code class="docutils literal notranslate"><span class="pre">re.sub(...)</span></code> ist korrekt, so wie er gegeben ist (es fehlen also keine Klammern!).</p></li>
-</ul>
-</li>
+<li><p>Pass die Funktion <code class="docutils literal notranslate"><span class="pre">to_ISO_format</span></code> an, damit jedes einzelne match-Objekt entsprechend IS0 8601 umstrukturiert wird. Bei zweistelligen Jahreszahlen unter und gleich 22 kannst Du davon ausgehen, dass sie sich auf das 21. Jahrhundert beziehen, ansonsten auf das 20. Jahrhundert.</p></li>
 </ol>
+<p>Der Funktionsaufruf innerhalb von <code class="docutils literal notranslate"><span class="pre">re.sub(...)</span></code> ist korrekt, so wie er gegeben ist (es fehlen also keine Klammern!).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_dates</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ich bin am 09.08.1992 geboren, meine Schwester am 3.4.95 und unser Bruder am 9.10.1998. </span>
@@ -894,7 +888,7 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 2022/01/01 geb
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2364</span><span class="o">/</span><span class="mf">3574949460.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2295</span><span class="o">/</span><span class="mf">3574949460.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> 
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">pizzabot_solved_documented</span> <span class="k">as</span> <span class="nn">pizzabot</span>
 <span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>

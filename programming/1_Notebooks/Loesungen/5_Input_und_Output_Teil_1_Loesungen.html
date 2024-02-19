@@ -482,7 +482,7 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 3:</strong> Lies den ersten Aufzug aus Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/nathan/chap002.html"><em>Nathan der Weise</em></a> ein. Die Datei befindet sich im Unterverzeichnis „Nathan_der_Weise“ im Dateienordner. Find heraus, welche der Figuren des Stücks (bereitgestellt in <code class="docutils literal notranslate"><span class="pre">characters</span></code>) am häufigsten erwähnt wird (wir unterscheiden nicht zwischen Erwähnungen in Redebeiträgen und sonst wo im Text, z. B. in der Sprecherkennzeichung).</p>
-<p>Um Deine Fertigkeiten aus dem Notebook „Funktionen und Methoden Teil 1“ gleich wieder einzusetzen, könntest Du dazu auch eine sortierte Frequenzliste mit allen Figuren und ihren jeweiligen Erwähnungshäufigkeiten erstellen.</p>
+<p>Um Deine Fertigkeiten aus dem Notebook „Funktionen und Methoden Teil 1“ gleich wieder einzusetzen, kannst Du dazu eine sortierte Frequenzliste mit allen Figuren und ihren jeweiligen Erwähnungshäufigkeiten erstellen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">characters</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sultan Saladin&quot;</span><span class="p">,</span> <span class="s2">&quot;Sittah&quot;</span><span class="p">,</span> <span class="s2">&quot;Nathan&quot;</span><span class="p">,</span> <span class="s2">&quot;Recha&quot;</span><span class="p">,</span> <span class="s2">&quot;Daja&quot;</span><span class="p">,</span> <span class="s2">&quot;Tempelherr&quot;</span><span class="p">,</span> <span class="s2">&quot;Derwisch&quot;</span><span class="p">,</span> <span class="s2">&quot;Patriarch von Jerusalem&quot;</span><span class="p">,</span> <span class="s2">&quot;Klosterbruder&quot;</span><span class="p">,</span> <span class="s2">&quot;Emir&quot;</span><span class="p">]</span> 
@@ -525,7 +525,7 @@ Emir 0
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 4:</strong> Im Gegensatz zu <em>Miss Sara Sampson</em> ist <em>Nathan der Weise</em> etwas anders formatiert, z. B. verteilen sich Redebeiträge z. T. über mehrere Zeilen.</p>
 <p>Lies den ersten Aufzug aus <em>Nathan der Weise</em> abermals ein. Schau Dir die Formatierung des Textes genau an, um ein strukturelles Merkmal zu finden, anhand dessen Du eine Liste mit zusammengehörigen Redebeiträgen und Metakommentaren erstellen kannst. Ein über mehrere Zeilen verteilter Redebeitrag oder Metakommentar soll jeweils in ein Element einfließen.</p>
-<p>Bereinige anschließend die Liste von allem, was kein Redebeitrag darstellt. Auch hierfür musst Du Dir die Liste gut anschauen, um ein strukturelles Merkmal zu identifizieren, anhand dessen Du die „Spreu vom Weizen“ trennen kannst. Sollte sich ein Metakommentar innerhalb eines Redebeitrags befinden, kannst Du dies ignorieren. Stell durch einen iterativen Ansatz sicher, dass Du am Ende wirklich alle Redebeiträge und nur Redebeiträge auf der Liste hast (also die <em>true positives</em>).</p>
+<p>Bereinige anschließend die Liste von allem, was keinen Redebeitrag darstellt. Auch hierfür musst Du Dir die Liste gut anschauen, um ein strukturelles Merkmal zu identifizieren, anhand dessen Du die „Spreu vom Weizen“ trennen kannst. Sollte sich ein Metakommentar innerhalb eines Redebeitrags befinden, kannst Du dies ignorieren. Stell durch einen iterativen Ansatz sicher, dass Du am Ende wirklich alle Redebeiträge und nur Redebeiträge auf der Liste hast (also die <em>true positives</em>).</p>
 <p>Dir steht wiederum eine Liste mit Figuren zur Verfügung.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -535,11 +535,11 @@ Emir 0
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Nathan_der_Weise/Nathan_der_Weise_Aufzug_1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
     <span class="n">nathan_der_weise</span> <span class="o">=</span> <span class="n">read_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
-<span class="n">belongs_together</span> <span class="o">=</span> <span class="n">nathan_der_weise</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Splitten bei doppelten Zeilenumbrüchen</span>
+<span class="n">belongs_together</span> <span class="o">=</span> <span class="n">nathan_der_weise</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Splitten bei doppelten Zeilenumbrüchen, es entsteht dadurch eine Liste</span>
 
 <span class="n">actual_turns</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die unten die zusammengehörigen Redebeiträge gehängt werden</span>
 
-<span class="c1">#Iteration über &#39;belongs_together&#39;</span>
+<span class="c1">#Iteration über die Liste &#39;belongs_together&#39;</span>
 <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">belongs_together</span><span class="p">:</span>
     <span class="c1">#Iteration über sämtliche Charakteren</span>
     <span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">characters</span><span class="p">:</span>
@@ -585,7 +585,6 @@ Und wäre leicht von Grund aus abgebrannt.
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 5:</strong> Bisher haben wir nur mit dem ersten Aufzug aus <em>Miss Sara Sampson</em> gearbeitet. Das Trauerspiel besteht aber aus fünf Aufzügen, die sich allesamt im gleichen Verzeichnis wie der erste Aufzug befinden.</p>
 <p>Öffne eine neue Textdatei mit dem Namen „Miss_Sara_Sampson_komplett.txt“ im Verzeichnis „Output“ und schreib alle fünf Aufzüge in der richtigen Reihenfolge in diese Datei.</p>
-<p>Anstatt jede Datei über ihren Pfad einzeln zu öffnen, kannst Du die oben bereits vorgestellte <code class="docutils literal notranslate"><span class="pre">listdir</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">os</span></code>-Moduls verwenden. Als Argument übergibst Du ihr den Pfad zum betreffenden Verzeichnis. Du kriegst eine Liste mit den darin befindlichen Dateien und Unterverzeichnissen (jeweils als string) zurück. Über diese Liste kannst Du dann wie gewohnt iterieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
