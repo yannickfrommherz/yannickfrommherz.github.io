@@ -470,7 +470,7 @@ document.write(`
 <h1>Lösungen zu den Zusatzübungen zum Notebook „Datenanalyse“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-datenanalyse" title="Permalink to this heading">#</a></h1>
 <p>☝️ Beachte 1: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
 <p>☝️ Beachte 2:  In diesem Notebook arbeiten wir größtenteils mit einer Datei, die Du in Übung 1 selbst herunterladen musst. Die meisten Lösungen lassen sich folglich erst ausführen, wenn Du den korrekten Pfad zur heruntergeladenen Datei bei <code class="docutils literal notranslate"><span class="pre">path</span></code> eingesetzt hast.</p>
-<p>☝️ Beachte 3:  Anders als im zweiteiligen Lehrnotebook „Datenanalyse“ kommt hier auch die dot-Notation für den Spaltenzugriff (<code class="docutils literal notranslate"><span class="pre">df.column</span></code> statt <code class="docutils literal notranslate"><span class="pre">df[&quot;column&quot;]</span></code>) zum Einsatz.</p>
+<p>☝️ Beachte 3:  Anders als im zweiteiligen Notebook „Datenanalyse“ kommt hier auch die dot-Notation für den Spaltenzugriff (<code class="docutils literal notranslate"><span class="pre">df.column</span></code> statt <code class="docutils literal notranslate"><span class="pre">df[&quot;column&quot;]</span></code>) zum Einsatz.</p>
 <ol class="arabic">
 <li><p>Lad Dir den Datensatz mit einer Million Sätzen aus deutschsprachigen Nachrichtentexten („News“) aus dem Jahr 2022 von der Seite des Projekts <a class="reference external" href="https://wortschatz.uni-leipzig.de/de/download/German">Wortschatz Leipzig</a> herunter und speicher ihn an einem sinnvollen Ort. Entpack die Datei (falls das bei Windows auf Anhieb nicht funktioniert, empfiehlt sich das Programm <a class="reference external" href="https://www.winrar.de">WinRAR</a>) und lies die Datei „deu_news_2022_1M-sentences.txt“ mithilfe von pandas ein. Das DataFrame soll <code class="docutils literal notranslate"><span class="pre">news_df</span></code> heißen und aus zwei Spalten (<code class="docutils literal notranslate"><span class="pre">sentence_id</span></code> und <code class="docutils literal notranslate"><span class="pre">sentence</span></code>) sowie einer Million Zeilen bestehen. Spaltennamen kannst Du mithilfe des <code class="docutils literal notranslate"><span class="pre">names</span></code>-Argument beim Einlesen definieren. Lass Dir die ersten zehn Zeilen ausgeben.</p>
 <p>Befinden sich wirklich eine Million Sätze im DataFrame? Falls dies bei Deinem DataFrame nicht der Fall ist, überleg Dir, was schief gelaufen sein könnte, denn in der Datei „deu_news_2022_1M-sentences.txt“ befinden sich garantiert eine Million Sätze.</p>
@@ -485,7 +485,7 @@ document.write(`
 
 <span class="sd">&quot;&quot;&quot;Einlesen der Daten, Spezifizieren der Spaltennamen, sowie Steuern des Verhaltens bei Anführungszeichen:</span>
 <span class="sd">Der Parameter &#39;quoting&#39; löst das Problem, dass mehr als ein Satz in einer Zeile landet. Das Problem entsteht bei Sätzen,</span>
-<span class="sd">die ein öffnendes Anführungszeichen beinhalten, aber kein schließendes. Pandas interpretiert dadurch die folgenden Trennzeichen &#39;\t&#39;</span>
+<span class="sd">die ein öffnendes Anführungszeichen beinhalten, aber kein schließendes. pandas interpretiert dadurch die folgenden Trennzeichen &#39;\t&#39;</span>
 <span class="sd">literal anstatt als Trennzeichen bis zum nächsten Anführungszeichen. Indem wir &#39;quoting=3&#39; spezifizieren, teilen wir pandas mit,</span>
 <span class="sd">dass KEINE Anführungszeichen beim Einlesen als literal interpretiert werden sollen, vgl. https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html;</span>
 <span class="sd">Anstatt einer ominösen Drei kannst Du auch zusätzlich das Modul &#39;csv&#39; importieren und &#39;quoting=csv.QUOTE_NONE&#39; spezifizieren,</span>
@@ -500,7 +500,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">1835405353.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">3421101322.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">Anstatt</span> <span class="n">einer</span> <span class="n">ominösen</span> <span class="n">Drei</span> <span class="n">kannst</span> <span class="n">Du</span> <span class="n">auch</span> <span class="n">zusätzlich</span> <span class="n">das</span> <span class="n">Modul</span> <span class="s1">&#39;csv&#39;</span> <span class="n">importieren</span> <span class="n">und</span> <span class="s1">&#39;quoting=csv.QUOTE_NONE&#39;</span> <span class="n">spezifizieren</span><span class="p">,</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">die</span> <span class="n">beiden</span> <span class="n">Optionen</span> <span class="n">sind</span> <span class="n">gleichbedeutend</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="ne">---&gt; </span><span class="mi">13</span><span class="s2"> news_df = pd.read_csv(path, sep=&quot;</span><span class="se">\t</span><span class="s2">&quot;, encoding=&quot;utf-8&quot;, names=[&quot;sentence_id&quot;, &quot;sentence&quot;], quoting=3)</span>
@@ -585,7 +585,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">3826457431.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">3826457431.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ukraine</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Ukraine&quot;</span><span class="p">)]</span> <span class="c1">#Filtern des DataFrame nach dem Vorkommen von &quot;Ukraine&quot; in der Spalte &quot;sentence&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">corona</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Corona&quot;</span><span class="p">)]</span> <span class="c1">#Filtern des DataFrame nach dem Vorkommen von &quot;Corona&quot; in der Spalte &quot;sentence&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
@@ -617,7 +617,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">4257540221.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">4257540221.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">#Zählen der Leerschläge und Addieren von eins, um Anzahl Wörter pro Satz auszurechnen</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">news_df</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1">#Ausgabe des maximalen, minimalen und durchschnittlichen Werts in der Spalte &quot;length&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
@@ -643,7 +643,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">1735756434.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">1735756434.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Sortieren des DataFrame nach den Werten der Spalte &quot;length&quot; sowie sinnvollerweise Zurücksetzen der Indizes inkl. &quot;droppen&quot; der alten Indizes</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">news_df</span>
@@ -655,8 +655,11 @@ document.write(`
 </div>
 <ol class="arabic" start="5">
 <li><p>Bereinige sämtliche Sätze derart, dass Sonderzeichen von allen Wortanfängen und -enden entfernt werden. Dazu steht Dir die Liste <code class="docutils literal notranslate"><span class="pre">special_signs</span></code> zur Verfügung. Groß- und Kleinschreibung sollst Du beibehalten. Jeder Satz soll auch nach dem Preprocessing als ein string vorliegen.</p>
-<p>📌 Herausforderung: Verwend maximal eine Zeile zur Bereinigung der Sätze.</p>
-</li>
+ <details>
+ <summary>📌 Herausforderung </summary>
+ <br>Verwend maximal eine Zeile zur Bereinigung der Sätze.
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -683,7 +686,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">1659539673.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">1659539673.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span> 
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#Überschreiben der Spalte &quot;sentence&quot;</span>
 <span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;sentence&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">)</span> <span class="c1">#Anwenden der benutzerdefinierten Funktion auf alle Zeilen in der Spalte &quot;sentence&quot;</span>
@@ -708,7 +711,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">1061076737.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">1061076737.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Splitten der Sätze in Wörter, Indizieren des ersten Elements, Berechnen der Häufigkeitsverteilung und Ausgabe der obersten zehn Elemente</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
@@ -730,7 +733,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">259983597.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">259983597.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Splitten der Sätze in Wörter, Indizieren des letzten Elements, Berechnen der Häufigkeitsverteilung und Ausgabe der obersten zehn Elemente</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span><span class="o">.</span><span class="n">sentence</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
@@ -777,7 +780,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">1518405438.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">1518405438.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">news_df_enriched</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Spezifizieren der Pfade zur einzulesenden Datei (hier leer, da individueller Speicherort)</span>
@@ -790,15 +793,33 @@ document.write(`
 </div>
 </div>
 <ol class="arabic" start="9">
-<li><p>Füg eine weitere Spalte namens <code class="docutils literal notranslate"><span class="pre">country</span></code> hinzu, die basierend auf der Top-Level-Domain dem Quellenlink (z. B. „.de“ oder „.ch“) angibt, aus welchem Land der jeweilige Nachrichtensatz stammt. Dies lässt sich am besten mithilfe eines regulären Ausdrucks (vgl. Notebook „Reguläre Ausdrücke“) lösen. Pandas wiederum stellt mit <code class="docutils literal notranslate"><span class="pre">findall</span></code> eine nützliche string-Methode zur Verfügung, die wir wie gewohnt auf eine ganze Spalte anwenden können und der wir problemlos einen regulären Ausdruck übergeben können.</p>
-<p>📌 Herausforderung: Lass Dir eine schön formatierte Übersicht über die absolute und eine relative Häufigkeitsverteilung der Länder ausgeben. Folgender Screenshot ist eine Idee für die Formatierung, Du kannst es aber auch anders umsetzen.</p>
- <img src="../../3_Dateien/Grafiken_und_Videos/tld_overview.png" width="300"/></li>
+<li><p>Füg eine weitere Spalte namens <code class="docutils literal notranslate"><span class="pre">country</span></code> hinzu, die basierend auf der Top-Level-Domain (TLD) des Quellenlinks (z. B. „.de“ oder „.ch“) angibt, aus welchem Land der jeweilige Nachrichtensatz stammt. Dies lässt sich am leichtesten mithilfe eines regulären Ausdrucks (vgl. Notebook „Reguläre Ausdrücke“) und der Methode<code class="docutils literal notranslate"><span class="pre">findall</span></code> umsetzen. Wenn Du bereits Erfahrung mit regulären Ausdrücken hast, probier Dich gern daran aus. Sonst kannst Du die Aufgabe natürlich aber auch ohne reguläre Ausdrücke lösen.</p>
+ <details>
+ <summary>📌 Herausforderung </summary>
+ <br>Lass Dir eine schön formatierte Übersicht über die absolute und eine relative Häufigkeitsverteilung der Länder ausgeben. Folgender Screenshot ist eine Idee für die Formatierung, Du kannst es aber auch anders umsetzen:<br><br>
+ <img src="../../3_Dateien/Grafiken_und_Videos/tld_overview.png" width="300"/>
+ </details> 
+ <br>
+</li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df_enriched</span> <span class="c1">#&quot;Zurückverweisen&quot; von &#39;news_df_enriched&#39; auf &#39;news_df&#39;, da dies der simplere Variablenname ist</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Lösungsweg ohne RegEx</span>
+<span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df_enriched</span> <span class="c1">#&quot;Zurückverweisen&quot; von &#39;news_df_enriched&#39; auf &#39;news_df&#39;, da dies der simplere Variablenname ist</span>
 
+<span class="c1">#Schaffen einer neuen Spalte, damit die &quot;source&quot;-Spalte im Folgenden nicht unwiderruflich überschrieben wird</span>
+<span class="sd">&#39;&#39;&#39;Zunächst verrät uns ein Blick in die Daten in einem Editor, dass alle Links gleich aufgebaut sind. Nachdem wir an Schrägstrichen splitten,</span>
+<span class="sd">sehen wir dass das dritte Element der entstehenden Liste die TLD jeweils als letzte Buchstaben enthält. Wir greifen auf das dritte Element</span>
+<span class="sd">über seinen Index (2) zu.&#39;&#39;&#39;</span>
+<span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="sd">&#39;&#39;&#39;Nun müssen wir noch am Punkt splitten und das letzte Element, was unserer TLD entspricht, in die Spalte schreiben. </span>
+<span class="sd">Damit ist &quot;country&quot; fertig.&#39;&#39;&#39;</span>
+<span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1">#Lösungsweg mit RegEx</span>
 <span class="kn">import</span> <span class="nn">re</span>
+<span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df_enriched</span> <span class="c1">#&quot;Zurückverweisen&quot; von &#39;news_df_enriched&#39; auf &#39;news_df&#39;, da dies der simplere Variablenname ist</span>
 
 <span class="c1">#Definieren der RegEx: ein Punkt (escaped mit Backslash), gefolgt von zwei oder mehr kleingeschriebenen Buchstaben, gefolgt von Schrägstrich (escaped mit Backslash)</span>
 <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\.[a-z]{2,}\/&quot;</span>
@@ -807,7 +828,7 @@ document.write(`
 <span class="sd">mit Regex-Matches beinhält (bereinigt vom Punkt zu Beginn und dem Schrägstrich am Ende)&quot;&quot;&quot;</span>
 <span class="n">news_df</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">news_df</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;./&quot;</span><span class="p">)</span> 
 
-<span class="c1">#Herausfoderung</span>
+<span class="c1">#Herausforderung</span>
 <span class="c1">#Schaffen zweier dictionaries mit den absoluten und relativen Häufigkeitsverteilungen (dictionaries eignen sich besser als Series für die Iteration unten)</span>
 <span class="n">absolute</span><span class="p">,</span> <span class="n">relative</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">news_df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 
@@ -823,12 +844,12 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">1833936900.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df_enriched</span> <span class="c1">#&quot;Zurückverweisen&quot; von &#39;news_df_enriched&#39; auf &#39;news_df&#39;, da dies der simplere Variablenname ist</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">re</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#Definieren der RegEx: ein Punkt (escaped mit Backslash), gefolgt von zwei oder mehr kleingeschriebenen Buchstaben, gefolgt von Schrägstrich (escaped mit Backslash)</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">1270154616.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Lösungsweg ohne RegEx</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">news_df</span> <span class="o">=</span> <span class="n">news_df_enriched</span> <span class="c1">#&quot;Zurückverweisen&quot; von &#39;news_df_enriched&#39; auf &#39;news_df&#39;, da dies der simplere Variablenname ist</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#Schaffen einer neuen Spalte, damit die &quot;source&quot;-Spalte im Folgenden nicht unwiderruflich überschrieben wird</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="s1">&#39;&#39;&#39;Zunächst verrät uns ein Blick in die Daten in einem Editor, dass alle Links gleich aufgebaut sind. Nachdem wir an Schrägstrichen splitten,</span>
 
 <span class="ne">NameError</span>: name &#39;news_df_enriched&#39; is not defined
 </pre></div>
@@ -842,6 +863,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Schaffen eines Sub-DataFrame, indem &#39;news_df&#39; in der Spalte &quot;country&quot; nach den Werten &quot;de&quot;, &quot;at&quot; und &quot;ch&quot; gefiltert wird</span>
 <span class="n">dach_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="s2">&quot;at&quot;</span><span class="p">,</span> <span class="s2">&quot;ch&quot;</span><span class="p">])]</span>
+<span class="c1">#Alternativ:</span>
 <span class="n">dach_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#Ausgabe der obersten Zeilen des Sub-DataFrame</span>
 </pre></div>
 </div>
@@ -849,10 +871,11 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">712311034.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">2211105579.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Schaffen eines Sub-DataFrame, indem &#39;news_df&#39; in der Spalte &quot;country&quot; nach den Werten &quot;de&quot;, &quot;at&quot; und &quot;ch&quot; gefiltert wird</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dach_df</span> <span class="o">=</span> <span class="n">news_df</span><span class="p">[</span><span class="n">news_df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="s2">&quot;at&quot;</span><span class="p">,</span> <span class="s2">&quot;ch&quot;</span><span class="p">])]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dach_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#Ausgabe der obersten Zeilen des Sub-DataFrame</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Alternativ:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">dach_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#Ausgabe der obersten Zeilen des Sub-DataFrame</span>
 
 <span class="ne">NameError</span>: name &#39;news_df&#39; is not defined
 </pre></div>
@@ -903,7 +926,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2555</span><span class="o">/</span><span class="mf">3054714789.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2563</span><span class="o">/</span><span class="mf">3054714789.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#Importieren von &#39;matplotlib.pyplot&#39;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">dach_df</span> <span class="o">=</span> <span class="n">dach_df</span><span class="p">[</span><span class="n">dach_df</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;2022&quot;</span><span class="p">)]</span> <span class="c1">#Wegfiltern von Daten außerhalb des Jahres 2022</span>
@@ -915,7 +938,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Antwort auf abschließende Frage: Das Sampling ist definitiv gleichmäßig über die Monate hinweg. Der jeweilige Anteil der Länder entspricht einigermaßen ihrer Größenordnung, wobei der Anteil der Schweizer Quellen etwas zu niedrig und der Anteil der österreichischen Quellen etwas zu hoch ausfällt.</p>
+<p>Antwort auf abschließende Frage: Das Sampling ist definitiv gleichmäßig über die Monate hinweg. Der jeweilige Anteil der Länder entspricht einigermaßen ihrer Größenordnung. Obwohl die Einwohner:innenzahlen von Österreich und der Schweiz nicht allzu weit auseinanderliegen, lässt sich der geringere Anteil an Schweizer Quellen im Vergleich zu österreichischen durch die Schweizer Mehrsprachigkeit (Französisch, Italienisch, Rätoromanisch) erklären.</p>
 <hr class="docutils" />
 <table>
       <tr>
@@ -923,7 +946,7 @@ document.write(`
             <img src="../../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>

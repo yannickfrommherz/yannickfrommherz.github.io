@@ -473,13 +473,13 @@ document.write(`
 <p>✏️ <strong>Lösung 1:</strong> Find heraus, wie viele der 100 flächengrößten Gemeinden zu jedem der 16 Bundesländer gehören. Du kannst direkt mit <code class="docutils literal notranslate"><span class="pre">biggest_municipalities</span></code> weiterarbeiten. Dir steht ein dictionary mit Bundesländern zur Verfügung. Ziel ist es, den Wert (jetzt noch null für alle Bundesländer) für jedes Bundesland korrekt zu berechnen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Da es sich um ein anderes Notebook handelt, müssen wir das csv-Modul auch hier importieren sowie &#39;biggest_municipalities&#39; erst schaffen</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Da es sich um ein anderes Notebook handelt, müssen wir das &#39;csv&#39;-Modul auch hier importieren sowie &#39;biggest_municipalities&#39; erst schaffen</span>
 <span class="kn">import</span> <span class="nn">csv</span>
 
 <span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Tabellarische_Daten/Liste_der_flaechengroessten_Gemeinden_Deutschlands.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">read_file</span><span class="p">:</span>
     
-    <span class="c1">#Erklärung dieses Codes siehe Lehrnotebook unter &quot;Das csv-Modul&quot;</span>
+    <span class="c1">#Erklärung dieses Codes siehe Notebook &quot;Input und Output Teil 2&quot; unter &quot;Das &#39;csv&#39;-Modul&quot;</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">read_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
     
     <span class="n">biggest_municipalities</span> <span class="o">=</span> <span class="p">[]</span>
@@ -629,7 +629,6 @@ Olive Oil Extra Vergine   11.17
 </div>
 </div>
 </div>
-<p><br><br></p>
 <hr class="docutils" />
 <table>
       <tr>
@@ -637,7 +636,7 @@ Olive Oil Extra Vergine   11.17
             <img src="../../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>

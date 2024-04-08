@@ -470,8 +470,13 @@ document.write(`
 <h1>Zusatzübungen zum Notebook „Datentypen“<a class="headerlink" href="#zusatzubungen-zum-notebook-datentypen" title="Permalink to this heading">#</a></h1>
 <p>Bemerkung: Einige der Übungen lassen sich elegant mit Kontrollstrukturen wie <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen und <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statements lösen. Wenn Du diese schon beherrschst oder Dich herausfordern willst, benutz sie unbedingt.</p>
 <p><strong>Es ist aber auch vollkommen okay, damit noch abzuwarten</strong>. Alle Übungen lassen sich auch ohne Kontrollstrukturen lösen und die Lösungen verwenden ebenfalls keine (außer bei expliziten Herausforderungen). Ohne Kontrollstrukturen musst Du z. T. ziemlich viel Code schreiben. Das ist aber eine sinnvolle Übung in korrekter Syntax.</p>
-<ol class="arabic simple">
-<li><p>Identifizier die Datentypen sämtlicher Objekte im verschachtelten Object <code class="docutils literal notranslate"><span class="pre">nested_object</span></code>.</p></li>
+<ol class="arabic">
+<li><p>Identifizier die Datentypen sämtlicher Objekte im verschachtelten Object <code class="docutils literal notranslate"><span class="pre">nested_object</span></code>.</p>
+ <details>
+   <summary>💡 Tipp </summary>
+   <br>Wenn Du Dir nicht sicher bist oder Deine Ergebnisse überprüfen willst, kannst Du eine weitere Codezelle darunter einfügen und die Funktion <code>type</code> nutzen, die Du bereits im Notebook "Datentypen" kennengelernt hast. Stell dabei sicher, dass Du das richtigte Listenelement "ansprichst": z. B. so: <code>type(nested_object[0])</code>
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -492,7 +497,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2338/3801411291.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2334/3801411291.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
     <span class="k">if</span> <span class="n">summer</span> <span class="o">=</span> <span class="n">true</span><span class="p">:</span>
               <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -502,8 +507,11 @@ document.write(`
 </div>
 <ol class="arabic" start="3">
 <li><p>Ermittle erstens, wie lang <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> ist. Find zweitens <strong>mithilfe von Python</strong> heraus, welche fünf Buchstaben des deutschen Alphabets (ohne Umlaute) nicht in <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> vorkommen. Den Abgleich zwischen allen einzigartigen Buchstaben in <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> und dem deutschen Alphabet kannst Du händisch vornehmen.</p>
-<p>📌 Es sei denn, Du willst Dich herausfordern: Dann benutz zusätzlich <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> sowie einen der im Notebook „Einführung“ kennengelernten, multifunktionalen Operatoren, um den Unterschied zweier Objekte zu berechnen.</p>
-</li>
+ <details>
+   <summary>📌 Herausforderung </summary>
+   <br>Benutz anstelle des händischen Abgleichs einen im Notebook "Einführung" kennengelernten, multifunktionalen Operator sowie <code>alphabet</code>, um herauszufinden, welche fünf Buchstaben des deutschen Alphabets nicht in <code>longest_word</code> vorkommen.
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -513,8 +521,13 @@ document.write(`
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Ein Supermarkt verkauft die in <code class="docutils literal notranslate"><span class="pre">products</span></code> gegebenen Produkte zu den gegebenen Preisen. Der Supermarkt will künftig keine Centbeträge mehr verrechnen und entscheidet sich dreisterweise dazu, alle Preise aufzurunden. Lass Dir die neuen Preise für alle Produkte ausrechnen. Was fällt Dir dabei auf?</p></li>
+<ol class="arabic" start="4">
+<li><p>Ein Supermarkt verkauft die in <code class="docutils literal notranslate"><span class="pre">products</span></code> gegebenen Produkte zu den gegebenen Preisen. Der Supermarkt will künftig keine Centbeträge mehr verrechnen und entscheidet sich dreisterweise dazu, alle Preise aufzurunden. Lass Dir die neuen Preise für alle Produkte ausrechnen. Was fällt Dir dabei auf?</p>
+ <details>
+   <summary>💡 Tipp </summary>
+   <br>"Ausrechnen" kannst Du die neuen Werte ganz einfach, indem Du sie in einen bestimmten Datentyp castest. Analysier genau, wie diese Umwandlung vonstatten geht und schreib den Code so, dass alle Werte auch wirklich aufgerundet werden.
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -534,8 +547,15 @@ document.write(`
  https://www.vaterland.li: Liechtenstein
 </pre></div>
 </div>
-<p>📌 Herausforderung: Verwend eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife mit einem eingebauten <code class="docutils literal notranslate"><span class="pre">if</span></code>-Statement (dabei kannst Du dieselbe Struktur wie in der fünften Übung im Notebook „Einführung“ verwenden), um herauszufinden, welche der Webadressen nicht sicher sind.</p>
-</li>
+ <details>
+   <summary>💡 Tipp </summary>
+   <br>Du kannst pro Webadresse einen <code>print</code>-Befehl benutzen. Verwend Indexing zum "Ansprechen" der jeweiligen Webadresse und Slicing, um auf die letzten beiden Buchstaben, also die Top-Level-Domain, zuzugreifen. Indem Du diese als Schlüssel beim dictionary einsetzt, erhältst Du das zugehörige Land.</details>
+ <br>
+ <details>
+   <summary>📌 Herausforderung</summary>
+   <br>Verwend eine <code>for</code>-Schleife mit einem eingebauten <code>if</code>-Statement (dabei kannst Du dieselbe Struktur wie in der fünften Übung im Notebook "Einführung" verwenden), um herauszufinden, welche der Webadressen nicht sicher sind.
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -552,7 +572,11 @@ document.write(`
 </pre></div>
 </div>
 <p>und so weiter.</p>
-</li>
+ <details>
+ <summary>💡 Tipp </summary>
+   <br>Da Python die Boolschen Werte "True" und "False" auf Englisch ausgibt, musst Du sie übersetzen. Du kannst dazu z. B. ein dictionary anlegen.
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -562,7 +586,7 @@ document.write(`
 </div>
 </div>
 <ol class="arabic simple" start="8">
-<li><p>📌 Herausforderung: Der folgende, fortgeschrittenere Code verwendet die bereits angeteaserten Kontrollstrukturen sowie weitere, uns noch unbekannte Methoden. Versuch ihn dennoch zu verstehen. Dazu lohnt es sich, ihn zu verändern, <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle einzubauen und ihn immer wieder auszuführen, um so die einzelnen Schritte zu verstehen. Kommentier den Code anschließend, damit ihn auch andere verstehen.</p></li>
+<li><p>Fortgeschritten: Der folgende Code verwendet die bereits angeteaserten Kontrollstrukturen sowie weitere, uns noch unbekannte Methoden. Versuch ihn dennoch zu verstehen. Dazu lohnt es sich, ihn zu verändern, <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle einzubauen und ihn immer wieder auszuführen, um so die einzelnen Schritte zu verstehen. Kommentier den Code anschließend, damit ihn auch andere verstehen.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -595,7 +619,7 @@ Manni mit der Telefonnummer 938712023
             <img src="../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>

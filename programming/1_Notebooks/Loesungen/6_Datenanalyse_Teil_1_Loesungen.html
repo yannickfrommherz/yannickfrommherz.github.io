@@ -469,7 +469,7 @@ document.write(`
   <section id="datenanalyse-teil-1-losungen">
 <h1>Datenanalyse Teil 1 (Lösungen)<a class="headerlink" href="#datenanalyse-teil-1-losungen" title="Permalink to this heading">#</a></h1>
 <p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
-<p>⚠️ Führ folgenden Code aus, bevor Du einzelne Lösungen ausführst. Im Lehrnotebook sortieren wir das DataFrame zu einem bestimmten Zeitpunkt. Diese Sortierung nehmen wir im Lösungsnotebook nicht vor, weswegen die Reihenfolge der Zeilen ab einem gewissen Punkt abweicht. Dies ist nicht weiter schlimm und wird bloß erwähnt, dass Du Dich nicht wunderst, warum die Daten zwischen den beiden Notebooks vermeintlich anders ausschauen.</p>
+<p>⚠️ Führ folgenden Code aus, bevor Du einzelne Lösungen ausführst. Im Notebook „Datenanalyse“ sortieren wir das DataFrame zu einem bestimmten Zeitpunkt. Diese Sortierung nehmen wir im Lösungsnotebook nicht vor, weswegen die Reihenfolge der Zeilen ab einem gewissen Punkt abweicht. Dies ist nicht weiter schlimm und wird bloß erwähnt, dass Du Dich nicht wunderst, warum die Daten zwischen den beiden Notebooks vermeintlich anders ausschauen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -614,7 +614,7 @@ Name: Token, dtype: object
 <span class="c1">#2. &#39;sum&#39;-Funktion</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">occurrences_per_year</span><span class="p">))</span>
 
-<span class="c1">#3. &#39;sum&#39;-Methode von pandas</span>
+<span class="c1">#3. &#39;sum&#39;-Methode von &#39;pandas&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">occurrences_per_year</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -801,7 +801,7 @@ Name: Token, dtype: object
 <p>✏️ <strong>Lösung 6:</strong> Führ die Zelle oben, in der wir <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> Zeilen mit Fantasiewörtern hinzugefügt haben, noch ein paar Mal aus, ohne darauf zu achten wie oft. Verwend nun <code class="docutils literal notranslate"><span class="pre">drop</span></code> in einer geeigneten Kontrollstruktur (vgl. Notebook „Kontrollstrukturen“) sowie die anfangs eingeführte Variable <code class="docutils literal notranslate"><span class="pre">original_len</span></code>, um die Fantasiewörter wieder zu entfernen und <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code>, was die Anzahl an Zeilen betrifft, wieder in seinen Originalzustand zu bringen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vorbereitung, die im Lehrnotebook nicht notwendig ist: </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vorbereitung, die im Notebook &quot;Datenanalyse Teil 1&quot; nicht notwendig ist: </span>
 <span class="c1">#Wir fügen &#39;new_row&#39;, sagen wir, 17 Mal &#39;songkorpus&#39; hinzu</span>
 <span class="n">new_row</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Fantasiewort&quot;</span><span class="p">,</span> <span class="mi">2023</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">17</span><span class="p">):</span>
@@ -938,7 +938,6 @@ Max. 1 %: 1, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
 </div>
 </div>
 </div>
-<p><br><br></p>
 <hr class="docutils" />
 <table>
       <tr>
@@ -946,7 +945,7 @@ Max. 1 %: 1, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
             <img src="../../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>

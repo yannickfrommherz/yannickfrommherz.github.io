@@ -470,13 +470,29 @@ document.write(`
 <h1>Zusatzübungen zum Notebook „Input und Output“<a class="headerlink" href="#zusatzubungen-zum-notebook-input-und-output" title="Permalink to this heading">#</a></h1>
 <ol class="arabic">
 <li><p>Lies das erste Kapitel von <a class="reference external" href="https://www.projekt-gutenberg.org/lagerloe/nielsho1/titlepage.html">Niels Holgersens wunderbare Reise mit den Wildgänsen</a> von Selma Lagerlöf ein und weis es <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> zu. Entfern dabei sämtliche Zeilenumbrüche, sodass ein Fließtext entsteht. Lass Dir die ersten 1000 Zeichen ausgeben.</p>
-<p>📌 Herausforderung: Lös die Übung mithilfe einer List Comprehension.</p>
-</li>
+ <details>
+   <summary>💡 Tipp </summary>
+   <br>Oft lohnt es sich, erst einen Blick in die Datei zu werfen, um einen Überblick über die Struktur des Textes zu erhalten. Wenn Du die Datei in einem Editor (z. B. Sublime Text) öffnest, stellst Du fest, dass es neben den Zeilenumbrüchen auch Leerzeilen gibt. Diese sollen im Fließtext natürlich auch verschwinden. Überprüf also für jede Zeile, bevor Du sie dem neuen string anhängst, ob sie leer ist. Das kannst Du mit <code>if line.isspace()</code> machen. Falls das der Fall ist, soll die Zeile übersprungen werden.
+ </details>
+ <br>
+ <details>
+   <summary>📌 Herausforderung </summary>
+   <br>Lös die Übung mithilfe einer List Comprehension.
+ </details>
+ <br></li>
 </ol>
 <ol class="arabic" start="2">
 <li><p>Lass Dir <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> als Blocksatz mit jeweils 100 Zeichen pro Zeile ausgeben. Wörter dürfen sich über Zeilenumbrüche hinweg erstrecken, ein Bindestrich ist nicht nötig.</p>
-<p>📌 Herausforderung: Lös die Übung mithilfe einer List Comprehension.</p>
-</li>
+ <details>
+   <summary>💡 Tipp </summary>
+   <br>Du musst nicht im Internet nach Code suchen, der Text als Blocksatz formatiert. Stattdessen reicht es, wenn in jeder Zeile genau 100 Zeichen stehen. Dank der Monospace-Schrift in der Ausgabe nimmt der Text automatisch Blocksatzgestalt an.
+ </details>
+ <br>
+ <details>
+   <summary>📌 Herausforderung </summary>
+   <br>Lös die Übung mithilfe einer List Comprehension.
+ </details>
+ <br></li>
 </ol>
 <ol class="arabic" start="3">
 <li><p>Extrahier sämtliche Fälle von direkter Rede aus <code class="docutils literal notranslate"><span class="pre">niels_holgersen</span></code> und speicher sie auf der Liste <code class="docutils literal notranslate"><span class="pre">direct_speech</span></code> ab. Ein zu extrahierendes Beispiel lautet</p>
@@ -501,36 +517,65 @@ document.write(`
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="5">
-<li><p>Führ den Code, den Du in Übung 4 geschrieben hast, ein paar Mal aus, bis Du einen besonders lustigen Dialog erhältst. Speicher nun diesen Dialog als Textdatei im Ordner „Output“. Formatier dabei den Text wie ein Drama (vgl. <em>Nathan der Weise</em> im Lehrnotebook). Die Textdatei soll zudem einen Titel sowie eine Auflistung der Figuren beinhalten.</p></li>
+<ol class="arabic" start="5">
+<li><p>Führ den Code, den Du in Übung 4 geschrieben hast, ein paar Mal aus, bis Du einen besonders lustigen Dialog erhältst. Speicher nun diesen Dialog als Textdatei im Ordner „Output“. Formatier dabei den Text wie ein Drama (vgl. <em>Nathan der Weise</em> im Notebook „Input und Output Teil 1“). Die Textdatei soll zudem einen Titel sowie eine Auflistung der Figuren beinhalten.</p>
+ <details>
+   <summary>💡 Tipp </summary>
+   <br>Überleg Dir insbesondere, an welchen Stellen Du Zeilenumbrüche einfügst.
+ </details>
+ <br></li>
 </ol>
-<ol class="arabic simple" start="6">
-<li><p>Füg Deiner eben geschaffenen Datei (mithilfe von Python!) den Satz „An dieser Stelle endet die Zusammenkunft abrupt.“ an.</p></li>
+<ol class="arabic" start="6">
+<li><p>Füg Deiner eben geschaffenen Datei (mithilfe von Python!) den Satz „An dieser Stelle endet die Zusammenkunft abrupt.“ an.</p>
+ <details>
+   <summary>💡 Tipp </summary>
+   <br>Achte beim Einlesen der Datei auf die Angabe des richtigen Modus (vgl. Notebook "Input und Output Teil 1").
+ </details>
+ <br></li>
 </ol>
 <ol class="arabic" start="7">
 <li><p>Lass Dir das aktuelle Arbeitsverzeichnis sowie die darin befindlichen Dateien und Verzeichnisse ausgeben.</p>
-<p>📌 Herausforderung: Schaff mithilfe von Python ein neues Verzeichnis namens „new_dir“ im aktuellen Arbeitsverzeichnis und überprüf anschließend ebenfalls mithilfe von Python, ob es geklappt hat.</p>
-</li>
+ <details>
+   <summary>📌 Herausforderung </summary>
+   <br>Schaff mithilfe von Python ein neues Verzeichnis namens "new_dir" im aktuellen Arbeitsverzeichnis und überprüf anschließend ebenfalls mithilfe von Python, ob es geklappt hat.
+ </details>
+ <br></li>
 </ol>
-<ol class="arabic simple" start="8">
-<li><p>Lies aufbauend auf der Zusatzübung 7 zum Notebook „Kontrollstrukturen“ die Datei „de_sv.csv“ aus dem Ordner „Tabellarische_Daten“ ein. Darin befinden sich nun mehr als nur eine Handvoll Vokabeln Deutsch-Schwedisch. Genauer gesagt handelt es sich um die 100 wichtigsten Vokabeln gemäß ChatGPT. Überführ die Daten in ein geeignetes Objekt und „fütter“ damit den bereits programmierten Vokabeltrainer. Beim Einlesen dürfte die Dir noch unbekannte <code class="docutils literal notranslate"><span class="pre">next</span></code>-Funktion hilfreich sein – erkunde selbständig, wie Du sie einsetzen kannst. Implementier außerdem einen Mechanismus, über den Benutzer:innen die Lernsession vorzeitig beenden können, falls sie nicht alle 100 Vokabeln lernen möchten.</p></li>
+<ol class="arabic" start="8">
+<li><p>Lies aufbauend auf der Zusatzübung 7 zum Notebook „Kontrollstrukturen“ die Datei „de_sv.csv“ aus dem Ordner „Tabellarische_Daten“ ein. Darin befinden sich nun mehr als nur eine Handvoll Vokabeln Deutsch-Schwedisch. Genauer gesagt handelt es sich um die 100 wichtigsten Vokabeln gemäß ChatGPT. Überführ die Daten in ein geeignetes Objekt und „fütter“ damit den bereits programmierten Vokabeltrainer. Beim Einlesen dürfte die Dir noch unbekannte <code class="docutils literal notranslate"><span class="pre">next</span></code>-Funktion hilfreich sein – erkunde selbständig, wie Du sie einsetzen kannst. Implementier außerdem einen Mechanismus, über den Benutzer:innen die Lernsession vorzeitig beenden können, falls sie nicht alle 100 Vokabeln lernen möchten.</p>
+ <details>
+   <summary>💡 Tipp </summary>
+   <br>Um die Lernsession zu beenden, kann die Benutzerin bzw. der Benutzer z. B. ein "X" eingeben. Dann soll der Vokabeltrainer beendet werden.
+ </details>
+ <br></li>
 </ol>
 <ol class="arabic" start="9">
 <li><p>Pass den Code aus Übung 8 derart an, dass Benutzer:innen eine Übersicht über die korrekt übersetzten bzw. falsch übersetzten Vokabeln gegeben wird, sobald sie die Lernsession beenden. Überleg Dir, wie Du diese Übersicht visuell ansprechend formatieren kannst. Folgender Screenshot ist eine Idee, Du kannst die Ausgabe auch gerne anders gestalten:</p>
- <img src="../3_Dateien/Grafiken_und_Videos/Formatierung.png" width="300"/></li>
+ <img src="../3_Dateien/Grafiken_und_Videos/Formatierung.png" width="300"/>
+ <br><br>
+ <details>
+   <summary>💡 Tipp </summary>
+   <br>Zur Formatierung der Ausgabe kannst Du f-strings nutzen (vgl. Notebook "Input und Output Teil 2").
+ </details>
+ <br></li>
 </ol>
 <ol class="arabic" start="10">
 <li><p>Wirklich gute Texte bringen die Sache tatsächlich auch jeweils klar auf den Punkt.</p>
 <p>Dieser Satz ist wahr, aber schlecht formuliert, da fünf von dreizehn Wörtern Füllwörter sind. Füllwörter tragen wenig zur Aussage eines Satzes bei und schmälern dadurch insgesamt seine Aussagekraft. In dieser Übung kannst Du überprüfen, wie es um von Dir verfasste Texte in Bezug auf Füllwörter steht. Such Dir dazu einen längeren Text aus (z. B. eine Seminararbeit). Es soll sich um eine Microsoft Word-Datei handeln.</p>
 <ol class="arabic simple">
-<li><p>Installier das Modul <code class="docutils literal notranslate"><span class="pre">docx2txt</span></code> über das Terminal bzw. die Eingabeaufforderung (<code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">docx2txt</span></code>) und importier es anschließend hier. Deinen Text kannst Du mihilfe der Funktion <code class="docutils literal notranslate"><span class="pre">process</span></code> unter Angabe seines Dateipfads einlesen, also so: <code class="docutils literal notranslate"><span class="pre">docx2txt.process(path)</span></code>. Splitte Deinen Text in Wörter und nimm sinnvolle Preprocessing-Schritte vor.</p></li>
+<li><p>Installier das Modul <code class="docutils literal notranslate"><span class="pre">docx2txt</span></code> über das Terminal bzw. die Eingabeaufforderung (<code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">docx2txt</span></code> bei Mac/Linux, nur <code class="docutils literal notranslate"><span class="pre">pip</span></code> bei Windows) und importier es anschließend hier. Deinen Text kannst Du mihilfe der Funktion <code class="docutils literal notranslate"><span class="pre">process</span></code> unter Angabe seines Dateipfads einlesen, also so: <code class="docutils literal notranslate"><span class="pre">docx2txt.process(path)</span></code>. Splitte Deinen Text in Wörter und nimm sinnvolle Preprocessing-Schritte vor.</p></li>
 <li><p>Lies die Datei „fuellwoerter.txt“ aus dem gleichnamigen Ordner ein und schaff eine Liste mit Füllwörtern.</p></li>
 <li><p>Zähl sämtliche Füllwörter in Deinem Text aus und lass Dir die zehn häufigsten Füllwörter inklusive ihrer Vorkommenshäufigkeit ausgeben.</p></li>
 </ol>
 </li>
 </ol>
-<ol class="arabic simple" start="11">
-<li><p>Es gibt ja diese Theorie, dass man die Reihenfolge der Buchstaben in Wörtern zufällig mischen kann. Solange der erste und letzte Buchstabe erhalten bleiben, können wir das Wort trotzdem flüssig lesen. Überprüfen wir das an dieser Aufgabenstellung. Schreib dazu einen Code, der die Buchstaben in den Wörtern dieser Aufgabenstellung zufällig mischt, wobei der jeweilige Anfangs- und Endbuchstabe eines Wortes gleich bleiben sollen. Die Reihenfolge der Wörter soll natürlich ebenfalls gleich bleiben. Zur zufälligen Mischung kannst Du wie oben die Funktion <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> benutzen. Zeig das Resultat einer uneingeweihten Person und schau, ob diese den manipulierten Text lesen kann.</p></li>
+<ol class="arabic" start="11">
+<li><p>Es gibt ja diese Theorie, dass man die Reihenfolge der Buchstaben in Wörtern zufällig mischen kann. Solange der erste und letzte Buchstabe erhalten bleiben, können wir das Wort trotzdem flüssig lesen. Überprüfen wir das an dieser Aufgabenstellung. Schreib dazu einen Code, der die Buchstaben in den Wörtern dieser Aufgabenstellung zufällig mischt, wobei der jeweilige Anfangs- und Endbuchstabe eines Wortes gleich bleiben sollen. Die Reihenfolge der Wörter soll natürlich ebenfalls gleich bleiben. Zur zufälligen Mischung kannst Du wie oben die Funktion <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> benutzen. Zeig das Resultat einer uneingeweihten Person und schau, ob diese den manipulierten Text lesen kann.</p>
+<details>
+  <summary>💡 Tipp </summary>
+  <br>Da der erste und letzte Buchstabe ihre Position behalten, kann sich die Buchstabenreihenfolge bei drei oder weniger Buchstaben nicht ändern.
+</details>
+<br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -560,7 +605,7 @@ document.write(`
             <img src="../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>

@@ -469,7 +469,7 @@ document.write(`
   <section id="datenanalyse-teil-2-losungen">
 <h1>Datenanalyse Teil 2 (Lösungen)<a class="headerlink" href="#datenanalyse-teil-2-losungen" title="Permalink to this heading">#</a></h1>
 <p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
-<p>⚠️ Führ folgenden Code aus, bevor Du einzelne Lösungen ausführst. Im Lehrnotebook sortieren wir das DataFrame zu einem bestimmten Zeitpunkt. Diese Sortierung nehmen wir im Lösungsnotebook nicht vor, weswegen die Reihenfolge der Zeilen ab einem gewissen Punkt abweicht. Dies ist nicht weiter schlimm und wird bloß erwähnt, dass Du Dich nicht wunderst, warum die Daten zwischen den beiden Notebooks vermeintlich anders ausschauen.</p>
+<p>⚠️ Führ folgenden Code aus, bevor Du einzelne Lösungen ausführst. Im Notebook „Datenanalyse“ sortieren wir das DataFrame zu einem bestimmten Zeitpunkt. Diese Sortierung nehmen wir im Lösungsnotebook nicht vor, weswegen die Reihenfolge der Zeilen ab einem gewissen Punkt abweicht. Dies ist nicht weiter schlimm und wird bloß erwähnt, dass Du Dich nicht wunderst, warum die Daten zwischen den beiden Notebooks vermeintlich anders ausschauen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -634,7 +634,7 @@ document.write(`
 <span class="n">same_values</span> <span class="o">=</span> <span class="n">long_words_2</span> <span class="o">==</span> <span class="n">long_words</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">same_values</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Es kommt nur jeweils &#39;True&#39; vor, also sind die beiden Ergebnisse identisch</span>
 
-<span class="c1">#Pandas bietet dafür auch eine Methode, nämlich &#39;equals()&#39;:</span>
+<span class="c1">#&#39;Pandas&#39; bietet dafür auch eine Methode, nämlich &#39;equals()&#39;:</span>
 <span class="n">long_words_2</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">long_words</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -653,7 +653,7 @@ dtype: int64
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 3:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Geh abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst pandas-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>✏️ <strong>Lösung 3:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Geh abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Wir greifen auf die Spalte &#39;Jahr&#39; zu und wenden auf diese mehrere Methoden an:</span>
@@ -809,7 +809,7 @@ dtype: int64
 <p>✏️ <strong>Lösung 4:</strong> Bearbeite die Werte in der Spalte „Token“ so, dass jedes Wort, das aus genau fünf Buchstaben besteht, großgeschrieben wird. Einfach weil wir’s können! 😉</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Importieren von numpy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Importieren von &#39;numpy&#39;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
 
 <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">])</span>
@@ -1018,7 +1018,7 @@ dtype: int64
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2273</span><span class="o">/</span><span class="mf">530584246.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2271</span><span class="o">/</span><span class="mf">530584246.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> 
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1">#Abfragen der zu plottenden Wörter</span>
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">words</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Welche Wörter sollen geplotted werden? Bsp.: &#39;ich, du&#39;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
@@ -1072,7 +1072,7 @@ dtype: int64
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Installier ggf. <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> über das Terminal oder die Eingabeaufforderung und importier anschließend <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> (wieder so eine gängige Abkürzung). matplotlib ist die Bibliothek, die wir zum Visualisieren unserer Daten verwenden. Mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">y)</span></code> (denk an den Modulnamen davor) können wir einfach Grafiken produzieren. <code class="docutils literal notranslate"><span class="pre">x</span></code> ist dabei eine Liste oder Series an Werten, die auf der x-Achse abgebildet werden sollen und <code class="docutils literal notranslate"><span class="pre">y</span></code> eine Liste oder Series derjenigen Werte, die auf der y-Achse dargestellt werden sollen. <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> müssen gleich lange sein. Konkret wird der erste Punkt in der Grafik bei den Koordinaten <code class="docutils literal notranslate"><span class="pre">x[0]</span></code> und <code class="docutils literal notranslate"><span class="pre">y[0]</span></code> eingezeichnet, der zweite bei <code class="docutils literal notranslate"><span class="pre">x[1]</span></code> und <code class="docutils literal notranslate"><span class="pre">y[1]</span></code>, etc. Standardmäßig werden die einzelnen Punkte wie oben zu einem Graphen verbunden. Schau in den Beispieldarstellungen oben, welche Werte wir entlang der x-Achse bzw. entlang der y-Achsen plotten wollen.</p></li>
+<li><p>Installier ggf. <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> über das Terminal oder die Eingabeaufforderung und importier anschließend <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> (wieder so eine gängige Abkürzung). <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> ist die Bibliothek, die wir zum Visualisieren unserer Daten verwenden. Mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">y)</span></code> (denk an den Modulnamen davor) können wir einfach Grafiken produzieren. <code class="docutils literal notranslate"><span class="pre">x</span></code> ist dabei eine Liste oder Series an Werten, die auf der x-Achse abgebildet werden sollen und <code class="docutils literal notranslate"><span class="pre">y</span></code> eine Liste oder Series derjenigen Werte, die auf der y-Achse dargestellt werden sollen. <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> müssen gleich lange sein. Konkret wird der erste Punkt in der Grafik bei den Koordinaten <code class="docutils literal notranslate"><span class="pre">x[0]</span></code> und <code class="docutils literal notranslate"><span class="pre">y[0]</span></code> eingezeichnet, der zweite bei <code class="docutils literal notranslate"><span class="pre">x[1]</span></code> und <code class="docutils literal notranslate"><span class="pre">y[1]</span></code>, etc. Standardmäßig werden die einzelnen Punkte wie oben zu einem Graphen verbunden. Schau in den Beispieldarstellungen oben, welche Werte wir entlang der x-Achse bzw. entlang der y-Achsen plotten wollen.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1131,7 +1131,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa1e9e38110&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8e71bf5ad0&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/25f1e25f3666ecaab06d466d66c594f6215c39b915dc2f3adb2278af5a64ee07.png" src="../../../_images/25f1e25f3666ecaab06d466d66c594f6215c39b915dc2f3adb2278af5a64ee07.png" />
@@ -1147,7 +1147,6 @@ dtype: int64
 </ul>
 </li>
 </ol>
-<p><br><br></p>
 <hr class="docutils" />
 <table>
       <tr>
@@ -1155,7 +1154,7 @@ dtype: int64
             <img src="../../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>
