@@ -504,36 +504,70 @@ document.write(`
 <ol class="arabic" start="2">
 <li><p>Nun steht uns der Inhalt des Artikels als string-Objekt in <code class="docutils literal notranslate"><span class="pre">qp</span></code> zur Verfügung und wir können reguläre Ausdrücke üben.</p>
 <p>Extrahier als Erstes alle Wörter bestehend aus mindestens 20 Buchstaben.</p>
-<p>💡 Tipp: Verwend hier und in den folgenden Übungen, wo sinnvoll, die <code class="docutils literal notranslate"><span class="pre">re.I</span></code>-Flag, um die regulären Ausdrücke kurz zu halten.</p>
-</li>
+ <details>
+ <summary>💡 Tipp 1 </summary>
+ <br>Verwend hier und in den folgenden Übungen, wo sinnvoll, die <code>re.I</code>-Flag, um die regulären Ausdrücke kurz zu halten.
+ </details>
+ <br>
+ <details>
+ <summary>💡 Tipp 2 </summary>
+ <br>Beachte, dass die vordefinierte Zeichenklasse <code>\w</code> ä,ö,ü,ß usw. <b>nicht</b> matcht.
+ </details>
+ <br></li>
 </ol>
-<ol class="arabic simple" start="3">
-<li><p>Lass Dir nun alle einzigartigen kleingeschriebenen Wörter in <code class="docutils literal notranslate"><span class="pre">qp</span></code> bestehend aus zwei oder drei Buchstaben ausgeben.</p></li>
+<ol class="arabic" start="3">
+<li><p>Lass Dir nun alle einzigartigen kleingeschriebenen Wörter in <code class="docutils literal notranslate"><span class="pre">qp</span></code> bestehend aus zwei oder drei Buchstaben ausgeben.</p>
+ <details>
+ <summary>💡 Tipp </summary>
+ <br>Um ganze Wörter zu matchen, muss der reguläre Ausdruck vor und nach den zwei bis drei Buchstaben auch nach Wortgrenzen suchen. 
+ </details>
+ <br></li>
 </ol>
 <ol class="arabic simple" start="4">
 <li><p>Schaff eine Liste mit allen Wörtern mit Bindestrich (z. B. „Wikipedia-Artikel“) in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p></li>
 </ol>
-<ol class="arabic simple" start="5">
-<li><p>Extrahier aus <code class="docutils literal notranslate"><span class="pre">qp</span></code> sämtliche Wörter mit Großbuchstaben am Anfang, die mindestens vier Buchstaben lang sind. Lass sie Dir alphabetisch ausgeben.</p></li>
+<ol class="arabic" start="5">
+<li><p>Extrahier aus <code class="docutils literal notranslate"><span class="pre">qp</span></code> sämtliche Wörter mit Großbuchstaben am Anfang, die mindestens vier Buchstaben lang sind. Lass sie Dir alphabetisch ausgeben.</p>
+ <details>
+ <summary>💡 Tipp </summary>
+ <br>Beachte, dass die zuvor eingesetzte Flag für diese Aufgabe nicht funktioniert. 
+ </details>
+ <br></li>
 </ol>
 <ol class="arabic simple" start="6">
 <li><p>Identifizier alle Substantivpaare in <code class="docutils literal notranslate"><span class="pre">qp</span></code>, die mit „und“ verbunden sind (z.  B. „Phänomene und Effekte“).</p></li>
 </ol>
 <ol class="arabic" start="7">
 <li><p>Find sämtliche Klammerbemerkungen in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p>
-<p>💡Erinnerung: Uneingeschränkte Quantifikatoren matchen so viele Zeichen wie möglich, d.  h. <code class="docutils literal notranslate"><span class="pre">re</span></code> findet den längstmöglichen match. Kommt nach einer schließenden Klammer später im abzusuchenden Text noch einmal eine schließende Klammer (und unter der Voraussetzung, dass alles dazwischen ebenfalls gematcht werden kann), so matcht <code class="docutils literal notranslate"><span class="pre">re</span></code> den gesamten Abschnitt von der ersten öffnenden Klammer bis zur letzten schließenden Klammer. Um diese <em>Gier</em> zu bändigen (und die einzelnen Klammerbemerkungen separat zu matchen), können wir dem Quantifikator wie erwähnt ein <code class="docutils literal notranslate"><span class="pre">?</span></code> anfügen. Dann matcht <code class="docutils literal notranslate"><span class="pre">re</span></code> nur so viele Zeichen wie nötig, um einen vollständigen match zu erreichen.</p>
-</li>
+ <details>
+ <summary> 💡 Tipp </summary>
+ <br>Uneingeschränkte Quantifikatoren matchen so viele Zeichen wie möglich, d. h. <code>re</code> findet den längstmöglichen match. Kommt nach einer schließenden Klammer später im abzusuchenden Text noch einmal eine schließende Klammer (und unter der Voraussetzung, dass alles dazwischen ebenfalls gematcht werden kann), so matcht <code>re</code> den gesamten Abschnitt von der ersten öffnenden Klammer bis zur letzten schließenden Klammer. Um diese <i>Gier</i> zu bändigen (und die einzelnen Klammerbemerkungen separat zu matchen), können wir dem Quantifikator ein <code>?</code> anfügen. Dann matcht <code>re</code> nur so viele Zeichen wie nötig, um einen vollständigen match zu erreichen.
+ </details>
+ <br></li>
 </ol>
-<ol class="arabic simple" start="8">
-<li><p>An welcher Stelle und in welchem Wort in <code class="docutils literal notranslate"><span class="pre">qp</span></code> taucht „theorie“ zum ersten Mal auf?</p></li>
+<ol class="arabic" start="8">
+<li><p>An welcher Stelle und in welchem Wort in <code class="docutils literal notranslate"><span class="pre">qp</span></code> taucht „theorie“ zum ersten Mal auf?</p>
+ <details>
+ <summary>💡 Tipp </summary>
+ <br>Für diese Aufgabe benötigst Du eine im Notebook "Reguläre Ausdrücke" kennengelernte Methode, die das erste Vorkommen eines Ausdrucks ermittelt.  
+ </details>
+ <br></li>
 </ol>
 <ol class="arabic" start="9">
 <li><p>Erstell eine Häufigkeitsverteilung über alle Zahlen in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p>
-<p>💡 Tipp: Nutz pandas für den letzten Schritt.</p>
-</li>
+ <details>
+ <summary>💡 Tipp </summary>
+ <br>Nutz pandas für den letzten Schritt.
+ </details>
+ <br></li>
 </ol>
-<ol class="arabic simple" start="10">
-<li><p>Tausch die Position der beiden Substantive in allen in Übung 6 ermittelten Substantivpaaren in <code class="docutils literal notranslate"><span class="pre">qp</span></code>. Statt „Phänomene und Effekte“ soll „Effekte und Phänomene“ im Text stehen etc.</p></li>
+<ol class="arabic" start="10">
+<li><p>Tausch die Position der beiden Substantive in allen in Übung 6 ermittelten Substantivpaaren in <code class="docutils literal notranslate"><span class="pre">qp</span></code>. Statt „Phänomene und Effekte“ soll „Effekte und Phänomene“ im Text stehen etc.</p>
+<details>
+<summary>💡 Tipp </summary>
+<br>Arbeite hierfür mit Teilmatches.
+</details>
+<br></li>
 </ol>
 <hr class="docutils" />
 <table>
@@ -542,7 +576,7 @@ document.write(`
             <img src="../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>

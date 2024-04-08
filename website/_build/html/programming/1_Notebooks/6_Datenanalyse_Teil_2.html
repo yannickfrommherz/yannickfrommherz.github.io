@@ -488,7 +488,7 @@ document.write(`
                   
   <section id="datenanalyse-teil-2">
 <h1>Datenanalyse Teil 2<a class="headerlink" href="#datenanalyse-teil-2" title="Link zu dieser Überschrift">#</a></h1>
-<p>Willkommen zurück! Hier geht es nahtlos weiter mit der Datenanalyse mithilfe von Python und konkret mit pandas. Wir schauen uns erst an, wie wir DataFrames filtern sowie Werte darin bearbeiten können. Anschließend widmen wir uns dem Anwendungsfall und visualisieren eine Wortverlaufskurve.</p>
+<p>Willkommen zurück! Hier geht es nahtlos weiter mit der Datenanalyse mithilfe von Python und konkret mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Wir schauen uns erst an, wie wir DataFrames filtern sowie Werte darin bearbeiten können. Anschließend widmen wir uns dem Anwendungsfall und visualisieren eine Wortverlaufskurve.</p>
 <p>Bevor wir mit den Daten aus dem ersten Teil des Notebook weiterarbeiten können, müssen wir diese nochmals in den Arbeitsspeicher laden. Führ dazu folgende Code-Zelle aus, die den relevanten Code des ersten Teils wiederholt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -606,12 +606,12 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>Abgesehen von Vergleichsoperatoren (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> und <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, vgl. Notebook „Einführung“) bei numerischen Werten (alle Operatoren) bzw. strings (nur die ersten beiden) können wir bei strings auch andere Methoden in den Filter einbauen. Pandas bietet sowohl solche an, die wir bereits von gewöhnlichen strings kennen (vgl. Notebook „Funktionen und Methoden Teil 1“), als auch ein paar eigene. Wichtig ist, dass die Methoden die Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> zurückgeben. Das heißt, <code class="docutils literal notranslate"><span class="pre">startswith</span></code> funktioniert, <code class="docutils literal notranslate"><span class="pre">split</span></code> hingegen nicht. String-Methoden bei pandas beginnen <strong>immer</strong> mit <code class="docutils literal notranslate"><span class="pre">str</span></code>, gefolgt von der Methode, also etwa <code class="docutils literal notranslate"><span class="pre">str.startswith()</span></code>. Außerdem müssen wir ihnen in einigen Fällen den Parameter <code class="docutils literal notranslate"><span class="pre">na=False</span></code> übergeben. Hier ein paar Beispiele:</p>
+<p>Abgesehen von Vergleichsoperatoren (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> und <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, vgl. Notebook „Einführung“) bei numerischen Werten (alle Operatoren) bzw. strings (nur die ersten beiden) können wir bei strings auch andere Methoden in den Filter einbauen. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> bietet sowohl solche an, die wir bereits von gewöhnlichen strings kennen (vgl. Notebook „Funktionen und Methoden Teil 1“), als auch ein paar eigene. Wichtig ist, dass die Methoden die Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> zurückgeben. Das heißt, <code class="docutils literal notranslate"><span class="pre">startswith</span></code> funktioniert, <code class="docutils literal notranslate"><span class="pre">split</span></code> hingegen nicht. String-Methoden bei <code class="docutils literal notranslate"><span class="pre">pandas</span></code> beginnen <strong>immer</strong> mit <code class="docutils literal notranslate"><span class="pre">str</span></code>, gefolgt von der Methode, also etwa <code class="docutils literal notranslate"><span class="pre">str.startswith()</span></code>. Außerdem müssen wir ihnen in einigen Fällen den Parameter <code class="docutils literal notranslate"><span class="pre">na=False</span></code> übergeben. Hier ein paar Beispiele:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liebe_startswith</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;liebe&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span> <span class="c1">#Wie normale string-Methode in Python</span>
 <span class="n">liebe_endswith</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;liebe&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span> <span class="c1">#Wie normale string-Methode in Python</span>
-<span class="n">liebe_contains</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;liebe&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span> <span class="c1">#Pandas-eigene Methode</span>
+<span class="n">liebe_contains</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;liebe&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span> <span class="c1">#pandas-eigene Methode</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">liebe_startswith</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">liebe_endswith</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">liebe_contains</span><span class="p">))</span>
 <span class="n">liebe_contains</span>
@@ -745,12 +745,12 @@ document.write(`
 <p>✏️ <strong>Übung 2:</strong> Erstell das gleiche Sub-DataFrame wie in Übung 1 (also eines, das nur Tokens beinhaltet, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stell sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
 <details>
   <summary>💡 Tipp 1 </summary>
-  <br>Beachte, dass Du, wenn Du bei pandas Methoden auf strings anwenden möchtest, <code>str</code> voranstellen musst.
+  <br>Beachte, dass Du, wenn Du bei <code>pandas</code> Methoden auf strings anwenden möchtest, <code>str</code> voranstellen musst.
 </details>
 <br>
 <details>
   <summary>💡 Tipp 2 </summary>
-  <br>Pandas bietet zum Vergleichen von DataFrames eine eigene Methode an. Begib Dich mit Hilfe des Internets selbst auf die Suche nach dieser Methode.
+    <br><code>pandas</code> bietet zum Vergleichen von DataFrames eine eigene Methode an. Begib Dich mit Hilfe des Internets selbst auf die Suche nach dieser Methode.
 </details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -759,7 +759,7 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>Gut zu wissen: Filter können auch miteinander kombiniert werden. Dazu verwenden wir die logischen Operatoren aus dem Notebook „Kontrollstrukturen“, die bei pandas allerdings in einem anderen Gewand daherkommen:</p>
+<p>Gut zu wissen: Filter können auch miteinander kombiniert werden. Dazu verwenden wir die logischen Operatoren aus dem Notebook „Kontrollstrukturen“, die bei <code class="docutils literal notranslate"><span class="pre">pandas</span></code> allerdings in einem anderen Gewand daherkommen:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> steht für für <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> steht für <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
@@ -919,7 +919,7 @@ document.write(`
 <p>Die Logik ist unabhängig davon, was wir wie bearbeiten, immer die gleiche: Wir greifen auf den gewünschten Ausschnitt des DataFrame zu (s. o.) und überschreiben ihn mit demselben Ausschnitt in bearbeiteter Form. Anstatt sie zu überschreiben können wir die bearbeiteten Werte natürlich immer auch einer neuen Spalte oder Zeile (desgleichen oder eines neuen DataFrame) zuweisen, sofern die jeweiligen Dimensionen übereinstimmen  (s. o.).</p>
 <section id="strings">
 <h3>strings<a class="headerlink" href="#strings" title="Link zu dieser Überschrift">#</a></h3>
-<p>Auf strings angewandt sieht das so aus, wenn wir etwa alle Tokens kleinschreiben wollen. Auch hier setzen wir <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die pandas-string-Methode:</p>
+<p>Auf strings angewandt sieht das so aus, wenn wir etwa alle Tokens kleinschreiben wollen. Auch hier setzen wir <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-string-Methode:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -1047,9 +1047,9 @@ document.write(`
 <p>386510 rows × 5 columns</p>
 </div></div></div>
 </div>
-<p>Diese einzeilige Syntax hat es in sich: Man kann sie sich in gewohnter Python-Logik wie eine Iteration vorstellen: Im vorliegenden Fall wird Wort für Wort (in der Spalte „Token“) kleingeschrieben. Mit dem Resultat wird die Spalte überschrieben. Sie ist dennoch nicht mit einer List Comprehension, die ja auch nur eine einzige Zeile benötigt, zu verwechseln. Denn im Gegensatz zu pythonischen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops und ihre simplifizierte Version List Comprehension, wird der Code mit der pandas-eigenen Syntax oft <strong>wesentlich schneller</strong> berechnet (teils über 1000 Mal schneller!).</p>
-<p>Grund dafür ist die sog. <em>Vektorisierung</em>. Ganz einfach forumuliert wird dabei dieselbe Operation nicht auf ein Element nach dem anderen angewandt (wie bei <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops), sondern auf mehrere gleichzeitig. Außerdem sind pandas-Operationen im Gegensatz zu nativem Python-Code (<code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops) speziell auf Effizienz ausgelegt. Wenn Du Dich dafür interessierst, findest Du u. a. in <a class="reference external" href="https://medium.com/analytics-vidhya/understanding-vectorization-in-numpy-and-pandas-188b6ebc5398">diesem Artikel</a> und <a class="reference external" href="https://www.youtube.com/watch?v=nxWginnBklU">diesem Video</a> Anknüpfungspunkte. Weiter unten folgen Übungen zum Vergleich von nativem Python-Code und pandas-Code.</p>
-<p>Zusätzlich zu den bisher verwendeten string-Methoden <code class="docutils literal notranslate"><span class="pre">lower</span></code>, <code class="docutils literal notranslate"><span class="pre">startswith</span></code>, <code class="docutils literal notranslate"><span class="pre">endswith</span></code> und <code class="docutils literal notranslate"><span class="pre">len</span></code> bietet pandas u. a. folgende an, die allesamt wie ihre nativen Python-Pendants funktionieren (vgl. Notebook „Funktionen und Methoden Teil 1“):</p>
+<p>Diese einzeilige Syntax hat es in sich: Man kann sie sich in gewohnter Python-Logik wie eine Iteration vorstellen: Im vorliegenden Fall wird Wort für Wort (in der Spalte „Token“) kleingeschrieben. Mit dem Resultat wird die Spalte überschrieben. Sie ist dennoch nicht mit einer List Comprehension, die ja auch nur eine einzige Zeile benötigt, zu verwechseln. Denn im Gegensatz zu pythonischen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops und ihre simplifizierte Version List Comprehension, wird der Code mit der <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-eigenen Syntax oft <strong>wesentlich schneller</strong> berechnet (teils über 1000 Mal schneller!).</p>
+<p>Grund dafür ist die sog. <em>Vektorisierung</em>. Ganz einfach forumuliert wird dabei dieselbe Operation nicht auf ein Element nach dem anderen angewandt (wie bei <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops), sondern auf mehrere gleichzeitig. Außerdem sind <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Operationen im Gegensatz zu nativem Python-Code (<code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops) speziell auf Effizienz ausgelegt. Wenn Du Dich dafür interessierst, findest Du u. a. in <a class="reference external" href="https://medium.com/analytics-vidhya/understanding-vectorization-in-numpy-and-pandas-188b6ebc5398">diesem Artikel</a> und <a class="reference external" href="https://www.youtube.com/watch?v=nxWginnBklU">diesem Video</a> Anknüpfungspunkte. Weiter unten folgen Übungen zum Vergleich von nativem Python-Code und <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Code.</p>
+<p>Zusätzlich zu den bisher verwendeten string-Methoden <code class="docutils literal notranslate"><span class="pre">lower</span></code>, <code class="docutils literal notranslate"><span class="pre">startswith</span></code>, <code class="docutils literal notranslate"><span class="pre">endswith</span></code> und <code class="docutils literal notranslate"><span class="pre">len</span></code> bietet <code class="docutils literal notranslate"><span class="pre">pandas</span></code> u. a. folgende an, die allesamt wie ihre nativen Python-Pendants funktionieren (vgl. Notebook „Funktionen und Methoden Teil 1“):</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">upper</span></code>, <code class="docutils literal notranslate"><span class="pre">capitalize</span></code>, <code class="docutils literal notranslate"><span class="pre">swapcase</span></code>, <code class="docutils literal notranslate"><span class="pre">isupper</span></code> und <code class="docutils literal notranslate"><span class="pre">islower</span></code> zur Bearbeitung/Überprüfung von Groß-/Kleinschreibung der strings.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">split</span></code> zum Splitten der strings, optional mit dem Parameter <code class="docutils literal notranslate"><span class="pre">expand=True</span></code>, um jedem unterteilten Element eine neue Spalte zuzuweisen.</p></li>
@@ -1057,8 +1057,8 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">count</span></code> zum Berechnen der Auftretenshäufigkeit eines strings/regulären Ausdrucks in den strings.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">strip</span></code>, <code class="docutils literal notranslate"><span class="pre">lstrip</span></code> und <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> zum Entfernen von (leading/trailing) whitespace in den strings.</p></li>
 </ul>
-<p>Neben <code class="docutils literal notranslate"><span class="pre">contains</span></code> (s. o.) ist außerdem <code class="docutils literal notranslate"><span class="pre">slice</span></code> eine nützliche pandas-string-Methode, die abweichend von ihrem nativen Python-Pendant heißt: <code class="docutils literal notranslate"><span class="pre">slice</span></code> mit den Argumenten <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span></code> implementiert die Funktionalität der eckigen Klammern, die wir bei normalen Python-strings zum Slicen verwenden.</p>
-<p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/text.html">Hier</a> findest Du mehr Infos zu sämlichen string-Methoden bei pandas. Denk stets daran, <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die jeweilige string-Methode zu hängen!</p>
+<p>Neben <code class="docutils literal notranslate"><span class="pre">contains</span></code> (s. o.) ist außerdem <code class="docutils literal notranslate"><span class="pre">slice</span></code> eine nützliche <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-string-Methode, die abweichend von ihrem nativen Python-Pendant heißt: <code class="docutils literal notranslate"><span class="pre">slice</span></code> mit den Argumenten <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span></code> implementiert die Funktionalität der eckigen Klammern, die wir bei normalen Python-strings zum Slicen verwenden.</p>
+<p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/text.html">Hier</a> findest Du mehr Infos zu sämlichen string-Methoden bei <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Denk stets daran, <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die jeweilige string-Methode zu hängen!</p>
 <p>Zwei letzte praktische Methoden sind <code class="docutils literal notranslate"><span class="pre">isin(list)</span></code> und <code class="docutils literal notranslate"><span class="pre">shift(n)</span></code>, die aber nicht string-spezifisch sind, weswegen wir <strong>kein</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die Methode hängen. <code class="docutils literal notranslate"><span class="pre">isin</span></code> überprüft, ob ein Wert Element der übergebenen Liste ist und gibt eine Series mit Boolschen Werten zurück. <code class="docutils literal notranslate"><span class="pre">shift</span></code> wiederum lässt uns auf den Inhalt benachbarter Zeilen zugreifen, konkret auf den Inhalt der um <code class="docutils literal notranslate"><span class="pre">n</span></code> nach oben (n) bzw. nach unten (-n) <em>geshifteten</em> Zeile. Das macht <code class="docutils literal notranslate"><span class="pre">shift</span></code> insbesondere für die Erstellung von n-grammen interessant. Die folgende Code-Zelle demonstriert die Erstellung von Bigrammen basierend auf einer Spalte mit Tokens (Unigrammen):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1520,10 +1520,10 @@ document.write(`
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 3:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Geh abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst pandas-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>✏️ <strong>Übung 3:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Geh abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <details>
 <summary>💡 Tipp </summary> 
-<br>Es sind dieselben Schritte wie im <code>for</code>-Loop oben nötig, allerdings formuliert in pandas-Syntax. Ggf. musst Du in der <a href="https://pandas.pydata.org/docs/">pandas Dokumentation</a> nachschlagen, wie die jeweilige Syntax der pandas-Pendants ausschaut.
+<br>Es sind dieselben Schritte wie im <code>for</code>-Loop oben nötig, allerdings formuliert in <code>pandas</code>-Syntax. Ggf. musst Du in der <a href="https://pandas.pydata.org/docs/">pandas-Dokumentation</a> nachschlagen, wie die jeweilige Syntax der <code>pandas</code>-Pendants ausschaut.
 </details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1539,7 +1539,7 @@ document.write(`
 </section>
 <section id="bedingte-bearbeitung">
 <h3>Bedingte Bearbeitung<a class="headerlink" href="#bedingte-bearbeitung" title="Link zu dieser Überschrift">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops bieten aber natürlich viel mehr Funktionalität. Etwa können wir bedingte Anweisungen einbauen, sodass die Werte je nach Bedingung unterschiedlich bearbeitet werden. Aber auch dafür bietet pandas, oder besser gesagt <em>numpy</em> (eine weitere Bibliothek, die eng mit pandas verwoben ist) eine Funktion, die sich Vektorisierung zunutze macht. Auch numpy müssen wir erst importieren (ggf. sogar noch zuerst installieren, s. o.), gängigerweise weisen wir der Bibliothek den Namen <code class="docutils literal notranslate"><span class="pre">np</span></code> zu:</p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops bieten aber natürlich viel mehr Funktionalität. Etwa können wir bedingte Anweisungen einbauen, sodass die Werte je nach Bedingung unterschiedlich bearbeitet werden. Aber auch dafür bietet <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, oder besser gesagt <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (eine weitere Bibliothek, die eng mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code> verwoben ist) eine Funktion, die sich Vektorisierung zunutze macht. Auch <code class="docutils literal notranslate"><span class="pre">numpy</span></code> müssen wir erst importieren (ggf. sogar noch zuerst installieren, s. o.), gängigerweise weisen wir der Bibliothek den Namen <code class="docutils literal notranslate"><span class="pre">np</span></code> zu:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1707,14 +1707,14 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>Super!</p>
-<p>Für den Fall, dass Du mehrere bedingte Anweisungen aneinanderhängen willst (<code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">elif</span></code>-…-<code class="docutils literal notranslate"><span class="pre">else</span></code>), kannst Du statt <code class="docutils literal notranslate"><span class="pre">where</span></code> die numpy-Funktion <code class="docutils literal notranslate"><span class="pre">select</span></code> benutzen. Wir setzen sie weiter unten noch ein.</p>
+<p>Für den Fall, dass Du mehrere bedingte Anweisungen aneinanderhängen willst (<code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">elif</span></code>-…-<code class="docutils literal notranslate"><span class="pre">else</span></code>), kannst Du statt <code class="docutils literal notranslate"><span class="pre">where</span></code> die <code class="docutils literal notranslate"><span class="pre">numpy</span></code>-Funktion <code class="docutils literal notranslate"><span class="pre">select</span></code> benutzen. Wir setzen sie weiter unten noch ein.</p>
 </section>
 <section id="apply-und-applymap">
 <h3><code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code><a class="headerlink" href="#apply-und-applymap" title="Link zu dieser Überschrift">#</a></h3>
-<p>Wie erwähnt ist die vektorisierte Art der Datenbearbeitung in pandas meistens äußerst effizient. Es gibt aber Fälle, in denen wir dennoch eine Funktion mit nativem Python-Code anwenden wollen. Entweder, weil pandas die benötigen Operationen nicht implementiert, oder weil es mit nativem Python-Code trotz allem effizienter ist (dazu gleich mehr).</p>
+<p>Wie erwähnt ist die vektorisierte Art der Datenbearbeitung in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> meistens äußerst effizient. Es gibt aber Fälle, in denen wir dennoch eine Funktion mit nativem Python-Code anwenden wollen. Entweder, weil <code class="docutils literal notranslate"><span class="pre">pandas</span></code> die benötigen Operationen nicht implementiert, oder weil es mit nativem Python-Code trotz allem effizienter ist (dazu gleich mehr).</p>
 <p>In jedem Fall bieten die Methoden <code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code> die Möglichkeit, jede beliebige Funktion (und in der Verlängerung auch jede beliebige Methode) auf eine Series oder gleich ein ganzes DataFrame anzuwenden. <code class="docutils literal notranslate"><span class="pre">apply</span></code> verwenden wir bei einer Series, <code class="docutils literal notranslate"><span class="pre">applymap</span></code> bei einem ganzen DataFrame. Angehängt an die Series bzw. das DataFrame übergeben wir ihnen schlicht den Namen der gewünschten Funktion. Es spielt keine Rolle, ob die Funktion aus der Grundausstattung von Python stammt, importiert wurde oder von Dir selbst geschrieben ist.</p>
 <p>Machen wir es konkret, und zwar in zwei kleinen Experimenten. Wir wollen die gleiche Art der Datenbearbeitung je einmal vektorisiert implementieren, und einmal über eine eigene Funktion, die wir mithilfe von <code class="docutils literal notranslate"><span class="pre">apply</span></code> auf die Daten <em>appli</em>zieren. Zum Verständnis: Rufen wir eine Funktion über <code class="docutils literal notranslate"><span class="pre">apply</span></code> (oder <code class="docutils literal notranslate"><span class="pre">applymap</span></code>) auf, wird dieser wie bei einem <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop <em>Wert für Wert</em> übergeben. Will heißen: Bei <code class="docutils literal notranslate"><span class="pre">apply</span></code> können wir nicht von der Verarbeitung mehrerer Daten auf einmal profitieren.</p>
-<p>Für das erste Experiment rufen wir ein DataFrame ins Leben, das aus einer Million Zeilen und zwei Spalten, „A“ und „B“, besteht. Das DataFrame befüllen wir mit zufälligen Zahlen zwischen null und 100 (unter Verwendung der numpy-Funktion <code class="docutils literal notranslate"><span class="pre">random.randint</span></code>). Insgesamt also ein ziemlich großes DataFrame:</p>
+<p>Für das erste Experiment rufen wir ein DataFrame ins Leben, das aus einer Million Zeilen und zwei Spalten, „A“ und „B“, besteht. Das DataFrame befüllen wir mit zufälligen Zahlen zwischen null und 100 (unter Verwendung der <code class="docutils literal notranslate"><span class="pre">numpy</span></code>-Funktion <code class="docutils literal notranslate"><span class="pre">random.randint</span></code>). Insgesamt also ein ziemlich großes DataFrame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000000</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">])</span>
@@ -1748,28 +1748,28 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>67</td>
-      <td>94</td>
+      <td>66</td>
+      <td>15</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>80</td>
-      <td>53</td>
+      <td>29</td>
+      <td>30</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>26</td>
-      <td>62</td>
+      <td>14</td>
+      <td>42</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5</td>
-      <td>82</td>
+      <td>72</td>
+      <td>95</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>62</td>
-      <td>4</td>
+      <td>66</td>
+      <td>42</td>
     </tr>
   </tbody>
 </table>
@@ -1816,33 +1816,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>67</td>
-      <td>94</td>
-      <td>6298</td>
+      <td>66</td>
+      <td>15</td>
+      <td>990</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>80</td>
-      <td>53</td>
-      <td>4240</td>
+      <td>29</td>
+      <td>30</td>
+      <td>870</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>26</td>
-      <td>62</td>
-      <td>1612</td>
+      <td>14</td>
+      <td>42</td>
+      <td>588</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5</td>
-      <td>82</td>
-      <td>410</td>
+      <td>72</td>
+      <td>95</td>
+      <td>6840</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>62</td>
-      <td>4</td>
-      <td>248</td>
+      <td>66</td>
+      <td>42</td>
+      <td>2772</td>
     </tr>
   </tbody>
 </table>
@@ -1892,33 +1892,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>67</td>
-      <td>94</td>
-      <td>6298</td>
+      <td>66</td>
+      <td>15</td>
+      <td>990</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>80</td>
-      <td>53</td>
-      <td>4240</td>
+      <td>29</td>
+      <td>30</td>
+      <td>870</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>26</td>
-      <td>62</td>
-      <td>1612</td>
+      <td>14</td>
+      <td>42</td>
+      <td>588</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5</td>
-      <td>82</td>
-      <td>410</td>
+      <td>72</td>
+      <td>95</td>
+      <td>6840</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>62</td>
-      <td>4</td>
-      <td>248</td>
+      <td>66</td>
+      <td>42</td>
+      <td>2772</td>
     </tr>
   </tbody>
 </table>
@@ -1932,15 +1932,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.0028252601623535156 
-for-Loop 7.648698806762695 
-Faktor: 2707.2546835443036
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.0035178661346435547 
+for-Loop 7.492570877075195 
+Faktor: 2129.862419518807
 </pre></div>
 </div>
 </div>
 </div>
 <p>Sehr eindrucksvoll!</p>
-<p>Gehen wir zum zweiten Experiment über, indem wir wieder ein DataFrame mit einer Million Zeilen, aber nur einer Spalte, „Satz“, schaffen. Diesmal befüllen wir das DataFrame mit dem immergleichen string (unter Verwendung der numpy-Funktion <code class="docutils literal notranslate"><span class="pre">repeat</span></code>):</p>
+<p>Gehen wir zum zweiten Experiment über, indem wir wieder ein DataFrame mit einer Million Zeilen, aber nur einer Spalte, „Satz“, schaffen. Diesmal befüllen wir das DataFrame mit dem immergleichen string (unter Verwendung der <code class="docutils literal notranslate"><span class="pre">numpy</span></code>-Funktion <code class="docutils literal notranslate"><span class="pre">repeat</span></code>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">&quot;Dies ist ein nicht besonders langer Satz.&quot;</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Satz&quot;</span><span class="p">])</span>
@@ -1995,7 +1995,7 @@ Faktor: 2707.2546835443036
 </table>
 </div></div></div>
 </div>
-<p>Hier wollen wir ebenfalls eine weitere Spalte schaffen. Sie soll ganz unspektakulär die Anzahl an Wörtern des jeweiligen strings in der Spalte „Satz“ enthalten. In diesem konstruierten Beispiel ergibt dies selbstverständlich immer sieben. Die erste Zelle enthält wieder die vektorisierte pandas-Variante, während die zweite über <code class="docutils literal notranslate"><span class="pre">apply</span></code> eine selbst geschriebene Funktion mit Python-Code aufruft.</p>
+<p>Hier wollen wir ebenfalls eine weitere Spalte schaffen. Sie soll ganz unspektakulär die Anzahl an Wörtern des jeweiligen strings in der Spalte „Satz“ enthalten. In diesem konstruierten Beispiel ergibt dies selbstverständlich immer sieben. Die erste Zelle enthält wieder die vektorisierte <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Variante, während die zweite über <code class="docutils literal notranslate"><span class="pre">apply</span></code> eine selbst geschriebene Funktion mit Python-Code aufruft.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vektorisiert</span>
@@ -2139,14 +2139,14 @@ Faktor: 2707.2546835443036
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.5794429779052734 
-for-Loop 0.5021970272064209 
-Faktor: 3.1450663630791786
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.5585572719573975 
+for-Loop 0.4947998523712158 
+Faktor: 3.1498741652576614
 </pre></div>
 </div>
 </div>
 </div>
-<p>Wir können festhalten, dass Vektorisierung bei Zahlen unglaublich effizient ist. Bei der Bearbeitung von strings hinken pandas-Operationen, jedenfalls bei großen Datenmengen, nativem Python-Code hinterher. Es sei denn Du hast riesige Mengen an strings zu bearbeiten, empfiehlt sich der Einsatz von pandas-Operationen der Einheitlichkeit halber i. d. R. dennoch.</p>
+<p>Wir können festhalten, dass Vektorisierung bei Zahlen unglaublich effizient ist. Bei der Bearbeitung von strings hinken <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Operationen, jedenfalls bei großen Datenmengen, nativem Python-Code hinterher. Es sei denn Du hast riesige Mengen an strings zu bearbeiten, empfiehlt sich der Einsatz von <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Operationen der Einheitlichkeit halber i. d. R. dennoch.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 5:</strong> Caste sämtliche Werte in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> in strings.</p>
 <details>
@@ -2179,7 +2179,7 @@ Faktor: 3.1450663630791786
 <br>
 <details>
 <summary>💡 Tipp 2 </summary>
-<br>Mach Dich in der <a href="https://matplotlib.org/stable/users/index.html">Dokumentation</a> von matplotlib, der Bibliothek zum Visualisieren von Daten, schlau, wie Du die errechneten Werte visualisieren kannst.
+<br>Mach Dich in der <a href="https://matplotlib.org/stable/users/index.html">Dokumentation</a> von <code>matplotlib</code>, der Bibliothek zum Visualisieren von Daten, schlau, wie Du die errechneten Werte visualisieren kannst.
 </details>
 <br>
 Viel Erfolg! 🙌<div class="cell docutils container">
@@ -2233,7 +2233,7 @@ Viel Erfolg! 🙌<div class="cell docutils container">
 </div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Installier ggf. <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> über das Terminal oder die Eingabeaufforderung und importier anschließend <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> (wieder so eine gängige Abkürzung). matplotlib ist die Bibliothek, die wir zum Visualisieren unserer Daten verwenden. Mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">y)</span></code> (denk an den Modulnamen davor) können wir einfach Grafiken produzieren. <code class="docutils literal notranslate"><span class="pre">x</span></code> ist dabei eine Liste oder Series an Werten, die auf der x-Achse abgebildet werden sollen und <code class="docutils literal notranslate"><span class="pre">y</span></code> eine Liste oder Series derjenigen Werte, die auf der y-Achse dargestellt werden sollen. <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> müssen gleich lange sein. Konkret wird der erste Punkt in der Grafik bei den Koordinaten <code class="docutils literal notranslate"><span class="pre">x[0]</span></code> und <code class="docutils literal notranslate"><span class="pre">y[0]</span></code> eingezeichnet, der zweite bei <code class="docutils literal notranslate"><span class="pre">x[1]</span></code> und <code class="docutils literal notranslate"><span class="pre">y[1]</span></code>, etc. Standardmäßig werden die einzelnen Punkte wie oben zu einem Graphen verbunden. Schau in den Beispieldarstellungen oben, welche Werte wir entlang der x-Achse bzw. entlang der y-Achsen plotten wollen.</p></li>
+<li><p>Installier ggf. <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> über das Terminal oder die Eingabeaufforderung und importier anschließend <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span> <span class="pre">as</span> <span class="pre">plt</span></code> (wieder so eine gängige Abkürzung). <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>ist die Bibliothek, die wir zum Visualisieren unserer Daten verwenden. Mithilfe der Funktion <code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">y)</span></code> (denk an den Modulnamen davor) können wir einfach Grafiken produzieren. <code class="docutils literal notranslate"><span class="pre">x</span></code> ist dabei eine Liste oder Series an Werten, die auf der x-Achse abgebildet werden sollen und <code class="docutils literal notranslate"><span class="pre">y</span></code> eine Liste oder Series derjenigen Werte, die auf der y-Achse dargestellt werden sollen. <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> müssen gleich lange sein. Konkret wird der erste Punkt in der Grafik bei den Koordinaten <code class="docutils literal notranslate"><span class="pre">x[0]</span></code> und <code class="docutils literal notranslate"><span class="pre">y[0]</span></code> eingezeichnet, der zweite bei <code class="docutils literal notranslate"><span class="pre">x[1]</span></code> und <code class="docutils literal notranslate"><span class="pre">y[1]</span></code>, etc. Standardmäßig werden die einzelnen Punkte wie oben zu einem Graphen verbunden. Schau in den Beispieldarstellungen oben, welche Werte wir entlang der x-Achse bzw. entlang der y-Achsen plotten wollen.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2372,7 +2372,7 @@ Viel Erfolg! 🙌<div class="cell docutils container">
 </table>
 </div></div></div>
 </div>
-<p>Eine Spalte mit sog. <em>Jahrfünften</em> können wir nun unter Verwendung von numpys <code class="docutils literal notranslate"><span class="pre">select</span></code> erstellen. Dazu definieren wir zwei Listen, eine mit „if“-Bedingungen (etwa „Wert in Spalte ‚Jahr‘ kleiner als 1970…“) und eine mit „then“-Statements (“…dann setz den Wert 1965 ein.“). Diese Listen übergeben wir der Funktion zusammen mit dem dritten Argument, das ganz einfach im „else“-Fall greift. Bedenk, dass die Reihenfolge der Elemente auf den beiden Listen ebenso wie die Reihenfolge von <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">elif</span></code>-…-Statements in normalem Python-Code entscheidend ist.</p>
+<p>Eine Spalte mit sog. <em>Jahrfünften</em> können wir nun unter Verwendung von <code class="docutils literal notranslate"><span class="pre">numpys</span></code> <code class="docutils literal notranslate"><span class="pre">select</span></code> erstellen. Dazu definieren wir zwei Listen, eine mit „if“-Bedingungen (etwa „Wert in Spalte ‚Jahr‘ kleiner als 1970…“) und eine mit „then“-Statements (“…dann setz den Wert 1965 ein.“). Diese Listen übergeben wir der Funktion zusammen mit dem dritten Argument, das ganz einfach im „else“-Fall greift. Bedenk, dass die Reihenfolge der Elemente auf den beiden Listen ebenso wie die Reihenfolge von <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">elif</span></code>-…-Statements in normalem Python-Code entscheidend ist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]</span>
@@ -2496,7 +2496,7 @@ Viel Erfolg! 🙌<div class="cell docutils container">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17df87c70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x153c7feb0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/8dfc2ca002bb9fc53652a7058bac16fb1cd86610f1ea4d81b35361a722210980.png" src="../../_images/8dfc2ca002bb9fc53652a7058bac16fb1cd86610f1ea4d81b35361a722210980.png" />
@@ -2527,7 +2527,7 @@ Viel Erfolg! 🙌<div class="cell docutils container">
             <img src="../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>

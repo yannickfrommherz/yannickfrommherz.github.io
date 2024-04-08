@@ -475,8 +475,11 @@ document.write(`
 <li><p>In Hamburg wohnen entweder weniger Menschen als oder gleich viele wie in Berlin.</p></li>
 <li><p>München ist Hamburg in Sachen Einwohnerzahl unterlegen.<br><br></p></li>
 </ul>
-<p>📌 Herausforderung: Überprüf zusätzlich im gleichen Statement, ob Berlin <em>nicht</em> kleiner als München ist, was die Einwohnerzahl anbelangt.</p>
-</li>
+ <details>
+   <summary>📌 Herausforderung </summary>
+     <br>Überprüf zusätzlich im gleichen Statement, ob Berlin <i>nicht</i> kleiner als München ist, was die Einwohnerzahl anbelangt.
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -534,8 +537,11 @@ No prognosis possible due to missing value.
 </ul>
 <ol class="arabic" start="3">
 <li><p>Mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> soll das monatliche Einkommen einer bestimmten Person referenziert werden. Beträgt es 6000€ oder mehr, fällt es in die höchste Einkommensklasse. Bei einem Betrag von unter 2000€ handelt es sich um ein Einkommen in der tiefsten Einkommensklasse. Zwischen 2000€ und unter 3000€, 3000€ und unter 4500€ sowie 4500€ und unter 6000€ fällt es in die Einkommensklasse „untere Mitte“, „Mitte“ bzw. „obere Mitte“. Formulier bedingte Anweisungen, die die entsprechende Einkommensklasse je nach Höhe von <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ausgeben.</p>
-<p>📌 Herausforderung: Was passiert, wenn das Einkommen anstatt als Zahl z. B. so vorliegt: „dreitausendsiebenhundert“? Und was, wenn mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ein noch weniger sinnvolles Objekt referenziert wird, z. B. eine Liste? Verhinder in jedem Fall, dass es zu einer Fehlermeldung kommt.</p>
-</li>
+ <details>
+   <summary>📌 Herausforderung </summary>
+     <br>Was passiert, wenn das Einkommen anstatt als Zahl z. B. so vorliegt: "dreitausendsiebenhundert"? Und was, wenn mit <code>monthly_salary</code> ein noch weniger sinnvolles Objekt referenziert wird, z. B. eine Liste? Verhinder in jedem Fall, dass es zu einer Fehlermeldung kommt.
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -619,8 +625,11 @@ invalid income
 </div>
 <ol class="arabic" start="5">
 <li><p>Erstell abermals einen string bestehend aus ausgewählten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code>. Diesmal soll der erste Buchstabe für den neuen string der erste Buchstaben des ersten Namens sein, der zweite Buchstabe für den neuen string soll der zweite Buchstabe des zweiten Namens sein, etc. Welcher neue Name entsteht so?</p>
-<p>📌 Herausforderung: Nutz die <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion zur Lösung der Übung (sofern Du es nicht bereits getan hast).</p>
-</li>
+ <details>
+   <summary>📌 Herausforderung </summary>
+     <br>Nutz die <code>range</code>-Funktion zur Lösung der Übung (sofern Du dies nicht bereits getan hast).
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -735,9 +744,13 @@ Helga
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="8">
-<li><p>📌 Herausforderung aufbauend auf Übung 7: Praktischer wäre es ja, wenn der Vokabeltrainer bei falsch übersetzten Wörtern die richtige Übersetzung ausgibt und diese Wörter dann später noch einmal abfragt. Korrekt übersetzte Wörter müssten dagegen weiterhin nur einmal abgefragt werden. Schreib den Code entsprechend so, dass jedes korrekt übersetzte Wort kein weiteres Mal abgefragt wird. Bei falsch übersetzten Wörtern soll hingegen die richtige Übersetzung angezeigt werden. Später, d. h. wenn alle (noch vorhandenen) Wörter abgefragt wurden, sollen abermals die in der letzten Iteration falsch übersetzten Wörter abgefragt werden, bis am Schluss jedes Wort einmal korrekt übersetzt wurde.<br><br>
-📌 Herausforderung zur Herausforderung: Überleg Dir, wie Du den Vokabeltrainer zusätzlich verbessern könntest.</p></li>
+<ol class="arabic" start="8">
+<li><p>Fortgeschritten (aufbauend auf Übung 7): Praktischer wäre es ja, wenn der Vokabeltrainer bei falsch übersetzten Wörtern die richtige Übersetzung ausgibt und diese Wörter dann später noch einmal abfragt. Korrekt übersetzte Wörter müssten dagegen weiterhin nur einmal abgefragt werden. Schreib den Code entsprechend so, dass jedes korrekt übersetzte Wort kein weiteres Mal abgefragt wird. Bei falsch übersetzten Wörtern soll hingegen die richtige Übersetzung angezeigt werden. Später, d. h. wenn alle (noch vorhandenen) Wörter abgefragt wurden, sollen abermals die in der letzten Iteration falsch übersetzten Wörter abgefragt werden, bis am Schluss jedes Wort einmal korrekt übersetzt wurde.<br></p>
+ <details>
+   <summary>📌 Herausforderung</summary>
+   <br>Überleg Dir, wie Du den Vokabeltrainer zusätzlich verbessern könntest.
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -807,10 +820,10 @@ Helga
 </div>
 </div>
 <ul class="simple">
-<li><p>Ideen für weitere Verbesserungsmöglichkeiten:</p>
+<li><p><em>Ideen für weitere Verbesserungsmöglichkeiten:</em></p>
 <ul>
-<li><p>zufällige Sortierung der Vokabeln bei jeder neuen Iteration – umsetzbar z. B. mithilfe von <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> (vgl. Notebook „Funktionen und Methoden Teil 2“).</p></li>
-<li><p>Einführen eines Grenzwerts, der definiert, wie oft ein Wort korrekt übersetzt werden muss, bis es aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt wird – umsetzbar z. B., indem <code class="docutils literal notranslate"><span class="pre">learnt_during_interaction</span></code> ein dictionary (statt eine Liste) ist, wobei der Wert die Anzahl an korrekten Übersetzungen pro Wort (Schlüssel) speichert. Bei jeder korrekten Übersetzung wird der Wert um eins erhöht. Alle Schlüssel, deren Werte den Grenzwert erreichen, werden aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt.</p></li>
+<li><p><em>zufällige Sortierung der Vokabeln bei jeder neuen Iteration – umsetzbar z. B. mithilfe von <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> (vgl. Notebook „Funktionen und Methoden Teil 2“).</em></p></li>
+<li><p><em>Einführen eines Grenzwerts, der definiert, wie oft ein Wort korrekt übersetzt werden muss, bis es aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt wird – umsetzbar z. B., indem <code class="docutils literal notranslate"><span class="pre">learnt_during_interaction</span></code> ein dictionary (statt eine Liste) ist, wobei der Wert die Anzahl an korrekten Übersetzungen pro Wort (Schlüssel) speichert. Bei jeder korrekten Übersetzung wird der Wert um eins erhöht. Alle Schlüssel, deren Werte den Grenzwert erreichen, werden aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt.</em></p></li>
 </ul>
 </li>
 </ul>
@@ -975,7 +988,7 @@ etc.</p>
             <img src="../../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>

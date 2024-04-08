@@ -470,26 +470,46 @@ document.write(`
 <ol class="arabic">
 <li><p>Lad Dir den Datensatz mit einer Million Sätzen aus deutschsprachigen Nachrichtentexten („News“) aus dem Jahr 2022 von der Seite des Projekts <a class="reference external" href="https://wortschatz.uni-leipzig.de/de/download/German">Wortschatz Leipzig</a> herunter und speicher ihn an einem sinnvollen Ort. Entpack die Datei (falls das bei Windows auf Anhieb nicht funktioniert, empfiehlt sich das Programm <a class="reference external" href="https://www.winrar.de">WinRAR</a>) und lies die Datei „deu_news_2022_1M-sentences.txt“ mithilfe von pandas ein. Das DataFrame soll <code class="docutils literal notranslate"><span class="pre">news_df</span></code> heißen und aus zwei Spalten (<code class="docutils literal notranslate"><span class="pre">sentence_id</span></code> und <code class="docutils literal notranslate"><span class="pre">sentence</span></code>) sowie einer Million Zeilen bestehen. Spaltennamen kannst Du mithilfe des <code class="docutils literal notranslate"><span class="pre">names</span></code>-Argument beim Einlesen definieren. Lass Dir die ersten zehn Zeilen ausgeben.</p>
 <p>Befinden sich wirklich eine Million Sätze im DataFrame? Falls dies bei Deinem DataFrame nicht der Fall ist, überleg Dir, was schief gelaufen sein könnte, denn in der Datei „deu_news_2022_1M-sentences.txt“ befinden sich garantiert eine Million Sätze.</p>
-<p>💡 Tipp: Zeilen, die ein öffnendes, aber kein schließendes Anführungszeichen beinhalten, führen dazu, dass pandas „\t“ am Ende der Zeile literal anstatt als Trennzeichen interpretiert. Dadurch landen mehrere Sätze in <em>einer</em> Zeile (nämlich alle bis zum nächsten „schließenden“ Anführungszeichen), weswegen schlussendlich weniger als eine Million Zeilen im DataFrame stehen. Informier Dich in der Dokumentation von pandas über den Parameter <code class="docutils literal notranslate"><span class="pre">quoting</span></code>, mit dessen Hilfe Du dieses Verhalten übersteuern kannst.</p>
-</li>
+ <details>
+     <summary> 💡 Tipp </summary>
+         <br> Zeilen, die ein öffnendes, aber kein schließendes Anführungszeichen beinhalten, führen dazu, dass pandas "\t" am Ende der Zeile literal anstatt als Trennzeichen interpretiert. Dadurch landen mehrere Sätze in <i>einer</i> Zeile (nämlich alle bis zum nächsten "schließenden" Anführungszeichen), weswegen schlussendlich weniger als eine Million Zeilen im DataFrame stehen. Informier Dich in der Dokumentation von pandas über den Parameter <code>quoting</code>, mit dessen Hilfe Du dieses Verhalten übersteuern kannst.
+     </details>
+     <br></li>
 </ol>
-<ol class="arabic simple" start="2">
-<li><p>Find heraus, ob es in den deutschsprachigen Nachrichten 2022 häufiger um die Ukraine oder Corona ging (unter der Annahme, dass der Datensatz repräsentativ für die deutschsprachigen Nachrichten ist).</p></li>
+<ol class="arabic" start="2">
+<li><p>Find heraus, ob es in den deutschsprachigen Nachrichten 2022 häufiger um die Ukraine oder Corona ging (unter der Annahme, dass der Datensatz repräsentativ für die deutschsprachigen Nachrichten ist).</p>
+ <details>
+ <summary>💡 Tipp </summary>
+ <br>Du kannst hierfür die Methode <code>contains</code> nutzen. Bedenk aber, dass Du bei der Arbeit mit strings in pandas noch etwas vor die Methode schreiben musst.
+ </details>
+ <br>
+</li>
 </ol>
 <ol class="arabic" start="3">
 <li><p>Schaff eine zusätzliche Spalte im DataFrame, in der die jeweilige Länge des Satzes in Wörtern verzeichnet ist.</p>
 <p>Wie lang ist der längste Satz? Wie lang ist der kürzeste Satz? Und was ist die durchschnittliche Satzlänge?</p>
 <p>Lass Dir den längsten sowie den kürzesten Satz ausgeben!</p>
-</li>
+ <details>
+ <summary>💡 Tipp </summary>
+ <br>Die Berechnung der Länge eines Satzes kommt bereits im Notebook "Datenanalyse Teil 2" vor. Schau dort noch einmal nach und pass den Code an die Aufgabe hier an.
+ </details>
+ <br></li>
 </ol>
 <ol class="arabic simple" start="4">
 <li><p>Sortier das DataFrame nach der Länge der Sätze in absteigender Reihenfolge. Welcher Schritt ist anschließend noch sinnvoll?</p></li>
 </ol>
 <ol class="arabic" start="5">
 <li><p>Bereinige sämtliche Sätze derart, dass Sonderzeichen von allen Wortanfängen und -enden entfernt werden. Dazu steht Dir die Liste <code class="docutils literal notranslate"><span class="pre">special_signs</span></code> zur Verfügung. Groß- und Kleinschreibung sollst Du beibehalten. Jeder Satz soll auch nach dem Preprocessing als ein string vorliegen.</p>
-<p>💡 Tipp: Verwend die pandas-eigene, vektorisierte Art der Datenbearbeitung und denk daran, dass Du diese auch in Kombination mit selbst definierten Funktionen verwenden kannst.</p>
-<p>📌 Herausforderung: Verwend maximal eine Zeile zur Bereinigung der Sätze.</p>
-</li>
+ <details>
+ <summary>💡 Tipp </summary>
+ <br>Verwend die pandas-eigene, vektorisierte Art der Datenbearbeitung und denk daran, dass Du diese auch in Kombination mit selbst definierten Funktionen verwenden kannst.
+ </details>
+ <br>
+ <details>
+ <summary>📌 Herausforderung </summary>
+ <br>Verwend maximal eine Zeile zur Bereinigung der Sätze.
+ </details>
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -500,8 +520,11 @@ document.write(`
 </div>
 <ol class="arabic" start="6">
 <li><p>Mit welchen zehn Wörtern beginnen die Nachrichtensätze am häufigsten?</p>
-<p>💡 Tipp: Um jeweils auf das n-te Element einer Liste in jeder Zeile einer bestimmten Spalte zuzugreifen, kannst Du <code class="docutils literal notranslate"><span class="pre">.str[n]</span></code> an den Spaltennamen anhängen.</p>
-</li>
+ <details>
+ <summary>💡 Tipp </summary>
+ <br>Um jeweils auf das n-te Element einer Liste in jeder Zeile einer bestimmten Spalte zuzugreifen, kannst Du <code>.str[n]</code> an den Spaltennamen anhängen. So kannst Du den Satzanfang addressieren und mit einer geeigneten Methode die Häufigkeiten auszählen.
+ </details>
+ <br></li>
 </ol>
 <ol class="arabic simple" start="7">
 <li><p>Und mit welchen zehn Wörtern enden die Nachrichtensätze am häufigsten?</p></li>
@@ -531,9 +554,18 @@ document.write(`
 </div>
 </div>
 <ol class="arabic" start="9">
-<li><p>Füg eine weitere Spalte namens <code class="docutils literal notranslate"><span class="pre">country</span></code> hinzu, die basierend auf der Top-Level-Domain dem Quellenlink (z. B. „.de“ oder „.ch“) angibt, aus welchem Land der jeweilige Nachrichtensatz stammt. Dies lässt sich am besten mithilfe eines regulären Ausdrucks (vgl. Notebook „Reguläre Ausdrücke“) lösen. Pandas wiederum stellt mit <code class="docutils literal notranslate"><span class="pre">findall</span></code> eine nützliche string-Methode zur Verfügung, die wir wie gewohnt auf eine ganze Spalte anwenden können und der wir problemlos einen regulären Ausdruck übergeben können.</p>
-<p>📌 Herausforderung: Lass Dir eine schön formatierte Übersicht über die absolute und eine relative Häufigkeitsverteilung der Länder ausgeben. Folgender Screenshot ist eine Idee für die Formatierung, Du kannst es aber auch anders umsetzen.</p>
- <img src="../3_Dateien/Grafiken_und_Videos/tld_overview.png" width="300"/></li>
+<li><p>Füg eine weitere Spalte namens <code class="docutils literal notranslate"><span class="pre">country</span></code> hinzu, die basierend auf der Top-Level-Domain (TLD) des Quellenlinks (z. B. „.de“ oder „.ch“) angibt, aus welchem Land der jeweilige Nachrichtensatz stammt. Dies lässt sich am leichtesten mithilfe eines regulären Ausdrucks (vgl. Notebook „Reguläre Ausdrücke“) und der Methode<code class="docutils literal notranslate"><span class="pre">findall</span></code> umsetzen. Wenn Du bereits Erfahrung mit regulären Ausdrücken hast, probier Dich gern daran aus. Sonst kannst Du die Aufgabe natürlich aber auch ohne reguläre Ausdrücke lösen.</p>
+ <details>
+ <summary>💡 Tipp </summary>
+ <br>Wenn Du nicht mit regulären Ausdrücken arbeiten willst, schau Dir im Vorfeld mit einem Editor die Links in "deu_news_2022_1M-sources.txt" an. Alle Links beginnen mit derselben Struktur. Durch Splitten an bestimmten Zeichen kannst Du die TLD extrahieren.
+ </details>
+ <br>
+ <details>
+ <summary>📌 Herausforderung </summary>
+ <br>Lass Dir eine schön formatierte Übersicht über die absolute und eine relative Häufigkeitsverteilung der Länder ausgeben. Folgender Screenshot ist eine Idee für die Formatierung, Du kannst es aber auch anders umsetzen: <br><br>
+ <img src="../3_Dateien/Grafiken_und_Videos/tld_overview.png" width="300"/>
+ </details> 
+ <br></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -564,7 +596,16 @@ document.write(`
 </ul>
 <p>Analysier nun folgenden Plot und erstell ihn anschließend selbst. Überleg Dir abschließend, ob das Sampling repräsentativ für die Größe der DACH-Länder über die Monate hinweg ist.</p>
 <p><img src="../3_Dateien/Grafiken_und_Videos/news_dach.png" width="600"/> </br></p>
-</li>
+<details>
+<summary>💡 Tipp 1</summary>
+<br>Orientier Dich an der Diagrammerstellung im Lehrnotebook "Datenanalyse Teil 2". 
+</details>
+<br>
+<details>
+<summary>💡 Tipp 2</summary>
+<br>Um den Monat aus einem Datum zu extrahieren, kannst Du an einem entsprechenden Zeichen splitten und anschließend Indexing anwenden.
+</details>
+<br></li>
 </ol>
 <hr class="docutils" />
 <table>
@@ -573,7 +614,7 @@ document.write(`
             <img src="../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>

@@ -491,8 +491,8 @@ document.write(`
 <p>In diesem zweiteiligen Notebook lernen wir, wie wir in Python große Mengen strukturierter Daten, allen voran Daten in Form von Tabellen, verarbeiten und analysieren können.</p>
 <p>Im Notebook „Input und Output Teil 2“ haben wir mit folgender Tabelle gearbeitet:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Flaechengroesste_Gemeinden_Tabelle.png">
-<p>Wir haben unter Zuhilfenahme des <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Moduls unseren eigenen Code geschrieben, um auszurechnen, wie viele der 100 flächengrößten Gemeinden sich in jedem der sechzehn Bundesländer befinden. In diesem Notebook lernen wir die sehr viel leistungsstärkere Bibliothek <em>pandas</em> kennen, die uns diese Rechnung im Handumdrehen liefern kann. Pandas kann aber viel mehr, wie wir gleich sehen werden.</p>
-<p>Zu Beginn müssen wir pandas natürlich importieren. Folgendes Statement importiert die Bibliothek und verleiht ihr den Namen <code class="docutils literal notranslate"><span class="pre">pd</span></code>. Diese Abkürzung ist eine Konvention.</p>
+<p>Wir haben unter Zuhilfenahme des <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Moduls unseren eigenen Code geschrieben, um auszurechnen, wie viele der 100 flächengrößten Gemeinden sich in jedem der sechzehn Bundesländer befinden. In diesem Notebook lernen wir die sehr viel leistungsstärkere Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code> kennen, die uns diese Rechnung im Handumdrehen liefern kann. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> kann aber viel mehr, wie wir gleich sehen werden.</p>
+<p>Zu Beginn müssen wir <code class="docutils literal notranslate"><span class="pre">pandas</span></code> natürlich importieren. Folgendes Statement importiert die Bibliothek und verleiht ihr den Namen <code class="docutils literal notranslate"><span class="pre">pd</span></code>. Diese Abkürzung ist eine Konvention.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -501,10 +501,10 @@ document.write(`
 </div>
 </div>
 <p>Solltest Du einen <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> erhalten, musst Du <code class="docutils literal notranslate"><span class="pre">pandas</span></code> erst über die Command Line installieren. Öffne dazu das Terminal (macOS/Linux) bzw. die Eingabeaufforderung (Windows) in einem neuen Fenster, gib <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">pandas</span></code> ein und drück auf Enter. Sobald der Prozess abgeschlossen ist, sollte der Import oben klappen.
-Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, nämlich dem <a class="reference external" href="https://songkorpus.de/index.html">Songkorpus</a>. Das Songkorpus beinhaltet Lieder von bekannten deutschen Künstler:innen, u. a. von Udo Lindenberg und Fettes Brot und umspannt die Jahre 1969-2022. Öffentlich herunterladbar sind unter anderem Worthäufigkeiten pro Jahr und zwar als Tabelle (auf der Webseite selbst finden sich weitere spannende Daten und Analysen). Jedes Wort, das in einem oder mehreren Songs in einem bestimmten Jahr vorkommt, steht in einer eigenen Zeile, zusammen mit dem entsprechenden Jahr und der Häufigkeit, mit der es in diesem Jahr bei allen Künstler:innen auftritt (s. u.). Insgesamt handelt es sich um über 380.000 Wörter. Solch eine tabellarische Datei, zumal derart groß, ist prädestiniert dazu, mit pandas verarbeitet zu werden.</p>
+Um <code class="docutils literal notranslate"><span class="pre">pandas</span></code> kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, nämlich dem <a class="reference external" href="https://songkorpus.de/index.html">Songkorpus</a>. Das Songkorpus beinhaltet Lieder von bekannten deutschen Künstler:innen, u. a. von Udo Lindenberg und Fettes Brot und umspannt die Jahre 1969-2022. Öffentlich herunterladbar sind unter anderem Worthäufigkeiten pro Jahr und zwar als Tabelle (auf der Webseite selbst finden sich weitere spannende Daten und Analysen). Jedes Wort, das in einem oder mehreren Songs in einem bestimmten Jahr vorkommt, steht in einer eigenen Zeile, zusammen mit dem entsprechenden Jahr und der Häufigkeit, mit der es in diesem Jahr bei allen Künstler:innen auftritt (s. u.). Insgesamt handelt es sich um über 380.000 Wörter. Solch eine tabellarische Datei, zumal derart groß, ist prädestiniert dazu, mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code> verarbeitet zu werden.</p>
 <section id="input">
 <h2>Input<a class="headerlink" href="#input" title="Link zu dieser Überschrift">#</a></h2>
-<p>In der folgenden Zelle öffnen wir die Datei, die sich bereits in „3_Dateien/Songkorpus“ befindet, und lesen sie mit der pandas-Funktion <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> ein, die neben dem Dateipfad u. a. auch das Trennzeichen (<code class="docutils literal notranslate"><span class="pre">sep</span></code>, in diesem Fall der Tabulator „\t“) als Argument nimmt:</p>
+<p>In der folgenden Zelle öffnen wir die Datei, die sich bereits in „3_Dateien/Songkorpus“ befindet, und lesen sie mit der <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Funktion <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> ein, die neben dem Dateipfad u. a. auch das Trennzeichen (<code class="docutils literal notranslate"><span class="pre">sep</span></code>, in diesem Fall der Tabulator „\t“) als Argument nimmt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vor &#39;read_csv&#39; steht wie gewohnt der Modulname, damit Python weiß, wo sich die Funktion befindet</span>
@@ -583,8 +583,8 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 </div>
 </div>
 </div>
-<p>Neben <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> für Dateien mit Trennzeichen bietet pandas u. a. auch Funktionen für XML (<code class="docutils literal notranslate"><span class="pre">read_xml</span></code>), JSON (<code class="docutils literal notranslate"><span class="pre">read_json</span></code>)  und Excel-Dateien (<code class="docutils literal notranslate"><span class="pre">read_excel</span></code>) an. Ebenfalls kann man je nach Daten weitere Parameter spezifizieren, u. a. <code class="docutils literal notranslate"><span class="pre">na_filter</span></code>, um zu definieren, wie mit fehlenden Werten (sog. <em>NaN-Werten</em>) umgegangen werden soll.</p>
-<p><em>Bemerkung am Rande: Fehlende Werte führen immer wieder zu Problemen bei der Arbeit mit pandas. Deswegen solltest Du Dich beim Einlesen Deiner eigenen Daten stets fragen, ob bestimmte Werte darin fehlen könnten und wenn ja, wie Du damit umgehen möchtest. Pandas bietet neben <code class="docutils literal notranslate"><span class="pre">na_filter</span></code> nützliche Methoden wie <code class="docutils literal notranslate"><span class="pre">isna</span></code>, <code class="docutils literal notranslate"><span class="pre">dropna</span></code> und <code class="docutils literal notranslate"><span class="pre">fillna</span></code> für den Umgang mit fehlenden Werten (mehr Infos <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/missing_data.html">hier</a>). Im Folgenden gehen wir aber nicht darauf ein, im Songkorpus fehlen schlicht keine Werte.</em></p>
+<p>Neben <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> für Dateien mit Trennzeichen bietet <code class="docutils literal notranslate"><span class="pre">pandas</span></code> u. a. auch Funktionen für XML (<code class="docutils literal notranslate"><span class="pre">read_xml</span></code>), JSON (<code class="docutils literal notranslate"><span class="pre">read_json</span></code>)  und Excel-Dateien (<code class="docutils literal notranslate"><span class="pre">read_excel</span></code>) an. Ebenfalls kann man je nach Daten weitere Parameter spezifizieren, u. a. <code class="docutils literal notranslate"><span class="pre">na_filter</span></code>, um zu definieren, wie mit fehlenden Werten (sog. <em>NaN-Werten</em>) umgegangen werden soll.</p>
+<p><em>Bemerkung am Rande: Fehlende Werte führen immer wieder zu Problemen bei der Arbeit mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Deswegen solltest Du Dich beim Einlesen Deiner eigenen Daten stets fragen, ob bestimmte Werte darin fehlen könnten und wenn ja, wie Du damit umgehen möchtest. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> bietet neben <code class="docutils literal notranslate"><span class="pre">na_filter</span></code> nützliche Methoden wie <code class="docutils literal notranslate"><span class="pre">isna</span></code>, <code class="docutils literal notranslate"><span class="pre">dropna</span></code> und <code class="docutils literal notranslate"><span class="pre">fillna</span></code> für den Umgang mit fehlenden Werten (mehr Infos <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/missing_data.html">hier</a>). Im Folgenden gehen wir aber nicht darauf ein, im Songkorpus fehlen schlicht keine Werte.</em></p>
 <p>Die Lesemethode überführt unsere Daten in jedem Fall in ein sog. <em>DataFrame</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -603,7 +603,7 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 </div>
 </div>
 </div>
-<p>DataFrames sind ein eigener Datentyp von pandas, auf den wir eine Vielzahl nützlicher Operationen anwenden können, etwa um einen Überblick über die Daten zu bekommen.</p>
+<p>DataFrames sind ein eigener Datentyp von <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, auf den wir eine Vielzahl nützlicher Operationen anwenden können, etwa um einen Überblick über die Daten zu bekommen.</p>
 </section>
 <section id="uberblick-bekommen">
 <h2>Überblick bekommen<a class="headerlink" href="#uberblick-bekommen" title="Link zu dieser Überschrift">#</a></h2>
@@ -758,7 +758,7 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 </div>
 </div>
 <p>Die dot-Notation erfüllt (fast immer) die gleiche Funktion wie die Zugriffsweise über eckige Klammern, auf die wir uns fortan beschränken.</p>
-<p>In jedem Fall entspricht das, was wir dabei zurückerhalten, dem zweiten wichtigen Datentyp von pandas neben <em>DataFrame</em>, nämlich einer sog. <em>Series</em>:</p>
+<p>In jedem Fall entspricht das, was wir dabei zurückerhalten, dem zweiten wichtigen Datentyp von <code class="docutils literal notranslate"><span class="pre">pandas</span></code> neben <em>DataFrame</em>, nämlich einer sog. <em>Series</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span>
@@ -889,7 +889,7 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 </div>
 </div>
 </div>
-<p>Zur Verdeutlichung: Sowohl eine Sequenz von Werten einer Spalte als auch eine Sequenz von Werten einer Zeile entsprechen bei pandas einer Series. Entscheidend ist bloß, dass nur <strong>eine einzige</strong> Dimension vorliegt. Sobald ein Objekt sowohl mehrere Spalten als auch mehrere Zeilen umfasst, handelt es sich um ein DataFrame.</p>
+<p>Zur Verdeutlichung: Sowohl eine Sequenz von Werten einer Spalte als auch eine Sequenz von Werten einer Zeile entsprechen bei <code class="docutils literal notranslate"><span class="pre">pandas</span></code> einer Series. Entscheidend ist bloß, dass nur <strong>eine einzige</strong> Dimension vorliegt. Sobald ein Objekt sowohl mehrere Spalten als auch mehrere Zeilen umfasst, handelt es sich um ein DataFrame.</p>
 <p>Ein solches Objekt können wir auch über <code class="docutils literal notranslate"><span class="pre">loc</span></code> erhalten, indem wir auf mehrere Zeilen gleichzeitig zugreifen. Dies funktioniert wie bei dem Zugriff auf mehrere Spalten (s. o), indem wir mehrere Indizes als Liste übergeben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -928,7 +928,7 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 </div>
 </div>
 </div>
-<p>Im Gegensatz zu gewöhnlichem Slicing bei Listen wird der letzte Index bei pandas miteingerechnet („inklusiv“, vgl. Notebook „Datentypen“).</p>
+<p>Im Gegensatz zu gewöhnlichem Slicing bei Listen wird der letzte Index bei <code class="docutils literal notranslate"><span class="pre">pandas</span></code> miteingerechnet („inklusiv“, vgl. Notebook „Datentypen“).</p>
 <p>Abschließend sei erwähnt, dass Zeilen nicht zwingend mit <em>numerischen</em> Indizes durchnummeriert sein müssen. Zeilen können wie Spalten ebenfalls Namen haben. Dieses Szenario wollen wir in der nächsten Übung mit denselben Daten durchspielen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 2:</strong></p>
@@ -1109,7 +1109,7 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 </div>
 </div>
 <hr class="docutils" />
-<p>Sehr gut. Zusätzlich zum klassischen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop und der List Comprehension lernen wir weiter unten eine dritte, pandas-eigene Technik kennen, mit der wir den modifizierten Inhalt einer Spalte in eine andere schreiben können.</p>
+<p>Sehr gut. Zusätzlich zum klassischen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop und der List Comprehension lernen wir weiter unten eine dritte, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-eigene Technik kennen, mit der wir den modifizierten Inhalt einer Spalte in eine andere schreiben können.</p>
 <p>Schauen wir uns nun an, wie wir Zeilen zu einem DataFrame hinzufügen können.</p>
 </section>
 <section id="zeilen-hinzufugen">
@@ -1180,7 +1180,7 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
 <section id="deskriptive-statistiken">
 <h2>Deskriptive Statistiken<a class="headerlink" href="#deskriptive-statistiken" title="Link zu dieser Überschrift">#</a></h2>
 <p>Einige der Spalten in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> enthalten ja numerische Werte, konkret die Spalten „Jahr“, „Häufigkeit“ und „Länge“ (die Werte in „Jahrzehnt“ haben wir als string abgespeichert, s. o.). Numerischen Werten nähern wir uns am besten über deskriptive Statistiken, also etwa über Minimal- und Maximalwerte.</p>
-<p>Pandas bietet dafür eine Reihe nützlicher Methoden: Angewandt auf eine Spalte gibt <code class="docutils literal notranslate"><span class="pre">min</span></code> den kleinsten Wert darin zurück, <code class="docutils literal notranslate"><span class="pre">max</span></code> den größten, <code class="docutils literal notranslate"><span class="pre">mean</span></code> das arithmetische Mittel, <code class="docutils literal notranslate"><span class="pre">median</span></code> den Median und <code class="docutils literal notranslate"><span class="pre">sum</span></code> die Summe aller Werte.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> bietet dafür eine Reihe nützlicher Methoden: Angewandt auf eine Spalte gibt <code class="docutils literal notranslate"><span class="pre">min</span></code> den kleinsten Wert darin zurück, <code class="docutils literal notranslate"><span class="pre">max</span></code> den größten, <code class="docutils literal notranslate"><span class="pre">mean</span></code> das arithmetische Mittel, <code class="docutils literal notranslate"><span class="pre">median</span></code> den Median und <code class="docutils literal notranslate"><span class="pre">sum</span></code> die Summe aller Werte.</p>
 <p>Bevor wir dies tun, stellen wir noch sicher, dass die oben hinzugefügten Zeilen auch wirklich nicht mehr vorhanden sind, schließlich soll das achthundertfach vorkommende „Fantasiewort“ unsere Statistiken nicht verzerren. Anstatt die <code class="docutils literal notranslate"><span class="pre">drop</span></code>-Methode von oben wählen wir hier einen anderen Weg, nämlich Slicing:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1409,7 +1409,7 @@ Um pandas kennenzulernen, wollen wir mit einem großen Datensatz arbeiten, näml
             <img src="../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
         </td> 
         <td>
-            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung.
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
         </td>
       </tr>
 </table></section>
