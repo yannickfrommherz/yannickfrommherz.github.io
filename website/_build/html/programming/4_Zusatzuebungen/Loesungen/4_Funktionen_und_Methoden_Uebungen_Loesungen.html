@@ -749,40 +749,40 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Verschlüsselungscode:
-a y
-b p
-c ä
-d i
-e t
-f ß
-g d
-h w
-i v
-j ü
-k j
-l s
-m m
-n c
-o x
+a j
+b t
+c x
+d a
+e p
+f v
+g m
+h ß
+i w
+j f
+k y
+l i
+m n
+n r
+o u
 p h
-q a
-r r
+q ä
+r e
 s o
-t e
-u n
-v b
-w ö
-x f
-y z
-z u
-ä k
-ö q
-ü l
-ß g
+t s
+u q
+v d
+w l
+x k
+y g
+z ü
+ä ö
+ö b
+ü z
+ß c
 
-Verschlüsselte Nachricht: itr$dxsipyrrtc$voe$vc$itr$evtßjlwsernwt$vc$tvctm$vjty$ßrvoäwwysetptnets$mve$prxjjxsvrqoäwtc$btroetäje$
+Verschlüsselte Nachricht: ape$muiatjeepr$wos$wr$ape$swpvyzßiseqßp$wr$pwrpn$wypj$vewoxßßjisptpqspi$nws$teuyyuiweboxßpr$dpeospxys$
 
-Verschlüsselte Nachricht mit Ablenkungszeichen: itr$dx|sipyrrtc$voe$vc$itr$evt{ßj≠lwser&#39;n¡wt}$&amp;vc$tvctm$/v(≠jty≠$=ßr|voäwwysetptne&amp;ts$m&amp;ve$¢p≠r{xjjxsvrqoäwtc$b=troet¡äje$
+Verschlüsselte Nachricht mit Ablenkungszeichen: ap“e$}muiatjee(pr$w¡os$wr$ape$s≠¡wpvyz}ßis=eqß≠p$wr≠$pwrpn$wypj$vew}oxßßji]sp|tpqs[p&amp;i$n}ws$t?e|uyyui]w&#39;eboxßpr$dpeospxys$
 </pre></div>
 </div>
 </div>
@@ -1017,16 +1017,20 @@ Verschlüsselte Nachricht mit Ablenkungszeichen: itr$dx|sipyrrtc$voe$vc$itr$evt{
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;wir setzen uns für&#39;, 41),
- (&#39;gemeinsam mit den ländern&#39;, 20),
- (&#39;setzen uns für eine&#39;, 14),
- (&#39;auf den weg bringen&#39;, 12),
- (&#39;uns dafür ein dass&#39;, 8),
- (&#39;setzen wir uns für&#39;, 8),
- (&#39;setzen uns für ein&#39;, 8),
- (&#39;ausbau der erneuerbaren energien&#39;, 8),
- (&#39;im dialog mit den&#39;, 7),
- (&#39;setzen uns für die&#39;, 7)]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">59</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/koalitionsvertrag_2021.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="n">kv21</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">59</span> <span class="n">ngram_freqs</span><span class="p">(</span><span class="n">kv21</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="nn">Cell In[13], line 51,</span> in <span class="ni">ngram_freqs</span><span class="nt">(text, n)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> 
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="k">for</span> <span class="n">type_</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">51</span>     <span class="n">freq_dict</span><span class="p">[</span><span class="n">type_</span><span class="p">]</span> <span class="o">=</span> <span class="n">ngrams</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">type_</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
