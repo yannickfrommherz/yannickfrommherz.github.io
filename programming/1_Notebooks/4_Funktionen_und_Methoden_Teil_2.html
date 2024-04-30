@@ -841,7 +841,20 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;werden&#39;, 1032), (&#39;wollen&#39;, 905), (&#39;ist&#39;, 263), (&#39;stärken&#39;, 215), (&#39;deutschland&#39;, 194), (&#39;wird&#39;, 186), (&#39;sind&#39;, 178), (&#39;insbesondere&#39;, 162), (&#39;unterstützen&#39;, 143), (&#39;dazu&#39;, 137)]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1979</span><span class="o">/</span><span class="mf">3347628041.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">top_ten</span> <span class="o">=</span> <span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="c1">#Hier weisen wir die zehn häufigsten Schlüsselwörter direkt einer Variable zu.</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">top_ten</span><span class="p">)</span>
+
+<span class="nn">~/work/yfrommherz.ch/yfrommherz.ch/website/programming/3_Dateien/Module/keywords.py</span> in <span class="ni">get_freqs</span><span class="nt">(text, stopwords)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Takes in text as string and stopwords as list, returns frequency for all types in text, excluding stopwords.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tqdm&#39;
 </pre></div>
 </div>
 </div>
@@ -873,7 +886,23 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;werden&#39;, 1032), (&#39;wollen&#39;, 905), (&#39;ist&#39;, 263), (&#39;stärken&#39;, 215), (&#39;deutschland&#39;, 194), (&#39;wird&#39;, 186), (&#39;sind&#39;, 178), (&#39;insbesondere&#39;, 162), (&#39;unterstützen&#39;, 143), (&#39;dazu&#39;, 137)]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1979</span><span class="o">/</span><span class="mf">3030200677.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">keywords</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">top_ten</span> <span class="o">=</span> <span class="n">keywords</span><span class="o">.</span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">top_ten</span><span class="p">)</span>
+
+<span class="nn">~/work/yfrommherz.ch/yfrommherz.ch/website/programming/3_Dateien/Module/keywords.py</span> in <span class="ni">get_freqs</span><span class="nt">(text, stopwords)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Takes in text as string and stopwords as list, returns frequency for all types in text, excluding stopwords.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tqdm&#39;
 </pre></div>
 </div>
 </div>
@@ -891,7 +920,23 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;neuniederlassung&#39;, 1), (&#39;verjährbaren&#39;, 1), (&#39;erdgas&#39;, 1), (&#39;fields&#39;, 1), (&#39;angesehenen&#39;, 1), (&#39;sensibles&#39;, 1), (&#39;revitalisierung&#39;, 1), (&#39;hirschfeld&#39;, 1), (&#39;schwerpunktsetzungen&#39;, 1), (&#39;buchpreisbindungsgesetz&#39;, 1)]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1979</span><span class="o">/</span><span class="mf">3587157498.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">keywords</span> <span class="k">as</span> <span class="nn">kw</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">bottom_ten</span> <span class="o">=</span> <span class="n">kw</span><span class="o">.</span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="o">-</span><span class="mi">11</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">bottom_ten</span><span class="p">)</span>
+
+<span class="nn">~/work/yfrommherz.ch/yfrommherz.ch/website/programming/3_Dateien/Module/keywords.py</span> in <span class="ni">get_freqs</span><span class="nt">(text, stopwords)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Takes in text as string and stopwords as list, returns frequency for all types in text, excluding stopwords.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;tqdm&#39;
 </pre></div>
 </div>
 </div>
@@ -926,7 +971,7 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[13, 40, 28, 35, 60, 80, 86, 57, 58, 12]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11, 87, 63, 43, 14, 42, 53, 72, 43, 98]
 </pre></div>
 </div>
 </div>
