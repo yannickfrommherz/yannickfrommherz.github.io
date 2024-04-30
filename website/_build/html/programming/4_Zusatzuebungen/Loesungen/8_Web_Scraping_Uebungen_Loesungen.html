@@ -1,0 +1,1294 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lösungen zu den Zusatzübungen zum Notebook „Web Scraping“ &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/4_Zusatzuebungen/Loesungen/8_Web_Scraping_Uebungen_Loesungen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/4_Zusatzuebungen/Loesungen/8_Web_Scraping_Uebungen_Loesungen.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../phd.html">PhD project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publications.html">Publications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/1_Einfuehrung.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/2_Datentypen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/3_Kontrollstrukturen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/4_Funktionen_und_Methoden_Teil_1.html">Funktionen und Methoden Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/4_Funktionen_und_Methoden_Teil_2.html">Funktionen und Methoden Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/5_Input_und_Output_Teil_1.html">Input und Output Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/5_Input_und_Output_Teil_2.html">Input und Output Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/6_Datenanalyse_Teil_1.html">Datenanalyse Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/6_Datenanalyse_Teil_2.html">Datenanalyse Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/7_Regulaere_Ausdruecke.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/1_Einfuehrung_Loesungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/2_Datentypen_Loesungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/3_Kontrollstrukturen_Loesungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Teil_1_Loesungen.html">Funktionen und Methoden Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/4_Funktionen_und_Methoden_Teil_2_Loesungen.html">Funktionen und Methoden Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/5_Input_und_Output_Teil_1_Loesungen.html">Input und Output Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/5_Input_und_Output_Teil_2_Loesungen.html">Input und Output Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/6_Datenanalyse_Teil_1_Loesungen.html">Datenanalyse Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/6_Datenanalyse_Teil_2_Loesungen.html">Datenanalyse Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../1_Notebooks/Loesungen/7_Regulaere_Ausdruecke_Loesungen.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_Einfuehrung_Uebungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_Datentypen_Uebungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_Kontrollstrukturen_Uebungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Funktionen_und_Methoden_Uebungen.html">Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_Input_und_Output_Uebungen.html">Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_Datenanalyse_Uebungen.html">Datenanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7_Regulaere_Ausdruecke_Uebungen.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung_Uebungen_Loesungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen_Uebungen_Loesungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen_Uebungen_Loesungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden_Uebungen_Loesungen.html">Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output_Uebungen_Loesungen.html">Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Datenanalyse_Uebungen_Loesungen.html">Datenanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_Regulaere_Ausdruecke_Uebungen_Loesungen.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/4_Zusatzuebungen/Loesungen/8_Web_Scraping_Uebungen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/yannickfrommherz/yfrommherz.ch/blob/main/website/programming/4_Zusatzuebungen/Loesungen/8_Web_Scraping_Uebungen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/4_Zusatzuebungen/Loesungen/8_Web_Scraping_Uebungen_Loesungen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/programming/4_Zusatzuebungen/Loesungen/8_Web_Scraping_Uebungen_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lösungen zu den Zusatzübungen zum Notebook „Web Scraping“</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="losungen-zu-den-zusatzubungen-zum-notebook-web-scraping">
+<h1>Lösungen zu den Zusatzübungen zum Notebook „Web Scraping“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-web-scraping" title="Link zu dieser Überschrift">#</a></h1>
+<p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
+<ol class="arabic">
+<li><p>Der in der Code-Zelle gegebene HTML-Code soll folgende Ausgabe erzeugen:</p>
+<p><img alt="" src="../../../_images/HTML_Code.png" /></p>
+<p>Aktuell fehlen im <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code>-Element noch einige Tags. Überleg Dir mithilfe des Bildes, welche das sein könnten und an welchen Stellen sie fehlen. Ergänz sie in den bereits gegebenen <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>. Du kannst Dir den vervollständigten Code z. B. auf <a class="reference external" href="https://www.sejda.com/de/html-to-pdf">dieser Website</a> als PDF anzeigen lassen, um ihn mit dem Screenshot abzugleichen.</p>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p>Die Website <a class="reference external" href="https://manova.news">manova.news</a> (ehemals <em>Rubikon</em>, <a class="reference external" href="https://de.wikipedia.org/wiki/Rubikon_(Website)">siehe Wikipedia-Eintrag</a>) versteht sich als Nachrichtenportal, verbreitet aber häufig Verschwörungstheorien. Wir wollen die Sprache der Webseite genauer unter die Lupe nehmen. Dazu konzentrieren wir uns zunächst auf Schlagzeilen bzw. Überschriften in der Rubrik <a class="reference external" href="https://www.manova.news/section/21"><em>Natur und Mitwelt</em></a>.</p>
+<p>Verschaff Dir einen Überblick über die Seite und überleg Dir, worauf Du beim Scraping <em>aller</em> Schlagzeilen bzw. Überschriften in dieser Rubrik achten musst. Schau dazu im Quelltext nach. Notier Deine Antwort in der folgenden Code-Zelle.</p>
+<p>Halt außerdem stichpunktartig fest, wie Du beim Abruf- und Extraktionsschritt vorgehen willst.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Worauf muss geachtet werden?</span>
+<span class="sd">Pagination: Die Beiträge sind auf mehrere Unterseiten verteilt und es gibt keine Möglichkeit, alle Beiträge </span>
+<span class="sd">auf einer Seite anzuzeigen. Folglich müssen die Seiten nacheinander abgerufen werden, um wirklich alle Schlagzeilen </span>
+<span class="sd">extrahieren zu können.&#39;&#39;&#39;</span>
+
+<span class="sd">&#39;&#39;&#39;Vorgehen beim Abrufen und Extrahieren:</span>
+<span class="sd">1. Im Seitenquelltext herausfinden, wie man von einer Seite auf die jeweils nächste Seite gelangt. Dabei fällt auf, </span>
+<span class="sd">dass im Quelltext jeweils nur die Linkendung angegeben ist, welche noch um den Stammlink ergänzt werden muss </span>
+<span class="sd">(vgl. Notebook &quot;Web Scraping Teil 1&quot;, Übung 1).</span>
+<span class="sd">2. Coden einer Kontrollstruktur, die die aktuelle Seite scrapt, den Link zur nächsten Seite extrahiert und auf diese</span>
+<span class="sd">Weise alle Seiten bis zur letzten nacheinander scrapt. Anhängen aller Quelltexte an eine Liste.</span>
+<span class="sd">3. Extrahieren der Headlines, Orientierung am Tag &lt;h2&gt;.&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Vorgehen beim Abrufen und Extrahieren:\n1. Im Seitenquelltext herausfinden, wie man von einer Seite auf die jeweils nächste Seite gelangt. Dabei fällt auf, \ndass im Quelltext jeweils nur die Linkendung angegeben ist, welche noch um den Stammlink ergänzt werden muss \n(vgl. Notebook &quot;Web Scraping Teil 1&quot;, Übung 1).\n2. Coden einer Kontrollstruktur, die die aktuelle Seite scrapt, den Link zur nächsten Seite extrahiert und auf diese\nWeise alle Seiten bis zur letzten nacheinander scrapt. Anhängen aller Quelltexte an eine Liste.\n3. Extrahieren der Headlines, Orientierung am Tag &lt;h2&gt;.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Ruf nun den Quelltext aller Unterseiten der gegebenen Rubrik ab und speicher deren Quelltexte in einer Liste. Verwend hier wenn möglich einen regulären Ausdruck. Lass Dir anschließend in der zweiten Code-Zelle zur Kontrolle die ersten 1000 Zeichen des ersten Quelltexts ausgeben.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Abrufschritt mit Nutzung regulärer Ausdrücke</span>
+
+<span class="kn">import</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#39;</span><span class="p">}</span>
+
+<span class="sd">&quot;&quot;&quot;Definieren eines regulären Ausdrucks, um den Link zur jeweils nächsten Seite zu extrahieren;</span>
+<span class="sd">Runde Klammern umschließen Gruppe mit eigentlichem Link; &#39;\S+&#39; matcht ein oder mehrere Zeichen, </span>
+<span class="sd">die nicht whitespace sind (vgl. Notebook &quot;Reguläre Ausdrücke&quot;)&quot;&quot;&quot;</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&lt;a class=&quot;button secondary&quot; rel=&quot;next&quot; href=&quot;(\S+)&lt;/a&gt;&#39;</span> 
+
+<span class="c1">#Definieren von Stammlink, erster Linkendung sowie des kompletten Links zur ersten zu scrapenden Seite</span>
+<span class="n">base_link</span> <span class="o">=</span> <span class="s2">&quot;https://www.manova.news&quot;</span>
+<span class="n">link_ending</span> <span class="o">=</span> <span class="s2">&quot;/section/21&quot;</span>
+<span class="n">link</span> <span class="o">=</span> <span class="n">base_link</span> <span class="o">+</span> <span class="n">link_ending</span>
+
+<span class="n">all_pages</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die unten die einzelnen Quelltexte gehängt werden</span>
+
+<span class="sd">&quot;&quot;&quot;&#39;while&#39;-Schleife scrapt eine paginierte Seite nach der anderen, bis kein Link mehr auf eine nächste Seite</span>
+<span class="sd">im Quelltext gefunden wird&quot;&quot;&quot;</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aktuell wird die Seite </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2"> gescrapt.&quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des Fortschritts</span>
+    
+    <span class="n">current_page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> <span class="c1">#Abruf des Quelltexts zum aktuellen Link</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Definieren des Encodings des Quelltexts (&#39;requests&#39; geht unspezifiziert vom falschen Encoding aus, </span>
+<span class="sd">    was sich z. B. an Umlauten zeigt)&quot;&quot;&quot;</span>
+    <span class="n">current_page</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span> 
+    
+    <span class="c1">#Anfügen des eigentlichen Quelltexts der aktuellen Seite (Zugriff über &#39;text&#39;-Attribut) an &#39;all_pages&#39;</span>
+    <span class="n">all_pages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_page</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> 
+    
+    <span class="c1">#Quelltext nach regulärem Ausdruck absuchen, der den Link zur nächsten Seite matcht</span>
+    <span class="n">next_page</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">current_page</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    
+    <span class="c1">#Wenn ein match gefunden wird...</span>
+    <span class="k">if</span> <span class="n">next_page</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;...Definieren des Links für die nächste Seite, indem wir mithilfe der </span>
+<span class="sd">        &#39;group&#39;-Methode auf die erste Gruppe zugreifen und die neue Linkendung an den Stammlink hängen.&quot;&quot;&quot;</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="n">base_link</span> <span class="o">+</span> <span class="n">next_page</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#Wenn nicht, ist die Rubrik komplett gescrapt und die &#39;while&#39;-Schleife wird abgebrochen.</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=2&quot;&gt;2 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=3&quot;&gt;3 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=4&quot;&gt;4 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=5&quot;&gt;5 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=6&quot;&gt;6 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=7&quot;&gt;7 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=8&quot;&gt;8 gescrapt.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Abrufschritt ohne die Nutzung regulärer Ausdrücke: Dieser Lösungsvorschlag enthält eine hardgecodete Abrufschleife, </span>
+<span class="sd">was die Übertragbarkeit des Codes etwa auf andere Rubriken der Webseite einschränkt. Um das Hardcoding zu vermeiden </span>
+<span class="sd">und trotzdem keine regulären Ausdrücke einzusetzen, könnten wir auch den jeweiligen Quelltext mit &#39;BeautifulSoup&#39; parsen </span>
+<span class="sd">und die &#39;find&#39;-Methode verwenden, um das Element mit dem Link auf die jeweils nächste Seite daraus zu extrahieren.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#39;</span><span class="p">}</span>
+
+<span class="n">all_pages</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#An die Liste werden anschließend die Quelltexte angehängt</span>
+
+<span class="c1">#hardgecodete Zählschleife mit &#39;range&#39; von 1 bis 9 (letzte Seitenzahl plus eins, da Endindex exklusive)</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.manova.news/section/21?page=</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span> <span class="c1">#Nutzung eines f-strings, da sich bei der Linksendung nur die Seitenzahl ändert.</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aktuell wird die Seite </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2"> gescrapt.&quot;</span><span class="p">)</span>
+    
+    <span class="n">current_page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> <span class="c1">#Abruf des Quelltexts zum aktuellen Link</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Definieren des Encodings des Quelltexts (&#39;requests&#39; geht unspezifiziert vom falschen Encoding aus, </span>
+<span class="sd">    was sich z. B. an Umlauten zeigt)&quot;&quot;&quot;</span>
+    <span class="n">current_page</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span> 
+    
+    <span class="c1">#Anfügen des eigentlichen Quelltexts der aktuellen Seite (Zugriff über &#39;text&#39;-Attribut) an &#39;all_pages&#39;</span>
+    <span class="n">all_pages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_page</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=1 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=2 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=3 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=4 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=5 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=6 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=7 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=8 gescrapt.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ausgabe der ersten 1000 Zeichen des ersten Quelltexts (mit Index null)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_pages</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">])</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;!doctype html&gt;
+&lt;html lang=&quot;de&quot;&gt;
+&lt;head&gt;
+  &lt;meta content=&quot;IE=edge&quot; http-equiv=&quot;X-UA-Compatible&quot;&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta content=&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot; name=&quot;viewport&quot;&gt;
+  &lt;title&gt;Natur &amp;amp; Mitwelt | Manova&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;Manova, das Magazin für neue Perspektiven und lebendige Debatten.&quot;&gt;
+&lt;meta property=&quot;og:type&quot; content=&quot;website&quot;&gt;
+&lt;meta property=&quot;og:url&quot; content=&quot;https://www.manova.news/section/21?page=1&quot;&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;https://www.manova.news/images/banner-logo.png&quot;&gt;
+  &lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;180x180&quot; href=&quot;/apple-touch-icon.png&quot;&gt;
+  &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;/favicon-32x32.png&quot; sizes=&quot;32x32&quot;&gt;
+  &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;/favicon-16x16.png&quot; sizes=&quot;16x16&quot;&gt;
+  &lt;link rel=&quot;manifest&quot; href=&quot;/manifest.json&quot;&gt;
+  &lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#2d89ef&quot;&gt;
+  &lt;meta name=&quot;msa
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Extrahier nun alle Schlagzeilen bzw. Überschriften der angeteaserten Artikel und lass sie Dir ausgeben.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">all_pages</span><span class="p">:</span> <span class="c1">#Iterieren über die Liste &#39;all_pages&#39;</span>
+    
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">)</span> <span class="c1">#Initialisieren eines &#39;BeautifulSoup&#39;-Objekts mit dem jeweiligen Quelltext</span>
+    
+    <span class="c1">#Da alle Überschriften im &lt;body&gt;-Element stehen, können wir unser &#39;BeautifulSoup&#39;-Objekt &quot;maßschneidern&quot;</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span>
+    
+    <span class="c1">#Iterieren über eine Liste mit allen gefundenen &lt;h2&gt;-Elementen, also allen Schlagzeilen bzw. Überschriften</span>
+    <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h2&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="c1">#Ausgabe des Textinhalts jedes Elements, bereinigt von whitespace</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die totgesagte Welt
+Das Maß aller Dinge
+Naturphilosophie des Wassers
+Naturphilosophie des Wassers
+Das Lebenselixier
+Kostbarer als Gold
+Die ganzheitliche Brunnenvergiftung
+Bis zum letzten Tropfen
+Das Wasser ist nicht genug
+Das Geheimnis des Wassers
+Unser Schicksal ist der Fluss
+Das Leitmedium
+Das achte Weltwunder
+Die Umwelt-Lügner
+Wir lassen sie verdursten
+Der positive Klimawandel
+Das blaue Wunder
+Waldsee
+Krieg um Wasser
+Wärme, Wasser und Energie
+Das unentbehrliche Element
+Im Strom des Lebens
+Lebensader und Geldstrom
+Vor uns die Sintflut
+Die trockengelegte Idylle
+Die Seele des Wassers
+Spiegel der Wandlung
+Die unbeachtete Klimalösung
+Das Meer in mir
+Das lästige Leben
+Regenerative Kulturen gestalten
+Regenerative Kulturen gestalten
+Das tote Meer
+Naturzerstörung durch Klimaschutz
+Kosmische Gefährder
+Unsere saubere Zukunft
+Saurer Bauernalltag
+Die Apfelkrise
+Die Natur in uns
+Der Puzzlestück-Podcast
+Missbrauchter Idealismus
+Verregnete Ernten
+Die gute Erde
+Beschränktes Denken
+Angeschwärzte Landwirte
+Ohne Waffen im Krieg
+Verzweiflung auf dem Traktor
+Heilsamer Kontakt
+Die Bauernfänger
+Sklaven auf dem eigenen Hof
+Verliebt in die Fragen
+Berlin in Bauernhand
+Krumm gearbeitet
+Der Landwirt-Lockdown
+Schiffbruch
+Der Landwirt-Lockdown
+Der Bauern-Aufstand
+Der Landwirt-Lockdown
+Gefahr von oben
+Das Bauern-Beben
+Die Power der Bauern
+Das Bauernsterben
+Angriff aufs Mikrobiom
+Ölregen ins Feuer
+Reale Utopien
+Die Linsenkrise
+Die Pionier-Oasen
+Die Stadt der Heuchler
+Die Klima-Eiferer
+Das Geschäft mit der Nahrung
+Generation Schuldgefühl
+Von Kindern und Kühen
+Ökodörfer im Krieg
+Patient Landwirtschaft
+Die Unterwanderbewegung
+Zusammen leben
+Das alternative Katastrophenszenario
+Erfüllungsgehilfen unter Waffen
+Die angekündigte Hungerkatastrophe
+Essen als politischer Akt
+Der Ursprung des Virus
+Die facettenreiche Wahrheit
+Kreative Wut
+Das Klima der Angst
+Die ignorierte Notlage
+Der Dammbruch von Derna
+Wider den „Depopulismus“!
+Die Bauern-Revolution
+Verbrannte Erde
+Der Krisen-Abklatsch
+Hinter der Wasserwand
+Das  Gewand der Welt
+Die Bauern-Revolution
+Die Tomaten-Krise
+Die Welt ohne uns
+Die 97-Prozent-Lüge
+Die Hitzepanik
+Die kommende Weltregierung
+Erlösung oder Zerstörung
+Wie sag ich’s meinem Kind?
+Hitze als neuer Kampfbegriff
+Muschel und Meer
+Das unsichtbare Massensterben
+Das gefährlichste Buch der Welt
+Falsche Zurückhaltung
+Die Klimarealität
+Stilles Wasser
+Die Scheinkatastrophe
+Die Weigerung, erwachsen zu werden
+Gute Reime sind wie Tassen
+Die Abschaffung der Natur
+Energie und Todesangst
+Die Klimawandel-Falle
+Der falsche Wohlstand
+Die hässliche Welt
+Alles steht Kopf
+Klima, Kartelle und Korruption
+Die große Zerstörung
+Bumerang der Waffenexporte
+Das Freiluftgefängnis
+Die Wärme-Wanze
+Cowboy und Indianer
+Das Egoismus-Virus
+Die Geometrie der Seele
+Öffentlich-private Machenschaften
+Klima über alles
+Herzlose Ökokrieger
+Die Entscheidung
+Den Mai feiern
+Das unzerstörbare Leben
+Die  Klimawandel-Knute
+Ständig unter Strom
+Zurück zur Ganzheit
+Ins Blaue hinein
+Mitgefühl als Überlebenskraft
+Die Neue Erde
+Das Bauernopfer
+Die Erddemokratie
+Die Humanitäts-Simulation
+Die Geldmaschine
+Die Latte-macchiato-Klimaschützer
+Die Weißwurst-Klimaschützer
+Hambi 2.0
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="5">
+<li><p>Da Web Scraping die angerufenen Server immer belastet, sollten wir so selten wie möglich Inhalte herunterladen. Wenn wir mehrfach die gleichen Daten für ein größeres Projekt benötigen, sollten wir sie nur einmal herunterladen und anschließend lokal speichern.</p>
+<p>Die Quelltexte der manova-Seiten sind momentan nur in unserem Arbeitsspeicher (in der Variablen <code class="docutils literal notranslate"><span class="pre">all_pages</span></code>). Sobald wir diese Sitzung (also den Kernel) beenden, gehen sie verloren. Um auch in der nächsten Sitzung mit den Daten arbeiten zu können (ohne sie erneut vom Server herunterladen zu müssen), ist es nun Deine Aufgabe, jeden Quelltext in einem separaten HTML-Dokument zu speichern. Wähl als Speicherort das Verzeichnis „3_Dateien/Output“.</p>
+<p>Überprüf abschließend über Deinem Dateimanager, ob die neu geschaffenen Dateien existieren sowie sinnvoll beschrieben wurden.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Iteration über &#39;all_pages&#39; mithilfe von &#39;range&#39;, um einen Zähler für die Dateibenennung zu erhalten</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_pages</span><span class="p">)):</span>
+    
+    <span class="c1">#Anlegen und Öffnen einer neuen Datei mit &#39;i&#39; im Dateinamen und &quot;.html&quot; als Endung</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;../../3_Dateien/Output/manova_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+        
+        <span class="c1">#Schreiben des über &#39;i&#39; indizierten Quelltexts auf &#39;all_pages&#39; in das geöffnete &#39;write_file&#39;</span>
+        <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">all_pages</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="c1">#Überprüfen, ob das Speichern erfolgreich war, mittels Dateimanager und eines Editors (z. B. Sublime Text)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="6">
+<li><p>Nun wollen wir mit den soeben lokal gespeicherten HTML-Dokumenten weiterarbeiten. Lies sie nacheinander ein und extrahier bei jedem angeteaserten Artikel das zugehörige Schlagwort. Beim Artikel im Screenshot unten wäre dies „#WASSERSPEZIAL“ (andere Schlagworte beginnen nicht mit einem Hashtag).</p>
+<p><img alt="" src="../../../_images/schlagwort_manova.png" /></p>
+<p>Ermittle, wie häufig jedes Schlagwort auf den gescrapten Seiten zum Einsatz kommt. Lass Dir das Ergebnis in absteigender Reihenfolge ausgeben.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> <span class="c1">#Import von &#39;os&#39;, um über die Dateien im Verzeichnis &quot;3_Dateien/Output&quot; zu iterieren</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../../3_Dateien/Output/&quot;</span> <span class="c1">#Pfad zum Verzeichnis</span>
+
+<span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#Initialisieren eines dictionaries, um Schlagworte sowie ihr Vorkommen zu speichern</span>
+
+<span class="c1">#Iteration über alle Dateien im angegebenen Verzeichnis</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    
+    <span class="c1">#Falls &#39;file&#39; nicht mit &quot;manova&quot; beginnt, überspringen wir die Datei</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;manova&quot;</span><span class="p">):</span>
+        <span class="k">continue</span>
+        
+    <span class="c1">#Öffnen der jeweiligen HTML-Datei durch Konkatenieren von &#39;path&#39; und &#39;file&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        
+        <span class="c1">#Parsen des geöffneten Quelltexts mit &#39;BeautifulSoup&#39;</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Iterieren über eine Liste mit allen Schlagworten, die wir über eine Kombination </span>
+<span class="sd">    von Tag (&lt;div&gt;) und Attribut &#39;class=&quot;tag&quot;&#39; finden können&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;tag&quot;</span><span class="p">):</span>
+        
+        <span class="c1">#Falls das im Textinhalt versteckte Schlagwort noch kein Schlüssel in &#39;freq_dict&#39; ist...</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tag</span><span class="o">.</span><span class="n">text</span> <span class="ow">in</span> <span class="n">freq_dict</span><span class="p">:</span>
+            <span class="n">freq_dict</span><span class="p">[</span><span class="n">tag</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#legen wir den Schlüssel an und setzen den Wert auf eins</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1">#ansonsten erhöhen wir den Wert beim entsprechenden Schlüssel um eins</span>
+            <span class="n">freq_dict</span><span class="p">[</span><span class="n">tag</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="o">+=</span><span class="mi">1</span>
+
+<span class="c1">#Sortieren von &#39;freq_dict&#39; nach Werten             </span>
+<span class="n">freq_dict_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">#Iteration über &#39;freq_dict_sorted&#39; zur Ausgabe von Schlagworten und Vorkommen</span>
+<span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">frequency</span> <span class="ow">in</span> <span class="n">freq_dict_sorted</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="s2">&quot;kommt&quot;</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="s2">&quot;Mal vor.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Natur &amp; Mitwelt kommt 49 Mal vor.
+#Wasserspezial kommt 18 Mal vor.
+Innen- &amp; Außenpolitik kommt 12 Mal vor.
+Indien kommt 11 Mal vor.
+Gesellschaft &amp; Soziales kommt 9 Mal vor.
+Zukunft &amp; Neue Wege kommt 6 Mal vor.
+Körper &amp; Geist kommt 5 Mal vor.
+Aufwind kommt 5 Mal vor.
+The Great WeSet kommt 4 Mal vor.
+Junge Federn kommt 4 Mal vor.
+Natur &amp; Umwelt kommt 4 Mal vor.
+Manova-Videos kommt 3 Mal vor.
+Literatur-Salon kommt 2 Mal vor.
+Wirtschaft &amp; Finanzen kommt 2 Mal vor.
+Leuchttürme kommt 2 Mal vor.
+Arm &amp; Reich kommt 2 Mal vor.
+Der Einheizpodcast kommt 1 Mal vor.
+Kultur &amp; Medien kommt 1 Mal vor.
+Ideologiekritik kommt 1 Mal vor.
+Podcast kommt 1 Mal vor.
+Österreich kommt 1 Mal vor.
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Stell analog zu Übung 6 eine Übersicht über die fleißigsten Autor:innen in dieser Rubrik zusammen. Lass Dir die Namen derer ausgeben, die mehr als einen Artikel verfasst haben.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#erster Teil des Codes analog zu Übung 6, Kommentare s. o.</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../../3_Dateien/Output/&quot;</span> 
+
+<span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span> 
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;manova&quot;</span><span class="p">):</span>
+        <span class="k">continue</span>
+        
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Iterieren über eine Liste mit allen Elementen mit dem Tag &lt;div&gt; und dem Attribut</span>
+<span class="sd">    &#39;class=article-meta&#39;, in deren untergeordnetem &lt;a&gt;-Element sich der Name der jeweiligen </span>
+<span class="sd">    Autor:in verbirgt&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">meta_info</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;article-meta&quot;</span><span class="p">):</span>
+        
+        <span class="n">author</span> <span class="o">=</span> <span class="n">meta_info</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="c1">#Extrahieren des Textinhalts des (einzigen) untergeordneten &lt;a&gt;-Elements</span>
+        
+        <span class="c1">#optionale Bereinigung der Namen von whitespace (etwa zwischen Vor- und Nachnamen)</span>
+        <span class="kn">import</span> <span class="nn">re</span>
+        <span class="n">author</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">author</span><span class="p">)</span>        
+        
+        <span class="c1">#Code ab hier bis zur Ausgabe am Ende analog zu Übung 6, Kommentare s. o.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">author</span> <span class="ow">in</span> <span class="n">freq_dict</span><span class="p">:</span>
+            <span class="n">freq_dict</span><span class="p">[</span><span class="n">author</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">freq_dict</span><span class="p">[</span><span class="n">author</span><span class="p">]</span> <span class="o">+=</span><span class="mi">1</span>
+            
+<span class="n">freq_dict_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">freq_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">author</span><span class="p">,</span> <span class="n">frequency</span> <span class="ow">in</span> <span class="n">freq_dict_sorted</span><span class="p">:</span>
+    
+    <span class="c1">#Überspringen von Autor:innen, die nur einen Artikel verfasst haben</span>
+    <span class="k">if</span> <span class="n">frequency</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="n">author</span><span class="p">,</span> <span class="s2">&quot;schrieb&quot;</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="s2">&quot;Artikel.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Felix Feistel schrieb 11 Artikel.
+Indra Shekhar Singh schrieb 11 Artikel.
+Roland Rottenfußer schrieb 8 Artikel.
+Nicolas Riedl schrieb 8 Artikel.
+Elisa Gratias schrieb 6 Artikel.
+Uli Fischer schrieb 4 Artikel.
+Walter van Rossum schrieb 4 Artikel.
+Vandana Shiva schrieb 4 Artikel.
+Jochen Kirchhoff schrieb 3 Artikel.
+Kerstin Chavent schrieb 3 Artikel.
+Günter Dedié schrieb 3 Artikel.
+Manovas Weltredaktion schrieb 3 Artikel.
+Werner Thiede schrieb 3 Artikel.
+Daniel Christian Wahl schrieb 3 Artikel.
+Peter Fahr schrieb 2 Artikel.
+Angelika Gutsche schrieb 2 Artikel.
+Madita Hampe schrieb 2 Artikel.
+Peter Frey schrieb 2 Artikel.
+Wilfried Nelles schrieb 2 Artikel.
+Ernst Hellmann schrieb 2 Artikel.
+Tom-Oliver Regenauer schrieb 2 Artikel.
+Leila Christa Dregger schrieb 2 Artikel.
+Chris Veber schrieb 2 Artikel.
+Nara Petrovič schrieb 2 Artikel.
+Flo Osrainik schrieb 2 Artikel.
+Caroline Raasch schrieb 2 Artikel.
+Roberto J. De Lapuente schrieb 2 Artikel.
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="8">
+<li><p>Bislang haben wir nur die Überblicksseiten der Rubrik „Natur und Mitwelt“ gescrapt. Nun wollen wir die eigentlichen Artikeltexte scrapen und daraus ein eigenes Korpus erstellen.</p>
+<p>Extrahier dazu zunächst alle Links auf den Überblicksseiten, die zu den eigentlichen Artikeln führen. Speichere die <em>vollständigen</em> Links in einer Liste.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#erster Teil des Codes analog zu Übung 6, Kommentare s. o.</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../../3_Dateien/Output/&quot;</span> 
+
+<span class="n">links</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer Liste, an die wir unten alle Links anhängen</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;manova&quot;</span><span class="p">):</span>
+        <span class="k">continue</span>
+        
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="w">     </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Iterieren über eine Liste mit allen Elementen mit dem Tag &lt;h2&gt;, in deren untergeordnetem &lt;a&gt;-Element </span>
+<span class="sd">    sich der Link zum jeweiligen Artikel im &#39;href&#39;-Attribut verbirgt&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;h2&quot;</span><span class="p">):</span>
+        
+        <span class="n">links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">))</span> <span class="c1">#Extraktion des Werts (d. h. des Links)</span>
+
+<span class="c1">#Vervollständigung der Links, d. h. Ergänzung um Stammlink mittels List Comprehension</span>
+<span class="n">links</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;https://www.manova.news/</span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.manova.news//artikel/die-totgesagte-welt&#39;, &#39;https://www.manova.news//artikel/das-mass-aller-dinge&#39;, &#39;https://www.manova.news//artikel/naturphilosophie-des-wassers-2&#39;, &#39;https://www.manova.news//artikel/naturphilosophie-des-wassers&#39;, &#39;https://www.manova.news//artikel/das-lebenselixier-2&#39;, &#39;https://www.manova.news//artikel/kostbarer-als-gold&#39;, &#39;https://www.manova.news//artikel/die-ganzheitliche-brunnenvergiftung&#39;, &#39;https://www.manova.news//artikel/bis-zum-letzten-tropfen&#39;, &#39;https://www.manova.news//artikel/das-wasser-ist-nicht-genug&#39;, &#39;https://www.manova.news//artikel/das-geheimnis-des-wassers&#39;, &#39;https://www.manova.news//artikel/unser-schicksal-ist-der-fluss&#39;, &#39;https://www.manova.news//artikel/das-leitmedium&#39;, &#39;https://www.manova.news//artikel/das-achte-weltwunder&#39;, &#39;https://www.manova.news//artikel/die-umwelt-lugner&#39;, &#39;https://www.manova.news//artikel/wir-lassen-sie-verdursten&#39;, &#39;https://www.manova.news//artikel/der-positive-klimawandel&#39;, &#39;https://www.manova.news//artikel/das-blaue-wunder&#39;, &#39;https://www.manova.news//artikel/waldsee&#39;, &#39;https://www.manova.news//artikel/krieg-um-wasser&#39;, &#39;https://www.manova.news//artikel/warme-wasser-und-energie&#39;, &#39;https://www.manova.news//artikel/hitze-als-neuer-kampfbegriff&#39;, &#39;https://www.manova.news//artikel/muschel-und-meer&#39;, &#39;https://www.manova.news//artikel/das-unsichtbare-massensterben&#39;, &#39;https://www.manova.news//artikel/das-gefahrlichste-buch-der-welt&#39;, &#39;https://www.manova.news//artikel/falsche-zuruckhaltung&#39;, &#39;https://www.manova.news//artikel/die-klimarealitat&#39;, &#39;https://www.manova.news//artikel/stilles-wasser&#39;, &#39;https://www.manova.news//artikel/die-scheinkatastrophe&#39;, &#39;https://www.manova.news//artikel/die-weigerung-erwachsen-zu-werden&#39;, &#39;https://www.manova.news//artikel/gute-reime-sind-wie-tassen&#39;, &#39;https://www.manova.news//artikel/die-abschaffung-der-natur&#39;, &#39;https://www.manova.news//artikel/energie-und-todesangst&#39;, &#39;https://www.manova.news//artikel/die-klimawandel-falle&#39;, &#39;https://www.manova.news//artikel/der-falsche-wohlstand&#39;, &#39;https://www.manova.news//artikel/die-hassliche-welt&#39;, &#39;https://www.manova.news//artikel/alles-steht-kopf&#39;, &#39;https://www.manova.news//artikel/klima-kartelle-und-korruption&#39;, &#39;https://www.manova.news//artikel/die-grosse-zerstorung&#39;, &#39;https://www.manova.news//artikel/bumerang-der-waffenexporte&#39;, &#39;https://www.manova.news//artikel/das-freiluftgefangnis&#39;, &#39;https://www.manova.news//artikel/die-warme-wanze&#39;, &#39;https://www.manova.news//artikel/cowboy-und-indianer&#39;, &#39;https://www.manova.news//artikel/das-egoismus-virus&#39;, &#39;https://www.manova.news//artikel/die-geometrie-der-seele&#39;, &#39;https://www.manova.news//artikel/offentlich-private-machenschaften&#39;, &#39;https://www.manova.news//artikel/klima-uber-alles&#39;, &#39;https://www.manova.news//artikel/herzlose-okokrieger&#39;, &#39;https://www.manova.news//artikel/die-entscheidung-6&#39;, &#39;https://www.manova.news//artikel/den-mai-feiern&#39;, &#39;https://www.manova.news//artikel/das-unzerstorbare-leben&#39;, &#39;https://www.manova.news//artikel/die-klimawandel-knute&#39;, &#39;https://www.manova.news//artikel/standig-unter-strom&#39;, &#39;https://www.manova.news//artikel/zuruck-zur-ganzheit&#39;, &#39;https://www.manova.news//artikel/ins-blaue-hinein&#39;, &#39;https://www.manova.news//artikel/mitgefuhl-als-uberlebenskraft&#39;, &#39;https://www.manova.news//artikel/die-neue-erde-2&#39;, &#39;https://www.manova.news//artikel/das-bauernopfer-2&#39;, &#39;https://www.manova.news//artikel/die-erddemokratie&#39;, &#39;https://www.manova.news//artikel/die-humanitats-simulation&#39;, &#39;https://www.manova.news//artikel/die-geldmaschine&#39;, &#39;https://www.manova.news//artikel/die-power-der-bauern&#39;, &#39;https://www.manova.news//artikel/das-bauernsterben&#39;, &#39;https://www.manova.news//artikel/angriff-aufs-mikrobiom&#39;, &#39;https://www.manova.news//artikel/olregen-ins-feuer&#39;, &#39;https://www.manova.news//artikel/reale-utopien&#39;, &#39;https://www.manova.news//artikel/die-linsenkrise&#39;, &#39;https://www.manova.news//artikel/die-pionier-oasen&#39;, &#39;https://www.manova.news//artikel/die-stadt-der-heuchler&#39;, &#39;https://www.manova.news//artikel/die-klima-eiferer&#39;, &#39;https://www.manova.news//artikel/das-geschaft-mit-der-nahrung&#39;, &#39;https://www.manova.news//artikel/generation-schuldgefuhl&#39;, &#39;https://www.manova.news//artikel/von-kindern-und-kuhen&#39;, &#39;https://www.manova.news//artikel/okodorfer-im-krieg&#39;, &#39;https://www.manova.news//artikel/patient-landwirtschaft&#39;, &#39;https://www.manova.news//artikel/die-unterwanderbewegung-2&#39;, &#39;https://www.manova.news//artikel/zusammen-leben-2&#39;, &#39;https://www.manova.news//artikel/das-alternative-katastrophenszenario&#39;, &#39;https://www.manova.news//artikel/erfullungsgehilfen-unter-waffen&#39;, &#39;https://www.manova.news//artikel/die-angekundigte-hungerkatastrophe&#39;, &#39;https://www.manova.news//artikel/essen-als-politischer-akt&#39;, &#39;https://www.manova.news//artikel/die-latte-macchiato-klimaschutzer&#39;, &#39;https://www.manova.news//artikel/die-weisswurst-klimaschutzer&#39;, &#39;https://www.manova.news//artikel/hambi-2-0&#39;, &#39;https://www.manova.news//artikel/der-ursprung-des-virus&#39;, &#39;https://www.manova.news//artikel/die-facettenreiche-wahrheit&#39;, &#39;https://www.manova.news//artikel/kreative-wut&#39;, &#39;https://www.manova.news//artikel/das-klima-der-angst&#39;, &#39;https://www.manova.news//artikel/die-ignorierte-notlage&#39;, &#39;https://www.manova.news//artikel/der-dammbruch-von-derna&#39;, &#39;https://www.manova.news//artikel/wider-den-depopulismus&#39;, &#39;https://www.manova.news//artikel/die-bauern-revolution-2&#39;, &#39;https://www.manova.news//artikel/verbrannte-erde-2&#39;, &#39;https://www.manova.news//artikel/der-krisen-abklatsch&#39;, &#39;https://www.manova.news//artikel/hinter-der-wasserwand&#39;, &#39;https://www.manova.news//artikel/das-gewand-der-welt&#39;, &#39;https://www.manova.news//artikel/die-bauern-revolution&#39;, &#39;https://www.manova.news//artikel/die-tomaten-krise&#39;, &#39;https://www.manova.news//artikel/die-welt-ohne-uns&#39;, &#39;https://www.manova.news//artikel/die-97-prozent-luge&#39;, &#39;https://www.manova.news//artikel/die-hitzepanik&#39;, &#39;https://www.manova.news//artikel/die-kommende-weltregierung-2&#39;, &#39;https://www.manova.news//artikel/erlosung-oder-zerstorung&#39;, &#39;https://www.manova.news//artikel/wie-sag-ich-s-meinem-kind&#39;, &#39;https://www.manova.news//artikel/das-unentbehrliche-element&#39;, &#39;https://www.manova.news//artikel/im-strom-des-lebens&#39;, &#39;https://www.manova.news//artikel/lebensader-und-geldstrom&#39;, &#39;https://www.manova.news//artikel/vor-uns-die-sintflut&#39;, &#39;https://www.manova.news//artikel/die-trockengelegte-idylle&#39;, &#39;https://www.manova.news//artikel/die-seele-des-wassers&#39;, &#39;https://www.manova.news//artikel/spiegel-der-wandlung&#39;, &#39;https://www.manova.news//artikel/die-unbeachtete-klimalosung&#39;, &#39;https://www.manova.news//artikel/das-meer-in-mir&#39;, &#39;https://www.manova.news//artikel/das-lastige-leben&#39;, &#39;https://www.manova.news//artikel/regenerative-kulturen-gestalten-3&#39;, &#39;https://www.manova.news//artikel/regenerative-kulturen-gestalten-2&#39;, &#39;https://www.manova.news//artikel/das-tote-meer&#39;, &#39;https://www.manova.news//artikel/naturzerstorung-durch-klimaschutz&#39;, &#39;https://www.manova.news//artikel/kosmische-gefahrder&#39;, &#39;https://www.manova.news//artikel/unsere-saubere-zukunft&#39;, &#39;https://www.manova.news//artikel/saurer-bauernalltag&#39;, &#39;https://www.manova.news//artikel/die-apfelkrise&#39;, &#39;https://www.manova.news//artikel/die-natur-in-uns&#39;, &#39;https://www.manova.news//artikel/der-puzzlestuck-podcast&#39;, &#39;https://www.manova.news//artikel/missbrauchter-idealismus-2&#39;, &#39;https://www.manova.news//artikel/verregnete-ernten&#39;, &#39;https://www.manova.news//artikel/die-gute-erde&#39;, &#39;https://www.manova.news//artikel/beschranktes-denken&#39;, &#39;https://www.manova.news//artikel/angeschwarzte-landwirte&#39;, &#39;https://www.manova.news//artikel/ohne-waffen-im-krieg&#39;, &#39;https://www.manova.news//artikel/verzweiflung-auf-dem-traktor&#39;, &#39;https://www.manova.news//artikel/heilsamer-kontakt&#39;, &#39;https://www.manova.news//artikel/die-bauernfanger&#39;, &#39;https://www.manova.news//artikel/sklaven-auf-dem-eigenen-hof&#39;, &#39;https://www.manova.news//artikel/verliebt-in-die-fragen&#39;, &#39;https://www.manova.news//artikel/berlin-in-bauernhand&#39;, &#39;https://www.manova.news//artikel/krumm-gearbeitet&#39;, &#39;https://www.manova.news//artikel/der-landwirt-lockdown-3&#39;, &#39;https://www.manova.news//artikel/schiffbruch&#39;, &#39;https://www.manova.news//artikel/der-landwirt-lockdown-2&#39;, &#39;https://www.manova.news//artikel/der-bauern-aufstand&#39;, &#39;https://www.manova.news//artikel/der-landwirt-lockdown&#39;, &#39;https://www.manova.news//artikel/gefahr-von-oben&#39;, &#39;https://www.manova.news//artikel/das-bauern-beben&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="9">
+<li><p>Lade für unser Korpus in der ersten Code-Zelle den Quelltext sämtlicher Artikel, deren Links Du eben zusammengetragen hast, herunter. Da wir die relevanten Teile davon gleich lokal speichern werden, kannst Du die Quelltexte zwischenzeitlich in Deinem Arbeitsspeicher belassen.</p>
+<p>Extrahier anschließend in der zweiten Code-Zelle aus jedem Quelltext den <strong>Haupttext</strong> des Artikels. Speichere alle Texte in <em>einer</em> XML-Datei im Ordner „3_Dateien/Output“. Das XML-Dokument wird unserem Korpus entsprechen. Leg dessen hierarchische Struktur so an, dass die Artikeltexte voneinander unterschieden werden können.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Abrufschritt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span> <span class="c1">#Import des Moduls für die Fortschrittsanzeige</span>
+
+<span class="n">source_codes</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Erstellen einer leeren Liste, an die die Quelltexte unten gehängt werden</span>
+
+<span class="c1">#Iteration über &#39;links&#39; mithilfe von &#39;range&#39;, um einen Zähler für die Dateibenennung zu erhalten; Fortschrittsanzeige mithilfe von &#39;tqdm&#39;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">))):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Verwenden von &#39;trafilatura&#39;, das zur Extraktion von Haupttexten wunderbar geeignet ist&quot;&quot;&quot;</span>
+    <span class="n">source_codes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trafilatura</span><span class="o">.</span><span class="n">fetch_url</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="c1">#Indizieren des jeweiligen Links auf &#39;links&#39; mit &#39;i&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                               | 0/143 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|                               | 0/143 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">))):</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Verwenden von &#39;trafilatura&#39;, das zur Extraktion von Haupttexten wunderbar geeignet ist&quot;&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">source_codes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trafilatura</span><span class="o">.</span><span class="n">fetch_url</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="c1">#Indizieren des jeweiligen Links auf &#39;links&#39; mit &#39;i&#39;</span>
+
+<span class="ne">NameError</span>: name &#39;trafilatura&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Extraktions- und Speicherschritt</span>
+<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">ET</span> <span class="c1">#Import der benötigten XML-Module</span>
+<span class="kn">from</span> <span class="nn">xml.dom</span> <span class="kn">import</span> <span class="n">minidom</span>
+
+<span class="n">corpus</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;corpus&quot;</span><span class="p">)</span> <span class="c1">#Anlegen des obersten Elements in der XML-Hierarchie</span>
+
+<span class="c1">#Iteration über &#39;source_codes&#39;, mit Fortschrittsanzeige</span>
+<span class="k">for</span> <span class="n">source_code</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">source_codes</span><span class="p">):</span>
+
+    <span class="n">main_text</span> <span class="o">=</span> <span class="n">trafilatura</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">source_code</span><span class="p">)</span> <span class="c1">#Extraktion des Haupttexts</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Für jeden Artikel schaffen wir ein Element namens &#39;article&#39; (zweites Argument der &#39;SubElement&#39;-Funktion), </span>
+<span class="sd">    das dem &#39;corpus&#39;-Element untergeordnet sein soll (erstes Argument). Im Hinblick auf die Herausforderung:</span>
+<span class="sd">    Wenn Du das Korpus mit weiteren (Meta-)Daten anreichern möchtest (für deren Extraktion wie gesagt &#39;requests&#39; und </span>
+<span class="sd">    &#39;BeautifulSoup&#39; nötig wären), dann könntest Du diese Informationen mittels der &#39;set&#39;-Methode als Attribute von </span>
+<span class="sd">    &#39;article&#39; festlegen. Hier belassen wir es beim Artikeltext.&quot;&quot;&quot;</span>
+    <span class="n">article</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">corpus</span><span class="p">,</span> <span class="s2">&quot;article&quot;</span><span class="p">)</span> 
+    
+    <span class="c1">#Iteration über die einzelnen Paragraphen des jeweiligen Artikeltexts</span>
+    <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">main_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Für jeden Paragraphen des jeweiligen Artikels schaffen wir mithilfe derselben &#39;SubElement&#39;-Funktion </span>
+<span class="sd">        ein Element namens &#39;p&#39; (zweites Argument), das dem jeweiligen &#39;article&#39;-Element untergeordnet sein soll </span>
+<span class="sd">        (erstes Argument). Anschließend weisen wir &#39;p&#39; Textinhalt über das Attribut &#39;text&#39; zu.&quot;&quot;&quot;</span>
+        <span class="n">paragraph_xml</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">article</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">)</span>
+        <span class="n">paragraph_xml</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">paragraph</span>
+        
+<span class="c1">#Schön formatieren, d. h. Einfügen von Einrückungen</span>
+<span class="n">pretty_corpus</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">ET</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">corpus</span><span class="p">))</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="s2">&quot;  &quot;</span><span class="p">)</span>
+
+<span class="c1">#Speichern der XML-Datei</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/manova_corpus.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+    <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pretty_corpus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0it [00:00, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0it [00:00, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="10">
+<li><p>Auch wenn es beim Web Scraping nur um die Daten<em>beschaffung</em> geht, so bietet folgender vorgegebener Code einen Einblick in die Daten<em>auswertung</em>, die möglich ist, jetzt wo wir unser eigenes Korpus zusammengestellt haben. Der Code lässt sich ausführen, wenn Du die XML-Elemente gleich genannt hast, wie in der Lösung vorgeschlagen. Du kannst ihn natürlich an Deine Namensgebung anpassen.</p>
+<p>Wir verwenden das im Notebook „Funktionen und Methoden Teil 2“ erstellte Modul <code class="docutils literal notranslate"><span class="pre">keywords</span></code> bzw. die Funktion <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> daraus. Diese haben wir ja geschrieben, um die Häufigkeit von Wörtern zu berechnen. Da wir es nun mit einer viel größeren Datenmenge zu tun haben, läuft der Code eine Weile. Bau gerne eine Fortschrittsanzeige mit <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> in den Modulcode, um die Ausführung im Blick behalten zu können. Bedenk aber, dass Du nach dem Ändern des Modulcodes den Kernel neustarten musst, um das Modul mit dem geänderten Code zu importieren.</p>
+<p>Behalt auch im Hinterkopf, dass wir diesen Code in einem früheren Stadium unserer Programmierkarriere geschrieben haben. Mittlerweile kennen wir vermutlich effizientere Wege, um Wörter auszuzählen. Ungeachtet dessen offenbart sich hier (einmal mehr) der Vorteil von <em>Code Reuse</em> und konkret von Modularisierung, wie er im zweiteiligen Notebook „Funktionen und Methoden“ aufgezeigt wurde.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Einlesen des eben erstellen XML-Dokuments</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/manova_corpus.xml&quot;</span><span class="p">)</span> <span class="c1">#Achtung: anderer Pfad als im Lehrnotebook</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span> 
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#Initialisieren eines leeren strings, an den wir unten die Artikeltexte hängen</span>
+
+<span class="c1">#Iteration (rekursiv!) über alle &lt;p&gt;-Elemente und Anhängen des Textinhalts an &#39;text&#39;</span>
+<span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">+=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span>
+    
+<span class="c1">#Einlesen der Stoppwörter, die wir auch im Notebook &quot;Funktionen und Methoden Teil 2&quot; benutzt haben</span>
+<span class="n">stopwords_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span> <span class="c1">#Achtung: anderer Pfad als im Lehrnotebook</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
+        <span class="n">stopwords_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
+
+<span class="c1">#Hinzufügen eines Verzeichnis, in dem Python nach Modulen sucht</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Module&quot;</span><span class="p">)</span> <span class="c1">#Achtung: anderer Pfad als im Lehrnotebook</span>
+
+<span class="c1">#Importieren der Funktion &#39;get_freqs&#39;</span>
+<span class="kn">from</span> <span class="nn">keywords</span> <span class="kn">import</span> <span class="n">get_freqs</span>
+
+<span class="c1">#Berechnen der Worthäufigkeiten</span>
+<span class="n">word_frequencies</span> <span class="o">=</span> <span class="n">get_freqs</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)</span>
+
+<span class="c1">#Ausgabe der zehn häufigsten Wörter</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Die zehn häufigsten Wörter (exkl. Stoppwörter) sind...&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">frequency</span> <span class="ow">in</span> <span class="n">word_frequencies</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s2">&quot;kommt&quot;</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="s2">&quot;vor.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die zehn häufigsten Wörter (exkl. Stoppwörter) sind...
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<table>
+      <tr>
+        <td>
+            <img src="../../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
+        </td> 
+        <td>
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
+        </td>
+      </tr>
+</table></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/4_Zusatzuebungen/Loesungen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

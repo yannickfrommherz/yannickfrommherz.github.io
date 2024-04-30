@@ -1,0 +1,1179 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Web Scraping Teil 2 (Lösungen) &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/Loesungen/8_Web_Scraping_Teil_2_Loesungen';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/Loesungen/8_Web_Scraping_Teil_2_Loesungen.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../../genindex.html" />
+    <link rel="search" title="Suche" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../phd.html">PhD project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../publications.html">Publications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../1_Einfuehrung.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2_Datentypen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3_Kontrollstrukturen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Funktionen_und_Methoden_Teil_1.html">Funktionen und Methoden Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Funktionen_und_Methoden_Teil_2.html">Funktionen und Methoden Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_Input_und_Output_Teil_1.html">Input und Output Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5_Input_und_Output_Teil_2.html">Input und Output Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_Datenanalyse_Teil_1.html">Datenanalyse Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6_Datenanalyse_Teil_2.html">Datenanalyse Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../7_Regulaere_Ausdruecke.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung_Loesungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen_Loesungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen_Loesungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden_Teil_1_Loesungen.html">Funktionen und Methoden Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden_Teil_2_Loesungen.html">Funktionen und Methoden Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output_Teil_1_Loesungen.html">Input und Output Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output_Teil_2_Loesungen.html">Input und Output Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Datenanalyse_Teil_1_Loesungen.html">Datenanalyse Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Datenanalyse_Teil_2_Loesungen.html">Datenanalyse Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_Regulaere_Ausdruecke_Loesungen.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/2_Datentypen_Uebungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/4_Funktionen_und_Methoden_Uebungen.html">Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/5_Input_und_Output_Uebungen.html">Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/6_Datenanalyse_Uebungen.html">Datenanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/7_Regulaere_Ausdruecke_Uebungen.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/4_Funktionen_und_Methoden_Uebungen_Loesungen.html">Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/5_Input_und_Output_Uebungen_Loesungen.html">Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/6_Datenanalyse_Uebungen_Loesungen.html">Datenanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4_Zusatzuebungen/Loesungen/7_Regulaere_Ausdruecke_Uebungen_Loesungen.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/1_Notebooks/Loesungen/8_Web_Scraping_Teil_2_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/yannickfrommherz/yfrommherz.ch/blob/main/website/programming/1_Notebooks/Loesungen/8_Web_Scraping_Teil_2_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/Loesungen/8_Web_Scraping_Teil_2_Loesungen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/programming/1_Notebooks/Loesungen/8_Web_Scraping_Teil_2_Loesungen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Web Scraping Teil 2 (Lösungen)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="web-scraping-teil-2-losungen">
+<h1>Web Scraping Teil 2 (Lösungen)<a class="headerlink" href="#web-scraping-teil-2-losungen" title="Link zu dieser Überschrift">#</a></h1>
+<p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
+<p>⚠️ Führ folgenden Code aus, bevor Du einzelne Lösungen ausführst.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36&#39;</span><span class="p">}</span>
+<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">ET</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>🔧 <strong>Anwendungsfall (komplette Lösung):</strong></p>
+<p>Abrufschritt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1">#Definieren eines regulären Ausdruck, um den Link zur jeweils nächsten Seite zu extrahieren</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;href=&quot;(\S+)&quot;&gt;weiter&#39;</span> <span class="c1">#runde Klammern umschließen Gruppe mit eigentlichem Link</span>
+
+<span class="c1">#Definieren von Stammlink, erster Linkendung sowie des kompletten Links zur ersten zu scrapenden Seite</span>
+<span class="n">base_link</span> <span class="o">=</span> <span class="s2">&quot;https://www.projekt-gutenberg.org/goethe/faust1/&quot;</span>
+<span class="n">link_ending</span> <span class="o">=</span> <span class="s2">&quot;chap002.html&quot;</span>
+<span class="n">link</span> <span class="o">=</span> <span class="n">base_link</span> <span class="o">+</span> <span class="n">link_ending</span>
+
+<span class="n">all_pages</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die unten die einzelnen Quelltexte gehängt werden</span>
+
+<span class="sd">&quot;&quot;&quot;while-Schleife scrapt eine paginierte Seite nach der anderen, bis kein Link mehr auf eine nächste Seite</span>
+<span class="sd">im Quelltext gefunden wird&quot;&quot;&quot;</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Currently scraping </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des Fortschritts</span>
+    
+    <span class="n">current_page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> <span class="c1">#Abruf des Quelltexts zum aktuellen Link</span>
+    
+    <span class="c1">#Kontrolle des Statuscodes</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">current_page</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">requests</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Statuscode nicht ok!&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Definieren des Encodings des Quelltexts (requests geht unspezifiziert vom falschen Encoding aus, </span>
+<span class="sd">    was sich z. B. an Umlauten zeigt)&quot;&quot;&quot;</span>
+    <span class="n">current_page</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span> 
+    
+    <span class="c1">#Anfügen des eigentlichen Quelltexts der aktuellen Seite (Zugriff über text-Attribut) an &#39;all_pages&#39;</span>
+    <span class="n">all_pages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_page</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> 
+    
+    <span class="c1">#Quelltext nach regulärem Ausdruck absuchen, der Link zur nächsten Seite matcht</span>
+    <span class="n">next_page</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">current_page</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    
+    <span class="c1">#Wenn ein match gefunden wird...</span>
+    <span class="k">if</span> <span class="n">next_page</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Definieren des Links für die nächste Seite, indem wir mithilfe der </span>
+<span class="sd">        &#39;group&#39;-Methode auf die erste Gruppe zugreifen und die neue Linkendung an den Stammlink hängen&quot;&quot;&quot;</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="n">base_link</span> <span class="o">+</span> <span class="n">next_page</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#erst noch eine kleine Pause!</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#...wenn nicht, ist das Werk komplett gescrapet und die while-Schleife wird abgebrochen</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap002.html
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap003.html
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap004.html
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap005.html
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap006.html
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap007.html
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">42</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Definieren des Links für die nächste Seite, indem wir mithilfe der </span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span><span class="sd">     &#39;group&#39;-Methode auf die erste Gruppe zugreifen und die neue Linkendung an den Stammlink hängen&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="n">link</span> <span class="o">=</span> <span class="n">base_link</span> <span class="o">+</span> <span class="n">next_page</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">42</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#erst noch eine kleine Pause!</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="k">else</span><span class="p">:</span> <span class="c1">#...wenn nicht, ist das Werk komplett gescrapet und die while-Schleife wird abgebrochen</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="k">break</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Extraktionsschritt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Öffnen der Datei, in die die Strophen geschrieben werden sollen</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/Faust_1.txt&quot;</span> <span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span> 
+    
+    <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">all_pages</span><span class="p">:</span> <span class="c1">#Iteration über &#39;all_pages&#39;</span>
+ 
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span> <span class="c1">#Konstruieren eines BeautifulSoup-Objekts</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span> <span class="c1">#Zugriff auf das body-Element über &#39;find&#39;-Methode</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Iteration über Liste mit allen Elementen mit Tag &lt;p&gt;, die, wie ein Blick in die Quelltexte ergab,</span>
+<span class="sd">        die Strophen und Figuren (nebst weiteren Inhalten) enthält&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">):</span> 
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Nun müssen wir diejenigen Elemente aus allen &lt;p&gt;-Elementen extrahieren, die die Figur bzw. </span>
+<span class="sd">            die Strophen enthalten.&quot;&quot;&quot;</span>
+<span class="w">            </span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Vor jeder Strophe steht die Figur, die spricht, und zwar in einem dem &lt;p&gt;-Element</span>
+<span class="sd">            untergeordneten Element mit &lt;span&gt;-Tag und Attribut class=&quot;speaker&quot;. Wir überprüfen mittels </span>
+<span class="sd">            &#39;if&#39;-Bedingung, ob die &#39;find&#39;-Methode ein solches Element findet, wenn ja...&quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">):</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;...extrahieren wir den darin enthaltenen Text... (Zugriff über &#39;text&#39;-Attribut würde Fehlermeldung</span>
+<span class="sd">                hervorrufen, wenn &#39;find&#39; kein entsprechendes Element finden würde, daher if-Bedingung)&quot;&quot;&quot;</span>
+                <span class="n">speaker</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;...und schreiben ihn von inkonsistent verwendeten Doppelpunkten bereinigt </span>
+<span class="sd">                und mit abschließenden Zeilenumbrüchen in die Textdatei&quot;&quot;&quot;</span>
+                <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">speaker</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+           
+            <span class="k">elif</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;vers&quot;</span><span class="p">]:</span>  <span class="c1">#Da &lt;p&gt;-Elemente nichts weiter enthalten, wenn sie die Figur enthalten, </span>
+                                                      <span class="c1">#können wir mittels &#39;elif&#39; überprüfen, ob das Attribut &quot;class&quot; [&quot;vers&quot;] </span>
+                                                      <span class="c1">#entspricht, denn in &lt;p&gt;-Elementen mit diesem Attribut sind </span>
+                                                      <span class="c1">#die Strophen enthalten</span>
+<span class="w">                </span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Stropheninterne Regieanweisungen befinden sich in einem &lt;span&gt;-Element, dessen Existenz</span>
+<span class="sd">                im aktuelle &lt;p&gt;-Element wir hier überprüfen&quot;&quot;&quot;</span>
+                <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="p">:</span>
+                    <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> <span class="c1">#wenn ja löschen wir es aus &#39;paragraph&#39; mittels der &#39;decompose&#39;-Methode</span>
+<span class="w">            </span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Da Einrückungen und whitespace generell in den Strophen inkonsistent verwendet wird,</span>
+<span class="sd">                splitten wir die Strophen in Verse, um im &#39;write&#39;-Befehl unten einheitlich formatieren zu können&quot;&quot;&quot;</span>
+                <span class="n">lines</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                
+                <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span> <span class="c1">#Iteration über die einzelnen Verse...</span>
+                    <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#...und schreiben in Textdokument (bereinigt und konsistent formatiert)</span>
+                
+                <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Schreiben eines weiteren Zeilenumbruchs nach jeder Strophe (= 2 Zeilenumbruche total)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>🔧 <strong>Anwendungsfall (Schritt-für-Schritt-Lösung):</strong></p>
+<p><u>Abruf</u></p>
+<ol class="arabic">
+<li><p>Schau Dir die <a class="reference external" href="https://www.projekt-gutenberg.org/goethe/faust1/chap002.html">erste Seite</a> des Werks auf <a class="reference external" href="http://www.projekt-gutenberg.org">www.projekt-gutenberg.org</a> im Browser an und untersuch den ihr zugrundeliegenden Quelltext. Find so heraus, wie Du an die Links zu den folgenden Seiten kommst, damit Du auch diese scrapen kannst.</p>
+<p><em>Lösung: Auf der ersten Seite, ebenso wie auf allen folgenden bis zur letzten, befindet sich eine Schaltfläche „Weiter“. Im Quelltext siehst Du, dass sich dahinter der Link (bzw. die Linkendung) zur jeweils nächsten Seite verbirgt. Wir können folglich 1) die erste Seite scrapen, 2) deren Quelltext speichern, 3) darin nach dem Link zur nächsten Seite suchen, 4) die nächste Seite mithilfe des neuen Links ebenfalls scrapen und speichern usw., bis es keinen nächsten Link mehr gibt.</em></p>
+<p><em>Es gibt zwei weitere Alternativen: Erstens gibt es auf <a class="reference external" href="https://www.projekt-gutenberg.org/goethe/faust1/index.html">dieser Seite</a> ein Inhaltsverzeichnis mit Links zu allen Szenen des Werks. Wir könnten also auch 1) diese Seite scrapen, 2) alle relevanten Links aus deren Quelltext extrahieren und in eine Liste überführen, 3) über die Liste iterieren und alle entsprechenden Quelltexte scrapen. Zweitens könnten wir uns den Umstand zu nutzen machen, dass die Seiten von 2 bis 28 durchnummeriert sind (vgl. Linkendungen). Mit der <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion könnten wir einfach von 2 bis 28 durchiterieren und „on the fly“ jeweils einen Link daraus basteln.</em></p>
+<p><em>In der Schritt-für-Schritt-Lösung verfolgen wir den ersten der drei Ansätze, da er sich am ehesten auf vergleichbare Anwendungsfälle mit paginierten Seiten übertragen lässt</em></p>
+</li>
+</ol>
+<ol class="arabic" start="2">
+<li><p>Wie Du im Quelltext der ersten Seite erkennen kannst, verbirgt sich hinter der Schaltfläche „Weiter“ nur jeweils die Linkendung, die um einen Stammlink ergänzt werden muss.</p>
+<p>Definier den Stammlink in <code class="docutils literal notranslate"><span class="pre">base_link</span></code> sowie die Linkendung für die erste Seite in <code class="docutils literal notranslate"><span class="pre">link_ending</span></code>. Konkatenier die beiden strings zu <code class="docutils literal notranslate"><span class="pre">link</span></code> und lass Dir <code class="docutils literal notranslate"><span class="pre">link</span></code> ausgeben. Wenn Du auf den ausgegebenen Link klickst, solltest Du auf der ersten Seite des Werks landen.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Definieren von Stammlink, erster Linkendung sowie des kompletten Links zur ersten zu scrapenden Seite</span>
+<span class="n">base_link</span> <span class="o">=</span> <span class="s2">&quot;https://www.projekt-gutenberg.org/goethe/faust1/&quot;</span>
+<span class="n">link_ending</span> <span class="o">=</span> <span class="s2">&quot;chap002.html&quot;</span>
+<span class="n">link</span> <span class="o">=</span> <span class="n">base_link</span> <span class="o">+</span> <span class="n">link_ending</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="3">
+<li><p>Überleg Dir nun, mithilfe welcher Kontrollstruktur Du ausgehend von der ersten Seite nacheinander alle Seiten scrapen kannst, bis es keine weitere Seite mehr gibt. Welche weitere Kontrollstruktur kannst Du verwenden, um das Scraping in diesem Fall zu beenden?</p>
+<p><em>Lösung: Wir scrapen eine Seite nach der anderen mithilfe einer <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife, konkret: <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>. So bricht diese Schleife erst ab, wenn sie auf ein <code class="docutils literal notranslate"><span class="pre">break</span></code>-Statement trifft. Letzteres rücken wir unter der zweiten Kontrollstruktur, einer <code class="docutils literal notranslate"><span class="pre">if</span></code>-Bedingung, ein, die nur dann <code class="docutils literal notranslate"><span class="pre">True</span></code> ergeben soll, wenn der zuletzt gescrapte Quelltext <strong>keinen</strong> Link auf eine nächste Seite mehr enthält (also wenn wir auf der letzten Seite angelangt sind).</em></p>
+</li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Um von einer Seite zur nächsten zu gelangen, müssen wir ja jeweils den Link darauf aus der aktuellen Seite extrahieren. Definier dafür einen regulären Ausdruck, der den Link hinter der Schaltfläche „Weiter“ matcht. Falls Du noch nicht mit regulären Ausdrücken vertraut bist, dann kopier den Code für diesen Schritt aus der Lösung.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1">#Definieren eines regulären Ausdruck, um den Link zur jeweils nächsten Seite zu extrahieren</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;href=&quot;(\S+)&quot;&gt;weiter&#39;</span> <span class="c1">#runde Klammern umschließen Gruppe mit eigentlichem Link</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="5">
+<li><p>Setz nun Deine Erkenntnisse aus Schritt 3 in Code um:</p>
+<p>A. Schreib eine Schleife (erste Kontrollstruktur), die wiederholt wird, bis sie auf ein <code class="docutils literal notranslate"><span class="pre">break</span></code>-Statement trifft.</p>
+<p>B. Verwend das <code class="docutils literal notranslate"><span class="pre">requests</span></code>-Moduls, um die Seite zum aktuellen <code class="docutils literal notranslate"><span class="pre">link</span></code> abzurufen (<code class="docutils literal notranslate"><span class="pre">link</span></code> entspricht ja zumindest am Anfang der ersten Seite, s. o.). Speichere das Response-Objekt in <code class="docutils literal notranslate"><span class="pre">current_page</span></code>.</p>
+<p>C. Da <code class="docutils literal notranslate"><span class="pre">requests</span></code> automatisch von einem falschen Encoding ausgeht (weswegen etwa Umlaute falsch dekodiert würden), müssen wir das Encoding korrigieren: <code class="docutils literal notranslate"><span class="pre">current_page.encoding</span> <span class="pre">=</span> <span class="pre">&quot;UTF-8&quot;</span></code>.</p>
+<p>D. Häng den eigentlichen Quelltext in <code class="docutils literal notranslate"><span class="pre">current_page</span></code> einer zuvor definierten Liste <code class="docutils literal notranslate"><span class="pre">all_pages</span></code> an, die sämtliche Quelltexte umfassen soll.</p>
+<p>E. Such den Quelltext nach <code class="docutils literal notranslate"><span class="pre">regex</span></code> ab. Verwend dazu die Funktion <code class="docutils literal notranslate"><span class="pre">search</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">re</span></code> (schau auch hier in der Lösung nach, wenn Du regulären Ausdrücken noch nicht vertraut bist).</p>
+<p>F. Überprüf nun mithilfe der zweiten Kontrollstruktur, ob ein match vorliegt. Wenn ja, überschreib <code class="docutils literal notranslate"><span class="pre">link</span></code>, indem Du den match, also die neue Linkendung, an <code class="docutils literal notranslate"><span class="pre">base_link</span></code> anhängst. Nun kann die nächste Seite gescrapt werden. Liegt kein match (mehr) vor, soll die Schleife abgebrochen werden.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">all_pages</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die unten die einzelnen Quelltexte gehängt werden</span>
+
+<span class="sd">&quot;&quot;&quot;while-Schleife scrapt eine paginierte Seite nach der anderen, bis kein Link mehr auf eine nächste Seite</span>
+<span class="sd">im Quelltext gefunden wird&quot;&quot;&quot;</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Currently scraping </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des Fortschritts</span>
+    
+    <span class="n">current_page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> <span class="c1">#Abruf des Quelltexts zum aktuellen Link</span>
+    
+    <span class="c1">#Kontrolle des Statuscodes</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">current_page</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">requests</span><span class="o">.</span><span class="n">codes</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Statuscode nicht ok!&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Definieren des Encodings des Quelltexts (requests geht unspezifiziert vom falschen Encoding aus, </span>
+<span class="sd">    was sich z. B. an Umlauten zeigt)&quot;&quot;&quot;</span>
+    <span class="n">current_page</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s2">&quot;UTF-8&quot;</span> 
+    
+    <span class="c1">#Anfügen des eigentlichen Quelltexts der aktuellen Seite (Zugriff über text-Attribut) an &#39;all_pages&#39;</span>
+    <span class="n">all_pages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_page</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> 
+    
+    <span class="c1">#Quelltext nach regulärem Ausdruck absuchen, der Link zur nächsten Seite matcht</span>
+    <span class="n">next_page</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">current_page</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    
+    <span class="c1">#Wenn ein match gefunden wird...</span>
+    <span class="k">if</span> <span class="n">next_page</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Definieren des Links für die nächste Seite, indem wir mithilfe der </span>
+<span class="sd">        &#39;group&#39;-Methode auf die erste Gruppe zugreifen und die neue Linkendung an den Stammlink hängen&quot;&quot;&quot;</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="n">base_link</span> <span class="o">+</span> <span class="n">next_page</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#erst noch eine kleine Pause!</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#...wenn nicht, ist das Werk komplett gescrapet und die while-Schleife wird abgebrochen</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><u>Extraktion</u></p>
+<ol class="arabic" start="6">
+<li><p>Nun haben wir alle Quelltexte gescrapt und es geht ans Extrahieren der relevanten Daten. Wir schreiben zunächst Code, um alle Strophen sowie die Figuren aus einem <em>einzelnen</em> Quelltext zu extrahieren. Anschließend bauen wir diesen Code in eine Schleife, der über <em>sämtliche</em> Quelltexte iteriert und nach und nach das gesamte Werk extrahiert.</p>
+<p>Analysiere als Erstes die Quelltexte eingehend, entweder im Browser, in Sublime Text oder indem Du sie Dir mithilfe von <code class="docutils literal notranslate"><span class="pre">prettify</span></code> von BeautifulSoup ausgeben lässt. Welche Elemente mit welchen Tags und ggf. welchen Attributen beinhalten die Strophen und Figuren?</p>
+<p><em>Lösung: Sowohl Strophen als auch Figuren sind in Elementen mit Tag <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> enthalten. Figuren sind in den <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>-Elementen <strong>untergeordneten</strong> <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code>-Elementen mit Attribut <code class="docutils literal notranslate"><span class="pre">class=&quot;speaker&quot;</span></code> enthalten. Die Strophen befinden sich in <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>-Elementen mit dem Attribut <code class="docutils literal notranslate"><span class="pre">class=&quot;vers&quot;</span></code>.</em></p>
+</li>
+</ol>
+<ol class="arabic simple" start="7">
+<li><p>Verwend BeautifulSoup, um den ersten Quelltext zu parsen. Schaffe ein Objekt <code class="docutils literal notranslate"><span class="pre">body</span></code>, das nur noch das <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code>-Element beinhält.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">page</span> <span class="o">=</span> <span class="n">all_pages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Definieren des ersten Quelltexts als &#39;page&#39;</span>
+
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span> <span class="c1">#Konstruieren eines BeautifulSoup-Objekts</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span> <span class="c1">#Zugriff auf das body-Element über &#39;find&#39;-Methode</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic" start="8">
+<li><p>Iterier mithilfe von <code class="docutils literal notranslate"><span class="pre">find_all</span></code> über alle Elemente desjenigen Tags, das sowohl Strophen als auch Figuren umfasst.</p>
+<p>Überprüf für jedes Element erstens, ob sich darin untergeordnet dasjenige Element befindet, das die Figuren enthält. Wenn ja, extrahier es und weis es <code class="docutils literal notranslate"><span class="pre">speaker</span></code> zu. Bereinige <code class="docutils literal notranslate"><span class="pre">speaker</span></code> von überflüßigen Zeichen und lass es Dir ausgeben.</p>
+<p>Überprüf zweitens, ob das Element andernfalls über dasjenige Attribut verfügt, das sämtliche Elemente, die Strophen beinhalten, miteinander teilen. Wenn ja, extrahier es, unterteil es in Verse und weis diese <code class="docutils literal notranslate"><span class="pre">lines</span></code> zu. Lass Dir <code class="docutils literal notranslate"><span class="pre">lines</span></code> schön formatiert ausgeben</p>
+<p>⚠️ Achtung: Manche Strophen beinhalten auch Regienanweisungen in einem untergeordneten <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code>-Element. Bau folgenden Code an der richtigen Stelle ein, um diese <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code>-Elemente aus den Strophen zu entfernen:</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">line.span:</span></code>
+<br>        <code class="docutils literal notranslate"><span class="pre">line.span.decompose()</span></code></p>
+<p>Wir überprüfen damit erst, ob die entsprechende Strophe ein <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code>-Element enthält und wenn ja, entfernen wir es aus ihr mithilfe der <code class="docutils literal notranslate"><span class="pre">decompose</span></code>-Methode.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Iteration über Liste mit allen Elementen mit Tag &lt;p&gt;, die, wie ein Blick in die Quelltexte ergab,</span>
+<span class="sd">die Strophen und Figuren (nebst weiteren Inhalten) enthält&quot;&quot;&quot;</span>
+<span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">):</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Nun müssen wir diejenigen Elemente aus allen &lt;p&gt;-Elementen extrahieren, die die Figur bzw. </span>
+<span class="sd">    die Strophen enthalten.&quot;&quot;&quot;</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Vor jeder Strophe steht die Figur, die spricht, und zwar in einem dem &lt;p&gt;-Element</span>
+<span class="sd">    untergeordneten Element mit &lt;span&gt;-Tag und Attribut class=&quot;speaker&quot;. Wir überprüfen mittels </span>
+<span class="sd">    &#39;if&#39;-Bedingung, ob die &#39;find&#39;-Methode ein solches Element findet, wenn ja...&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;...extrahieren wir den darin enthaltenen Text... (Zugriff über &#39;text&#39;-Attribut würde Fehlermeldung</span>
+<span class="sd">        hervorrufen, wenn &#39;find&#39; kein entsprechendes Element finden würde, daher if-Bedingung)&quot;&quot;&quot;</span>
+        <span class="n">speaker</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;...und schreiben ihn von inkonsistent verwendeten Doppelpunkten bereinigt </span>
+<span class="sd">        und mit abschließenden Zeilenumbrüchen in die Textdatei&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">speaker</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+
+    <span class="k">elif</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;vers&quot;</span><span class="p">]:</span>  <span class="c1">#Da &lt;p&gt;-Elemente nichts weiter enthalten, wenn sie die Figur enthalten, </span>
+                                              <span class="c1">#können wir mittels &#39;elif&#39; überprüfen, ob das Attribut &quot;class&quot; [&quot;vers&quot;] </span>
+                                              <span class="c1">#entspricht, denn in &lt;p&gt;-Elementen mit diesem Attribut sind </span>
+                                              <span class="c1">#die Strophen enthalten</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Stropheninterne Regieanweisungen befinden sich in einem &lt;span&gt;-Element, dessen Existenz</span>
+<span class="sd">        im aktuelle &lt;p&gt;-Element wir hier überprüfen&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="p">:</span>
+            <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> <span class="c1">#wenn ja löschen wir es aus &#39;paragraph&#39; mittels der &#39;decompose&#39;-Methode</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Da Einrückungen und whitespace generell in den Strophen inkonsistent verwendet wird,</span>
+<span class="sd">        splitten wir die Strophen in Verse, um im &#39;write&#39;-Befehl unten einheitlich formatieren zu können&quot;&quot;&quot;</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span> <span class="c1">#Iteration über die einzelnen Verse...</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Modifizier den Code aus Schritt 8 derart, dass Du die relevanten Daten nicht nur aus <em>einem</em> Quelltext extrahierst, sondern aus <em>allen</em> auf <code class="docutils literal notranslate"><span class="pre">all_pages</span></code>. Pass ihn außerdem so an, dass Dir Figuren und Strophen nicht ausgegeben werden, sondern dass diese in eine externe Datei geschrieben werden.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Öffnen der Datei, in die die Strophen geschrieben werden sollen</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/Faust_1.txt&quot;</span> <span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span> 
+    
+    <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">all_pages</span><span class="p">:</span> <span class="c1">#Iteration über &#39;all_pages&#39;</span>
+ 
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span> <span class="c1">#Konstruieren eines BeautifulSoup-Objekts</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span> <span class="c1">#Zugriff auf das body-Element über &#39;find&#39;-Methode</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Iteration über Liste mit allen Elementen mit Tag &lt;p&gt;, die, wie ein Blick in die Quelltexte ergab,</span>
+<span class="sd">        die Strophen und Figuren (nebst weiteren Inhalten) enthält&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">):</span> 
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Nun müssen wir diejenigen Elemente aus allen &lt;p&gt;-Elementen extrahieren, die die Figur bzw. </span>
+<span class="sd">            die Strophen enthalten.&quot;&quot;&quot;</span>
+<span class="w">            </span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Vor jeder Strophe steht die Figur, die spricht, und zwar in einem dem &lt;p&gt;-Element</span>
+<span class="sd">            untergeordneten Element mit &lt;span&gt;-Tag und Attribut class=&quot;speaker&quot;. Wir überprüfen mittels </span>
+<span class="sd">            &#39;if&#39;-Bedingung, ob die &#39;find&#39;-Methode ein solches Element findet, wenn ja...&quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">):</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;...extrahieren wir den darin enthaltenen Text... (Zugriff über &#39;text&#39;-Attribut würde Fehlermeldung</span>
+<span class="sd">                hervorrufen, wenn &#39;find&#39; kein entsprechendes Element finden würde, daher if-Bedingung)&quot;&quot;&quot;</span>
+                <span class="n">speaker</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;...und schreiben ihn von inkonsistent verwendeten Doppelpunkten bereinigt </span>
+<span class="sd">                und mit abschließenden Zeilenumbrüchen in die Textdatei&quot;&quot;&quot;</span>
+                <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">speaker</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+           
+            <span class="k">elif</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;vers&quot;</span><span class="p">]:</span>  <span class="c1">#Da &lt;p&gt;-Elemente nichts weiter enthalten, wenn sie die Figur enthalten, </span>
+                                                      <span class="c1">#können wir mittels &#39;elif&#39; überprüfen, ob das Attribut &quot;class&quot; [&quot;vers&quot;] </span>
+                                                      <span class="c1">#entspricht, denn in &lt;p&gt;-Elementen mit diesem Attribut sind </span>
+                                                      <span class="c1">#die Strophen enthalten</span>
+<span class="w">                </span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Stropheninterne Regieanweisungen befinden sich in einem &lt;span&gt;-Element, dessen Existenz</span>
+<span class="sd">                im aktuelle &lt;p&gt;-Element wir hier überprüfen&quot;&quot;&quot;</span>
+                <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="p">:</span>
+                    <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> <span class="c1">#wenn ja löschen wir es aus &#39;paragraph&#39; mittels der &#39;decompose&#39;-Methode</span>
+<span class="w">            </span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Da Einrückungen und whitespace generell in den Strophen inkonsistent verwendet wird,</span>
+<span class="sd">                splitten wir die Strophen in Verse, um im &#39;write&#39;-Befehl unten einheitlich formatieren zu können&quot;&quot;&quot;</span>
+                <span class="n">lines</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                
+                <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span> <span class="c1">#Iteration über die einzelnen Verse...</span>
+                    <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#...und schreiben in Textdokument (bereinigt und konsistent formatiert)</span>
+                
+                <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Schreiben eines weiteren Zeilenumbruchs nach jeder Strophe (= 2 Zeilenumbruche total)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 1:</strong> Pass obigen Extraktionscode so an, dass vor jeder Äußerung der Name des/der jeweiligen Abgeordneten ausgegeben wird.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Parsen des XML-Dokuments sowie Extrahieren von &#39;root&#39; (nur im Lösungsnotebook notwendig)</span>
+<span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt </span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/XML/plenarprotokoll.xml&quot;</span><span class="p">)</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">speech</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;rede&quot;</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;eigentliche Lösung (Anfang): wir extrahieren Vor- und Nachnamen, indem wir &#39;speech&#39; mithilfe von &#39;iter&#39; </span>
+<span class="sd">    rekursiv nach den gewünschten Tags absuchen, das Resultat in eine Liste casten, das erste Element davon indizieren </span>
+<span class="sd">    und auf dessen Textinhalt zugreifen. Anstatt Casting in Liste und Indizierung wäre auch jeweils eine &#39;for&#39;-Schleife </span>
+<span class="sd">    möglich, was den Code aber länger machen würde. Alternativ könnten wir auch die RegEx-ähnliche Suchsprache XPath</span>
+<span class="sd">    verwenden, was für die Extraktion von &#39;name&#39; so aussähe: name = speech.find(&quot;.//p[@klasse=&#39;redner&#39;]//vorname&quot;).text</span>
+<span class="sd">    vgl. dazu die Dokumentation von XPath: https://www.w3.org/TR/xpath-31/&quot;&quot;&quot;</span>
+    
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;vorname&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">surname</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;nachname&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des konkatenierten Namen</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;eigentliche Lösung (Ende)&quot;&quot;&quot;</span>
+    
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">speech</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">elif</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;p&quot;</span> <span class="ow">and</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1">#inkl. Bereinigung von leading/trailing whitespace</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Einfügen eines Zeilenumbruchs nach jeder Rede</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 2:</strong> Neben den Reden bzw. Äußerungen der Abgeordneten, die gerade das Rederecht besitzen, enthält das Protokoll auch verbale Zwischenrufe sowie Anmerkungen über Beifall, Lachen etc. Diese Informationen sind in Elementen mit dem Tag <code class="docutils literal notranslate"><span class="pre">&lt;kommentar&gt;</span></code> enthalten. Extrahier sie für alle Reden, für die mindestens ein <code class="docutils literal notranslate"><span class="pre">&lt;kommentar&gt;</span></code>-Element protokolliert wurde. Lass sie Dir zusammen mit dem Namen des/der Abgeordneten ausgeben, der/die eigentlich gerade am sprechen ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: Code funktioniert nur, wenn der Code zur vorangehenden Übung ausgeführt wurde!</span>
+
+<span class="k">for</span> <span class="n">speech</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;rede&quot;</span><span class="p">):</span>
+    
+    <span class="c1">#Überprüfung, ob es überhaupt &lt;kommenar&gt;-Elemente gibt, wenn nein, überspringen</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;kommentar&quot;</span><span class="p">)))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span> 
+
+    <span class="c1">#Erläuterung vgl. Lösung 1</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;vorname&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">surname</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;nachname&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    
+    <span class="c1">#rekursives Iterieren über &#39;speech&#39; und Suche nach &#39;kommentar&#39;-Elementen</span>
+    <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;kommentar&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">comment</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="c1">#Ausgabe des Textinhalts</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 3:</strong> Im Anwendungsfall haben wir sämtliche Strophen von Faust I in einer externen Textdatei gespeichert. Diese verfügt (idealerweise) über eine interne Struktur. In der Musterlösung wurde etwa mit Tabstopps und Zeilenumbrüchen gearbeitet, um einzelne Strophen bzw. die zugehörigen Figuren voneinander abzugrenzen. Diese Struktur kommt uns spätestens dann zu Gute, wenn wir die Daten für irgendeine Form von Auswertung mit Python wieder einlesen.</p>
+<p>Um unseren Anwendungsfall zu „professionalisieren“, ist es nun Deine Aufgabe, den Faust I in einem XML-Dokument speichern, also in einem Format, dessen „Aufgabe“ es ist, Daten ordentlich zu strukturieren. Kopier dazu den Code vom Extraktionsschritt des Anwendungsfalls in die folgende Zelle. Pass ihn anschließend so an, dass die Daten dynamisch in ein XML-Dokument statt in eine Textdatei geschrieben werden.</p>
+<p>Als kleiner Bonus, der überprüft, ob bei der Speicherung alles geklappt hat, vor allem aber die Nützlichkeit strukturierter Daten aufzeigt, kannst Du Dir anschließend über die bereits gegebene Code-Zelle einfach alle Verse des berühmten Teufels aus dem Faust ausgeben lassen. Wenn nötig, pass den Dateipfad bzw. die Tags und Attribute Deiner Namensgebung an.</p>
+<details><summary>📌 Herausforderung </summary>
+<br>Extrahier zusätzlich den Titel jeder Szene und speichere diese Information jeweils an der richtigen Position in der Hierarchie des zu schaffenden XML-Dokuments.
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Alle Kommentare beziehen sich auf den neu hinzugekommenen Lösungscode; Kommentare zum Extraktionscode</span>
+<span class="sd">siehe Anwendungsfall oben; Code funktioniert nur, wenn &#39;all_pages&#39; vom Abrufschritt noch im Arbeitsspeicher ist!&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">xml.dom</span> <span class="kn">import</span> <span class="n">minidom</span>
+
+<span class="sd">&quot;&quot;&quot;Initialisieren des obersten Elements in der Hierarchie. Elemente können in XML ja frei benannt werden.</span>
+<span class="sd">Die Text Encoding Initiative (TEI; https://www.tei-c.org) strebt eine Standardisierung der Repräsentation</span>
+<span class="sd">und Speicherung von Texten an und bietet auch genrespezifische Empfehlungen (hier für Dramen: </span>
+<span class="sd">https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DR.html). Im folgenden wurden diese </span>
+<span class="sd">Empfehlungen nur lose umgesetzt.&quot;&quot;&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span> 
+
+<span class="c1">#optionales Hinzufügen von Attributen</span>
+<span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;Faust I&quot;</span><span class="p">)</span>
+<span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;https://www.projekt-gutenberg.org/goethe/faust1/index.html&quot;</span><span class="p">)</span> 
+
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">all_pages</span><span class="p">:</span>
+
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span> 
+    <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span> 
+
+    <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">):</span>
+<span class="w">            </span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialisieren eines Kindelements von &#39;text&#39;, das sämtliche aufeinanderfolgende Strophen</span>
+<span class="sd">            einer Figur beinhalten soll.&quot;&quot;&quot;</span>
+            <span class="n">character</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;character&quot;</span><span class="p">)</span>
+            
+            <span class="n">speaker</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+            
+            <span class="n">character</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">speaker</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">))</span> <span class="c1">#Setzen eines Attributs, das den Namen der Figur beinhält</span>
+
+        <span class="k">elif</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;vers&quot;</span><span class="p">]:</span> 
+<span class="w">            </span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialisieren eines Kindelements von &#39;character&#39;, das sämtliche Verse einer (!)</span>
+<span class="sd">            Strophe beinhalten soll.&quot;&quot;&quot;</span>
+            <span class="n">stanza</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">character</span><span class="p">,</span> <span class="s2">&quot;stanza&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="p">:</span>
+                <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> 
+
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span> 
+<span class="w">                </span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Initialisieren eines Kindelements von &#39;stanza&#39;, das jeweils einen Vers</span>
+<span class="sd">                beinhalten soll. Achtung: die Variable &#39;line&#39; (die &#39;Vers&#39; bedeutet) ist bereits </span>
+<span class="sd">                in Benutzung. Daher weisen wir das Kindelement der Variablen &#39;line_xml&#39; zu.</span>
+<span class="sd">                Das XML-Element heißt dennoch nur &#39;line&#39;. Es zeigt sich, dass Variablen, die ein </span>
+<span class="sd">                XML-Element referenzieren, unabhängig von dessen Tag (Name) benannt werden können.&quot;&quot;&quot;</span>
+                <span class="n">line_xml</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">stanza</span><span class="p">,</span> <span class="s2">&quot;line&quot;</span><span class="p">)</span>
+                <span class="n">line_xml</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1">#Hinzufügen von Einrückungen</span>
+<span class="n">pretty_corpus</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">ET</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">text</span><span class="p">))</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="s2">&quot;  &quot;</span><span class="p">)</span>
+
+<span class="c1">#Schreiben von &#39;pretty_corpus&#39; in externe Datei mit der Endung &#39;xml&#39; (anderer Pfad als im Notebook!)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/faust_1.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+    <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pretty_corpus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Bonus: Ausgabe aller Verse von Mephisto(pheles)</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/faust_1.xml&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span> <span class="c1">#anderer Pfad als im Notebook!</span>
+
+<span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;character&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">character</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Mephistopheles&quot;</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">character</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;line&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Herausforderung</span>
+
+<span class="sd">&quot;&quot;&quot;Alle Kommentare beziehen sich auf den neu hinzugekommenen Lösungscode; Kommentare zum Extraktionscode</span>
+<span class="sd">siehe Anwendungsfall oben; Code funktioniert nur, wenn &#39;all_pages&#39; vom Abrufschritt noch im Arbeitsspeicher ist!&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">xml.dom</span> <span class="kn">import</span> <span class="n">minidom</span>
+
+<span class="sd">&quot;&quot;&quot;Initialisieren des obersten Elements in der Hierarchie. Elemente können in XML ja frei benannt werden.</span>
+<span class="sd">Die Text Encoding Initiative (TEI; https://www.tei-c.org) strebt eine Standardisierung der Repräsentation</span>
+<span class="sd">und Speicherung von Texten an und bietet auch genrespezifische Empfehlungen (hier für Dramen: </span>
+<span class="sd">https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DR.html). Im folgenden wurden diese </span>
+<span class="sd">Empfehlungen nur lose umgesetzt.&quot;&quot;&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span> 
+
+<span class="c1">#optionales Hinzufügen von Attributen</span>
+<span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;Faust I&quot;</span><span class="p">)</span>
+<span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;https://www.projekt-gutenberg.org/goethe/faust1/index.html&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">all_pages</span><span class="p">:</span>
+
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span> 
+    <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span> 
+    
+    <span class="n">scene</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="c1">#zusätzliche Extraktion des Szenentitels</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Um Faust I nach Szenen zu gliedern, drängt sich die Schaffung einer weiteren hierarchischen Ebene</span>
+<span class="sd">    zwischen &#39;faust&#39; und &#39;character&#39; auf. Deshalb initialisieren wir hier ein Kindelement von &#39;text&#39;, </span>
+<span class="sd">    das sämtliche Strophen einer Szene beinhalten soll. Der Szenentitel soll in einem Attribut gespeichert werden.&quot;&quot;&quot;</span>
+    <span class="n">scene</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;scene&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="n">scene</span><span class="p">})</span>
+    
+    <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;p&quot;</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">):</span>
+<span class="w">            </span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialisieren eines Kindelements von &#39;scene&#39;, das sämtliche aufeinanderfolgende Strophen</span>
+<span class="sd">            einer Figur beinhalten soll.&quot;&quot;&quot;</span>
+            <span class="n">character</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">scene</span><span class="p">,</span> <span class="s2">&quot;character&quot;</span><span class="p">)</span>
+            
+            <span class="n">speaker</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+            
+            <span class="n">character</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">speaker</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">))</span> <span class="c1">#Setzen eines Attributs, das den Namen der Figur beinhält</span>
+
+        <span class="k">elif</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;vers&quot;</span><span class="p">]:</span> 
+<span class="w">            </span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialisieren eines Kindelements von &#39;character&#39;, das sämtliche Verse einer (!)</span>
+<span class="sd">            Strophe beinhalten soll.&quot;&quot;&quot;</span>
+            <span class="n">stanza</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">character</span><span class="p">,</span> <span class="s2">&quot;stanza&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="p">:</span>
+                <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> 
+
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span> 
+<span class="w">                </span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Initialisieren eines Kindelements von &#39;stanza&#39;, das jeweils einen Vers</span>
+<span class="sd">                beinhalten soll. Achtung: die Variable &#39;line&#39; (die &#39;Vers&#39; bedeutet) ist bereits </span>
+<span class="sd">                in Benutzung. Daher weisen wir das Kindelement der Variablen &#39;line_xml&#39; zu.</span>
+<span class="sd">                Das XML-Element heißt dennoch nur &#39;line&#39;. Es zeigt sich, dass Variablen, die ein </span>
+<span class="sd">                XML-Element referenzieren, unabhängig von dessen Tag (Name) benannt werden können.&quot;&quot;&quot;</span>
+                <span class="n">line_xml</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">stanza</span><span class="p">,</span> <span class="s2">&quot;line&quot;</span><span class="p">)</span>
+                <span class="n">line_xml</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1">#Hinzufügen von Einrückungen</span>
+<span class="n">pretty_corpus</span> <span class="o">=</span> <span class="n">minidom</span><span class="o">.</span><span class="n">parseString</span><span class="p">(</span><span class="n">ET</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">text</span><span class="p">))</span><span class="o">.</span><span class="n">toprettyxml</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="s2">&quot;  &quot;</span><span class="p">)</span>
+
+<span class="c1">#Schreiben von &#39;pretty_corpus&#39; in externe Datei mit der Endung &#39;xml&#39; (anderer Pfad als im Notebook!)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/faust_1_mit_szenentitel.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+    <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pretty_corpus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Bonus: Ausgabe aller Verse von Mephisto(pheles)</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/faust_1_mit_szenentitel.xml&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span> <span class="c1">#anderer Pfad als im Notebook!</span>
+
+<span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;character&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">character</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Mephistopheles&quot;</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">character</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;line&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Lösung 4:</strong> XML ist wie gesagt ein beliebtes Format, um Daten zu speichern und zu teilen. Neben XML arbeiten wir beim Programmieren auch oft mit csv-Dateien (vgl. Notebooks „Input und Output“ sowie „Datenanalyse“). Welchen Vorteil hat XML im Gegensatz zu csv?</p>
+<p><em>Antwort: Informationen, die bei XML <strong>einmal</strong> gespeichert sind (hier sämtliche Informationen außer die Wörter der Rede), müssen bei HTML für jedes Element auf der tiefsten Ebene (also für jedes Wort) <strong>wiederholt</strong> werden. Das liegt an der fehlenden Hierarchie bei csv-Dateien. XML spart deshalb Speicherplatz. Allerdings können csv-Dateien aufgrund der häufig wiederholten, identischen Informationen sehr stark komprimiert werden. Der Vorteil von XML besteht also nur, wenn man aktiv mit den Daten arbeitet. Zum Speichern bzw. Teilen können csv-Dateien ähnlich kompakt gemacht werden wie XML-Dateien.</em></p>
+<hr class="docutils" />
+<table>
+      <tr>
+        <td>
+            <img src="../../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
+        </td> 
+        <td>
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
+        </td>
+      </tr>
+</table></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks/Loesungen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
