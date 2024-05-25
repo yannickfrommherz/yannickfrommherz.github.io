@@ -542,7 +542,7 @@ document.write(`
  <br></li>
 </ol>
 <ol class="arabic" start="8">
-<li><p>Lies aufbauend auf der Zusatzübung 7 zum Notebook „Kontrollstrukturen“ die Datei „de_sv.csv“ aus dem Ordner „Tabellarische_Daten“ ein. Darin befinden sich nun mehr als nur eine Handvoll Vokabeln Deutsch-Schwedisch. Genauer gesagt handelt es sich um die 100 wichtigsten Vokabeln gemäß ChatGPT. Überführ die Daten in ein geeignetes Objekt und „fütter“ damit den bereits programmierten Vokabeltrainer. Beim Einlesen dürfte die Dir noch unbekannte <code class="docutils literal notranslate"><span class="pre">next</span></code>-Funktion hilfreich sein – erkunde selbständig, wie Du sie einsetzen kannst. Implementier außerdem einen Mechanismus, über den Benutzer:innen die Lernsession vorzeitig beenden können, falls sie nicht alle 100 Vokabeln lernen möchten.</p>
+<li><p>Lies aufbauend auf der Zusatzübung 7 bzw. 8 zum Notebook „Kontrollstrukturen“ die Datei „de_sv.csv“ aus dem Ordner „Tabellarische_Daten“ ein. Darin befinden sich nun mehr als nur eine Handvoll Vokabeln Deutsch-Schwedisch. Genauer gesagt handelt es sich um die 100 wichtigsten Vokabeln gemäß ChatGPT. Überführ die Daten in ein geeignetes Objekt und „fütter“ damit den bereits programmierten Vokabeltrainer. Beim Einlesen dürfte die Dir noch unbekannte <code class="docutils literal notranslate"><span class="pre">next</span></code>-Funktion hilfreich sein – erkunde selbständig, wie Du sie einsetzen kannst. Implementier außerdem einen Mechanismus, über den Benutzer:innen die Lernsession vorzeitig beenden können, falls sie nicht alle 100 Vokabeln lernen möchten.</p>
  <details>
    <summary>💡 Tipp </summary>
    <br>Um die Lernsession zu beenden, kann die Benutzerin bzw. der Benutzer z. B. ein "X" eingeben. Dann soll der Vokabeltrainer beendet werden.
@@ -584,20 +584,6 @@ document.write(`
 </div>
 </div>
 </div>
-<ol class="arabic" start="12">
-<li><p>In dieser letzten Übung begeben wir uns in unbekanntes Terrain. Den Großteil der Arbeit erledigen wir nämlich nicht wie gewohnt aus dem Jupyter Notebook heraus, sondern über die Command Line (Terminal unter macOS und Linux/Eingabeaufforderung unter Windows; Achtung: Übung funktioniert nicht innerhalb von GitHub Codespace). Manche Tools stehen nämlich nur für die Command Line bereit und nicht für Python. So auch <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/">TreeTagger</a>, ein Tool, mit dem wir Text in verschiedenen Sprachen mit metalinguistischen Informationen wie Lemmata (also die jeweiligen Formen von Wörtern, die in einem Wörterbuch stehen, z. B. „Kindes“ &gt; „Kind“) oder Part-of-Speech-Tags (Wortarten; abgekürzt: <em>POS</em>) anreichern können.</p>
-<ol class="arabic">
-<li><p>Installier TreeTagger über die Schritte 1-5 auf der oben verlinkten Seite. Bei den „parameter files“ lädst Du das <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/german.par.gz">German parameter file</a> herunter. Speicher alle Dateien im gleichen Verzeichnis und achte darauf, dass der Dateipfad dorthin keine Leerschläge enthält. Entpack keine der Dateien. Bei Schritt 5 ist es wichtig, dass Du die Command Line entweder direkt aus dem Verzeichnis mit den TreeTagger-Dateien heraus öffnest (i. d. R. möglich über Rechtsklick im Verzeichnis), oder mittels <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">path</span></code> zum Verzeichnis navigierst. Dadurch hat die Command Line das Verzeichnis der TreeTagger-Dateien als aktuelles Arbeitsverzeichnis.</p></li>
-<li><p>Schau, ob die Installation geklappt hat, indem Du in der Command Line (mit dem TreeTagger-Verzeichnis als Arbeitsverzeichnis!) den Befehl <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">'Hallo</span> <span class="pre">Welt!'</span> <span class="pre">|</span> <span class="pre">cmd/tree-tagger-german</span></code> eingibst. Ggf. verhindert Dein Betriebssystem die Ausführung des Befehls, weil TreeTagger nicht von einem verifizierten Entwickler stammt. Über die Einstellungen Deines Betriebssystems solltest Du diese Blockierung aufheben können. Die Ausgabe sollte folgendermaßen ausschauen:</p>
- <img src="../3_Dateien/Grafiken_und_Videos/Terminal_Output.png" width="450"/>
-<p>Die erste Spalte enthält die ursprünglichen Wörter unserer Eingabe in tokenisierter Form (ein Token pro Zeile). Die zweite Spalte enthält die POS-Tags (die deutsche Legende findest Du <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/STTS-Tagset.pdf">hier</a>) und die dritte die Lemmata.</p>
-</li>
-<li><p>Nun wollen wir einen längeren Text taggen. Speicher dazu den in Übung 1 erstellten Fließtext mit Niels Holgersens erstem Kapitel im gleichen Verzeichnis wie die TreeTagger-Dateien unter dem Namen „niels_holgersen.txt“ ab.</p></li>
-<li><p>Führ den Befehl <code class="docutils literal notranslate"><span class="pre">cmd/tree-tagger-german</span> <span class="pre">niels_holgersen.txt</span> <span class="pre">&gt;</span> <span class="pre">niels_holgersen_tagged.txt</span></code> in der Command Line (mit dem TreeTagger-Verzeichnis als Arbeitsverzeichnis!) aus. Dadurch übergeben wir „niels_holgersen.txt“ dem Programm „tree-tagger-german“ (das sich im Unterverzeichnis „cmd/“ befindet). Das Programm tokenisiert, POS-taggt und lemmatisiert den Text in „niels_holgersen.txt“ und speichert das Ergebnis in „niels_holgersen_tagged.txt“. Öffne die neue Datei (z. B. mit Sublime Text) und inspizier sie.</p></li>
-<li><p>Lies die Datei hier ein und find heraus, welches POS-Tag am häufigsten vorkommt. Es sollte sich um Nomen (NN) handeln.</p></li>
-</ol>
-</li>
-</ol>
 <hr class="docutils" />
 <table>
       <tr>

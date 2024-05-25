@@ -32,8 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['import re', 'import time', '', '#Definieren eines regulären Ausdruck, um den Link zur jeweils nächsten Seite zu extrahieren', 'regex = r\'href="(\\S+)">weiter\' #runde Klammern umschließen Gruppe mit eigentlichem Link']
+['import re', 'import time', '', '#Definieren eines regulären Ausdrucks, um den Link zur jeweils nächsten Seite zu extrahieren', 'regex = r\'href="(\\S+)">weiter\' #Runde Klammern umschließen Gruppe mit eigentlichem Link']
 ...
-['        \'group\'-Methode auf die erste Gruppe zugreifen und die neue Linkendung an den Stammlink hängen"""', '        link = base_link + next_page.group(1)', '        time.sleep(5) #erst noch eine kleine Pause!', '    else: #...wenn nicht, ist das Werk komplett gescrapet und die while-Schleife wird abgebrochen', '        break']
+['        \'group\'-Methode auf die erste Gruppe zugreifen und die neue Linkendung an den Stammlink hängen"""', '        link = base_link + next_page.group(1)', '        time.sleep(5) #Erst noch eine kleine Pause!', "    else: #...wenn nicht, ist das Werk komplett gescrapet und die 'while'-Schleife wird abgebrochen.", '        break']
 -------------------
 
