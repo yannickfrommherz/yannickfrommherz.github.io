@@ -506,10 +506,10 @@ document.write(`
 </div>
 </div>
 <ol class="arabic" start="3">
-<li><p>Ruf nun den Quelltext aller Unterseiten der gegebenen Rubrik ab und speicher deren Quelltexte in einer Liste. Verwend hier wenn möglich einen regulären Ausdruck. Lass Dir anschließend in der zweiten Code-Zelle zur Kontrolle die ersten 1000 Zeichen des ersten Quelltexts ausgeben.</p>
+<li><p>Ruf nun die Seitenquelltexte der gegebenen Rubrik ab und speicher sie in einer Liste. Verwend hier wenn möglich einen regulären Ausdruck. Lass Dir anschließend in der zweiten Code-Zelle zur Kontrolle die ersten 1000 Zeichen des ersten Quelltexts ausgeben.</p>
  <details>
      <summary>💡 Tipp für die Umsetzung ohne reguläre Ausdrücke</summary>
-     <br>Die Nutzung eines f-strings bietet sich an, um nacheinander alle Seiten zu scrapen.
+     <br>Die Nutzung eines f-strings in Verbindung mit einer Schleife sowie einer Zählvariablen bietet sich an, um nacheinander alle Seiten zu scrapen.
  </details>
  <br></li>
 </ol>
@@ -538,7 +538,7 @@ document.write(`
 <ol class="arabic" start="5">
 <li><p>Da Web Scraping die angerufenen Server immer belastet, sollten wir so selten wie möglich Inhalte herunterladen. Wenn wir mehrfach die gleichen Daten für ein größeres Projekt benötigen, sollten wir sie nur einmal herunterladen und anschließend lokal speichern.</p>
 <p>Die Quelltexte der manova-Seiten sind momentan nur in unserem Arbeitsspeicher (in der Variablen <code class="docutils literal notranslate"><span class="pre">all_pages</span></code>). Sobald wir diese Sitzung (also den Kernel) beenden, gehen sie verloren. Um auch in der nächsten Sitzung mit den Daten arbeiten zu können (ohne sie erneut vom Server herunterladen zu müssen), ist es nun Deine Aufgabe, jeden Quelltext in einem separaten HTML-Dokument zu speichern. Wähl als Speicherort das Verzeichnis „3_Dateien/Output“.</p>
-<p>Überprüf abschließend über Deinem Dateimanager, ob die neu geschaffenen Dateien existieren sowie sinnvoll beschrieben wurden.</p>
+<p>Überprüf abschließend über Deinen Dateimanager, ob die neuen Dateien existieren sowie sinnvoll beschrieben wurden.</p>
  <details>
  <summary>💡 Tipp </summary>
  <br>Zum externen Speichern von Daten gibt es bei Python verschiedene Wege. Einige hast Du bereits im zweiteiligen Notebook "Input und Output" kennengelernt. Du kannst aber auch selbst im Internet suchen, wie Du die Quelltexte am besten speicherst. 
@@ -548,7 +548,7 @@ document.write(`
 <hr class="docutils" />
 <ol class="arabic" start="6">
 <li><p>Nun wollen wir mit den soeben lokal gespeicherten HTML-Dokumenten weiterarbeiten. Lies sie nacheinander ein und extrahier bei jedem angeteaserten Artikel das zugehörige Schlagwort. Beim Artikel im Screenshot unten wäre dies „#WASSERSPEZIAL“ (andere Schlagworte beginnen nicht mit einem Hashtag).</p>
-<p><img alt="" src="../../_images/schlagwort_manova.png" /></p>
+<p><img alt="" src="../../_images/Schlagwort_manova.png" /></p>
 <p>Ermittle, wie häufig jedes Schlagwort auf den gescrapten Seiten zum Einsatz kommt. Lass Dir das Ergebnis in absteigender Reihenfolge ausgeben.</p>
 </li>
 </ol>
@@ -570,12 +570,12 @@ document.write(`
  <br>
  <details>
  <summary>💡 Tipp 2 </summary>
- <br>Um die Fortschrittsanzeige, die wir etwa in der Lösung zu Übung 3 verwendet haben, zu professionalisieren, kannst Du das Modul <code>tqdm</code> über die Command Line installieren. Importiere es mithilfe von <code>from tqdm import tqdm</code> und bau es wie folgt in die <code>for</code>-Schleife zur Iteration über <code>links</code> ein: <code>for i in tqdm(range(len(links)))</code>. Die <code>range</code>-Funktion benutzen wir auch hier, um einen Zähler für die Dateibenennung zu erhalten.
+ <br>Um die Fortschrittsanzeige, die wir etwa in der Lösung zu Übung 3 verwendet haben, zu professionalisieren, kannst Du das Modul <code>tqdm</code> über die Command Line installieren. Importiere es anschließend mithilfe von <code>from tqdm import tqdm</code> und bau es wie folgt in die <code>for</code>-Schleife zur Iteration über <code>links</code> ein: <code>for i in tqdm(range(len(links)))</code>. Die <code>range</code>-Funktion benutzen wir auch hier, um einen Zähler für die Dateibenennung zu erhalten.
  </details>
  <br>
  <details>
  <summary>📌 Herausforderung </summary>
- <br>Extrahier nicht nur den Haupttext aller Artikel, sondern ebenfalls den Namen des/der Autor:in, den Titel, das Publikationsdatum sowie weitere Metadaten, die Dich interessieren. Um diese Elemente gezielt extrahieren zu können, musst Du die Quelltexte mit <code>requests</code> abrufen und mit <code>BeautifulSoup</code> parsen. Speichere die Metadaten an geeigneter Stelle in der Hierarchie Deines XML-Dokuments. Nutz dafür beispielsweise Attribute. Für diese Herausforderung wird keine Lösung vorgegeben.
+ <br>Extrahier nicht nur den Haupttext aller Artikel, sondern ebenfalls den Namen des/der Autor:in, den Titel, das Publikationsdatum sowie weitere Metadaten, die Dich interessieren. Um diese Elemente gezielt extrahieren zu können, musst Du die Quelltexte mit <code>requests</code> abrufen und mit <code>BeautifulSoup</code> parsen. Speicher die Metadaten an geeigneter Stelle in der Hierarchie Deines XML-Dokuments. Nutz dafür beispielsweise Attribute. Für diese Herausforderung wird keine Lösung vorgegeben.
  </details>
  <br></li>
 </ol>
@@ -595,7 +595,7 @@ document.write(`
 </div>
 <ol class="arabic" start="10">
 <li><p>Auch wenn es beim Web Scraping nur um die Daten<em>beschaffung</em> geht, so bietet folgender vorgegebener Code einen Einblick in die Daten<em>auswertung</em>, die möglich ist, jetzt wo wir unser eigenes Korpus zusammengestellt haben. Der Code lässt sich ausführen, wenn Du die XML-Elemente gleich genannt hast, wie in der Lösung vorgeschlagen. Du kannst ihn natürlich an Deine Namensgebung anpassen.</p>
-<p>Wir verwenden das im Notebook „Funktionen und Methoden Teil 2“ erstellte Modul <code class="docutils literal notranslate"><span class="pre">keywords</span></code> bzw. die Funktion <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> daraus. Diese haben wir ja geschrieben, um die Häufigkeit von Wörtern zu berechnen. Da wir es nun mit einer viel größeren Datenmenge zu tun haben, läuft der Code eine Weile. Bau gerne eine Fortschrittsanzeige mit <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> in den Modulcode, um die Ausführung im Blick behalten zu können. Bedenk aber, dass Du nach dem Ändern des Modulcodes den Kernel neustarten musst, um das Modul mit dem geänderten Code zu importieren.</p>
+<p>Wir verwenden das im Notebook „Funktionen und Methoden Teil 2“ erstellte Modul <code class="docutils literal notranslate"><span class="pre">keywords</span></code> bzw. die Funktion <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> daraus. Diese haben wir ja geschrieben, um die Häufigkeit von Wörtern zu berechnen. Da wir es nun mit einer viel größeren Datenmenge zu tun haben, läuft der Code eine Weile. Bau gerne eine Fortschrittsanzeige mit <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> in den Modulcode ein, um die Ausführung im Blick behalten zu können. Bedenk aber, dass Du nach dem Ändern des Modulcodes den Kernel neustarten musst, um das Modul mit dem geänderten Code zu importieren.</p>
 <p>Behalt auch im Hinterkopf, dass wir diesen Code in einem früheren Stadium unserer Programmierkarriere geschrieben haben. Mittlerweile kennen wir vermutlich effizientere Wege, um Wörter auszuzählen. Ungeachtet dessen offenbart sich hier (einmal mehr) der Vorteil von <em>Code Reuse</em> und konkret von Modularisierung, wie er im zweiteiligen Notebook „Funktionen und Methoden“ aufgezeigt wurde.</p>
 </li>
 </ol>

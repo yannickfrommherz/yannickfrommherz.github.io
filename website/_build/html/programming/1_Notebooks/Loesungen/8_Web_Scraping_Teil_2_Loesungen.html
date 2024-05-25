@@ -485,8 +485,8 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
-<span class="c1">#Definieren eines regulären Ausdruck, um den Link zur jeweils nächsten Seite zu extrahieren</span>
-<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;href=&quot;(\S+)&quot;&gt;weiter&#39;</span> <span class="c1">#runde Klammern umschließen Gruppe mit eigentlichem Link</span>
+<span class="c1">#Definieren eines regulären Ausdrucks, um den Link zur jeweils nächsten Seite zu extrahieren</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;href=&quot;(\S+)&quot;&gt;weiter&#39;</span> <span class="c1">#Runde Klammern umschließen Gruppe mit eigentlichem Link</span>
 
 <span class="c1">#Definieren von Stammlink, erster Linkendung sowie des kompletten Links zur ersten zu scrapenden Seite</span>
 <span class="n">base_link</span> <span class="o">=</span> <span class="s2">&quot;https://www.projekt-gutenberg.org/goethe/faust1/&quot;</span>
@@ -495,11 +495,11 @@ document.write(`
 
 <span class="n">all_pages</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die unten die einzelnen Quelltexte gehängt werden</span>
 
-<span class="sd">&quot;&quot;&quot;while-Schleife scrapt eine paginierte Seite nach der anderen, bis kein Link mehr auf eine nächste Seite</span>
+<span class="sd">&quot;&quot;&quot;&#39;while&#39;-Schleife scrapt eine paginierte Seite nach der anderen, bis kein Link mehr auf eine nächste Seite</span>
 <span class="sd">im Quelltext gefunden wird&quot;&quot;&quot;</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Currently scraping </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des Fortschritts</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aktuell wird gescrapt: </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des Fortschritts</span>
     
     <span class="n">current_page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> <span class="c1">#Abruf des Quelltexts zum aktuellen Link</span>
     
@@ -523,29 +523,29 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Definieren des Links für die nächste Seite, indem wir mithilfe der </span>
 <span class="sd">        &#39;group&#39;-Methode auf die erste Gruppe zugreifen und die neue Linkendung an den Stammlink hängen&quot;&quot;&quot;</span>
         <span class="n">link</span> <span class="o">=</span> <span class="n">base_link</span> <span class="o">+</span> <span class="n">next_page</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#erst noch eine kleine Pause!</span>
-    <span class="k">else</span><span class="p">:</span> <span class="c1">#...wenn nicht, ist das Werk komplett gescrapet und die while-Schleife wird abgebrochen</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#Erst noch eine kleine Pause!</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#...wenn nicht, ist das Werk komplett gescrapet und die &#39;while&#39;-Schleife wird abgebrochen.</span>
         <span class="k">break</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap002.html
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird gescrapt: https://www.projekt-gutenberg.org/goethe/faust1/chap002.html
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap003.html
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird gescrapt: https://www.projekt-gutenberg.org/goethe/faust1/chap003.html
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap004.html
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird gescrapt: https://www.projekt-gutenberg.org/goethe/faust1/chap004.html
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap005.html
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird gescrapt: https://www.projekt-gutenberg.org/goethe/faust1/chap005.html
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap006.html
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird gescrapt: https://www.projekt-gutenberg.org/goethe/faust1/chap006.html
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Currently scraping https://www.projekt-gutenberg.org/goethe/faust1/chap007.html
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird gescrapt: https://www.projekt-gutenberg.org/goethe/faust1/chap007.html
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -554,8 +554,8 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">39</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Definieren des Links für die nächste Seite, indem wir mithilfe der </span>
 <span class="g g-Whitespace">     </span><span class="mi">40</span><span class="sd">     &#39;group&#39;-Methode auf die erste Gruppe zugreifen und die neue Linkendung an den Stammlink hängen&quot;&quot;&quot;</span>
 <span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="n">link</span> <span class="o">=</span> <span class="n">base_link</span> <span class="o">+</span> <span class="n">next_page</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">42</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#erst noch eine kleine Pause!</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="k">else</span><span class="p">:</span> <span class="c1">#...wenn nicht, ist das Werk komplett gescrapet und die while-Schleife wird abgebrochen</span>
+<span class="ne">---&gt; </span><span class="mi">42</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#Erst noch eine kleine Pause!</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="k">else</span><span class="p">:</span> <span class="c1">#...wenn nicht, ist das Werk komplett gescrapet und die &#39;while&#39;-Schleife wird abgebrochen.</span>
 <span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="k">break</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
@@ -599,16 +599,16 @@ document.write(`
 <span class="w">                </span><span class="sd">&quot;&quot;&quot;Stropheninterne Regieanweisungen befinden sich in einem &lt;span&gt;-Element, dessen Existenz</span>
 <span class="sd">                im aktuelle &lt;p&gt;-Element wir hier überprüfen&quot;&quot;&quot;</span>
                 <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="p">:</span>
-                    <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> <span class="c1">#wenn ja löschen wir es aus &#39;paragraph&#39; mittels der &#39;decompose&#39;-Methode</span>
+                    <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> <span class="c1">#Wenn ja, löschen wir es aus &#39;paragraph&#39; mittels der &#39;decompose&#39;-Methode</span>
 <span class="w">            </span>
-<span class="w">                </span><span class="sd">&quot;&quot;&quot;Da Einrückungen und whitespace generell in den Strophen inkonsistent verwendet wird,</span>
-<span class="sd">                splitten wir die Strophen in Verse, um im &#39;write&#39;-Befehl unten einheitlich formatieren zu können&quot;&quot;&quot;</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Da Einrückungen und whitespace generell in den Strophen inkonsistent verwendet werden,</span>
+<span class="sd">                splitten wir die Strophen in Verse, um im &#39;write&#39;-Befehl unten einheitlich formatieren zu können.&quot;&quot;&quot;</span>
                 <span class="n">lines</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 
                 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span> <span class="c1">#Iteration über die einzelnen Verse...</span>
                     <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#...und schreiben in Textdokument (bereinigt und konsistent formatiert)</span>
                 
-                <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Schreiben eines weiteren Zeilenumbruchs nach jeder Strophe (= 2 Zeilenumbruche total)</span>
+                <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Schreiben eines weiteren Zeilenumbruchs nach jeder Strophe (= zwei Zeilenumbrüche insgesamt)</span>
 </pre></div>
 </div>
 </div>
@@ -619,8 +619,8 @@ document.write(`
 <ol class="arabic">
 <li><p>Schau Dir die <a class="reference external" href="https://www.projekt-gutenberg.org/goethe/faust1/chap002.html">erste Seite</a> des Werks auf <a class="reference external" href="http://www.projekt-gutenberg.org">www.projekt-gutenberg.org</a> im Browser an und untersuch den ihr zugrundeliegenden Quelltext. Find so heraus, wie Du an die Links zu den folgenden Seiten kommst, damit Du auch diese scrapen kannst.</p>
 <p><em>Lösung: Auf der ersten Seite, ebenso wie auf allen folgenden bis zur letzten, befindet sich eine Schaltfläche „Weiter“. Im Quelltext siehst Du, dass sich dahinter der Link (bzw. die Linkendung) zur jeweils nächsten Seite verbirgt. Wir können folglich 1) die erste Seite scrapen, 2) deren Quelltext speichern, 3) darin nach dem Link zur nächsten Seite suchen, 4) die nächste Seite mithilfe des neuen Links ebenfalls scrapen und speichern usw., bis es keinen nächsten Link mehr gibt.</em></p>
-<p><em>Es gibt zwei weitere Alternativen: Erstens gibt es auf <a class="reference external" href="https://www.projekt-gutenberg.org/goethe/faust1/index.html">dieser Seite</a> ein Inhaltsverzeichnis mit Links zu allen Szenen des Werks. Wir könnten also auch 1) diese Seite scrapen, 2) alle relevanten Links aus deren Quelltext extrahieren und in eine Liste überführen, 3) über die Liste iterieren und alle entsprechenden Quelltexte scrapen. Zweitens könnten wir uns den Umstand zu nutzen machen, dass die Seiten von 2 bis 28 durchnummeriert sind (vgl. Linkendungen). Mit der <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion könnten wir einfach von 2 bis 28 durchiterieren und „on the fly“ jeweils einen Link daraus basteln.</em></p>
-<p><em>In der Schritt-für-Schritt-Lösung verfolgen wir den ersten der drei Ansätze, da er sich am ehesten auf vergleichbare Anwendungsfälle mit paginierten Seiten übertragen lässt</em></p>
+<p><em>Es gibt zwei weitere Alternativen: Erstens gibt es auf <a class="reference external" href="https://www.projekt-gutenberg.org/goethe/faust1/index.html">dieser Seite</a> ein Inhaltsverzeichnis mit Links zu allen Szenen des Werks. Wir könnten also auch 1) diese Seite scrapen, 2) alle relevanten Links aus deren Quelltext extrahieren und in eine Liste überführen, 3) über die Liste iterieren und alle entsprechenden Quelltexte scrapen. Zweitens könnten wir uns den Umstand zu Nutze machen, dass die Seiten von zwei bis 28 durchnummeriert sind (vgl. Linkendungen). Mit der <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion könnten wir einfach von zwei bis 28 durchiterieren und „on the fly“ jeweils einen Link daraus basteln.</em></p>
+<p><em>In der Schritt-für-Schritt-Lösung verfolgen wir den ersten der drei Ansätze, da er sich am ehesten auf vergleichbare Anwendungsfälle mit paginierten Seiten übertragen lässt.</em></p>
 </li>
 </ol>
 <ol class="arabic" start="2">
@@ -651,8 +651,8 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="c1">#Definieren eines regulären Ausdruck, um den Link zur jeweils nächsten Seite zu extrahieren</span>
-<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;href=&quot;(\S+)&quot;&gt;weiter&#39;</span> <span class="c1">#runde Klammern umschließen Gruppe mit eigentlichem Link</span>
+<span class="c1">#Definieren eines regulären Ausdrucks, um den Link zur jeweils nächsten Seite zu extrahieren</span>
+<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;href=&quot;(\S+)&quot;&gt;weiter&#39;</span> <span class="c1">#Runde Klammern umschließen Gruppe mit eigentlichem Link</span>
 </pre></div>
 </div>
 </div>
@@ -673,11 +673,11 @@ document.write(`
 
 <span class="n">all_pages</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die unten die einzelnen Quelltexte gehängt werden</span>
 
-<span class="sd">&quot;&quot;&quot;while-Schleife scrapt eine paginierte Seite nach der anderen, bis kein Link mehr auf eine nächste Seite</span>
+<span class="sd">&quot;&quot;&quot;&#39;while&#39;-Schleife scrapt eine paginierte Seite nach der anderen, bis kein Link mehr auf eine nächste Seite</span>
 <span class="sd">im Quelltext gefunden wird&quot;&quot;&quot;</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Currently scraping </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des Fortschritts</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aktuell wird gescrapt: </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des Fortschritts</span>
     
     <span class="n">current_page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> <span class="c1">#Abruf des Quelltexts zum aktuellen Link</span>
     
@@ -701,8 +701,8 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Definieren des Links für die nächste Seite, indem wir mithilfe der </span>
 <span class="sd">        &#39;group&#39;-Methode auf die erste Gruppe zugreifen und die neue Linkendung an den Stammlink hängen&quot;&quot;&quot;</span>
         <span class="n">link</span> <span class="o">=</span> <span class="n">base_link</span> <span class="o">+</span> <span class="n">next_page</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#erst noch eine kleine Pause!</span>
-    <span class="k">else</span><span class="p">:</span> <span class="c1">#...wenn nicht, ist das Werk komplett gescrapet und die while-Schleife wird abgebrochen</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#Erst noch eine kleine Pause!</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#...wenn nicht, ist das Werk komplett gescrapet und die &#39;while&#39;-Schleife wird abgebrochen.</span>
         <span class="k">break</span>
 </pre></div>
 </div>
@@ -765,10 +765,10 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Stropheninterne Regieanweisungen befinden sich in einem &lt;span&gt;-Element, dessen Existenz</span>
 <span class="sd">        im aktuelle &lt;p&gt;-Element wir hier überprüfen&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="p">:</span>
-            <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> <span class="c1">#wenn ja löschen wir es aus &#39;paragraph&#39; mittels der &#39;decompose&#39;-Methode</span>
+            <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> <span class="c1">#Wenn ja, löschen wir es aus &#39;paragraph&#39; mittels der &#39;decompose&#39;-Methode</span>
 
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Da Einrückungen und whitespace generell in den Strophen inkonsistent verwendet wird,</span>
-<span class="sd">        splitten wir die Strophen in Verse, um im &#39;write&#39;-Befehl unten einheitlich formatieren zu können&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Da Einrückungen und whitespace generell in den Strophen inkonsistent verwendet werden,</span>
+<span class="sd">        splitten wir die Strophen in Verse, um im &#39;write&#39;-Befehl unten einheitlich formatieren zu können.&quot;&quot;&quot;</span>
         <span class="n">lines</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span> <span class="c1">#Iteration über die einzelnen Verse...</span>
@@ -817,16 +817,16 @@ document.write(`
 <span class="w">                </span><span class="sd">&quot;&quot;&quot;Stropheninterne Regieanweisungen befinden sich in einem &lt;span&gt;-Element, dessen Existenz</span>
 <span class="sd">                im aktuelle &lt;p&gt;-Element wir hier überprüfen&quot;&quot;&quot;</span>
                 <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="p">:</span>
-                    <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> <span class="c1">#wenn ja löschen wir es aus &#39;paragraph&#39; mittels der &#39;decompose&#39;-Methode</span>
+                    <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span> <span class="c1">#Wenn ja löschen wir es aus &#39;paragraph&#39; mittels der &#39;decompose&#39;-Methode</span>
 <span class="w">            </span>
-<span class="w">                </span><span class="sd">&quot;&quot;&quot;Da Einrückungen und whitespace generell in den Strophen inkonsistent verwendet wird,</span>
-<span class="sd">                splitten wir die Strophen in Verse, um im &#39;write&#39;-Befehl unten einheitlich formatieren zu können&quot;&quot;&quot;</span>
+<span class="w">                </span><span class="sd">&quot;&quot;&quot;Da Einrückungen und whitespace generell in den Strophen inkonsistent verwendet werden,</span>
+<span class="sd">                splitten wir die Strophen in Verse, um im &#39;write&#39;-Befehl unten einheitlich formatieren zu können.&quot;&quot;&quot;</span>
                 <span class="n">lines</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 
                 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span> <span class="c1">#Iteration über die einzelnen Verse...</span>
                     <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#...und schreiben in Textdokument (bereinigt und konsistent formatiert)</span>
                 
-                <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Schreiben eines weiteren Zeilenumbruchs nach jeder Strophe (= 2 Zeilenumbruche total)</span>
+                <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Schreiben eines weiteren Zeilenumbruchs nach jeder Strophe (= zwei Zeilenumbrüche insgesamt)</span>
 </pre></div>
 </div>
 </div>
@@ -842,7 +842,7 @@ document.write(`
 
 <span class="k">for</span> <span class="n">speech</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;rede&quot;</span><span class="p">):</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;eigentliche Lösung (Anfang): wir extrahieren Vor- und Nachnamen, indem wir &#39;speech&#39; mithilfe von &#39;iter&#39; </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Eigentliche Lösung (Anfang): Wir extrahieren Vor- und Nachnamen, indem wir &#39;speech&#39; mithilfe von &#39;iter&#39; </span>
 <span class="sd">    rekursiv nach den gewünschten Tags absuchen, das Resultat in eine Liste casten, das erste Element davon indizieren </span>
 <span class="sd">    und auf dessen Textinhalt zugreifen. Anstatt Casting in Liste und Indizierung wäre auch jeweils eine &#39;for&#39;-Schleife </span>
 <span class="sd">    möglich, was den Code aber länger machen würde. Alternativ könnten wir auch die RegEx-ähnliche Suchsprache XPath</span>
@@ -851,15 +851,15 @@ document.write(`
     
     <span class="n">name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;vorname&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
     <span class="n">surname</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;nachname&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des konkatenierten Namen</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des konkatenierten Namens</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;eigentliche Lösung (Ende)&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Eigentliche Lösung (Ende)&quot;&quot;&quot;</span>
     
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">speech</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span>
             <span class="k">break</span>
         <span class="k">elif</span> <span class="n">element</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;p&quot;</span> <span class="ow">and</span> <span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1">#inkl. Bereinigung von leading/trailing whitespace</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="c1">#Inkl. Bereinigung von leading/trailing whitespace</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Einfügen eines Zeilenumbruchs nach jeder Rede</span>
 </pre></div>
 </div>
@@ -873,16 +873,16 @@ document.write(`
 
 <span class="k">for</span> <span class="n">speech</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;rede&quot;</span><span class="p">):</span>
     
-    <span class="c1">#Überprüfung, ob es überhaupt &lt;kommenar&gt;-Elemente gibt, wenn nein, überspringen</span>
+    <span class="c1">#Überprüfung, ob es überhaupt &lt;kommentar&gt;-Elemente gibt, wenn nein, überspringen</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;kommentar&quot;</span><span class="p">)))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">continue</span> 
 
-    <span class="c1">#Erläuterung vgl. Lösung 1</span>
+    <span class="c1">#Erläuterung vgl. Lösung zur ersten Übung</span>
     <span class="n">name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;vorname&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
     <span class="n">surname</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;nachname&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
     
-    <span class="c1">#rekursives Iterieren über &#39;speech&#39; und Suche nach &#39;kommentar&#39;-Elementen</span>
+    <span class="c1">#Rekursives Iterieren über &#39;speech&#39; und Suche nach &#39;kommentar&#39;-Elementen</span>
     <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">speech</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;kommentar&quot;</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">comment</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="c1">#Ausgabe des Textinhalts</span>
     
@@ -897,7 +897,8 @@ document.write(`
 <p>Als kleiner Bonus, der überprüft, ob bei der Speicherung alles geklappt hat, vor allem aber die Nützlichkeit strukturierter Daten aufzeigt, kannst Du Dir anschließend über die bereits gegebene Code-Zelle einfach alle Verse des berühmten Teufels aus dem Faust ausgeben lassen. Wenn nötig, pass den Dateipfad bzw. die Tags und Attribute Deiner Namensgebung an.</p>
 <details><summary>📌 Herausforderung </summary>
 <br>Extrahier zusätzlich den Titel jeder Szene und speichere diese Information jeweils an der richtigen Position in der Hierarchie des zu schaffenden XML-Dokuments.
-</details><div class="cell docutils container">
+</details>
+<br><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Alle Kommentare beziehen sich auf den neu hinzugekommenen Lösungscode; Kommentare zum Extraktionscode</span>
 <span class="sd">siehe Anwendungsfall oben; Code funktioniert nur, wenn &#39;all_pages&#39; vom Abrufschritt noch im Arbeitsspeicher ist!&quot;&quot;&quot;</span>
@@ -907,11 +908,11 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;Initialisieren des obersten Elements in der Hierarchie. Elemente können in XML ja frei benannt werden.</span>
 <span class="sd">Die Text Encoding Initiative (TEI; https://www.tei-c.org) strebt eine Standardisierung der Repräsentation</span>
 <span class="sd">und Speicherung von Texten an und bietet auch genrespezifische Empfehlungen (hier für Dramen: </span>
-<span class="sd">https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DR.html). Im folgenden wurden diese </span>
+<span class="sd">https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DR.html). Im Folgenden wurden diese </span>
 <span class="sd">Empfehlungen nur lose umgesetzt.&quot;&quot;&quot;</span>
 <span class="n">text</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span> 
 
-<span class="c1">#optionales Hinzufügen von Attributen</span>
+<span class="c1">#Optionales Hinzufügen von Attributen</span>
 <span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;Faust I&quot;</span><span class="p">)</span>
 <span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;https://www.projekt-gutenberg.org/goethe/faust1/index.html&quot;</span><span class="p">)</span> 
 
@@ -925,17 +926,17 @@ document.write(`
         <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">):</span>
 <span class="w">            </span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialisieren eines Kindelements von &#39;text&#39;, das sämtliche aufeinanderfolgende Strophen</span>
-<span class="sd">            einer Figur beinhalten soll.&quot;&quot;&quot;</span>
+<span class="sd">            einer Figur beinhalten soll&quot;&quot;&quot;</span>
             <span class="n">character</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;character&quot;</span><span class="p">)</span>
             
             <span class="n">speaker</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
             
-            <span class="n">character</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">speaker</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">))</span> <span class="c1">#Setzen eines Attributs, das den Namen der Figur beinhält</span>
+            <span class="n">character</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">speaker</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">))</span> <span class="c1">#Setzen eines Attributs, das den Namen der Figur beinhaltet</span>
 
         <span class="k">elif</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;vers&quot;</span><span class="p">]:</span> 
 <span class="w">            </span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialisieren eines Kindelements von &#39;character&#39;, das sämtliche Verse einer (!)</span>
-<span class="sd">            Strophe beinhalten soll.&quot;&quot;&quot;</span>
+<span class="sd">            Strophe beinhalten soll&quot;&quot;&quot;</span>
             <span class="n">stanza</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">character</span><span class="p">,</span> <span class="s2">&quot;stanza&quot;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="p">:</span>
@@ -966,7 +967,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Bonus: Ausgabe aller Verse von Mephisto(pheles)</span>
-<span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/faust_1.xml&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span> <span class="c1">#anderer Pfad als im Notebook!</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/faust_1.xml&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span> <span class="c1">#Anderer Pfad als im Notebook!</span>
 
 <span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;character&quot;</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">character</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Mephistopheles&quot;</span><span class="p">:</span>
@@ -989,11 +990,11 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;Initialisieren des obersten Elements in der Hierarchie. Elemente können in XML ja frei benannt werden.</span>
 <span class="sd">Die Text Encoding Initiative (TEI; https://www.tei-c.org) strebt eine Standardisierung der Repräsentation</span>
 <span class="sd">und Speicherung von Texten an und bietet auch genrespezifische Empfehlungen (hier für Dramen: </span>
-<span class="sd">https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DR.html). Im folgenden wurden diese </span>
+<span class="sd">https://www.tei-c.org/release/doc/tei-p5-doc/en/html/DR.html). Im Folgenden wurden diese </span>
 <span class="sd">Empfehlungen nur lose umgesetzt.&quot;&quot;&quot;</span>
 <span class="n">text</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span> 
 
-<span class="c1">#optionales Hinzufügen von Attributen</span>
+<span class="c1">#Optionales Hinzufügen von Attributen</span>
 <span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;Faust I&quot;</span><span class="p">)</span>
 <span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;https://www.projekt-gutenberg.org/goethe/faust1/index.html&quot;</span><span class="p">)</span>
 
@@ -1002,7 +1003,7 @@ document.write(`
     <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span> 
     <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)</span> 
     
-    <span class="n">scene</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="c1">#zusätzliche Extraktion des Szenentitels</span>
+    <span class="n">scene</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span> <span class="c1">#Zusätzliche Extraktion des Szenentitels</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Um Faust I nach Szenen zu gliedern, drängt sich die Schaffung einer weiteren hierarchischen Ebene</span>
 <span class="sd">    zwischen &#39;faust&#39; und &#39;character&#39; auf. Deshalb initialisieren wir hier ein Kindelement von &#39;text&#39;, </span>
@@ -1014,17 +1015,17 @@ document.write(`
         <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">):</span>
 <span class="w">            </span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialisieren eines Kindelements von &#39;scene&#39;, das sämtliche aufeinanderfolgende Strophen</span>
-<span class="sd">            einer Figur beinhalten soll.&quot;&quot;&quot;</span>
+<span class="sd">            einer Figur beinhalten soll&quot;&quot;&quot;</span>
             <span class="n">character</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">scene</span><span class="p">,</span> <span class="s2">&quot;character&quot;</span><span class="p">)</span>
             
             <span class="n">speaker</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;span&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;speaker&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
             
-            <span class="n">character</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">speaker</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">))</span> <span class="c1">#Setzen eines Attributs, das den Namen der Figur beinhält</span>
-
+            <span class="n">character</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">speaker</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">))</span> <span class="c1">#Setzen eines Attributs, das den Namen der Figur beinhaltet</span>
+            
         <span class="k">elif</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&quot;vers&quot;</span><span class="p">]:</span> 
 <span class="w">            </span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;Initialisieren eines Kindelements von &#39;character&#39;, das sämtliche Verse einer (!)</span>
-<span class="sd">            Strophe beinhalten soll.&quot;&quot;&quot;</span>
+<span class="sd">            Strophe beinhalten soll&quot;&quot;&quot;</span>
             <span class="n">stanza</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">character</span><span class="p">,</span> <span class="s2">&quot;stanza&quot;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">span</span><span class="p">:</span>
@@ -1055,7 +1056,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Bonus: Ausgabe aller Verse von Mephisto(pheles)</span>
-<span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/faust_1_mit_szenentitel.xml&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span> <span class="c1">#anderer Pfad als im Notebook!</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/faust_1_mit_szenentitel.xml&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span> <span class="c1">#Anderer Pfad als im Notebook!</span>
 
 <span class="k">for</span> <span class="n">character</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">(</span><span class="s2">&quot;character&quot;</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">character</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Mephistopheles&quot;</span><span class="p">:</span>
@@ -1068,7 +1069,7 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Lösung 4:</strong> XML ist wie gesagt ein beliebtes Format, um Daten zu speichern und zu teilen. Neben XML arbeiten wir beim Programmieren auch oft mit csv-Dateien (vgl. Notebooks „Input und Output“ sowie „Datenanalyse“). Welchen Vorteil hat XML im Gegensatz zu csv?</p>
-<p><em>Antwort: Informationen, die bei XML <strong>einmal</strong> gespeichert sind (hier sämtliche Informationen außer die Wörter der Rede), müssen bei HTML für jedes Element auf der tiefsten Ebene (also für jedes Wort) <strong>wiederholt</strong> werden. Das liegt an der fehlenden Hierarchie bei csv-Dateien. XML spart deshalb Speicherplatz. Allerdings können csv-Dateien aufgrund der häufig wiederholten, identischen Informationen sehr stark komprimiert werden. Der Vorteil von XML besteht also nur, wenn man aktiv mit den Daten arbeitet. Zum Speichern bzw. Teilen können csv-Dateien ähnlich kompakt gemacht werden wie XML-Dateien.</em></p>
+<p><em>Antwort: Informationen, die bei XML <strong>einmal</strong> gespeichert sind (hier sämtliche Informationen außer die Wörter der Rede), müssen bei csv für jedes Element auf der tiefsten Ebene (also für jedes Wort) <strong>wiederholt</strong> werden. Das liegt an der fehlenden Hierarchie bei csv-Dateien. XML spart deshalb Speicherplatz. Allerdings können csv-Dateien aufgrund der häufig wiederholten, identischen Informationen sehr stark komprimiert werden. Der Vorteil von XML besteht also nur, wenn man aktiv mit den Daten arbeitet. Zum Speichern bzw. Teilen können csv-Dateien ähnlich kompakt gemacht werden wie XML-Dateien.</em></p>
 <hr class="docutils" />
 <table>
       <tr>
