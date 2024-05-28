@@ -764,11 +764,11 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> steht für für <code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> steht für <code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
 </ul>
-<p>Außerdem steht <code class="docutils literal notranslate"><span class="pre">~</span></code> steht für <code class="docutils literal notranslate"><span class="pre">not</span></code> und kann zur Negation eines in runde Klammern gesetzten, einzelnen Filters benutzt werden.</p>
+<p>Die einzelnen Filter setzen wir dabei jeweils in runde Klammern. Außerdem steht <code class="docutils literal notranslate"><span class="pre">~</span></code> steht für <code class="docutils literal notranslate"><span class="pre">not</span></code> und kann zur Negation eines in Klammern gesetzten, einzelnen Filters benutzt werden.</p>
 <p>Unter Verwendung von <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> können wir beispielsweise alle (potenziellen) regelmäßigen Partizip II-Formen extrahieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="p">[</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;ge&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="p">[(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;ge&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">))]</span>
 </pre></div>
 </div>
 </div>
@@ -1748,28 +1748,28 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>72</td>
-      <td>58</td>
+      <td>89</td>
+      <td>74</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>73</td>
-      <td>4</td>
+      <td>26</td>
+      <td>31</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>11</td>
-      <td>5</td>
+      <td>76</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>58</td>
-      <td>72</td>
+      <td>21</td>
+      <td>81</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>40</td>
-      <td>15</td>
+      <td>49</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -1816,33 +1816,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>72</td>
-      <td>58</td>
-      <td>4176</td>
+      <td>89</td>
+      <td>74</td>
+      <td>6586</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>73</td>
-      <td>4</td>
-      <td>292</td>
+      <td>26</td>
+      <td>31</td>
+      <td>806</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>11</td>
-      <td>5</td>
-      <td>55</td>
+      <td>76</td>
+      <td>7</td>
+      <td>532</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>58</td>
-      <td>72</td>
-      <td>4176</td>
+      <td>21</td>
+      <td>81</td>
+      <td>1701</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>40</td>
-      <td>15</td>
-      <td>600</td>
+      <td>49</td>
+      <td>2</td>
+      <td>98</td>
     </tr>
   </tbody>
 </table>
@@ -1892,33 +1892,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>72</td>
-      <td>58</td>
-      <td>4176</td>
+      <td>89</td>
+      <td>74</td>
+      <td>6586</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>73</td>
-      <td>4</td>
-      <td>292</td>
+      <td>26</td>
+      <td>31</td>
+      <td>806</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>11</td>
-      <td>5</td>
-      <td>55</td>
+      <td>76</td>
+      <td>7</td>
+      <td>532</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>58</td>
-      <td>72</td>
-      <td>4176</td>
+      <td>21</td>
+      <td>81</td>
+      <td>1701</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>40</td>
-      <td>15</td>
-      <td>600</td>
+      <td>49</td>
+      <td>2</td>
+      <td>98</td>
     </tr>
   </tbody>
 </table>
@@ -1932,9 +1932,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.006352901458740234 
-for-Loop 7.498915195465088 
-Faktor: 1180.3921789386775
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.0032579898834228516 
+for-Loop 7.902255058288574 
+Faktor: 2425.5001829491403
 </pre></div>
 </div>
 </div>
@@ -2139,9 +2139,9 @@ Faktor: 1180.3921789386775
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.5496001243591309 
-for-Loop 0.4896211624145508 
-Faktor: 3.164896134630555
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.6433241367340088 
+for-Loop 0.5164990425109863 
+Faktor: 3.181659599492973
 </pre></div>
 </div>
 </div>
@@ -2496,7 +2496,7 @@ Viel Erfolg! 🙌<div class="cell docutils container">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x16c19cc10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17dba0e80&gt;
 </pre></div>
 </div>
 <img alt="../../_images/8dfc2ca002bb9fc53652a7058bac16fb1cd86610f1ea4d81b35361a722210980.png" src="../../_images/8dfc2ca002bb9fc53652a7058bac16fb1cd86610f1ea4d81b35361a722210980.png" />
