@@ -470,7 +470,7 @@ document.write(`
 <h1>Input und Output Teil 2 (Lösungen)<a class="headerlink" href="#input-und-output-teil-2-losungen" title="Permalink to this heading">#</a></h1>
 <p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 1:</strong> Find heraus, wie viele der 100 flächengrößten Gemeinden zu jedem der 16 Bundesländer gehören. Du kannst direkt mit <code class="docutils literal notranslate"><span class="pre">biggest_municipalities</span></code> weiterarbeiten. Dir steht ein dictionary mit Bundesländern zur Verfügung. Ziel ist es, den Wert (jetzt noch null für alle Bundesländer) für jedes Bundesland korrekt zu berechnen.</p>
+<p>✏️ <strong>Übung 1:</strong> Find heraus, wie viele der 100 flächengrößten Gemeinden zu jedem der 16 Bundesländer gehören. Du kannst direkt mit <code class="docutils literal notranslate"><span class="pre">biggest_municipalities</span></code> weiterarbeiten. Dir steht ein dictionary mit Bundesländern zur Verfügung. Ziel ist es, den Wert (jetzt noch null für alle Bundesländer) für jedes Bundesland korrekt zu berechnen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Da es sich um ein anderes Notebook handelt, müssen wir das &#39;csv&#39;-Modul auch hier importieren sowie &#39;biggest_municipalities&#39; erst schaffen</span>
@@ -527,7 +527,7 @@ Thüringen 1
 </div>
 </div>
 <hr class="docutils" />
-<p>🔧 <strong>Anwendungsfall (Lösung):</strong> Deine Aufgabe ist es also, ein kleines interaktives Programm zu schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Konkret müssen folgende Schritte umgesetzt werden:</p>
+<p>🔧 <strong>Anwendungsfall:</strong> Deine Aufgabe ist es also, ein kleines interaktives Programm zu schreiben, mit dessen Hilfe eine Benutzerin schlaue Gedanken protokollieren kann. Konkret müssen folgende Schritte umgesetzt werden:</p>
 <ol class="arabic simple">
 <li><p>Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet.</p></li>
 <li><p>Die Benutzerin wird aufgefordert, anzugeben, in welchem Dokument sie ihre(n) Gedanke(n) festhalten will. Handelt es sich um ein noch nicht existierendes Dokument, so wird es für sie geschaffen. Existiert das Dokument bereits, so soll(en) ihr(e) Gedanke(n) an dessen Ende gehängt werden.</p></li>
@@ -581,7 +581,7 @@ Thüringen 1
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2287</span><span class="o">/</span><span class="mf">4117395504.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2292</span><span class="o">/</span><span class="mf">4117395504.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">if</span> <span class="n">first_time</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span> <span class="c1">#Solange &#39;first_time&#39; den Wert &#39;True&#39; hat....</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="c1">#...wird der folgende Output erzeugt, welcher zur Eingabe eines Dateinamens auffordert. Der Dateiname wird in einer Variable gespeichert.</span>
 <span class="ne">---&gt; </span><span class="mi">10</span>         <span class="n">file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Hallo! Bitte gib den Namen der Datei an, in der Du Deinen Gedanken festhalten willst.</span><span class="se">\n\n</span><span class="s2">Sollte die Datei noch nicht existieren, lege ich sie für Dich an.</span><span class="se">\n\n</span><span class="s2">An das Dateisuffix musst Du nicht denken.</span><span class="se">\n\n</span><span class="s2">⇥&quot;&quot;&quot;</span><span class="p">)</span>
@@ -601,7 +601,7 @@ Thüringen 1
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 2:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben. Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ fünf.</p>
+<p>✏️ <strong>Übung 2:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben. Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ fünf.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shopping_list</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Apple&quot;</span><span class="p">:</span> <span class="mf">0.77</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">,</span> <span class="s2">&quot;Oat Milk&quot;</span><span class="p">:</span> <span class="mf">1.944</span><span class="p">,</span> <span class="s2">&quot;Olive Oil Extra Vergine&quot;</span><span class="p">:</span> <span class="mf">11.17</span><span class="p">}</span>

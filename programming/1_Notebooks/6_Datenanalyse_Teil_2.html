@@ -471,10 +471,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-werte">Numerische Werte</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern">Datentyp ändern</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-bearbeitung">Bedingte Bearbeitung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-und-applymap"><code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-apply-und-applymap">🦊 Fortgeschritten: <code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-wortverlaufskurven-visualisieren">🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-wortverlaufskurven-visualisieren">🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-aggregation-von-daten">🦊 Fortgeschritten: Aggregation von Daten</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
 </ul>
             </nav>
@@ -490,7 +493,7 @@ document.write(`
   <section id="datenanalyse-teil-2">
 <h1>Datenanalyse Teil 2<a class="headerlink" href="#datenanalyse-teil-2" title="Permalink to this heading">#</a></h1>
 <p>Willkommen zurück! Hier geht es nahtlos weiter mit der Datenanalyse mithilfe von Python und konkret mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Wir schauen uns erst an, wie wir DataFrames filtern sowie Werte darin bearbeiten können. Anschließend widmen wir uns dem Anwendungsfall und visualisieren eine Wortverlaufskurve.</p>
-<p>Bevor wir mit den Daten aus dem ersten Teil des Notebook weiterarbeiten können, müssen wir diese nochmals in den Arbeitsspeicher laden. Führ dazu folgende Code-Zelle aus, die den relevanten Code des ersten Teils wiederholt.</p>
+<p>Bevor wir mit den Daten aus dem ersten Teil des Notebooks weiterarbeiten können, müssen wir diese nochmals in den Arbeitsspeicher laden. Führ dazu folgende Code-Zelle aus, die den relevanten Code des ersten Teils wiederholt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -513,9 +516,13 @@ document.write(`
 <section id="dataframe-filtern">
 <h2>DataFrame filtern<a class="headerlink" href="#dataframe-filtern" title="Permalink to this heading">#</a></h2>
 <p>Zunächst wollen wir herausfinden, wie wir ein DataFrame filtern können. Die grundlegende Syntax sieht wie folgt aus:</p>
-<p><code class="docutils literal notranslate"><span class="pre">DataFrame[filter]</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">filter</span></code> wiederum kann unterschiedlich ausschauen, je nach dem, wie wir unser DataFrame filtern wollen. Ein einfaches Beispiel für <code class="docutils literal notranslate"><span class="pre">filter</span></code> sieht so aus:</p>
-<p><code class="docutils literal notranslate"><span class="pre">DataFrame[column]</span> <span class="pre">==</span> <span class="pre">value</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">[</span><span class="nb">filter</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">filter</span></code> wiederum kann unterschiedlich ausschauen, je nachdem, wie wir unser DataFrame filtern wollen. Ein einfaches Beispiel für <code class="docutils literal notranslate"><span class="pre">filter</span></code> sieht so aus:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span>
+</pre></div>
+</div>
 <p>Dieser Filter verlangt, dass bei <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> in der Spalte <code class="docutils literal notranslate"><span class="pre">column</span></code> exakt der Wert <code class="docutils literal notranslate"><span class="pre">value</span></code> steht.</p>
 <p>Fügen wir diesen Filter in der obigen Syntax ein und schaffen ein Sub-DataFrame, das alle Zeilen des <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> beinhaltet, in denen in der Spalte <code class="docutils literal notranslate"><span class="pre">Token</span></code> das Wort „Liebe“ steht:</p>
 <div class="cell docutils container">
@@ -1004,7 +1011,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>386505</th>
+      <th>386504</th>
       <td>vierzehn</td>
       <td>2020</td>
       <td>1</td>
@@ -1012,7 +1019,7 @@ document.write(`
       <td>8</td>
     </tr>
     <tr>
-      <th>386506</th>
+      <th>386505</th>
       <td>was</td>
       <td>2020</td>
       <td>1</td>
@@ -1020,7 +1027,7 @@ document.write(`
       <td>3</td>
     </tr>
     <tr>
-      <th>386507</th>
+      <th>386506</th>
       <td>weißer</td>
       <td>2020</td>
       <td>1</td>
@@ -1028,7 +1035,7 @@ document.write(`
       <td>6</td>
     </tr>
     <tr>
-      <th>386508</th>
+      <th>386507</th>
       <td>wie</td>
       <td>2020</td>
       <td>1</td>
@@ -1036,7 +1043,7 @@ document.write(`
       <td>3</td>
     </tr>
     <tr>
-      <th>386509</th>
+      <th>386508</th>
       <td>wozu</td>
       <td>2020</td>
       <td>1</td>
@@ -1045,7 +1052,7 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>386510 rows × 5 columns</p>
+<p>386509 rows × 5 columns</p>
 </div></div></div>
 </div>
 <p>Diese einzeilige Syntax hat es in sich: Man kann sie sich in gewohnter Python-Logik wie eine Iteration vorstellen: Im vorliegenden Fall wird Wort für Wort (in der Spalte „Token“) kleingeschrieben. Mit dem Resultat wird die Spalte überschrieben. Sie ist dennoch nicht mit einer List Comprehension, die ja auch nur eine einzige Zeile benötigt, zu verwechseln. Denn im Gegensatz zu pythonischen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops und ihre simplifizierte Version List Comprehension, wird der Code mit der <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-eigenen Syntax oft <strong>wesentlich schneller</strong> berechnet (teils über 1000 Mal schneller!).</p>
@@ -1058,7 +1065,6 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">count</span></code> zum Berechnen der Auftretenshäufigkeit eines strings/regulären Ausdrucks in den strings.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">strip</span></code>, <code class="docutils literal notranslate"><span class="pre">lstrip</span></code> und <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> zum Entfernen von (leading/trailing) whitespace in den strings.</p></li>
 </ul>
-<p>Neben <code class="docutils literal notranslate"><span class="pre">contains</span></code> (s. o.) ist außerdem <code class="docutils literal notranslate"><span class="pre">slice</span></code> eine nützliche <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-string-Methode, die abweichend von ihrem nativen Python-Pendant heißt: <code class="docutils literal notranslate"><span class="pre">slice</span></code> mit den Argumenten <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">stop</span></code>, <code class="docutils literal notranslate"><span class="pre">step</span></code> implementiert die Funktionalität der eckigen Klammern, die wir bei normalen Python-strings zum Slicen verwenden.</p>
 <p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/text.html">Hier</a> findest Du mehr Infos zu sämlichen string-Methoden bei <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Denk stets daran, <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die jeweilige string-Methode zu hängen!</p>
 <p>Zwei letzte praktische Methoden sind <code class="docutils literal notranslate"><span class="pre">isin(list)</span></code> und <code class="docutils literal notranslate"><span class="pre">shift(n)</span></code>, die aber nicht string-spezifisch sind, weswegen wir <strong>kein</strong> <code class="docutils literal notranslate"><span class="pre">str</span></code> vor die Methode hängen. <code class="docutils literal notranslate"><span class="pre">isin</span></code> überprüft, ob ein Wert Element der übergebenen Liste ist und gibt eine Series mit Boolschen Werten zurück. <code class="docutils literal notranslate"><span class="pre">shift</span></code> wiederum lässt uns auf den Inhalt benachbarter Zeilen zugreifen, konkret auf den Inhalt der um <code class="docutils literal notranslate"><span class="pre">n</span></code> nach oben (n) bzw. nach unten (-n) <em>geshifteten</em> Zeile. Das macht <code class="docutils literal notranslate"><span class="pre">shift</span></code> insbesondere für die Erstellung von n-grammen interessant. Die folgende Code-Zelle demonstriert die Erstellung von Bigrammen basierend auf einer Spalte mit Tokens (Unigrammen):</p>
 <div class="cell docutils container">
@@ -1216,7 +1222,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>386505</th>
+      <th>386504</th>
       <td>vierzehn</td>
       <td>2020</td>
       <td>2</td>
@@ -1224,7 +1230,7 @@ document.write(`
       <td>8</td>
     </tr>
     <tr>
-      <th>386506</th>
+      <th>386505</th>
       <td>was</td>
       <td>2020</td>
       <td>2</td>
@@ -1232,7 +1238,7 @@ document.write(`
       <td>3</td>
     </tr>
     <tr>
-      <th>386507</th>
+      <th>386506</th>
       <td>weißer</td>
       <td>2020</td>
       <td>2</td>
@@ -1240,7 +1246,7 @@ document.write(`
       <td>6</td>
     </tr>
     <tr>
-      <th>386508</th>
+      <th>386507</th>
       <td>wie</td>
       <td>2020</td>
       <td>2</td>
@@ -1248,7 +1254,7 @@ document.write(`
       <td>3</td>
     </tr>
     <tr>
-      <th>386509</th>
+      <th>386508</th>
       <td>wozu</td>
       <td>2020</td>
       <td>2</td>
@@ -1257,7 +1263,7 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>386510 rows × 5 columns</p>
+<p>386509 rows × 5 columns</p>
 </div></div></div>
 </div>
 <p>Hierfür funktionieren auch die anderen uns bekannten arithmetischen Operatoren: <code class="docutils literal notranslate"><span class="pre">+</span></code> für Addition (eignet sich überdies zur Konkatenation von strings), <code class="docutils literal notranslate"><span class="pre">-</span></code> für Subtraktion,  <code class="docutils literal notranslate"><span class="pre">/</span></code> für Division und <code class="docutils literal notranslate"><span class="pre">**</span></code> fürs Potenzieren.</p>
@@ -1348,7 +1354,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>386505</th>
+      <th>386504</th>
       <td>vierzehn</td>
       <td>2020</td>
       <td>1.0</td>
@@ -1356,7 +1362,7 @@ document.write(`
       <td>8</td>
     </tr>
     <tr>
-      <th>386506</th>
+      <th>386505</th>
       <td>was</td>
       <td>2020</td>
       <td>1.0</td>
@@ -1364,7 +1370,7 @@ document.write(`
       <td>3</td>
     </tr>
     <tr>
-      <th>386507</th>
+      <th>386506</th>
       <td>weißer</td>
       <td>2020</td>
       <td>1.0</td>
@@ -1372,7 +1378,7 @@ document.write(`
       <td>6</td>
     </tr>
     <tr>
-      <th>386508</th>
+      <th>386507</th>
       <td>wie</td>
       <td>2020</td>
       <td>1.0</td>
@@ -1380,7 +1386,7 @@ document.write(`
       <td>3</td>
     </tr>
     <tr>
-      <th>386509</th>
+      <th>386508</th>
       <td>wozu</td>
       <td>2020</td>
       <td>1.0</td>
@@ -1389,7 +1395,7 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>386510 rows × 5 columns</p>
+<p>386509 rows × 5 columns</p>
 </div></div></div>
 </div>
 <p>…und, da Resultat einer Division immer Dezimalzahlen sind (s. Nachkommastelle), anschließend in Ganzzahlen casten:</p>
@@ -1476,7 +1482,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>386505</th>
+      <th>386504</th>
       <td>vierzehn</td>
       <td>2020</td>
       <td>1</td>
@@ -1484,7 +1490,7 @@ document.write(`
       <td>8</td>
     </tr>
     <tr>
-      <th>386506</th>
+      <th>386505</th>
       <td>was</td>
       <td>2020</td>
       <td>1</td>
@@ -1492,7 +1498,7 @@ document.write(`
       <td>3</td>
     </tr>
     <tr>
-      <th>386507</th>
+      <th>386506</th>
       <td>weißer</td>
       <td>2020</td>
       <td>1</td>
@@ -1500,7 +1506,7 @@ document.write(`
       <td>6</td>
     </tr>
     <tr>
-      <th>386508</th>
+      <th>386507</th>
       <td>wie</td>
       <td>2020</td>
       <td>1</td>
@@ -1508,7 +1514,7 @@ document.write(`
       <td>3</td>
     </tr>
     <tr>
-      <th>386509</th>
+      <th>386508</th>
       <td>wozu</td>
       <td>2020</td>
       <td>1</td>
@@ -1517,14 +1523,14 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>386510 rows × 5 columns</p>
+<p>386509 rows × 5 columns</p>
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 3:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Geh abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>✏️ <strong>Übung 3:</strong> Im Notebook „Datenanalyse Teil 1“ haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Geh abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <details>
 <summary>💡 Tipp </summary> 
-<br>Es sind dieselben Schritte wie im <code>for</code>-Loop oben nötig, allerdings formuliert in <code>pandas</code>-Syntax. Ggf. musst Du in der <a href="https://pandas.pydata.org/docs/">pandas-Dokumentation</a> nachschlagen, wie die jeweilige Syntax der <code>pandas</code>-Pendants ausschaut.
+<br>Es sind dieselben Schritte wie im <code>for</code>-Loop oben nötig, allerdings formuliert in <code>pandas</code>-Syntax. Dazu benötigst Du eine string-Methode mit dem Namen <code>slice</code>. Schau selbstständig nach, wie ihre Syntax aussieht.
 </details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
@@ -1540,7 +1546,7 @@ document.write(`
 </section>
 <section id="bedingte-bearbeitung">
 <h3>Bedingte Bearbeitung<a class="headerlink" href="#bedingte-bearbeitung" title="Permalink to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops bieten aber natürlich viel mehr Funktionalität. Etwa können wir bedingte Anweisungen einbauen, sodass die Werte je nach Bedingung unterschiedlich bearbeitet werden. Aber auch dafür bietet <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, oder besser gesagt <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (eine weitere Bibliothek, die eng mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code> verwoben ist) eine Funktion, die sich Vektorisierung zunutze macht. Auch <code class="docutils literal notranslate"><span class="pre">numpy</span></code> müssen wir erst importieren (ggf. sogar noch zuerst installieren, s. o.), gängigerweise weisen wir der Bibliothek den Namen <code class="docutils literal notranslate"><span class="pre">np</span></code> zu:</p>
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops bieten aber natürlich viel mehr Funktionalität. Etwa können wir bedingte Anweisungen einbauen, sodass die Werte je nach Bedingung unterschiedlich bearbeitet werden. Aber auch dafür bietet <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, oder besser gesagt <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (eine weitere Bibliothek, die eng mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code> verwoben ist), eine Funktion, die sich Vektorisierung zunutze macht. Auch <code class="docutils literal notranslate"><span class="pre">numpy</span></code> müssen wir erst importieren (ggf. sogar noch zuerst installieren, s. o.), gängigerweise weisen wir der Bibliothek den Namen <code class="docutils literal notranslate"><span class="pre">np</span></code> zu:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1549,7 +1555,9 @@ document.write(`
 </div>
 </div>
 <p>Die Funktion heißt <code class="docutils literal notranslate"><span class="pre">where</span></code> und hat folgende Syntax:</p>
-<p><code class="docutils literal notranslate"><span class="pre">where(if,</span> <span class="pre">then,</span> <span class="pre">else)</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">where</span><span class="p">(</span><span class="k">if</span><span class="p">,</span> <span class="n">then</span><span class="p">,</span> <span class="k">else</span><span class="p">)</span> 
+</pre></div>
+</div>
 <p>Als erstes Argument („if“) spezifizieren wir eine bedingte Anweisung, die bei jedem Wert entweder <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> ergibt. Im Falle von <code class="docutils literal notranslate"><span class="pre">True</span></code> wird der Wert wie im zweiten Argument („then“) angegeben eingetragen bzw. bearbeitet. Andernfalls greift, was wir als drittes Argument („else“) definiert haben.</p>
 <p>Angenommen wir möchten zusätzlich zur Spalte „Jahrzehnt“ eine Spalte „Jahrhundert“, können wir <code class="docutils literal notranslate"><span class="pre">where</span></code> folgendermaßen dazu einsetzen:</p>
 <div class="cell docutils container">
@@ -1643,7 +1651,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>386505</th>
+      <th>386504</th>
       <td>vierzehn</td>
       <td>2020</td>
       <td>1</td>
@@ -1652,7 +1660,7 @@ document.write(`
       <td>21. Jhd.</td>
     </tr>
     <tr>
-      <th>386506</th>
+      <th>386505</th>
       <td>was</td>
       <td>2020</td>
       <td>1</td>
@@ -1661,7 +1669,7 @@ document.write(`
       <td>21. Jhd.</td>
     </tr>
     <tr>
-      <th>386507</th>
+      <th>386506</th>
       <td>weißer</td>
       <td>2020</td>
       <td>1</td>
@@ -1670,7 +1678,7 @@ document.write(`
       <td>21. Jhd.</td>
     </tr>
     <tr>
-      <th>386508</th>
+      <th>386507</th>
       <td>wie</td>
       <td>2020</td>
       <td>1</td>
@@ -1679,7 +1687,7 @@ document.write(`
       <td>21. Jhd.</td>
     </tr>
     <tr>
-      <th>386509</th>
+      <th>386508</th>
       <td>wozu</td>
       <td>2020</td>
       <td>1</td>
@@ -1689,13 +1697,13 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>386510 rows × 6 columns</p>
+<p>386509 rows × 6 columns</p>
 </div></div></div>
 </div>
 <p>Sehr gut! Bedenke, dass die Begriffe <code class="docutils literal notranslate"><span class="pre">if</span></code> und <code class="docutils literal notranslate"><span class="pre">else</span></code>, die wir bei bedingten Anweisungen in normalem Python verwenden, nicht benötigt werden. Die Logik ergibt sich einzig über die Reihenfolge der Argumente in <code class="docutils literal notranslate"><span class="pre">where</span></code>.</p>
 <p>In diesem Fall haben wir als „then“ bzw. „else“ ganz einfach strings übergeben, die je nachdem in der neuen Spalte „Jahrhundert“ eingetragen wurden. In der folgenden Übung wollen wir bei „then“ und „else“ bestimmte Werte in der jeweilige Zeile bearbeiten.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 4:</strong> Bearbeite die Werte in der Spalte „Token“ so, dass jedes Wort, das aus genau fünf Buchstaben besteht, großgeschrieben wird. Einfach weil wir’s können! 😉</p>
+<p>✏️ <strong>Übung 4:</strong> Bearbeite die Werte in der Spalte „Token“ so, dass jedes Wort, das aus genau fünf Buchstaben besteht, großgeschrieben wird. Einfach, weil wir’s können! 😉</p>
 <details>
   <summary>💡 Tipp </summary>
   <br>Zum Großschreiben kannst Du eine bereits im Notebook "Funktionen und Methoden Teil 1" kennengelernte Funktion nutzen.
@@ -1710,8 +1718,8 @@ document.write(`
 <p>Super!</p>
 <p>Für den Fall, dass Du mehrere bedingte Anweisungen aneinanderhängen willst (<code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">elif</span></code>-…-<code class="docutils literal notranslate"><span class="pre">else</span></code>), kannst Du statt <code class="docutils literal notranslate"><span class="pre">where</span></code> die <code class="docutils literal notranslate"><span class="pre">numpy</span></code>-Funktion <code class="docutils literal notranslate"><span class="pre">select</span></code> benutzen. Wir setzen sie weiter unten noch ein.</p>
 </section>
-<section id="apply-und-applymap">
-<h3><code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code><a class="headerlink" href="#apply-und-applymap" title="Permalink to this heading">#</a></h3>
+<section id="fortgeschritten-apply-und-applymap">
+<h3>🦊 Fortgeschritten: <code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code><a class="headerlink" href="#fortgeschritten-apply-und-applymap" title="Permalink to this heading">#</a></h3>
 <p>Wie erwähnt ist die vektorisierte Art der Datenbearbeitung in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> meistens äußerst effizient. Es gibt aber Fälle, in denen wir dennoch eine Funktion mit nativem Python-Code anwenden wollen. Entweder, weil <code class="docutils literal notranslate"><span class="pre">pandas</span></code> die benötigen Operationen nicht implementiert, oder weil es mit nativem Python-Code trotz allem effizienter ist (dazu gleich mehr).</p>
 <p>In jedem Fall bieten die Methoden <code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code> die Möglichkeit, jede beliebige Funktion (und in der Verlängerung auch jede beliebige Methode) auf eine Series oder gleich ein ganzes DataFrame anzuwenden. <code class="docutils literal notranslate"><span class="pre">apply</span></code> verwenden wir bei einer Series, <code class="docutils literal notranslate"><span class="pre">applymap</span></code> bei einem ganzen DataFrame. Angehängt an die Series bzw. das DataFrame übergeben wir ihnen schlicht den Namen der gewünschten Funktion. Es spielt keine Rolle, ob die Funktion aus der Grundausstattung von Python stammt, importiert wurde oder von Dir selbst geschrieben ist.</p>
 <p>Machen wir es konkret, und zwar in zwei kleinen Experimenten. Wir wollen die gleiche Art der Datenbearbeitung je einmal vektorisiert implementieren, und einmal über eine eigene Funktion, die wir mithilfe von <code class="docutils literal notranslate"><span class="pre">apply</span></code> auf die Daten <em>appli</em>zieren. Zum Verständnis: Rufen wir eine Funktion über <code class="docutils literal notranslate"><span class="pre">apply</span></code> (oder <code class="docutils literal notranslate"><span class="pre">applymap</span></code>) auf, wird dieser wie bei einem <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop <em>Wert für Wert</em> übergeben. Will heißen: Bei <code class="docutils literal notranslate"><span class="pre">apply</span></code> können wir nicht von der Verarbeitung mehrerer Daten auf einmal profitieren.</p>
@@ -1749,28 +1757,28 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>97</td>
-      <td>13</td>
+      <td>36</td>
+      <td>82</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>18</td>
-      <td>91</td>
+      <td>33</td>
+      <td>25</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>3</td>
-      <td>51</td>
+      <td>64</td>
+      <td>88</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>83</td>
-      <td>62</td>
+      <td>16</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>80</td>
-      <td>34</td>
+      <td>26</td>
+      <td>37</td>
     </tr>
   </tbody>
 </table>
@@ -1817,33 +1825,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>97</td>
-      <td>13</td>
-      <td>1261</td>
+      <td>36</td>
+      <td>82</td>
+      <td>2952</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>18</td>
-      <td>91</td>
-      <td>1638</td>
+      <td>33</td>
+      <td>25</td>
+      <td>825</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>3</td>
-      <td>51</td>
-      <td>153</td>
+      <td>64</td>
+      <td>88</td>
+      <td>5632</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>83</td>
-      <td>62</td>
-      <td>5146</td>
+      <td>16</td>
+      <td>1</td>
+      <td>16</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>80</td>
-      <td>34</td>
-      <td>2720</td>
+      <td>26</td>
+      <td>37</td>
+      <td>962</td>
     </tr>
   </tbody>
 </table>
@@ -1858,7 +1866,7 @@ document.write(`
     <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span>
 
 <span class="c1">#Dem Funktionsnamen (hier: &#39;multiply&#39;) folgen keine Klammern!</span>
-<span class="c1">#&#39;axis=1&#39; spezifiziert, dass wir die Funktion auf Spalten anwenden (s. o.)</span>
+<span class="c1">#&#39;axis=1&#39; spezifiziert, dass wir die Funktion auf Spalten anwenden (s. o.).</span>
 <span class="n">exp1</span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp1</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">multiply</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
 
 <span class="n">for_loop</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start</span> <span class="c1">#Zeit nach Beendigung der Berechnung minus Startzeit, ergibt Dauer</span>
@@ -1893,33 +1901,33 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>97</td>
-      <td>13</td>
-      <td>1261</td>
+      <td>36</td>
+      <td>82</td>
+      <td>2952</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>18</td>
-      <td>91</td>
-      <td>1638</td>
+      <td>33</td>
+      <td>25</td>
+      <td>825</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>3</td>
-      <td>51</td>
-      <td>153</td>
+      <td>64</td>
+      <td>88</td>
+      <td>5632</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>83</td>
-      <td>62</td>
-      <td>5146</td>
+      <td>16</td>
+      <td>1</td>
+      <td>16</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>80</td>
-      <td>34</td>
-      <td>2720</td>
+      <td>26</td>
+      <td>37</td>
+      <td>962</td>
     </tr>
   </tbody>
 </table>
@@ -1933,15 +1941,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.006792306900024414 
-for-Loop 9.31831431388855 
-Faktor: 1371.8924146161676
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 0.006034135818481445 
+for-Loop 9.272411584854126 
+Faktor: 1536.6594096961555
 </pre></div>
 </div>
 </div>
 </div>
 <p>Sehr eindrucksvoll!</p>
-<p>Gehen wir zum zweiten Experiment über, indem wir wieder ein DataFrame mit einer Million Zeilen, aber nur einer Spalte, „Satz“, schaffen. Diesmal befüllen wir das DataFrame mit dem immergleichen string (unter Verwendung der <code class="docutils literal notranslate"><span class="pre">numpy</span></code>-Funktion <code class="docutils literal notranslate"><span class="pre">repeat</span></code>):</p>
+<p>Gehen wir zum zweiten Experiment über, in dem wir wieder ein DataFrame mit einer Million Zeilen, aber nur einer Spalte, „Satz“, schaffen. Diesmal befüllen wir das DataFrame mit dem immergleichen string (unter Verwendung der <code class="docutils literal notranslate"><span class="pre">numpy</span></code>-Funktion <code class="docutils literal notranslate"><span class="pre">repeat</span></code>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="s2">&quot;Dies ist ein nicht besonders langer Satz.&quot;</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Satz&quot;</span><span class="p">])</span>
@@ -1996,7 +2004,7 @@ Faktor: 1371.8924146161676
 </table>
 </div></div></div>
 </div>
-<p>Hier wollen wir ebenfalls eine weitere Spalte schaffen. Sie soll ganz unspektakulär die Anzahl an Wörtern des jeweiligen strings in der Spalte „Satz“ enthalten. In diesem konstruierten Beispiel ergibt dies selbstverständlich immer sieben. Die erste Zelle enthält wieder die vektorisierte <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Variante, während die zweite über <code class="docutils literal notranslate"><span class="pre">apply</span></code> eine selbst geschriebene Funktion mit Python-Code aufruft.</p>
+<p>Hier wollen wir ebenfalls eine weitere Spalte schaffen. Sie soll ganz unspektakulär die Anzahl an Wörtern des jeweiligen string in der Spalte „Satz“ enthalten. In diesem konstruierten Beispiel ergibt dies selbstverständlich immer sieben. Die erste Zelle enthält wieder die vektorisierte <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Variante, während die zweite über <code class="docutils literal notranslate"><span class="pre">apply</span></code> eine selbst geschriebene Funktion mit Python-Code aufruft.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vektorisiert</span>
@@ -2140,9 +2148,9 @@ Faktor: 1371.8924146161676
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.8584380149841309 
-for-Loop 0.49043869972229004 
-Faktor: 3.789338027436391
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektorisiert: 1.8955402374267578 
+for-Loop 0.4938650131225586 
+Faktor: 3.8381747786542566
 </pre></div>
 </div>
 </div>
@@ -2166,7 +2174,7 @@ Faktor: 3.789338027436391
 <section id="anwendungsfall-wortverlaufskurven-visualisieren">
 <h2>🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈<a class="headerlink" href="#anwendungsfall-wortverlaufskurven-visualisieren" title="Permalink to this heading">#</a></h2>
 <p>Im Anwendungsfall für dieses Notebook wollen wir wie gesagt Wortverlaufskurven visualisieren. Das heißt, wir wollen die Häufigkeit, mit der ein beliebiges Wort auftritt, über die Zeit hinweg darstellen. Für die vier Personalpronomen „ich“, „du“, „er“ und „sie“ sieht das z. B. wie in der kombinierten Grafik unten aus. Die linke Darstellung visualisiert die Daten nach einzelnen Jahren (wie der originale Datensatz), in der mittleren und rechten Darstellung werden die Daten aggregiert nach Fünfjahresabschnitten bzw. Zehnjahresabschnitten visualisiert. Einzelne Aussschläge nach oben und unten werden so ausgebügelt und Trends sind leichter zu erkennen:</p>
-<img src="../3_Dateien/Grafiken_und_Videos/Wortverlaufskurve_kombiniert.png"><p>Deine Aufgabe ist es erst einmal, Code zu schreiben, der die linke Grafik für beliebige Wörter produziert. Die erforderliche Aggregation für die mittlere und rechte Darstellung schauen wir uns im Anschluss an den Anwendungsfall gemeinsam an.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Wortverlaufskurve_kombiniert.png"><p>Deine Aufgabe ist es erst einmal, Code zu schreiben, der die linke Grafik für beliebige Wörter produziert. Die erforderliche Aggregation für die mittlere und rechte Darstellung ist fortgeschritten, deshalb schauen wir sie uns im Anschluss an den Anwendungsfall gemeinsam an.</p>
 <p>Wie in den Notebooks „Funktionen und Methoden Teil 2“ und „Input und Output Teil 2“ hast Du wieder die Wahl, den Anwendungsfall ohne weitere Anleitung in Angriff zu nehmen oder einer Schritt-für-Schritt-Anleitung zu folgen. In letzterem Fall kannst Du jetzt ans Ende der nächsten Code-Zelle springen. Wenn Du es alleine probieren möchtest, dann analysiere das gewünschte Resultat oben links und frag Dich, welche Daten wie und wo visualisiert werden.</p>
 <p>Beginne in jedem Fall damit, die Datei „songkorpus.tsv“ neu einzulesen und die Spalten wie am Anfang des Notebooks umzubenennen. Dadurch stellst Du sicher, dass Du auch wirklich mit den ursprünglichen Daten arbeitest.</p>
 <details>
@@ -2284,6 +2292,8 @@ Viel Erfolg! 🙌<div class="cell docutils container">
 </ol>
 <hr class="docutils" />
 <p>Super! 🤩</p>
+<section id="fortgeschritten-aggregation-von-daten">
+<h3>🦊 Fortgeschritten: Aggregation von Daten<a class="headerlink" href="#fortgeschritten-aggregation-von-daten" title="Permalink to this heading">#</a></h3>
 <p>Bevor wir uns zum Abschluss noch den Output von DataFrames anschauen, wollen wir die Daten wie gesagt zu größeren Zeiteinheiten aggregieren, und zwar zu Zehn- und Fünfjahresabschnitten.</p>
 <p>Auch hier laden wir zur Sicherheit noch einmal die originale Datei, benennen die Spalten um und schaffen zusätzlich die Spalten „Jahrzehnt“ und „Relative Häufigkeit“. Letztere wird nach wie vor relativ zur Häufigkeit aller Tokens in <em>einem</em> Jahr berechnet.</p>
 <div class="cell docutils container">
@@ -2293,6 +2303,7 @@ Viel Erfolg! 🙌<div class="cell docutils container">
 <span class="n">songkorpus</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">,</span> <span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span>
 
 <span class="c1">#Hier verwenden wir im Gegensatz zu oben die pandas-eigene Syntax</span>
+<span class="c1">#Die pandas-eigene string-Methode &#39;slice&#39; implementiert die Funktionalität der eckigen Klammern, die wir bei normalen Python-strings zum Slicen verwenden.</span>
 <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahrzehnt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Jahr&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> 
 
 <span class="n">total_freq_per_year</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Jahr&quot;</span><span class="p">])[</span><span class="s2">&quot;Häufigkeit&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -2497,7 +2508,7 @@ Viel Erfolg! 🙌<div class="cell docutils container">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd1577c3150&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f53138dc590&gt;
 </pre></div>
 </div>
 <img alt="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" src="../../_images/3a4b20bd1cbaf8f4011759a3b1ab74cad26bbc5c67e8e32d93007b3dc3cbaaa5.png" />
@@ -2505,8 +2516,12 @@ Viel Erfolg! 🙌<div class="cell docutils container">
 </div>
 <p>Wunderbar.</p>
 <p>Sollte hier neben dem Plot auch eine <code class="docutils literal notranslate"><span class="pre">SettingWithCopyWarning</span></code> zurückgegeben worden sein, kannst Du diese ignorieren.</p>
-<p>Mit <code class="docutils literal notranslate"><span class="pre">plt.savefig(path)</span></code> kannst Du Grafiken übrigens auch auf Deiner Festplatte speichern.</p>
+<p>Mit folgendem Code kannst Du Grafiken übrigens auch auf Deiner Festplatte speichern:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Damit sind wir fast am Ende des Notebooks angelangt.</p>
+</section>
 </section>
 <section id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this heading">#</a></h2>
@@ -2514,6 +2529,44 @@ Viel Erfolg! 🙌<div class="cell docutils container">
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/songkorpus_new.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2031</span><span class="o">/</span><span class="mf">3687279591.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">songkorpus</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/songkorpus_new.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3480</span>             <span class="n">doublequote</span><span class="o">=</span><span class="n">doublequote</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3481</span>             <span class="n">escapechar</span><span class="o">=</span><span class="n">escapechar</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">3482</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3483</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3484</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/formats/format.py</span> in <span class="ni">to_csv</span><span class="nt">(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, line_terminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1103</span>             <span class="n">formatter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fmt</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1104</span>         <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1105</span>         <span class="n">csv_formatter</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1106</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1107</span>         <span class="k">if</span> <span class="n">created_buffer</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/formats/csvs.py</span> in <span class="ni">save</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">241</span>             <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">242</span>             <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compression</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">243</span>             <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">storage_options</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">244</span>         <span class="p">)</span> <span class="k">as</span> <span class="n">handles</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">245</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">707</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../3_Dateien/Output/songkorpus_new.csv&#39;
 </pre></div>
 </div>
 </div>
@@ -2608,10 +2661,13 @@ Viel Erfolg! 🙌<div class="cell docutils container">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-werte">Numerische Werte</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datentyp-andern">Datentyp ändern</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-bearbeitung">Bedingte Bearbeitung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-und-applymap"><code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-apply-und-applymap">🦊 Fortgeschritten: <code class="docutils literal notranslate"><span class="pre">apply</span></code> und <code class="docutils literal notranslate"><span class="pre">applymap</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-wortverlaufskurven-visualisieren">🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-wortverlaufskurven-visualisieren">🔧 Anwendungsfall: Wortverlaufskurven visualisieren 📈</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-aggregation-von-daten">🦊 Fortgeschritten: Aggregation von Daten</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
 </ul>
   </nav></div>

@@ -468,22 +468,16 @@ document.write(`
 <h1>Zusatzübungen zum Notebook „Web Scraping“<a class="headerlink" href="#zusatzubungen-zum-notebook-web-scraping" title="Permalink to this heading">#</a></h1>
 <p>👆 Beim Web Scraping (konkret: beim Extrahieren der Daten) wird zumeist mit regulären Ausdrücken gearbeitet. Dabei gibt es oft verschiedene Möglichkeiten, einen Suchausdruck zu konstruieren. Bei der Abwägung zwischen Genauigkeit (decke ich alle gewünschten Fälle und nur diese ab?) und Effizienz (wie lange brauche ich, um den regulären Ausdruck zu konstruieren?) gibt es nicht immer Richtig und Falsch.</p>
 <p>Es ist kein Problem, falls Du noch keine Erfahrung mit regulären Ausdrücken hast, denn alle Aufgaben sind auch ohne dieses Wissen lösbar.</p>
-<ol class="arabic">
-<li><p>Der in der Code-Zelle gegebene HTML-Code soll folgende Ausgabe erzeugen:</p>
+<p>✏️ <strong>Übung 1:</strong> Der in der Code-Zelle gegebene HTML-Code soll folgende Ausgabe erzeugen:</p>
 <p><img alt="" src="../../_images/HTML_Code.png" /></p>
 <p>Aktuell fehlen im <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code>-Element noch einige Tags. Überleg Dir mithilfe des Bildes, welche das sein könnten und an welchen Stellen sie fehlen. Ergänz sie in den bereits gegebenen <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>. Du kannst Dir den vervollständigten Code z. B. auf <a class="reference external" href="https://www.sejda.com/de/html-to-pdf">dieser Website</a> als PDF anzeigen lassen, um ihn mit dem Screenshot abzugleichen.</p>
- <details>
-     <summary>💡 Tipp </summary>
-     <br>Es fehlen die Tags für die Überschriften, Texte und die geordnete Liste. Wenn Du Dir unsicher bist, wie diese geschrieben werden, schau nochmal im Notebook "Web Scraping Teil 1" nach. 
- </details>
-     <br></li>
-</ol>
-<ol class="arabic" start="2">
-<li><p>Die Website <a class="reference external" href="https://manova.news">manova.news</a> (ehemals <em>Rubikon</em>, <a class="reference external" href="https://de.wikipedia.org/wiki/Rubikon_(Website)">siehe Wikipedia-Eintrag</a>) versteht sich als Nachrichtenportal, verbreitet aber häufig Verschwörungstheorien. Wir wollen die Sprache der Webseite genauer unter die Lupe nehmen. Dazu konzentrieren wir uns zunächst auf Schlagzeilen bzw. Überschriften in der Rubrik <a class="reference external" href="https://www.manova.news/section/21"><em>Natur und Mitwelt</em></a>.</p>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Es fehlen die Tags für die Überschriften, Texte und die geordnete Liste. Wenn Du Dir unsicher bist, wie diese geschrieben werden, schau nochmal im Notebook "Web Scraping Teil 1" nach. 
+</details><hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Die Website <a class="reference external" href="https://manova.news">manova.news</a> (ehemals <em>Rubikon</em>, <a class="reference external" href="https://de.wikipedia.org/wiki/Rubikon_(Website)">siehe Wikipedia-Eintrag</a>) versteht sich als Nachrichtenportal, verbreitet aber häufig Verschwörungstheorien. Wir wollen die Sprache der Webseite genauer unter die Lupe nehmen. Dazu konzentrieren wir uns zunächst auf Schlagzeilen bzw. Überschriften in der Rubrik <a class="reference external" href="https://www.manova.news/section/21"><em>Natur und Mitwelt</em></a>.</p>
 <p>Verschaff Dir einen Überblick über die Seite und überleg Dir, worauf Du beim Scraping <em>aller</em> Schlagzeilen bzw. Überschriften in dieser Rubrik achten musst. Schau dazu im Quelltext nach. Notier Deine Antwort in der folgenden Code-Zelle.</p>
 <p>Halt außerdem stichpunktartig fest, wie Du beim Abruf- und Extraktionsschritt vorgehen willst.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Worauf muss geachtet werden?</span>
@@ -506,100 +500,116 @@ document.write(`
 </div>
 </div>
 </div>
-<ol class="arabic" start="3">
-<li><p>Ruf nun die Seitenquelltexte der gegebenen Rubrik ab und speicher sie in einer Liste. Verwend hier wenn möglich einen regulären Ausdruck. Lass Dir anschließend in der zweiten Code-Zelle zur Kontrolle die ersten 1000 Zeichen des ersten Quelltexts ausgeben.</p>
- <details>
-     <summary>💡 Tipp für die Umsetzung ohne reguläre Ausdrücke</summary>
-     <br>Die Nutzung eines f-strings in Verbindung mit einer Schleife sowie einer Zählvariablen bietet sich an, um nacheinander alle Seiten zu scrapen.
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Ruf nun die Seitenquelltexte der gegebenen Rubrik ab und speicher sie in einer Liste. Verwend hier wenn möglich einen regulären Ausdruck. Lass Dir anschließend in der zweiten Code-Zelle zur Kontrolle die ersten 1000 Zeichen des ersten Quelltexts ausgeben.</p>
+<details>
+    <summary>💡 Tipp für die Umsetzung ohne reguläre Ausdrücke</summary>
+    <br>Die Nutzung eines f-strings in Verbindung mit einer Schleife sowie einer Zählvariablen bietet sich an, um nacheinander alle Seiten zu scrapen.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Abrufschritt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code für den Abrufschritt schreiben.</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Ausgabe der ersten 1000 Zeichen des ersten Quelltexts</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Ausgabe der ersten 1000 Zeichen des ersten Quelltexts schreiben.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic" start="4">
-<li><p>Extrahier nun alle Schlagzeilen bzw. Überschriften der angeteaserten Artikel und lass sie Dir ausgeben.</p>
- <details>
- <summary>💡 Tipp</summary>
- <br>Nutz dazu <code>BeautifulSoup</code> in Verbindung mit der Methode <code>find_all</code>.
- </details>
- <br></li>
-</ol>
-<ol class="arabic" start="5">
-<li><p>Da Web Scraping die angerufenen Server immer belastet, sollten wir so selten wie möglich Inhalte herunterladen. Wenn wir mehrfach die gleichen Daten für ein größeres Projekt benötigen, sollten wir sie nur einmal herunterladen und anschließend lokal speichern.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> Extrahier nun alle Schlagzeilen bzw. Überschriften der angeteaserten Artikel und lass sie Dir ausgeben.</p>
+<details>
+    <summary>💡 Tipp</summary>
+    <br>Nutz dazu <code>BeautifulSoup</code> in Verbindung mit der Methode <code>find_all</code>.
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 5:</strong> Da Web Scraping die angerufenen Server immer belastet, sollten wir so selten wie möglich Inhalte herunterladen. Wenn wir mehrfach die gleichen Daten für ein größeres Projekt benötigen, sollten wir sie nur einmal herunterladen und anschließend lokal speichern.</p>
 <p>Die Quelltexte der manova-Seiten sind momentan nur in unserem Arbeitsspeicher (in der Variablen <code class="docutils literal notranslate"><span class="pre">all_pages</span></code>). Sobald wir diese Sitzung (also den Kernel) beenden, gehen sie verloren. Um auch in der nächsten Sitzung mit den Daten arbeiten zu können (ohne sie erneut vom Server herunterladen zu müssen), ist es nun Deine Aufgabe, jeden Quelltext in einem separaten HTML-Dokument zu speichern. Wähl als Speicherort das Verzeichnis „3_Dateien/Output“.</p>
 <p>Überprüf abschließend über Deinen Dateimanager, ob die neuen Dateien existieren sowie sinnvoll beschrieben wurden.</p>
- <details>
- <summary>💡 Tipp </summary>
- <br>Zum externen Speichern von Daten gibt es bei Python verschiedene Wege. Einige hast Du bereits im zweiteiligen Notebook "Input und Output" kennengelernt. Du kannst aber auch selbst im Internet suchen, wie Du die Quelltexte am besten speicherst. 
- </details>
- <br></li>
-</ol>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Zum externen Speichern von Daten gibt es bei Python verschiedene Wege. Einige hast Du bereits im zweiteiligen Notebook "Input und Output" kennengelernt. Du kannst aber auch selbst im Internet suchen, wie Du die Quelltexte am besten speicherst. 
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
-<ol class="arabic" start="6">
-<li><p>Nun wollen wir mit den soeben lokal gespeicherten HTML-Dokumenten weiterarbeiten. Lies sie nacheinander ein und extrahier bei jedem angeteaserten Artikel das zugehörige Schlagwort. Beim Artikel im Screenshot unten wäre dies „#WASSERSPEZIAL“ (andere Schlagworte beginnen nicht mit einem Hashtag).</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 6:</strong> Nun wollen wir mit den soeben lokal gespeicherten HTML-Dokumenten weiterarbeiten. Lies sie nacheinander ein und extrahier bei jedem angeteaserten Artikel das zugehörige Schlagwort. Beim Artikel im Screenshot unten wäre dies „#WASSERSPEZIAL“ (andere Schlagworte beginnen nicht mit einem Hashtag).</p>
 <p><img alt="" src="../../_images/Schlagwort_manova.png" /></p>
 <p>Ermittle, wie häufig jedes Schlagwort auf den gescrapten Seiten zum Einsatz kommt. Lass Dir das Ergebnis in absteigender Reihenfolge ausgeben.</p>
-</li>
-</ol>
-<ol class="arabic simple" start="7">
-<li><p>Stell analog zu Übung 6 eine Übersicht über die fleißigsten Autor:innen in dieser Rubrik zusammen. Lass Dir die Namen derer ausgeben, die mehr als einen Artikel verfasst haben.</p></li>
-</ol>
-<ol class="arabic" start="8">
-<li><p>Bislang haben wir nur die Überblicksseiten der Rubrik „Natur und Mitwelt“ gescrapt. Nun wollen wir die eigentlichen Artikeltexte scrapen und daraus ein eigenes Korpus erstellen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 7:</strong> Stell analog zu Übung 6 eine Übersicht über die fleißigsten Autor:innen in dieser Rubrik zusammen. Lass Dir die Namen derer ausgeben, die mehr als einen Artikel verfasst haben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 8:</strong> Bislang haben wir nur die Überblicksseiten der Rubrik „Natur und Mitwelt“ gescrapt. Nun wollen wir die eigentlichen Artikeltexte scrapen und daraus ein eigenes Korpus erstellen.</p>
 <p>Extrahier dazu zunächst alle Links auf den Überblicksseiten, die zu den eigentlichen Artikeln führen. Speichere die <em>vollständigen</em> Links in einer Liste.</p>
-</li>
-</ol>
-<ol class="arabic" start="9">
-<li><p>Lade für unser Korpus in der ersten Code-Zelle den Quelltext sämtlicher Artikel, deren Links Du eben zusammengetragen hast, herunter. Da wir die relevanten Teile davon gleich lokal speichern werden, kannst Du die Quelltexte zwischenzeitlich in Deinem Arbeitsspeicher belassen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 9:</strong> Lade für unser Korpus in der ersten Code-Zelle den Quelltext sämtlicher Artikel, deren Links Du eben zusammengetragen hast, herunter. Da wir die relevanten Teile davon gleich lokal speichern werden, kannst Du die Quelltexte zwischenzeitlich in Deinem Arbeitsspeicher belassen.</p>
 <p>Extrahier anschließend in der zweiten Code-Zelle aus jedem Quelltext den <strong>Haupttext</strong> des Artikels. Speichere alle Texte in <em>einer</em> XML-Datei im Ordner „3_Dateien/Output“. Das XML-Dokument wird unserem Korpus entsprechen. Leg dessen hierarchische Struktur so an, dass die Artikeltexte voneinander unterschieden werden können.</p>
- <details>
- <summary>💡 Tipp 1 </summary>
- <br>Verwend <code>trafilatura</code> sowohl für den Abruf- als auch für den Extraktionsschritt. Das Modul eignet sich in diesem Fall, da wir nur am Haupttext interessiert sind.
- </details>
- <br>
- <details>
- <summary>💡 Tipp 2 </summary>
- <br>Um die Fortschrittsanzeige, die wir etwa in der Lösung zu Übung 3 verwendet haben, zu professionalisieren, kannst Du das Modul <code>tqdm</code> über die Command Line installieren. Importiere es anschließend mithilfe von <code>from tqdm import tqdm</code> und bau es wie folgt in die <code>for</code>-Schleife zur Iteration über <code>links</code> ein: <code>for i in tqdm(range(len(links)))</code>. Die <code>range</code>-Funktion benutzen wir auch hier, um einen Zähler für die Dateibenennung zu erhalten.
- </details>
- <br>
- <details>
- <summary>📌 Herausforderung </summary>
- <br>Extrahier nicht nur den Haupttext aller Artikel, sondern ebenfalls den Namen des/der Autor:in, den Titel, das Publikationsdatum sowie weitere Metadaten, die Dich interessieren. Um diese Elemente gezielt extrahieren zu können, musst Du die Quelltexte mit <code>requests</code> abrufen und mit <code>BeautifulSoup</code> parsen. Speicher die Metadaten an geeigneter Stelle in der Hierarchie Deines XML-Dokuments. Nutz dafür beispielsweise Attribute. Für diese Herausforderung wird keine Lösung vorgegeben.
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<details>
+    <summary>💡 Tipp 1 </summary>
+    <br>Verwend <code>trafilatura</code> sowohl für den Abruf- als auch für den Extraktionsschritt. Das Modul eignet sich in diesem Fall, da wir nur am Haupttext interessiert sind.
+</details>
+<br>
+<details>
+    <summary>💡 Tipp 2 </summary>
+    <br>Um die Fortschrittsanzeige, die wir etwa in der Lösung zu Übung 3 verwendet haben, zu professionalisieren, kannst Du das Modul <code>tqdm</code> über die Command Line installieren. Importiere es anschließend mithilfe von <code>from tqdm import tqdm</code> und bau es wie folgt in die <code>for</code>-Schleife zur Iteration über <code>links</code> ein: <code>for i in tqdm(range(len(links)))</code>. Die <code>range</code>-Funktion benutzen wir auch hier, um einen Zähler für die Dateibenennung zu erhalten.
+</details>
+<br>
+<details>
+    <summary>🦊 Herausforderung </summary>
+    <br>Extrahier nicht nur den Haupttext aller Artikel, sondern ebenfalls den Namen des/der Autor:in, den Titel, das Publikationsdatum sowie weitere Metadaten, die Dich interessieren. Um diese Elemente gezielt extrahieren zu können, musst Du die Quelltexte mit <code>requests</code> abrufen und mit <code>BeautifulSoup</code> parsen. Speicher die Metadaten an geeigneter Stelle in der Hierarchie Deines XML-Dokuments. Nutz dafür beispielsweise Attribute. Für diese Herausforderung wird keine Lösung vorgegeben.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Abrufschritt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code für den Abrufschritt schreiben.</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Extraktions- und Speicherschritt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Extraktion und Speicherung schreiben.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic" start="10">
-<li><p>Auch wenn es beim Web Scraping nur um die Daten<em>beschaffung</em> geht, so bietet folgender vorgegebener Code einen Einblick in die Daten<em>auswertung</em>, die möglich ist, jetzt wo wir unser eigenes Korpus zusammengestellt haben. Der Code lässt sich ausführen, wenn Du die XML-Elemente gleich genannt hast, wie in der Lösung vorgeschlagen. Du kannst ihn natürlich an Deine Namensgebung anpassen.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 10:</strong> Auch wenn es beim Web Scraping nur um die Daten<em>beschaffung</em> geht, so bietet folgender vorgegebener Code einen Einblick in die Daten<em>auswertung</em>, die möglich ist, jetzt wo wir unser eigenes Korpus zusammengestellt haben. Der Code lässt sich ausführen, wenn Du die XML-Elemente gleich genannt hast, wie in der Lösung vorgeschlagen. Du kannst ihn natürlich an Deine Namensgebung anpassen.</p>
 <p>Wir verwenden das im Notebook „Funktionen und Methoden Teil 2“ erstellte Modul <code class="docutils literal notranslate"><span class="pre">keywords</span></code> bzw. die Funktion <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> daraus. Diese haben wir ja geschrieben, um die Häufigkeit von Wörtern zu berechnen. Da wir es nun mit einer viel größeren Datenmenge zu tun haben, läuft der Code eine Weile. Bau gerne eine Fortschrittsanzeige mit <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> in den Modulcode ein, um die Ausführung im Blick behalten zu können. Bedenk aber, dass Du nach dem Ändern des Modulcodes den Kernel neustarten musst, um das Modul mit dem geänderten Code zu importieren.</p>
 <p>Behalt auch im Hinterkopf, dass wir diesen Code in einem früheren Stadium unserer Programmierkarriere geschrieben haben. Mittlerweile kennen wir vermutlich effizientere Wege, um Wörter auszuzählen. Ungeachtet dessen offenbart sich hier (einmal mehr) der Vorteil von <em>Code Reuse</em> und konkret von Modularisierung, wie er im zweiteiligen Notebook „Funktionen und Methoden“ aufgezeigt wurde.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Einlesen des eben erstellen XML-Dokuments</span>
@@ -638,7 +648,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2572</span><span class="o">/</span><span class="mf">2603053321.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2598</span><span class="o">/</span><span class="mf">2603053321.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Einlesen des eben erstellen XML-Dokuments</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/manova_corpus.xml&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>

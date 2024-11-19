@@ -477,7 +477,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>✏️ <strong>Lösung 1:</strong> Find heraus, wie viele Male drei aufeinanderfolgende „f“ im string <code class="docutils literal notranslate"><span class="pre">text</span></code> vorkommen. <code class="docutils literal notranslate"><span class="pre">regex</span></code> soll Deinen regulären Ausdruck referenzieren. Es handelt sich dabei ebenfalls um einen string, allerdings mit einem dem öffnenden Anführungszeichen vorangestellten „r“/“R“. Wie bei f-strings im Notebook „Input und Output Teil 2“ teilen wir Python damit mit, dass der folgende string anders als ein normaler string zu interpretieren ist (wie genau, sind technische Details, die für uns nicht relevant sind, vgl. ebenfalls Notebook „Input und Output Teil 1“ zu Dateipfaden bei Windows).</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 1:</strong> Find heraus, wie viele Male drei aufeinanderfolgende „f“ im string <code class="docutils literal notranslate"><span class="pre">text</span></code> vorkommen. <code class="docutils literal notranslate"><span class="pre">regex</span></code> soll Deinen regulären Ausdruck referenzieren. Es handelt sich dabei ebenfalls um einen string, allerdings mit einem dem öffnenden Anführungszeichen vorangestellten „r“/“R“. Wie bei f-strings im Notebook „Input und Output Teil 2“ teilen wir Python damit mit, dass der folgende string anders als ein normaler string zu interpretieren ist (wie genau, sind technische Details, die für uns nicht relevant sind, vgl. ebenfalls Notebook „Input und Output Teil 1“ zu Dateipfaden bei Windows).</p>
 <p>Der Rest des Codes ist bereits fertig geschrieben. Grob formuliert, nimmt die <code class="docutils literal notranslate"><span class="pre">findall</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls Deinen regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">regex</span></code>) und sucht <code class="docutils literal notranslate"><span class="pre">text</span></code> von links nach rechts danach ab. Alle matches landen in einer Liste, die mit <code class="docutils literal notranslate"><span class="pre">matches</span></code> referenziert wird und deren Länge wir uns abschließend ausgeben lassen. Die Ausgabe sollte natürlich <code class="docutils literal notranslate"><span class="pre">3</span></code> sein, sobald Du den korrekten regulären Ausdruck bei <code class="docutils literal notranslate"><span class="pre">regex</span></code> ausgefüllt hast.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -495,7 +496,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>✏️ <strong>Lösung 2:</strong> Kopier den Text eines beliebigen Artikels einer Online-Zeitung (z. B. von <a class="reference external" href="https://www.zeit.de">ZEIT Online</a>, <a class="reference external" href="https://www.tagesschau.de">tagesschau.de</a> oder den <a class="reference external" href="https://www.dnn.de">Dresdner Neuesten Nachrichten</a>). Einzige Bedingung: Der Artikel sollte Zitate beinhalten. Füg den Text als string bei <code class="docutils literal notranslate"><span class="pre">text</span></code> unten ein. Formulier nun reguläre Ausdrücke für folgende Suchaufträge:</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Kopier den Text eines beliebigen Artikels einer Online-Zeitung (z. B. von <a class="reference external" href="https://www.zeit.de">ZEIT Online</a>, <a class="reference external" href="https://www.tagesschau.de">tagesschau.de</a> oder den <a class="reference external" href="https://www.dnn.de">Dresdner Neuesten Nachrichten</a>). Einzige Bedingung: Der Artikel sollte Zitate beinhalten. Füg den Text als string bei <code class="docutils literal notranslate"><span class="pre">text</span></code> unten ein. Formulier nun reguläre Ausdrücke für folgende Suchaufträge:</p>
 <ol class="arabic simple">
 <li><p>alle kleingeschriebenen Wörter mit drei Buchstaben</p></li>
 <li><p>alle Wörter mit Großbuchstaben am Anfang</p></li>
@@ -624,7 +626,7 @@ Zitate:
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2353</span><span class="o">/</span><span class="mf">1227267066.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2360</span><span class="o">/</span><span class="mf">1227267066.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#Code funktioniert erst, nachdem Du das Dokument &quot;quelltext.txt&quot; erstellt hast!</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Fussball/quelltext.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -637,7 +639,7 @@ Zitate:
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 4:</strong> Lies das Märchen „Des Kaisers neue Kleider“ von Hans Christian Andersen aus dem Ordner „3_Dateien“ ein und weis es <code class="docutils literal notranslate"><span class="pre">fairytale</span></code> zu. Formulier nun reguläre Ausdrücke für folgende Suchaufträge:</p>
+<p>✏️ <strong>Übung 4:</strong> Lies das Märchen „Des Kaisers neue Kleider“ von Hans Christian Andersen aus dem Ordner „3_Dateien“ ein und weis es <code class="docutils literal notranslate"><span class="pre">fairytale</span></code> zu. Formulier nun reguläre Ausdrücke für folgende Suchaufträge:</p>
 <ol class="arabic simple">
 <li><p>das erste Wort des Märchens</p></li>
 <li><p>regelmäßige Verben in der 3. Person Singular/Plural im Präteritum (z. B. „lebte“ oder „sagten“; es ist in Ordnung, wenn Du mit diesem regulären Ausdruck auch ein paar falsch positive matches kriegst 🤫, vgl. Wahrheitsmatrix im Notebook „Input und Output Teil 1“)</p></li>
@@ -683,7 +685,7 @@ Zitate:
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 5:</strong> Im Notebook „Funktionen und Methoden Teil 1“ in Übung 2 haben wir gesehen, dass das Wort „Klima“ viel häufiger im Koalitionsvertrag von 2021 als in demjenigen von 2018 vorkommt. Nun wollen wir herausfinden, in welcher Form das Wort verwendet wird. Neben dem alleinstehenden Auftreten von „Klima“ (als sog. <em>Simplex</em>, da es aus nur einem Morphem besteht) ist „Klima“ bzw. „klima“ häufig Teil von zusammengesetzten Wörtern, also sog. <em>Komposita</em>, wie etwa in „Klimakrise“ oder „klimapolitisch“.</p>
+<p>✏️ <strong>Übung 5:</strong> Im Notebook „Funktionen und Methoden Teil 1“ in Übung 2 haben wir gesehen, dass das Wort „Klima“ viel häufiger im Koalitionsvertrag von 2021 als in demjenigen von 2018 vorkommt. Nun wollen wir herausfinden, in welcher Form das Wort verwendet wird. Neben dem alleinstehenden Auftreten von „Klima“ (als sog. <em>Simplex</em>, da es aus nur einem Morphem besteht) ist „Klima“ bzw. „klima“ häufig Teil von zusammengesetzten Wörtern, also sog. <em>Komposita</em>, wie etwa in „Klimakrise“ oder „klimapolitisch“.</p>
 <p>Lies den Koalitionsvertrag von 2021 noch einmal ein und weis ihn der Variablen <code class="docutils literal notranslate"><span class="pre">kv21</span></code> zu. Durchsuch ihn nun nach einem regulären Ausdruck, der sämtliche Komposita, in denen „Klima“ bzw. „klima“ vorkommt, matcht. Häng alle Komposita der Liste <code class="docutils literal notranslate"><span class="pre">climate_compounds</span></code> an und lass Dir abschließend die Liste ausgeben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -707,7 +709,7 @@ Zitate:
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 6:</strong> Find alle Substantive mit definitem Artikel (z. B. „der“ oder „dem“) in <code class="docutils literal notranslate"><span class="pre">text</span></code>, der der Einleitung des <a class="reference external" href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck"> Wikipedia-Artikels zu regulären Ausdrücken</a> entspricht (Stand: 26.10.2022). Der Artikel (des Substantivs) sollte jeweils mitgemacht werden.</p>
+<p>✏️ <strong>Übung 6:</strong> Find alle Substantive mit definitem Artikel (z. B. „der“ oder „dem“) in <code class="docutils literal notranslate"><span class="pre">text</span></code>, der der Einleitung des <a class="reference external" href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck"> Wikipedia-Artikels zu regulären Ausdrücken</a> entspricht (Stand: 26.10.2022). Der Artikel (des Substantivs) sollte jeweils mitgemacht werden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ein regulärer Ausdruck (englisch regular expression, Abkürzung RegExp oder Regex) ist in der theoretischen Informatik eine Zeichenkette, die der Beschreibung von Mengen von Zeichenketten mit Hilfe bestimmter syntaktischer Regeln dient. Reguläre Ausdrücke finden vor allem in der Softwareentwicklung Verwendung. Neben Implementierungen in vielen Programmiersprachen verarbeiten auch viele Texteditoren reguläre Ausdrücke in der Funktion „Suchen und Ersetzen“. Ein einfacher Anwendungsfall von regulären Ausdrücken sind Wildcards.</span>
@@ -733,7 +735,7 @@ Zitate:
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 7 (fortgeschritten):</strong> Gegeben sind kurze Beschreibungen von fünf Personen in <code class="docutils literal notranslate"><span class="pre">people</span></code>. In jeder Beschreibung findet sich der Vor- und Nachname, das Geburtsdatum sowie die E-Mailadresse der Person. Wir wollen daraus ein kleines Adressbuch in tabellarischer Form schaffen. Ziel ist es, die Daten wie im Screenshot gezeigt in die Datei „address_book.tsv“ im Ordner „3_Dateien/Output“ zu schreiben:</p>
+<p>✏️ <b>Übung 7 (🦊 fortgeschritten)</b>: Gegeben sind kurze Beschreibungen von fünf Personen in <code class="docutils literal notranslate"><span class="pre">people</span></code>. In jeder Beschreibung findet sich der Vor- und Nachname, das Geburtsdatum sowie die E-Mailadresse der Person. Wir wollen daraus ein kleines Adressbuch in tabellarischer Form schaffen. Ziel ist es, die Daten wie im Screenshot gezeigt in die Datei „address_book.tsv“ im Ordner „3_Dateien/Output“ zu schreiben:</p>
 <img src="../../3_Dateien/Grafiken_und_Videos/address_book.png">
 <p>Zwischen den Namen und dem Geburtstag sowie dem Geburtstag und der E-Mailadresse soll also ein Tab stehen, da Dateien mit der Endung „.tsv“ tabulatorsepariert sind (dem gleichen Prinzip wie kommaseparierte Dateien folgend, vgl. Notebook „Input und Output Teil 2“).</p>
 <p>Formulier <em>einen</em> regulären Ausdruck, um fünf matches zu erhalten (einen pro Person), und nutz Gruppen, um die Elemente <em>Nachname</em>, <em>Vorname</em>, <em>Geburtstag</em> und <em>E-Mailadresse</em> als Teilmatch separat zu erhalten. Öffne und beschreib anschließend die Datei „address_book.tsv“, sodass jede Person in einer eigenen Zeile sowie jedes Element in einer eigenen Spalte abgespeichert wird.</p>
@@ -767,9 +769,23 @@ Zitate:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2360</span><span class="o">/</span><span class="mf">1648293663.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> 
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="c1">#Achtung: anderer Pfad als im Notebook, da das Lösungsnotebook in einem anderen Verzeichnis liegt</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/address_book.tsv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Name</span><span class="se">\t</span><span class="s2">Birthday</span><span class="se">\t</span><span class="s2">Mail address</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../3_Dateien/Output/address_book.tsv&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 8:</strong> Bei <code class="docutils literal notranslate"><span class="pre">birth_notices</span></code> handelt es nun um eine Liste mit mehreren Geburtsanzeigen. Deine Aufgabe ist es, die Geburtsdaten der Neugeboreren mithilfe eines regulären Ausdrucks sowie einer geeigneten Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls aus den Anzeigen zu extrahieren und einer Liste namens <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> anzuhängen. Lass Dir abschließend <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> ausgeben.</p>
+<p>✏️ <strong>Übung 8:</strong> Bei <code class="docutils literal notranslate"><span class="pre">birth_notices</span></code> handelt es nun um eine Liste mit mehreren Geburtsanzeigen. Deine Aufgabe ist es, die Geburtsdaten der Neugeboreren mithilfe eines regulären Ausdrucks sowie einer geeigneten Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls aus den Anzeigen zu extrahieren und einer Liste namens <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> anzuhängen. Lass Dir abschließend <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> ausgeben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">birth_notices</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Lena erblickte am 1. September 2022 die Welt.&quot;</span><span class="p">,</span>
@@ -799,7 +815,7 @@ Zitate:
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 9:</strong> Gegeben sind in <code class="docutils literal notranslate"><span class="pre">people</span></code> noch einmal die Personenbeschreibungen aus Übung 7 sowie die Musterlösung für den regulären Ausdruck in <code class="docutils literal notranslate"><span class="pre">regex</span></code>. <code class="docutils literal notranslate"><span class="pre">regex</span></code> beinhaltet Gruppen, auf deren Teilmatches wir zurückgreifen können. Formulier unter Zuhilfenahme von Rückreferenzen einen regulären Ausdruck für <code class="docutils literal notranslate"><span class="pre">replacement</span></code>, um anschließend <code class="docutils literal notranslate"><span class="pre">people</span></code> mithilfe von <code class="docutils literal notranslate"><span class="pre">re.sub</span></code> in dasselbe Format wie in Übung 7 zu bringen:</p>
+<p>✏️ <strong>Übung 9:</strong> Gegeben sind in <code class="docutils literal notranslate"><span class="pre">people</span></code> noch einmal die Personenbeschreibungen aus Übung 7 sowie die Musterlösung für den regulären Ausdruck in <code class="docutils literal notranslate"><span class="pre">regex</span></code>. <code class="docutils literal notranslate"><span class="pre">regex</span></code> beinhaltet Gruppen, auf deren Teilmatches wir zurückgreifen können. Formulier unter Zuhilfenahme von Rückreferenzen einen regulären Ausdruck für <code class="docutils literal notranslate"><span class="pre">replacement</span></code>, um anschließend <code class="docutils literal notranslate"><span class="pre">people</span></code> mithilfe von <code class="docutils literal notranslate"><span class="pre">re.sub</span></code> in dasselbe Format wie in Übung 7 zu bringen:</p>
 <p>„Nachname, Vorname \t Geburtsdatum \t E-Mailadresse“</p>
 <p>Es reicht diesmal, wenn Du das Dir das Ergebnis einfach ausgeben lässt.</p>
 <div class="cell docutils container">
@@ -830,7 +846,7 @@ DUMBLEDORE, Albus Percival Wulfric Brian	17.06.1881	fresh-dumbledore@hogwarts.co
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 10:</strong> <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> von oben ist nun etwas länger und beinhaltet mehr Geburtsdaten. Ziel ist es, sämtliche Geburtsdaten in das Datumsformat nach <a class="reference external" href="https://de.wikipedia.org/wiki/Datumsformat#ISO_8601_und_EN_28601">ISO 8601</a>, also YYYY/MM/DD, zu bringen. Geh dazu wie folgt vor:</p>
+<p>✏️ <strong>Übung 10:</strong> <code class="docutils literal notranslate"><span class="pre">birth_dates</span></code> von oben ist nun etwas länger und beinhaltet mehr Geburtsdaten. Ziel ist es, sämtliche Geburtsdaten in das Datumsformat nach <a class="reference external" href="https://de.wikipedia.org/wiki/Datumsformat#ISO_8601_und_EN_28601">ISO 8601</a>, also YYYY/MM/DD, zu bringen. Geh dazu wie folgt vor:</p>
 <ol class="arabic simple">
 <li><p>Wenn nötig, pass <code class="docutils literal notranslate"><span class="pre">regex</span></code> an, damit auch alle neuen Geburtsdaten gematcht werden.</p></li>
 <li><p>Setz Klammern in <code class="docutils literal notranslate"><span class="pre">regex</span></code>, um relevante Teile eines matches zu gruppieren.</p></li>
@@ -871,8 +887,8 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 2022/01/01 geb
 </div>
 </div>
 <hr class="docutils" />
-<p><strong>🔧 Anwendungsfall (Lösung):</strong></p>
-<p>Die Lösung zu beiden Teilaufgaben befindet sich in den Dateien „pizzabot_solved_documented.py“ und „pizza_functions_documents“ im Ordner „3_Dateien“. Der verbesserte Pizzabot kann in der folgenden Zelle getestet werden:</p>
+<p><strong>🔧 Anwendungsfall:</strong></p>
+<p>Die Lösung zu beiden Teilaufgaben befindet sich in den Dateien „pizzabot_solved_documented.py“ und „pizza_functions_documented“ im Ordner „3_Dateien“. Der verbesserte Pizzabot kann in der folgenden Zelle getestet werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Diese beiden Zeilen kannst Du ignorieren (sie sind nötig, da sich das zu importierende Modul </span>
@@ -888,7 +904,7 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 2022/01/01 geb
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2353</span><span class="o">/</span><span class="mf">3574949460.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2360</span><span class="o">/</span><span class="mf">3574949460.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> 
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">pizzabot_solved_documented</span> <span class="k">as</span> <span class="nn">pizzabot</span>
 <span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>

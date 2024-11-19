@@ -480,7 +480,7 @@ document.write(`
                   
   <section id="funktionen-und-methoden-teil-2">
 <h1>Funktionen und Methoden Teil 2<a class="headerlink" href="#funktionen-und-methoden-teil-2" title="Permalink to this heading">#</a></h1>
-<p>Willkommen zurück! Auch in diesem Notebook geht es um Funktionen und Methoden. Konkret lernst Du, wie Du Funktionen selbst definieren kannst und was Module sind. Wie versprochen erwartet Dich als Erstes aber unser Anwendungsfall - das Errechnen von Schlüsselwörtern in den Koalitionsverträgen.</p>
+<p>Willkommen zurück! Auch in diesem Notebook geht es um Funktionen und Methoden. Konkret lernst Du, wie Du Funktionen selbst definieren kannst und was Module sind. Wie versprochen erwartet Dich als Erstes aber unser Anwendungsfall – das Errechnen von Schlüsselwörtern in den Koalitionsverträgen.</p>
 <section id="anwendungsfall-errechnen-von-schlusselwortern">
 <h2>🔧 Anwendungsfall: Errechnen von Schlüsselwörtern<a class="headerlink" href="#anwendungsfall-errechnen-von-schlusselwortern" title="Permalink to this heading">#</a></h2>
 <p>Gegeben sind die Koalitionsverträge von 2018 und 2021 in <code class="docutils literal notranslate"><span class="pre">kv18</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">kv21</span></code>. Zusätzlich ist <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> gegeben, eine Liste mit sog. Stoppwörtern, also hochfrequenten Wörtern wie <em>und</em>, <em>der</em>, <em>die</em>, <em>das</em> etc., die wir von der Berechnung von Schlüsselwörtern ausschließen wollen.</p>
@@ -626,7 +626,9 @@ document.write(`
 <p>Funktionen selbst zu definieren lohnt sich immer dann, wenn wir (fast) den gleichen Code für strukturell ähnliche Objekte mehrfach ausführen müssen (und nicht bereits eine eingebaute bzw. über ein Modul importierbare Funktion/Methode dafür besteht, vgl. unten).</p>
 <p>Wie bei Kontrollstrukturen verwenden wir Variablen im Code einer Funktionsdefinition. Anstatt <code class="docutils literal notranslate"><span class="pre">kv18</span></code> werden wir also einen Platzhalter, z. B. namens <code class="docutils literal notranslate"><span class="pre">text</span></code> in den Code schreiben (<code class="docutils literal notranslate"><span class="pre">text</span></code> ist keine schlechte Idee, denn tatsächlich lässt sich unser Code ja nicht nur auf Koalitionsverträge anwenden, sondern auf strings jeglicher Art). Bei jedem Funktionsaufruf übergeben wir unserer Funktion ein Objekt, das bei der Variablen <code class="docutils literal notranslate"><span class="pre">text</span></code> im Funktionscode eingesetzt werden soll. Damit unterscheidet sich unsere Funktion in keiner Weise von eingebauten Funktionen wie <code class="docutils literal notranslate"><span class="pre">print</span></code> oder <code class="docutils literal notranslate"><span class="pre">len</span></code>, denen wir ja auch in Klammern ein Objekt übergeben.</p>
 <p>Um nun eine Funktion zu definieren, brauchen wir das <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement mit folgender Syntax:</p>
-<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">name(argument):</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="n">argument</span><span class="p">):</span>
+</pre></div>
+</div>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">name</span></code> setzen wir einen beliebigen Funktionsnamen ein, den wir später beim Funktionsaufruf verwenden. Bei <code class="docutils literal notranslate"><span class="pre">argument</span></code> definieren wir, was der Funktion übergeben werden muss bzw. kann, wenn sie aufgerufen wird. In unserem Fall wollen wir jeweils nur einen Koalitionsvertrag übergeben. Wir nennen unser Argument <code class="docutils literal notranslate"><span class="pre">text</span></code>. Der Name des Arguments definiert gleichzeitig den Namen der betreffenden Variablen im Code. Überall wo <code class="docutils literal notranslate"><span class="pre">text</span></code> im Funktionscode steht, wird das eingesetzt, was der Funktion für dieses Argument übergeben wird.</p>
 <p>Abgeschlossen wird das <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement von einem Doppelpunkt. Unter dem Doppelpunkt eingerückt folgt nun der Code, wobei wir wie gesagt das hardgecodete <code class="docutils literal notranslate"><span class="pre">kv18</span></code> durch die Variable <code class="docutils literal notranslate"><span class="pre">text</span></code> ersetzen. Im Folgenden siehst Du die Musterlösung zur obigen Aufgabe, verwandelt in eine Funktion:</p>
 <div class="cell docutils container">
@@ -795,7 +797,7 @@ KV18: dazu                 KV21: schaffen
 </section>
 <section id="module">
 <h2>Module<a class="headerlink" href="#module" title="Permalink to this heading">#</a></h2>
-<p>Bis zu diesem Punkt haben wir mit Funktionen/Methoden aus der Grundausstattung von Python gearbeitet. Diese haben zweifelsohne einiges drauf. Dennoch kommt man als Programmier:in bald an einen Punkt, an dem sich bestimmte Anwendungsfälle effizienter lösen lassen, wenn man über die Funktionen/Methoden der Grundausstattung hinaus anwendungsspezifischeren Code verwendet. Für viele Anwendungsfelder – etwa für den Umgang mit Text, zum Scrapen von Webseiten oder zur Visualisierung von Daten – gibt es sog. <em>Module</em> (oder <em>Packages</em> bzw. <em>Bibliotheken</em>, siehe Bemerkung zum Schluss), mit denen wir diese spezifischen Probleme wesentlich effizienter angehen können.</p>
+<p>Bis zu diesem Punkt haben wir mit Funktionen/Methoden aus der Grundausstattung von Python gearbeitet. Diese haben zweifelsohne einiges drauf. Dennoch kommt man als Programmier:in bald an einen Punkt, an dem sich bestimmte Anwendungsfälle effizienter lösen lassen, wenn man über die Funktionen/Methoden der Grundausstattung hinaus anwendungsspezifischeren Code verwendet. Für viele Anwendungsfelder – etwa für den Umgang mit Text, zum Scrapen von Webseiten oder zur Visualisierung von Daten – gibt es sog. <em>Module</em> (oder <em>Packages</em> bzw. <em>Bibliotheken</em>, siehe Exkurs zum Schluss), mit denen wir diese spezifischen Probleme wesentlich effizienter angehen können.</p>
 <p>Solche Module stammen entweder von Python selbst oder von Entwickler:innen aus der Python-Community. Mit Modulen von Python sind Module gemeint, die Teil der sog. <em>Standardbibliothek</em> sind, nicht aber der Grundausstattung. In der Praxis bedeutet das Folgendes: Wenn wir Python installieren, werden die Module der Standardbibliothek automatisch mitinstalliert. Sobald wir ein solches Modul in unserem Code verwenden wollen, müssen wir es jedoch importieren, da es nicht zur Grundausstattung gehört. Module von anderen Entwickler:innen müssen wir immer zuerst (zusätzlich zu Python) installieren, bevor wir sie importieren und verwenden können.</p>
 <p>Ein Modul an sich ist ganz simpel aufgebaut: Es handelt sich schlicht um eine Python-Datei mit dem Dateisuffix „.py“, die Code enthält. Machen wir es konkret, und zwar vorerst an einem eigenen Modul. Denn auch wir können unsere eigenen Module erstellen.</p>
 <p>Der Code der Schlüsselwortfunktion von oben befindet sich bereits als Modul mit dem Namen <code class="docutils literal notranslate"><span class="pre">keywords</span></code> im Verzeichnis „3_Dateien/Module/“. Öffne die Datei und schau Dir den Code an. Wie Du sehen wirst, gibt es einen Unterschied zum Code von oben: Die Funktion erwartet neben <code class="docutils literal notranslate"><span class="pre">text</span></code> auch <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> als zweites Argument. <code class="docutils literal notranslate"><span class="pre">text</span></code> soll weiterhin als string übergeben werden, <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> hingegen als Liste. Mit der Ausklammerung der Stoppwortdatei aus dem Funktionscode im Modul wird Letzteres überall einsetzbar. Der Pfad zur Stoppwortdatei ändert sich nämlich in Abhängigkeit des Speicherorts des Moduls. Dieses Problem umgehen wir, indem wir die Stoppwörter beim Funktionsaufruf übergeben. Diese Abstraktion macht es uns auch möglich, bei Bedarf andere Stoppwortlisten zu verwenden. Im Notebook „Input und Output Teil 1“ lernen wir mehr über Dateipfade. Erst einmal ist nur wichtig, dass die Funktion im Modul neu auch Stoppwörter als zweites Argument erwartet.</p>
@@ -830,8 +832,8 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 </div>
-<p>Nach <code class="docutils literal notranslate"><span class="pre">from</span></code> geben wir den Namen des Moduls (d. h. der „.py“-Datei, aber ohne Suffix) an, gefolgt von <code class="docutils literal notranslate"><span class="pre">import</span></code> und dem Namen der zur importierenden Funktion.</p>
-<p>Indem wir hier eine spezifische Funktion importieren, etablieren wir <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> im sog. <em>Namespace</em> von Python. Der Namespace umfasst alle Namen, die Python in der aktuellen Sitzung kennt und zuordnen kann. Neben den vordefinierten Namen wie z. B. <code class="docutils literal notranslate"><span class="pre">len</span></code> für die entsprechende Funktion sind dies alle Namen, die wir selbst im Laufe einer Sitzung einführen, etwa als Variablennamen, um irgendein Objekt zu referenzieren, oder, um eine Funktion zu bezeichnen. <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> wird hier also unter diesem Namen eingeführt und wenn wir fortan <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> aufrufen, weiß Python, worauf wir uns beziehen.</p>
+<p>Nach <code class="docutils literal notranslate"><span class="pre">from</span></code> geben wir den Namen des Moduls (d. h. der „.py“-Datei, aber ohne Suffix) an, gefolgt von <code class="docutils literal notranslate"><span class="pre">import</span></code> und dem Namen der zu importierenden Funktion.</p>
+<p>Indem wir hier eine spezifische Funktion importieren, etablieren wir <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> im sog. <em>Namespace</em> von Python: Dieser umfasst alle Namen, die Python in der <strong>aktuellen</strong> Sitzung kennt und zuordnen kann: neben den vordefinierten Namen wie z. B. <code class="docutils literal notranslate"><span class="pre">len</span></code> sind dies alle Namen, die wir selbst im Laufe der Sitzung einführen (Variablennamen, selbst definierte Funktionen etc.) <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> wird hier also unter diesem Namen eingeführt und wenn wir fortan <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> aufrufen, weiß Python, worauf wir uns beziehen.</p>
 <p>Dadurch gibt es dann auch keinen syntaktischen Unterschied zwischen dem Aufruf einer importierten Funktion und einer aus der Grundausstattung:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -841,102 +843,39 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1983</span><span class="o">/</span><span class="mf">3347628041.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">top_ten</span> <span class="o">=</span> <span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="c1">#Hier weisen wir die zehn häufigsten Schlüsselwörter direkt einer Variable zu.</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">top_ten</span><span class="p">)</span>
-
-<span class="nn">~/work/yfrommherz.ch/yfrommherz.ch/website/programming/3_Dateien/Module/keywords.py</span> in <span class="ni">get_freqs</span><span class="nt">(text, stopwords)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Takes in text as string and stopwords as list, returns frequency for all types in text, excluding stopwords.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tqdm&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;werden&#39;, 1032), (&#39;wollen&#39;, 905), (&#39;ist&#39;, 263), (&#39;stärken&#39;, 215), (&#39;deutschland&#39;, 194), (&#39;wird&#39;, 186), (&#39;sind&#39;, 178), (&#39;insbesondere&#39;, 162), (&#39;unterstützen&#39;, 143), (&#39;dazu&#39;, 137)]
 </pre></div>
 </div>
 </div>
 </div>
 <p>Wie erwähnt, müssen wir hier im Unterschied zu oben <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> zusätzlich zu <code class="docutils literal notranslate"><span class="pre">kv18</span></code> (für das Argument <code class="docutils literal notranslate"><span class="pre">text</span></code>) auch <code class="docutils literal notranslate"><span class="pre">stopwords_list</span></code> (für <code class="docutils literal notranslate"><span class="pre">stopwords</span></code>) übergeben.</p>
-<p>Welche Argumente unsere Funktion erwartet und was sie im Gegenzug zurückgibt, können wir uns übrigens über das <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-Attribut ausgeben lassen. Dazu hängt man einen Punkt, zwei Unterstriche, dann „doc“ und noch einmal zwei Unterstriche an den Funktionsnamen an:</p>
+<p>Es gibt mehrere Möglichkeiten, ein Modul bzw. eine Funktion aus einem Modul zu importieren und darauf zuzugreifen. Welchen Weg Du wählst, ist Dir überlassen. Einen Überblick über die unterschiedlichen Möglichkeiten mit Erläuterungen erhältst Du im Folgenden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">get_freqs</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Takes in text as string and stopwords as list, returns frequency for all types in text, excluding stopwords.
-</pre></div>
-</div>
-</div>
-</div>
-<p>Dies ist ein sog. <em>docstring</em>. Praktisch handelt es sich schlicht um den string, der direkt im Anschluss an das <code class="docutils literal notranslate"><span class="pre">def</span></code>-Statement der Funktion steht (dieser string ist Dir sicherlich in der Moduldatei aufgefallen). Wenn Du fortan eigene Funktionen schreibst, lohnt es sich, auf diese Weise einen kurzen docstring einzufügen. Funktionen von Python und solche anderer Entwickler:innen verfügen in aller Regel über einen docstring, der Dir bei Bedarf kurz und knapp erläutert, wozu die Funktion dient. Wie im Notebook „Einführung“ erwähnt, ist Codedokumentation über Kommentare äußerst wichtig. Docstrings erfüllen den gleichen Zweck, mit dem zusätzlichen Vorteil, dass wir nicht in den Code reinschauen müssen, sondern die wichtigsten Informationen bequem über das <code class="docutils literal notranslate"><span class="pre">__doc__</span></code>-Attribut abrufen können.</p>
-<p>Zurück zum Import von Modulen: Folgender Code tut genau das gleiche wie oben, aber mit dem Unterschied, dass wir hier nur unser Modul importieren, nicht aber eine spezifische Funktion.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keywords</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. Möglichkeit (bereits von oben bekannt)</span>
+<span class="kn">from</span> <span class="nn">keywords</span> <span class="kn">import</span> <span class="n">get_freqs</span>
+<span class="n">top_ten</span> <span class="o">=</span> <span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="sd">&#39;&#39;&#39;Erläuterung: Hier wird eine spezifische Funktion aus einem Modul importiert und im Namespace von </span>
+<span class="sd">Python gespeichert, weshalb Du im Folgenden nur noch den Funktionsnamen zum Aufrufen der Funktion schreiben musst.&#39;&#39;&#39;</span>
 
+<span class="c1">#2. Möglichkeit</span>
+<span class="kn">import</span> <span class="nn">keywords</span>
 <span class="n">top_ten</span> <span class="o">=</span> <span class="n">keywords</span><span class="o">.</span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="sd">&#39;&#39;&#39;Erläuterung: Hier wird das gesamte Modul importiert und nicht nur eine einzelne Funktion daraus. Deshalb musst Du </span>
+<span class="sd">zum Funktionsaufruf immer den Modulnamen gefolgt von einem Punkt und dem Funktionsnamen schreiben. Der Name der</span>
+<span class="sd">Funktion wird auf diesem Weg nämlich nicht im Namespace etabliert.&#39;&#39;&#39;</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">top_ten</span><span class="p">)</span>
+<span class="c1">#3. Möglichkeit</span>
+<span class="kn">import</span> <span class="nn">keywords</span> <span class="k">as</span> <span class="nn">kw</span>
+<span class="n">top_ten</span> <span class="o">=</span> <span class="n">kw</span><span class="o">.</span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="sd">&#39;&#39;&#39;Erläuterung: Es ist auch möglich, dem Modul beim Importieren einen anderen Namen zu geben (i. d. R. sind das</span>
+<span class="sd">Abkürzungen, damit wir nicht immer den ganzen Namen ausschreiben müssen). Sonst ist die Syntax mit der aus </span>
+<span class="sd">Möglichkeit 2 identisch.&#39;&#39;&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1983</span><span class="o">/</span><span class="mf">3030200677.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">keywords</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">top_ten</span> <span class="o">=</span> <span class="n">keywords</span><span class="o">.</span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">top_ten</span><span class="p">)</span>
-
-<span class="nn">~/work/yfrommherz.ch/yfrommherz.ch/website/programming/3_Dateien/Module/keywords.py</span> in <span class="ni">get_freqs</span><span class="nt">(text, stopwords)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Takes in text as string and stopwords as list, returns frequency for all types in text, excluding stopwords.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tqdm&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>Wenn wir so vorgehen, wird <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> nicht im Namespace etabliert. Deswegen müssen wir beim Funktionsaufruf erst den Modulnamen gefolgt von einem Punkt angeben. Nur so weiß Python, wo sich die Funktion befindet, auf die wir uns beziehen (es handelt sich also um eine Art <em>Adresse</em> zur Funktion). Der Punkt zwischen Modul- und Funktionsnamen könnte den Eindruck erwecken, dass es sich bei <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> um eine Methode handelt (s. o.), das ist aber natürlich nicht der Fall.</p>
-<p>Um die obige Syntax zu vereinfachen, können wir dem Modul beim Import übrigens auch einen Namen geben:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keywords</span> <span class="k">as</span> <span class="nn">kw</span>
-
-<span class="n">bottom_ten</span> <span class="o">=</span> <span class="n">kw</span><span class="o">.</span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="o">-</span><span class="mi">11</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">bottom_ten</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1983</span><span class="o">/</span><span class="mf">3587157498.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">keywords</span> <span class="k">as</span> <span class="nn">kw</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">bottom_ten</span> <span class="o">=</span> <span class="n">kw</span><span class="o">.</span><span class="n">get_freqs</span><span class="p">(</span><span class="n">kv18</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)[</span><span class="o">-</span><span class="mi">11</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">bottom_ten</span><span class="p">)</span>
-
-<span class="nn">~/work/yfrommherz.ch/yfrommherz.ch/website/programming/3_Dateien/Module/keywords.py</span> in <span class="ni">get_freqs</span><span class="nt">(text, stopwords)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Takes in text as string and stopwords as list, returns frequency for all types in text, excluding stopwords.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tqdm&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Erläuterung: Es ist auch möglich, dem Modul beim Importieren einen anderen Namen zu geben (i. d. R. sind das\nAbkürzungen, damit wir nicht immer den ganzen Namen ausschreiben müssen). Sonst ist die Syntax mit der aus \nMöglichkeit 2 identisch.&#39;
 </pre></div>
 </div>
 </div>
@@ -948,15 +887,15 @@ KV18: dazu                 KV21: schaffen
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import des ganzen Moduls und Aufruf der Funktion mittels Voranstellen des Modulnamens</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">import random</span>
+<span class="kn">import</span> <span class="nn">random</span>
 
-<span class="sd">random_numbers = []</span>
+<span class="n">random_numbers</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="sd">for i in range(10):</span>
-<span class="sd">    random_numbers.append(random.randint(0,100))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">random_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
 
-<span class="sd">print(random_numbers)&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random_numbers</span><span class="p">)</span>
+
 
 <span class="c1">#Import einer spezifischen Funktion aus dem Modul</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
@@ -971,25 +910,34 @@ KV18: dazu                 KV21: schaffen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[48, 23, 34, 22, 53, 97, 78, 62, 44, 13]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[72, 9, 21, 63, 15, 50, 55, 7, 90, 67]
+[62, 10, 28, 96, 23, 43, 80, 59, 68, 22]
 </pre></div>
 </div>
 </div>
 </div>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">randint</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> generiert zufällige Zahlen (integer) innerhalb des angegebenen Bereichs (0-99). Entsprechend schaut <code class="docutils literal notranslate"><span class="pre">random_numbers</span></code> bei jeder Ausführung der Zelle anders aus. Bei <code class="docutils literal notranslate"><span class="pre">random</span></code> handelt es sich übrigens um ein Modul aus der <a class="reference external" href="https://docs.python.org/3/library/">Standardbibliothek</a> von Python.</p>
-<p>Abschließend noch ein paar Worte zur Terminologie: Neben <em>Modulen</em> hört man oft auch die Begriffe <em>Package</em> und <em>Bibliothek</em> (engl. <em>library</em>). Die Begriffe werden gerne vermischt, was nicht weiter schlimm ist. Falls Dich die Unterschiede interessieren: Wenn mehrere <em>Module</em> zusammengefasst werden, entsteht ein <em>Package</em> (praktisch handelt es sich um nichts anderes als ein Verzeichnis, das mehrere Module beinhaltet). Genau wie man eine Funktion aus einem Modul importieren kann, kann man ein spezifisches Modul innerhalb eines Packages importieren: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">package</span> <span class="pre">import</span> <span class="pre">module</span></code>. <em>Bibliotheken</em> wiederum umfassen mehrere Packages und Module.</p>
-<hr class="docutils" />
-<p>✏️ <strong>Übung 2:</strong> Importier die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls. <code class="docutils literal notranslate"><span class="pre">sample</span></code> generiert eine zufällige Auswahl von Elementen, z. B. zehn zufällige Elemente aus einer Grundgesamtheit mit allen Elementen. Die Funktion erwartet als erstes Argument die Grundgesamtheit in Form einer Liste und als zweites eine Ganzzahl, mit der die Anzahl der zufällig auszuwählenden Elemente definiert wird. Die Grundgesamtheit in dieser Übung ist das <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> von der Übung von oben bzw. aus dem Notebook „Kontrollstrukturen“. Die Anzahl der zufällig auszuwählenden Elemente beträgt in diesem Fall vier. Wir wollen also zufällige Spielzusammensetzungen mit jeweils vier Teilnehmer:innen erhalten.</p>
-<p>Deine Aufgabe besteht nun darin, so viele zufällige Spielzusammensetzungen zu genererieren, bis eine Zusammensetzung doppelt vorkommt. Verwend dazu eine passende Kontrollstruktur, die Deinen Code so oft wiederholt, bis die Bedingung, dass eine zufällige Zusammensetzung bereits einmal zuvor generiert wurde, zutrifft. In diesem Fall soll die Iteration abbrechen und die Anzahl der notwendigen Wiederholungen bis zur identischen Zusammensetzung ausgegeben werden.</p>
-<p>Beachte, dass es für diese Anzahl der notwendigen Wiederholungen keine richtige Antwort gibt, da es in der Natur der zufälligen Auswahl liegt, dass es manchmal etwas mehr und manchmal etwas weniger Wiederholungen braucht.</p>
 <details>
-  <summary>💡 Tipp </summary>
-    <br>Um die Anzahl der Kombinationen zu zählen, empfiehlt es sich, eine Zählervariable zu definieren und diese bei jeder Iteration um eins zu erhöhen.
+<summary><b>🔍 Exkurs: docstring</b></summary>
+<br>Welche Argumente unsere Funktion erwartet und was sie im Gegenzug zurückgibt, können wir uns übrigens über den sog. <i>docstring</i> ausgeben lassen. Dazu hängt man einen Punkt, zwei Unterstriche, dann "doc" und noch einmal zwei Unterstriche an den Funktionsnamen an: <code>.__doc__</code>. Praktisch handelt es sich schlicht um den string, der direkt im Anschluss an das <code>def</code>-Statement der Funktion steht (dieser string ist Dir sicherlich in der Moduldatei aufgefallen). Wenn Du fortan eigene Funktionen schreibst, lohnt es sich, auf diese Weise einen kurzen docstring einzufügen. Funktionen von Python und solche anderer Entwickler:innen verfügen in aller Regel über einen docstring, der Dir bei Bedarf kurz und knapp erläutert, wozu die Funktion dient. Wie im Notebook "Einführung" erwähnt, ist Codedokumentation über Kommentare äußerst wichtig. Docstrings erfüllen den gleichen Zweck, mit dem zusätzlichen Vorteil, dass wir nicht in den Code reinschauen müssen, sondern die wichtigsten Informationen bequem über den docstring abrufen können.
 </details>
 <br>
 <details>
-  <summary>📌 Herausforderung zur Übung </summary>
-    <br>Verpack Deinen gesamten Code in eine (andere) Kontrollstruktur, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl, bis zwei Zusammensetzungen doppelt vorkommen, auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code>sum</code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.
+<summary><b>🔍 Exkurs: Module vs. Packages vs. Bibliotheken</b></summary>
+<br>Neben <i>Modulen</i> hört man oft auch die Begriffe <i>Package</i> und <i>Bibliothek</i> (engl. <i>library</i>). Die Begriffe werden gerne vermischt, was nicht weiter schlimm ist. Falls Dich die Unterschiede interessieren: Wenn mehrere <i>Module</i> zusammengefasst werden, entsteht ein <i>Package</i> (praktisch handelt es sich um nichts anderes als ein Verzeichnis, das mehrere Module beinhaltet). Genau wie man eine Funktion aus einem Modul importieren kann, kann man ein spezifisches Modul innerhalb eines Packages importieren: <code>from package import module</code>. <i>Bibliotheken</i> wiederum umfassen mehrere Packages und Module. 
+</details><hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Importier die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls. <code class="docutils literal notranslate"><span class="pre">sample</span></code> generiert eine zufällige Auswahl von Elementen, z. B. zehn zufällige Elemente aus einer Grundgesamtheit mit allen Elementen. Die Funktion erwartet als erstes Argument die Grundgesamtheit in Form einer Liste und als zweites eine Ganzzahl, mit der die Anzahl der zufällig auszuwählenden Elemente definiert wird. Die Grundgesamtheit in dieser Übung ist das <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> aus dem Notebook „Kontrollstrukturen“. Die Anzahl der zufällig auszuwählenden Elemente beträgt in diesem Fall vier. Wir wollen fünf zufällige Spielzusammensetzungen mit jeweils vier Teilnehmer:innen erhalten.</p>
+<p>Deine Aufgabe besteht nun darin, fünf zufällige Spielzusammensetzungen zu genererieren. Lass Dir diese anschließend ausgeben.</p>
+<details>
+  <summary>💡 Tipp </summary>
+    <br>Um fünf Kombinationen zu generieren, empfiehlt sich die Nutzung der <code>range</code>-Funktion.
+</details>
+<br>
+<details>
+  <summary>🦊 Herausforderung</summary>
+    <br>
+Pass den Code so an, dass er nicht nur fünf Zusammensetzungen generiert, sondern so lange wiederholt wird, bis die Bedingung, dass eine zufällige Zusammensetzung bereits einmal zuvor generiert wurde, zutrifft. In diesem Fall soll die Iteration abbrechen und die Anzahl der notwendigen Wiederholungen bis zur identischen Zusammensetzung ausgegeben werden. Wie viele zufällige Zusammensetzungen wurden generiert?
+<p>Beachte, dass es für diese Anzahl der notwendigen Wiederholungen keine richtige Antwort gibt, da es in der Natur der zufälligen Auswahl liegt, dass es manchmal etwas mehr und manchmal etwas weniger Wiederholungen braucht.</p>
 </details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

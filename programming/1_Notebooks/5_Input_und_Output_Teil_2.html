@@ -470,10 +470,8 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-innen-input-fur-interaktive-programme">User:innen-Input für interaktive Programme</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren">🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-print-funktion-im-detail">Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">f-strings</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-die-print-funktion-im-detail">🦊 Fortgeschritten: Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-f-strings">🦊 Fortgeschritten: f-strings</a></li>
 </ul>
             </nav>
         </div>
@@ -487,7 +485,7 @@ document.write(`
                   
   <section id="input-und-output-teil-2">
 <h1>Input und Output Teil 2<a class="headerlink" href="#input-und-output-teil-2" title="Permalink to this heading">#</a></h1>
-<p>Willkommen zurück! Auch in diesem Notebook geht es um Input und Output. Zunächst lernst Du, wie Du bei Python mit tabellarischen Dateien arbeiten kannst. Anschließend erfährst Du, wie sich mittels User:innen-Input der Ablauf eines laufenden Programms kontrollieren lässt. Abschließend gehen wir detailliert auf die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ein. Wie versprochen erwartet Dich wieder ein Anwendungsfall - das Programmieren des Gedankenprotokollanten. Viel Erfolg!</p>
+<p>Willkommen zurück! Auch in diesem Notebook geht es um Input und Output. Zunächst lernst Du, wie Du bei Python mit tabellarischen Dateien arbeiten kannst. Anschließend erfährst Du, wie sich mittels User:innen-Input der Ablauf eines laufenden Programms kontrollieren lässt. Abschließend gehen wir detailliert auf die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion ein. Wie versprochen erwartet Dich wieder ein Anwendungsfall – das Programmieren des Gedankenprotokollanten. Viel Erfolg!</p>
 <section id="tabellarische-dateien">
 <h2>Tabellarische Dateien<a class="headerlink" href="#tabellarische-dateien" title="Permalink to this heading">#</a></h2>
 <p>Tabellarische Dateien kennst Du von Microsoft Excel (oder vergleichbaren Programmen). An der Benutzeroberfläche sind sie in Spalten und Zeilen organisiert, wie wir hier am Beispiel einer Tabelle über die <a class="reference external" href="https://de.wikipedia.org/wiki/Liste_der_fl%C3%A4chengr%C3%B6%C3%9Ften_Gemeinden_Deutschlands">zehn flächengrößten Gemeinden Deutschlands</a> sehen:</p>
@@ -498,7 +496,7 @@ document.write(`
 <p>Zur Arbeit mit tabellarischen Daten (sowie generell für fortgeschrittene Datenanalyse) gibt es die Bibliothek <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, der das zweiteilige Notebook „Datenanalyse“ gewidmet ist. Hier schauen wir uns das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul an, das sich für den einfachen Umgang mit tabellarischen Daten eignet.</p>
 <section id="das-csv-modul">
 <h3>Das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul<a class="headerlink" href="#das-csv-modul" title="Permalink to this heading">#</a></h3>
-<p>Wie üblich importieren wir das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul zu Beginn. Ebenfalls setzen wir stets <code class="docutils literal notranslate"><span class="pre">csv.</span></code> vor den Namen von Funktionen aus diesem Modul (vgl. oben zum <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul).</p>
+<p>Wie üblich importieren wir das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul zu Beginn. Ebenfalls setzen wir stets <code class="docutils literal notranslate"><span class="pre">csv.</span></code> vor den Namen von Funktionen aus diesem Modul (vgl. zum <code class="docutils literal notranslate"><span class="pre">os</span></code>-Modul im Notebook „Input und Output Teil 1“).</p>
 <p>Die Datei mit den flächengrößten Gemeinden lesen wir natürlich auch mittels <code class="docutils literal notranslate"><span class="pre">open</span></code>, eingebettet in ein <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement, ein. Das <code class="docutils literal notranslate"><span class="pre">read_file</span></code> übergeben wir zusammen mit dem korrekten Trennzeichen (<code class="docutils literal notranslate"><span class="pre">delimiter=&quot;;&quot;</span></code>) der <code class="docutils literal notranslate"><span class="pre">reader</span></code>-Funktion (beachte die „agentive“ Benennung von Funktionen im <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul). Standardtrennzeichen ist übrigens das Komma (der Name des Moduls ist nämlich eine Abkürzung für <em>comma-separated values</em>), das wie immer nicht angegeben werden muss.</p>
 <p>Die <code class="docutils literal notranslate"><span class="pre">reader</span></code>-Funktion gibt uns nun nicht ein gewöhnliches Python-Objekt zurück (etwa einen string oder eine Liste wie beim Textinput), sondern ein <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code>, das wir mit <code class="docutils literal notranslate"><span class="pre">data</span></code> referenzieren. Über dieses <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code> können wir wie gewohnt iterieren und die einzelnen Zeilen einer Liste anhängen. Wir müssen das innerhalb der Einrückung machen, da  das <code class="docutils literal notranslate"><span class="pre">_csv.reader</span> <span class="pre">object</span></code> zusammen mit <code class="docutils literal notranslate"><span class="pre">read_file</span></code> wieder geschlossen wird, sobald wir die Einrückung verlassen:</p>
 <div class="cell docutils container">
@@ -546,16 +544,15 @@ document.write(`
 <p>Sehr gut – in Brandenburg befinden sich also die meisten der 100 flächengrößten Gemeinden Deutschlands.</p>
 <p>Das dictionary <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> wollen wir nun als Tabelle extern speichern. Die Tabelle wird ganz einfach aus zwei Spalten sowie 17 Zeilen (eine Zeile mit Spaltenüberschriften + 16 Bundesländer) bestehen.</p>
 <p>Der Output von tabellarischen Dateien funktioniert wie gewohnt in einem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Statement über die <code class="docutils literal notranslate"><span class="pre">open</span></code>-Funktion mit dem Parameter <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>. Nun kommt das Pendant zu <code class="docutils literal notranslate"><span class="pre">reader</span></code>, nämlich <code class="docutils literal notranslate"><span class="pre">writer</span></code>, zum Einsatz, dies jedoch auf ziemlich unintuitive Art. Wenn es Dich interessiert, wird im Folgenden erklärt, was da genau geschieht. Andernfalls ist es auch in Ordnung, die Syntax unten einfach zu copy-pasten, wann immer Du tabellarische Daten schreiben musst.</p>
-<ol class="arabic simple">
-<li><p>Wir initialisieren ein <code class="docutils literal notranslate"><span class="pre">_csv.writer</span> <span class="pre">object</span></code>, indem wir der <code class="docutils literal notranslate"><span class="pre">writer</span></code>-Funktion die zu beschreibende Datei (<code class="docutils literal notranslate"><span class="pre">write_file</span></code>) als Argument übergeben. Das <code class="docutils literal notranslate"><span class="pre">_csv.writer</span> <span class="pre">object</span></code> weisen wir der Variable <code class="docutils literal notranslate"><span class="pre">federal_states_writer</span></code> zu. Was wir nun in dieses Objekt reinschreiben, landet am Schluss in der externen Datei.</p></li>
-<li><p>Wir wenden die Methode <code class="docutils literal notranslate"><span class="pre">writerow</span></code> auf das <code class="docutils literal notranslate"><span class="pre">_csv.writer</span> <span class="pre">object</span></code> an, um unsere Daten Zeile für Zeile zu schreiben:</p>
-<ul class="simple">
-<li><p>Wir schreiben die Spaltenüberschriften (<code class="docutils literal notranslate"><span class="pre">header</span></code>) in die erste Zeile.</p></li>
-<li><p>Wir iterieren danach über <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> und schreiben Zeile für Zeile in <code class="docutils literal notranslate"><span class="pre">federal_states_writer</span></code>.</p></li>
-</ul>
-</li>
-</ol>
-<div class="cell docutils container">
+<details>
+<summary> 🧩 Erklärung</summary>
+<ol>1. Wir initialisieren ein <code>_csv.writer object</code>, indem wir der <code>writer</code>-Funktion die zu beschreibende Datei (<code>write_file</code>) als Argument übergeben. Das <code>_csv.writer object</code> weisen wir der Variable <code>federal_states_writer</code> zu. Was wir nun in dieses Objekt reinschreiben, landet am Schluss in der externen Datei.</ol>
+    <ol>2. Wir wenden die Methode <code>writerow</code> auf das <code>_csv.writer object</code> an, um unsere Daten Zeile für Zeile zu schreiben:
+        <ul>- Wir schreiben die Spaltenüberschriften (<code>header</code>) in die erste Zeile.</ul>
+        <ul>- Wir iterieren danach über <code>federal_states</code> und schreiben Zeile für Zeile in <code>federal_states_writer</code>.</ul>
+        </ol>
+</details>
+<br><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Damit wir auf dem gleichen Stand sind, wird das dictionary mit den korrekten Werten pro Schlüssel hier noch einmal initialisiert.</span>
 <span class="n">federal_states</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Baden-Württemberg&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Bayern&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Berlin&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Brandenburg&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;Bremen&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Hamburg&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Hessen&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
@@ -572,6 +569,20 @@ document.write(`
     
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">federal_states</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">federal_states_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1989</span><span class="o">/</span><span class="mf">3304437309.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                   <span class="s1">&#39;Saarland&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Sachsen&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Sachsen-Anhalt&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Schleswig-Holstein&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Thüringen&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/Anzahl_der_groessten_Gemeinden_pro_Bundesland.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">federal_states_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">write_file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../3_Dateien/Output/Anzahl_der_groessten_Gemeinden_pro_Bundesland.csv&#39;
 </pre></div>
 </div>
 </div>
@@ -602,7 +613,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2024</span><span class="o">/</span><span class="mf">3341218118.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1989</span><span class="o">/</span><span class="mf">3341218118.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Handelt es sich um einen anderen Datentyp als string, muss der Input gecastet werden.</span>
@@ -673,7 +684,7 @@ document.write(`
 </div>
 <p>Hier erfährst Du, wie die einzelnen Schritte implementiert werden können. Klick dazu auf den jeweiligen Schritt, für den Du weitere Tipps brauchst.</p>
 <details>
-<summary> 1. Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet. </summary>
+<summary>💡 1. Die Benutzerin wird gegrüßt und ihr wird erklärt, welche Funktionen das Programm ihr bietet. </summary>
 <ul>
 <li> <code>print("Gruß")</code> bietet sich an, um die Benutzerin initial zu grüßen.</li>
 <li> Alternativ könnte man den Gruß auch in den <code>input</code>-<i>prompt</i> von Schritt 2 integrieren (<code>input("Gruß + prompt")</code>; so wurde das im Video umgesetzt), an der Benutzeroberfläche sind beide Alternativen gleichwertig. </li>
@@ -682,7 +693,7 @@ document.write(`
 </details>
 <br>
 <details>
-<summary> 2. Die Benutzerin wird aufgefordert, anzugeben, in welchem Dokument sie ihre(n) Gedanke(n) festhalten will. Handelt es sich um ein noch nicht existierendes Dokument, so wird es für sie geschaffen. Existiert das Dokument bereits, so soll(en) ihr(e) Gedanke(n) an dessen Ende gehängt werden. </summary>
+<summary>💡 2. Die Benutzerin wird aufgefordert, anzugeben, in welchem Dokument sie ihre(n) Gedanke(n) festhalten will. Handelt es sich um ein noch nicht existierendes Dokument, so wird es für sie geschaffen. Existiert das Dokument bereits, so soll(en) ihr(e) Gedanke(n) an dessen Ende gehängt werden. </summary>
 <ul>
 <li> Den Namen des gewünschten Dokuments fragen wir über <code>input(prompt)</code> ab (ggf. mit dem Gruß davor, s. o.), das Resultat weisen wir einer Variablen namens <code>file_name</code> zu. </li>
 <li> Wie unter 1. erwähnt, soll dieser <code>input</code>-Befehl nur bedingt ausgeführt werden, nämlich nur, wenn <code>first_time</code> <code>True</code> ist (<code>if first_time == True</code>). </li>
@@ -691,21 +702,21 @@ document.write(`
 </details>
 <br>
 <details>
-<summary> 3. Die Benutzerin wird aufgefordert, ihren Gedanken einzugeben. </summary>
+<summary>💡 3. Die Benutzerin wird aufgefordert, ihren Gedanken einzugeben. </summary>
 <ul>
 <li> Dafür verwenden wir wieder die <code>input</code>-Funktion und weisen das Resultat der Variablen <code>thought</code> zu. Es spielt keine Rolle, ob wir dies vor oder eingerückt unter dem <code>with</code>-Statement (s. o.) tun.</li>
 </ul>
 </details>
 <br>
 <details>
-<summary> 4. Der Gedanke wird in das gewählte Dokument geschrieben. </summary>
+<summary>💡 4. Der Gedanke wird in das gewählte Dokument geschrieben. </summary>
 <ul>
 <li> Eingerückt unter dem <code>with</code>-Statement wenden wir die <code>write</code>-Methode auf <code>write_file</code> an, in die Klammern setzen wir <code>thought</code> sowie einen finalen Zeilenumbruch. <code>thought</code> wird jetzt also auf eine eigene Zeile in <code>write_file</code> geschrieben. Durch das Verlassen der Einrückung des <code>with</code>-Statements wird das Dokument mit der neuen Zeile gespeichert und geschlossen.</li>
 </ul>
 </details>
 <br>
 <details>
-<summary> 5. Die Benutzerin wird zur Entscheidung aufgefordert, ob sie einen weiteren Gedanken im selben Dokument festhalten oder das Programm verlassen will. </summary>
+<summary>💡 5. Die Benutzerin wird zur Entscheidung aufgefordert, ob sie einen weiteren Gedanken im selben Dokument festhalten oder das Programm verlassen will. </summary>
 <ul>
 <li> Hier kommt noch einmal <code>input</code> zum Einsatz. Da die Benutzerin ihre Entscheidung nicht über eine binäre "Ja/Nein"-Taste mitteilen kann, empfiehlt es sich, sie zur Eingabe eines "Y" (oder sonst eines bestimmten Buchstaben) aufzufordern, sollte sie noch einen weiteren Gedanken festhalten wollen. Andernfalls soll sie irgendeine andere Eingabe tätigen. Ihre Eingabe weisen wir der Variablen <code>repeat</code> zu. </li>
 <li> Spätestens an dieser Stelle fällt uns auf, dass wir den gesamten vorherigen Code in eine Schleife einbauen müssen. Nämlich in eine (potentielle) Endlosschleife, die nur dann abgebrochen wird, wenn sich die Benutzerin dazu entscheidet, <i>keinen</i> weiteren Gedanken festzuhalten (vgl. Schritt 5.B.). Dafür verwenden wir <code>while True</code> (vgl. Notebook "Kontrollstrukturen"), eine Schleife, die sich unendlich wiederholt, es sei denn, Python trifft auf ein <code>break</code>-Statement. </li>
@@ -722,10 +733,10 @@ B. Will die Benutzerin das Programm verlassen, so soll sie verabschiedet werden:
 Solltest Du den Anwendungsfall nicht bereits gelöst haben, versuch es mithilfe all dieser Techniken in der Code-Zelle oben.
 <hr class="docutils" />
 <p>Damit sind wir in der Lage, unsere Python-Programme über User:innen-Input interaktiv zu gestalten. 😎</p>
-<p>Abschließend schauen wir uns noch die vermutlich am häufigsten benutzte Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">print</span></code>, genauer an.</p>
+<p>Abschließend schauen wir uns noch die vermutlich am häufigsten benutzte Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">print</span></code>, sowie sogenannte f-strings genauer an. Die folgenden Inhalte dieses Notebooks gelten zwar als „Fortgeschritten“, können Dir allerdings dabei helfen, effizienter zu programmieren und zu einem besseren Verständnis von Python beitragen.</p>
 </section>
-<section id="die-print-funktion-im-detail">
-<h2>Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail<a class="headerlink" href="#die-print-funktion-im-detail" title="Permalink to this heading">#</a></h2>
+<section id="fortgeschritten-die-print-funktion-im-detail">
+<h2>🦊 Fortgeschritten: Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail<a class="headerlink" href="#fortgeschritten-die-print-funktion-im-detail" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">print</span></code> gibt bekanntlich null, ein oder mehrere Objekte als string aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -763,8 +774,11 @@ Hier werden 5 Objekte ausgegeben.
 </div>
 </div>
 <p>Im zweiten Beispiel haben wir zudem einen <code class="docutils literal notranslate"><span class="pre">end</span></code>-Parameter spezifiziert. Überleg Dir für einen Augenblick, was hier der Standardwert sein könnte.</p>
-<p>Genau, ein Zeilenumbruch.</p>
-<p>Der letzte optionale Parameter der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion heißt <code class="docutils literal notranslate"><span class="pre">file</span></code>. Statt das/die übergegebe(n) Argument(e) standardmäßig im Outputfeld auszugeben, können wir den Output in eine externe Datei <em>umleiten</em>. Wichtig dabei ist, dass die Datei geöffnet ist:</p>
+<details>
+    <summary>✅ Antwort</summary>
+<br>Ein Zeilenumbruch.
+</details>
+<p><br>Der letzte optionale Parameter der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion heißt <code class="docutils literal notranslate"><span class="pre">file</span></code>. Statt das/die übergegebe(n) Argument(e) standardmäßig im Outputfeld auszugeben, können wir den Output in eine externe Datei <em>umleiten</em>. Wichtig dabei ist, dass die Datei geöffnet ist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/print_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
@@ -775,10 +789,25 @@ Hier werden 5 Objekte ausgegeben.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1989</span><span class="o">/</span><span class="mf">1978238821.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/print_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;So können wir in eine externe Datei schreiben.&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">write_file</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1">#Dabei besteht übrigens kein Unterschied zur oben kennengelernten &#39;write&#39;-Methode</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1">#write_file.write(&quot;So können wir in eine externe Datei schreiben.&quot;)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../3_Dateien/Output/print_file.txt&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Wenn Du diese Zelle mehrfach ausführst, schreibst Du jedes Mal eine weitere Zelle in die externe Datei. Dies liegt natürlich am <em>append</em>-Modus.</p>
-<section id="f-strings">
-<h3>f-strings<a class="headerlink" href="#f-strings" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="fortgeschritten-f-strings">
+<h2>🦊 Fortgeschritten: f-strings<a class="headerlink" href="#fortgeschritten-f-strings" title="Permalink to this heading">#</a></h2>
 <p>Im Zusammenhang mit <code class="docutils literal notranslate"><span class="pre">print</span></code> sind auch die sog. <em>f-strings</em> (abgekürzt für <em>formatted string literals</em>) zu erwähnen. Gleich wie <code class="docutils literal notranslate"><span class="pre">print</span></code> (für die Ausgabe) und die Zeichenketten-Konkatenation mithilfe von <code class="docutils literal notranslate"><span class="pre">+</span></code> (vgl. Notebook „Einführung“) können wir f-strings dazu nutzen, beliebig viele Werte zu einem string zusammenzusetzen. Das sieht syntaktisch so aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -809,7 +838,7 @@ Hier werden 5 Objekte ausgegeben.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2024</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1989</span><span class="o">/</span><span class="mf">3236448538.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie heißt Du?&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Und wie alt bist Du?&quot;</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
@@ -871,7 +900,9 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
 </div>
 <p>Hier definieren wir nach dem Doppelpunkt einen sog. <em>digit space</em>, also die Anzahl an Stellen, die zur Ausgabe verwendet werden soll. In den Beispielen oben wird der digit space als aus drei Stellen bestehend definiert. Optional können wir davor angeben, ob etwaige leere Stellen (da die Zahl aus weniger Ziffern als Stellen des digit space besteht) mit Nullen „aufgefüllt“ werden sollen (engl.: <em>zero padding</em>). Zahlen, die aus weniger Ziffern als der digit space bestehen und nicht zero-gepaddet werden, werden rechtsbündig ausgegeben. Wie Du diese Ausrichtung innerhalb des vorgegebenen digit space ändern kannst (engl.: <em>alignment</em>), findest Du im Cheat Sheet.</p>
 <p>Digit space und Nachkommastellen können natürlich auch zusammen definiert werden, die syntaktische Reihenfolge sieht dann so aus (die Leerschläge dienen nur der besseren Lesbarkeit und müssen im Code entfernt werden!):</p>
-<p><code class="docutils literal notranslate"><span class="pre">f&quot;{value:</span> <span class="pre">(zero_padding)</span> <span class="pre">digit_space</span> <span class="pre">.</span> <span class="pre">decimals</span> <span class="pre">type}</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2"> (zero_padding) digit_space . decimals type</span><span class="si">}</span>
+</pre></div>
+</div>
 <p>Genau diese Kombination aus digit space und Nachkommastellen kannst Du nun in der letzten Übung einsetzen.</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 2:</strong> In <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> finden sich Schlüssel-Werte-Paare bestehend aus Lebensmitteln und dem jeweiligen Preis. Deine Aufgabe ist es, die Ausgabe mithilfe von f-strings wie im folgenden Screenshot gezeigt auszugeben. Einen digit space kannst Du nicht nur für Zahlen, sondern für Objekte jeglichen Datentyps festlegen. Der digit space für die Spalte „Product“ soll 25 Stellen betragen, derjenige für „Price“ fünf.</p>
@@ -901,7 +932,6 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
         </td>
       </tr>
 </table></section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -977,10 +1007,8 @@ Schön ausgerichtete Zahl: 123 (keine &#39;Auffüllung&#39;, da dreiziffrig)
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-innen-input-fur-interaktive-programme">User:innen-Input für interaktive Programme</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-einen-gedankenprotokollanten-programmieren">🔧 Anwendungsfall: Einen Gedankenprotokollanten programmieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-print-funktion-im-detail">Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#f-strings">f-strings</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-die-print-funktion-im-detail">🦊 Fortgeschritten: Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion im Detail</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-f-strings">🦊 Fortgeschritten: f-strings</a></li>
 </ul>
   </nav></div>
 

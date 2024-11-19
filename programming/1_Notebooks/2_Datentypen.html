@@ -480,10 +480,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterierbarkeit">Iterierbarkeit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderlichkeit-fortgeschritten">Veränderlichkeit (fortgeschritten)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-veranderlichkeit-und-identitat-von-objekten">🦊 Fortgeschritten: Veränderlichkeit und Identität von Objekten</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unveranderliche-datentypen">Unveränderliche Datentypen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderliche-datentypen">Veränderliche Datentypen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-zur-identitat-von-objekten">Exkurs zur Identität von Objekten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identitat-von-objekten">Identität von Objekten</a></li>
 </ul>
 </li>
 </ul>
@@ -537,38 +537,23 @@ document.write(`
 <section id="dezimalzahlen-float">
 <h2>Dezimalzahlen / float<a class="headerlink" href="#dezimalzahlen-float" title="Permalink to this heading">#</a></h2>
 <p>Neben Ganzzahlen gibt es auch Dezimalzahlen, die in Python <code class="docutils literal notranslate"><span class="pre">float</span></code> heißen. Wichtig: Das Dezimalzeichen ist ein <strong>Punkt</strong> <code class="docutils literal notranslate"><span class="pre">.</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">int_number</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Integer</span>
+<span class="n">int_number</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1">#Float</span>
 <span class="n">float_number</span> <span class="o">=</span> <span class="mf">20.1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">int_number</span><span class="p">,</span> <span class="s2">&quot;ist ein Objekt vom Datentyp &#39;integer&#39; und&quot;</span><span class="p">,</span> <span class="n">float_number</span><span class="p">,</span> <span class="s2">&quot;ein Objekt vom Datentyp &#39;float&#39;.&quot;</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20 ist ein Objekt vom Datentyp &#39;integer&#39; und 20.1 ein Objekt vom Datentyp &#39;float&#39;.
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="listen-list">
 <h2>Listen / list<a class="headerlink" href="#listen-list" title="Permalink to this heading">#</a></h2>
 <p>Ein weiterer äußerst nützlicher Datentyp in Python sind Listen, genannnt <code class="docutils literal notranslate"><span class="pre">list</span></code>, die wir im Alltag z. B. in Form von To-Do-Listen oder Einkaufslisten kennen. Nachfolgend ein Beispiel für eine Liste mit allen Wochentagen:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Montag&quot;</span><span class="p">,</span> <span class="s2">&quot;Dienstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Mittwoch&quot;</span><span class="p">,</span> <span class="s2">&quot;Donnerstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Freitag&quot;</span><span class="p">,</span> <span class="s2">&quot;Samstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonntag&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Montag&quot;</span><span class="p">,</span> <span class="s2">&quot;Dienstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Mittwoch&quot;</span><span class="p">,</span> <span class="s2">&quot;Donnerstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Freitag&quot;</span><span class="p">,</span> <span class="s2">&quot;Samstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonntag&quot;</span><span class="p">]</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>Listen sind ganz einfach eine Ansammlung an einzelnen Objekten in einer bestimmten Reihenfolge. Abgegrenzt werden Listen durch <strong>eckige Klammern</strong>. Die einzelnen <em>Elemente</em> einer Listen werden durch <strong>Kommata</strong> voneinander separiert und können Objekte jeglichen Datentyps sein:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wild_mix</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Montag&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Friday&quot;</span><span class="p">:</span> <span class="s2">&quot;Freitag&quot;</span><span class="p">,</span> <span class="s2">&quot;Saturday&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Samstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonnabend&quot;</span><span class="p">]}]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wild_mix</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Montag&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;Friday&quot;</span><span class="p">:</span> <span class="s2">&quot;Freitag&quot;</span><span class="p">,</span> <span class="s2">&quot;Saturday&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Samstag&quot;</span><span class="p">,</span> <span class="s2">&quot;Sonnabend&quot;</span><span class="p">]}]</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>Hier ist das erste Element ein <code class="docutils literal notranslate"><span class="pre">string</span></code>, das zweite ein <code class="docutils literal notranslate"><span class="pre">integer</span></code>, das dritte ein <code class="docutils literal notranslate"><span class="pre">float</span></code> und das vierte (abgegrenzt durch die geschweiften Klammern) ein sog. <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, dazu gleich mehr.</p>
 <hr class="docutils" />
@@ -601,12 +586,8 @@ document.write(`
 <h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h2>
 <p>Das vierte Element in <code class="docutils literal notranslate"><span class="pre">wild_mix</span></code> oben ist also ein Objekt des Datentyps <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, kurz <code class="docutils literal notranslate"><span class="pre">dict</span></code>. Dictionaries funktionieren wie Wörterbücher im alltäglichen Leben. Sie bestehen aus Schlüsseln, in Python <em>key</em> genannt, und zugehörigen Werten, in Python <em>value</em> genannt. Zusammen ergeben Schlüssel und Wert sog. <em>Schlüssel-Werte-Paare</em> (engl. <em>key-value pairs</em>). Ein Schlüssel entspricht dem Suchbegriff, den wir in einem Sprachwörterbuch nachschlagen. Der zugehörige Wert entspricht dem Eintrag, den wir beim betreffenden Suchbegriff vorfinden.</p>
 <p>Ein dictionary wird von <strong>geschweiften Klammern</strong> umrahmt. Zwischen Schlüssel und Wert befindet sich ein <strong>Doppelpunkt</strong> und zwischen den einzelnen Schlüssel-Werte-Paaren jeweils ein <strong>Komma</strong>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span> <span class="s2">&quot;value3&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">,</span> <span class="s2">&quot;key3&quot;</span><span class="p">:</span> <span class="s2">&quot;value3&quot;</span><span class="p">}</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>Jeder Schlüssel darf nur ein einziges Mal vorkommen. Typischerweise sind Schlüssel Zeichenketten (aber Objekte anderer sog. <em>unveränderlicher Datentypen</em> funktionieren auch; zur (Un)veränderlichkeit von Objekten bald mehr). Werte können theoretisch jeden Datentyp annehmen (bei <code class="docutils literal notranslate"><span class="pre">wild_mix</span></code> etwa eine Liste zum Schlüssel „Saturday“) und dürfen auch mehrfach im selben dictionary vorkommen.</p>
 <hr class="docutils" />
@@ -623,7 +604,9 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>Wenn Du alles richtig gemacht hast, kannst Du anschließend „key“ durch einen beliebigen Schlüssel (z. B. „Sommer“) in folgender Syntax einsetzen:</p>
-<p><code class="docutils literal notranslate"><span class="pre">season[&quot;key&quot;]</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">season</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> 
+</pre></div>
+</div>
 <p>Probier es in der Code-Zelle oben aus.</p>
 <p>Dadurch greifst Du nicht auf das <em>n</em>-te Element eines dictionary zu, wie beim Indexing für Listen (das ginge auch nicht, da dictionaries im Gegensatz zu Listen keine Reihenfolge „abspeichern“; dazu mehr unter „Sequentialität“ unten). Stattdessen „sprichst“ Du einen bestimmten Wert über den zugehörigen Schlüssel „an“. Weitere Methoden, um mit dictionaries zu arbeiten, lernen wir ebenfalls im Notebook „Funktionen und Methoden Teil 1“.</p>
 </section>
@@ -651,7 +634,7 @@ document.write(`
 </div>
 </div>
 <p>Die <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion gibt uns bei einer Liste die Anzahl der Elemente in ihr zurück.</p>
-<p>Doch wie viele sog. <em>Types</em>, also nicht einzelne Wortvorkommnisse (Tokens), sondern einzigartige Worttypen, kommen in der Liste vor? Hier kommt <code class="docutils literal notranslate"><span class="pre">set</span></code> ins Spiel. Sets sind wie in der Mathematik Mengen, in denen einzelne Elemente nur <strong>einmal</strong> vorkommen dürfen. Wie folgt können wir in Python eine Liste mit Tokens zu einem <code class="docutils literal notranslate"><span class="pre">set</span></code> mit Types konvertieren (und damit die wiederholten Elemente [hier das sog. <em>Homonym</em> „Bank“] loswerden):</p>
+<p>Doch wie viele sog. <em>Types</em>, also nicht einzelne Wortvorkommnisse (Tokens), sondern einzigartige Wörter, kommen in der Liste vor? Hier kommt <code class="docutils literal notranslate"><span class="pre">set</span></code> ins Spiel. Sets sind wie in der Mathematik Mengen, in denen einzelne Elemente nur <strong>einmal</strong> vorkommen dürfen. Wie folgt können wir in Python eine Liste mit Tokens zu einem <code class="docutils literal notranslate"><span class="pre">set</span></code> mit Types konvertieren (und damit die wiederholten Elemente [hier das sog. <em>Homonym</em> „Bank“] loswerden):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
@@ -660,12 +643,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;zur&#39;, &#39;stand&#39;, &#39;Bank&#39;, &#39;dem&#39;, &#39;Holz.&#39;, &#39;Vor&#39;, &#39;eine&#39;, &#39;Eingang&#39;, &#39;aus&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Holz.&#39;, &#39;dem&#39;, &#39;stand&#39;, &#39;Vor&#39;, &#39;eine&#39;, &#39;Eingang&#39;, &#39;aus&#39;, &#39;Bank&#39;, &#39;zur&#39;}
 </pre></div>
 </div>
 </div>
 </div>
-<p>Die Ausgabe zeigt, dass <code class="docutils literal notranslate"><span class="pre">set</span></code>-Objekte wie dictionaries von <strong>geschweiften Klammern</strong> umrahmt werden. Die einzelnen Elemente sind ebenfalls <strong>kommasepariert</strong>. Der <strong>fehlende Doppelpunkt</strong> zwischen Schlüssel-Werte-Paaren unterscheidet <code class="docutils literal notranslate"><span class="pre">set</span></code>- von <code class="docutils literal notranslate"><span class="pre">dict</span></code>-Objekten syntaktisch.</p>
+<p>Die Ausgabe zeigt, dass <code class="docutils literal notranslate"><span class="pre">set</span></code>-Objekte wie dictionaries von <strong>geschweiften Klammern</strong> umrahmt werden. Die einzelnen Elemente sind ebenfalls <strong>kommasepariert</strong>. Der fehlende Doppelpunkt zwischen Schlüssel-Werte-Paaren unterscheidet <code class="docutils literal notranslate"><span class="pre">set</span></code>- von <code class="docutils literal notranslate"><span class="pre">dict</span></code>-Objekten syntaktisch.</p>
 <p>Die <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion lässt sich auch auf Objekte des Datentyps <code class="docutils literal notranslate"><span class="pre">set</span></code> anwenden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -833,7 +816,7 @@ c is not &#39;a&#39;
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1925</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1876</span><span class="o">/</span><span class="mf">3564867159.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_string</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">an_integer</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print(len(a_float))</span>
@@ -848,13 +831,11 @@ c is not &#39;a&#39;
 </section>
 <section id="datentyp-andern-casting">
 <h2>Datentyp ändern / Casting<a class="headerlink" href="#datentyp-andern-casting" title="Permalink to this heading">#</a></h2>
-<p>Selbstverständlich ist es auch möglich, Objekte von einem Datentyp in einen anderen zu konvertieren, dies nennt sich <em>Casting</em>. Oben haben wir bereits eine Liste in ein <code class="docutils literal notranslate"><span class="pre">set</span></code> gecastet. Für jeden eingebauten Datentyp gibt es eine entsprechende Casting-Funktion mit folgender Syntax am Beispiel von <code class="docutils literal notranslate"><span class="pre">set</span></code>:
-<br>
-<br>
-<code class="docutils literal notranslate"><span class="pre">set(object)</span></code>
-<br>
-<br>
-Ersetz <code class="docutils literal notranslate"><span class="pre">set</span></code> durch den jeweiligen Kurznamen des gewünschten Datentyps und <code class="docutils literal notranslate"><span class="pre">object</span></code> durch das zu konvertierende Objekt. Hier einige Beispiele anhand der oben initialisierten Objekte:</p>
+<p>Selbstverständlich ist es auch möglich, Objekte von einem Datentyp in einen anderen zu konvertieren, dies nennt sich <em>Casting</em>. Oben haben wir bereits eine Liste in ein <code class="docutils literal notranslate"><span class="pre">set</span></code> gecastet. Für jeden eingebauten Datentyp gibt es eine entsprechende Casting-Funktion mit folgender Syntax am Beispiel von <code class="docutils literal notranslate"><span class="pre">set</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ersetz <code class="docutils literal notranslate"><span class="pre">set</span></code> durch den jeweiligen Kurznamen des gewünschten Datentyps und <code class="docutils literal notranslate"><span class="pre">object</span></code> durch das zu konvertierende Objekt. Hier einige Beispiele anhand der oben initialisierten Objekte:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integer_from_float</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">a_float</span><span class="p">)</span> <span class="c1">#Die Dezimalzahl wird ganz einfach gerundet (um genau zu sein: abgerundet)</span>
@@ -889,8 +870,7 @@ Ersetz <code class="docutils literal notranslate"><span class="pre">set</span></
 <section id="sequentialitat">
 <h2>Sequentialität<a class="headerlink" href="#sequentialitat" title="Permalink to this heading">#</a></h2>
 <p>Datentypen unterscheiden sich erstens hinsichtlich ihrer <em>Sequentialität</em> (engl. <em>sequentiality</em>). Sequentielle Objekte „speichern“ die in ihnen enthaltenen Elemente in einer bestimmten Reihenfolge „ab“. Als Metapher kann man sich eine einseitig bebaute Straße vorstellen, entlang welcher einzelne Häuser mit einer jeweils eigenen Hausnummer (1, 2, 3, 4 usw.) stehen. Das Haus mit der Hausnummer 3 steht immer am gleichen Ort in der Straße zwischen den Häusern 2 und 4.</p>
-<p>Zu den sequentiellen Datentypen gehören:</p>
-<p><code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+<p>Zu den sequentiellen Datentypen gehören: <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code></p>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekten sind mit den einzelnen Elementen die einzelnen Zeichen, die den string konstituieren, gemeint.</p>
 <p>Man könnte annehmen, dass <code class="docutils literal notranslate"><span class="pre">dict</span></code>- und <code class="docutils literal notranslate"><span class="pre">set</span></code>-Objekte ebenfalls sequentielle Objekte sind. Sie „speichern“ die in ihnen enthaltenen Schlüssel-Werte-Paare bzw. Elemente aber <strong>nicht</strong> in einer bestimmten Reihenfolge (Sequenz) „ab“ und zählen von daher nicht zu den sequentiellen Datentypen.</p>
 <p>Auf alle sequentiellen Objekte können zwei sehr hilfreiche Techniken angewandt werden: <em>Indexing</em> und <em>Slicing</em>.</p>
@@ -928,11 +908,11 @@ e
 </div>
 </div>
 <p>Um auf ein Element auf der Liste/im Tupel bzw. ein Zeichen in einem string zuzugreifen, setzt man den entsprechenden Index (sozusagen die Hausnummer) in <strong>eckige Klammern</strong> direkt nach dem Objekt bzw. der auf das Objekt zeigenden Variable. Die Indizes beginnen bei <strong>null</strong> (was unsere Straßenmetapher zugegebenermaßen leicht strapaziert). Neben den positiven Indizes gibt es auch negative, die hilfreich sind, um Elemente vom Ende des Objekts her zu indizieren. Hier ein Überblick über die positiven und negativen Indizes für die Elemente auf <code class="docutils literal notranslate"><span class="pre">my_list</span></code>:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">my_list</span>&#160; <span class="pre">=</span> <span class="pre">[</span>&#160; <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9,10]</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">index_p</span>&#160; <span class="pre">=</span>&#160;&#160;&#160; <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9</span> </code> (positive Indizes)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">index_n</span>&#160; <span class="pre">=</span>&#160; <span class="pre">-10,-9,-8,-7,-6,-5,-4,-3,-2,-1</span> </code> (negative Indizes)</p></li>
-</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span>  <span class="o">=</span> <span class="p">[</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span> 
+<span class="n">index_p</span>  <span class="o">=</span>    <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span>  <span class="c1">#(positive Indizes)</span>
+<span class="n">index_n</span>  <span class="o">=</span>  <span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span> <span class="c1">#(negative Indizes)</span>
+</pre></div>
+</div>
 <p>Das erste Element in <code class="docutils literal notranslate"><span class="pre">my_list</span></code>, also <code class="docutils literal notranslate"><span class="pre">1</span></code>, hat den positiven Index <code class="docutils literal notranslate"><span class="pre">0</span></code> sowie den negativen Index <code class="docutils literal notranslate"><span class="pre">-10</span></code> und so weiter. Es spielt keine Rolle, ob wir positive oder negative Indizes verwenden. Folgender Code gibt also das gleiche Element zurück:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -984,7 +964,9 @@ e
 <section id="slicing">
 <h3>Slicing<a class="headerlink" href="#slicing" title="Permalink to this heading">#</a></h3>
 <p>Mit <strong>Slicing</strong> (übersetzt so viel wie <em>Herausschneiden</em>) können wir nicht nur ein einzelnes Element in einem sequentiellen Objekt „ansprechen“, sondern <strong>mehrere aufeinanderfolgende</strong>. Dabei können wir definieren, bei welchem Index in der Sequenz wir anfangen wollen (<code class="docutils literal notranslate"><span class="pre">start</span></code> in der Syntax unten), wo wir aufhören wollen (<code class="docutils literal notranslate"><span class="pre">end</span></code>) sowie einen Schrittparameter festlegen, falls wir jeweils <em>n</em> Elemente überspringen wollen (<code class="docutils literal notranslate"><span class="pre">step</span></code>). Die Syntax sieht wie folgt aus:</p>
-<p><code class="docutils literal notranslate"><span class="pre">my_list[start:end:step]</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">:</span><span class="n">step</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Beachte den <strong>Doppelpunkt</strong> zwischen den einzelnen Parametern.</p>
 <p>Folgendes gilt es zu beachten:</p>
 <ul class="simple">
@@ -1036,10 +1018,14 @@ e
 <hr class="docutils" />
 <p>✏️ <strong>Übung 5:</strong> Die Wörter in <code class="docutils literal notranslate"><span class="pre">words_for_sentence</span></code> ergeben in der abgespeicherten Reihenfolge keinen sinnvollen Satz. Überleg Dir erst, in welcher Reihenfolge die Wörter einen Sinn machen, und dann, wie Du mithilfe von Slicing (und nicht Indexing! 😉) die Wörter in die richtige Reihenfolge bringen kannst.</p>
 <p>Um von einer Liste zu einem string zu kommen, funktioniert der <code class="docutils literal notranslate"><span class="pre">str</span></code>-Castingoperator leider nicht. Verwend stattdessen die bereits etwas fortgeschrittenere Technik <code class="docutils literal notranslate"><span class="pre">join</span></code>, die folgende Syntax aufweist:</p>
-<p><code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;.join(list)</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">join</span></code> konkateniert hier jedes Element in <code class="docutils literal notranslate"><span class="pre">list</span></code> mit einem Leerschlag dazwischen (also mit dem, was innerhalb der Anführungszeichen vor dem Punkt angegeben ist).</p>
 <p>Zur Veranschaulichung von <code class="docutils literal notranslate"><span class="pre">join</span></code> folgt ein Beispiel:</p>
-<p><code class="docutils literal notranslate"><span class="pre">sentence</span> <span class="pre">=</span> <span class="pre">&quot;</span> <span class="pre">&quot;.join([&quot;Mach&quot;,</span> <span class="pre">&quot;einen&quot;,</span> <span class="pre">&quot;Satz&quot;,</span> <span class="pre">&quot;aus&quot;,</span> <span class="pre">&quot;mir.&quot;])</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;Mach&quot;</span><span class="p">,</span> <span class="s2">&quot;einen&quot;</span><span class="p">,</span> <span class="s2">&quot;Satz&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">,</span> <span class="s2">&quot;mir.&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
 <p>In die runden Klammern von <code class="docutils literal notranslate"><span class="pre">join</span></code> setzen wir eine Liste. <code class="docutils literal notranslate"><span class="pre">join</span></code> verbindet nun alle Elemente dieser Liste durch einen Leerschlag zu insgesamt einer Zeichenkette. Diese wird <code class="docutils literal notranslate"><span class="pre">sentence</span></code> zugewiesen. <code class="docutils literal notranslate"><span class="pre">sentence</span></code> referenziert also den string „Mach einen Satz aus mir.“</p>
 <details>
   <summary>💡 Tipp </summary>
@@ -1048,6 +1034,7 @@ e
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
 <span class="n">words_for_sentence</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Füge&quot;</span><span class="p">,</span> <span class="s2">&quot;Satz&quot;</span><span class="p">,</span> <span class="s2">&quot;bitte&quot;</span><span class="p">,</span> <span class="s2">&quot;zusammen&quot;</span><span class="p">,</span> <span class="s2">&quot;diesen&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1059,7 +1046,7 @@ e
 <hr class="docutils" />
 <section id="iterierbarkeit">
 <h2>Iterierbarkeit<a class="headerlink" href="#iterierbarkeit" title="Permalink to this heading">#</a></h2>
-<p>Datentypen unterscheiden sich zweitens hinsichtlich ihrer <em>Iterierbarkeit</em> (engl. <em>iterability</em>). Iterierbare Objekte sind Objekte, die die in ihnen enthaltenen Elemente einzeln ausgeben können. Dazu zählen folgende Datentypen:</p>
+<p>Datentypen unterscheiden sich zweitens hinsichtlich ihrer <em>Iterierbarkeit</em> (engl. <em>iterability</em>). Iterierbare Objekte sind Objekte, die die in ihnen enthaltenen Elemente einzeln ausgeben können. Dazu zählen folgende Datentypen: <br></p>
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code></p>
 <p>Bei <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code> und <code class="docutils literal notranslate"><span class="pre">dict</span></code> sind mit den einzelnen Elementen natürlich die Elemente auf der Liste, im Tupel, im Set bzw. Schlüssel-Werte-Paare im dictionary gemeint (wobei bei dictionaries auch nur auf die Schlüssel oder nur auf die Werte einzeln zugegriffen werden kann, wie wir im Notebook „Funktionen und Methoden Teil 1“ lernen werden). Bei <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekten sind wie schon beim Thema „Sequentialität“ die einzelnen Zeichen gemeint.</p>
 <p>Um die einzelnen Elemente eines iterierbaren Objekts nacheinander auszugeben, wird eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife benutzt, der wir schon verschiedentlich begegnet sind und die im Notebook „Kontrollstrukturen“ im Detail besprochen wird. Hier noch einmal ein Ausblick auf eine <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife zum Iterieren über eine Liste:</p>
@@ -1100,8 +1087,8 @@ Sonntag
 </div>
 </section>
 <hr class="docutils" />
-<section id="veranderlichkeit-fortgeschritten">
-<h2>Veränderlichkeit (fortgeschritten)<a class="headerlink" href="#veranderlichkeit-fortgeschritten" title="Permalink to this heading">#</a></h2>
+<section id="fortgeschritten-veranderlichkeit-und-identitat-von-objekten">
+<h2>🦊 Fortgeschritten: Veränderlichkeit und Identität von Objekten<a class="headerlink" href="#fortgeschritten-veranderlichkeit-und-identitat-von-objekten" title="Permalink to this heading">#</a></h2>
 <p>Drittens unterscheiden sich Datentypen hinsichtlich ihrer <em>Veränderlichtkeit</em> (engl. <em>mutability</em>). Das haben wir bereits im Zusammenhang mit den dictionaries angeschnitten.</p>
 <section id="unveranderliche-datentypen">
 <h3>Unveränderliche Datentypen<a class="headerlink" href="#unveranderliche-datentypen" title="Permalink to this heading">#</a></h3>
@@ -1115,8 +1102,8 @@ Sonntag
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code></p>
 <p>Veränderliche Objekte können ihren Wert ändern. Es ist also möglich, weitere Elemente anzuhängen, auszutauschen oder zu entfernen. Wendet man also den <code class="docutils literal notranslate"><span class="pre">+=</span></code>-Operator auf eine Liste an, so handelt es sich nachher immer noch um <strong>dasselbe</strong> Objekt.</p>
 </section>
-<section id="exkurs-zur-identitat-von-objekten">
-<h3>Exkurs zur Identität von Objekten<a class="headerlink" href="#exkurs-zur-identitat-von-objekten" title="Permalink to this heading">#</a></h3>
+<section id="identitat-von-objekten">
+<h3>Identität von Objekten<a class="headerlink" href="#identitat-von-objekten" title="Permalink to this heading">#</a></h3>
 <p>Die <code class="docutils literal notranslate"><span class="pre">id</span></code>-Funktion, die die einzigartige „Adresse“ eines Objekts im Arbeitsspeicher zurückgibt, macht dieses unterschiedliche Verhalten bei unveränderlichen vs. veränderlichen Objekten sichtbar:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1142,9 +1129,9 @@ Sonntag
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das string-Objekt ist immer noch das gleiche: False 
-→ denn 139935003941296 ist ungleich 139935003293616
+→ denn 139996757195696 ist ungleich 139996756553200
 Das list-Objekt ist immer noch das gleiche: True 
-→ denn 139935003233488 ist gleich 139935003233488
+→ denn 139996756475008 ist gleich 139996756475008
 </pre></div>
 </div>
 </div>
@@ -1304,10 +1291,10 @@ Dieselbe ID: False
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterierbarkeit">Iterierbarkeit</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderlichkeit-fortgeschritten">Veränderlichkeit (fortgeschritten)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-veranderlichkeit-und-identitat-von-objekten">🦊 Fortgeschritten: Veränderlichkeit und Identität von Objekten</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unveranderliche-datentypen">Unveränderliche Datentypen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderliche-datentypen">Veränderliche Datentypen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-zur-identitat-von-objekten">Exkurs zur Identität von Objekten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identitat-von-objekten">Identität von Objekten</a></li>
 </ul>
 </li>
 </ul>

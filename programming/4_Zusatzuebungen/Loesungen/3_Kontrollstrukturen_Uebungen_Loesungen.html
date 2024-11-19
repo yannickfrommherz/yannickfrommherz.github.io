@@ -469,20 +469,16 @@ document.write(`
   <section id="losungen-zu-den-zusatzubungen-zum-notebook-kontrollstrukturen">
 <h1>Lösungen zu den Zusatzübungen zum Notebook „Kontrollstrukturen“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-kontrollstrukturen" title="Permalink to this heading">#</a></h1>
 <p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
-<ol class="arabic">
-<li><p>Schreib <em>eine</em> Code-Zeile, die folgende Bedingungen überprüft:</p>
+<p>✏️ <strong>Übung 1:</strong> Schreib <em>eine</em> Code-Zeile, die folgende Bedingungen überprüft:</p>
 <ul class="simple">
 <li><p>Berlin hat mehr Einwohner:innen als München.</p></li>
 <li><p>In Hamburg wohnen entweder weniger Menschen als oder gleich viele wie in Berlin.</p></li>
-<li><p>München ist Hamburg in Sachen Einwohnerzahl unterlegen.<br><br></p></li>
+<li><p>München ist Hamburg in Sachen Einwohnerzahl unterlegen.<br></p></li>
 </ul>
- <details>
-   <summary>📌 Herausforderung </summary>
-     <br>Überprüf zusätzlich im gleichen Statement, ob Berlin <i>nicht</i> kleiner als München ist, was die Einwohnerzahl anbelangt.
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<details>
+    <summary>🦊 Herausforderung </summary>
+    <br>Überprüf zusätzlich im gleichen Statement, ob Berlin <i>nicht</i> kleiner als München ist, was die Einwohnerzahl anbelangt.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berlin</span> <span class="o">=</span> <span class="mi">3677472</span>
 <span class="n">hamburg</span> <span class="o">=</span> <span class="mi">1853935</span>
@@ -503,9 +499,8 @@ True
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Formulier den folgenden Code so konzis wie möglich in natürlicher Sprache:</p></li>
-</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Formulier den folgenden Code so konzis wie möglich in natürlicher Sprache:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_rain_chance_forecast</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;na&quot;</span><span class="p">]</span>
@@ -533,21 +528,15 @@ No prognosis possible due to missing value.
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Natürlichsprachlich formuliert: „Wenn die Regenwahrscheinlichkeit an einem Tag in den nächsten sieben Tagen 50% übersteigt, nimm an diesem Tag einen Schirm mit. Bei niedrigerer Regenwahrscheinlichkeit als 50% brauchst Du keinen Schirm mitzunehmen. Sollte noch keine Regenwahrscheinlichkeit vorliegen, kann ich leider keine Empfehlung abgeben.“</p></li>
-</ul>
-<ol class="arabic" start="3">
-<li><p>Mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> soll das monatliche Einkommen einer bestimmten Person referenziert werden. Beträgt es 6000€ oder mehr, fällt es in die höchste Einkommensklasse. Bei einem Betrag von unter 2000€ handelt es sich um ein Einkommen in der tiefsten Einkommensklasse. Zwischen 2000€ und unter 3000€, 3000€ und unter 4500€ sowie 4500€ und unter 6000€ fällt es in die Einkommensklasse „untere Mitte“, „Mitte“ bzw. „obere Mitte“. Formulier bedingte Anweisungen, die die entsprechende Einkommensklasse je nach Höhe von <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ausgeben.</p>
- <details>
-   <summary>📌 Herausforderung </summary>
-     <br>Was passiert, wenn das Einkommen anstatt als Zahl z. B. so vorliegt: "dreitausendsiebenhundert"? Und was, wenn mit <code>monthly_salary</code> ein noch weniger sinnvolles Objekt referenziert wird, z. B. eine Liste? Verhinder in jedem Fall, dass es zu einer Fehlermeldung kommt.
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<p><em>Natürlichsprachlich formuliert: „Wenn die Regenwahrscheinlichkeit an einem Tag in den nächsten sieben Tagen 50% übersteigt, nimm an diesem Tag einen Schirm mit. Bei niedrigerer Regenwahrscheinlichkeit als 50% brauchst Du keinen Schirm mitzunehmen. Sollte noch keine Regenwahrscheinlichkeit vorliegen, kann ich leider keine Empfehlung abgeben.“</em></p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> soll das monatliche Einkommen einer bestimmten Person referenziert werden. Beträgt es 6000€ oder mehr, fällt es in die höchste Einkommensklasse. Bei einem Betrag von unter 2000€ handelt es sich um ein Einkommen in der tiefsten Einkommensklasse. Zwischen 2000€ und unter 3000€, 3000€ und unter 4500€ sowie 4500€ und unter 6000€ fällt es in die Einkommensklasse „untere Mitte“, „Mitte“ bzw. „obere Mitte“. Formulier bedingte Anweisungen, die die entsprechende Einkommensklasse je nach Höhe von <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ausgeben.</p>
+<details>
+    <summary>🦊 Herausforderung </summary>
+    <br>Was passiert, wenn das Einkommen anstatt als Zahl z. B. so vorliegt: "dreitausendsiebenhundert"? Und was, wenn mit <code>monthly_salary</code> ein noch weniger sinnvolles Objekt referenziert wird, z. B. eine Liste? Verhinder in jedem Fall, dass es zu einer Fehlermeldung kommt.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_salary</span> <span class="o">=</span> <span class="mi">3000</span>
-<span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
 <span class="sd">&quot;&quot;&quot;Um möglichst wenig Bedingungen aufzustellen, beginnen wir entweder bei der &quot;obersten&quot; oder, wie hier, bei der &quot;untersten&quot; Bedingung.</span>
 <span class="sd">Da Bedingungen nacheinander überprüft werden, bis eine zutrifft, müssen wir beim ersten &#39;elif&#39;-Statement z. B. nicht mehr überprüfen,</span>
@@ -555,24 +544,21 @@ No prognosis possible due to missing value.
 <span class="sd">zugetroffen und Python wäre nie zur zweiten Bedingung vorgerückt, etc. Diese Logik funktioniert aber nur, wenn wir die Bedingungen in korrekter</span>
 <span class="sd">Reihenfolge entweder von unten nach oben oder von oben nach unten überprüfen.&quot;&quot;&quot;</span>
 <span class="k">if</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">:</span>
-    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;low&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;low&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
-    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;lower middle&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;lower middle&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">4500</span><span class="p">:</span>
-    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;middle&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;middle&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">6000</span><span class="p">:</span>
-    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;upper middle&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;upper middle&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;high&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">income_class</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;high&quot;</span><span class="p">)</span>
 
 <span class="sd">&quot;&quot;&quot;Herausforderung: Wir müssen überprüfen, ob der Datentyp von &#39;monthly_salary&#39; entweder float oder integer ist. Falls nicht, muss eine </span>
 <span class="sd">Fehlermeldung zurückgegeben werden. Dies gilt auch bei Zahlen als strings, denn Python kann diese nicht in integer oder float konvertieren, </span>
 <span class="sd">es sei denn, wir würden ein benutzerdefiniertes dictionary anlegen, aber das wäre ein extremer Arbeitsaufwand.&quot;&quot;&quot;</span>
 
 <span class="n">monthly_salary</span> <span class="o">=</span> <span class="s2">&quot;siebentausend&quot;</span>
-<span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
 <span class="c1">#Mit Herausforderung (drei semantisch identische Lösungen):</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">monthly_salary</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">monthly_salary</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">:</span>
@@ -580,17 +566,15 @@ No prognosis possible due to missing value.
 <span class="c1">#if type(monthly_salary) not in [int, float]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;invalid income&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">:</span>
-    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;low&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;low&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">3000</span><span class="p">:</span>
-    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;lower middle&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;lower middle&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">4500</span><span class="p">:</span>
-    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;middle&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;middle&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">monthly_salary</span> <span class="o">&lt;</span> <span class="mi">6000</span><span class="p">:</span>
-    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;upper middle&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;upper middle&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">income_class</span> <span class="o">=</span> <span class="s2">&quot;high&quot;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">income_class</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;high&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -601,9 +585,8 @@ invalid income
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Erstell einen string aus den jeweils letzten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code> und lass ihn Dir ausgeben.</p></li>
-</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> Erstell einen string aus den jeweils letzten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code> und lass ihn Dir ausgeben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
@@ -622,15 +605,12 @@ invalid income
 </div>
 </div>
 </div>
-<ol class="arabic" start="5">
-<li><p>Erstell abermals einen string bestehend aus ausgewählten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code>. Diesmal soll der erste Buchstabe für den neuen string der erste Buchstaben des ersten Namens sein, der zweite Buchstabe für den neuen string soll der zweite Buchstabe des zweiten Namens sein, etc. Welcher neue Name entsteht so?</p>
- <details>
-   <summary>📌 Herausforderung </summary>
-     <br>Nutz die <code>range</code>-Funktion zur Lösung der Übung (sofern Du dies nicht bereits getan hast).
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<hr class="docutils" />
+<p>✏️ <strong>Übung 5:</strong> Erstell abermals einen string bestehend aus ausgewählten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code>. Diesmal soll der erste Buchstabe für den neuen string der erste Buchstaben des ersten Namens sein, der zweite Buchstabe für den neuen string soll der zweite Buchstabe des zweiten Namens sein, etc. Welcher neue Name entsteht so?</p>
+<details>
+    <summary>🦊 Herausforderung </summary>
+    <br>Nutz die <code>range</code>-Funktion zur Lösung der Übung (sofern Du dies nicht bereits getan hast).
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
 
@@ -657,9 +637,8 @@ Helga
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="6">
-<li><p>Erstell einen weiteren string, indem Du bei jedem Namen auf <code class="docutils literal notranslate"><span class="pre">names</span></code> über die Buchstaben iterierst und jeweils das zweite, vierte, sechste, etc. Zeichen an den neuen string hängst. Der string beginnt also mit „a“ und „e“ aus „Hagen“, gefolgt von „e“ aus „Lena“ etc. Diesmal entsteht kein sinnvolles neues Wort, geschweige denn ein Name. Vielleicht fällt Dir aber dennoch etwas zur allgemeinen Komposition von Namen auf.</p></li>
-</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 6:</strong> Erstell einen weiteren string, indem Du bei jedem Namen auf <code class="docutils literal notranslate"><span class="pre">names</span></code> über die Buchstaben iterierst und jeweils das zweite, vierte, sechste, etc. Zeichen an den neuen string hängst. Der string beginnt also mit „a“ und „e“ aus „Hagen“, gefolgt von „e“ aus „Lena“ etc. Diesmal entsteht kein sinnvolles neues Wort, geschweige denn ein Name. Vielleicht fällt Dir aber dennoch etwas zur allgemeinen Komposition von Namen auf.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
@@ -681,12 +660,10 @@ Helga
 </div>
 </div>
 </div>
-<ol class="arabic" start="7">
-<li><p>Wir wollen einen sehr simplen interaktiven Vokabeltrainer für Deutsch-Schwedisch programmieren. Das Programm soll eine Userin nach und nach alle gespeicherten Vokabeln abfragen, bis sie sämtliche korrekt vom Deutschen ins Schwedische übersetzt hat. Die Vokabeln inklusive Übersetzung stehen Dir bereits in <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> zur Verfügung. Iteriere mit der ebenfalls bereits gegebenen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife über das dictionary. Vervollständige den Anweisungskörper, sodass die Userin bei jedem Wort (<code class="docutils literal notranslate"><span class="pre">word</span></code>) solange nach der Übersetzung (<code class="docutils literal notranslate"><span class="pre">translation</span></code>) gefragt wird, bis ihre Antwort korrekt ist. Der Dialog sollte wie folgt aussehen:</p>
- <img src="../../3_Dateien/Grafiken_und_Videos/de_sv.png">
+<hr class="docutils" />
+<p>✏️ <strong>Übung 7:</strong> Wir wollen einen sehr simplen interaktiven Vokabeltrainer für Deutsch-Schwedisch programmieren. Das Programm soll eine Userin nach und nach alle gespeicherten Vokabeln abfragen, bis sie sämtliche korrekt vom Deutschen ins Schwedische übersetzt hat. Die Vokabeln inklusive Übersetzung stehen Dir bereits in <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> zur Verfügung. Iteriere mit der ebenfalls bereits gegebenen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife über das dictionary. Vervollständige den Anweisungskörper, sodass die Userin bei jedem Wort (<code class="docutils literal notranslate"><span class="pre">word</span></code>) solange nach der Übersetzung (<code class="docutils literal notranslate"><span class="pre">translation</span></code>) gefragt wird, bis ihre Antwort korrekt ist. Der Dialog sollte wie folgt aussehen:</p>
+<img src="../../3_Dateien/Grafiken_und_Videos/de_sv.png">
 <p>Anschließend soll das nächste Wort abgefragt werden.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">de_sv</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ich&quot;</span><span class="p">:</span> <span class="s2">&quot;jag&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">:</span> <span class="s2">&quot;från&quot;</span><span class="p">,</span> <span class="s2">&quot;reisen&quot;</span><span class="p">:</span> <span class="s2">&quot;resa&quot;</span><span class="p">,</span> <span class="s2">&quot;gerne&quot;</span><span class="p">:</span> <span class="s2">&quot;gärna&quot;</span><span class="p">,</span> <span class="s2">&quot;nach&quot;</span><span class="p">:</span> <span class="s2">&quot;till&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;woher&quot;</span><span class="p">:</span> <span class="s2">&quot;varifrån&quot;</span><span class="p">,</span> <span class="s2">&quot;kommen&quot;</span><span class="p">:</span> <span class="s2">&quot;komma&quot;</span><span class="p">,</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">:</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweden&quot;</span><span class="p">:</span> <span class="s2">&quot;Sverige&quot;</span><span class="p">,</span> <span class="s2">&quot;dich&quot;</span><span class="p">:</span> <span class="s2">&quot;dig&quot;</span><span class="p">,</span> <span class="s2">&quot;mich&quot;</span><span class="p">:</span> <span class="s2">&quot;mig&quot;</span><span class="p">,</span> <span class="s2">&quot;wir&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">}</span>
@@ -713,7 +690,7 @@ Helga
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2699</span><span class="o">/</span><span class="mf">634532860.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2656</span><span class="o">/</span><span class="mf">634532860.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> <span class="c1">#Konkatenation eines prompts mit dem jeweiligen Wort</span>
 <span class="g g-Whitespace">     </span><span class="mi">10</span> 
 <span class="ne">---&gt; </span><span class="mi">11</span>         <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="c1">#Abfrage der Übersetzung und Speichern der Antwort in &#39;answer&#39;</span>
@@ -732,15 +709,12 @@ Helga
 </div>
 </div>
 </div>
-<ol class="arabic" start="8">
-<li><p>Fortgeschritten (aufbauend auf Übung 7): Praktischer wäre es ja, wenn der Vokabeltrainer bei falsch übersetzten Wörtern die richtige Übersetzung ausgibt und diese Wörter dann später noch einmal abfragt. Korrekt übersetzte Wörter müssten dagegen weiterhin nur einmal abgefragt werden. Schreib den Code entsprechend so, dass jedes korrekt übersetzte Wort kein weiteres Mal abgefragt wird. Bei falsch übersetzten Wörtern soll hingegen die richtige Übersetzung angezeigt werden. Später, d. h. wenn alle (noch vorhandenen) Wörter abgefragt wurden, sollen abermals die in der letzten Iteration falsch übersetzten Wörter abgefragt werden, bis am Schluss jedes Wort einmal korrekt übersetzt wurde.<br></p>
- <details>
-   <summary>📌 Herausforderung</summary>
-   <br>Überleg Dir, wie Du den Vokabeltrainer zusätzlich verbessern könntest.
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<hr class="docutils" />
+<p>✏️ <b>Übung 8 (🦊 fortgeschritten, aufbauend auf Übung 7)</b>: Praktischer wäre es ja, wenn der Vokabeltrainer bei falsch übersetzten Wörtern die richtige Übersetzung ausgibt und diese Wörter dann später noch einmal abfragt. Korrekt übersetzte Wörter müssten dagegen weiterhin nur einmal abgefragt werden. Schreib den Code entsprechend so, dass jedes korrekt übersetzte Wort kein weiteres Mal abgefragt wird. Bei falsch übersetzten Wörtern soll hingegen die richtige Übersetzung angezeigt werden. Später, d. h. wenn alle (noch vorhandenen) Wörter abgefragt wurden, sollen abermals die in der letzten Iteration falsch übersetzten Wörter abgefragt werden, bis am Schluss jedes Wort einmal korrekt übersetzt wurde.<br></p>
+<details>
+    <summary>🦊 Herausforderung</summary>
+    <br>Überleg Dir, wie Du den Vokabeltrainer zusätzlich verbessern könntest.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">de_sv</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ich&quot;</span><span class="p">:</span> <span class="s2">&quot;jag&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">:</span> <span class="s2">&quot;från&quot;</span><span class="p">,</span> <span class="s2">&quot;reisen&quot;</span><span class="p">:</span> <span class="s2">&quot;resa&quot;</span><span class="p">,</span> <span class="s2">&quot;gerne&quot;</span><span class="p">:</span> <span class="s2">&quot;gärna&quot;</span><span class="p">,</span> <span class="s2">&quot;nach&quot;</span><span class="p">:</span> <span class="s2">&quot;till&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;woher&quot;</span><span class="p">:</span> <span class="s2">&quot;varifrån&quot;</span><span class="p">,</span> <span class="s2">&quot;kommen&quot;</span><span class="p">:</span> <span class="s2">&quot;komma&quot;</span><span class="p">,</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">:</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweden&quot;</span><span class="p">:</span> <span class="s2">&quot;Sverige&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;dich&quot;</span><span class="p">:</span> <span class="s2">&quot;dig&quot;</span><span class="p">,</span> <span class="s2">&quot;mich&quot;</span><span class="p">:</span> <span class="s2">&quot;mig&quot;</span><span class="p">,</span> <span class="s2">&quot;wir&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">}</span>
 
@@ -777,7 +751,7 @@ Helga
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2699</span><span class="o">/</span><span class="mf">707143864.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2656</span><span class="o">/</span><span class="mf">707143864.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Wie sagt man &#39;&quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s2">&quot;&#39; auf Schwedisch?&quot;</span> <span class="c1">#Konkatenation eines prompts mit dem jeweiligen Wort</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> 
 <span class="ne">---&gt; </span><span class="mi">13</span>         <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="c1">#Abfrage der Übersetzung und Speichern der Antwort in &#39;answer&#39;</span>
@@ -796,21 +770,16 @@ Helga
 </div>
 </div>
 </div>
+<p><em>Ideen für weitere Verbesserungsmöglichkeiten:</em></p>
 <ul class="simple">
-<li><p><em>Ideen für weitere Verbesserungsmöglichkeiten:</em></p>
-<ul>
 <li><p><em>zufällige Sortierung der Vokabeln bei jeder neuen Iteration – umsetzbar z. B. mithilfe von <code class="docutils literal notranslate"><span class="pre">shuffle</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">random</span></code> (vgl. Notebook „Funktionen und Methoden Teil 2“).</em></p></li>
 <li><p><em>Einführen eines Grenzwerts, der definiert, wie oft ein Wort korrekt übersetzt werden muss, bis es aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt wird – umsetzbar z. B., indem <code class="docutils literal notranslate"><span class="pre">learnt_during_interaction</span></code> ein dictionary (statt eine Liste) ist, wobei der Wert die Anzahl an korrekten Übersetzungen pro Wort (Schlüssel) speichert. Bei jeder korrekten Übersetzung wird der Wert um eins erhöht. Alle Schlüssel, deren Werte den Grenzwert erreichen, werden aus <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> entfernt.</em></p></li>
 </ul>
-</li>
-</ul>
-<ol class="arabic" start="9">
-<li><p>Wenn Du zwei Vergleiche, die beide für sich ausgerechnet <code class="docutils literal notranslate"><span class="pre">False</span></code> ergeben, mithilfe von <code class="docutils literal notranslate"><span class="pre">or</span></code> verknüpfst, ergibt die Verknüpfung dann <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>?</p>
-<p>Sie ergibt <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-</li>
-</ol>
-<ol class="arabic" start="10">
-<li><p>In Anlehnung an den Anwendungsfall im Notebook „Kontrollstrukturen“, lass Dir sämtliche Viertelstunden eines kompletten Tages ausgeben, also:</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 9:</strong> Wenn Du zwei Vergleiche, die beide für sich ausgerechnet <code class="docutils literal notranslate"><span class="pre">False</span></code> ergeben, mithilfe von <code class="docutils literal notranslate"><span class="pre">or</span></code> verknüpfst, ergibt die Verknüpfung dann <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>?</p>
+<p><em>Sie ergibt <code class="docutils literal notranslate"><span class="pre">False</span></code>.</em></p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 10:</strong> In Anlehnung an den Anwendungsfall im Notebook „Kontrollstrukturen“, lass Dir sämtliche Viertelstunden eines kompletten Tages ausgeben, also:</p>
 <p>00:00<br>
 00:15<br>
 00:30<br>
@@ -818,8 +787,6 @@ Helga
 01:15<br>
 etc.</p>
 <p>Achte darauf, dass die Ausgabe stets vierstellig ist.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_per_hour</span> <span class="o">=</span> <span class="mi">59</span> <span class="c1">#Definieren der maximalen Minutenanzahl pro Stunde</span>

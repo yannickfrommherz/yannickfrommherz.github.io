@@ -1,0 +1,1845 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="de" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Tagging &#8212; Yannick Frommherz</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programming/1_Notebooks/9_Tagging';</script>
+    <link rel="canonical" href="https://github.com/yannickfrommherz/yfrommherz.ch/programming/1_Notebooks/9_Tagging.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../start.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About me</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../resume.html">Résumé</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../phd.html">PhD project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../publications.html">Publications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hello Humanities!</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../notebooks.html">Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="1_Einfuehrung.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Datentypen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Kontrollstrukturen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden_Teil_1.html">Funktionen und Methoden Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Funktionen_und_Methoden_Teil_2.html">Funktionen und Methoden Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output_Teil_1.html">Input und Output Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Input_und_Output_Teil_2.html">Input und Output Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Datenanalyse_Teil_1.html">Datenanalyse Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Datenanalyse_Teil_2.html">Datenanalyse Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_Regulaere_Ausdruecke.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../solutions.html">Lösungen zu den Notebooks</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/1_Einfuehrung_Loesungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/2_Datentypen_Loesungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/3_Kontrollstrukturen_Loesungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Teil_1_Loesungen.html">Funktionen und Methoden Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/4_Funktionen_und_Methoden_Teil_2_Loesungen.html">Funktionen und Methoden Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Teil_1_Loesungen.html">Input und Output Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/5_Input_und_Output_Teil_2_Loesungen.html">Input und Output Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/6_Datenanalyse_Teil_1_Loesungen.html">Datenanalyse Teil 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/6_Datenanalyse_Teil_2_Loesungen.html">Datenanalyse Teil 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Loesungen/7_Regulaere_Ausdruecke_Loesungen.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises.html">Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/1_Einfuehrung_Uebungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/2_Datentypen_Uebungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/3_Kontrollstrukturen_Uebungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/4_Funktionen_und_Methoden_Uebungen.html">Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/5_Input_und_Output_Uebungen.html">Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/6_Datenanalyse_Uebungen.html">Datenanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/7_Regulaere_Ausdruecke_Uebungen.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extra_exercises_solutions.html">Lösungen zu den Zusatzübungen</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/1_Einfuehrung_Uebungen_Loesungen.html">Einführung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/2_Datentypen_Uebungen_Loesungen.html">Datentypen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/3_Kontrollstrukturen_Uebungen_Loesungen.html">Kontrollstrukturen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/4_Funktionen_und_Methoden_Uebungen_Loesungen.html">Funktionen und Methoden</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/5_Input_und_Output_Uebungen_Loesungen.html">Input und Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/6_Datenanalyse_Uebungen_Loesungen.html">Datenanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4_Zusatzuebungen/Loesungen/7_Regulaere_Ausdruecke_Uebungen_Loesungen.html">Reguläre Ausdrücke</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/yannickfrommherz/yfrommherz.ch/main?urlpath=lab/tree/website/programming/1_Notebooks/9_Tagging.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/yannickfrommherz/yfrommherz.ch/blob/main/website/programming/1_Notebooks/9_Tagging.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/yannickfrommherz/yfrommherz.ch/issues/new?title=Issue%20on%20page%20%2Fprogramming/1_Notebooks/9_Tagging.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/programming/1_Notebooks/9_Tagging.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tagging</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allgemein">Allgemein</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-d-ein-korpus-taggen">🔧 Anwendungsfall: (D)ein Korpus taggen 🏷️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatisierung">Lemmatisierung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatisierung-mit-dem-rnntagger-fur-macos-linux">Lemmatisierung mit dem <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> für macOS/Linux</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-of-speech-tagging">Part-of-Speech-Tagging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#morphologisches-tagging">Morphologisches Tagging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaktisches-parsing">Syntaktisches Parsing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition">Named Entity Recognition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentiment-analysis">Sentiment Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: (D)ein Korpus taggen 🏷️</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="tagging">
+<h1>Tagging<a class="headerlink" href="#tagging" title="Permalink to this heading">#</a></h1>
+<p>In diesem Notebook beschäftigen wir uns mit <em>Tagging</em>. Beim Tagging (auch <em>Annotation</em> genannt) reichern wir Sprachdaten an, indem wir die einzelnen Bestandteile unserer Daten, etwa Wörter oder Sätze, um Zusatzinformationen wie die Wortart oder die durch den Satz ausgedrückte „Stimmung“ ergänzen. Wir versehen sozusagen jedes zu annotierende Element mit einem Schildchen (engl. <em>tag</em>), auf dem die Zusatzinformation(en) festgehalten werden.</p>
+<p>Indem wir unsere Daten taggen, können wir sie leichter auswerten. So können wir z. B. bei nach Wortart annotierten Daten einfach alle Funktionswörter (Artikel, Präpositionen, Konjunktionen, etc.) herausfiltern, um sie gesondert zu untersuchen (z. B. „Werden in Zeitungstexten die gleichen Konjunktionen verwendet wie in Social Media-Beiträgen?“) oder auch, um die Daten bereinigt von diesen inhaltsarmen (Stopp-)Wörtern unter die Lupe zu nehmen.</p>
+<p>Um Sprachdaten zu <em>taggen</em>, benötigen wir einen <em>Tagger</em>. Für die meisten Taggingarten stehen uns bei Python gleich mehrere Tagger zu Verfügung. Viele Tagger wiederum beherrschen mehrere Taggingarten. Tagging ist natürlich sprachabhängig, weshalb wir jeweils einen für unsere Daten geeigneten Tagger benutzen müssen. Unten lernen wir pro Taggingart einen besonders guten Tagger für deutschsprachige Daten kennen, z. T. ergänzt um Alternativen (s. auch folgende Tabelle).</p>
+<p>Wir schauen uns in diesem Notebook sechs Arten des Taggings an:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><strong>Art</strong></p></th>
+<th class="head text-left"><p><strong>Resultat</strong></p></th>
+<th class="head text-left"><p><strong>Beispiel (vereinfacht)</strong></p></th>
+<th class="head text-left"><p><strong>Tagger (Auswahl)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><strong>Lemmatisierung</strong></p></td>
+<td class="text-left"><p>Grundform (sog. <em>Lemma</em>) von Wörtern, wie sie in einem Wörterbuch stehen</p></td>
+<td class="text-left"><p>Wörter<sub> Wort</sub> sind<sub>sein</sub> schön<sub>schön</sub></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code>, <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code>, <code class="docutils literal notranslate"><span class="pre">stanza</span></code>, <code class="docutils literal notranslate"><span class="pre">spacy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><strong>Part-of-Speech-Tagging<br>(POS-Tagging)</strong></p></td>
+<td class="text-left"><p>Wortart von Wörtern (aber mit feineren Kategorien als in der klassischen Wortartenlehre)</p></td>
+<td class="text-left"><p>Wörter<sub>NN</sub> sind<sub>VVFIN</sub> schön<sub>ADJD</sub><br><sub><em>(NN: Nomen, VVFIN: Finites Verb, ADJD: Adjektiv)</em></sub></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code>, <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code>, <code class="docutils literal notranslate"><span class="pre">stanza</span></code>, <code class="docutils literal notranslate"><span class="pre">spacy</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><strong>Morphologisches Tagging</strong></p></td>
+<td class="text-left"><p>Informationen zu Flexion und grammatischen Eigenschaften von Wörtern</p></td>
+<td class="text-left"><p>Wörter<sub>Neutrum Nominativ Plural</sub> sind<sub>3. Person Plural Präsens Indikativ</sub> schön<sub>Positiv</sub></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code>,<code class="docutils literal notranslate"><span class="pre">stanza</span></code>, <code class="docutils literal notranslate"><span class="pre">spacy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><strong>Syntaktisches Parsing</strong></p></td>
+<td class="text-left"><p>Informationen zum Satzbau</p></td>
+<td class="text-left"><p>Ich<sub>Subjekt</sub> liebe<sub>ROOT</sub> Wörter<sub>Akkusativobjekt</sub></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">stanza</span></code>, <code class="docutils literal notranslate"><span class="pre">spacy</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><strong>Named Entity Recognition</strong></p></td>
+<td class="text-left"><p>Identifikation von Eigennamen (Personen, Orte, Institutionen, etc.)</p></td>
+<td class="text-left"><p>[Peter Meier]<sub>Person</sub> arbeitet beim [Bundesgerichtshof]<sub>Institution</sub> in [Karlsruhe]<sub>Ort</sub></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">stanza</span></code>, <code class="docutils literal notranslate"><span class="pre">spacy</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><strong>Sentiment Analysis</strong></p></td>
+<td class="text-left"><p>„Stimmung“ eines Satzes oder Texts</p></td>
+<td class="text-left"><p>[Wörter sind schön]<sub>positiv</sub><br>[Peter mag seinen aktuellen Fall nicht]<sub>negativ</sub></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">germansentiment</span></code>, <code class="docutils literal notranslate"><span class="pre">stanza</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Das eigentliche Tagging ist jeweils sehr unkompliziert – einzig die richtige Syntax muss man kennen. Die Übungen in diesem Notebook umfassen deshalb neben dem Taggingschritt auch die Auswertung getaggter Daten. Dazu verwenden wir größtenteils <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Dieses Notebook bietet Dir also auch eine gute Gelegenheit, Deine Datenanalyse-Skills auszubauen.</p>
+<section id="allgemein">
+<h2>Allgemein<a class="headerlink" href="#allgemein" title="Permalink to this heading">#</a></h2>
+<p>Tagger können grundsätzlich entweder regelbasiert oder statistisch operieren. <strong>Regelbasierte Tagger</strong> fällen ihr Urteil („Welche Wortart ist ‚Bundesgerichtshof‘?“) anhand von festgelegten Regeln (etwa „Großgeschriebene Wörter sind Nomen“). <strong>Statistische Tagger</strong> dagegen werden mit vielen Daten trainiert. Sie errechnen basierend darauf, wie wahrscheinlich ein bestimmtes Tag für ein zu taggendes Element ist und verleihen ihm – vereinfacht formuliert – dasjenige mit der höchsten Wahrscheinlichkeit. Unabhängig von der Implementierung eines Taggers, liegt ihm jeweils ein <strong>Tagset</strong> zugrunde. Dieses umfasst alle möglichen Tags, die „vergebbar“ sind. Beim Part-of-Speech-Tagging im Deutschen ist z. B. das <a class="reference external" href="https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets/#id-cfcbf0a7-0">Stuttgart-Tübingen-TagSet</a> (kurz <em>STTS</em>) gängig (die Tags in der Tabelle oben stammen auch daraus).</p>
+<p>Ebenfalls unabhängig von der Implementierung eines Taggers, ist die Tatsache, dass der Output nicht <em>per se</em> korrekt ist, sondern nur die Regeln bzw. Trainingsdaten widerspiegelt. Je mehr unsere Daten von regelhafter Standardsprache bzw. den Trainingsdaten abweichen, desto weniger zuverlässig wird die darauf basierende Annotation unserer Daten ausfallen. In jedem Fall empfiehlt es sich stets, den Output von (verschiedenen) Taggern manuell zu evaluieren.</p>
+<p>Auch in diesem Notebook gibt es einen Anwendungsfall.</p>
+</section>
+<hr class="docutils" />
+<section id="anwendungsfall-d-ein-korpus-taggen">
+<h2>🔧 Anwendungsfall: (D)ein Korpus taggen 🏷️<a class="headerlink" href="#anwendungsfall-d-ein-korpus-taggen" title="Permalink to this heading">#</a></h2>
+<p>Diesmal hast Du die Gelegenheit, Deine eigenen Daten zu taggen. Vielleicht hast Du inspiriert vom Notebook „Web Scraping“ Dein eigenes Korpus zusammengestellt? Wenn nicht, kannst Du einen beliebigen anderen Text taggen, etwa eine frühere schriftliche Arbeit von Dir. Wichtig ist einzig, dass Deine Daten in einem für Python einlesbaren Format vorliegen, idealerweise mit der Endung „.txt“ (s. aber in den Zusatzübungen zum Notebook „Input und Output“, wie Word-Dateien mit der Endung „.docx“ bei Python eingelesen werden können). Dir ist freigestellt, mit welchen Zusatzinformationen Du Deine Daten anreicherst. Lemmatisierung und POS-Tagging sind aber meistens sinnvoll.</p>
+<p>In den Lösungen wird ein Musteranwendungsfall bearbeitet. Konkret soll die Verteilung von POS-Tags in Behördentexten in Standardsprache versus Leichter Sprache untersucht werden. Für dieses kleine Projekt wird neben dem eigentlichen Tagging auch der vorgelagerte Datenbeschaffungsschritt (Web Scraping) sowie die nachgelagerte Analyse und Visualisierung der Ergebnisse demonstriert. Schau Dir die Lösung zu diesem Musteranwendungsfall an, auch wenn Du Dein eigenes Korpus taggst – möglicherweise erhältst Du so wertvolle Anhaltspunkte und Inspiration.</p>
+<p>Den Anwendungsfall bearbeitest Du am Ende des Notebooks.</p>
+</section>
+<hr class="docutils" />
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<p>Bevor wir loslegen, installieren wir sämtliche in diesem Notebook verwendeten Module über die folgende Code-Zelle. Anstatt den uns bekannten Weg über die Command Line, nutzen wir die Datei „requirements.txt“, die spezifiziert, welche externen Module in diesem Notebook benötigt werden (sog. <em>dependencies</em>, also Module, von denen die Ausführbarkeit dieses Notebooks <em>abhängt</em>). Bei größeren Code-Projekten gehört es dazu, eine solche Datei mitzuliefern.</p>
+<p>Die Ausführung der Zelle nimmt einige Zeit in Anspruch.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Durch das vorangestellte Ausrufezeichen können wir Befehle an die Command Line auch innerhalb eines Notebooks ausführen.</span>
+<span class="o">!</span>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;../3_Dateien/Tagging/requirements.txt&quot;</span><span class="w"> </span>
+
+<span class="c1">#Solltest Du nach Ausführen dieser Zelle weiter unten unerwarteterweise auf einen &#39;ModuleNotFoundError&#39; stoßen,</span>
+<span class="c1">#dann führ statt dem obigen Code den folgenden aus:</span>
+<span class="c1">#import sys</span>
+<span class="c1">#!{sys.executable} -m pip install -r &quot;../3_Dateien/Tagging/requirements.txt&quot; </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: Ignored the following versions that require a different python version: 1.4.0 Requires-Python &gt;=3.8; 1.4.0rc0 Requires-Python &gt;=3.8; 1.4.1 Requires-Python &gt;=3.8; 1.4.2 Requires-Python &gt;=3.8; 1.4.3 Requires-Python &gt;=3.8; 1.4.4 Requires-Python &gt;=3.8; 1.5.0 Requires-Python &gt;=3.8; 1.5.0rc0 Requires-Python &gt;=3.8; 1.5.1 Requires-Python &gt;=3.8; 1.5.2 Requires-Python &gt;=3.8; 1.5.3 Requires-Python &gt;=3.8; 2.0.0 Requires-Python &gt;=3.8; 2.0.0rc0 Requires-Python &gt;=3.8; 2.0.0rc1 Requires-Python &gt;=3.8; 2.0.1 Requires-Python &gt;=3.8; 2.0.2 Requires-Python &gt;=3.8; 2.0.3 Requires-Python &gt;=3.8; 2.1.0 Requires-Python &gt;=3.9; 2.1.0rc0 Requires-Python &gt;=3.9; 2.1.1 Requires-Python &gt;=3.9; 2.1.2 Requires-Python &gt;=3.9; 2.1.3 Requires-Python &gt;=3.9; 2.1.4 Requires-Python &gt;=3.9; 2.2.0 Requires-Python &gt;=3.9; 2.2.0rc0 Requires-Python &gt;=3.9; 2.2.1 Requires-Python &gt;=3.9; 2.2.2 Requires-Python &gt;=3.9; 2.2.3 Requires-Python &gt;=3.9</span>
+<span class=" -Color -Color-Red">ERROR: Could not find a version that satisfies the requirement pandas==2.2.1 (from versions: 0.1, 0.2, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.5.0, 0.6.0, 0.6.1, 0.7.0, 0.7.1, 0.7.2, 0.7.3, 0.8.0, 0.8.1, 0.9.0, 0.9.1, 0.10.0, 0.10.1, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.16.0, 0.16.1, 0.16.2, 0.17.0, 0.17.1, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.21.0, 0.21.1, 0.22.0, 0.23.0, 0.23.1, 0.23.2, 0.23.3, 0.23.4, 0.24.0, 0.24.1, 0.24.2, 0.25.0, 0.25.1, 0.25.2, 0.25.3, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5)</span>
+<span class=" -Color -Color-Red">ERROR: No matching distribution found for pandas==2.2.1</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Scroll durch den Output und stell sicher, dass die Installation sämtlicher Module erfolgreich war.</p>
+<p>Wenden wir uns nun den einzelnen Taggingarten zu.</p>
+</section>
+<section id="lemmatisierung">
+<h2>Lemmatisierung<a class="headerlink" href="#lemmatisierung" title="Permalink to this heading">#</a></h2>
+<p>Bei der Lemmatisierung werden nach Genus, Kasus, Tempus etc. flektierte Wortformen auf ihre Grundform bzw. ihr Lemma (Plural: <em>Lemmata</em>), wie wir sie in einem Wörterbuch finden würden, reduziert. Bei der Wortform „Häuser“ wäre das Resultat etwa „Haus“. Insbesondere bei stark flektierten Sprachen wie dem Deutschen ist Lemmatisierung etwa bei der Auszählung von Wörtern interessant, zumal wir eher (wenn auch nicht immer) wissen wollen, wie häufig das Verb „brauchen“ in einem bestimmten Text vorkommt, als die Häufigkeiten seiner flektierten Formen separat zu erfahren („brauchte“, „bräuchtest“, „gebraucht“ etc.).</p>
+<p>In vielen Fällen ist die Reduktion von Wortform zu Lemma eindeutig. Bei Homographen (gleichgeschriebene Wörter wie „sein“ [Verb] und „sein“ [Possessivpronomen zu „er“]), Eigennamen („Herr Finkenmüller“), ungebräuchlichen Komposita („Programmierenlernen“) oder trennbaren Verben (“<u>Ruf</u> mich <u>an</u>“) bestehen allerdings Fehlerquellen, die es im Blick zu behalten gilt.</p>
+<p>Zur Lemmatisierung eignet sich u. a. das Modul <a class="reference external" href="https://serwiss.bib.hs-hannover.de/frontdoor/deliver/index/docId/2457/file/wartena2023-HanTa_v1.1.0.pdf"><code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code></a>, das wir in der folgenden Code-Zelle importieren und <code class="docutils literal notranslate"><span class="pre">ht</span></code> zuweisen. Anschließend wählen wir das deutsche Sprachmodell und weisen es <code class="docutils literal notranslate"><span class="pre">ht_tagger</span></code> zu:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">HanTa</span> <span class="kn">import</span> <span class="n">HanoverTagger</span> <span class="k">as</span> <span class="n">ht</span>
+
+<span class="c1">#Der &#39;HanoverTagger&#39; stellt auch ein Modell für Englisch und Niederländisch zur Verfügung, vgl. https://github.com/wartaal/HanTa/tree/master.</span>
+<span class="n">ht_tagger</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">HanoverTagger</span><span class="p">(</span><span class="s1">&#39;morphmodel_ger.pgz&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">271315092.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">HanTa</span> <span class="kn">import</span> <span class="n">HanoverTagger</span> <span class="k">as</span> <span class="n">ht</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Der &#39;HanoverTagger&#39; stellt auch ein Modell für Englisch und Niederländisch zur Verfügung, vgl. https://github.com/wartaal/HanTa/tree/master.</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ht_tagger</span> <span class="o">=</span> <span class="n">ht</span><span class="o">.</span><span class="n">HanoverTagger</span><span class="p">(</span><span class="s1">&#39;morphmodel_ger.pgz&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;HanTa&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das wollen wir gleich mal ausprobieren und zwar an einem längeren Text. Wir nutzen dazu das Märchen „Des Kaisers neue Kleider“, das wir auch im Notebook „Reguläre Ausdrücke“ bearbeiten. Zunächst lesen wir es ein:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Des_Kaisers_neue_Kleider/Des_Kaisers_neue_Kleider.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">fairytale</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">fairytale</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Des Kaisers neue Kleider
+
+Vor vielen Jahren lebte einmal ein Kaiser, der so viel auf schöne neue Kleider hielt, daß er all sein Geld ausgab, um immer recht geputzt einherzugehen. Er kümmerte sich nicht um seine Soldaten und kümmerte sich auch nicht um das Theater oder Waldpartien, außer wenn er seine neuen Kleider dabei zeigen konnte. Für jede Tageszeit hatte er einen besonderen Rock, und wie man sonst von den Königen sagt: Seine Majestät befindet sich im Staatsrat, so sagte man hier: der Kaiser ist im Ankleidezimmer. In der Hauptstadt des Landes, wo er wohnte, ging es sehr lebhaft zu, und jeden Tag kamen dort viele Fremde an. So erschienen eines Tages auch zwei Betrüger, die sich für Weber ausgaben und behaupteten, sie seien imstande, den allerschönsten Stoff, den man sich nur denken könne, zu weben. Nicht allein seien schon die Farben und das Muster außergewöhnlich schön, sondern es hätten auch die Kleider, die man aus diesem Stoff verfertigte, die wunderbare Eigenschaft, daß sie für solche Menschen, die für ihren Beruf nicht taugten oder unerlaubt dumm seien, unsichtbar blieben.
+»Das wären ja ausgezeichnete Kleider!« dachte der Kaiser. »Wenn ich solche Anzüge hätte, könnte ich leicht dahinter kommen, welche Männer in meinem Reiche für das Amt, das sie bekleiden, tauglich sind oder nicht, und ich könnte dann die Dummen aus den Klugen ausscheiden. »Ja, solch ein Stoff muß gleich für mich gewebt werden!« Und er gab den beiden Betrügern ein reiches Handgeld, damit sie sofort mit ihrer Arbeit begännen.
+Sie stellten auch richtig zwei Webstühle auf und taten, als ob sie daran arbeiteten, hatten aber nicht das geringste auf dem Stuhle.
+Trotzdem begehrten sie mit frecher Stirne die feinste Seide und das prächtigste Gold. Das steckten sie dann in ihre eigenen Taschen und arbeiteten an den leeren Webstühlen immer bis tief in die Nacht hinein.
+»Nun möchte ich doch wissen, wie weit sie mit dem Stoffe sind!« dachte der Kaiser, aber es war ihm doch ein wenig sonderbar zu Mut, wenn er daran dachte, daß derjenige, welcher dumm oder für sein Amt untauglich war, die Weberei nicht zu sehen vermochte. Er glaubte zwar wohl, er brauche seinetwegen nicht ängstlich zu sein, zog es aber doch vor, erst einen anderen zu senden, um nachzusehen, wie die Sache sich verhielt. Jedermann in der ganzen Stadt wußte, welch eine wunderbare Kraft der Stoff haben sollte, und war daher sehr gespannt zu sehen, wie untauglich und dumm sein Nachbar sei.
+»Ich will meinen guten, alten Minister zu den Webern schicken«, dachte der Kaiser, »er kann am besten beurteilen, wie der Stoff sich ausnimmt, denn er ist sehr klug, und niemand ist besser für sein Amt geeignet als er.«
+Nun ging der alte, gutmütige Minister in den Saal, wo die beiden Betrüger an den leeren Stühlen saßen und arbeiteten. »Lieber Gott!« dachte der alte Minister und riß die Augen auf, »ich sehe ja gar nichts!«, aber er sagte es nicht laut.
+Die beiden Betrüger ersuchten ihn, näher zu treten, und fragten, ob das nicht ein sehr schönes Muster und prächtige Farben seien. Dabei deuteten sie auf den leeren Webstuhl, aber obgleich sich der arme Minister die größte Mühe gab, konnte er doch nichts wahrnehmen, denn es war nichts da. »Mein Gott!« dachte er, »sollte ich am Ende dumm sein? Das hätte ich doch nicht gedacht, und das darf kein Mensch erfahren. Sollte ich für mein Amt nicht taugen? Nein, nein! ich darf nicht erzählen, daß ich den Stoff auf dem Webstuhl nicht gesehen habe.«
+»Nun, Sie sagen ja gar nichts!« bemerkte der eine der Weber.
+»O, es ist prachtvoll! Ganz wunderschön!« antwortete der alte Minister und schaute durch seine Brille. »Dieses Muster und diese Farben! Ja, ich werde dem Kaiser berichten, daß es mir außerordentlich gut gefällt.«
+»Nun, das freut uns!« sagten die Weber, und darauf nannten sie die Farben mit Namen und erklärten ihm das eigentümliche Muster. Der alte Minister hörte aufmerksam zu, damit er dem Kaiser nachher genauen Bericht darüber erstatten könne. Aber nun verlangten die Betrüger noch mehr Geld, Seide und Gold, indem sie vorgaben, sie brauchten es noch zu dem Gewebe. Sie steckten alles in ihre eigenen Taschen, auf den Webstuhl kam nicht ein einziger Faden, und sie arbeiteten nach wie vor an den leeren Stühlen weiter.
+Nach kurzer Zeit sandte der Kaiser einen andern gutmütigen Beamten hin, um nachzusehen, wie es mit dem Stoff gehe und ob er bald fertig sei. Diesem Herrn ging es genau wie dem Minister; er sah sich fast die Augen aus; da aber außer dem leeren Webstuhle nichts da war, konnte er natürlich auch nichts sehen.
+»Ist das nicht ein schöner Stoff?« fragten die beiden Betrüger und erklärten auch ihm das schöne Muster, das gar nicht da war. »Dumm bin ich doch eigentlich nicht«, dachte der Mann, »demnach tauge ich, wie es scheint, nicht zu meinem Amt. Das ist doch sonderbar, und ich darf es natürlich niemand merken lassen.« Er rühmte also den Stoff, den er nicht sah, und sprach den Webern seine Freude über die schönen Farben und das herrliche Muster aus. »Es ist wirklich wunderschön!« sagte er zum Kaiser.
+In der ganzen Stadt sprach man von dem prächtigen Stoffe. Endlich wollte ihn der Kaiser selbst auch sehen, so lange er noch auf dem Webstuhle sei. Er begab sich also mit einer Schar auserwählter Männer, unter denen sich auch die beiden alten, treuen Beamten befanden, die vorher schon dort gewesen waren, zu den beiden listigen Betrügern, die nun aus Leibeskräften webten, aber ohne Zettel und Einschuß.
+»Ist es nicht prachtvoll?« sagten die beiden treuen Beamten. »Geruhen Eure Majestät zu bewundern. Welch ein schönes Muster! Welch feurige Farben!« Dabei deuteten sie auf den leeren Webstuhl, denn sie dachten, die andern könnten den Stoff gewiß sehen.
+»Was ist das?« dachte der Kaiser, »ich sehe ja gar nichts! Wie entsetzlich! Bin denn ich dumm? Tauge ich am Ende nicht zum Kaiser? Das wäre das Schrecklichste, was mir passieren könnte.« – »Es ist recht hübsch!« sagte er darauf, »es hat meinen allerhöchsten Beifall!« Und er nickte zufrieden, indem er immerfort den leeren Webstuhl betrachtete; denn er wollte nicht gestehen, daß er nichts sehen konnte.
+Das ganze Gefolge gab sich die größte Mühe, guckte und guckte, konnte aber natürlich auch nicht mehr entdecken als die Ersten. Gleichwohl sprachen sie alle dem Kaiser nach: »Ja, es ist recht hübsch!« Sie rieten ihm, die aus diesem herrlichen Stoffe verfertigten Kleider bei einem feierlichen Umzuge, der nahe bevorstand, zum ersten Mal zu tragen. »Reizend! entzückend! wundervoll!« ging es von Mund zu Mund, und alle waren sehr erfreut darüber. Der Kaiser verlieh den beiden Betrügern einen Orden und gab ihnen den Titel »Hofweber«.
+Die ganze Nacht vor dem Umzuge verbrachten die beiden Betrüger beim Scheine von mehr als sechzehn Kerzen an ihren Webstühlen, damit die Leute meinen sollten, sie arbeiteten so fleißig an den neuen Kleidern des Kaisers. Sie taten, als ob sie den Stoff von den Stühlen abnähmen, schnitten mit großen Scheren in der Luft herum, nähten mit Nähnadeln ohne Faden und sagten schließlich: »So, nun sind die Kleider fertig!«
+Der Kaiser kam mit seinen vornehmsten Hofleuten selbst herbei, und die Betrüger erhoben den Arm, als ob sie etwas vorzeigten und sagten: »Seht, hier sind die Beinkleider! hier ist der Rock! hier ist der Mantel und so weiter. Leicht wie Spinnengewebe sind sie! Man könnte meinen, man hätte gar nichts auf dem Leibe; aber das ist gerade der Vorzug dabei.«
+»Ja«, sagten alle Hofleute, sahen aber nichts; denn es war ja gar nichts da. »Geruhen Eure Majestät nun allergnädigst Dero Kleider abzulegen!« sagten die Betrüger, »dann werden wir Eurer Majestät hier vor dem großen Spiegel die neuen anlegen.«
+Der Kaiser entkleidete sich, und die Betrüger taten nun, als ob sie ihm jedes Stück der neuen Kleidung, eins ums andere, anzögen; dann faßten sie ihn um die Hüften, nestelten an ihm herum, als ob sie etwas festbänden, was die Schleppe vorstellen sollte, und der Kaiser wandte und drehte sich vor dem Spiegel. »Wunderschön! Sie sitzen ausgezeichnet und kleiden Eure Majestät herrlich!« riefen alle Anwesenden. »Welches Muster! welche Farben! es ist ein unvergleichlicher Anzug!«
+»Draußen steht schon der Thronhimmel bereit, der bei dem feierlichen Umzug über Eurer Majestät getragen werden soll!« meldete der Ober-Zeremonienmeister.
+»Nun, ich bin ja fertig!« sagte der Kaiser, »nicht wahr, es ist alles in Ordnung?« Dann wandte er sich noch einmal gegen den Spiegel, denn er wollte sich den Anschein geben, als ob er seinen Anzug genau betrachtete.
+Die Kammerherren, die die Schleppe zu tragen hatten, langten nun mit den Händen auf den Fußboden, als ob sie die Schleppe aufhöben, und hielten dann die Hände steif vor sich in der Luft, denn sie wollten und durften es sich nicht anmerken lassen, daß auch sie nichts sahen.
+So ging nun der Kaiser bei dem feierlichen Umzug unter dem Thronhimmel, und alle Leute auf den Straßen und in den Fenstern riefen: »Des Kaisers neue Kleider sind unvergleichlich! Welch eine herrliche Schleppe! Es sitzt alles wie angegossen!« Niemand wollte sich merken lassen, daß er nichts sah; denn das wäre ja ein Zeugnis gewesen, daß er zu seinem Amte untauglich oder schrecklich dumm sei. Noch niemals hatten die Kleider des Kaisers solchen Jubel hervorgerufen.
+»Aber er hat ja gar nichts an!« rief plötzlich ein kleines Kind. »Lieber Gott! hört ihr die Stimme der Unschuld!« sagte der Vater. Und einer flüsterte dem andern zu, was das Kind gesagt hatte. »Er hat gar nichts an; das kleine Kind dort hat behauptet, er habe gar nichts an!« erklang es.
+»Er hat ja gar nichts an!« rief endlich das ganze Volk. Da erschrak der Kaiser, denn es kam ihm selbst so vor, als ob das Volk recht habe, allein er dachte: »Nun hilft alles nichts; ich muß es eben aushalten!« So nahm er eine noch stolzere Haltung an, und die Kammerherren trugen die Schleppe, die gar nicht da war, noch stolzer hinter ihm her.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Auf <code class="docutils literal notranslate"><span class="pre">ht_tagger</span></code> können wir nun die Methode <code class="docutils literal notranslate"><span class="pre">tag_sent</span></code> anwenden, der wir eine Liste mit Wörtern übergeben müssen. Wie wir selbst lange Texte (nach unseren eigenen Vorstellungen flexibel) tokenisieren können, haben wir im Notebook „Funktionen und Methoden“ gelernt. Hier verwenden wir den Einfachheit halber die Funktion <code class="docutils literal notranslate"><span class="pre">word_tokenize</span></code> des Moduls <code class="docutils literal notranslate"><span class="pre">nltk</span></code> (für <u>N</u>atural <u>L</u>anguage <u>T</u>ool<u>k</u>it) zur Tokenisierung unseres Märchens. Die Liste mit Wörtern lassen wir direkt im Anschluss taggen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+
+<span class="n">fairytale_tokenized</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">fairytale</span><span class="p">)</span> <span class="c1">#Tokenisierung</span>
+
+<span class="n">fairytale_output_ht</span> <span class="o">=</span> <span class="n">ht_tagger</span><span class="o">.</span><span class="n">tag_sent</span><span class="p">(</span><span class="n">fairytale_tokenized</span><span class="p">)</span> <span class="c1">#Tagging</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">1615077797.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">nltk</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">fairytale_tokenized</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">fairytale</span><span class="p">)</span> <span class="c1">#Tokenisierung</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;nltk&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Werfen wir einen Blick in den Output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fairytale_output_ht</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">3435538635.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fairytale_output_ht</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;fairytale_output_ht&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie wir sehen, gibt uns der <code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code> für jedes Wort ein Tupel zurück, bestehend aus der ungetaggten Wortform, dem Lemma sowie ebenfalls dem POS-Tag – letzteres kriegen wir „frei Haus“ mitgeliefert.</p>
+<p>Ein Output dieser Art lässt sich wunderbar in ein DataFrame von <code class="docutils literal notranslate"><span class="pre">pandas</span></code> übertragen (vgl. Notebook „Datenanalyse“):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">2500</span> <span class="c1">#Erhöhen der maximal angezeigten Anzahl an Zeilen auf 2500</span>
+
+<span class="n">fairytale_df_ht</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">fairytale_output_ht</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Wortform&#39;</span><span class="p">,</span> <span class="s1">&#39;Lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;POS&#39;</span><span class="p">])</span>
+
+<span class="n">fairytale_df_ht</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">593810536.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">2500</span> <span class="c1">#Erhöhen der maximal angezeigten Anzahl an Zeilen auf 2500</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">fairytale_df_ht</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">fairytale_output_ht</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Wortform&#39;</span><span class="p">,</span> <span class="s1">&#39;Lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;POS&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">fairytale_df_ht</span>
+
+<span class="ne">NameError</span>: name &#39;fairytale_output_ht&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das macht nicht nur die Darstellung ansehnlicher, sondern erleichtert auch anschließende Auswertungen enorm. So können wir uns z. B. ganz einfach die häufigsten Lemmata oder die Frequenz eines bestimmten Lemmas ausgeben lassen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fairytale_df_ht</span><span class="o">.</span><span class="n">Lemma</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Häufigste Lemmata mithilfe von &#39;value_counts&#39; und &#39;head&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fairytale_df_ht</span><span class="p">[</span><span class="n">fairytale_df_ht</span><span class="o">.</span><span class="n">Lemma</span> <span class="o">==</span> <span class="s2">&quot;Kaiser&quot;</span><span class="p">]))</span> <span class="c1">#Häufigkeit eines bestimmten Lemmas mithilfe von Filter und &#39;len&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">2382482526.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">fairytale_df_ht</span><span class="o">.</span><span class="n">Lemma</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Häufigste Lemmata mithilfe von &#39;value_counts&#39; und &#39;head&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fairytale_df_ht</span><span class="p">[</span><span class="n">fairytale_df_ht</span><span class="o">.</span><span class="n">Lemma</span> <span class="o">==</span> <span class="s2">&quot;Kaiser&quot;</span><span class="p">]))</span> <span class="c1">#Häufigkeit eines bestimmten Lemmas mithilfe von Filter und &#39;len&#39;</span>
+
+<span class="ne">NameError</span>: name &#39;fairytale_df_ht&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Lemma „Kaiser“ kommt also insgesamt 24 Mal vor. Und als Wortform?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">fairytale_df_ht</span><span class="p">[</span><span class="n">fairytale_df_ht</span><span class="o">.</span><span class="n">Wortform</span> <span class="o">==</span> <span class="s2">&quot;Kaiser&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">3962807028.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">len</span><span class="p">(</span><span class="n">fairytale_df_ht</span><span class="p">[</span><span class="n">fairytale_df_ht</span><span class="o">.</span><span class="n">Wortform</span> <span class="o">==</span> <span class="s2">&quot;Kaiser&quot;</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;fairytale_df_ht&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wir also am Lemma „Kaiser“ – oder anders ausgedrückt: am Konzept ᴋᴀɪsᴇʀ – interessiert sind, zeigt sich an diesem Beispiel der Nutzen von Lemmatisierung. Und wie wir gesehen haben, liefert uns der <code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code> diese Lemmata auf unkomplizierte Weise.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 1:</strong> Lemmatisier den Koalitionsvertrag von 2018, der sich im Ordner „3_Dateien/Koalitionsvertraege“ befindet. Find dann erstens heraus, welches Lemma am häufigsten darin vorkommt sowie wie oft. Ermittle zweitens, welchen Wortformen dieses häufigste Lemma wie oft entspricht. Da der Koalitionsvertrag recht lang ist, dauert die Ausführung des Codes vielleicht etwas länger.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>State of the Art für deutschsprachige Lemmatisierung ist eigentlich der <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> (bzw. sein Vorgänger, der <code class="docutils literal notranslate"><span class="pre">TreeTagger</span></code>). Diesen gibt es jedoch nicht als Modul für Python, sondern nur als Command Line-Tool. Weiter ist seine Installation unter Windows zwar möglich, aber kompliziert. Der folgende Abschnitt zum <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> richtet sich nur an Nutzende mit macOS oder Linux.</p>
+<p>Wenn Windows Dein Betriebssystem ist, bringst Du den <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> am einfachsten zum Laufen, indem Du Linux als zweites Betriebssystem (konkreter: als sogenanntes <em>Subsystem</em> in Windows) auf Deinem Rechner installierst. Das ist gar nicht so kompliziert, wie es klingt. Eine Anleitung dazu findest Du im Ordner „5_Bonusmaterial“ im Notebook „Linux auf Windows“. Dort steht auch, wie Du den <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> über Dein neues Subsystem ausführst. Schau in dieses Notebook oder mach direkt hier bei <span class="xref myst">Part-of-Speech-Tagging</span> weiter.</p>
+<section id="lemmatisierung-mit-dem-rnntagger-fur-macos-linux">
+<h3>Lemmatisierung mit dem <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> für macOS/Linux<a class="headerlink" href="#lemmatisierung-mit-dem-rnntagger-fur-macos-linux" title="Permalink to this heading">#</a></h3>
+<p>Installier den <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> auf einem Rechner mit macOS oder Linux wie folgt:</p>
+<ol class="arabic">
+<li><p>Lad den <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> über <a class="reference external" href="https://www.cis.lmu.de/~schmid/tools/RNNTagger/data/RNNTagger-1.4.7.zip">diesen Link</a> (oder von <a class="reference external" href="https://www.cis.lmu.de/~schmid/tools/RNNTagger/">dieser Webseite</a>) herunter. Die Datei ist fast 4 GB groß, stell also sicher, dass Du eine stabile Internetverbindung sowie ausreichend Speicherplatz auf Deinem Rechner hast.</p></li>
+<li><p>Entpack die heruntergeladene Datei und speicher sie im bereits existierenden Ordner „3_Dateien/RNNTagger“. Stell sicher, dass die Ordnerstruktur am Ende so ausschaut:</p>
+ <img src="../3_Dateien/Grafiken_und_Videos/Ordnerstruktur_RNNTagger.png" width="800"></li>
+</ol>
+<p>Wie gesagt: Der <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> ist ein Tool für die Command Line. Wie wir aber beim Installieren der benötigten Module oben gesehen haben, können wir die Command Line auch aus einem Jupyter Notebook heraus bedienen. Das wollen wir gleich tun.</p>
+<p>Zunächst überprüfen wir, ob die Installation geklappt hat: Dazu müssen wir das Arbeitsverzeichnis in den Ordner verlegen, in dem sich der <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> nun entpackt befindet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Diese Zelle nur einmal ausführen, sonst erhältst Du eine Fehlermeldung, da relativ vom eben festgelegten</span>
+<span class="sd">Arbeitsverzeichnis &#39;../3_Dateien/RNNTagger&#39; kein Verzeichnis mit dem angegebenen Pfad existiert. &quot;&quot;&quot;</span>
+<span class="o">%</span><span class="k">cd</span> ../3_Dateien/RNNTagger 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/yfrommherz.ch/yfrommherz.ch/website/programming/3_Dateien/RNNTagger
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun legen wir im Ordner „3_Dateien/Output“ eine Datei namens „test.txt“ an, die wir anschließend testweise taggen. Wir beschreiben die Datei mit „Schauen wir, ob das klappt!“. <code class="docutils literal notranslate"><span class="pre">echo</span></code> ist der entsprechende Command Line-Befehl für diesen Vorgang.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Der Pfad zur neuen Datei ist relativ vom eben festgelegten Arbeitsverzeichnis aus </span>
+<span class="sd">(dies gilt auch für die folgenden relativen Pfade in diesem Abschnitt).&quot;&quot;&quot;</span>
+<span class="o">!</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Schauen wir, ob das klappt!&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>../Output/test.txt<span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/bin/sh: 1: cannot create ../Output/test.txt: Directory nonexistent
+</pre></div>
+</div>
+</div>
+</div>
+<p>Abschließend rufen wir das Command Line-Tool <code class="docutils literal notranslate"><span class="pre">rnn-tagger-german.sh</span></code> (das sich im Unterordner „cmd“ befindet) auf, und beauftragen es, den Text aus der eben geschaffenen Testdatei zu taggen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cmd/rnn-tagger-german.sh<span class="w"> </span>../Output/test.txt<span class="w"> </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/bin/sh: 1: cmd/rnn-tagger-german.sh: not found
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ähnlich wie der <code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code> beherrscht der <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> nicht nur Lemmatisierung (drittes Element je Zeile), sondern auch morphologisches Tagging (zweites Element). In den morphologischen Tags sind wiederum auch POS-Tags enthalten (jeweils am Anfang).</p>
+<p>Nun wollen wir ebenfalls „Des Kaisers neue Kleider“ taggen, um anschließend den Output des <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> mit demjenigen des <code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code> zu vergleichen. Anstatt der Testdatei übergeben wir dem Command Line-Tool ganz einfach das Märchen. Wir ergänzen den Befehl um <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">...</span></code>, sodass der Output direkt in eine neue Datei geschrieben wird.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cmd/rnn-tagger-german.sh<span class="w"> </span>../Des_Kaisers_neue_Kleider/Des_Kaisers_neue_Kleider.txt<span class="w"> </span>&gt;<span class="w"> </span>../Output/Des_Kaisers_neue_Kleider_output.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/bin/sh: 1: cannot create ../Output/Des_Kaisers_neue_Kleider_output.txt: Directory nonexistent
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die getaggte Datei lesen wir wiederum am besten mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code> ein. Durch einen Blick in die Datei erfahren wir, dass die einzelnen Werte jeder Zeile, die wir in Spalten überführen wollen, durch „\t“ voneinander abgetrennt sind. Entsprechend spezifizieren wir den <code class="docutils literal notranslate"><span class="pre">sep</span></code>-Parameter. Weiter benennen wir die Spalten mithilfe des <code class="docutils literal notranslate"><span class="pre">names</span></code>-Parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;names&#39; beim Einlesen von Dateien entspricht &#39;columns&#39; beim Erstellen eines DataFrames basierend auf einem Objekt im Arbeitsspeicher, s. o.</span>
+<span class="n">fairytale_df_rnn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../Output/Des_Kaisers_neue_Kleider_output.txt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Wortform&#39;</span><span class="p">,</span> <span class="s1">&#39;Morphologie/POS&#39;</span><span class="p">,</span> <span class="s1">&#39;Lemma&#39;</span><span class="p">])</span>
+<span class="n">fairytale_df_rnn</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">1003675269.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#&#39;names&#39; beim Einlesen von Dateien entspricht &#39;columns&#39; beim Erstellen eines DataFrames basierend auf einem Objekt im Arbeitsspeicher, s. o.</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">fairytale_df_rnn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../Output/Des_Kaisers_neue_Kleider_output.txt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Wortform&#39;</span><span class="p">,</span> <span class="s1">&#39;Morphologie/POS&#39;</span><span class="p">,</span> <span class="s1">&#39;Lemma&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fairytale_df_rnn</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span> 
+<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> 
+<span class="g g-Whitespace">    </span><span class="mi">588</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span> 
+<span class="g g-Whitespace">    </span><span class="mi">481</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">483</span> 
+<span class="g g-Whitespace">    </span><span class="mi">484</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span> 
+<span class="ne">--&gt; </span><span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span> 
+<span class="g g-Whitespace">    </span><span class="mi">813</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> 
+<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="c1"># open handles</span>
+<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>             <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="ne">--&gt; </span><span class="mi">229</span>             <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span> 
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">707</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../Output/Des_Kaisers_neue_Kleider_output.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie gesagt, wir wollen den Output des <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> mit demjenigen des <code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code> vergleichen. Leider können wir nicht einfach die Spalte „Lemma“ in den beiden DataFrames miteinander vergleichen, denn die im <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> integrierte Tokenisierung weicht von derjenigen von <code class="docutils literal notranslate"><span class="pre">nltk</span></code> ab, wie wir sehen, wenn wir uns die Länge der beiden DataFrames ausgeben lassen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">fairytale_df_ht</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">fairytale_df_rnn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">234641280.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">len</span><span class="p">(</span><span class="n">fairytale_df_ht</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">fairytale_df_rnn</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;fairytale_df_ht&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Offensichtlich führte die Tokenisierung des <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> zu ein paar mehr Wörtern als diejenige von <code class="docutils literal notranslate"><span class="pre">nltk</span></code>, z. B. aufgrund unterschiedlicher Handhabung von Interpunktion. Dieser Umstand erschwert den zeilenweisen Vergleich der Werte in der Spalte „Lemma“.</p>
+<p>Wir lösen dieses Problem, indem wir die Lemmatisierung durch den <code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code> ganz einfach auf Basis der Tokenisierung des <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> (statt <code class="docutils literal notranslate"><span class="pre">nltk</span></code>) noch einmal vornehmen. Das Resultat der Tokenisierung vom <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> liegt uns ja in der Spalte „Wortform“ in <code class="docutils literal notranslate"><span class="pre">fairytale_df_rnn</span></code> vor. Der Methode <code class="docutils literal notranslate"><span class="pre">tag_sent</span></code>  des <code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code> übergeben wir ganz einfach die in eine Liste konvertierte Spalte „Wortform“:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rnn_tokenized_ht_output</span> <span class="o">=</span> <span class="n">ht_tagger</span><span class="o">.</span><span class="n">tag_sent</span><span class="p">(</span><span class="n">fairytale_df_rnn</span><span class="o">.</span><span class="n">Wortform</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">3584272561.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rnn_tokenized_ht_output</span> <span class="o">=</span> <span class="n">ht_tagger</span><span class="o">.</span><span class="n">tag_sent</span><span class="p">(</span><span class="n">fairytale_df_rnn</span><span class="o">.</span><span class="n">Wortform</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+
+<span class="ne">NameError</span>: name &#39;ht_tagger&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Da wir nur an den Lemmata interessiert sind, isolieren wir diese aus den Tupeln in <code class="docutils literal notranslate"><span class="pre">rnn_tokenized_ht_output</span></code> mithilfe einer List Comprehension:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rnn_tokenized_ht_output</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">rnn_tokenized_ht_output</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">773886551.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rnn_tokenized_ht_output</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">rnn_tokenized_ht_output</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;rnn_tokenized_ht_output&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun führen wir den Output der beiden Tagger zusammen, indem wir ein neues DataFrame mit den Wortformen und zwei Spalten für die beiden Lemmatisierungen schaffen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fairytale_comparison</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Wortform&quot;</span><span class="p">:</span> <span class="n">fairytale_df_rnn</span><span class="o">.</span><span class="n">Wortform</span><span class="p">,</span> 
+                                     <span class="s2">&quot;Lemma_RNN&quot;</span><span class="p">:</span> <span class="n">fairytale_df_rnn</span><span class="o">.</span><span class="n">Lemma</span><span class="p">,</span> 
+                                     <span class="s2">&quot;Lemma_ht&quot;</span><span class="p">:</span> <span class="n">rnn_tokenized_ht_output</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">269027090.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fairytale_comparison</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Wortform&quot;</span><span class="p">:</span> <span class="n">fairytale_df_rnn</span><span class="o">.</span><span class="n">Wortform</span><span class="p">,</span> 
+<span class="g g-Whitespace">      </span><span class="mi">2</span>                                      <span class="s2">&quot;Lemma_RNN&quot;</span><span class="p">:</span> <span class="n">fairytale_df_rnn</span><span class="o">.</span><span class="n">Lemma</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                                      <span class="s2">&quot;Lemma_ht&quot;</span><span class="p">:</span> <span class="n">rnn_tokenized_ht_output</span><span class="p">})</span>
+
+<span class="ne">NameError</span>: name &#39;fairytale_df_rnn&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Schauen wir uns <code class="docutils literal notranslate"><span class="pre">fairytale_comparison</span></code> an:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fairytale_comparison</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">463859207.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fairytale_comparison</span>
+
+<span class="ne">NameError</span>: name &#39;fairytale_comparison&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Beim Scrollen durch <code class="docutils literal notranslate"><span class="pre">fairytale_comparison</span></code> zeigt sich, dass die beiden Tagger meistens gleich lemmatisiert haben. In einigen Fällen resultierten jedoch unterschiedliche Lemmata. Folgender Code schneidet <code class="docutils literal notranslate"><span class="pre">fairytale_comparison</span></code> hinsichtlich unterschiedlicher Lemmatisierung zu und zählt deren Vorkommen auch gleich aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fairytale_comparison</span><span class="p">[</span><span class="n">fairytale_comparison</span><span class="o">.</span><span class="n">Lemma_RNN</span> <span class="o">!=</span> <span class="n">fairytale_comparison</span><span class="o">.</span><span class="n">Lemma_ht</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">1110675663.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fairytale_comparison</span><span class="p">[</span><span class="n">fairytale_comparison</span><span class="o">.</span><span class="n">Lemma_RNN</span> <span class="o">!=</span> <span class="n">fairytale_comparison</span><span class="o">.</span><span class="n">Lemma_ht</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;fairytale_comparison&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>In einigen dieser Fälle hat eindeutig einer der beiden Tagger recht (z. B. ist „gestehen“ keine flektierte Form von „stehen“, weswegen hier das Lemma „gestehen“ des <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> korrekt ist), in anderen müsste man sich den Kontext genauer anschauen (z. B. kann „gefällt“ eine flektierte Form sowohl von „gefallen“ als auch von „fällen“ sein). In den meisten Fällen jedoch gibt es kein Richtig oder Falsch. So ist es schlicht Konvention, ob „solche“ auf „solcher“ oder „solch“ reduziert werden soll. Solange dies konsistent gemacht wird, spielt es keine Rolle, welcher Konvention gefolgt wird. Schließlich garantiert die Konsistenz, dass wir zuverlässig Lemmata auszählen können.</p>
+<p><code class="docutils literal notranslate"><span class="pre">rnn-tagger-german</span></code> fürs Deutsche ist übrigens bei Weitem nicht der einzige Tagger, der sich im Ordner „cmd“ befindet. Den <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> gibt es für so verschiedene Sprachen wie Arabisch, Isländisch, Koreanisch, Frühneuhochdeutsch, Schweizerdeutsch oder Obersorbisch… Um Daten in einer der anderen Sprachen zu taggen, musst Du einzig den Pfad zum Tagger ersetzen.</p>
+<p>Bevor wir mit Part-of-Speech-Tagging weitermachen, müssen wir das aktuelle Arbeitsverzeichnis zurücksetzen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Diese Zelle nur einmal ausführen, s. Begründung oben</span>
+<span class="o">%</span><span class="k">cd</span> ../../1_Notebooks 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/work/yfrommherz.ch/yfrommherz.ch/website/programming/1_Notebooks
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-of-speech-tagging">
+<h2>Part-of-Speech-Tagging<a class="headerlink" href="#part-of-speech-tagging" title="Permalink to this heading">#</a></h2>
+<p>Beim Part-of-Speech-Tagging (kurz: <em>POS-Tagging</em>) wird die Wortart eines Worts ermittelt. POS-Tags sind aber wesentlich feiner gegliedert als die herkömmlichen paar Wortarten, die wir in der Schule gelernt haben (u. a. Nomen, Verben, Adjektive etc.). So wird etwa bei den Verben danach unterschieden, ob sie <a class="reference external" href="https://de.wikipedia.org/wiki/Finite_Verbform">finit</a> sind sowie, ob es sich um ein Hilfs- oder Modalverb handelt. Wie bereits erwähnt ist fürs Deutsche das <a class="reference external" href="https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets/#id-cfcbf0a7-0">Stuttgart-Tübingen-TagSet</a> der Standard (die hier nicht behandelte, aber ebenfalls beliebte korpuslinguistische Software Sketch Engine verwendet jedoch ein eigenes <a class="reference external" href="https://www.cis.uni-muenchen.de/~schmid/papers/Schmid-Laws.pdf">Tagset</a>). Das STTS umfasst insgesamt 54 Tags. Wie auch bei der Lemmatisierung, ist die Zuordnung eines POS-Tags nicht immer eindeutig.</p>
+<p>Zum POS-Taggen können wir, wie oben bereits gemacht, den <code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code> (sowie ebenfalls den <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code>) einsetzen. Spielen wir das noch an einem weiteren Text durch, z. B. dem ersten Kapitel von Niels Holgersen. Bevor wir den Text taggen können, müssen wir ihn für den <code class="docutils literal notranslate"><span class="pre">HanoverTagger</span></code> tokenisieren:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Niels_Holgersen/Kapitel_1.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">niels_holgersen</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+<span class="n">niels_holgersen_tokenized</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">)</span> <span class="c1">#Tokenisierung</span>
+
+<span class="n">niels_holgersen_output</span> <span class="o">=</span> <span class="n">ht_tagger</span><span class="o">.</span><span class="n">tag_sent</span><span class="p">(</span><span class="n">niels_holgersen_tokenized</span><span class="p">)</span> <span class="c1">#Tagging</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">618298486.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">niels_holgersen</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">niels_holgersen_tokenized</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">)</span> <span class="c1">#Tokenisierung</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">niels_holgersen_output</span> <span class="o">=</span> <span class="n">ht_tagger</span><span class="o">.</span><span class="n">tag_sent</span><span class="p">(</span><span class="n">niels_holgersen_tokenized</span><span class="p">)</span> <span class="c1">#Tagging</span>
+
+<span class="ne">NameError</span>: name &#39;nltk&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Schauen wir uns das Ergebnis wiederum in einem DataFrame an:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">niels_holgersen_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">niels_holgersen_output</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Wortform&#39;</span><span class="p">,</span> <span class="s1">&#39;Lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;POS&#39;</span><span class="p">])</span>
+
+<span class="n">niels_holgersen_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">4106642152.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">niels_holgersen_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">niels_holgersen_output</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Wortform&#39;</span><span class="p">,</span> <span class="s1">&#39;Lemma&#39;</span><span class="p">,</span> <span class="s1">&#39;POS&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">niels_holgersen_df</span>
+
+<span class="ne">NameError</span>: name &#39;niels_holgersen_output&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das schaut doch wunderbar aus!</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Bring in Erfahrung, welche fünf Adjektive am häufigsten im ersten Kapitel von Niels Holgersen vorkommen.</p>
+<details>
+  <summary>💡 Tipp 1</summary>
+  <br>Schau in der <a href="https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets/#id-cfcbf0a7-0">Dokumentation des POS-Tagsets</a> nach, welche Tags für Adjektive verwendet werden. Setzt der <code>HanoverTagger</code> das Tagset eins-zu-eins um?
+</details>
+<br>
+<details>
+  <summary>💡 Tipp 2</summary>
+  <br>Überleg Dir, ob Wortformen oder Lemmata besser zur Ausgabe der fünf häufigsten Adjektive geeignet sind.
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Sehr gut. Machen wir mit morphologischem Tagging weiter.</p>
+</section>
+<section id="morphologisches-tagging">
+<h2>Morphologisches Tagging<a class="headerlink" href="#morphologisches-tagging" title="Permalink to this heading">#</a></h2>
+<p>Während wir bei der Lemmatisierung flektierte Wortformen auf ihre unflektierte Grundform reduzieren, geht es beim morphologischen Tagging umgekehrt darum, herauszufinden, <em>wie</em> eine Wortform flektiert ist sowie welche grammatikalischen Merkmale sie aufweist. Die Wortform „Häuser“ in einem Satz wie „Sie verkauft Häuser“ liegt etwa als <em>neutrales</em> (Genus) Nomen im <em>Akkusativ</em> (Kasus) und <em>Plural</em> (Numerus) vor. Morphologische Tags werden üblicherweise kombiniert mit POS-Tags benutzt, z. B. um alle Verbformen in der dritten Person Singular zu extrahieren.</p>
+<p>Wenn Du den <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> installiert hast, hast Du bereits gesehen, wie Du morphologische Tags (inkl. POS-Tags) erhältst. Weiter bieten die Module <code class="docutils literal notranslate"><span class="pre">spacy</span></code> und <code class="docutils literal notranslate"><span class="pre">stanza</span></code> die Möglichkeit, Texte morphologisch zu taggen. In den folgenden Zellen tun wir Folgendes:</p>
+<ol class="arabic simple">
+<li><p>Wir bereiten das morphologische Tagging mithilfe der beiden Tagger vor.</p></li>
+<li><p>Wir taggen wieder das erste Kapitel aus Niels Holgersen, wobei wir jeweils messen, wie lange das Tagging dauert.</p></li>
+<li><p>Wir überführen den Output in zwei verschiedene DataFrames.</p></li>
+</ol>
+<p>Lies die Kommentare in den Code-Zellen aufmerksam durch, um nachzuvollziehen, wie <code class="docutils literal notranslate"><span class="pre">spacy</span></code> und <code class="docutils literal notranslate"><span class="pre">stanza</span></code> zum morphologischen Tagging eingesetzt werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Erstens: Vorbereitung für &#39;spacy&#39;</span>
+<span class="kn">import</span> <span class="nn">spacy</span><span class="o">,</span> <span class="nn">spacy.cli</span>
+
+<span class="sd">&quot;&quot;&quot;Download des deutschsprachigen Modells, das zum Taggen benötigt wird. Das Modell muss</span>
+<span class="sd">nur einmal heruntergeladen werden, danach befindet es sich lokal gespeichert.&quot;&quot;&quot;</span>
+<span class="n">spacy</span><span class="o">.</span><span class="n">cli</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;de_core_news_sm&quot;</span><span class="p">)</span> 
+
+<span class="c1">#Initialisieren von &#39;spacy_tagger&#39; mit dem deutschsprachigen Modell (anstatt &#39;spacy_tagger&#39; wird auch oft die Variable &#39;nlp&#39; benutzt)</span>
+<span class="n">spacy_tagger</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;de_core_news_sm&quot;</span><span class="p">)</span> <span class="c1">#&#39;spacy&#39; stellt weitere Modelle für Deutsch und andere Sprachen zur Verfügung</span>
+
+<span class="c1">#Vorbereitung für &#39;stanza&#39;</span>
+<span class="kn">import</span> <span class="nn">stanza</span>
+
+<span class="sd">&quot;&quot;&quot;Initialisieren von &#39;stanza_tagger&#39; mit deutschsprachigem Modell sowie den benötigten Modellen bzw. Taggern: </span>
+<span class="sd">Morphologisches Tagging ist bei &#39;stanza&#39; Teil von &#39;pos&#39;; &#39;tokenize&#39; und &#39;mwt&#39; (Multiworttokenisierung) sind </span>
+<span class="sd">wiederum Voraussetzungen für &#39;pos&#39;. Modelle werden automatisch heruntergeladen.&quot;&quot;&quot;</span>
+<span class="n">stanza_tagger</span> <span class="o">=</span> <span class="n">stanza</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="n">processors</span><span class="o">=</span><span class="s2">&quot;tokenize,mwt,pos&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">3353407444.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Erstens: Vorbereitung für &#39;spacy&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">spacy</span><span class="o">,</span> <span class="nn">spacy.cli</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="w"> </span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Download des deutschsprachigen Modells, das zum Taggen benötigt wird. Das Modell muss</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd"> nur einmal heruntergeladen werden, danach befindet es sich lokal gespeichert.&quot;&quot;&quot;</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;spacy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Zweitens: Eigentliches Tagging inkl. Zeitmessung</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1">#Mit &#39;spacy&#39;</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">spacy_output</span> <span class="o">=</span> <span class="n">spacy_tagger</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">)</span>
+<span class="n">spacy_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+
+<span class="c1">#Mit &#39;stanza&#39;</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">stanza_output</span> <span class="o">=</span> <span class="n">stanza_tagger</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">)</span>
+<span class="n">stanza_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">1545129905.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#Mit &#39;spacy&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">spacy_output</span> <span class="o">=</span> <span class="n">spacy_tagger</span><span class="p">(</span><span class="n">niels_holgersen</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">spacy_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+
+<span class="ne">NameError</span>: name &#39;spacy_tagger&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Drittens: Überführen in DataFrame</span>
+
+<span class="c1">#Output von &#39;spacy&#39;</span>
+<span class="sd">&quot;&quot;&quot;Das Überführen der getaggten Daten in ein DataFrame kann verschiedentlich umgesetzt werden, </span>
+<span class="sd">hier folgt eine besonders effiziente Variante: Wir erstellen erst eine Liste (&#39;list_of_all_dicts&#39;),</span>
+<span class="sd">an die wir unten bei der Iteration über &#39;spacy_output&#39; die einzelnen Zeilenwerte (Wortform und Morphologie) </span>
+<span class="sd">in Form eines dictionary (&#39;dict_per_word&#39;) anhängen. Aus dem dictionary konstruieren wir anschließend</span>
+<span class="sd">ein DataFrame.&quot;&quot;&quot;</span>
+<span class="n">list_of_all_dicts</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="sd">&quot;&quot;&quot;Iteration über &#39;spacy_output&#39;, um Wortform (über &#39;text&#39;-Attribut) und morphologisches Tag (&#39;morph&#39;) für jede </span>
+<span class="sd">Zeile (im finalen DataFrame) in &#39;dict_per_word&#39; zu übertragen und &#39;list_of_all_dicts&#39; anzuhängen. Die morphologischen Tags </span>
+<span class="sd">casten wir dabei in einen string und bereinigen sie von Klammern. Das Casting ermöglicht nicht nur die Bereinigung, </span>
+<span class="sd">sondern stellt auch sicher, dass die Tags im finalen DataFrame auch wirklich als strings vorliegen und nicht als </span>
+<span class="sd">spacy-eigener Datentyp. Dies ist für die Auswertung der Daten mit &#39;pandas&#39;-string-Methoden entscheidend.&quot;&quot;&quot;</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">spacy_output</span><span class="p">:</span>
+    <span class="n">dict_per_word</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Wortform&quot;</span><span class="p">:</span> <span class="n">word</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+        <span class="s2">&quot;Morphologie&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">morph</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;()&quot;</span><span class="p">)}</span>
+    <span class="n">list_of_all_dicts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dict_per_word</span><span class="p">)</span>
+    
+<span class="n">niels_holgersen_df_spacy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">list_of_all_dicts</span><span class="p">)</span> <span class="c1">#Erstellen eines DataFrame auf Basis der Liste mit dictionaries</span>
+
+<span class="c1">#Output von &#39;stanza&#39;</span>
+<span class="sd">&quot;&quot;&quot;Gleiche Logik wie oben, allerdings teilt &#39;stanza&#39; den Text beim Tagging zunächst in Sätze auf, weswegen wir erst über </span>
+<span class="sd">die Sätze (mithilfe des Attributs &#39;sentences&#39;) iterieren müssen, dann über die darin befindlichen Wörter (&#39;words&#39;), </span>
+<span class="sd">um schließlich auf die Wortform (&#39;text&#39;) sowie die morphologischen Informationen (&#39;feats&#39;) zuzugreifen.&quot;&quot;&quot;</span>
+<span class="n">list_of_all_dicts</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">stanza_output</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">words</span><span class="p">:</span>
+        <span class="n">dict_per_word</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Wortform&quot;</span><span class="p">:</span> <span class="n">word</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+            <span class="s2">&quot;Morphologie&quot;</span><span class="p">:</span> <span class="n">word</span><span class="o">.</span><span class="n">feats</span><span class="p">}</span>
+        <span class="n">list_of_all_dicts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dict_per_word</span><span class="p">)</span>
+    
+<span class="n">niels_holgersen_df_stanza</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">list_of_all_dicts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">2976256587.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">sondern</span> <span class="n">stellt</span> <span class="n">auch</span> <span class="n">sicher</span><span class="p">,</span> <span class="n">dass</span> <span class="n">die</span> <span class="n">Tags</span> <span class="n">im</span> <span class="n">finalen</span> <span class="n">DataFrame</span> <span class="n">auch</span> <span class="n">wirklich</span> <span class="n">als</span> <span class="n">strings</span> <span class="n">vorliegen</span> <span class="n">und</span> <span class="n">nicht</span> <span class="n">als</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">spacy</span><span class="o">-</span><span class="n">eigener</span> <span class="n">Datentyp</span><span class="o">.</span> <span class="n">Dies</span> <span class="n">ist</span> <span class="n">für</span> <span class="n">die</span> <span class="n">Auswertung</span> <span class="n">der</span> <span class="n">Daten</span> <span class="n">mit</span> <span class="s1">&#39;pandas&#39;</span><span class="o">-</span><span class="n">string</span><span class="o">-</span><span class="n">Methoden</span> <span class="n">entscheidend</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">16</span><span class="s2"> for word in spacy_output:</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="s2">     dict_per_word = {</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="s2">         &quot;Wortform&quot;: word.text,</span>
+
+<span class="ne">NameError</span>: name &#39;spacy_output&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Werfen wir in den nächsten beiden Zellen einen Blick in die DataFrames mit den morphologischen Tags, konkret in den Schluss des Textes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">niels_holgersen_df_spacy</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">1931328816.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">niels_holgersen_df_spacy</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;niels_holgersen_df_spacy&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">niels_holgersen_df_stanza</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">2708731236.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">niels_holgersen_df_stanza</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;niels_holgersen_df_stanza&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenngleich sich der Output der beiden Tagger ähnelt, zeigen sich doch Unterschiede, etwa beim Wort „Verdrießlichkeiten“, bei dem nur <code class="docutils literal notranslate"><span class="pre">stanza</span></code> das korrekte Genus taggt. Bei „flöge“ hingegen liegt <code class="docutils literal notranslate"><span class="pre">spacy</span></code> in Bezug auf den Modus Konjuktiv (<em><u>sub</u>junctive Mood</em> auf Englisch) richtig. Ein kompletter, zeilenweiser Vergleich aller Tags ist an dieser Stelle schwierig, da die beiden Tagger unterschiedlich tokenisiert haben, was zu einer abweichenden Gesamtzahl an Zeilen führt (vgl. auch Abschnitt zum <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code>). Gemeinhin gilt der Output von <code class="docutils literal notranslate"><span class="pre">stanza</span></code> als zuverlässiger als derjenige von <code class="docutils literal notranslate"><span class="pre">spacy</span></code>. Übrigens kann es sein, dass sich die morphologischen Tags in Deinem Output von den hier erwähnten unterscheiden, was darauf zurückzuführen wäre, dass die zugrundeliegenden Sprachmodelle von <code class="docutils literal notranslate"><span class="pre">spacy</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">stanza</span></code> aktualisiert wurden. Diese Einschränkung gilt auch bei den übrigen Taggingarten.</p>
+<p>Abgesehen von der Qualität der Tags könnten sich die beiden Tagger (auch) mit Blick auf die Effizienz unterscheiden. Schauen wir, wie lange sie jeweils zum Taggen des gegebenen Texts benötigt haben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spacy_time</span><span class="p">,</span> <span class="n">stanza_time</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">1723853505.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">spacy_time</span><span class="p">,</span> <span class="n">stanza_time</span>
+
+<span class="ne">NameError</span>: name &#39;spacy_time&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hier hat <code class="docutils literal notranslate"><span class="pre">spacy</span></code> klar die Nase vorn. Die Zeiten mögen leicht variieren, <code class="docutils literal notranslate"><span class="pre">spacy</span></code> ist aber immer um ein Vielfaches schneller als <code class="docutils literal notranslate"><span class="pre">stanza</span></code>.</p>
+<p>Je nach Daten und Forschungsinteresse müssen wir folglich zwischen der Zuverlässigkeit der Tags – die es manuell zu beurteilen gilt – und der Effizienz des Taggings abwägen.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Reicher den Koalitionsvertrag von 2021 nicht nur mit morphologischen Tags, sondern auch mit Lemmata und POS-Tags an. Wähl selbst, welchen Tagger Du dazu verwendest und informier Dich ggf. in der entsprechenden Dokumentation zu den Taggingmöglichkeiten. Überführ die getaggten Daten abschließend in ein DataFrame.</p>
+<details>
+  <summary>💡 Tipp 1</summary>
+  <br>Da es sich um einen langen Text handelt, bietet sich die Nutzung des effizienteren Moduls, <code>spacy</code>, an. Alternativ könntest Du auch mit dem <code>RNNTagger</code> arbeiten.
+</details>
+<br>
+<details>
+  <summary>💡 Tipp 2</summary>
+  <br>Stell sicher, dass Du die morphologischen Tags als strings in das DataFrame überführst (vgl. Kommentar in der Code-Zelle "#Drittens: Überführen in DataFrame" oben). Dies ist wichtig für die anschließende Datenauswertung in Übung 4.
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> Ermittle die 20 häufigsten femininen Nomina im Koalitionsvertrag von 2021.</p>
+<details>
+  <summary>💡 Tipp 1</summary>
+  <br>Arbeite mit dem in Übung 3 erstellten DataFrame sowie string-Methoden (vgl. Notebook "Datenanalyse") und überleg Dir zunächst, wie Du das DataFrame filtern kannst, um nur Nomina zu erhalten, und nur solche, die auch <i>feminin</i> sind. 
+</details>
+<br>
+<details>
+  <summary>💡 Tipp 2</summary>
+  <br>Mehrere Filter kannst Du bei <code>pandas</code> durch den <code>&</code>-Operator verbinden. Setz aber die einzelnen Filter in runde Klammern.
+</details>
+<br>
+<details>
+  <summary>💡 Tipp 3</summary>
+  <br>Nachdem Du das DataFrame gefiltert hast, musst Du Dir überlegen, in welcher Spalte Du sinnvollerweise das Vorkommen der Werte auszählst (vgl. auch Übung 2 oben).
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Weiter geht’s mit syntaktischem Parsing</p>
+</section>
+<section id="syntaktisches-parsing">
+<h2>Syntaktisches Parsing<a class="headerlink" href="#syntaktisches-parsing" title="Permalink to this heading">#</a></h2>
+<p>Beim syntaktischen Parsing (auch <em>dependency parsing</em> genannt) interessiert uns, welche syntaktischen Beziehungen zwischen den einzelnen Wörtern eines Satzes bestehen. Um beim minimalistischen Beispiel „Sie verkauft Häuser“ zu bleiben: „Sie“ entspricht in diesem Beispiel dem Subjekt, „verkauft“ dem Prädikat und „Häuser“ dem (Akkusativ-)objekt. Das Prädikat wird als Wurzel (engl. <em>root</em>) des Satzes bezeichnet.</p>
+<p>Auch für syntaktisches Parsing bieten sich sowohl <code class="docutils literal notranslate"><span class="pre">spacy</span></code> als auch <code class="docutils literal notranslate"><span class="pre">stanza</span></code> an. Im Falle von <code class="docutils literal notranslate"><span class="pre">spacy</span></code> können wir bereits den oben initialisierten <code class="docutils literal notranslate"><span class="pre">spacy_tagger</span></code> benutzen, denn <code class="docutils literal notranslate"><span class="pre">spacy</span></code> taggt Sprachdaten – wie wir auch in Übung 3 gesehen haben – <em>standardmäßig</em> in Bezug auf Lemmata, POS, Morphologie und eben Syntax (sowie Named Entity Recognition, s. u.). Über ein <a class="reference external" href="https://spacy.io/usage/linguistic-features#disabling"><code class="docutils literal notranslate"><span class="pre">disable</span></code>-Argument</a> im <code class="docutils literal notranslate"><span class="pre">load</span></code>-Befehl (s. o.) könnten wir allerdings einzelne Tagger ausschalten, was vor allem bei großen Datenmengen Sinn macht. Für <code class="docutils literal notranslate"><span class="pre">stanza</span></code> hingegen müssen wir den <code class="docutils literal notranslate"><span class="pre">stanza_tagger</span></code> modifizieren, um Daten syntaktisch taggen zu können:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Die Tagger vor &#39;depparse&#39; sind Abhängigkeiten desselben und müssen entsprechend mitgeladen werden</span>
+<span class="n">stanza_tagger</span> <span class="o">=</span> <span class="n">stanza</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="n">processors</span><span class="o">=</span><span class="s2">&quot;tokenize,mwt,pos,lemma,depparse&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">3645753284.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Die Tagger vor &#39;depparse&#39; sind Abhängigkeiten desselben und müssen entsprechend mitgeladen werden</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">stanza_tagger</span> <span class="o">=</span> <span class="n">stanza</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="n">processors</span><span class="o">=</span><span class="s2">&quot;tokenize,mwt,pos,lemma,depparse&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;stanza&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lassen wir uns unseren leicht ergänzten Beispielsatz in <code class="docutils literal notranslate"><span class="pre">sentence</span></code> syntaktisch auseinandernehmen, und zwar von beiden Taggern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Sie verkauft dem jungen Herrn schöne Häuser&quot;</span>
+
+<span class="c1">#Tagging</span>
+<span class="n">spacy_output</span> <span class="o">=</span> <span class="n">spacy_tagger</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="n">stanza_output</span> <span class="o">=</span> <span class="n">stanza_tagger</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+
+<span class="c1">#Ausgabe der beiden Outputs nebeneinander mithilfe einer &#39;range&#39;-Schleife</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Wortform&#39;</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="s1">&#39;spacy&#39;</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="s1">&#39;stanza&#39;</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">30</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spacy_output</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Zugriff auf jeweilige Wortform und syntaktische Tags (bei &#39;spacy&#39; mit &#39;dep_&#39;-Attribut, bei &#39;stanza&#39; </span>
+<span class="sd">    mit &#39;deprel&#39;-Attribut). Da &#39;stanza&#39; den zu taggenden Text jeweils erst in Sätze splittet (vgl. Kommentar oben) müssen</span>
+<span class="sd">    wir zusätzlich den ersten (und einzigen) Satz mit dem Index null indizieren. Schöne Formatierung mit f-strings.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">spacy_output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">spacy_output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dep_</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">stanza_output</span><span class="o">.</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">deprel</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">4028200640.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Tagging</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">spacy_output</span> <span class="o">=</span> <span class="n">spacy_tagger</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">stanza_output</span> <span class="o">=</span> <span class="n">stanza_tagger</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+
+<span class="ne">NameError</span>: name &#39;spacy_tagger&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die beiden Tagger verwenden offenkundig unterschiedliche Tagsets. <code class="docutils literal notranslate"><span class="pre">stanza</span></code> verwendet die Tags von <a class="reference external" href="https://universaldependencies.org/de/dep/index.html">Universal Dependencies</a>, einem Projekt, das sich um einheitliche sprachübergreifende Annotation bemüht. <code class="docutils literal notranslate"><span class="pre">spacy</span></code> richtet sich auch danach, nennt die Tags aber anders. Sämtliche Tags bei <code class="docutils literal notranslate"><span class="pre">spacy</span></code> und ihre Bedeutung können wir so erfahren:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">spacy_tagger</span><span class="o">.</span><span class="n">get_pipe</span><span class="p">(</span><span class="s2">&quot;parser&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">labels</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">spacy</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">505126135.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">spacy_tagger</span><span class="o">.</span><span class="n">get_pipe</span><span class="p">(</span><span class="s2">&quot;parser&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">labels</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">spacy</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;spacy_tagger&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im Beispiel oben unterscheidet <code class="docutils literal notranslate"><span class="pre">stanza</span></code> im Gegensatz zu <code class="docutils literal notranslate"><span class="pre">spacy</span></code> zwischen Adjektiv („amod“) und Artikel („det“). <code class="docutils literal notranslate"><span class="pre">spacy</span></code> taggt hingegen schlicht „noun kernel element“, was im Sinne von Bestandteilen der <a class="reference external" href="https://de.wikipedia.org/wiki/Nominalphrase">Nominalphrase</a> zu verstehen ist. Andererseits punktet <code class="docutils literal notranslate"><span class="pre">spacy</span></code> bei der korrekten Kasuszuordnung der Objekte („da“ vs. „oa“, also Dativ vs. Akkusativ). <code class="docutils literal notranslate"><span class="pre">stanza</span></code> auf der anderen Seite taggt in beiden Fällen „obj“, was gemäß dem <a class="reference external" href="https://universaldependencies.org/de/dep/obj.html">Universal Dependencies-Tagset</a> für das direkte Objekt, also das Akkusativobjekt, steht und insofern bei „Herrn“ falsch ist. Auch hier gilt: Je nach Daten und Forschungsinteresse muss evaluiert werden, welcher Tagger die besten Ergebnisse liefert.</p>
+<p><code class="docutils literal notranslate"><span class="pre">spacy</span></code> implementiert übrigens die hilfreiche Möglichkeit, sich die syntaktischen Beziehungen in einem Satz visualisieren zu lassen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spacy</span> <span class="kn">import</span> <span class="n">displacy</span>
+
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Sie verkauft dem jungen Herrn schöne Häuser&quot;</span>
+
+<span class="n">spacy_output</span> <span class="o">=</span> <span class="n">spacy_tagger</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">spacy_output</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;dep&quot;</span><span class="p">,</span> <span class="n">jupyter</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">2392931664.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">spacy</span> <span class="kn">import</span> <span class="n">displacy</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Sie verkauft dem jungen Herrn schöne Häuser&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">spacy_output</span> <span class="o">=</span> <span class="n">spacy_tagger</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;spacy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 5:</strong> Find heraus, welche Wörter besonders häufig als Subjekt im Koalitionsvertrag von 2021 stehen und lass Dir die zehn Spitzenreiter ausgeben.</p>
+<details>
+  <summary>💡 Tipp</summary>
+  <br>Musst Du den Koalitionsvertrag dafür noch einmal taggen?
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Sehr gut. Wenden wir uns der Named Entity Recognition zu.</p>
+</section>
+<section id="named-entity-recognition">
+<h2>Named Entity Recognition<a class="headerlink" href="#named-entity-recognition" title="Permalink to this heading">#</a></h2>
+<p>Bei der Named Entity Recognition (abgekürzt: <em>NER</em>) geht es darum, Eigennamen, etwa für Personen, geografische Orte oder Institutionen, in einem Text zu identifizieren. Statt wie bislang jedem Wort ein Tag zuzuweisen, werden bestimmte Wörter bzw. <em>Sequenzen</em> von Wörtern als <em>Named Entity</em> ausgewiesen. Named Entity Recognition ermöglicht es, bestimmte Informationen aus großen, unstrukturierten Textmengen zu extrahieren und strukturiert, z. B. in Form einer Tabelle, zu speichern.</p>
+<p>Für Named Entity Recognition können wir abermals <code class="docutils literal notranslate"><span class="pre">spacy</span></code> und <code class="docutils literal notranslate"><span class="pre">stanza</span></code> verwenden, wobei wir den <code class="docutils literal notranslate"><span class="pre">stanza_tagger</span></code> noch einmal „umprogrammieren“ müssen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Der Tagger vor &#39;ner&#39; ist eine Abhängigkeit desselben und muss entsprechend mitgeladen werden.</span>
+<span class="n">stanza_tagger</span> <span class="o">=</span> <span class="n">stanza</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="n">processors</span><span class="o">=</span><span class="s2">&quot;tokenize,ner&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">3698138645.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Der Tagger vor &#39;ner&#39; ist eine Abhängigkeit desselben und muss entsprechend mitgeladen werden.</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">stanza_tagger</span> <span class="o">=</span> <span class="n">stanza</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span><span class="n">lang</span><span class="o">=</span><span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="n">processors</span><span class="o">=</span><span class="s2">&quot;tokenize,ner&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;stanza&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun können wir uns den in <code class="docutils literal notranslate"><span class="pre">sentence</span></code> gegebenen Satz im Hinblick auf Eigennamen taggen lassen, und zwar von beiden Taggern:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Angela Merkel traf den Vorstand der Deutschen Bahn in Frankfurt am Main.&quot;</span>
+
+<span class="c1">#Tagging</span>
+<span class="n">spacy_output</span> <span class="o">=</span> <span class="n">spacy_tagger</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="n">stanza_output</span> <span class="o">=</span> <span class="n">stanza_tagger</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;Ausgabe der beiden Outputs nebeneinander mithilfe einer &#39;range&#39;-Schleife über &#39;spacy_out.ents&#39; </span>
+<span class="sd">(&#39;ents&#39;-Attribut schafft ein Objekt zur Iteration über getaggte Entitäten)&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Wortform&#39;</span><span class="si">:</span><span class="s2">30</span><span class="si">}{</span><span class="s1">&#39;spacy&#39;</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="s1">&#39;stanza&#39;</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">50</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spacy_output</span><span class="o">.</span><span class="n">ents</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Zugriff auf Wortform (&#39;text&#39;-Attribut) der getaggten Entität, sowie das verliehene Tag</span>
+<span class="sd">    vonseiten &#39;spacy&#39; (&#39;label_&#39;-Attribut) bzw. &#39;stanza&#39; (&#39;type&#39;-Attribut). Diese Art der Iteration</span>
+<span class="sd">    und Ausgabe funktioniert natürlich nur so lange dieselben Entitäten getaggt wurden, was</span>
+<span class="sd">    bei diesem kurzen Beispielsatz der Fall ist.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">spacy_output</span><span class="o">.</span><span class="n">ents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="si">:</span><span class="s2">30</span><span class="si">}{</span><span class="n">spacy_output</span><span class="o">.</span><span class="n">ents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">label_</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">stanza_output</span><span class="o">.</span><span class="n">ents</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">4031449485.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Tagging</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">spacy_output</span> <span class="o">=</span> <span class="n">spacy_tagger</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">stanza_output</span> <span class="o">=</span> <span class="n">stanza_tagger</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+
+<span class="ne">NameError</span>: name &#39;spacy_tagger&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das klappt wunderbar: Angela Merkel wurde als Person („PER“), die Deutsche Bahn als Organisation („ORG“) und Frankfurt am Main als geografischer Ort („LOC“) erkannt.</p>
+<p><code class="docutils literal notranslate"><span class="pre">spacy</span></code> unterscheidet fürs deutschsprachige NER-Tagging folgende vier Tags:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">spacy_tagger</span><span class="o">.</span><span class="n">get_pipe</span><span class="p">(</span><span class="s2">&quot;ner&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">labels</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">spacy</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">2380055059.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">spacy_tagger</span><span class="o">.</span><span class="n">get_pipe</span><span class="p">(</span><span class="s2">&quot;ner&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">labels</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s2">10</span><span class="si">}{</span><span class="n">spacy</span><span class="o">.</span><span class="n">explain</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;spacy_tagger&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://stanfordnlp.github.io/stanza/ner_models.html"><code class="docutils literal notranslate"><span class="pre">stanza</span></code></a> verwendet dieselben vier Tags.</p>
+<p><code class="docutils literal notranslate"><span class="pre">spacy</span></code> bietet auch hier die Möglichkeit der Visualisierung, einzig den Parameter <code class="docutils literal notranslate"><span class="pre">style</span></code> müssen wir anpassen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">spacy_output</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ent&quot;</span><span class="p">,</span> <span class="n">jupyter</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">2056537963.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">spacy_output</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ent&quot;</span><span class="p">,</span> <span class="n">jupyter</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;displacy&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>An der grafischen Ausgabe erkennt man gut, dass es sich nicht um eine Wort-für-Wort-Klassifikation wie bei allen anderen Taggingarten bisher handelt, sondern um eine <em>Sequence Labeling Task</em>.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 6:</strong> Lad Dir mithilfe der <a class="reference external" href="https://pypi.org/project/Wikipedia-API/">API für Wikipedia</a> <code class="docutils literal notranslate"><span class="pre">wikipediaapi</span></code> (vgl. Zusatzübungen zum Notebook „Reguläre Ausdrücke“) den <em>englischsprachigen</em> Artikel zu einer prominenten Person Deiner Wahl herunter und extrahier alle darin erwähnten Personen mithilfe von <code class="docutils literal notranslate"><span class="pre">spacy</span></code> und <code class="docutils literal notranslate"><span class="pre">stanza</span></code>. Welche Unterschiede zeigen sich beim Vergleich der zehn häufigsten Personen in den beiden Outputs? Verwend <code class="docutils literal notranslate"><span class="pre">pandas</span></code> für diesen Vergleich.</p>
+<p>Lass Dir außerdem sämtliche von <code class="docutils literal notranslate"><span class="pre">spacy</span></code> gefundenen Named Entities visualisieren (also nicht nur die Personen). Erkennst Du einen Unterschied im Vergleich zum NER-Tagging deutschsprachiger Texte?</p>
+<details>
+  <summary>💡 Tipp 1</summary>
+  <br>Spezifiziere die richtige Sprache beim Abrufen des Artikels mithilfe von <code>wikipediaapi</code>.
+</details>
+<br>
+<details>
+  <summary>💡 Tipp 2</summary>
+  <br>Da Du nun einen englischsprachigen Text taggst, musst Du die beiden Tagger neu programmieren, d.&nbsp;h. ihnen ein englischsprachiges Modell zugrunde legen. Im Falle von <code>spacy</code> lädst Du dafür z.&nbsp;B. das Modell "en_core_web_sm" herunter und übergibst es dem <code>load</code>-Befehl (<a href="https://spacy.io/models">hier</a> findest Du eine Übersicht aller zur Verfügung stehenden Modelle bei <code>spacy</code>). Bei <code>stanza</code> reicht die Spezifikation des <code>lang</code>-Parameter als "en" beim Initialisieren des Taggers.
+</details>
+<br>
+<details>
+  <summary>💡 Tipp 3</summary>
+  <br>Die beiden Tagger verwenden dasselbe Tag für Personen, aber ist es auch das gleiche Tag wie beim Tagging deutschsprachiger Texte? 
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wunderbar. Schauen wir uns abschließend noch Sentiment Analysis an.</p>
+</section>
+<hr class="docutils" />
+<section id="sentiment-analysis">
+<h2>Sentiment Analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this heading">#</a></h2>
+<p>Bei der Sentiment Analysis werden einzelne Sätze oder auch ganze Texte nach der in ihnen ausgedrückten Stimmung (engl. <em>sentiment</em>) beurteilt. Je nach Tagger wird dieses Sentiment über sprachliche Tags von „positiv“ über „neutral“ bis „negativ“ oder über eine Zahl auf einer entsprechenden, numerischen Skala ausgedrückt (etwa von 1 bis -1).</p>
+<p>Sentiment Analysis stellt eine sinnvolle Technik zur Operationalisierung bestimmter Fragestellungen dar, etwa wenn Kommentare in Sozialen Medien hinsichtlich besonders negativen Inhalten, in denen z. B. Hass ausgedrückt wird, (vor-)gefiltert werden sollen. Für weiterreichendere Aussagen über Texte greift die Methode oft zu kurz, zumal die ihr zugrundeliegende Skala nur eine Dimension kennt. Weiter haben Sentiment Tagger oft Mühe, mit sprachlichen Phänomenen wie mehrfacher Negation („etwas nicht ungern tun“) oder Ironie umzugehen.</p>
+<p>Wollen wir aber die Probe auf’s Exempel machen. Wir nutzen dazu <a class="reference external" href="https://pypi.org/project/germansentiment/"><code class="docutils literal notranslate"><span class="pre">germansentiment</span></code></a> sowie ein paar simple Sätze aus <code class="docutils literal notranslate"><span class="pre">sentences</span></code>. Die Sätze sind aufsteigend nach Negativität sortiert, wobei dies bis zu einem gewissen Grad natürlich eine subjektive Einschätzung darstellt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">germansentiment</span> <span class="kn">import</span> <span class="n">SentimentModel</span>
+
+<span class="n">sentiment_tagger</span> <span class="o">=</span> <span class="n">SentimentModel</span><span class="p">()</span>
+
+<span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ich bin ein riesengroßer Fan von Schokolade.&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Was ich auch durchaus mag, sind frisch gepflückte Himbeeren.&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Salz und Pfeffer dürfen nicht fehlen.&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Von Kartoffelauflauf halte ich nichts.&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;Mit gekochten Möhren kannst Du mich jagen.&quot;</span><span class="p">]</span>
+
+<span class="n">sentiment_tagger</span><span class="o">.</span><span class="n">predict_sentiment</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">3695782044.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">germansentiment</span> <span class="kn">import</span> <span class="n">SentimentModel</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">sentiment_tagger</span> <span class="o">=</span> <span class="n">SentimentModel</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ich bin ein riesengroßer Fan von Schokolade.&quot;</span><span class="p">,</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;germansentiment&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Entsprechend der subjektiven Rangfolge, verleiht <code class="docutils literal notranslate"><span class="pre">germansentiment</span></code> den ersten beiden Sätzen das Tag „positive“, dem mittleren Satz „neutral“ sowie dem vierten Satz „negative“. Einzig beim letzten Satz weicht das verliehene Tag vom subjektiven Urteil ab, dass es sich um einen (sehr) negativen Satz handelt. Auch hier gilt: Die erwähnten Tags wurden zum Zeitpunkt des Verfassens dieses Notebooks verliehen und können nach einer Aktualisierung der Sprachmodelle anders ausfallen (s. o.).</p>
+<p><code class="docutils literal notranslate"><span class="pre">germansentiment</span></code> vergibt insgesamt die drei Tags „positive“, „neutral“ und „negative“, wobei es für jedes Tag separat errechnet, wie wahrscheinlich dieses beim gegebenen Satz zutrifft. Oben haben wir jeweils das wahrscheinlichste Tag zurückerhalten. Indem wir den Parameter <code class="docutils literal notranslate"><span class="pre">output_probabilities</span></code> aber auf <code class="docutils literal notranslate"><span class="pre">True</span></code> setzen, erhalten wir neben den wahrscheinlichsten Tags auch Auskunft darüber, wie wahrscheinlich jedes einzelne Tag war.</p>
+<p>Die beiden Rückgabewerte, die Tags und die Wahrscheinlichkeiten, weisen wir sinnvollerweise zwei verschiedenen Variablen zu. Anschließend iterieren wir über die einigermaßen verschachtelten Objekte, um uns Tags und Wahrscheinlichkeitsverteilungen pro Satz ausgeben zu lassen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span><span class="p">,</span> <span class="n">probabilities</span> <span class="o">=</span> <span class="n">sentiment_tagger</span><span class="o">.</span><span class="n">predict_sentiment</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">output_probabilities</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Der Satz &#39;</span><span class="si">{</span><span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; ist am wahrscheinlichsten </span><span class="si">{</span><span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">. Insgesamt sieht die Wahrscheinlichkeitsverteilung so aus:&quot;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">probabilities</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">tag</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> hatte eine Wahrscheinlichkeit von </span><span class="si">{</span><span class="n">tag</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2137</span><span class="o">/</span><span class="mf">2678868426.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tags</span><span class="p">,</span> <span class="n">probabilities</span> <span class="o">=</span> <span class="n">sentiment_tagger</span><span class="o">.</span><span class="n">predict_sentiment</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">output_probabilities</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">)):</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Der Satz &#39;</span><span class="si">{</span><span class="n">sentences</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39; ist am wahrscheinlichsten </span><span class="si">{</span><span class="n">tags</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">. Insgesamt sieht die Wahrscheinlichkeitsverteilung so aus:&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;sentiment_tagger&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es zeigt sich, dass sich <code class="docutils literal notranslate"><span class="pre">germansentiment</span></code> bei seiner Einschätzung, dass der letzte Satz in <code class="docutils literal notranslate"><span class="pre">sentences</span></code> neutral ist, sogar sehr sicher ist. Vielleicht liegt dies daran, dass der Satz umgangssprachlich formuliert ist; vielleicht aber auch daran, dass der Tagger die vorangehenden Sätze nicht als Kontext mit einbezieht. Anders chatGPT, das analog zur subjektiven Einschätzung von oben urteilt:</p>
+<img src="../3_Dateien/Grafiken_und_Videos/sentiment_analysis_chatGPT.png"><p>OpenAI bietet übrigens auch eine API, mit der wir über Python Anfragen an chatGPT schicken können. Die Anzahl an Anfragen über diesen Kanal ist allerdings stark eingeschränkt und nur zahlende Nutzer:innen können die API sinnvoll einsetzen.</p>
+<p>Üben wir Sentiment Analysis!</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 7:</strong> Find heraus, ob es sich beim Koalitionsvertrag von 2021 um einen positiven, neutralen oder negativen Text handelt. Überleg Dir genau, was für Input <code class="docutils literal notranslate"><span class="pre">predict_sentiment</span></code> erwartet, d. h. wie Du den Koalitionsvertrag sinnvollerweise taggst.</p>
+<details>
+  <summary>💡 Tipp 1</summary>
+  <br><code>predict_sentiment</code> erwartet eine Liste mit strings. Zwar könntest Du den gesamten Koalitionsvertrag als ein string auf einer Liste übergeben, angesichts der Länge des Texts ist es aber sinnvoller, diesen erst in Sätze zu splitten (u.&nbsp;a. weil Du nur so den Fortschritt des Taggings verfolgen kannst, s. Tipp 2). <code>nltk</code> bietet übrigens auch dafür eine Funktion, nämlich <code>sent_tokenize</code> (vgl. <code>word_tokenize</code> oben). Nun übergibst Du Satz für Satz an <code>germansentiment</code>, allerdings trotzdem als Element einer Liste, denn das ist das erwartete Inputformat. Abschließend berechnest Du, welches Tag am häufigsten verliehen wurde.
+</details>
+<br>
+<details>
+  <summary>💡 Tipp 2</summary>
+    <br>Das Tagging dauert lange. Bau mithilfe von <code>tqdm</code> eine Fortschrittsanzeige ein, um den Prozess im Blick behalten zu können (vgl. Zusatzübungen zum Notebook "Web Scraping"). Führ den Code gerne auch über Nacht aus und stell sicher, dass sich Dein Rechner nicht nach einer gewissen Zeit von alleine ausschaltet. 
+    <br><br>Weiter empfiehlt es sich, den Tagging-Code zunächst bei einigen wenigen Sätzen auszuprobieren. Ansonsten musst Du jeweils sehr lange warten, bis der Code ausgeführt wurde und Du überprüfen kannst, ob das Resultat wie gewünscht aussieht.
+</details>
+<br>
+<details><summary>🦊 Herausforderung</summary>
+<br>Find zusätzlich heraus, bei welchen Sätzen des Koalitionsvertrags ein negatives bzw. positives Sentiment mit einer Wahrscheinlichkeit von über 50% getaggt wurde.
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Bevor wir uns dem Anwendungsfall widmen, soll noch auf eine hilfreiche Ressource für Sentiment Analysis hingewiesen werden: <a class="reference external" href="https://wortschatz.uni-leipzig.de/de/download">SentiWS</a>. Das Projekt Deutscher Wortschatz stellt mit SentiWS eine umfangreiche Liste von Wörtern zur Verfügung, die typischerweise Sentiment ausdrücken. Jedes Wort wird mit einer Zahl zwischen 1 und -1 bewertet. Anstatt einen fertigen Tagger wie <code class="docutils literal notranslate"><span class="pre">germansentiment</span></code> über Deine Daten laufen zu lassen, kannst Du auch das „Sentiment-Wörterbuch“ von SentiWS benutzen. Dadurch ermittelst Du nicht nur, welches Sentiment Dein Text ausdrückt, sondern erfährst zudem, aufgrund welcher Wörter dieses Sentiment zustandekommt.</p>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h2>🔧 Anwendungsfall: (D)ein Korpus taggen 🏷️<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Setz nun die erlernten Taggingkenntnisse um und reicher eigene Daten mit Zusatzinformationen an. Schau Dir ebenfalls den Musteranwendungsfall in den Lösungen an.</p>
+<hr class="docutils" />
+<p>Gute Arbeit!</p>
+<p><br><br></p>
+<hr class="docutils" />
+<table>
+      <tr>
+        <td>
+            <img src="../3_Dateien/Lizenz/CC-BY-SA.png" width="400">
+        </td> 
+        <td>
+            <p>Dieses Notebook sowie sämtliche weiteren <a href="https://github.com/yannickfrommherz/exdimed-student/tree/main">Materialien zum Programmierenlernen für Geistes- und Sozialwissenschaftler:innen</a> sind im Rahmen des Projekts <i>Experimentierraum Digitale Medienkompetenz</i> als Teil von <a href="https://tu-dresden.de/gsw/virtuos/">virTUos</a> entstanden. Erstellt wurden sie von Yannick Frommherz unter Mitarbeit von Anne Josephine Matz. Sie stehen als Open Educational Resource nach <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY SA</a> zur freien Verfügung. Für Feedback und bei Fragen nutz bitte das <a href="https://forms.gle/VsYJgy4bZTSqKioA7">Kontaktformular</a>.
+        </td>
+      </tr>
+</table></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "yannickfrommherz/yfrommherz.ch",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programming/1_Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#allgemein">Allgemein</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-d-ein-korpus-taggen">🔧 Anwendungsfall: (D)ein Korpus taggen 🏷️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatisierung">Lemmatisierung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatisierung-mit-dem-rnntagger-fur-macos-linux">Lemmatisierung mit dem <code class="docutils literal notranslate"><span class="pre">RNNTagger</span></code> für macOS/Linux</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-of-speech-tagging">Part-of-Speech-Tagging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#morphologisches-tagging">Morphologisches Tagging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntaktisches-parsing">Syntaktisches Parsing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition">Named Entity Recognition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sentiment-analysis">Sentiment Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: (D)ein Korpus taggen 🏷️</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Yannick Frommherz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> This page is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -665,7 +665,7 @@ dazu kommt 137 oft vor.
 <li><p>Schritt: siehe komplette Lösung oben.</p></li>
 </ol>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 1:</strong> Definier eine Funktion <code class="docutils literal notranslate"><span class="pre">sum_div</span></code>, die drei Argumente nimmt. Das erste soll mit dem zweiten addiert werden. Das Ergebnis davon soll durch das dritte Argument geteilt werden. Dieses Ergebnis soll zurückgegeben werden. Entfern anschließend den Hashtag vor der bereits existierenden Code-Zeile. Wenn Du <code class="docutils literal notranslate"><span class="pre">True</span></code> erhältst, hast Du alles richtig gemacht!</p>
+<p>✏️ <strong>Übung 1:</strong> Definier eine Funktion <code class="docutils literal notranslate"><span class="pre">sum_div</span></code>, die drei Argumente nimmt. Das erste soll mit dem zweiten addiert werden. Das Ergebnis davon soll durch das dritte Argument geteilt werden. Dieses Ergebnis soll zurückgegeben werden. Entfern anschließend den Hashtag vor der bereits existierenden Code-Zeile. Wenn Du <code class="docutils literal notranslate"><span class="pre">True</span></code> erhältst, hast Du alles richtig gemacht!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Definieren einer Funktion &#39;sum_div&#39;, welcher drei Argumente (&#39;a,b,c&#39;) übergeben werden müssen</span>
@@ -683,15 +683,32 @@ dazu kommt 137 oft vor.
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 2:</strong> Importier die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls. <code class="docutils literal notranslate"><span class="pre">sample</span></code> generiert eine zufällige Auswahl von Elementen, z. B. zehn zufällige Elemente aus einer Grundgesamtheit mit allen Elementen. Die Funktion erwartet als erstes Argument die Grundgesamtheit in Form einer Liste und als zweites eine Ganzzahl, mit der die Anzahl der zufällig auszuwählenden Elemente definiert wird. Die Grundgesamtheit in dieser Übung ist das <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> von der Übung von oben bzw. aus dem Notebook „Kontrollstrukturen“. Die Anzahl der zufällig auszuwählenden Elemente beträgt in diesem Fall vier. Wir wollen also zufällige Spielzusammensetzungen mit jeweils vier Teilnehmer:innen erhalten.</p>
-<p>Deine Aufgabe besteht nun darin, so viele zufällige Spielzusammensetzungen zu genererieren, bis eine Zusammensetzung doppelt vorkommt. Verwend dazu eine passende Kontrollstruktur, die Deinen Code so oft wiederholt, bis die Bedingung, dass eine zufällige Zusammensetzung bereits einmal zuvor generiert wurde, zutrifft. In diesem Fall soll die Iteration abbrechen und die Anzahl der notwendigen Wiederholungen bis zur identischen Zusammensetzung ausgegeben werden.</p>
-<p>Beachte, dass es für diese Anzahl der notwendigen Wiederholungen keine richtige Antwort gibt, da es in der Natur der zufälligen Auswahl liegt, dass es manchmal etwas mehr und manchmal etwas weniger Wiederholungen braucht.</p>
+<p>✏️ <strong>Übung 2:</strong> Importier die Funktion <code class="docutils literal notranslate"><span class="pre">sample</span></code> des <code class="docutils literal notranslate"><span class="pre">random</span></code>-Moduls. <code class="docutils literal notranslate"><span class="pre">sample</span></code> generiert eine zufällige Auswahl von Elementen, z. B. zehn zufällige Elemente aus einer Grundgesamtheit mit allen Elementen. Die Funktion erwartet als erstes Argument die Grundgesamtheit in Form einer Liste und als zweites eine Ganzzahl, mit der die Anzahl der zufällig auszuwählenden Elemente definiert wird. Die Grundgesamtheit in dieser Übung ist das <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> aus dem Notebook „Kontrollstrukturen“. Die Anzahl der zufällig auszuwählenden Elemente beträgt in diesem Fall vier. Wir wollen fünf zufällige Spielzusammensetzungen mit jeweils vier Teilnehmer:innen erhalten.</p>
+<p>Deine Aufgabe besteht nun darin, fünf zufällige Spielzusammensetzungen zu genererieren. Lass Dir diese anschließend ausgeben.</p>
 <details>
-  <summary>📌 Herausforderung zur Übung </summary>
-    <br>Verpack Deinen gesamten Code in eine (andere) Kontrollstruktur, die Deinen Code, sagen wir, 1000 Mal wiederholt. Bei jeder Wiederholung soll die notwendige Anzahl, bis zwei Zusammensetzungen doppelt vorkommen, auf einer Liste gespeichert werden. Berechne zum Schluss den Mittelwert dieser Liste, indem Du mittels der Funktion <code>sum</code> alle Werte auf der Liste addierst und die Summe durch die Länge der Liste dividierst. Bei wiederholter Ausführung dieses Codes sollten die Mittelwerte nur noch geringfügig schwanken.
+  <summary>🦊 Herausforderung</summary>
+    <br>
+Pass den Code so an, dass er so lange wiederholt wird, bis die Bedingung, dass eine zufällige Zusammensetzung bereits einmal zuvor generiert wurde, zutrifft. In diesem Fall soll die Iteration abbrechen und die Anzahl der notwendigen Wiederholungen bis zur identischen Zusammensetzung ausgegeben werden. Wie viele zufällige Zusammensetzungen wurden generiert?
+<p>Beachte, dass es für diese Anzahl der notwendigen Wiederholungen keine richtige Antwort gibt, da es in der Natur der zufälligen Auswahl liegt, dass es manchmal etwas mehr und manchmal etwas weniger Wiederholungen braucht.</p>
 </details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span> <span class="c1">#Importieren der Funktion &#39;sample&#39; aus dem Modul &#39;random&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">participants_pool</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Janine&quot;</span><span class="p">,</span> <span class="s2">&quot;Hussein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Mia&quot;</span><span class="p">,</span> <span class="s2">&quot;Marianne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dolores&quot;</span><span class="p">,</span> <span class="s2">&quot;Yin&quot;</span><span class="p">,</span> <span class="s2">&quot;Margareth&quot;</span><span class="p">,</span> <span class="s2">&quot;Benni&quot;</span><span class="p">]</span>
+
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span> <span class="c1">#Importieren der Funktion &#39;sample&#39; des Moduls &#39;random&#39;</span>
+
+<span class="n">all_compositions</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste für die vier Zusammensetzungen</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="c1">#Iteration wird fünf mal durchgeführt</span>
+    <span class="n">current_composition</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">participants_pool</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">#Generieren einer zufälligen Zusammensetzung...</span>
+    <span class="n">all_compositions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_composition</span><span class="p">)</span> <span class="c1">#...und anfügen an die Liste aller Zusammensetzungen</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">all_compositions</span><span class="p">)</span>
+
+
+
+<span class="c1">#Fortgeschritten</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span> <span class="c1">#Importieren der Funktion &#39;sample&#39; aus dem Modul &#39;random&#39;</span>
 
 <span class="n">participants_pool</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Janine&quot;</span><span class="p">,</span> <span class="s2">&quot;Hussein&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Mia&quot;</span><span class="p">,</span> <span class="s2">&quot;Marianne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dolores&quot;</span><span class="p">,</span> <span class="s2">&quot;Yin&quot;</span><span class="p">,</span> <span class="s2">&quot;Margareth&quot;</span><span class="p">,</span> <span class="s2">&quot;Benni&quot;</span><span class="p">]</span>
 
@@ -709,41 +726,14 @@ dazu kommt 137 oft vor.
         <span class="k">break</span> <span class="c1">#...und die Schleife abgebrochen</span>
     
     <span class="n">all_compositions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_composition</span><span class="p">)</span> <span class="c1">#Anfügen der aktuellen Kombination an die Liste aller Kombinationen</span>
-    
+
     <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#Erhöhen der Zählervariable um eins</span>
-    
-<span class="c1">#Herausforderung</span>
-<span class="n">all_counts</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initiieren einer Liste, in der die Anzahl der Kombinationen gezählt wird, bis eine Zusammensetzung doppelt vorkommt</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span> <span class="c1">#Ausführung der Schleife durch &#39;range&#39;-Funktion 1000 Mal</span>
-    
-    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Zählervariable bekommt den Wert null zugewiesen</span>
-
-    <span class="n">all_compositions</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initiieren einer leeren Liste für die Kombinationen</span>
-    
-    <span class="c1">#Starten einer Schleife, die solange ausgeführt wird, bis die Abbruchbedingung erfüllt ist</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-
-        <span class="n">current_composition</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">participants_pool</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">#Zufällige Kombination mit vier Teilnehmer:innen aus der Liste</span>
-
-        <span class="k">if</span> <span class="n">current_composition</span> <span class="ow">in</span> <span class="n">all_compositions</span><span class="p">:</span> <span class="c1">#Wenn die aktuelle Kombination bereits in der Liste vorhanden ist...</span>
-            <span class="k">break</span> <span class="c1">#...wird die Schleife abgebrochen</span>
-
-        <span class="n">all_compositions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_composition</span><span class="p">)</span> <span class="c1">#Anfügen der aktuellen Kombination an die Liste aller Kombinationen</span>
-        
-        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#Erhöhen der Zählervariable um eins</span>
-    
-    <span class="n">all_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="c1">#Anfügen der Zahl an die Liste &#39;all_counts&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">all_counts</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">all_counts</span><span class="p">))</span> <span class="c1">#Berechnung des Mittelwertes</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>94
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>113.975
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Janine&#39;, &#39;Dolores&#39;, &#39;Yin&#39;, &#39;Fritz&#39;], [&#39;Mia&#39;, &#39;Janine&#39;, &#39;Max&#39;, &#39;Margareth&#39;], [&#39;Marianne&#39;, &#39;Mia&#39;, &#39;Margareth&#39;, &#39;Max&#39;], [&#39;Margareth&#39;, &#39;Yin&#39;, &#39;Max&#39;, &#39;Fritz&#39;], [&#39;Hussein&#39;, &#39;Margareth&#39;, &#39;Fritz&#39;, &#39;Moritz&#39;]]
+137
 </pre></div>
 </div>
 </div>

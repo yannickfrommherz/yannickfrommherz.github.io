@@ -551,12 +551,96 @@ document.write(`
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2399</span><span class="o">/</span><span class="mf">186257739.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>         <span class="s1">&#39;group&#39;</span><span class="o">-</span><span class="n">Methode</span> <span class="n">auf</span> <span class="n">die</span> <span class="n">erste</span> <span class="n">Gruppe</span> <span class="n">zugreifen</span> <span class="n">und</span> <span class="n">die</span> <span class="n">neue</span> <span class="n">Linkendung</span> <span class="n">an</span> <span class="n">den</span> <span class="n">Stammlink</span> <span class="n">hängen</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span><span class="s2">         link = base_link + next_page.group(1)</span>
-<span class="ne">---&gt; </span><span class="mi">42</span><span class="s2">         time.sleep(5) #Erst noch eine kleine Pause!</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span><span class="s2">     else: #...wenn nicht, ist das Werk komplett gescrapet und die &#39;while&#39;-Schleife wird abgebrochen.</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span><span class="s2">         break</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2415</span><span class="o">/</span><span class="mf">186257739.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aktuell wird gescrapt: </span><span class="si">{</span><span class="n">link</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#Ausgabe des Fortschritts</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> 
+<span class="ne">---&gt; </span><span class="mi">20</span>     <span class="n">current_page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span> <span class="c1">#Abruf des Quelltexts zum aktuellen Link</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> 
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="c1">#Kontrolle des Statuscodes</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">73</span><span class="s2">     return request(&quot;get&quot;, url, params=params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="s2">     # cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">     with sessions.Session() as session:</span>
+<span class="ne">---&gt; </span><span class="mi">59</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2">         }</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2">         send_kwargs.update(settings)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="s2">         return resp</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         # Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">703</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span><span class="s2">                 retries=self.max_retries,</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span><span class="s2">                 timeout=timeout,</span>
+<span class="ne">--&gt; </span><span class="mi">497</span><span class="s2">                 chunked=chunked,</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span><span class="s2">             )</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">801</span><span class="s2">                 preload_content=preload_content,</span>
+<span class="g g-Whitespace">    </span><span class="mi">802</span><span class="s2">                 decode_content=decode_content,</span>
+<span class="ne">--&gt; </span><span class="mi">803</span><span class="s2">                 **response_kw,</span>
+<span class="g g-Whitespace">    </span><span class="mi">804</span><span class="s2">             )</span>
+<span class="g g-Whitespace">    </span><span class="mi">805</span><span class="s2"> </span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">466</span><span class="s2">             # Trigger any extra validation we need to do.</span>
+<span class="g g-Whitespace">    </span><span class="mi">467</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">468</span><span class="s2">                 self._validate_conn(conn)</span>
+<span class="g g-Whitespace">    </span><span class="mi">469</span><span class="s2">             except (SocketTimeout, BaseSSLError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">470</span><span class="s2">                 self._raise_timeout(err=e, url=url, timeout_value=conn.timeout)</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/urllib3/connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1095</span><span class="s2">         # Force connect early to allow us to validate the connection.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1096</span><span class="s2">         if conn.is_closed:</span>
+<span class="ne">-&gt; </span><span class="mi">1097</span><span class="s2">             conn.connect()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1098</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1099</span><span class="s2">         if not conn.is_verified:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/urllib3/connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">609</span><span class="s2">     def connect(self) -&gt; None:</span>
+<span class="g g-Whitespace">    </span><span class="mi">610</span><span class="s2">         sock: socket.socket | ssl.SSLSocket</span>
+<span class="ne">--&gt; </span><span class="mi">611</span><span class="s2">         self.sock = sock = self._new_conn()</span>
+<span class="g g-Whitespace">    </span><span class="mi">612</span><span class="s2">         server_hostname: str = self.host</span>
+<span class="g g-Whitespace">    </span><span class="mi">613</span><span class="s2">         tls_in_tls = False</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/urllib3/connection.py</span> in <span class="ni">_new_conn</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span><span class="s2">                 self.timeout,</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span><span class="s2">                 source_address=self.source_address,</span>
+<span class="ne">--&gt; </span><span class="mi">207</span><span class="s2">                 socket_options=self.socket_options,</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span><span class="s2">             )</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span><span class="s2">         except socket.gaierror as e:</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/site-packages/urllib3/util/connection.py</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, socket_options)</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">         raise LocationParseError(f&quot;&#39;</span><span class="si">{host}</span><span class="s2">&#39;, label empty or too long&quot;) from None</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">60</span><span class="s2">     for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2">         af, socktype, proto, canonname, sa = res</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="s2">         sock = None</span>
+
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/socket.py</span> in <span class="ni">getaddrinfo</span><span class="nt">(host, port, family, type, proto, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">750</span><span class="s2">     # and socket type values to enum constants.</span>
+<span class="g g-Whitespace">    </span><span class="mi">751</span><span class="s2">     addrlist = []</span>
+<span class="ne">--&gt; </span><span class="mi">752</span><span class="s2">     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):</span>
+<span class="g g-Whitespace">    </span><span class="mi">753</span><span class="s2">         af, socktype, proto, canonname, sa = res</span>
+<span class="g g-Whitespace">    </span><span class="mi">754</span><span class="s2">         addrlist.append((_intenum_converter(af, AddressFamily),</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -832,7 +916,7 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 1:</strong> Pass obigen Extraktionscode so an, dass vor jeder Äußerung der Name des/der jeweiligen Abgeordneten ausgegeben wird.</p>
+<p>✏️ <strong>Übung 1:</strong> Pass obigen Extraktionscode so an, dass vor jeder Äußerung der Name des/der jeweiligen Abgeordneten ausgegeben wird.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Parsen des XML-Dokuments sowie Extrahieren von &#39;root&#39; (nur im Lösungsnotebook notwendig)</span>
@@ -866,7 +950,7 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 2:</strong> Neben den Reden bzw. Äußerungen der Abgeordneten, die gerade das Rederecht besitzen, enthält das Protokoll auch verbale Zwischenrufe sowie Anmerkungen über Beifall, Lachen etc. Diese Informationen sind in Elementen mit dem Tag <code class="docutils literal notranslate"><span class="pre">&lt;kommentar&gt;</span></code> enthalten. Extrahier sie für alle Reden, für die mindestens ein <code class="docutils literal notranslate"><span class="pre">&lt;kommentar&gt;</span></code>-Element protokolliert wurde. Lass sie Dir zusammen mit dem Namen des/der Abgeordneten ausgeben, der/die eigentlich gerade am sprechen ist.</p>
+<p>✏️ <strong>Übung 2:</strong> Neben den Reden bzw. Äußerungen der Abgeordneten, die gerade das Rederecht besitzen, enthält das Protokoll auch verbale Zwischenrufe sowie Anmerkungen über Beifall, Lachen etc. Diese Informationen sind in Elementen mit dem Tag <code class="docutils literal notranslate"><span class="pre">&lt;kommentar&gt;</span></code> enthalten. Extrahier sie für alle Reden, für die mindestens ein <code class="docutils literal notranslate"><span class="pre">&lt;kommentar&gt;</span></code>-Element protokolliert wurde. Lass sie Dir zusammen mit dem Namen des/der Abgeordneten ausgeben, der/die eigentlich gerade am sprechen ist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Achtung: Code funktioniert nur, wenn der Code zur vorangehenden Übung ausgeführt wurde!</span>
@@ -892,13 +976,12 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 3:</strong> Im Anwendungsfall haben wir sämtliche Strophen von Faust I in einer externen Textdatei gespeichert. Diese verfügt (idealerweise) über eine interne Struktur. In der Musterlösung wurde etwa mit Tabstopps und Zeilenumbrüchen gearbeitet, um einzelne Strophen bzw. die zugehörigen Figuren voneinander abzugrenzen. Diese Struktur kommt uns spätestens dann zu Gute, wenn wir die Daten für irgendeine Form von Auswertung mit Python wieder einlesen.</p>
+<p>✏️ <strong>Übung 3:</strong> Im Anwendungsfall haben wir sämtliche Strophen von Faust I in einer externen Textdatei gespeichert. Diese verfügt (idealerweise) über eine interne Struktur. In der Musterlösung wurde etwa mit Tabstopps und Zeilenumbrüchen gearbeitet, um einzelne Strophen bzw. die zugehörigen Figuren voneinander abzugrenzen. Diese Struktur kommt uns spätestens dann zu Gute, wenn wir die Daten für irgendeine Form von Auswertung mit Python wieder einlesen.</p>
 <p>Um unseren Anwendungsfall zu „professionalisieren“, ist es nun Deine Aufgabe, den Faust I in einem XML-Dokument speichern, also in einem Format, dessen „Aufgabe“ es ist, Daten ordentlich zu strukturieren. Kopier dazu den Code vom Extraktionsschritt des Anwendungsfalls in die folgende Zelle. Pass ihn anschließend so an, dass die Daten dynamisch in ein XML-Dokument statt in eine Textdatei geschrieben werden.</p>
 <p>Als kleiner Bonus, der überprüft, ob bei der Speicherung alles geklappt hat, vor allem aber die Nützlichkeit strukturierter Daten aufzeigt, kannst Du Dir anschließend über die bereits gegebene Code-Zelle einfach alle Verse des berühmten Teufels aus dem Faust ausgeben lassen. Wenn nötig, pass den Dateipfad bzw. die Tags und Attribute Deiner Namensgebung an.</p>
-<details><summary>📌 Herausforderung </summary>
+<details><summary>🦊 Herausforderung </summary>
 <br>Extrahier zusätzlich den Titel jeder Szene und speichere diese Information jeweils an der richtigen Position in der Hierarchie des zu schaffenden XML-Dokuments.
-</details>
-<br><div class="cell docutils container">
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Alle Kommentare beziehen sich auf den neu hinzugekommenen Lösungscode; Kommentare zum Extraktionscode</span>
 <span class="sd">siehe Anwendungsfall oben; Code funktioniert nur, wenn &#39;all_pages&#39; vom Abrufschritt noch im Arbeitsspeicher ist!&quot;&quot;&quot;</span>
@@ -1068,8 +1151,8 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 4:</strong> XML ist wie gesagt ein beliebtes Format, um Daten zu speichern und zu teilen. Neben XML arbeiten wir beim Programmieren auch oft mit csv-Dateien (vgl. Notebooks „Input und Output“ sowie „Datenanalyse“). Welchen Vorteil hat XML im Gegensatz zu csv?</p>
-<p><em>Antwort: Informationen, die bei XML <strong>einmal</strong> gespeichert sind (hier sämtliche Informationen außer die Wörter der Rede), müssen bei csv für jedes Element auf der tiefsten Ebene (also für jedes Wort) <strong>wiederholt</strong> werden. Das liegt an der fehlenden Hierarchie bei csv-Dateien. XML spart deshalb Speicherplatz. Allerdings können csv-Dateien aufgrund der häufig wiederholten, identischen Informationen sehr stark komprimiert werden. Der Vorteil von XML besteht also nur, wenn man aktiv mit den Daten arbeitet. Zum Speichern bzw. Teilen können csv-Dateien ähnlich kompakt gemacht werden wie XML-Dateien.</em></p>
+<p>✏️ <strong>Übung 4:</strong> XML ist wie gesagt ein beliebtes Format, um Daten zu speichern und zu teilen. Neben XML arbeiten wir beim Programmieren auch oft mit csv-Dateien (vgl. Notebooks „Input und Output“ sowie „Datenanalyse“). Welchen Vorteil hat XML im Gegensatz zu csv?</p>
+<p><em>Lösung: Informationen, die bei XML <strong>einmal</strong> gespeichert sind (hier sämtliche Informationen außer die Wörter der Rede), müssen bei csv für jedes Element auf der tiefsten Ebene (also für jedes Wort) <strong>wiederholt</strong> werden. Das liegt an der fehlenden Hierarchie bei csv-Dateien. XML spart deshalb Speicherplatz. Allerdings können csv-Dateien aufgrund der häufig wiederholten, identischen Informationen sehr stark komprimiert werden. Der Vorteil von XML besteht also nur, wenn man aktiv mit den Daten arbeitet. Zum Speichern bzw. Teilen können csv-Dateien ähnlich kompakt gemacht werden wie XML-Dateien.</em></p>
 <hr class="docutils" />
 <table>
       <tr>

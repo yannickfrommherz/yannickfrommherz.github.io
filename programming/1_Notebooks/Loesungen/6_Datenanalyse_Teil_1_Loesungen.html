@@ -495,7 +495,7 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 1:</strong> Erstell eine weitere Series, die nur das 100.000te, 200.000te und 300.000te Token der Series <code class="docutils literal notranslate"><span class="pre">tokens</span></code> beinhaltet.</p>
+<p>✏️ <strong>Übung 1:</strong> Erstell eine weitere Series, die nur das 100.000te, 200.000te und 300.000te Token der Series <code class="docutils literal notranslate"><span class="pre">tokens</span></code> beinhaltet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">[[</span><span class="mi">100000</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span><span class="mi">300000</span><span class="p">]])</span> <span class="c1">#Alternative 1: Liste an Indizes (beachte die inneren eckigen Klammern!)</span>
@@ -517,7 +517,7 @@ Name: Token, dtype: object
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 2:</strong></p>
+<p>✏️ <strong>Übung 2:</strong></p>
 <ol class="arabic simple">
 <li><p>Lies die Datei <code class="docutils literal notranslate"><span class="pre">songkorpus_tokens.tsv</span></code> abermals ein und übergib beim Erstellen des DataFrame zusätzlich den Parameter <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code>. Dadurch wird die erste Spalte (mit dem Index <code class="docutils literal notranslate"><span class="pre">0</span></code>), also diejenige mit den Tokens, zur sog. <em>Index-Spalte</em>. Jede Zeile hat nun statt eines numerischen Index einen Namen, nämlich das jeweilige Token. Weis das DataFrame der Variablen <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> zu.</p></li>
 <li><p>Benenn die Spalten wie bei <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> um. Falls Du hier eine Fehlermeldung kriegst, lies sie aufmerksam und pass Deinen Code entsprechend an.</p></li>
@@ -596,7 +596,7 @@ Name: Token, dtype: object
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 3:</strong> Setz die Tatsache, dass Zeilennamen mehrfach vorkommen dürfen, produktiv ein und find heraus, wie oft „Dresden“ in <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> vorkommt, indem Du die Häufigkeiten in allen Jahren, in denen das Wort gesungen wird, zusammenzählst.</p>
+<p>✏️ <strong>Übung 3:</strong> Setz die Tatsache, dass Zeilennamen mehrfach vorkommen dürfen, produktiv ein und find heraus, wie oft „Dresden“ in <code class="docutils literal notranslate"><span class="pre">songkorpus_labelled_rows</span></code> vorkommt, indem Du die Häufigkeiten in allen Jahren, in denen das Wort gesungen wird, zusammenzählst.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dresden</span> <span class="o">=</span> <span class="n">songkorpus_labelled_rows</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Dresden&quot;</span><span class="p">]</span> <span class="c1">#Erst greifen wir auf alle Zeilen zu, die &quot;Dresden&quot; als Label haben und weisen das Resultat der Variablen &#39;dresden&#39; zu</span>
@@ -627,7 +627,7 @@ Name: Token, dtype: object
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 4:</strong> Füg <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> eine weitere Spalte mit dem Namen „Länge“ hinzu, in der die Anzahl an Buchstaben je Token steht.</p>
+<p>✏️ <strong>Übung 4:</strong> Füg <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> eine weitere Spalte mit dem Namen „Länge“ hinzu, in der die Anzahl an Buchstaben je Token steht.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lengths</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer leeren Liste, an die unten die Tokenlängen gehängt werden</span>
@@ -714,7 +714,7 @@ Name: Token, dtype: object
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 5:</strong> Vereinfache den Code von oben, mit dessen Hilfe wir die Spalte „Jahrzehnt“ hinzugefügt haben, indem Du ihn mittels List Comprehension (vgl. Notebook „Funktionen und Methoden Teil 1“) auf eine einzige Zeile reduzierst. Hol den Abschnitt zu List Comprehensions nach, falls Du ihn damals ausgelassen hast, da er als fortgeschritten markiert war.</p>
+<p>✏️ <strong>Übung 5:</strong> Vereinfache den Code von oben, mit dessen Hilfe wir die Spalte „Jahrzehnt“ hinzugefügt haben, indem Du ihn mittels List Comprehension (vgl. Notebook „Funktionen und Methoden Teil 1“) auf eine einzige Zeile reduzierst. Hol den Abschnitt zu List Comprehensions nach, falls Du ihn damals ausgelassen hast, da er als fortgeschritten markiert war.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Slicing und Anhängen von null wird nacheinander auf jedes Element der Spalte &#39;Jahr&#39; angewendet.</span>
@@ -797,7 +797,7 @@ Name: Token, dtype: object
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 6:</strong> Führ die Zelle oben, in der wir <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> Zeilen mit Fantasiewörtern hinzugefügt haben, noch ein paar Mal aus, ohne darauf zu achten wie oft. Verwend nun <code class="docutils literal notranslate"><span class="pre">drop</span></code> in einer geeigneten Kontrollstruktur (vgl. Notebook „Kontrollstrukturen“) sowie die anfangs eingeführte Variable <code class="docutils literal notranslate"><span class="pre">original_len</span></code>, um die Fantasiewörter wieder zu entfernen und <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code>, was die Anzahl an Zeilen betrifft, wieder in seinen Originalzustand zu bringen.</p>
+<p>✏️ <strong>Übung 6:</strong> Führ die Zelle oben, in der wir <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> Zeilen mit Fantasiewörtern hinzugefügt haben, noch ein paar Mal aus, ohne darauf zu achten wie oft. Verwend nun <code class="docutils literal notranslate"><span class="pre">drop</span></code> in einer geeigneten Kontrollstruktur (vgl. Notebook „Kontrollstrukturen“) sowie die anfangs eingeführte Variable <code class="docutils literal notranslate"><span class="pre">original_len</span></code>, um die Fantasiewörter wieder zu entfernen und <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code>, was die Anzahl an Zeilen betrifft, wieder in seinen Originalzustand zu bringen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vorbereitung, die im Notebook &quot;Datenanalyse Teil 1&quot; nicht notwendig ist: </span>
@@ -846,7 +846,7 @@ Name: Token, dtype: object
   </thead>
   <tbody>
     <tr>
-      <th>386505</th>
+      <th>386504</th>
       <td>Vierzehn</td>
       <td>2020</td>
       <td>1</td>
@@ -854,7 +854,7 @@ Name: Token, dtype: object
       <td>8</td>
     </tr>
     <tr>
-      <th>386506</th>
+      <th>386505</th>
       <td>Was</td>
       <td>2020</td>
       <td>1</td>
@@ -862,7 +862,7 @@ Name: Token, dtype: object
       <td>3</td>
     </tr>
     <tr>
-      <th>386507</th>
+      <th>386506</th>
       <td>Weißer</td>
       <td>2020</td>
       <td>1</td>
@@ -870,7 +870,7 @@ Name: Token, dtype: object
       <td>6</td>
     </tr>
     <tr>
-      <th>386508</th>
+      <th>386507</th>
       <td>Wie</td>
       <td>2020</td>
       <td>1</td>
@@ -878,7 +878,7 @@ Name: Token, dtype: object
       <td>3</td>
     </tr>
     <tr>
-      <th>386509</th>
+      <th>386508</th>
       <td>Wozu</td>
       <td>2020</td>
       <td>1</td>
@@ -890,17 +890,17 @@ Name: Token, dtype: object
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 7:</strong> Mithilfe von <code class="docutils literal notranslate"><span class="pre">describe</span></code> haben wir oben herausgefunden, dass die durchschnittliche Wortlänge in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> 6.88 Buchstaben beträgt. Die maximale Wortlänge beträgt hingegen sagenhafte 53 Buchstaben. Die Verteilung scheint alles andere als gleichmäßig zu sein, was wir auch an den sog. <em>Quartilen</em> 25% und 75% sehen (Quartile werden wie der Median berechnet, nur geht es nicht um den Mittelwert, sondern um die Werte nach einem Viertel bzw. drei Vierteln aller aufgereihten Werte). Find heraus, welche Wortlängen für jeweils mindestens 10 % aller Wörter gelten. Find ebenfalls heraus, welche Wortlängen für jeweils maximal 1 % aller Wörter gelten.</p>
+<p>✏️ <strong>Übung 7:</strong> Mithilfe von <code class="docutils literal notranslate"><span class="pre">describe</span></code> haben wir oben herausgefunden, dass die durchschnittliche Wortlänge in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> 6.88 Buchstaben beträgt. Die maximale Wortlänge beträgt hingegen sagenhafte 53 Buchstaben. Diese hohe Streuung der Wortlängen macht es interessant, die Häufigkeit bestimmter Wortlängen genauer zu betrachten. Ermittle, welche Wortlängen eine relative Häufigkeit von mindestens 10% haben. Bei welchen Wortlängen beträgt die relative Häufigkeit maximal 1%?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Aufrufen der Spalte &#39;Länge&#39; und berechnen der Vorkommen pro (einzigartige) Länge.</span>
-<span class="sd">Mittels &#39;normalize=True&#39; werden relative Häufigkeiten ermittelt. Die Ergebnisse liegen </span>
+<span class="sd">Mittels &#39;normalize=True&#39; werden relative Häufigkeiten ermittelt. Die Ergebnisse liegen</span>
 <span class="sd">anschließend in der Series &#39;lengths&#39; vor.&#39;&#39;&#39;</span>  
 <span class="n">lengths</span> <span class="o">=</span> <span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Länge&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1">#Als List Comprehension: Itierieren über eine Series funktioniert wie bei einem dictionary</span>
-<span class="n">min_10_pc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">lengths</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">]</span> <span class="c1">#Casten des Schlüssels in einen string; wenn &#39;value&#39; größer als 0,1 ist: abspeichern in einer Liste </span>
-<span class="n">max_1_pc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">lengths</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">]</span> <span class="c1">#Analog zu oben, allerdings mit der Bedingung, dass &#39;value&#39; nun kleiner als 0,01 sein muss</span>
+<span class="n">min_10_pc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">lengths</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mf">0.1</span><span class="p">]</span> <span class="c1">#Casten des Schlüssels in einen string; wenn &#39;value&#39; größer/gleich 0,1 ist: abspeichern in einer Liste </span>
+<span class="n">max_1_pc</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">lengths</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mf">0.01</span><span class="p">]</span> <span class="c1">#Analog zu oben, allerdings mit der Bedingung, dass &#39;value&#39; nun kleiner/gleich 0,01 sein muss</span>
 
 <span class="c1">#Als klassischer for-Loop</span>
 <span class="n">min_10_pc</span> <span class="o">=</span> <span class="p">[]</span> 
@@ -924,7 +924,7 @@ Max. 1 %: 1, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 8:</strong> Wir wissen bereits, wie viele Tokens in unserem DataFrame vorkommen, nämlich 386.510. Find heraus, wie viele einzigartige Tokens, also Types (vgl. Notebook „Funktionen und Methoden Teil 2“) es gibt.</p>
+<p>✏️ <strong>Übung 8:</strong> Wir wissen bereits, wie viele Tokens in unserem DataFrame vorkommen, nämlich 386.510. Find heraus, wie viele einzigartige Tokens, also Types (vgl. Notebook „Funktionen und Methoden Teil 2“) es gibt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">songkorpus</span><span class="p">[</span><span class="s2">&quot;Token&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span> <span class="c1">#Anwenden der Methode &#39;unique&#39; auf die Spalte &quot;Token&quot; und printen der Länge </span>

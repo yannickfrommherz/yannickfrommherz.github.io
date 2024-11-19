@@ -469,9 +469,7 @@ document.write(`
   <section id="losungen-zu-den-zusatzubungen-zum-notebook-datentypen">
 <h1>Lösungen zu den Zusatzübungen zum Notebook „Datentypen“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-datentypen" title="Permalink to this heading">#</a></h1>
 <p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
-<ol class="arabic simple">
-<li><p>Identifizier die Datentypen sämtlicher Objekte im verschachtelten Object <code class="docutils literal notranslate"><span class="pre">nested_object</span></code>.</p></li>
-</ol>
+<p>✏️ <strong>Übung 1:</strong> Identifizier die Datentypen sämtlicher Objekte im verschachtelten Object <code class="docutils literal notranslate"><span class="pre">nested_object</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nested_object</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;He sings &#39;oh my God&#39;&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;she&quot;</span><span class="p">,</span> <span class="s2">&quot;sang&quot;</span><span class="p">,</span> <span class="s1">&#39;oh&#39;</span><span class="p">,</span> <span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;God&#39;</span><span class="p">),</span> <span class="p">{</span><span class="s2">&quot;can&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;you&quot;</span><span class="p">,</span> <span class="s2">&quot;believe&quot;</span><span class="p">,</span> <span class="s2">&quot;it&quot;</span><span class="p">],</span> <span class="s2">&quot;me&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="mf">100.0</span><span class="p">]</span>
@@ -479,12 +477,9 @@ document.write(`
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">nested_object</span></code> ist eine <strong>Liste</strong>, die fünf Elemente enthält. Das erste Element ist ein <strong>string</strong> (und zwar „He sings ‚oh my God‘“ als Ganzes, die inneren Anführungszeichen grenzen keinen zusätzlichen string ab). Das zweite Element ist ein sog. <em><strong>NoneType</strong></em>, wie Du über <code class="docutils literal notranslate"><span class="pre">type(None)</span></code> herausfinden kannst. Das dritte Element ist ein <strong>Tupel</strong> bestehend aus fünf <strong>strings</strong> (die unterschiedlichen Anführungszeichen spielen keine Rolle). Das vierte Element ist ein <strong>dictionary</strong> mit zwei Schlüssel-Werte-Paaren, wobei das erste einen <strong>string</strong> als Schlüssel und eine <strong>Liste</strong> bestehend aus drei <strong>strings</strong> als Wert hat. Das zweite Schlüssel-Werte-Paar besteht aus einem <strong>string</strong> als Schlüssel und dem <strong>Boolschen</strong> Wert <code class="docutils literal notranslate"><span class="pre">False</span></code> als Wert. Das fünfte Element auf der Liste ist eine <strong>Dezimalzahl/float</strong>.</p></li>
-</ul>
-<ol class="arabic simple" start="2">
-<li><p>Find den/die Fehler in der folgenden Code-Zelle:</p></li>
-</ol>
+<p><i><code class="docutils literal notranslate"><span class="pre">nested_object</span></code> ist eine <strong>Liste</strong>, die fünf Elemente enthält. Das erste Element ist ein <strong>string</strong> (und zwar „He sings ‚oh my God‘“ als Ganzes, die inneren Anführungszeichen grenzen keinen zusätzlichen string ab). Das zweite Element ist ein sog. <em><strong>NoneType</strong></em>, wie Du über <code class="docutils literal notranslate"><span class="pre">type(None)</span></code> herausfinden kannst. Das dritte Element ist ein <strong>Tupel</strong> bestehend aus fünf <strong>strings</strong> (die unterschiedlichen Anführungszeichen spielen keine Rolle). Das vierte Element ist ein <strong>dictionary</strong> mit zwei Schlüssel-Werte-Paaren, wobei das erste einen <strong>string</strong> als Schlüssel und eine <strong>Liste</strong> bestehend aus drei <strong>strings</strong> als Wert hat. Das zweite Schlüssel-Werte-Paar besteht aus einem <strong>string</strong> als Schlüssel und dem <strong>Boolschen</strong> Wert <code class="docutils literal notranslate"><span class="pre">False</span></code> als Wert. Das fünfte Element auf der Liste ist eine <strong>Dezimalzahl/float</strong>.</i></p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Find den/die Fehler in der folgenden Code-Zelle:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summer</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#Boolsche Werte werden großgeschrieben.</span>
@@ -494,15 +489,12 @@ document.write(`
 </div>
 </div>
 </div>
-<ol class="arabic" start="3">
-<li><p>Ermittle erstens, wie lang <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> ist. Find zweitens <strong>mithilfe von Python</strong> heraus, welche fünf Buchstaben des deutschen Alphabets (ohne Umlaute) nicht in <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> vorkommen. Den Abgleich zwischen allen einzigartigen Buchstaben in <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> und dem deutschen Alphabet kannst Du händisch vornehmen.</p>
- <details>
-   <summary>📌 Herausforderung </summary>
-   <br>Benutz anstelle des händischen Abgleichs einen im Notebook "Einführung" kennengelernten, multifunktionalen Operator sowie <code>alphabet</code>, um herauszufinden, welche fünf Buchstaben des deutschen Alphabets nicht in <code>longest_word</code> vorkommen.
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Ermittle erstens, wie lang <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> ist. Find zweitens <strong>mithilfe von Python</strong> heraus, welche fünf Buchstaben des deutschen Alphabets (ohne Umlaute) nicht in <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> vorkommen. Den Abgleich zwischen allen einzigartigen Buchstaben in <code class="docutils literal notranslate"><span class="pre">longest_word</span></code> und dem deutschen Alphabet kannst Du händisch vornehmen.</p>
+<details>
+    <summary>🦊 Herausforderung </summary>
+    <br>Benutz anstelle des händischen Abgleichs einen im Notebook "Einführung" kennengelernten, multifunktionalen Operator sowie <code>alphabet</code>, um herauszufinden, welche fünf Buchstaben des deutschen Alphabets nicht in <code>longest_word</code> vorkommen.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">longest_word</span> <span class="o">=</span> <span class="s2">&quot;Donaudampfschifffahrtselektrizitätenhauptbetriebswerkbauunternehmenbeamtengesellschaft&quot;</span>
 
@@ -527,15 +519,14 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86
-{&#39;i&#39;, &#39;f&#39;, &#39;k&#39;, &#39;w&#39;, &#39;o&#39;, &#39;b&#39;, &#39;g&#39;, &#39;a&#39;, &#39;u&#39;, &#39;p&#39;, &#39;s&#39;, &#39;e&#39;, &#39;n&#39;, &#39;m&#39;, &#39;l&#39;, &#39;c&#39;, &#39;t&#39;, &#39;D&#39;, &#39;z&#39;, &#39;r&#39;, &#39;h&#39;, &#39;ä&#39;, &#39;d&#39;}
-{&#39;q&#39;, &#39;x&#39;, &#39;y&#39;, &#39;j&#39;, &#39;v&#39;}
+{&#39;f&#39;, &#39;s&#39;, &#39;z&#39;, &#39;p&#39;, &#39;k&#39;, &#39;m&#39;, &#39;w&#39;, &#39;h&#39;, &#39;t&#39;, &#39;n&#39;, &#39;c&#39;, &#39;r&#39;, &#39;d&#39;, &#39;e&#39;, &#39;a&#39;, &#39;u&#39;, &#39;i&#39;, &#39;g&#39;, &#39;l&#39;, &#39;D&#39;, &#39;b&#39;, &#39;ä&#39;, &#39;o&#39;}
+{&#39;j&#39;, &#39;v&#39;, &#39;y&#39;, &#39;x&#39;, &#39;q&#39;}
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Ein Supermarkt verkauft die in <code class="docutils literal notranslate"><span class="pre">products</span></code> gegebenen Produkte zu den gegebenen Preisen. Der Supermarkt will künftig keine Centbeträge mehr verrechnen und entscheidet sich dreisterweise dazu, alle Preise aufzurunden. Lass Dir die neuen Preise für alle Produkte ausrechnen. Was fällt Dir dabei auf?</p></li>
-</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> Ein Supermarkt verkauft die in <code class="docutils literal notranslate"><span class="pre">products</span></code> gegebenen Produkte zu den gegebenen Preisen. Der Supermarkt will künftig keine Centbeträge mehr verrechnen und entscheidet sich dreisterweise dazu, alle Preise aufzurunden. Lass Dir die neuen Preise für alle Produkte ausrechnen. Was fällt Dir dabei auf?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">products</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">:</span> <span class="mf">0.89</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">:</span> <span class="mf">1.12</span><span class="p">,</span> <span class="s2">&quot;carrot&quot;</span><span class="p">:</span> <span class="mf">1.51</span><span class="p">,</span> <span class="s2">&quot;rocket&quot;</span><span class="p">:</span> <span class="mf">2.99</span><span class="p">,</span> <span class="s2">&quot;eggplant&quot;</span><span class="p">:</span> <span class="mf">4.02</span><span class="p">}</span>
@@ -555,26 +546,23 @@ document.write(`
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="5">
-<li><p>Lass Dir das erste Element von <code class="docutils literal notranslate"><span class="pre">products</span></code> ausgeben.</p></li>
-</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 5:</strong> Lass Dir das erste Element von <code class="docutils literal notranslate"><span class="pre">products</span></code> ausgeben.</p>
 <ul class="simple">
 <li><p>Das geht nicht! Bei <code class="docutils literal notranslate"><span class="pre">products</span></code> handelt es sich um ein Objekt des Datentyps dictionary und dictionaries haben keine Reihenfolge (vgl. Sequentialität im Notebook „Datentypen“).</p></li>
 </ul>
-<ol class="arabic" start="6">
-<li><p>Ermittle für jede Webadresse in <code class="docutils literal notranslate"><span class="pre">newspapers</span></code> anhand ihrer <a class="reference external" href="https://de.wikipedia.org/wiki/Top-Level-Domain">Top-Level-Domain</a>, aus welchem Land die jeweilige Zeitung stammt. Lass Dir die Ergebnisse wie folgt formatiert ausgeben:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> https://www.bild.de: Deutschland
- https://www.nzz.ch: Schweiz
- http://www.derstandard.at: Österreich
- https://www.vaterland.li: Liechtenstein
+<hr class="docutils" />
+<p>✏️ <strong>Übung 6:</strong> Ermittle für jede Webadresse in <code class="docutils literal notranslate"><span class="pre">newspapers</span></code> anhand ihrer <a class="reference external" href="https://de.wikipedia.org/wiki/Top-Level-Domain">Top-Level-Domain</a>, aus welchem Land die jeweilige Zeitung stammt. Lass Dir die Ergebnisse wie folgt formatiert ausgeben:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    https://www.bild.de: Deutschland
+    https://www.nzz.ch: Schweiz
+    http://www.derstandard.at: Österreich
+    https://www.vaterland.li: Liechtenstein
 </pre></div>
 </div>
- <details>
-   <summary>📌 Herausforderung</summary>
-   <br>Verwend eine <code>for</code>-Schleife mit einem eingebauten <code>if</code>-Statement (dabei kannst Du dieselbe Struktur wie in der 5. Übung im Notebook "Einführung" verwenden), um herauszufinden, welche der Webadressen nicht sicher sind.
- </details>
-</li>
-</ol>
+<details>
+    <summary>🦊 Herausforderung</summary>
+    <br>Verwend eine <code>for</code>-Schleife mit einem eingebauten <code>if</code>-Statement (dabei kannst Du dieselbe Struktur wie in der 5. Übung im Notebook "Einführung" verwenden), um herauszufinden, welche der Webadressen nicht sicher sind.
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tld_countries</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;li&quot;</span><span class="p">:</span> <span class="s2">&quot;Liechtenstein&quot;</span><span class="p">,</span> <span class="s2">&quot;ch&quot;</span><span class="p">:</span> <span class="s2">&quot;Schweiz&quot;</span><span class="p">,</span> <span class="s2">&quot;de&quot;</span><span class="p">:</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">,</span> <span class="s2">&quot;at&quot;</span><span class="p">:</span> <span class="s2">&quot;Österreich&quot;</span><span class="p">}</span>
@@ -606,15 +594,13 @@ http://www.derstandard.at is not secure!
 </div>
 </div>
 </div>
-<ol class="arabic" start="7">
-<li><p>Palindrome sind Wörter, die sich vorwärts wie rückwärts gleich schreiben. Lass Dir alle Wörter auf <code class="docutils literal notranslate"><span class="pre">palindromes</span></code> rückwärts ausgeben.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 7:</strong> Palindrome sind Wörter, die sich vorwärts wie rückwärts gleich schreiben. Lass Dir alle Wörter auf <code class="docutils literal notranslate"><span class="pre">palindromes</span></code> rückwärts ausgeben.</p>
 <p>Groß- und Kleinschreibung spielt bei Python ja eine Rolle. Überprüf mittels eines Vergleichsoperators bei allen Palindromen, ob sie auch im pythonischen Sinne Palindrome sind (also auch hinsichtlich der Groß- und Kleinschreibung rückwärts wie vorwärts gleich geschrieben werden). Lass Dir den Output für jedes Wort (genau!) wie folgt ausgeben:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> Neffen ist ein pythonisches Palindrom: Falsch
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    Neffen ist ein pythonisches Palindrom: Falsch  
 </pre></div>
 </div>
 <p>und so weiter.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">palindromes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Neffen&quot;</span><span class="p">,</span> <span class="s2">&quot;Ebbe&quot;</span><span class="p">,</span> <span class="s2">&quot;Madam&quot;</span><span class="p">,</span> <span class="s2">&quot;hangnah&quot;</span><span class="p">,</span> <span class="s2">&quot;Neozoen&quot;</span><span class="p">,</span> <span class="s2">&quot;Rentner&quot;</span><span class="p">]</span>
@@ -644,9 +630,8 @@ Rentner ist ein pythonisches Palindrom: Falsch
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="8">
-<li><p>Fortgeschritten: Der folgende Code verwendet die bereits angeteaserten Kontrollstrukturen sowie weitere, uns noch unbekannte Methoden. Versuch ihn dennoch zu verstehen. Dazu lohnt es sich, ihn zu verändern, <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle einzubauen und ihn immer wieder auszuführen, um so die einzelnen Schritte zu verstehen. Kommentier den Code anschließend, damit ihn auch andere verstehen.</p></li>
-</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 8 (fortgeschritten):</strong> Der folgende Code verwendet die bereits angeteaserten Kontrollstrukturen sowie weitere, uns noch unbekannte Methoden. Versuch ihn dennoch zu verstehen. Dazu lohnt es sich, ihn zu verändern, <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehle einzubauen und ihn immer wieder auszuführen, um so die einzelnen Schritte zu verstehen. Kommentier den Code anschließend, damit ihn auch andere verstehen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Initialisierung eines Kundenverzeichnisses in Form eines dictionary mit Schlüssel-Werte-Paaren, </span>

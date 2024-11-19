@@ -489,7 +489,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>✏️ <strong>Lösung 1:</strong> Erstell ein Sub-DataFrame, das nur Tokens beinhaltet, die mindestens 20 Zeichen lang sind.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 1:</strong> Erstell ein Sub-DataFrame, das nur Tokens beinhaltet, die mindestens 20 Zeichen lang sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Wir erstellen ein neues DataFrame &#39;long_words&#39;, das nur die Zeilen aus dem DataFrame &#39;songkorpus&#39; enthält, bei denen der Wert in der Spalte &#39;Länge&#39; größer oder gleich 20 ist.</span>
@@ -619,7 +620,7 @@ document.write(`
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 2:</strong> Erstell das gleiche Sub-DataFrame wie in Übung 1 (also eines, das nur Tokens beinhaltet, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stell sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
+<p>✏️ <strong>Übung 2:</strong> Erstell das gleiche Sub-DataFrame wie in Übung 1 (also eines, das nur Tokens beinhaltet, die mindestes 20 Zeichen lang sind), allerdings ohne dabei die Spalte „Länge“ zu bemühen. Du kannst dazu eine Methode verwenden, die auch bei normalen strings funktioniert. Stell sicher, dass die Ergebnisse der beiden Übungen identisch sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Anwendung der Methode &#39;len&#39; (Wichtig: &#39;str&#39; muss vorangestellt werden) auf die Spalte &#39;Token&#39;</span>
@@ -653,7 +654,7 @@ dtype: int64
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 3:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Geh abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>✏️ <strong>Übung 3:</strong> Oben haben wir die Spalte „Jahrzehnt“ basierend auf den Jahreszahlen mithilfe eines <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops geschaffen. Geh abermals von der Spalte „Jahr“ aus, um eine neue Spalte „Jahrzehnt_ohne_Loop“ zu schaffen, allerdings – wie der Name verrät – ohne dafür einen Loop, auch nicht in Form einer List Comprehension, zu benutzen. Mit anderen Worten: Du sollst <code class="docutils literal notranslate"><span class="pre">pandas</span></code>-Syntax dafür einsetzen. Wenn Dein Code stimmt, ergibt die bereits geschriebene (derzeit auskommentierte) Zeile <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Wir greifen auf die Spalte &#39;Jahr&#39; zu und wenden auf diese mehrere Methoden an:</span>
@@ -756,7 +757,7 @@ dtype: int64
       <td>...</td>
     </tr>
     <tr>
-      <th>386505</th>
+      <th>386504</th>
       <td>Vierzehn</td>
       <td>2020</td>
       <td>1</td>
@@ -765,7 +766,7 @@ dtype: int64
       <td>2020</td>
     </tr>
     <tr>
-      <th>386506</th>
+      <th>386505</th>
       <td>Was</td>
       <td>2020</td>
       <td>1</td>
@@ -774,7 +775,7 @@ dtype: int64
       <td>2020</td>
     </tr>
     <tr>
-      <th>386507</th>
+      <th>386506</th>
       <td>Weißer</td>
       <td>2020</td>
       <td>1</td>
@@ -783,7 +784,7 @@ dtype: int64
       <td>2020</td>
     </tr>
     <tr>
-      <th>386508</th>
+      <th>386507</th>
       <td>Wie</td>
       <td>2020</td>
       <td>1</td>
@@ -792,7 +793,7 @@ dtype: int64
       <td>2020</td>
     </tr>
     <tr>
-      <th>386509</th>
+      <th>386508</th>
       <td>Wozu</td>
       <td>2020</td>
       <td>1</td>
@@ -802,11 +803,11 @@ dtype: int64
     </tr>
   </tbody>
 </table>
-<p>386510 rows × 6 columns</p>
+<p>386509 rows × 6 columns</p>
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 4:</strong> Bearbeite die Werte in der Spalte „Token“ so, dass jedes Wort, das aus genau fünf Buchstaben besteht, großgeschrieben wird. Einfach weil wir’s können! 😉</p>
+<p>✏️ <strong>Übung 4:</strong> Bearbeite die Werte in der Spalte „Token“ so, dass jedes Wort, das aus genau fünf Buchstaben besteht, großgeschrieben wird. Einfach weil wir’s können! 😉</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Importieren von &#39;numpy&#39;</span>
@@ -907,7 +908,7 @@ dtype: int64
       <td>...</td>
     </tr>
     <tr>
-      <th>386505</th>
+      <th>386504</th>
       <td>Vierzehn</td>
       <td>2020</td>
       <td>1</td>
@@ -916,7 +917,7 @@ dtype: int64
       <td>2020</td>
     </tr>
     <tr>
-      <th>386506</th>
+      <th>386505</th>
       <td>Was</td>
       <td>2020</td>
       <td>1</td>
@@ -925,7 +926,7 @@ dtype: int64
       <td>2020</td>
     </tr>
     <tr>
-      <th>386507</th>
+      <th>386506</th>
       <td>Weißer</td>
       <td>2020</td>
       <td>1</td>
@@ -934,7 +935,7 @@ dtype: int64
       <td>2020</td>
     </tr>
     <tr>
-      <th>386508</th>
+      <th>386507</th>
       <td>Wie</td>
       <td>2020</td>
       <td>1</td>
@@ -943,7 +944,7 @@ dtype: int64
       <td>2020</td>
     </tr>
     <tr>
-      <th>386509</th>
+      <th>386508</th>
       <td>Wozu</td>
       <td>2020</td>
       <td>1</td>
@@ -953,11 +954,11 @@ dtype: int64
     </tr>
   </tbody>
 </table>
-<p>386510 rows × 6 columns</p>
+<p>386509 rows × 6 columns</p>
 </div></div></div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 5:</strong> Caste sämtliche Werte in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> in strings.</p>
+<p>✏️ <strong>Übung 5:</strong> Caste sämtliche Werte in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> in strings.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&#39;applymap&#39; wendet die in Klammern übergegebene Funktion auf das gesamte DataFrame an</span>
@@ -1018,7 +1019,7 @@ dtype: int64
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2328</span><span class="o">/</span><span class="mf">530584246.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2335</span><span class="o">/</span><span class="mf">530584246.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> 
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1">#Abfragen der zu plottenden Wörter</span>
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">words</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Welche Wörter sollen geplotted werden? Bsp.: &#39;ich, du&#39;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
@@ -1131,10 +1132,10 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f42aa220810&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd8390b60d0&gt;
 </pre></div>
 </div>
-<img alt="../../../_images/25f1e25f3666ecaab06d466d66c594f6215c39b915dc2f3adb2278af5a64ee07.png" src="../../../_images/25f1e25f3666ecaab06d466d66c594f6215c39b915dc2f3adb2278af5a64ee07.png" />
+<img alt="../../../_images/166fac588feb98b5369d16384debe0d8024dbd6c773d40da6e8cfbeba9061e2c.png" src="../../../_images/166fac588feb98b5369d16384debe0d8024dbd6c773d40da6e8cfbeba9061e2c.png" />
 </div>
 </div>
 <ol class="arabic simple" start="7">

@@ -464,7 +464,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recht-und-ethik">Recht und Ethik</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-den-faust-i-scrapen">🔧 Anwendungsfall: Den Faust I scrapen 🎭</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-xml">Exkurs: XML</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xml">XML</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xml-parsen">XML parsen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xml-schreiben">XML schreiben</a></li>
 </ul>
@@ -619,6 +619,7 @@ Faust
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code für den Abrufschritt schreiben.</span>
+
 <span class="c1">#Führe diese Zelle nur so oft wie nötig aus, um den Server nicht unnötig zu belasten!</span>
 </pre></div>
 </div>
@@ -658,8 +659,7 @@ Faust
  <details>
    <summary>💡 Tipp </summary>
    <br>Lass Deinen regulären Ausdruck ruhig mehr als nur den eigentlichen Link matchen, also auch Zeichen davor bzw. danach im Quelltext. So stellst Du einfach sicher, dass nur der gewünschte Link gematcht wird. Bau aber mithilfe von runden Klammern eine Gruppe ein, die nur den Link umfasst (vgl. Notebook "Reguläre Ausdrücke"). So kannst Du anschließend einfach auf den relevanten Teil des matches zugreifen.
- </details>
- <br></li>
+ </details></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -685,8 +685,7 @@ Faust
    <summary>💡 Tipp </summary>
    <br>Die zum matchen benutzten Funktion <code>search</code> gibt ja ein sog. match-Objekt zurück, bestehend aus dem ersten gefundenen match und dessen Position im abgesuchten string. Nun sind wir nicht am match als Ganzes interessiert, sondern nur an der Gruppe mit der Linkendung. Wend die Methode <code>group</code> auf das match-Objekt an und übergib ihr in Klammern eine Eins, um direkt auf die erste (und einzige) Gruppe zuzugreifen (vgl. Notebook "Reguläre Ausdrücke").
  <br>
- </details>
- <br></li>
+ </details></li>
 </ol>
 <p><u>Extraktion</u></p>
 <ol class="arabic" start="6">
@@ -722,15 +721,14 @@ Faust
  <details>
        <summary>💡 Tipp</summary>
        <br>Beachte, dass die <code>print</code>-Funktion automatisch einen Zeilenumbruch im Anschluss an das Ausgegebene anfügt. Beim Schreiben in externe Dateien musst Du diesen Zeilenumbruch manuell hinzufügen. 
-     </details>
-     <br></li>
+     </details></li>
 </ol>
 <p>Tolle Arbeit! 🎉</p>
 <hr class="docutils" />
 <p>Zu guter Letzt werfen wir noch einen Blick auf die HTML-verwandte Auszeichnungssprache XML. Während HTML primär dazu verwendet wird, Texte und Daten <em>zwecks der Darstellung</em> zu strukturieren (bzw. <em>auszuzeichnen</em>), wird XML vorwiegend dazu benutzt, Texte und Daten <em>zwecks der Speicherung</em> zu gliedern.</p>
 </section>
-<section id="exkurs-xml">
-<h2>Exkurs: XML<a class="headerlink" href="#exkurs-xml" title="Permalink to this heading">#</a></h2>
+<section id="xml">
+<h2>XML<a class="headerlink" href="#xml" title="Permalink to this heading">#</a></h2>
 <p>Ein XML-Dokument (kurz für <em>E<u>x</u>tensible <u>M</u>arkup <u>L</u>anguage</em>) ist im Wesentlich gleich strukturiert wie ein in HTML verfasstes: Verschiedene <strong>Elemente</strong> sind in einem Stammbaum <strong>hierarchisch</strong> angeordnet. Die Elemente sind wiederum durch <strong>Tags</strong> sowie optional <strong>Attribute</strong> charakterisiert.</p>
 <p>Folgende Zelle enthält ein Beispiel für XML-Code. Die erste Zeile deklariert den Dokumenttyp – das kennen wir auch von HTML-Code. Es folgt ein Verzeichnis (<code class="docutils literal notranslate"><span class="pre">&lt;verzeichnis&gt;</span></code>), dessen Inhalt neben einem <code class="docutils literal notranslate"><span class="pre">&lt;titel&gt;</span></code>-Element zwei <code class="docutils literal notranslate"><span class="pre">&lt;eintrag&gt;</span></code>-Elemente umfasst. Jedes <code class="docutils literal notranslate"><span class="pre">&lt;eintrag&gt;</span></code>-Element verfügt über ein <code class="docutils literal notranslate"><span class="pre">id</span></code>-Attribut sowie drei Kinder mit Textinhalt, nämlich <code class="docutils literal notranslate"><span class="pre">&lt;stichwort&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;abkuerzung&gt;</span></code> und <code class="docutils literal notranslate"><span class="pre">&lt;zweck&gt;</span></code>. Die Einrückungen dienen auch hier nur der Lesbarkeit.</p>
 <p>An diesem Beispiel lässt sich bereits der wichtigste Unterschied zwischen XML und HTML erkennen: Die Namen der Tags sind nicht vorgegeben, sondern können frei gewählt werden (u. a. daher kommt die Bezeichnung <em>extensible</em>, also „erweiterbar“).</p>
@@ -742,8 +740,7 @@ Faust
 <summary>💡 Tipp</summary>
 <br>Benutz das im GIF unten gezeigte, praktische Feature, um Elemente ein- und auszuklappen. Dadurch siehst Du schnell, in welcher Beziehung die einzelnen Elemente zueinander stehen. Dieses Feature funktioniert übrigens auch bei HTML-Code.<br><br>
     <img src="../3_Dateien/Grafiken_und_Videos/einklappen.gif" width="600">
-</details>
-<br><p>Um die Datei hier einzulesen, importieren wir das Modul <code class="docutils literal notranslate"><span class="pre">xml</span></code> (bzw. einen spezifischen Teil davon). <code class="docutils literal notranslate"><span class="pre">xml</span></code> gehört bei Python zur Grundausstattung.</p>
+</details><p>Um die Datei hier einzulesen, importieren wir das Modul <code class="docutils literal notranslate"><span class="pre">xml</span></code> (bzw. einen spezifischen Teil davon). <code class="docutils literal notranslate"><span class="pre">xml</span></code> gehört bei Python zur Grundausstattung.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">ET</span> <span class="c1">#Wir weisen dem Modul(teil) den Kurznamen &#39;ET&#39; zu, was der Konvention entspricht.</span>
@@ -762,7 +759,10 @@ Faust
 </div>
 </div>
 <p>Was könnte sich in <code class="docutils literal notranslate"><span class="pre">root</span></code> nun befinden? Schau dazu im Dokument bei Sublime Text nach.</p>
-<p>Genau, das gesamte oberste Element unseres XML-Dokuments, also dasjenige mit dem Tag <code class="docutils literal notranslate"><span class="pre">&lt;dbtplenarprotokoll&gt;</span></code>. Das können wir folgendemaßen überprüfen:</p>
+<details>
+    <summary>✅ Antwort</summary>
+<br>Genau, das gesamte oberste Element unseres XML-Dokuments, also dasjenige mit dem Tag <code>&lt;dbtplenarprotokoll&gt;</code>. Das können wir folgendemaßen überprüfen:
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">tag</span> <span class="c1">#&#39;tag&#39; entspricht bei &#39;BeautifulSoup&#39; dem &#39;name&#39;-Attribut.</span>
@@ -1169,7 +1169,7 @@ Frau Präsidentin! Liebe Kolleginnen und liebe Kollegen! Herr Brandner, es sollt
 </div>
 </div>
 <p>Das scheint ganz gut zu klappen.</p>
-<p>Überprüfen wir aber zur Sicherheit, ob wir auch wirklich nur das Gewünschte extrahiert haben, also die Äußerungen der Abgeordneten (bzw. die <em>True Positives</em>, vgl. „Die Wahrheitsmatrix“ in Notebook „Input und Output Teil 1“). Beim Lesen der ersten Rede von Annalena Baerbock irritiert der Schluss (alles nach „Vielen Dank“). Dieser wurde, wie ein Blick in das XML-Dokument zeigt, denn auch gar nicht von der Rednerin selbst gesprochen, sondern von der Parlamentspräsidentin Bärbel Bas. Einziger Hinweis ist ein dem fraglichen <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>-Element vorgeschobenes <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>-Element. Tatsächlich finden sich solche Äußerungen der Parlamentspräsidentin (und später im Protokoll ihres Vize-Präsidenten Wolfgang Kubicki) am Ende der meisten <code class="docutils literal notranslate"><span class="pre">&lt;rede&gt;</span></code>-Elemente – jeweils mit vorgeschobenem <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>-Element. Diese gehören natürlich nicht zur Äußerung des/der Abgeordneten der anderen <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>-Elemente unter <code class="docutils literal notranslate"><span class="pre">&lt;rede&gt;</span></code> und sollten somit nicht extrahiert werden.</p>
+<p>Überprüfen wir aber zur Sicherheit, ob wir auch wirklich nur das Gewünschte extrahiert haben, also die Äußerungen der Abgeordneten (bzw. die <em>True Positives</em>, vgl. „Die Wahrheitsmatrix“ im Notebook „Input und Output Teil 1“). Beim Lesen der ersten Rede von Annalena Baerbock irritiert der Schluss (alles nach „Vielen Dank“). Dieser wurde, wie ein Blick in das XML-Dokument zeigt, denn auch gar nicht von der Rednerin selbst gesprochen, sondern von der Parlamentspräsidentin Bärbel Bas. Einziger Hinweis ist ein dem fraglichen <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>-Element vorgeschobenes <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>-Element. Tatsächlich finden sich solche Äußerungen der Parlamentspräsidentin (und später im Protokoll ihres Vize-Präsidenten Wolfgang Kubicki) am Ende der meisten <code class="docutils literal notranslate"><span class="pre">&lt;rede&gt;</span></code>-Elemente – jeweils mit vorgeschobenem <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>-Element. Diese gehören natürlich nicht zur Äußerung des/der Abgeordneten der anderen <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>-Elemente unter <code class="docutils literal notranslate"><span class="pre">&lt;rede&gt;</span></code> und sollten somit nicht extrahiert werden.</p>
 <p>Idealerweise ließen sich die <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>-Elemente, die wirklich zur Äußerung des/der Abgeordneten gehören von jenen, die von jemand anderem geäußert werden, über unterschiedliche Tags voneinander abgrenzen. Bei Zwischenrufen ist dies der Fall, sind diese doch in <code class="docutils literal notranslate"><span class="pre">&lt;kommentar&gt;</span></code>-Elementen statt in <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>-Elementen gespeichert. Alternativ hätten <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>-Elemente, die nicht von dem/der betreffenden Abgeordneten stammen, über Attribute charakterisiert werden können. Doch auch das ist nicht der Fall, wie ein Abgleich mit dem Dokument zeigt.</p>
 <p>Wenn wir nicht über Tags bzw. Attribute gehen können, bleibt der Weg über die Reihenfolge der Elemente – wie erwähnt befinden sich die eingeschobenen Äußerungen der Parlamentspräsidentin meist am Ende eines <code class="docutils literal notranslate"><span class="pre">&lt;rede&gt;</span></code>-Elements. Wir können den Code also derart anpassen, dass wir statt bloß über <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>-Elemente über alle Kinder jedes <code class="docutils literal notranslate"><span class="pre">&lt;rede&gt;</span></code>-Elements iterieren. Dafür können wir <code class="docutils literal notranslate"><span class="pre">speech</span></code> wie ein gewöhnliches iterierbares Objekt behandeln, das uns nach und nach seine Kinder zurückgibt. Entscheidenderweise brechen wir die Schleife ab, sobald wir auf ein Kind mit <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code>-Tag treffen:</p>
 <div class="cell docutils container">
@@ -1497,8 +1497,7 @@ Frau Präsidentin! Liebe Kolleginnen und liebe Kollegen! Herr Brandner, es sollt
 <details>
 <summary>💡 Tipp</summary>
 <br>Setz den Namen am besten aus Vor- und Nachnamen zusammen. Bedenk außerdem, dass nur eine Methode bei <code>xml</code> rekursiv sucht.<br><br>
-</details>
-<br><div class="cell docutils container">
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -2927,6 +2926,17 @@ Frau Präsidentin! Liebe Kolleginnen und liebe Kollegen! Herr Brandner, es sollt
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2107</span><span class="o">/</span><span class="mf">2139891270.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/aeusserungen_im_bundestag.xml&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pretty_corpus</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../3_Dateien/Output/aeusserungen_im_bundestag.xml&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Überprüf, ob das funktioniert hat, indem Du die neu geschaffene Datei mit Sublime Text öffnest.</p>
 <p>Bemerkung am Rande: Für die Datenspeicherung sind die eingefügten Einrückungen natürlich unnötig. Manchmal öffnen wir XML-Dokumente aber eben auch mit grafischen Programmen wie Sublime Text. Ohne Einrückungen wäre das gesamte XML-Dokument auf eine einzigen, langen Zeile geschrieben worden, was für das menschliche Auge denkbar schwierig zu lesen ist.</p>
@@ -2935,10 +2945,9 @@ Frau Präsidentin! Liebe Kolleginnen und liebe Kollegen! Herr Brandner, es sollt
 <p>✏️ <strong>Übung 3:</strong> Im Anwendungsfall haben wir sämtliche Strophen von Faust I in einer externen Textdatei gespeichert. Diese verfügt (idealerweise) über eine interne Struktur. In der Musterlösung wurde etwa mit Tabstopps und Zeilenumbrüchen gearbeitet, um einzelne Strophen bzw. die zugehörigen Figuren voneinander abzugrenzen. Diese Struktur kommt uns spätestens dann zu Gute, wenn wir die Daten für irgendeine Form von Auswertung mit Python wieder einlesen.</p>
 <p>Um unseren Anwendungsfall zu „professionalisieren“, ist es nun Deine Aufgabe, den Faust I in einem XML-Dokument zu speichern, also in einem Format, dessen „Aufgabe“ es ist, Daten ordentlich zu strukturieren. Kopier dazu den Code vom Extraktionsschritt des Anwendungsfalls in die folgende Zelle. Pass ihn anschließend so an, dass die Daten dynamisch in ein XML-Dokument statt in eine Textdatei geschrieben werden.</p>
 <p>Als kleiner Bonus, der überprüft, ob bei der Speicherung alles geklappt hat, vor allem aber die Nützlichkeit strukturierter Daten aufzeigt, kannst Du Dir anschließend über die bereits gegebene Code-Zelle einfach alle Verse des berühmten Teufels aus dem Faust ausgeben lassen. Wenn nötig, pass den Dateipfad bzw. die Tags und Attribute Deiner Namensgebung an.</p>
-<details><summary>📌 Herausforderung </summary>
+<details><summary>🦊 Herausforderung</summary>
 <br>Extrahier zusätzlich den Titel jeder Szene und speicher diese Information jeweils an der richtigen Position in der Hierarchie des zu schaffenden XML-Dokuments.
-</details>
-<br><div class="cell docutils container">
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>
@@ -2961,7 +2970,7 @@ Frau Präsidentin! Liebe Kolleginnen und liebe Kollegen! Herr Brandner, es sollt
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2141</span><span class="o">/</span><span class="mf">1879046664.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2107</span><span class="o">/</span><span class="mf">1879046664.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Bonus: Ausgabe aller Verse von Mephisto(pheles)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../3_Dateien/Output/faust_1.xml&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
@@ -2994,7 +3003,7 @@ Frau Präsidentin! Liebe Kolleginnen und liebe Kollegen! Herr Brandner, es sollt
 <br>Analysier dazu folgenden Screenshot einer XML- bzw. csv-Datei, die fast die gleichen Daten beinhalten.
     <br><br>
     <img src="../3_Dateien/Grafiken_und_Videos/vergleich_xml_html.png">
-    <br><br>
+    <br>
 </details><hr class="docutils" />
 <p>Wirklich gute Arbeit!</p>
 <p>Damit sind wir am Ende des Notebooks angelangt. 🎉</p>
@@ -3064,7 +3073,7 @@ Frau Präsidentin! Liebe Kolleginnen und liebe Kollegen! Herr Brandner, es sollt
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recht-und-ethik">Recht und Ethik</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-den-faust-i-scrapen">🔧 Anwendungsfall: Den Faust I scrapen 🎭</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-xml">Exkurs: XML</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xml">XML</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xml-parsen">XML parsen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xml-schreiben">XML schreiben</a></li>
 </ul>

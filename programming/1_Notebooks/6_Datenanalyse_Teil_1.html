@@ -514,8 +514,14 @@ Um <code class="docutils literal notranslate"><span class="pre">pandas</span></c
 </div>
 </div>
 </div>
-<p>Neben <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> für Dateien mit Trennzeichen bietet <code class="docutils literal notranslate"><span class="pre">pandas</span></code> u. a. auch Funktionen für XML (<code class="docutils literal notranslate"><span class="pre">read_xml</span></code>), JSON (<code class="docutils literal notranslate"><span class="pre">read_json</span></code>)  und Excel-Dateien (<code class="docutils literal notranslate"><span class="pre">read_excel</span></code>) an. Ebenfalls kann man je nach Daten weitere Parameter spezifizieren, u. a. <code class="docutils literal notranslate"><span class="pre">na_filter</span></code>, um zu definieren, wie mit fehlenden Werten (sog. <em>NaN-Werten</em>) umgegangen werden soll.</p>
-<p><em>Bemerkung am Rande: Fehlende Werte führen immer wieder zu Problemen bei der Arbeit mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Deswegen solltest Du Dich beim Einlesen Deiner eigenen Daten stets fragen, ob bestimmte Werte darin fehlen könnten und wenn ja, wie Du damit umgehen möchtest. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> bietet neben <code class="docutils literal notranslate"><span class="pre">na_filter</span></code> nützliche Methoden wie <code class="docutils literal notranslate"><span class="pre">isna</span></code>, <code class="docutils literal notranslate"><span class="pre">dropna</span></code> und <code class="docutils literal notranslate"><span class="pre">fillna</span></code> für den Umgang mit fehlenden Werten (mehr Infos <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/missing_data.html">hier</a>). Im Folgenden gehen wir aber nicht darauf ein, im Songkorpus fehlen schlicht keine Werte.</em></p>
+<p>Neben <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> für Dateien mit Trennzeichen bietet <code class="docutils literal notranslate"><span class="pre">pandas</span></code> u. a. auch Funktionen für XML (<code class="docutils literal notranslate"><span class="pre">read_xml</span></code>), JSON (<code class="docutils literal notranslate"><span class="pre">read_json</span></code>)  und Excel-Dateien (<code class="docutils literal notranslate"><span class="pre">read_excel</span></code>) an.
+<br></p>
+<details>
+<summary>🔍 <b>Exkurs: Umgang mit fehlenden Werten</b></summary>
+<br>Pandas bietet beim Einlesen die Möglichkeit, weitere Parameter zu spezifizieren, u.&nbsp;a. <code>na_filter</code>, um zu definieren, wie mit fehlenden Werten (sog. <i>NaN-Werten</i>) umgegangen werden soll. Fehlende Werte führen immer wieder zu Problemen bei der Arbeit mit <code>pandas</code>. Deswegen solltest Du Dich beim Einlesen Deiner eigenen Daten stets fragen, ob bestimmte Werte darin fehlen könnten und wenn ja, wie Du damit umgehen möchtest. <code>pandas</code> bietet neben <code>na_filter</code> nützliche Methoden wie <code>isna</code>, <code>dropna</code> und <code>fillna</code> für den Umgang mit fehlenden Werten (mehr Infos 
+<a href="https://pandas.pydata.org/docs/user_guide/missing_data.html">hier</a>). Im Folgenden gehen wir aber nicht darauf ein, im Songkorpus fehlen schlicht keine Werte.
+</details>
+<br>
 <p>Die Lesemethode überführt unsere Daten in jedem Fall in ein sog. <em>DataFrame</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -536,7 +542,7 @@ Um <code class="docutils literal notranslate"><span class="pre">pandas</span></c
 <p>Hier bietet sich insbesondere die Methode <code class="docutils literal notranslate"><span class="pre">head</span></code> an, die standardmäßig die ersten fünf Zeilen (also den „Kopf“) des DataFrame ausgibt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#&#39;head&#39; nimmt optional eine Ganzzahl als Argument, die definiert, wie viele der ersten Zeilen ausgegeben werden sollen</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#&#39;head&#39; nimmt optional eine Ganzzahl als Argument, die definiert, wie viele der ersten Zeilen ausgegeben werden sollen.</span>
 </pre></div>
 </div>
 </div>
@@ -603,7 +609,7 @@ Um <code class="docutils literal notranslate"><span class="pre">pandas</span></c
 <p>Das Gegenstück zu <code class="docutils literal notranslate"><span class="pre">head</span></code> ist <code class="docutils literal notranslate"><span class="pre">tail</span></code> (also der „Schwanz“), wodurch wir die letzten fünf Zeilen des DataFrame erhalten:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span> <span class="c1">#Auch &#39;tail&#39; nimmt optional eine Ganzzahl als Argument, die definiert, wie viele der letzten Zeilen ausgegeben werden sollen</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span> <span class="c1">#Auch &#39;tail&#39; nimmt optional eine Ganzzahl als Argument, die definiert, wie viele der letzten Zeilen ausgegeben werden sollen.</span>
 </pre></div>
 </div>
 </div>
@@ -633,31 +639,31 @@ Um <code class="docutils literal notranslate"><span class="pre">pandas</span></c
   </thead>
   <tbody>
     <tr>
-      <th>386505</th>
+      <th>386504</th>
       <td>Vierzehn</td>
       <td>2020</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>386506</th>
+      <th>386505</th>
       <td>Was</td>
       <td>2020</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>386507</th>
+      <th>386506</th>
       <td>Weißer</td>
       <td>2020</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>386508</th>
+      <th>386507</th>
       <td>Wie</td>
       <td>2020</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>386509</th>
+      <th>386508</th>
       <td>Wozu</td>
       <td>2020</td>
       <td>1</td>
@@ -677,9 +683,9 @@ Um <code class="docutils literal notranslate"><span class="pre">pandas</span></c
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(386510, 3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(386509, 3)
 Index([&#39;CO_TOKEN&#39;, &#39;CO_YEAR&#39;, &#39;CO_COUNT&#39;], dtype=&#39;object&#39;)
-RangeIndex(start=0, stop=386510, step=1)
+RangeIndex(start=0, stop=386509, step=1)
 </pre></div>
 </div>
 </div>
@@ -792,12 +798,12 @@ RangeIndex(start=0, stop=386510, step=1)
 3         #JeSuisPasséChezSo
 4                   #Nachbar
                  ...        
-386505              Vierzehn
-386506                   Was
-386507                Weißer
-386508                   Wie
-386509                  Wozu
-Name: Token, Length: 386510, dtype: object
+386504              Vierzehn
+386505                   Was
+386506                Weißer
+386507                   Wie
+386508                  Wozu
+Name: Token, Length: 386509, dtype: object
 </pre></div>
 </div>
 </div>
@@ -817,12 +823,12 @@ Name: Token, Length: 386510, dtype: object
 3         #JeSuisPasséChezSo
 4                   #Nachbar
                  ...        
-386505              Vierzehn
-386506                   Was
-386507                Weißer
-386508                   Wie
-386509                  Wozu
-Name: Token, Length: 386510, dtype: object
+386504              Vierzehn
+386505                   Was
+386506                Weißer
+386507                   Wie
+386508                  Wozu
+Name: Token, Length: 386509, dtype: object
 </pre></div>
 </div>
 </div>
@@ -933,7 +939,10 @@ Name: Token, dtype: object
 </div></div></div>
 </div>
 <p>Überleg Dir kurz, was für ein Datentyp <code class="docutils literal notranslate"><span class="pre">two_columns</span></code> hat.</p>
-<p>Genau: Nun haben wir nicht mehr nur eine Spalte, in der Zeilenwert um Zeilenwert in einer Dimension gespeichert ist, sondern zwei Spalten. <code class="docutils literal notranslate"><span class="pre">two_columns</span></code> ist also immer noch ein zweidimensionales Objekt, sprich ein DataFrame:</p>
+<details>
+    <summary>✅ Antwort</summary>
+<br>Genau: Nun haben wir nicht mehr nur eine Spalte, in der Zeilenwert um Zeilenwert in einer Dimension gespeichert ist, sondern zwei Spalten. <code>two_columns</code> ist also immer noch ein zweidimensionales Objekt, sprich ein DataFrame. Überprüfen kannst Du das mit folgendem Befehl:
+</details>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">two_columns</span><span class="p">))</span>
@@ -1138,10 +1147,6 @@ Name: 777, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">songkorpus</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Jahr&quot;</span><span class="p">])</span>
-
-<span class="sd">&quot;&quot;&quot;Randbemerkung: Auf die Spitze getrieben können wir mit &#39;.loc&#39; auch nur auf Spalten zugreifen, nämlich indem wir, </span>
-<span class="sd">wie bei Listen-Slicing auch möglich, durch Weglassen eines Start- und Endindex sämtliche Zeilen ansprechen, sprich so: </span>
-<span class="sd">songkorpus.loc[:, &quot;Jahr&quot;].&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1149,12 +1154,8 @@ Name: 777, dtype: object
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1995
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Randbemerkung: Auf die Spitze getrieben können wir mit \&#39;.loc\&#39; auch nur auf Spalten zugreifen, nämlich indem wir, \nwie bei Listen-Slicing auch möglich, durch Weglassen eines Start- und Endindex sämtliche Zeilen ansprechen, sprich so: \nsongkorpus.loc[:, &quot;Jahr&quot;].&#39;
-</pre></div>
 </div>
 </div>
-</div>
-<p>Neben der Herangehensweise über <code class="docutils literal notranslate"><span class="pre">loc</span></code> besteht auch die Möglichkeit erst wie oben gelernt auf eine spezifische Spalte bzw. eine spezifische Zeile zuzugreifen, was in einer Series resultiert, und in dieser Series anschließend auf eine bestimmte Zeile bzw. eine bestimmte Spalte zuzugreifen (z. B. <code class="docutils literal notranslate"><span class="pre">songkorpus[&quot;Token&quot;][22]</span></code>). Obige Syntax mit <code class="docutils literal notranslate"><span class="pre">loc</span></code> ist diesen sog. „chained assignments“ (etwa: Kettenaufgabe) jedoch vorzuziehen.</p>
 <p>Wie immer können wir auch Listen übergeben, um auf mehrere Spalten und/oder mehrere Zeilen gleichzeitig zuzugreifen. Beim Zeilenzugriff funktioniert sowohl eine Liste einzelner Indizes…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1439,7 +1440,7 @@ Name: 777, dtype: object
   </thead>
   <tbody>
     <tr>
-      <th>386506</th>
+      <th>386505</th>
       <td>Was</td>
       <td>2020</td>
       <td>1</td>
@@ -1447,7 +1448,7 @@ Name: 777, dtype: object
       <td>3</td>
     </tr>
     <tr>
-      <th>386507</th>
+      <th>386506</th>
       <td>Weißer</td>
       <td>2020</td>
       <td>1</td>
@@ -1455,7 +1456,7 @@ Name: 777, dtype: object
       <td>6</td>
     </tr>
     <tr>
-      <th>386508</th>
+      <th>386507</th>
       <td>Wie</td>
       <td>2020</td>
       <td>1</td>
@@ -1463,7 +1464,7 @@ Name: 777, dtype: object
       <td>3</td>
     </tr>
     <tr>
-      <th>386509</th>
+      <th>386508</th>
       <td>Wozu</td>
       <td>2020</td>
       <td>1</td>
@@ -1471,7 +1472,7 @@ Name: 777, dtype: object
       <td>4</td>
     </tr>
     <tr>
-      <th>386510</th>
+      <th>386509</th>
       <td>Fantasiewort</td>
       <td>2023</td>
       <td>800</td>
@@ -1488,7 +1489,9 @@ Name: 777, dtype: object
 <section id="spalten-und-zeilen-entfernen">
 <h2>Spalten und Zeilen entfernen<a class="headerlink" href="#spalten-und-zeilen-entfernen" title="Permalink to this heading">#</a></h2>
 <p>Zu diesem Zweck gibt es die <code class="docutils literal notranslate"><span class="pre">drop</span></code>-Methode, die wir sowohl zum Entfernen von Spalten als auch Zeilen benutzen können. Als erstes Argument übergeben wir ihr den Namen der zu entfernenden Spalte bzw. den numerischen Index (oder Namen, s. o.) der zu entfernenden Zeile. Um mehrere Spalten oder Zeilen zu entfernen, können jeweils auch Listen übergeben werden. Anschließend spezifizieren wir mithilfe des <code class="docutils literal notranslate"><span class="pre">axis</span></code>-Parameters, ob es sich um eine Spalte oder eine Zeile handelt, die entfernt werden soll. <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> steht für Spalten und <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> für Zeilen (was der Standardwert ist und nicht zwingend angegeben werden muss). Die Syntax mit Standardwerten lautet also folgendermaßen:</p>
-<p><code class="docutils literal notranslate"><span class="pre">DataFrame.drop(index_or_name,</span> <span class="pre">axis=0)</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index_or_name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 6:</strong> Führ die Zelle oben, in der wir <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> Zeilen mit Fantasiewörtern hinzugefügt haben, noch ein paar Mal aus, ohne darauf zu achten wie oft. Verwend nun <code class="docutils literal notranslate"><span class="pre">drop</span></code> in einer geeigneten Kontrollstruktur (vgl. Notebook „Kontrollstrukturen“) sowie die anfangs eingeführte Variable <code class="docutils literal notranslate"><span class="pre">original_len</span></code>, um die Fantasiewörter wieder zu entfernen und <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code>, was die Anzahl an Zeilen betrifft, wieder in seinen Originalzustand zu bringen.</p>
 <details>
@@ -1524,9 +1527,9 @@ Name: 777, dtype: object
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 2007
-5.7299293679335594
+5.729941605499484
 1.0
-2214675
+2214674
 </pre></div>
 </div>
 </div>
@@ -1541,9 +1544,9 @@ Name: 777, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    386510.000000
-mean          5.729929
-std          31.514454
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    386509.000000
+mean          5.729942
+std          31.514494
 min           1.000000
 25%           1.000000
 50%           1.000000
@@ -1589,21 +1592,21 @@ Name: Häufigkeit, dtype: float64
   <tbody>
     <tr>
       <th>count</th>
-      <td>386510.000000</td>
-      <td>386510.000000</td>
-      <td>386510.000000</td>
+      <td>386509.000000</td>
+      <td>386509.000000</td>
+      <td>386509.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>1999.486401</td>
-      <td>5.729929</td>
-      <td>6.877390</td>
+      <td>1999.486348</td>
+      <td>5.729942</td>
+      <td>6.877395</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>15.150846</td>
-      <td>31.514454</td>
-      <td>2.933774</td>
+      <td>15.150830</td>
+      <td>31.514494</td>
+      <td>2.933776</td>
     </tr>
     <tr>
       <th>min</th>
@@ -1652,7 +1655,7 @@ Name: Häufigkeit, dtype: float64
 1980     65571
 1990     55021
 1970     50949
-2020     20995
+2020     20994
 1960      1837
 Name: Jahrzehnt, dtype: int64
 </pre></div>
@@ -1668,25 +1671,102 @@ Name: Jahrzehnt, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2010    0.282171
-2000    0.214936
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2010    0.282172
+2000    0.214937
 1980    0.169649
-1990    0.142353
+1990    0.142354
 1970    0.131818
-2020    0.054319
+2020    0.054317
 1960    0.004753
 Name: Jahrzehnt, dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">songkorpus</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Token</th>
+      <th>Jahr</th>
+      <th>Häufigkeit</th>
+      <th>Jahrzehnt</th>
+      <th>Länge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Klaround</td>
+      <td>2007</td>
+      <td>1</td>
+      <td>2000</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>#3</td>
+      <td>2009</td>
+      <td>1</td>
+      <td>2000</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>#Babo</td>
+      <td>2015</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>#JeSuisPasséChezSo</td>
+      <td>2018</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>#Nachbar</td>
+      <td>2016</td>
+      <td>1</td>
+      <td>2010</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <p>So lässt sich leicht ablesen, dass fast die Hälfte aller Tokens in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> aus den Nuller- und Zehnerjahren stammen. Dieses Ungleichgewicht müssen wir bei künftigen Analysen im Hinterkopf behalten.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 7:</strong> Mithilfe von <code class="docutils literal notranslate"><span class="pre">describe</span></code> haben wir oben herausgefunden, dass die durchschnittliche Wortlänge in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> 6.88 Buchstaben beträgt. Die maximale Wortlänge beträgt hingegen sagenhafte 53 Buchstaben. Die Verteilung scheint alles andere als gleichmäßig zu sein, was wir auch an den sog. <em>Quartilen</em> 25% und 75% sehen (Quartile werden wie der Median berechnet, nur geht es nicht um den Mittelwert, sondern um die Werte nach einem Viertel bzw. drei Vierteln aller aufgereihten Werte). Find heraus, welche Wortlängen für jeweils mindestens 10 % aller Wörter gelten. Find ebenfalls heraus, welche Wortlängen für jeweils maximal 1 % aller Wörter gelten.</p>
+<p>✏️ <strong>Übung 7:</strong> Mithilfe von <code class="docutils literal notranslate"><span class="pre">describe</span></code> haben wir oben herausgefunden, dass die durchschnittliche Wortlänge in <code class="docutils literal notranslate"><span class="pre">songkorpus</span></code> 6.88 Buchstaben beträgt. Die maximale Wortlänge beträgt hingegen sagenhafte 53 Buchstaben. Diese hohe Streuung der Wortlängen macht es interessant, die Häufigkeit bestimmter Wortlängen genauer zu betrachten. Ermittle, welche Wortlängen eine relative Häufigkeit von mindestens 10% haben. Bei welchen Wortlängen beträgt die relative Häufigkeit maximal 1%?</p>
 <details>
 <summary>💡 Tipp </summary>
-<br>Einer von verschiedenen denkbaren Lösungswegen involviert die Tatsache, dass DataFrames und Series mit dictionaries verwandt sind und sich auch in ein solches casten lassen.</details>
-<div class="cell docutils container">
+<br>Der simpelste Weg besteht darin, zunächst für alle einzigartigen Wortlängen (z. B. 1, 2, 3 usw.) die Anzahl an Wörtern zu berechnen, die diese Länge haben. Dazu kannst Du eine Dir aus diesem Notebook bekannte Methode zum Auszählen verwenden. Wenn Du den Parameter <code>normalize=True</code> setzt, erhältst Du sogar direkt die relativen Häufigkeiten. Anschließend musst Du noch die Wortlängen ermitteln, bei welchen die relative Häufigkeit bei ≥ 0,1 bzw. ≤ 0,01 liegt.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 </pre></div>

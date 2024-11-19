@@ -469,12 +469,9 @@ document.write(`
   <section id="zusatzubungen-zum-notebook-regulare-ausdrucke">
 <h1>Zusatzübungen zum Notebook „Reguläre Ausdrücke“<a class="headerlink" href="#zusatzubungen-zum-notebook-regulare-ausdrucke" title="Permalink to this heading">#</a></h1>
 <p>👆 Je komplexer die Suchaufträge, desto mehr Möglichkeiten gibt es, einen regulären Ausdruck dafür zu konstruieren. Bei der Abwägung zwischen Genauigkeit (decke ich alle gewünschten Fälle und nur diese ab?) und Effizienz (wie lange brauche ich, um den regulären Ausdruck zu konstruieren?) gibt es nicht immer Richtig und Falsch.</p>
-<ol class="arabic">
-<li><p>Um das Formulieren von regulären Ausdrücken zu üben, laden wir uns den <a class="reference external" href="https://de.wikipedia.org/wiki/Quantenphysik">Wikipedia-Artikel zur Quantenphysik</a> herunter. Dies tun wir mithilfe des Moduls <code class="docutils literal notranslate"><span class="pre">wikipediaapi</span></code>, das die offizielle Schnittstelle von Wikipedia (die sog. <em>API</em>) für Python zugänglich macht.</p>
+<p>✏️ <strong>Übung 1:</strong> Um das Formulieren von regulären Ausdrücken zu üben, laden wir uns den <a class="reference external" href="https://de.wikipedia.org/wiki/Quantenphysik">Wikipedia-Artikel zur Quantenphysik</a> herunter. Dies tun wir mithilfe des Moduls <code class="docutils literal notranslate"><span class="pre">wikipediaapi</span></code>, das die offizielle Schnittstelle von Wikipedia (die sog. <em>API</em>) für Python zugänglich macht.</p>
 <p>Installier zuallererst das Modul über die Command Line (Terminal unter macOS und Linux/Eingabeaufforderung unter Windows): <code class="docutils literal notranslate"><span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">wikipedia-api</span></code> (beachte den Bindestrich!). Der Code zum Herunterladen des Artikels steht Dir bereits in der Code-Zelle zur Verfügung. Du musst bloß Deine Mailadresse bei <code class="docutils literal notranslate"><span class="pre">mail_address</span></code> angeben. Die Kontaktangabe beim „Anzapfen“ einer Schnittstelle gehört nämlich zum guten Ton!</p>
 <p>Führ anschließend die Code-Zelle <em>einmal</em> aus. Da jede Abfrage die Server von Wikipedia beschäftigt, versuchen wir die Anzahl an Abfragen auf ein Minimum zu begrenzen. Im Extremfall (bei vielen Abfragen von der selben IP-Adresse innerhalb eines kurzen Zeitraums) sperrt Wikipedia Dich automatisch.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mail_address</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#Trag hier Deine Mailadresse ein.</span>
@@ -491,7 +488,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2552</span><span class="o">/</span><span class="mf">26968875.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2579</span><span class="o">/</span><span class="mf">26968875.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">mail_address</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#Trag hier Deine Mailadresse ein.</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">wikipediaapi</span> <span class="c1">#Kein Bindestrich beim Import</span>
@@ -503,74 +500,114 @@ document.write(`
 </div>
 </div>
 </div>
-<ol class="arabic" start="2">
-<li><p>Nun steht uns der Inhalt des Artikels als string-Objekt in <code class="docutils literal notranslate"><span class="pre">qp</span></code> zur Verfügung und wir können reguläre Ausdrücke üben.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Nun steht uns der Inhalt des Artikels als string-Objekt in <code class="docutils literal notranslate"><span class="pre">qp</span></code> zur Verfügung und wir können reguläre Ausdrücke üben.</p>
 <p>Extrahier als Erstes alle Wörter bestehend aus mindestens 20 Buchstaben.</p>
- <details>
- <summary>💡 Tipp 1 </summary>
- <br>Verwend hier und in den folgenden Übungen, wo sinnvoll, die <code>re.I</code>-Flag, um die regulären Ausdrücke kurz zu halten.
- </details>
- <br>
- <details>
- <summary>💡 Tipp 2 </summary>
- <br>Beachte, dass die vordefinierte Zeichenklasse <code>\w</code> ä,ö,ü,ß usw. <b>nicht</b> matcht.
- </details>
- <br></li>
-</ol>
-<ol class="arabic" start="3">
-<li><p>Lass Dir nun alle einzigartigen kleingeschriebenen Wörter in <code class="docutils literal notranslate"><span class="pre">qp</span></code> bestehend aus zwei oder drei Buchstaben ausgeben.</p>
- <details>
- <summary>💡 Tipp </summary>
- <br>Um ganze Wörter zu matchen, muss der reguläre Ausdruck vor und nach den zwei bis drei Buchstaben auch nach Wortgrenzen suchen. 
- </details>
- <br></li>
-</ol>
-<ol class="arabic simple" start="4">
-<li><p>Schaff eine Liste mit allen Wörtern mit Bindestrich (z. B. „Wikipedia-Artikel“) in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p></li>
-</ol>
-<ol class="arabic" start="5">
-<li><p>Extrahier aus <code class="docutils literal notranslate"><span class="pre">qp</span></code> sämtliche Wörter mit Großbuchstaben am Anfang, die mindestens vier Buchstaben lang sind. Lass sie Dir alphabetisch ausgeben.</p>
- <details>
- <summary>💡 Tipp </summary>
- <br>Beachte, dass die zuvor eingesetzte Flag für diese Aufgabe nicht funktioniert. 
- </details>
- <br></li>
-</ol>
-<ol class="arabic simple" start="6">
-<li><p>Identifizier alle Substantivpaare in <code class="docutils literal notranslate"><span class="pre">qp</span></code>, die mit „und“ verbunden sind (z.  B. „Phänomene und Effekte“).</p></li>
-</ol>
-<ol class="arabic" start="7">
-<li><p>Find sämtliche Klammerbemerkungen in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p>
- <details>
- <summary> 💡 Tipp </summary>
- <br>Uneingeschränkte Quantifikatoren matchen so viele Zeichen wie möglich, d. h. <code>re</code> findet den längstmöglichen match. Kommt nach einer schließenden Klammer später im abzusuchenden Text noch einmal eine schließende Klammer (und unter der Voraussetzung, dass alles dazwischen ebenfalls gematcht werden kann), so matcht <code>re</code> den gesamten Abschnitt von der ersten öffnenden Klammer bis zur letzten schließenden Klammer. Um diese <i>Gier</i> zu bändigen (und die einzelnen Klammerbemerkungen separat zu matchen), können wir dem Quantifikator ein <code>?</code> anfügen. Dann matcht <code>re</code> nur so viele Zeichen wie nötig, um einen vollständigen match zu erreichen.
- </details>
- <br></li>
-</ol>
-<ol class="arabic" start="8">
-<li><p>An welcher Stelle und in welchem Wort in <code class="docutils literal notranslate"><span class="pre">qp</span></code> taucht „theorie“ zum ersten Mal auf?</p>
- <details>
- <summary>💡 Tipp </summary>
- <br>Für diese Aufgabe benötigst Du eine im Notebook "Reguläre Ausdrücke" kennengelernte Methode, die das erste Vorkommen eines Ausdrucks ermittelt.  
- </details>
- <br></li>
-</ol>
-<ol class="arabic" start="9">
-<li><p>Erstell eine Häufigkeitsverteilung über alle Zahlen in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p>
- <details>
- <summary>💡 Tipp </summary>
- <br>Nutz pandas für den letzten Schritt.
- </details>
- <br></li>
-</ol>
-<ol class="arabic" start="10">
-<li><p>Tausch die Position der beiden Substantive in allen in Übung 6 ermittelten Substantivpaaren in <code class="docutils literal notranslate"><span class="pre">qp</span></code>. Statt „Phänomene und Effekte“ soll „Effekte und Phänomene“ im Text stehen etc.</p>
 <details>
-<summary>💡 Tipp </summary>
-<br>Arbeite hierfür mit Teilmatches.
+    <summary>💡 Tipp 1 </summary>
+    <br>Verwend hier und in den folgenden Übungen, wo sinnvoll, die <code>re.I</code>-Flag, um die regulären Ausdrücke kurz zu halten.
 </details>
-<br></li>
-</ol>
+<br>
+<details>
+    <summary>💡 Tipp 2 </summary>
+    <br>Beachte, dass die vordefinierte Zeichenklasse <code>\w</code> ä,ö,ü,ß usw. <b>nicht</b> matcht.
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Lass Dir nun alle einzigartigen kleingeschriebenen Wörter in <code class="docutils literal notranslate"><span class="pre">qp</span></code> bestehend aus zwei oder drei Buchstaben ausgeben.</p>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Um ganze Wörter zu matchen, muss der reguläre Ausdruck vor und nach den zwei bis drei Buchstaben auch nach Wortgrenzen suchen. 
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> Schaff eine Liste mit allen Wörtern mit Bindestrich (z. B. „Wikipedia-Artikel“) in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 5:</strong> Extrahier aus <code class="docutils literal notranslate"><span class="pre">qp</span></code> sämtliche Wörter mit Großbuchstaben am Anfang, die mindestens vier Buchstaben lang sind. Lass sie Dir alphabetisch ausgeben.</p>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Beachte, dass die zuvor eingesetzte Flag für diese Aufgabe nicht funktioniert. 
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 6:</strong> Identifizier alle Substantivpaare in <code class="docutils literal notranslate"><span class="pre">qp</span></code>, die mit „und“ verbunden sind (z.  B. „Phänomene und Effekte“).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 7:</strong> Find sämtliche Klammerbemerkungen in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p>
+<details>
+    <summary> 💡 Tipp </summary>
+    <br>Uneingeschränkte Quantifikatoren matchen so viele Zeichen wie möglich, d. h. <code>re</code> findet den längstmöglichen match. Kommt nach einer schließenden Klammer später im abzusuchenden Text noch einmal eine schließende Klammer (und unter der Voraussetzung, dass alles dazwischen ebenfalls gematcht werden kann), so matcht <code>re</code> den gesamten Abschnitt von der ersten öffnenden Klammer bis zur letzten schließenden Klammer. Um diese <i>Gier</i> zu bändigen (und die einzelnen Klammerbemerkungen separat zu matchen), können wir dem Quantifikator ein <code>?</code> anfügen. Dann matcht <code>re</code> nur so viele Zeichen wie nötig, um einen vollständigen match zu erreichen.
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 8:</strong> An welcher Stelle und in welchem Wort in <code class="docutils literal notranslate"><span class="pre">qp</span></code> taucht „theorie“ zum ersten Mal auf?</p>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Für diese Aufgabe benötigst Du eine im Notebook "Reguläre Ausdrücke" kennengelernte Methode, die das erste Vorkommen eines Ausdrucks ermittelt.  
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 9:</strong> Erstell eine Häufigkeitsverteilung über alle Zahlen in <code class="docutils literal notranslate"><span class="pre">qp</span></code>.</p>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Nutz <code>pandas</code> für den letzten Schritt.
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 10:</strong> Tausch die Position der beiden Substantive in allen in Übung 6 ermittelten Substantivpaaren in <code class="docutils literal notranslate"><span class="pre">qp</span></code>. Statt „Phänomene und Effekte“ soll „Effekte und Phänomene“ im Text stehen etc.</p>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Arbeite hierfür mit Teilmatches.
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
 <table>
       <tr>

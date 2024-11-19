@@ -469,10 +469,10 @@ document.write(`
   <section id="input-und-output-teil-1-losungen">
 <h1>Input und Output Teil 1 (Lösungen)<a class="headerlink" href="#input-und-output-teil-1-losungen" title="Permalink to this heading">#</a></h1>
 <p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
-<p>✏️ <strong>Lösung 1:</strong> Navigier in Deinem Dateimanager zu fünf beliebigen Dateien in fünf verschiedenen Verzeichnissen. Kopier die absoluten Dateipfade wie oben beschrieben und weis je einen Dateipfad einer der folgenden Variablen zu (innerhalb der Anführungszeichen).</p>
+<p>✏️ <strong>Übung 1:</strong> Navigier in Deinem Dateimanager zu fünf beliebigen Dateien in fünf verschiedenen Verzeichnissen. Kopier die absoluten Dateipfade wie oben beschrieben und weis je einen Dateipfad einer der folgenden Variablen zu (innerhalb der Anführungszeichen).</p>
 <p><em>Keine Lösung</em></p>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 2:</strong> Das aktuelle Arbeitsverzeichnis auf einem Windows-Rechner sei „C:\Users\Name\Documents\Project\Folder“. Du möchtest auf eine Datei zugreifen, die folgenden absoluten Dateipfad besitzt: „C:\Users\Name\Documents\Resources\file.csv“. Mithilfe welchen relativen Pfads können wir in Python auf „file.csv“ zugreifen?</p>
+<p>✏️ <strong>Übung 2:</strong> Das aktuelle Arbeitsverzeichnis auf einem Windows-Rechner sei „C:\Users\Name\Documents\Project\Folder“. Du möchtest auf eine Datei zugreifen, die folgenden absoluten Dateipfad besitzt: „C:\Users\Name\Documents\Resources\file.csv“. Mithilfe welchen relativen Pfads können wir in Python auf „file.csv“ zugreifen?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">relative_path</span> <span class="o">=</span> <span class="s2">&quot;../../Resources/file.csv&quot;</span> <span class="c1">#Mit Schrägstrichen auf allen Betriebssystemen (r&quot;\..\..\Resources\file.csv&quot; würde bei Windows aber auch funktionieren)</span>
@@ -481,7 +481,7 @@ document.write(`
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 3:</strong> Lies den ersten Aufzug aus Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/nathan/chap002.html"><em>Nathan der Weise</em></a> ein. Die Datei befindet sich im Unterverzeichnis „Nathan_der_Weise“ im Dateienordner. Find heraus, welche der Figuren des Stücks (bereitgestellt in <code class="docutils literal notranslate"><span class="pre">characters</span></code>) am häufigsten erwähnt wird (wir unterscheiden nicht zwischen Erwähnungen in Redebeiträgen und sonst wo im Text, z. B. in der Sprecherkennzeichung).</p>
+<p>✏️ <strong>Übung 3:</strong> Lies den ersten Aufzug aus Lessings <a class="reference external" href="https://www.projekt-gutenberg.org/lessing/nathan/chap002.html"><em>Nathan der Weise</em></a> ein. Die Datei befindet sich im Unterverzeichnis „Nathan_der_Weise“ im Dateienordner. Find heraus, welche der Figuren des Stücks (bereitgestellt in <code class="docutils literal notranslate"><span class="pre">characters</span></code>) am häufigsten erwähnt wird (wir unterscheiden nicht zwischen Erwähnungen in Redebeiträgen und sonst wo im Text, z. B. in der Sprecherkennzeichung).</p>
 <p>Um Deine Fertigkeiten aus dem Notebook „Funktionen und Methoden Teil 1“ gleich wieder einzusetzen, kannst Du dazu eine sortierte Frequenzliste mit allen Figuren und ihren jeweiligen Erwähnungshäufigkeiten erstellen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -523,7 +523,7 @@ Emir 0
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 4:</strong> Im Gegensatz zu <em>Miss Sara Sampson</em> ist <em>Nathan der Weise</em> etwas anders formatiert, z. B. verteilen sich Redebeiträge z. T. über mehrere Zeilen.</p>
+<p>✏️ <strong>Übung 4:</strong> Im Gegensatz zu <em>Miss Sara Sampson</em> ist <em>Nathan der Weise</em> etwas anders formatiert, z. B. verteilen sich Redebeiträge z. T. über mehrere Zeilen.</p>
 <p>Lies den ersten Aufzug aus <em>Nathan der Weise</em> abermals ein. Schau Dir die Formatierung des Textes genau an, um ein strukturelles Merkmal zu finden, anhand dessen Du eine Liste mit zusammengehörigen Redebeiträgen und Metakommentaren erstellen kannst. Ein über mehrere Zeilen verteilter Redebeitrag oder Metakommentar soll jeweils in ein Element einfließen.</p>
 <p>Bereinige anschließend die Liste von allem, was keinen Redebeitrag darstellt. Auch hierfür musst Du Dir die Liste gut anschauen, um ein strukturelles Merkmal zu identifizieren, anhand dessen Du die „Spreu vom Weizen“ trennen kannst. Sollte sich ein Metakommentar innerhalb eines Redebeitrags befinden, kannst Du dies ignorieren. Stell durch einen iterativen Ansatz sicher, dass Du am Ende wirklich alle Redebeiträge und nur Redebeiträge auf der Liste hast (also die <em>true positives</em>).</p>
 <p>Dir steht wiederum eine Liste mit Figuren zur Verfügung.</p>
@@ -583,7 +583,7 @@ Und wäre leicht von Grund aus abgebrannt.
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Lösung 5:</strong> Bisher haben wir nur mit dem ersten Aufzug aus <em>Miss Sara Sampson</em> gearbeitet. Das Trauerspiel besteht aber aus fünf Aufzügen, die sich allesamt im gleichen Verzeichnis wie der erste Aufzug befinden.</p>
+<p>✏️ <strong>Übung 5:</strong> Bisher haben wir nur mit dem ersten Aufzug aus <em>Miss Sara Sampson</em> gearbeitet. Das Trauerspiel besteht aber aus fünf Aufzügen, die sich allesamt im gleichen Verzeichnis wie der erste Aufzug befinden.</p>
 <p>Öffne eine neue Textdatei mit dem Namen „Miss_Sara_Sampson_komplett.txt“ im Verzeichnis „Output“ und schreib alle fünf Aufzüge in der richtigen Reihenfolge in diese Datei.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -610,6 +610,20 @@ Und wäre leicht von Grund aus abgebrannt.
             
             <span class="c1">#Nach jedem Durchlauf wird zusätzlich ein doppelter Zeilenumbruch in &#39;write_file&#39; geschrieben, um die Aufzüge strukturell voneinander abzugrenzen. </span>
             <span class="n">write_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2272</span><span class="o">/</span><span class="mf">3970641314.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#Öffnen der neuen Datei, in welche die fünf Aufzüge geschrieben werden sollen, im Schreibmodus &quot;w&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="c1">#Iterieren über die sortierten Input-Dateien, damit sie anschließend in der richtigen Reihenfolge in &#39;write_file&#39; geschrieben werden</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../3_Dateien/Output/Miss_Sara_Sampson_komplett.txt&#39;
 </pre></div>
 </div>
 </div>

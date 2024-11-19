@@ -468,39 +468,38 @@ document.write(`
                   
   <section id="zusatzubungen-zum-notebook-kontrollstukturen">
 <h1>Zusatzübungen zum Notebook „Kontrollstukturen“<a class="headerlink" href="#zusatzubungen-zum-notebook-kontrollstukturen" title="Permalink to this heading">#</a></h1>
-<ol class="arabic">
-<li><p>Schreib <em>eine</em> Code-Zeile, die folgende Bedingungen überprüft:</p>
+<p>✏️ <strong>Übung 1:</strong> Schreib <em>eine</em> Code-Zeile, die folgende Bedingungen überprüft:</p>
 <ul class="simple">
 <li><p>Berlin hat mehr Einwohner:innen als München.</p></li>
 <li><p>In Hamburg wohnen entweder weniger Menschen als oder gleich viele wie in Berlin.</p></li>
-<li><p>München ist Hamburg in Sachen Einwohnerzahl unterlegen.<br><br></p></li>
+<li><p>München ist Hamburg in Sachen Einwohnerzahl unterlegen.<br></p></li>
 </ul>
- <details>
-   <summary>💡 Tipp </summary>
-   <br>Nutz Vergleichsoperatoren in Kombination mit logischen Operatoren. Schau dazu ggf. noch einmal im Notebook "Kontrollstrukturen" nach.
- </details>
- <br>
- <details>
-   <summary>📌 Herausforderung </summary>
-     <br>Überprüf zusätzlich im gleichen Statement, ob Berlin <i>nicht</i> kleiner als München ist, was die Einwohnerzahl anbelangt.
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Nutz Vergleichsoperatoren in Kombination mit logischen Operatoren. Schau dazu ggf. noch einmal im Notebook "Kontrollstrukturen" nach.
+</details>
+<br>
+<details>
+    <summary>🦊 Herausforderung </summary>
+    <br>Überprüf zusätzlich im gleichen Statement, ob Berlin <i>nicht</i> kleiner als München ist, was die Einwohnerzahl anbelangt.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berlin</span> <span class="o">=</span> <span class="mi">3677472</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">berlin</span> <span class="o">=</span> <span class="mi">3677472</span>
 <span class="n">hamburg</span> <span class="o">=</span> <span class="mi">1853935</span>
 <span class="n">muenchen</span> <span class="o">=</span> <span class="mi">1487708</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Formulier den folgenden Code so konzis wie möglich in natürlicher Sprache:</p></li>
-</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Formulier den folgenden Code so konzis wie möglich in natürlicher Sprache:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_rain_chance_forecast</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;na&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">weekly_rain_chance_forecast</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;na&quot;</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">daily_forecast</span> <span class="ow">in</span> <span class="n">weekly_rain_chance_forecast</span><span class="p">:</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">daily_forecast</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">:</span>
@@ -525,95 +524,89 @@ No prognosis possible due to missing value.
 </div>
 </div>
 </div>
-<ol class="arabic" start="3">
-<li><p>Mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> soll das monatliche Einkommen einer bestimmten Person referenziert werden. Beträgt es 6000€ oder mehr, fällt es in die höchste Einkommensklasse. Bei einem Betrag von unter 2000€ handelt es sich um ein Einkommen in der tiefsten Einkommensklasse. Zwischen 2000€ und unter 3000€, 3000€ und unter 4500€ sowie 4500€ und unter 6000€ fällt es in die Einkommensklasse „untere Mitte“, „Mitte“ bzw. „obere Mitte“. Formulier bedingte Anweisungen, die die entsprechende Einkommensklasse je nach Höhe von <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ausgeben.</p>
- <details>
-   <summary>💡 Tipp </summary>
-   <br>Für diese Übung benötigst Du mehrere <code>elif</code>-Statements. Überleg Dir also, wie Du die Bedingungen sinnvoll aufeinander aufbauen lassen kannst.  
-     </details>
- <br>
- <details>
-   <summary>📌 Herausforderung </summary>
-     <br>Was passiert, wenn das Einkommen anstatt als Zahl z. B. so vorliegt: "dreitausendsiebenhundert"? Und was, wenn mit <code>monthly_salary</code> ein noch weniger sinnvolles Objekt referenziert wird, z. B. eine Liste? Verhinder in jedem Fall, dass es zu einer Fehlermeldung kommt.
- </details>
- <br>
-</li>
-</ol>
-<div class="cell docutils container">
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Mit <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> soll das monatliche Einkommen einer bestimmten Person referenziert werden. Beträgt es 6000€ oder mehr, fällt es in die höchste Einkommensklasse. Bei einem Betrag von unter 2000€ handelt es sich um ein Einkommen in der tiefsten Einkommensklasse. Zwischen 2000€ und unter 3000€, 3000€ und unter 4500€ sowie 4500€ und unter 6000€ fällt es in die Einkommensklasse „untere Mitte“, „Mitte“ bzw. „obere Mitte“. Formulier bedingte Anweisungen, die die entsprechende Einkommensklasse je nach Höhe von <code class="docutils literal notranslate"><span class="pre">monthly_salary</span></code> ausgeben.</p>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Für diese Übung benötigst Du mehrere <code>elif</code>-Statements. Überleg Dir also, wie Du die Bedingungen sinnvoll aufeinander aufbauen lassen kannst.  
+</details>
+<br>
+<details>
+    <summary>🦊 Herausforderung </summary>
+    <br>Was passiert, wenn das Einkommen anstatt als Zahl z. B. so vorliegt: "dreitausendsiebenhundert"? Und was, wenn mit <code>monthly_salary</code> ein noch weniger sinnvolles Objekt referenziert wird, z. B. eine Liste? Verhinder in jedem Fall, dass es zu einer Fehlermeldung kommt.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_salary</span> <span class="o">=</span> <span class="mi">3000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">monthly_salary</span> <span class="o">=</span> <span class="mi">3000</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic" start="4">
-<li><p>Erstell einen string aus den jeweils letzten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code> und lass ihn Dir ausgeben.</p>
- <details>
-   <summary>💡 Tipp </summary>
-     <br>Initiier zunächst einen leeren string, z. B. so: <code>string = ""</code>. An diesen kannst Du die Zeichen nach und nach mittels erweiterter Zuweisung anfügen (vgl. Notebook "Einführung").
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> Erstell einen string aus den jeweils letzten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code> und lass ihn Dir ausgeben.</p>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Initiier zunächst einen leeren string, z. B. so: <code>string = ""</code>. An diesen kannst Du die Zeichen nach und nach mittels erweiterter Zuweisung anfügen (vgl. Notebook "Einführung").
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic" start="5">
-<li><p>Erstell abermals einen string bestehend aus ausgewählten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code>. Diesmal soll der erste Buchstabe für den neuen string der erste Buchstaben des ersten Namens sein, der zweite Buchstabe für den neuen string soll der zweite Buchstabe des zweiten Namens sein, etc. Welcher neue Name entsteht so?</p>
- <details>
-   <summary>💡 Tipp </summary>
-     <br>Hierfür empfiehlt sich das Nutzen einer Zählervariable, die bei jedem Durchgang um eins erhöht wird.
- </details>
- <br>
- <details>
-   <summary>📌 Herausforderung </summary>
-     <br>Nutz die <code>range</code>-Funktion zur Lösung der Übung (sofern Du dies nicht bereits getan hast).
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<hr class="docutils" />
+<p>✏️ <strong>Übung 5:</strong> Erstell abermals einen string bestehend aus ausgewählten Zeichen jeden Namens in <code class="docutils literal notranslate"><span class="pre">names</span></code>. Diesmal soll der erste Buchstabe für den neuen string der erste Buchstaben des ersten Namens sein, der zweite Buchstabe für den neuen string soll der zweite Buchstabe des zweiten Namens sein, etc. Welcher neue Name entsteht so?</p>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Hierfür empfiehlt sich das Nutzen einer Zählervariable, die bei jedem Durchgang um eins erhöht wird.
+</details>
+<br>
+<details>
+    <summary>🦊 Herausforderung </summary>
+    <br>Nutz die <code>range</code>-Funktion zur Lösung der Übung (sofern Du dies nicht bereits getan hast).
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic" start="6">
-<li><p>Erstell einen weiteren string, indem Du bei jedem Namen auf <code class="docutils literal notranslate"><span class="pre">names</span></code> über die Buchstaben iterierst und jeweils das zweite, vierte, sechste, etc. Zeichen an den neuen string hängst. Der string beginnt also mit „a“ und „e“ aus „Hagen“, gefolgt von „e“ aus „Lena“ etc. Diesmal entsteht kein sinnvolles neues Wort, geschweige denn ein Name. Vielleicht fällt Dir aber dennoch etwas zur allgemeinen Komposition von Namen auf.</p>
- <details>
-   <summary>💡 Tipp </summary>
-   <br>Für diese Übung bietet sich die Nutzung der <code>range</code>-Funktion an. Bei dieser kannst Du als drittes Argument die "Schrittweite" spezifizieren.
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<hr class="docutils" />
+<p>✏️ <strong>Übung 6:</strong> Erstell einen weiteren string, indem Du bei jedem Namen auf <code class="docutils literal notranslate"><span class="pre">names</span></code> über die Buchstaben iterierst und jeweils das zweite, vierte, sechste, etc. Zeichen an den neuen string hängst. Der string beginnt also mit „a“ und „e“ aus „Hagen“, gefolgt von „e“ aus „Lena“ etc. Diesmal entsteht kein sinnvolles neues Wort, geschweige denn ein Name. Vielleicht fällt Dir aber dennoch etwas zur allgemeinen Komposition von Namen auf.</p>
+<details>
+    <summary>💡 Tipp </summary>
+    <br>Für diese Übung bietet sich die Nutzung der <code>range</code>-Funktion an. Bei dieser kannst Du als drittes Argument die "Schrittweite" spezifizieren.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Hagen&quot;</span><span class="p">,</span> <span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="s2">&quot;Selim&quot;</span><span class="p">,</span> <span class="s2">&quot;Brigitte&quot;</span><span class="p">,</span> <span class="s2">&quot;Hermann&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic" start="7">
-<li><p>Wir wollen einen sehr simplen interaktiven Vokabeltrainer für Deutsch-Schwedisch programmieren. Das Programm soll eine Userin nach und nach alle gespeicherten Vokabeln abfragen, bis sie sämtliche korrekt vom Deutschen ins Schwedische übersetzt hat. Die Vokabeln inklusive Übersetzung stehen Dir bereits in <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> zur Verfügung. Iteriere mit der ebenfalls bereits gegebenen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife über das dictionary. Vervollständige den Anweisungskörper, sodass die Userin bei jedem Wort (<code class="docutils literal notranslate"><span class="pre">word</span></code>) solange nach der Übersetzung (<code class="docutils literal notranslate"><span class="pre">translation</span></code>) gefragt wird, bis ihre Antwort korrekt ist. Der Dialog sollte wie folgt aussehen:</p>
- <img src="../3_Dateien/Grafiken_und_Videos/de_sv.png">
+<hr class="docutils" />
+<p>✏️ <strong>Übung 7:</strong> Wir wollen einen sehr simplen interaktiven Vokabeltrainer für Deutsch-Schwedisch programmieren. Das Programm soll eine Userin nach und nach alle gespeicherten Vokabeln abfragen, bis sie sämtliche korrekt vom Deutschen ins Schwedische übersetzt hat. Die Vokabeln inklusive Übersetzung stehen Dir bereits in <code class="docutils literal notranslate"><span class="pre">de_sv</span></code> zur Verfügung. Iteriere mit der ebenfalls bereits gegebenen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife über das dictionary. Vervollständige den Anweisungskörper, sodass die Userin bei jedem Wort (<code class="docutils literal notranslate"><span class="pre">word</span></code>) solange nach der Übersetzung (<code class="docutils literal notranslate"><span class="pre">translation</span></code>) gefragt wird, bis ihre Antwort korrekt ist. Der Dialog sollte wie folgt aussehen:</p>
+<img src="../3_Dateien/Grafiken_und_Videos/de_sv.png">
 <p>Anschließend soll das nächste Wort abgefragt werden.</p>
- <details>
-   <summary>💡 Tipp 1 </summary>
-   <br>Um auch mit mehreren falschen Übersetzungen umgehen zu können, solltest Du eine <code>While True</code>-Schleife verwenden, die Du im Fall einer korrekten Übersetzung mithilfe von <code>break</code> abbrechen kannst.
- </details>
- <br>
- <details>
-   <summary>💡 Tipp 2 </summary>
-     <br>Um den Userinnen-Input entgegenzunehmen, nutz die <code>input</code>-Funktion. Speicher den Input zur Weiterverarbeitung in einer Variable. 
- </details>
- <br></li>
-</ol>
-<div class="cell docutils container">
+<details>
+    <summary>💡 Tipp 1 </summary>
+    <br>Um auch mit mehreren falschen Übersetzungen umgehen zu können, solltest Du eine <code>While True</code>-Schleife verwenden, die Du im Fall einer korrekten Übersetzung mithilfe von <code>break</code> abbrechen kannst.
+</details>
+<br>
+<details>
+    <summary>💡 Tipp 2 </summary>
+        <br>Um den Userinnen-Input entgegenzunehmen, nutz die <code>input</code>-Funktion. Speicher den Input zur Weiterverarbeitung in einer Variable. 
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">de_sv</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ich&quot;</span><span class="p">:</span> <span class="s2">&quot;jag&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">:</span> <span class="s2">&quot;från&quot;</span><span class="p">,</span> <span class="s2">&quot;reisen&quot;</span><span class="p">:</span> <span class="s2">&quot;resa&quot;</span><span class="p">,</span> <span class="s2">&quot;gerne&quot;</span><span class="p">:</span> <span class="s2">&quot;gärna&quot;</span><span class="p">,</span> <span class="s2">&quot;nach&quot;</span><span class="p">:</span> <span class="s2">&quot;till&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;woher&quot;</span><span class="p">:</span> <span class="s2">&quot;varifrån&quot;</span><span class="p">,</span> <span class="s2">&quot;kommen&quot;</span><span class="p">:</span> <span class="s2">&quot;komma&quot;</span><span class="p">,</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">:</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweden&quot;</span><span class="p">:</span> <span class="s2">&quot;Sverige&quot;</span><span class="p">,</span> <span class="s2">&quot;dich&quot;</span><span class="p">:</span> <span class="s2">&quot;dig&quot;</span><span class="p">,</span> <span class="s2">&quot;mich&quot;</span><span class="p">:</span> <span class="s2">&quot;mig&quot;</span><span class="p">,</span> <span class="s2">&quot;wir&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">de_sv</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ich&quot;</span><span class="p">:</span> <span class="s2">&quot;jag&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">:</span> <span class="s2">&quot;från&quot;</span><span class="p">,</span> <span class="s2">&quot;reisen&quot;</span><span class="p">:</span> <span class="s2">&quot;resa&quot;</span><span class="p">,</span> <span class="s2">&quot;gerne&quot;</span><span class="p">:</span> <span class="s2">&quot;gärna&quot;</span><span class="p">,</span> <span class="s2">&quot;nach&quot;</span><span class="p">:</span> <span class="s2">&quot;till&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;woher&quot;</span><span class="p">:</span> <span class="s2">&quot;varifrån&quot;</span><span class="p">,</span> <span class="s2">&quot;kommen&quot;</span><span class="p">:</span> <span class="s2">&quot;komma&quot;</span><span class="p">,</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">:</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweden&quot;</span><span class="p">:</span> <span class="s2">&quot;Sverige&quot;</span><span class="p">,</span> <span class="s2">&quot;dich&quot;</span><span class="p">:</span> <span class="s2">&quot;dig&quot;</span><span class="p">,</span> <span class="s2">&quot;mich&quot;</span><span class="p">:</span> <span class="s2">&quot;mig&quot;</span><span class="p">,</span> <span class="s2">&quot;wir&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">}</span>
 
 <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">translation</span> <span class="ow">in</span> <span class="n">de_sv</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="k">pass</span> <span class="c1">#Entfern das &#39;pass&#39;-Statement und füg Deinen Code ein.</span>
@@ -621,37 +614,34 @@ No prognosis possible due to missing value.
 </div>
 </div>
 </div>
-<ol class="arabic" start="8">
-<li><p>Fortgeschritten (aufbauend auf Übung 7): Praktischer wäre es ja, wenn der Vokabeltrainer bei falsch übersetzten Wörtern die richtige Übersetzung ausgibt und diese Wörter dann später noch einmal abfragt. Korrekt übersetzte Wörter müssten dagegen weiterhin nur einmal abgefragt werden. Schreib den Code entsprechend so, dass jedes korrekt übersetzte Wort kein weiteres Mal abgefragt wird. Bei falsch übersetzten Wörtern soll hingegen die richtige Übersetzung angezeigt werden. Später, d. h. wenn alle (noch vorhandenen) Wörter abgefragt wurden, sollen abermals die in der letzten Iteration falsch übersetzten Wörter abgefragt werden, bis am Schluss jedes Wort einmal korrekt übersetzt wurde.<br><br></p>
- <details>
-   <summary>💡 Tipp 1</summary>
-   <br>Überleg Dir, wie Du die beiden Schleifentypen ineinander verschachteln musst, um die beschriebene Abfragelogik zu implementieren.
- </details>
- <br>
- <details>
-   <summary>💡 Tipp 2</summary>
-   <br>Um ein Schlüssel-Werte-Paar aus einem dictionary zu entfernen, kannst Du die <code>pop</code>-Methode mit folgender Syntax verwenden: <code>dictionary.pop("key")</code>.
- </details>
- <br>
- <details>
-   <summary>📌 Herausforderung</summary>
-   <br>Überleg Dir, wie Du den Vokabeltrainer zusätzlich verbessern könntest.
- </details>
- <br>
-</li>
-</ol>
-<div class="cell docutils container">
+<hr class="docutils" />
+<p>✏️ <b>Übung 8 (🦊 fortgeschritten, aufbauend auf Übung 7)</b>: Praktischer wäre es ja, wenn der Vokabeltrainer bei falsch übersetzten Wörtern die richtige Übersetzung ausgibt und diese Wörter dann später noch einmal abfragt. Korrekt übersetzte Wörter müssten dagegen weiterhin nur einmal abgefragt werden. Schreib den Code entsprechend so, dass jedes korrekt übersetzte Wort kein weiteres Mal abgefragt wird. Bei falsch übersetzten Wörtern soll hingegen die richtige Übersetzung angezeigt werden. Später, d. h. wenn alle (noch vorhandenen) Wörter abgefragt wurden, sollen abermals die in der letzten Iteration falsch übersetzten Wörter abgefragt werden, bis am Schluss jedes Wort einmal korrekt übersetzt wurde.<br></p>
+<details>
+    <summary>💡 Tipp 1</summary>
+    <br>Überleg Dir, wie Du die beiden Schleifentypen ineinander verschachteln musst, um die beschriebene Abfragelogik zu implementieren.
+</details>
+<br>
+<details>
+    <summary>💡 Tipp 2</summary>
+    <br>Um ein Schlüssel-Werte-Paar aus einem dictionary zu entfernen, kannst Du die <code>pop</code>-Methode mit folgender Syntax verwenden: <code>dictionary.pop("key")</code>.
+</details>
+<br>
+<details>
+    <summary>🦊 Herausforderung</summary>
+    <br>Überleg Dir, wie Du den Vokabeltrainer zusätzlich verbessern könntest.
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">de_sv</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ich&quot;</span><span class="p">:</span> <span class="s2">&quot;jag&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">:</span> <span class="s2">&quot;från&quot;</span><span class="p">,</span> <span class="s2">&quot;reisen&quot;</span><span class="p">:</span> <span class="s2">&quot;resa&quot;</span><span class="p">,</span> <span class="s2">&quot;gerne&quot;</span><span class="p">:</span> <span class="s2">&quot;gärna&quot;</span><span class="p">,</span> <span class="s2">&quot;nach&quot;</span><span class="p">:</span> <span class="s2">&quot;till&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;woher&quot;</span><span class="p">:</span> <span class="s2">&quot;varifrån&quot;</span><span class="p">,</span> <span class="s2">&quot;kommen&quot;</span><span class="p">:</span> <span class="s2">&quot;komma&quot;</span><span class="p">,</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">:</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweden&quot;</span><span class="p">:</span> <span class="s2">&quot;Sverige&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;dich&quot;</span><span class="p">:</span> <span class="s2">&quot;dig&quot;</span><span class="p">,</span> <span class="s2">&quot;mich&quot;</span><span class="p">:</span> <span class="s2">&quot;mig&quot;</span><span class="p">,</span> <span class="s2">&quot;wir&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
+<span class="n">de_sv</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ich&quot;</span><span class="p">:</span> <span class="s2">&quot;jag&quot;</span><span class="p">,</span> <span class="s2">&quot;aus&quot;</span><span class="p">:</span> <span class="s2">&quot;från&quot;</span><span class="p">,</span> <span class="s2">&quot;reisen&quot;</span><span class="p">:</span> <span class="s2">&quot;resa&quot;</span><span class="p">,</span> <span class="s2">&quot;gerne&quot;</span><span class="p">:</span> <span class="s2">&quot;gärna&quot;</span><span class="p">,</span> <span class="s2">&quot;nach&quot;</span><span class="p">:</span> <span class="s2">&quot;till&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;woher&quot;</span><span class="p">:</span> <span class="s2">&quot;varifrån&quot;</span><span class="p">,</span> <span class="s2">&quot;kommen&quot;</span><span class="p">:</span> <span class="s2">&quot;komma&quot;</span><span class="p">,</span> <span class="s2">&quot;Deutschland&quot;</span><span class="p">:</span> <span class="s2">&quot;Tyskland&quot;</span><span class="p">,</span> <span class="s2">&quot;du&quot;</span><span class="p">:</span> <span class="s2">&quot;du&quot;</span><span class="p">,</span> <span class="s2">&quot;Schweden&quot;</span><span class="p">:</span> <span class="s2">&quot;Sverige&quot;</span><span class="p">,</span> <span class="s2">&quot;lieben&quot;</span><span class="p">:</span> <span class="s2">&quot;älska&quot;</span><span class="p">,</span> <span class="s2">&quot;dich&quot;</span><span class="p">:</span> <span class="s2">&quot;dig&quot;</span><span class="p">,</span> <span class="s2">&quot;mich&quot;</span><span class="p">:</span> <span class="s2">&quot;mig&quot;</span><span class="p">,</span> <span class="s2">&quot;wir&quot;</span><span class="p">:</span> <span class="s2">&quot;vi&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="9">
-<li><p>Wenn Du zwei Vergleiche, die beide für sich ausgerechnet <code class="docutils literal notranslate"><span class="pre">False</span></code> ergeben, mithilfe von <code class="docutils literal notranslate"><span class="pre">or</span></code> verknüpfst, ergibt die Verknüpfung dann <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>?</p></li>
-</ol>
-<ol class="arabic" start="10">
-<li><p>In Anlehnung an den Anwendungsfall im Notebook „Kontrollstrukturen“, lass Dir sämtliche Viertelstunden eines kompletten Tages ausgeben, also:</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 9:</strong> Wenn Du zwei Vergleiche, die beide für sich ausgerechnet <code class="docutils literal notranslate"><span class="pre">False</span></code> ergeben, mithilfe von <code class="docutils literal notranslate"><span class="pre">or</span></code> verknüpfst, ergibt die Verknüpfung dann <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>?</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 10:</strong> In Anlehnung an den Anwendungsfall im Notebook „Kontrollstrukturen“, lass Dir sämtliche Viertelstunden eines kompletten Tages ausgeben, also:</p>
 <p>00:00<br>
 00:15<br>
 00:30<br>
@@ -660,16 +650,20 @@ No prognosis possible due to missing value.
 etc.</p>
 <p>Achte darauf, dass die Ausgabe stets vierstellig ist.</p>
 <details>
-  <summary>💡 Tipp 1</summary>
-  <br>Es empfiehlt sich, zunächst zwei Variablen mit der Maximallänge der Stunden bzw. Minuten zu definieren. So kannst Du den jeweiligen Wert mit dem Maximalwert abgleichen und wenn nötig zurücksetzen.
+    <summary>💡 Tipp 1</summary>
+    <br>Es empfiehlt sich, zunächst zwei Variablen mit der Maximallänge der Stunden bzw. Minuten zu definieren. So kannst Du den jeweiligen Wert mit dem Maximalwert abgleichen und wenn nötig zurücksetzen.
 </details>
 <br>
 <details>
-  <summary>💡 Tipp 2</summary>
-  <br>Um die einstelligen Stunden bzw. Minuten zweistellig auszugeben: Caste die betreffende Zahl in einen string und überprüf dessen Länge. Wenn diese eins beträgt, musst Du eine Null voranstellen.
-</details>
-<br></li>
-</ol>
+    <summary>💡 Tipp 2</summary>
+    <br>Um die einstelligen Stunden bzw. Minuten zweistellig auszugeben: Caste die betreffende Zahl in einen string und überprüf dessen Länge. Wenn diese eins beträgt, musst Du eine Null voranstellen.
+</details><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+</pre></div>
+</div>
+</div>
+</div>
 <hr class="docutils" />
 <table>
       <tr>

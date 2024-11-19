@@ -470,6 +470,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operatoren">Operatoren</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einruckungen">Einrückungen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kommentare">Kommentare</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bemerkung-zum-aufbau-der-notebooks">Bemerkung zum Aufbau der Notebooks</a></li>
 </ul>
             </nav>
         </div>
@@ -498,7 +499,7 @@ document.write(`
 <p>Python ist nun eine formale Sprache, mit der wir programmieren können. Sie hat eine <em>Syntax</em>, ähnlich wie auch natürliche Sprachen (z. B. Deutsch), die wir lernen und befolgen müssen, um <em>Programme</em> in ihr schreiben zu können. Programme, die wir in Python schreiben, enthalten <em>Code</em>. Etwas grob formuliert weist dieser Code den Computer an, was er zu tun hat.</p>
 <section id="von-oben-nach-unten">
 <h2>Von oben nach unten<a class="headerlink" href="#von-oben-nach-unten" title="Permalink to this heading">#</a></h2>
-<p>Wenn wir ein Programm <em>ausführen</em>, dann werden unsere Anweisungen <strong>von oben nach unten</strong> durchgegangen. Hier ein Beispiel. Führe den Code aus, indem Du in die Zelle klickst und dann <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> drückst:</p>
+<p>Wenn wir ein Programm <em>ausführen</em>, dann werden unsere Anweisungen <strong>von oben nach unten</strong> durchgegangen. Hier ein Beispiel. Führ den Code aus, indem Du in die Zelle klickst und dann <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> drückst:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Zuerst das,&quot;</span><span class="p">)</span>
@@ -562,7 +563,7 @@ und am Ende das.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1905</span><span class="o">/</span><span class="mf">346808566.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1857</span><span class="o">/</span><span class="mf">346808566.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">Print_out</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;Print_out&#39; is not defined
@@ -571,7 +572,7 @@ und am Ende das.
 </div>
 </div>
 <p>Hier sehen wir eine Fehlermeldung, von denen uns noch ganz viele begegnen werden. Erstens sehen wir, über welche Zeile Python gestolpert ist. Da es hier nur eine Zeile gibt, steht hinter dem <code class="docutils literal notranslate"><span class="pre">–––&gt;</span></code> eine <code class="docutils literal notranslate"><span class="pre">1</span></code>. Bei längeren Codes ist diese Angabe aber natürlich hilfreicher. Zweitens steht zuunterst jeweils ein (teils nützlicher, teils kryptischer) Hinweis darauf, was schief gelaufen ist. Dieser <code class="docutils literal notranslate"><span class="pre">NameError</span></code> bedeutet, dass Python die Variable <code class="docutils literal notranslate"><span class="pre">Print_out</span></code> nicht kennt. Durch Korrigieren des Variablennamens sollte der Befehl klappen (probier’s aus!), unter der Voraussetzung, dass die Code-Zelle oben bereits einmal ausgeführt wurde, d. h. die Variable <code class="docutils literal notranslate"><span class="pre">print_out</span></code> mit kleinem „p“ <em>initialisiert</em> ist.</p>
-<p>Noch eine letzte, dafür umso zentralere Bemerkung zu Variablennamen: Sie sollten <strong>möglichst sprechend</strong> sein, d. h. es sollte direkt aus ihnen hervorgehen, was durch sie referenziert wird. Um dies zu veranschaulichen, vergleiche folgende zwei Codes, die beide den Body-Mass-Index errechnen:</p>
+<p>Noch eine letzte, dafür umso zentralere Bemerkung zu Variablennamen: Sie sollten möglichst <strong>sprechend</strong> sein, d. h. es sollte direkt aus ihnen hervorgehen, was durch sie referenziert wird. Um dies zu veranschaulichen, vergleiche folgende zwei Codes, die beide den Body-Mass-Index errechnen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Nichtssagende Variablen</span>
@@ -823,7 +824,7 @@ abc ist gleich abc
 <section id="kommentare">
 <h2>Kommentare<a class="headerlink" href="#kommentare" title="Permalink to this heading">#</a></h2>
 <p>Schauen wir noch kurz das Konzept der Kommentare an, das sich bereits in viele der obigen Codes eingeschlichen hat.</p>
-<p>Kommentare sind Teile des Codes, die für uns als Codeschreibende und -lesende von Interesse sind, Python jedoch überliest sie komplett. Kommentare werden einerseits dazu verwendet, Codeteile zu erläutern (für einen selbst oder andere in einem kollaborativen Projekt), wobei die Devise lautet: <strong>besser zu viel erklären, als zu wenig</strong>. Man selbst und andere werden es einem später danken. Das sog. <em>Eagleson’s Law</em> beschreibt, dass Code von einem selbst nach sechs Monaten genau so gut von jemand anderem stammen könnte, so wenig nachvollziehbar findet man ihn auf den ersten Blick. In Wahrheit handelt es sich vermutlich um weniger als sechs Monate (vgl. <a class="reference external" href="https://learning.oreilly.com/library/view/weniger-schlecht-programmieren/9783955615697/?ar">Passig/Jander 2013</a>).</p>
+<p>Kommentare sind Teile des Codes, die für uns als Codeschreibende und -lesende von Interesse sind, Python jedoch überliest sie komplett. Kommentare werden einerseits dazu verwendet, Codeteile zu erläutern (für einen selbst oder andere in einem kollaborativen Projekt), wobei die Devise lautet: <strong>besser zu viel erklären, als zu wenig</strong>. Man selbst und andere werden es einem später danken. Das sog. <em>Eagleson’s Law</em> beschreibt, dass Code von einem selbst nach sechs Monaten genau so gut von jemand anderem stammen könnte, so wenig nachvollziehbar findet man ihn auf den ersten Blick. In Wahrheit handelt es sich vermutlich um weniger als sechs Monate.<sup>[1]</sup></p>
 <p>Andererseits werden Kommentare dazu verwendet, bestimmte Teile des Codes zwischenzeitlich „auszuschalten“, d. h. Python übergeht diese Teile dann einfach. Das ist z. B. beim <em>Debugging</em> nützlich, also wenn sich ein Fehler (<em>Bug</em>) eingeschlichen hat und es darum geht herauszufinden, welcher Codeteil den Fehler verursacht. Code temporär „auszuschalten/auszukommentieren“ wird <em>comment out</em> genannt.</p>
 <p>Kommentare, die nur eine Zeile umfassen, werden mit einem Hashtag <code class="docutils literal notranslate"><span class="pre">#</span></code> begonnen. Für mehrzeilige Kommentare werden drei Anführungszeichen, <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;Kommentar&quot;&quot;&quot;</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">'''Kommentar'''</span></code>, verwendet (das jeweils andere Anführungszeichen kann dann auch im Kommentar verwendet werden):</p>
 <div class="cell docutils container">
@@ -854,6 +855,14 @@ abc ist gleich abc
 </div>
 </div>
 </div>
+</section>
+<hr class="docutils" />
+<section id="bemerkung-zum-aufbau-der-notebooks">
+<h2>Bemerkung zum Aufbau der Notebooks<a class="headerlink" href="#bemerkung-zum-aufbau-der-notebooks" title="Permalink to this heading">#</a></h2>
+<p>In den folgenden Notebooks findest Du eingeklappte <em>🔍 <b>Exkurse<b></em> sowie Passagen, die als <em>🦊 <b>Fortgeschritten<b></em> gekennzeichnet sind bzw. Übungen mit der Markierung <em>🦊 <b>Herausforderung<b></em>. Du entscheidest selbst, ob Du sie lesen und bearbeiten möchtest oder nicht. Forder Dich aber gern heraus und versuch Dich an ihnen. Einige der fortgeschrittenen Techniken machen das Programmieren nämlich leichter und effektiver.</p>
+<hr class="docutils" />
+<p>Literatur: <br>
+<sup>[1]</sup> Passig, Kathrin; Jander, Johannes (2013): <i>Weniger schlecht programmieren</i>. Köln: O’Reilly Verlag.</p>
 <hr class="docutils" />
 <table>
       <tr>
@@ -940,6 +949,7 @@ abc ist gleich abc
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operatoren">Operatoren</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einruckungen">Einrückungen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kommentare">Kommentare</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bemerkung-zum-aufbau-der-notebooks">Bemerkung zum Aufbau der Notebooks</a></li>
 </ul>
   </nav></div>
 

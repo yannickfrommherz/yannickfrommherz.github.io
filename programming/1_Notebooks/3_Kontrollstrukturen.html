@@ -473,12 +473,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen">Bedingte Anweisungen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">Schleifen (Loops)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-schleifen"><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-trial-and-error-coding">Exkurs: Trial-and-error-Coding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleifen"><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-hilfe-holen">Exkurs: Hilfe holen</a></li>
 </ul>
             </nav>
         </div>
@@ -589,7 +587,7 @@ document.write(`
 </tbody>
 </table>
 <p>Wann immer Du Dir unsicher bist, wie <code class="docutils literal notranslate"><span class="pre">and</span></code> und <code class="docutils literal notranslate"><span class="pre">or</span></code> funktionieren, kannst Du in dieser Tabelle nachschauen.</p>
-<p>Darüber hinaus gibt es noch den logischen Operator <code class="docutils literal notranslate"><span class="pre">not</span></code>, der ganz einfach den ihm folgenden   Ausdruck negiert, etwa:</p>
+<p>Darüber hinaus gibt es noch den logischen Operator <code class="docutils literal notranslate"><span class="pre">not</span></code>, der ganz einfach den ihm folgenden Ausdruck negiert. Überleg vorm Ausführen der Codezelle kurz selbst, welcher Boolsche Wert hier wohl zurückgegeben wird und warum.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">small</span> <span class="o">&gt;</span> <span class="n">big</span><span class="p">)</span>
@@ -602,7 +600,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Dies ergibt <code class="docutils literal notranslate"><span class="pre">True</span></code>, denn <code class="docutils literal notranslate"><span class="pre">small</span></code> ist <em>nicht</em> größer als <code class="docutils literal notranslate"><span class="pre">big</span></code>. <code class="docutils literal notranslate"><span class="pre">not</span></code> mag in diesem Beispiel wenig hilfreich erscheinen, im Zusammenhang mit bedingten Anweisungen, die wir nachher kennenlernen, kann <code class="docutils literal notranslate"><span class="pre">not</span></code> aber sehr praktisch sein.</p>
+<details>
+    <summary>✅ Antwort</summary>
+<br>Dies ergibt <code>True</code>, denn <code>small</code> ist <i>nicht</i> größer als <code>big</code>. <code>not</code> mag in diesem Beispiel wenig hilfreich erscheinen, im Zusammenhang mit bedingten Anweisungen, die wir nachher kennenlernen, kann <code>not</code> aber sehr praktisch sein.
+</details>
 </section>
 </section>
 <hr class="docutils" />
@@ -770,9 +771,9 @@ document.write(`
 <hr class="docutils" />
 <p>✏️ <strong>Übung 2:</strong> Mit <code class="docutils literal notranslate"><span class="pre">height</span></code> soll die Körpergröße eines erwachsenen Menschen in Zentimetern referenziert werden. Schreib einen Code, der je nachdem, wie groß <code class="docutils literal notranslate"><span class="pre">height</span></code> ist, auf sehr brachiale Art über die Körpergröße Folgendes verlauten lässt:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> größer als 180cm ist</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">durchschnittlich</span> <span class="pre">großer</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> zwischen 170cm und 180cm ist</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Ein</span> <span class="pre">kleiner</span> <span class="pre">Mensch&quot;</span></code>, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> kleiner als 170cm ist</p></li>
+<li><p>„Ein großer Mensch“, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> größer als 180cm ist</p></li>
+<li><p>„Ein durchschnittlich großer Mensch“, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> zwischen 170cm und 180cm ist</p></li>
+<li><p>„Ein kleiner Mensch“, wenn <code class="docutils literal notranslate"><span class="pre">height</span></code> kleiner als 170cm ist</p></li>
 </ul>
 <p>Der Code soll zudem überprüfen, ob die Zahl in <code class="docutils literal notranslate"><span class="pre">height</span></code> sinnvoll ist. Sie muss dafür mindestens dreistellig sein, darf aber auch nicht mehr als 200 betragen. Wenn die Zahl nicht sinnvoll ist, soll eine Fehlermeldung zurückgegeben werden.</p>
 <p>Wenn Du fertig bist, probier Deinen Code aus, indem Du verschiedene Werte bei <code class="docutils literal notranslate"><span class="pre">height</span></code> einsetzt.</p>
@@ -801,7 +802,9 @@ document.write(`
 <section id="for-schleifen">
 <h3><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen<a class="headerlink" href="#for-schleifen" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen werden zum Ausgeben der einzelnen Elemente eines iterierbaren Objekts benutzt (vgl. „Iterierbarkeit“ im Notebook „Datentypen“). Ein Element nach dem anderen wird einzeln ausgegeben, bis das Objekt aufgebraucht (engl. <em>exhausted</em>) ist. Die Syntax lautet:</p>
-<p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">element</span> <span class="pre">in</span> <span class="pre">iterable_object:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable_object</span><span class="p">:</span>
+</pre></div>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">element</span></code> ist wie bereits erwähnt eine Variable für das einzelne Element bei der Iteration über <code class="docutils literal notranslate"><span class="pre">iterable_object</span></code> und kann beliebig (aber bitte sprechend) benannt werden. Diese Variable wird dann im Anweisungskörper wiederverwendet, etwa um die Elemente nacheinander auszugeben (Beispiel für Liste unten), eine Bedingung an ihnen zu überprüfen (Beispiel für dictionary unten) oder um sie zu manipulieren (siehe zweiteiliges Notebook „Funktionen und Methoden“).</p>
 <p>Unten finden sich Beispiele für <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen über Listen, dictionaries und strings:</p>
 <div class="cell docutils container">
@@ -876,7 +879,9 @@ Der Buchstabe 26 im deutschen Alphabet ist: z
 </div>
 <p>Im letzten Beispiel haben wir außerhalb der Schleife einen sog. Zähler (<code class="docutils literal notranslate"><span class="pre">i</span></code>) definiert, der bei jeder Iteration um eins erhöht wird. Den Zähler selbst haben wir dann im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement eingesetzt.</p>
 <p>Zu diesem Zweck können wir auch die <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion benutzen, sie hat folgende Syntax:</p>
-<p><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">end,</span> <span class="pre">step)</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Die <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion ermöglicht es, von der als <code class="docutils literal notranslate"><span class="pre">start</span></code> angegebenen Zahl zur (aber <strong>nicht inklusive</strong> der) als <code class="docutils literal notranslate"><span class="pre">end</span></code> angegebenen Zahl zu iterieren, optional mit einem Schritt (<code class="docutils literal notranslate"><span class="pre">step</span></code>) &gt; <code class="docutils literal notranslate"><span class="pre">1</span></code> (Standardwert ist eins), z. B. <code class="docutils literal notranslate"><span class="pre">2</span></code>, wobei dann von <code class="docutils literal notranslate"><span class="pre">start</span></code> aus jede zweite Zahl übersprungen wird. In unserem Beispiel wird <code class="docutils literal notranslate"><span class="pre">i</span></code> in jedem Durchgang um eins erhöht, ausgehend von null und bis und mit 25 (da <code class="docutils literal notranslate"><span class="pre">end</span></code> nicht inklusive ist!):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -916,7 +921,7 @@ Der Buchstabe 26 im deutschen Alphabet ist: z
 </div>
 </div>
 </div>
-<p>Achtung: Wir iterieren nun nicht mehr wie oben über die Zeichenkette <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> direkt, deshalb müssen wir im Schleifenkörper den jeweiligen Buchstaben in <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> über Indexing „ansprechen“. Da Indizes bei null beginnen, iterieren wir über eine <code class="docutils literal notranslate"><span class="pre">range</span></code>  von null bis 25 anstatt von eins bis 26. Für die natürlichsprachliche Zahl im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl erhöhen wir <code class="docutils literal notranslate"><span class="pre">i</span></code> um eins (schließlich gibt es keinen nullten Buchstaben).</p>
+<p>⚠️ Achtung: Wir iterieren nun nicht mehr wie oben über die Zeichenkette <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> direkt, deshalb müssen wir im Schleifenkörper den jeweiligen Buchstaben in <code class="docutils literal notranslate"><span class="pre">alphabet</span></code> über Indexing „ansprechen“. Da Indizes bei null beginnen, iterieren wir über eine <code class="docutils literal notranslate"><span class="pre">range</span></code>  von null bis 25 anstatt von eins bis 26. Für die natürlichsprachliche Zahl im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl erhöhen wir <code class="docutils literal notranslate"><span class="pre">i</span></code> um eins (schließlich gibt es keinen nullten Buchstaben).</p>
 <p>Null für <code class="docutils literal notranslate"><span class="pre">start</span></code> sowie eins für <code class="docutils literal notranslate"><span class="pre">step</span></code> sind übrigens die Standardwerte bei der <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion, d. h. es reicht, <code class="docutils literal notranslate"><span class="pre">end</span></code> zu definieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -983,8 +988,7 @@ y
 <p>Die Verwendung der <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion innerhalb einer <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife macht verglichen mit der direkten Iteration über ein Objekt immer dann Sinn, wenn wir nur über bestimmte Elemente iterieren wollen (durch Modifikation von <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code> und <code class="docutils literal notranslate"><span class="pre">step</span></code>) sowie, wenn wir innerhalb des Schleifenkörpers zusätzlich einen Zähler einsetzen wollen (etwa in den <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehlen oben).</p>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 3:</strong> Im Isländischen setzen sich Nachnamen aus dem Vornamen eines Elternteils (traditionell, aber nicht immer, des Vaters) und der binären Bezeichnung „son“ bzw. „dottir“ zusammen (i. d. R. mit Genitiv-S dazwischen). „Johannsdottir“ ist also z. B. die Tochter von Johann. Lass Dir für jeden Namen auf <code class="docutils literal notranslate"><span class="pre">surnames</span></code> ausgeben, ob es sich um eine Person vermutlich isländischer Abstammung handelt, oder nicht. Wenn ja, lass Dir zudem ausgeben, ob es sich aufgrund des Nachnamens um eine Frau oder einen Mann handelt.</p>
-<p>In der Ausgabe sollte der betreffende Name vorkommen, also z. B. für einen nicht-isländischen Namen: <br>
-<code class="docutils literal notranslate"><span class="pre">Mensch</span> <span class="pre">Müller</span> <span class="pre">kommt</span> <span class="pre">vermutlich</span> <span class="pre">nicht</span> <span class="pre">aus</span> <span class="pre">Island.</span></code>.</p>
+<p>In der Ausgabe sollte der betreffende Name vorkommen, also z. B. für einen nicht-isländischen Namen: „Mensch Müller kommt vermutlich nicht aus Island.“</p>
 <details>
   <summary>💡 Tipp </summary>
   <br>In der bedingten Anweisung kannst Du das Pendant zum bereits bekannten <code>startswith</code>, nämlich <code>endswith</code>, benutzen, das für einen string überprüft, ob er mit der in Klammern angegebenen Zeichenkette endet oder nicht. <code>"string".endswith("g")</code> überprüft etwa, ob <code>string</code> auf "g" endet. Wie immer kannst Du anstatt der Zeichenketten auch Variablen verwenden, die einen string referenzieren.
@@ -998,77 +1002,17 @@ y
 </div>
 </div>
 </div>
-</section>
 <hr class="docutils" />
-<section id="exkurs-trial-and-error-coding">
-<h3>Exkurs: Trial-and-error-Coding<a class="headerlink" href="#exkurs-trial-and-error-coding" title="Permalink to this heading">#</a></h3>
-<p>Unsere Codes werden zunehmend komplexer: In der letzten Übung hast Du etwa eine Schleife sowie mehrere bedingte Anweisungen verwendet. Wie wir ganz am Anfang im Video zu algorithmischem Denken gelernt haben, ist es wichtig, sich stets zu überlegen, in welche einzelnen Schritte ein Problem zerlegt werden kann, bevor man loslegt. Die Bedeutung dieser Herangehensweise nimmt mit zunehmender Komplexität der Aufgaben natürlich zu.</p>
-<p>Die einzelnen Schritte jedoch löst man dann meistens durch <em>trial and error</em>. Oft hat man eine Idee, wie man einen Schritt lösen kann, probiert es aus und schaut dann, ob der Code das tut, was man erwartet. Manchmal klappt’s, manchmal nicht.</p>
-<p>Konkret heißt das für Dich: Führ Deinen Code immer wieder aus, lass Dir einzelne Zwischenschritte über <code class="docutils literal notranslate"><span class="pre">print</span></code> ausgeben und taste Dich so (Zwischen-)Schritt für (Zwischen-)Schritt an die Lösung heran.</p>
-<p>Führ die folgende Zelle aus, um ein Video zum Trial-and-error-Coding einzubetten oder schau Dir das <a class="reference external" href="https://www.youtube.com/watch?v=cP7Jwe7HO10">Video</a> bei YouTube an.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Führ diese Zelle aus, um das Video einzubetten.</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;cP7Jwe7HO10&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<p>Der folgende Exkurs bietet Dir einen Einblick in authentisches Coding.</p>
+<details>
+<summary>🔍 <b>Exkurs: Trial-and-error-Coding</b></summary>
+<p><br>Unsere Codes werden zunehmend komplexer: In der letzten Übung hast Du etwa eine Schleife sowie mehrere bedingte Anweisungen verwendet. Wie wir ganz am Anfang im Video zu algorithmischem Denken gelernt haben, ist es wichtig, sich stets zu überlegen, in welche einzelnen Schritte ein Problem zerlegt werden kann, bevor man loslegt. Die Bedeutung dieser Herangehensweise nimmt mit zunehmender Komplexität der Aufgaben natürlich zu.</p>
+<p>Die einzelnen Schritte jedoch löst man dann meistens durch <i>trial and error</i>. Oft hat man eine Idee, wie man einen Schritt lösen kann, probiert es aus und schaut dann, ob der Code das tut, was man erwartet. Manchmal klappt’s, manchmal nicht.</p>
+<p>Konkret heißt das für Dich: Führ Deinen Code immer wieder aus, lass Dir einzelne Zwischenschritte über <code>print</code> ausgeben und taste Dich so (Zwischen-)Schritt für (Zwischen-)Schritt an die Lösung heran.</p>
+<p>Dieses
+<a href="https://www.youtube.com/watch?v=cP7Jwe7HO10">Video</a> bei YouTube zeigt Dir, wie Trial-and-error-Coding in der Realität ausschaut.</p>
 </details>
-<div class="cell_output docutils container">
-<div class="output text_html">
-        <iframe
-            width="400"
-            height="300"
-            src="https://www.youtube.com/embed/cP7Jwe7HO10"
-            frameborder="0"
-            allowfullscreen
-            
-        ></iframe>
-        </div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Der Code aus dem Video</span>
-<span class="n">customers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;corporate&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;Benzo Corp.&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Hampton Drive&quot;</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">9332783746</span><span class="p">,</span> <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Smith, Adrian&quot;</span><span class="p">,</span> <span class="s2">&quot;Gullivan, Jane&quot;</span><span class="p">]}},</span>
-                           <span class="p">{</span><span class="s2">&quot;Solar Ltd.&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">3947473847</span><span class="p">,</span> <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Bergh, Donald&quot;</span><span class="p">,</span> <span class="s2">&quot;Merriot, Barbara&quot;</span><span class="p">]}},</span>
-                           <span class="p">{</span><span class="s2">&quot;Zoalie Corp.&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Hampton Drive&quot;</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">9338473849</span><span class="p">,</span> <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Fink, Hugh&quot;</span><span class="p">]}}],</span> 
-             <span class="s2">&quot;public&quot;</span><span class="p">:</span>    <span class="p">[{</span><span class="s2">&quot;Alazona State Agency&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Main Road&quot;</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">8374829383</span><span class="p">,</span> <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}},</span>
-                           <span class="p">{</span><span class="s2">&quot;South Kentucky Gov.&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Union Square&quot;</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">8374837282</span><span class="p">,</span> <span class="s2">&quot;contact&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Ferguson, Mary&quot;</span><span class="p">,</span> <span class="s2">&quot;Lewinsky, Robert&quot;</span><span class="p">,</span> <span class="s2">&quot;Pitt, Margareth&quot;</span><span class="p">]}}],</span>
-             <span class="s2">&quot;private&quot;</span><span class="p">:</span>   <span class="p">[{</span><span class="s2">&quot;Berghain, Anne&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;Milton Road&quot;</span><span class="p">,</span> <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="mi">9334828189</span><span class="p">}}]}</span> 
-
-<span class="n">customers_local</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">customers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="c1">#print(key, value, &quot;\n&quot;)</span>
-    
-    <span class="k">for</span> <span class="n">customer</span> <span class="ow">in</span> <span class="n">customers</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
-        <span class="c1">#print(customer)</span>
-        
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">metadata</span> <span class="ow">in</span> <span class="n">customer</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="c1">#print(metadata[&quot;phone&quot;], &quot;\n&quot;)</span>
-            
-            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;phone&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;933&quot;</span><span class="p">):</span>
-                <span class="c1">#print(metadata[&quot;phone&quot;])</span>
-                
-                <span class="n">customers_local</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-                
-<span class="nb">print</span><span class="p">(</span><span class="n">customers_local</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Benzo Corp.&#39;, &#39;Zoalie Corp.&#39;, &#39;Berghain, Anne&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-</section>
+<br></section>
 <section id="while-schleifen">
 <h3><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen<a class="headerlink" href="#while-schleifen" title="Permalink to this heading">#</a></h3>
 <p>Neben <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen gibt es <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen. Sie führen den in ihrem Anweisungskörper definierten Codeblock solange aus, wie die im Anweisungskopf definierte Bedingung zutrifft. Um dies zu veranschaulichen, bemühen wir noch einmal das Alphabetbeispiel mit dem Zähler von oben:</p>
@@ -1136,7 +1080,7 @@ Der Buchstabe 26 im deutschen Alphabet ist: z
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1944</span><span class="o">/</span><span class="mf">572686443.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1897</span><span class="o">/</span><span class="mf">572686443.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span>     <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Wie viele Arme hat ein Oktopus? Gib bitte eine Zahl an.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
@@ -1280,16 +1224,16 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
 <hr class="docutils" />
 <section id="id1">
 <h2>🔧 Anwendungsfall: Einen Kalender erstellen<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>Deine Aufgabe ist es nun also, 365 vollständige Daten vom Format „Wochentag, Tag. Monat Jahr“ auszugeben:</p>
+<p>Deine Aufgabe ist es nun also, 365 vollständige Daten vom Format „Wochentag, Tag. Monat Jahr“ auszugeben und zwar fürs Jahr 2022.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Samstag,</span> <span class="pre">1.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">Sonntag,</span> <span class="pre">2.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br>
 <code class="docutils literal notranslate"><span class="pre">Montag,</span> <span class="pre">3.</span> <span class="pre">Januar</span> <span class="pre">2022</span></code> <br></p>
-<p>Als Ausgangspunkt stehen Dir ein dictionary mit allen Monaten und der jeweiligen Anzahl Tage als Schlüssel-Werte-Paare und ebenfalls eine Liste mit allen Wochentagen zur Verfügung. Wie Du über Listen iterierst, weißt Du ja bereits. Zum Iterieren über dictionaries kannst Du wie oben im Video die <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode verwenden (mehr dazu im Notebook „Funktionen und Methoden Teil 1“), sie steht Dir ebenfalls bereits im Code zur Verfügung. Die Variablen <code class="docutils literal notranslate"><span class="pre">month</span></code> und <code class="docutils literal notranslate"><span class="pre">days</span></code> stehen dabei stellvertretend für den Schlüssel (Monatsnamen) und Wert (Anzahl Tage) des jeweiligen Schlüssel-Werte-Paars im dictionary. Nutz diese Variablen im Schleifenkörper, um auf den jeweiligen Schlüssel bzw. Wert zuzugreifen.</p>
+<p>Als Ausgangspunkt stehen Dir ein dictionary mit allen Monaten und der jeweiligen Anzahl Tage als Schlüssel-Werte-Paare und ebenfalls eine Liste mit allen Wochentagen zur Verfügung. Wie Du über Listen iterierst, weißt Du ja bereits. Zum Iterieren über dictionaries kannst Du wie oben im Video zu Trial-and-error-Coding die <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode verwenden (mehr dazu im Notebook „Funktionen und Methoden Teil 1“), sie steht Dir ebenfalls bereits im Code zur Verfügung. Die Variablen <code class="docutils literal notranslate"><span class="pre">month</span></code> und <code class="docutils literal notranslate"><span class="pre">days</span></code> stehen dabei stellvertretend für den Schlüssel (Monatsnamen) und Wert (Anzahl Tage) des jeweiligen Schlüssel-Werte-Paars im dictionary. Nutz diese Variablen im Schleifenkörper, um auf den jeweiligen Schlüssel bzw. Wert zuzugreifen.</p>
 <p>Hinweis: Diese Übung ist durchaus komplex. Überleg Dir deshalb erst, in welche kleineren Schritte Du die Aufgabe zerlegen kannst und vergewisser Dich dann bei jedem (Zwischen-)Schritt, dass Dein Code das tut, was er soll (trial and error!).</p>
 <p>Letzte Bemerkung: <code class="docutils literal notranslate"><span class="pre">pass</span></code> steht als Platzhalter für Deinen Code da. Ein leerer Anweisungskörper erzeugt bei Python nämlich eine Fehlermeldung. Ersetz <code class="docutils literal notranslate"><span class="pre">pass</span></code> durch Deinen Code.</p>
 <details>
   <summary>💡 Tipp </summary>
-    <br>Um auf den jeweiligen Tag in der Liste <code>weekdays</code> zuzugreifen, benötigst Du eine Zählervariable. Da Samstag der erste Tag im Jahr 2022 ist, musst Du sie zu Beginn bei fünf initialisieren. Nun iterierst Du über das dictionary (Code bereits vorgegeben) und die Wochentage (Code fehlt noch). Am Ende jedes Durchlaufes erhöhst Du die Zählervariable um eins. Ab einem gewissen Wert musst Du die Variable aber auf null zurücksetzen. </details><div class="cell docutils container">
+    <br>Um auf den jeweiligen Tag in der Liste <code>weekdays</code> zuzugreifen, benötigst Du eine Zählervariable. Da Samstag der erste Tag im Jahr 2022 war, musst Du sie zu Beginn bei fünf initialisieren. Nun iterierst Du über das dictionary (Code bereits vorgegeben) und die Wochentage (Code fehlt noch). Am Ende jedes Durchlaufes erhöhst Du die Zählervariable um eins. Ab einem gewissen Wert musst Du die Variable aber auf null zurücksetzen. </details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1303,19 +1247,27 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
 </div>
 </div>
 <hr class="docutils" />
-<p>Abschließend noch ein paar Tipps, wo Du Hilfe findest, wenn Du mal bei einem Programmierproblem nicht weiterkommst.</p>
-</section>
-<section id="exkurs-hilfe-holen">
-<h2>Exkurs: Hilfe holen<a class="headerlink" href="#exkurs-hilfe-holen" title="Permalink to this heading">#</a></h2>
-<p>Bis zu diesem Punkt im Notebook bist Du sicherlich auf das ein oder andere Problem gestoßen, das Du nicht selbst lösen konntest. Vermutlich hast Du in diesen Fällen Hilfe bei Google gesucht. Das ist genau die richtige Strategie, denn in den seltensten Fällen bist Du mit Deinem Programmierproblem alleine. Ein sehr beliebtes Forum für Fragen rund um Python, das zumeist auch das erste Suchergebnis bei Google ist, heißt <a class="reference external" href="https://stackoverflow.com/questions/tagged/python">Stack Overflow</a>.</p>
-<p>Angenommen Du stündest vor der Herausforderung, Duplikate aus einer Liste zu entfernen und kämst nicht weiter, so würdest Du über die Suchanfrage „remove duplicates in lists“ (oder so ähnlich) zu diesem <a class="reference external" href="https://stackoverflow.com/questions/7961363/removing-duplicates-in-lists">Beitrag</a> gelangen. Die Frage des Nutzers steht auch im Screenshot unten:</p>
-<img src="../3_Dateien/Grafiken_und_Videos/Stack_Overflow1.png"><p>Fragen bei Stack Overflow bestehen i. d. R. aus einer Erklärung des Problems sowie Codeausschnitten und ggf. Output (z. B. eine Fehlermeldung). Hier handelt es sich jedoch um eine einfache Frage, die aber sehr viele Programmierer:innen als nützlich (bzw. gut recherchiert und klar formuliert) bewertet haben, was wir an den 1297 sog. <em>Upvotes</em> erkennen.</p>
-<p>Insgesamt 57 Antworten wurden gegeben, wobei wir uns auch hier an den Upvotes orientieren können. Die nützlichste Antwort mit 2053 Upvotes erklärt, wie im nächsten Screenshot ersichtlich, dass der Nutzer für sein Problem <code class="docutils literal notranslate"><span class="pre">set</span></code> benutzen kann (vgl. Notebook „Datentypen“). Das grüne Häkchen bedeutet zudem, dass der Fragesteller diese Antwort als beste ausgewählt hat.</p>
-<img src="../3_Dateien/Grafiken_und_Videos/Stack_Overflow2.png"><p>Wenn Du den Link zum Beitrag öffnest, siehst Du, dass die Erklärung noch weiter geht. Unter der Antwort gibt es zudem Kommentare auf die Antwort, die z. T. auch sehr nützlich sind.</p>
-<p>Um relevante Lösungen für Dein Programmierproblem zu erhalten, lohnt es sich, <strong>auf Englisch</strong> zu suchen. Wie im Notebook „Einführung“ erwähnt, ist Englisch die Lingua Franca unter Programmierer:innen. Formulierungen mit <em>how to…</em> (<em>how to remove duplicates in list</em>) oder eine Aneinanderreihung von Schlüsselwörtern (<em>remove duplicates list python</em>) sind empfehlenswert. Bei Fehlermeldungen kannst Du auch einfach die Meldung copy-pasten und danach suchen.</p>
-<p>Wie gesagt, in den allermeisten Fällen hatten andere vor Dir bereits dasselbe Problem und es gibt schon einen, oft sogar mehrere Beiträge dazu. Solltest Du nach eingehender (!) Recherche aber keinen relevanten Beitrag für Dein Problem gefunden haben, kannst Du natürlich eine eigene Frage bei Stack Overflow stellen. <a class="reference external" href="https://stackoverflow.com/help/how-to-ask">Hier</a> findest Du Tipps, wie Du Deine Frage formulierst, damit Du möglichst rasch eine sinnvolle Antwort erhältst (und nicht zuweilen patzig auf Duplikatbeiträge oder andere Regelmissachtungen hingewiesen wirst).</p>
-<p>Neben dem Frage-Antwort-basierten Forum Stack Overflow gibt es natürlich die <a class="reference external" href="https://docs.python.org/3/index.html">offizielle Dokumentation von Python</a>. Insbesondere das <a class="reference external" href="https://docs.python.org/3/tutorial/">Tutorial</a> ist empfehlenswert. Es deckt sämtliche wichtigen Themen ab und ist (im Gegensatz zum Community-betriebenen Stack Overflow und erst recht anderen Google-Suchergebnissen, etwa den oft inakkuraten Webseiten w3schools oder geeksforgeeks) garantiert korrekt.</p>
-<p>Wunderbar! Damit sind wir am Ende dieses Notebooks.
+<p>Abschließend als Exkurs noch ein paar Tipps, wo Du Hilfe findest, wenn Du mal bei einem Programmierproblem nicht weiterkommst.</p>
+<details>
+<summary>🔍 <b>Exkurs: Hilfe holen</b></summary>
+<p><br>Bis zu diesem Punkt bist Du sicherlich auf das ein oder andere Problem gestoßen, das Du nicht selbst lösen konntest. Vermutlich hast Du in diesen Fällen eine KI konsultiert oder Hilfe bei Google gesucht. Das sind genau die richtigen Strategien! 😄</p>
+<p>In den seltensten Fällen bist Du mit Deinen Programmierproblemen alleine, weshalb es im Internet meist bereits viele Lösungsvorschläge dazu gibt. Dies trifft besonders auf Python zu, da die Programmiersprache sehr weit verbreitet ist. Diese Hülle und Fülle an Hilfestellung zu Python im Internet ist denn auch der Grund dafür, warum KIs wie chatGPT oder GitHub Copilot ziemlich zuverlässig Hilfe leisten können. Schließlich basiert ihr Output auf Trainingsdaten, die zu einem großen Teil aus dem Internet stammen.</p>
+<p>Lass dir bei Problemen zunächst von KI helfen – in aller Regel ist dies am effizientesten. Überprüf aber stets, ob die vorgeschlagene Lösung Dein Problem wirklich behebt und Du den Code nachvollziehen kannst. Falls nicht, kannst Du Dir den Code von der KI erklären lassen oder eine simplere Version erbitten.</p>
+<p>Manchmal hilft KI nicht weiter, etwa wenn Dein Problem sehr spezifisch ist oder eine andere, weniger verbreitete Programmiersprache oder Technik betrifft. In diesen Fällen landest Du nach einer Google-Suche typischerweise bei
+<a href="https://stackoverflow.com">Stackoverflow</a>, einem beliebten Forum für Fragen rund um Programmieren und Technik. Um Stackoverflow effizient zu nutzen, gilt es ein paar Dinge zu beachten, die im folgenden an einem Beispiel aufgezeigt werden. Das Beispiel dient nur der Veranschaulichung, ließe sich das Problem doch effizienter mit einer KI lösen.</p>
+<p>Angenommen Du stündest vor der Herausforderung, Duplikate aus einer Liste zu entfernen und kämst nicht weiter, so würdest Du über die Suchanfrage „remove duplicates in lists“ (oder so ähnlich) zu diesem
+<a href="https://stackoverflow.com/questions/7961363/removing-duplicates-in-lists">Beitrag</a> gelangen:</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Stack_Overflow1.png">
+<p>Fragen bei Stack Overflow bestehen i. d. R. aus einer Erklärung des Problems, Codeausschnitten und ggf. Output (z. B. eine Fehlermeldung). Hier handelt es sich jedoch um eine einfache Frage, die aber sehr viele Programmierer:innen als nützlich bewertet haben, was wir an den 1297 sog. <i>Upvotes</i> erkennen.</p>
+<p>Insgesamt 57 Antworten wurden gegeben, wobei wir uns auch hier an der Zahl der Upvotes orientieren können. Das grüne Häkchen bedeutet zudem, dass der Fragesteller diese Antwort als beste ausgewählt hat.</p>
+<img src="../3_Dateien/Grafiken_und_Videos/Stack_Overflow2.png">
+<p>Wenn Du den Link zum Beitrag öffnest, siehst Du, dass die Erklärung noch weiter geht. Unter der Antwort gibt es zudem Kommentare auf die Antwort, die z. T. auch sehr nützlich sind.</p>
+<p>Um relevante Lösungen für Dein Programmierproblem zu erhalten, lohnt es sich, <b>auf Englisch</b> zu suchen. Wie im Notebook „Einführung“ erwähnt, ist Englisch die Lingua Franca unter Programmierer:innen.</p>
+<p>Falls Du nach gründlicher Recherche keine passende Lösung findest, kannst Du eine eigene Frage bei Stack Overflow stellen.
+<a href="https://stackoverflow.com/help/how-to-ask">Hier</a> findest Du Tipps, wie Du Deine Frage formulierst, damit Du möglichst rasch eine sinnvolle Antwort erhältst (und nicht zuweilen patzig auf Duplikatbeiträge oder andere Regelmissachtungen hingewiesen wirst).</p>
+<p>Zuletzt sei auf die <a href="https://docs.python.org/3/index.html">offizielle Dokumentation von Python</a> hingewiesen. Insbesondere das <a href="https://docs.python.org/3/tutorial/">Tutorial</a> ist empfehlenswert. Es deckt sämtliche wichtigen Themen ab und ist im Gegensatz zu KI-generiertem Code und Community-betriebenen Foren garantiert korrekt.</p>
+</details>
+<br><p>Wunderbar! Damit sind wir am Ende dieses Notebooks.
 <br><br></p>
 <hr class="docutils" />
 <table>
@@ -1406,12 +1358,10 @@ Aktuell auf der Liste: [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, &#39;
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen">Bedingte Anweisungen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">Schleifen (Loops)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-schleifen"><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-trial-and-error-coding">Exkurs: Trial-and-error-Coding</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleifen"><code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: Einen Kalender erstellen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-hilfe-holen">Exkurs: Hilfe holen</a></li>
 </ul>
   </nav></div>
 

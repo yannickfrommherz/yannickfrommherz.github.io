@@ -466,11 +466,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-1-inputvalidierung">Beispiel 1: Inputvalidierung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-2-musterbasierte-suche">Beispiel 2: Musterbasierte Suche</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-der-pizzabot">🔧 Anwendungsfall: Der Pizzabot 🍕🤖</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-bezogene-aufgabe">RegEx-bezogene Aufgabe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentationsaufgabe">Dokumentationsaufgabe</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-der-pizzabot">🔧 Anwendungsfall: Der Pizzabot 🍕🤖</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-suchsprache-im-detail">Die Suchsprache im Detail</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#literale-zeichen">Literale Zeichen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sonderzeichen">Sonderzeichen</a><ul class="nav section-nav flex-column">
@@ -486,7 +482,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-re-modul">Das <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matchen">Matchen</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-findall-und-re-search"><code class="docutils literal notranslate"><span class="pre">re.findall</span></code> und <code class="docutils literal notranslate"><span class="pre">re.search</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-finditer-fortgeschritten"><code class="docutils literal notranslate"><span class="pre">re.finditer</span></code> (fortgeschritten)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-re-finditer">🦊 Fortgeschritten: <code class="docutils literal notranslate"><span class="pre">re.finditer</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-match-und-re-fullmatch"><code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code></a></li>
 </ul>
 </li>
@@ -495,8 +491,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: Der Pizzabot 🍕🤖</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">RegEx-bezogene Aufgabe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Dokumentationsaufgabe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-bezogene-aufgabe">RegEx-bezogene Aufgabe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentationsaufgabe">Dokumentationsaufgabe</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cheat-sheet">Cheat Sheet</a></li>
@@ -518,15 +514,15 @@ document.write(`
 <h2>Beispiel 1: Inputvalidierung<a class="headerlink" href="#beispiel-1-inputvalidierung" title="Permalink to this heading">#</a></h2>
 <p>Beim Ausfüllen von Formularen auf einer Webseite, z. B. beim Bestellen in einem Onlineshop, wurdest Du sicherlich schon einmal darauf hingewiesen, dass eine Deiner Angaben nicht korrekt ist. Wie hier bei der Eingabe einer Lieferadresse:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Inputvalidierung.png"><p>Wieso kommt der Onlineshop zum Schluss, dass diese Eingabe fehlerhaft ist? Hier findet keine Abfrage in einer Datenbank mit allen existierenden Adressen in Deutschland (oder sonst wo) statt, das wäre zu umständlich. Diese sog. <em>Inputvalidierung</em> verläuft viel simpler: Im Hintergrund wurde ein mehr oder minder abstrakter, regulärer Ausdruck definiert, der beschreibt, wie der Input, hier die Adresse, auszusehen hat.</p>
-<p>Dieser reguläre Ausdruck scheint nicht nur eine Straße (vermutlich operationalisiert als Abfolge alphabetischer Zeichen, ggf. mit Leerzeichen für Fälle wie „Dresdner Straße“), sondern ebenfalls eine Zahl für die Hausnummer zu verlangen. Bei jeder neuen Eingabe ver<em>sucht</em> das System, den regulären Ausdruck wie eine Schablone über den Input zu legen. Lässt er sich darüber legen, so haben wir einen sog. <em>match</em>. Das bedeutet, dass die Eingabe dem regulären Ausdruck entspricht bzw. im Beispiel hier, dass die Eingabe korrekt ist. Andernfalls „spuckt“ das System eine Fehlermeldung wie oben „aus“.</p>
+<p>Dieser reguläre Ausdruck scheint nicht nur eine Straße (vermutlich operationalisiert als Abfolge alphabetischer Zeichen, ggf. mit Leerzeichen für Fälle wie „Dresdner Straße“ oder Bindestrichen), sondern ebenfalls eine Zahl für die Hausnummer zu verlangen. Bei jeder neuen Eingabe ver<em>sucht</em> das System, den regulären Ausdruck wie eine Schablone über den Input zu legen. Lässt er sich darüber legen, so haben wir einen sog. <em>match</em>. Das bedeutet, dass die Eingabe dem regulären Ausdruck entspricht bzw. im Beispiel hier, dass die Eingabe korrekt ist. Andernfalls „spuckt“ das System eine Fehlermeldung wie oben „aus“.</p>
 </section>
 <section id="beispiel-2-musterbasierte-suche">
 <h2>Beispiel 2: Musterbasierte Suche<a class="headerlink" href="#beispiel-2-musterbasierte-suche" title="Permalink to this heading">#</a></h2>
 <p>Neben der Inputvalidierung sind reguläre Ausdrücke äußerst hilfreich, um bestimmte Elemente in einer großen Datenmenge aufzuspüren. Damit sind nicht <em>identische</em> Elemente gemeint, denn da würde ja eine literale Suche ausreichen. Gemeint sind Elemente, die zwar nicht identisch sind, wohl aber insgesamt einem einheitlichen <em>Muster</em> entsprechen. Ein bestimmter regulärer Ausdruck wird daher auch oft <em>Muster</em> bzw. <em>pattern</em> auf Englisch genannt.</p>
 <p>In folgendem Ausschnitt des Quelltexts der <a class="reference external" href="https://tu-dresden.de">Homepage der TU Dresden</a> verbergen sich fünf Links auf andere Webseiten, die zwar allesamt identisch beginnen, aber nicht identisch enden (sonst wäre es ja fünfmal derselbe Link).</p>
-<img src="../3_Dateien/Grafiken_und_Videos/HTML_Regex.png"><p>Nun wollen wir alle Links aus dem Quelltext extrahieren, z. B. um auch den Quelltext der verlinkten Seiten automatisiert herunterzuladen (diese Technik nennt sich wie im Notebook „Einführung“ erwähnt <em>Web Scraping</em>, ein Aufbaumodul wird sich ihr ausführlich widmen). Dazu können wir den HTML-Code nach folgendem regulären Ausdruck absuchen:</p>
+<img src="../3_Dateien/Grafiken_und_Videos/HTML_Regex.png"><p>Nun wollen wir alle Links aus dem Quelltext extrahieren, z. B. um auch den Quelltext der verlinkten Seiten automatisiert herunterzuladen (diese Technik nennt sich wie im Notebook „Einführung“ erwähnt <em>Web Scraping</em>, das gleichnamige, zweiteilige Notebook wird sich ihr ausführlich widmen). Dazu können wir den HTML-Code nach folgendem regulären Ausdruck absuchen:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Regex_Link.png"><p>Dieser reguläre Ausdruck verlangt, dass ein Link mit der literalen Zeichenfolge „<a class="reference external" href="https://tu-dresden.de/">https://tu-dresden.de/</a>“ beginnt (gelb markiert). Nun folgen ein paar auf den ersten Blick kryptische Zeichen, die regulären Ausdrücken jedoch ihre Leistungsfähigkeit verleihen, indem sie statt ihrer literalen Bedeutung eine Sonderbedeutung haben. Wir gehen unten detailiert auf diese Sonderzeichen ein. Hier ein kurzer Vorausblick: Die Zeichen definieren, dass im Anschluss an die literale Zeichenfolge beliebig viele, aber mindestens ein Zeichen (für diese Bedingung sorgt der Quantifikator <code class="docutils literal notranslate"><span class="pre">+</span></code> (grün)) der von den eckigen Klammern (pink) umrahmten Zeichen bzw. Zeichenklassen folgen dürfen. Diese Zeichen können entweder alphanumerische Zeichen sein (konkret: große/kleine Buchstaben, Zahlen sowie der Unterstrich). Für diese Gruppe von erlaubten Zeichen steht <code class="docutils literal notranslate"><span class="pre">\w</span></code> (blau). Alternativ darf auch ein Bindestrich (gelb) vorkommen. Dieser steht literal im Suchbegriff, da er für sich selbst steht und keine Sonderbedeutung hat.</p>
-<p>Im Screenshot oben wurde der Quelltext nach diesem regulären Ausdruck durchsucht. Die Ergebnisse sind mit einem dünnen Strich umrahmt. Die Anführungszeichen nach den Links werden jeweils nicht mehr <em>gematcht</em>, da sie nicht zu den innerhalb der eckigen Klammern definierten Zeichen bzw. Zeichenklassen gehören.</p>
+<p>Im Screenshot oben wurde der Quelltext nach diesem regulären Ausdruck durchsucht. Die Ergebnisse sind mit einem dünnen Strich umrahmt.</p>
 <p>Unser regulärer Ausdruck funktioniert für die fünf gegebenen Links. Bei längeren Links, die auf „tiefere“ Unterseiten verlinken (mit weiteren „/“ konkateniert), müsste er aber verfeinert werden. Natürlich ließe er sich auch derart modifizieren, dass optional auch nicht-verschlüsselte Links (also ohne „s“ nach „http“) oder solche mit „www“ zwischen „https://“ und Domain (hier: „tu-dresden“) gematcht werden. Wie das geht, lernen wir weiter unten.</p>
 <p>Wir fassen zusammen: Sowohl bei der Inputvalidierung als auch bei der musterbasierten Suche ist das Prinzip von RegEx das gleiche:</p>
 <p><strong>Wir formulieren <em>einen</em> regulären Ausdruck auf eine ausreichend abstrakte Weise, sodass er alle gewünschten Fälle auf einmal abdeckt.</strong></p>
@@ -554,7 +550,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2100</span><span class="o">/</span><span class="mf">1071352649.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2065</span><span class="o">/</span><span class="mf">1071352649.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> 
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">#Hier aktivieren wir den Pizzabot.</span>
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
@@ -580,15 +576,6 @@ document.write(`
 </div>
 <p>Wie Du siehst, funktioniert der Pizzabot prinzipiell ganz gut. Der Code dafür, der sich bereits fertig in den Modulen <code class="docutils literal notranslate"><span class="pre">pizzabot</span></code> und <code class="docutils literal notranslate"><span class="pre">pizza_functions</span></code> im Ordner „3_Dateien/Module“ befindet, tut also seinen Dienst. Einzig störend ist die Tatsache, dass Benutzer:innen genau wissen müssen, welchen Input der Bot verarbeiten kann. Das ist nicht sehr kund:innenfreundlich.</p>
 <p>Der Anwendungsfall in diesem Notebook besteht aus zwei Teilaufgaben: Bei der RegEx-bezogenen Aufgabe wirst Du Deine in diesem Notebook erlernten Kenntnisse zu regulären Ausdrücken einsetzen. Bei der Dokumentationsaufgabe geht es darum, Code, den jemand anderes geschrieben hat, zu verstehen und zu dokumentieren.</p>
-<section id="regex-bezogene-aufgabe">
-<h3>RegEx-bezogene Aufgabe<a class="headerlink" href="#regex-bezogene-aufgabe" title="Permalink to this heading">#</a></h3>
-<p>Die RegEx-bezogene Aufgabe besteht darin, den Pizzabot flexibler in Bezug auf Input zu machen. Dafür wirst Du die regulären Ausdrücke erweitern müssen, die schon jetzt im Code dafür benutzt werden, den User:innen-Input zu validieren.</p>
-<p>Beispielsweise wird die Antwort auf Ja-Nein-Fragen momentan nur nach den strings „Ja“ und „Nein“ (unabhängig von Groß- und Kleinschreibung) abgesucht. Durch Deine regulären Ausdrücke sollen Kund:innen in Zukunft ohne Probleme auch mit „nö“, „ne“, „nope“ etc. antworten können. Ebenfalls soll der Pizzabot mit Rechtschreibfehlern bei den Pizzanamen umgehen können (etwa „Margharita“), um Kund:innen nicht unnötig vor den Kopf zu stoßen. Letztlich besteht ein großes Manko des Pizzabots noch darin, dass er nur an eine einzige Adresse liefern kann, nämlich an die what3words-Adresse „falschen.fliegen.beliebten“, was übrigens der <a class="reference external" href="https://w3w.co/falschen.fliegen.beliebten">nordöstlichen Ecke der Zentralbibliothek der TU Dresden (SLUB)</a> entspricht. Das musst Du ändern, sodass der Pizzabot in Zukunft weltweit liefern kann, und zwar an jedes beliebige 3 x 3 m große Quadrat auf der Erdoberfläche. what3words hat nämlich jedes dieser Quadrate mit einer Adresse bestehend aus drei Wörtern analog zu „falschen.fliegen.beliebten“ versehen. Solche Adressen erlauben einerseits eine viel genauere Angabe als konventionelle Straßennamen (z. B. auch Orte in einem Park oder am Strand) und sind andererseits wesentlich „menschenfreundlicher“ als Koordinaten. Genauere Instruktionen, wie Du die regulären Ausdrücke erweitern sollst, findest Du weiter unten.</p>
-</section>
-<section id="dokumentationsaufgabe">
-<h3>Dokumentationsaufgabe<a class="headerlink" href="#dokumentationsaufgabe" title="Permalink to this heading">#</a></h3>
-<p>Die Dokumentationsaufgabe besteht darin, dass Du Dir den Code, der ja schon fertig ist, genau anschaust und ihn mithilfe von Kommentaren dokumentierst. Auch wenn Du hier nicht selbst programmieren musst, ist Dein Verständnis von Python sehr gefragt. Das Nachvollziehen von Code, den jemand anderes geschrieben hat, ist zuweilen eine mühselige Aufgabe, weil wir alle unseren eigenen Programmierstil pflegen. Gleichzeitig lernen wir dadurch andere, vielleicht effizientere Herangehensweisen und erweitern so unser Programmierrepertoire. Auch hierzu findest Du nähere Instruktionen weiter unten.</p>
-</section>
 </section>
 <hr class="docutils" />
 <section id="die-suchsprache-im-detail">
@@ -676,16 +663,17 @@ document.write(`
 <p>✏️ <strong>Übung 1:</strong> Find heraus, wie viele Male drei aufeinanderfolgende „f“ im string <code class="docutils literal notranslate"><span class="pre">text</span></code> vorkommen. <code class="docutils literal notranslate"><span class="pre">regex</span></code> soll Deinen regulären Ausdruck referenzieren. Es handelt sich dabei ebenfalls um einen string, allerdings mit einem dem öffnenden Anführungszeichen vorangestellten „r“/“R“. Wie bei f-strings im Notebook „Input und Output Teil 2“ teilen wir Python damit mit, dass der folgende string anders als ein normaler string zu interpretieren ist (wie genau, sind technische Details, die für uns nicht relevant sind, vgl. ebenfalls Notebook „Input und Output Teil 1“ zu Dateipfaden bei Windows).</p>
 <p>Der Rest des Codes ist bereits fertig geschrieben. Grob formuliert, nimmt die <code class="docutils literal notranslate"><span class="pre">findall</span></code>-Funktion des <code class="docutils literal notranslate"><span class="pre">re</span></code>-Moduls Deinen regulären Ausdruck (<code class="docutils literal notranslate"><span class="pre">regex</span></code>) und sucht <code class="docutils literal notranslate"><span class="pre">text</span></code> von links nach rechts danach ab. Alle matches landen in einer Liste, die mit <code class="docutils literal notranslate"><span class="pre">matches</span></code> referenziert wird und deren Länge wir uns abschließend ausgeben lassen. Die Ausgabe sollte natürlich <code class="docutils literal notranslate"><span class="pre">3</span></code> sein, sobald Du den korrekten regulären Ausdruck bei <code class="docutils literal notranslate"><span class="pre">regex</span></code> ausgefüllt hast.</p>
 <details>
-<summary> 💡 Tipp </summary>
+<summary> 💡 Tipp 1</summary>
 <br>Um nach <i>drei</i> aufeinanderfolgenden "f" zu suchen, kannst Du in geschweiften Klammern angeben, wie oft das zu suchende Zeichen vorkommen soll. Sieh dazu in der Tabelle oben nach.
 </details>
 <br>
 <details>
-<summary> 💡 Weiterführender Tipp </summary>
+<summary> 💡 Tipp 2</summary>
 <br>Verwend bei dieser und bei den folgenden Übungen <a href="https://regexr.com">RegExr</a>. Auf dieser Webseite kannst Du verschiedene reguläre Ausdrücke ausprobieren (im Feld oben) und siehst dabei direkt, welche matches in einem zu durchsuchenden Text (den Du im Feld in der Mitte eingibst) gefunden werden. Oben drauf wird Dir im Feld unten jedes Zeichen Deines regulären Ausdrucks erklärt.
 </details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Schadstofffreie Schifffahrt dank Auspufffilter&quot;</span>
 
 <span class="c1">#Hier regulären Ausdruck einfügen</span>
@@ -889,7 +877,7 @@ document.write(`
 </ol>
 <p>Da wir bei der ersten und letzten Aufgabe nicht nach <em>allen</em> matches suchen, sondern nur an einem einzigen interessiert sind (es kann ja auch nur jeweils einen match geben), verwenden wir eine neue Funktion, nämlich <code class="docutils literal notranslate"><span class="pre">search</span></code>, auf die wir unten genauer eingehen. Dabei erhalten wir keine Liste zurück, sondern ein sog. <em>match-Objekt</em>, wobei wir auf den eigentlichen match wie im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement bereits vorgegeben zugreifen können. Überhaupt sollte das <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statement das Ergebnis aller fünf Suchaufträge schön formatiert ausgeben.</p>
 <details>
-<summary> 👆 Allgemeiner Hinweis </summary>
+<summary> 👆 Hinweis </summary>
 <br>Je komplexer die Suchaufträge, desto mehr Möglichkeiten gibt es, einen regulären Ausdruck dafür zu konstruieren. Oft steht man vor der Frage, eine fertige Zeichenklasse wie z. B. <code>\w</code> einzubauen oder lieber eine eigene Zeichenklasse zusammenzustellen, um auch Nicht-ASCII-Zeichen zu matchen. Manchmal erreicht man sein Ziel auch aus der umgekehrten Richtung, z. B. mithilfe von <code>\S</code>, um alles <i>außer</i> whitespace zu matchen (was ja sämtliche Buchstaben, ASCII hin oder her, umfasst). Letzlich gilt es wie immer zwischen Genauigkeit und Effizienz abzuwägen. 
 </details>
 <br>
@@ -920,7 +908,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2100</span><span class="o">/</span><span class="mf">4206364942.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2065</span><span class="o">/</span><span class="mf">4206364942.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">regex_5</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> 
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">first_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex_1</span><span class="p">,</span> <span class="n">fairytale</span><span class="p">)</span>
@@ -951,7 +939,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2100/2410180105.py&quot;</span><span class="gt">, line </span><span class="mi">5</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/tmp/ipykernel_2065/2410180105.py&quot;</span><span class="gt">, line </span><span class="mi">5</span>
     <span class="n">climate_compounds</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">kv21</span><span class="p">):</span>
                                                <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
@@ -1018,7 +1006,7 @@ document.write(`
 <p>Andererseits bieten Gruppen den praktischen Vorteil, dass wir nicht nur einen Gesamtmatch zurückerhalten (sofern wir den gesamten regulären Ausdruck ebenfalls in eine runde Klammer setzen, siehe Übung 6), sondern auch beliebig viele Teilmatches. Alles, was in einem regulären Ausdruck von einer runden Klammer umrahmt wird, wird als Teilmatch in einem Tupel zurückgegeben, wobei die Reihenfolge im Tupel der Reihenfolge der öffnenden Klammern im regulären Ausdruck entspricht.</p>
 <p>Wir müssen innerhalb von Gruppen übrigens nicht unbedingt Alternativen definieren. In bestimmten Anwendungsfällen reicht uns eine Option, es ist uns aber wichtig, dass wir separat auf den Teil des Gesamtmatches zugreifen können, der von den entsprechenden runden Klammern umrahmt wird. Machen wir es in folgender Übung konkret:</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 7 (fortgeschritten):</strong> Gegeben sind kurze Beschreibungen von fünf Personen in <code class="docutils literal notranslate"><span class="pre">people</span></code>. In jeder Beschreibung findet sich der Vor- und Nachname, das Geburtsdatum sowie die E-Mailadresse der Person. Wir wollen daraus ein kleines Adressbuch in tabellarischer Form schaffen. Ziel ist es, die Daten wie im Screenshot gezeigt in die Datei „address_book.tsv“ im Ordner „3_Dateien/Output“ zu schreiben:</p>
+<p>✏️ <b>Übung 7 (🦊 fortgeschritten)</b>: Gegeben sind kurze Beschreibungen von fünf Personen in <code class="docutils literal notranslate"><span class="pre">people</span></code>. In jeder Beschreibung findet sich der Vor- und Nachname, das Geburtsdatum sowie die E-Mailadresse der Person. Wir wollen daraus ein kleines Adressbuch in tabellarischer Form schaffen. Ziel ist es, die Daten wie im Screenshot gezeigt in die Datei „address_book.tsv“ im Ordner „3_Dateien/Output“ zu schreiben:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/address_book.png">
 <p>Zwischen den Namen und dem Geburtstag sowie dem Geburtstag und der E-Mailadresse soll also ein Tab stehen, da Dateien mit der Endung „.tsv“ tabulatorsepariert sind (dem gleichen Prinzip wie kommaseparierte Dateien folgend, vgl. Notebook „Input und Output Teil 2“).</p>
 <p>Formulier <em>einen</em> regulären Ausdruck, um fünf matches zu erhalten (einen pro Person), und nutz Gruppen, um die Elemente <em>Nachname</em>, <em>Vorname</em>, <em>Geburtstag</em> und <em>E-Mailadresse</em> als Teilmatch separat zu erhalten. Öffne und beschreib anschließend die Datei „address_book.tsv“, sodass jede Person in einer eigenen Zeile sowie jedes Element in einer eigenen Spalte abgespeichert wird.</p>
@@ -1108,8 +1096,8 @@ document.write(`
 <hr class="docutils" />
 <p>Super!</p>
 </section>
-<section id="re-finditer-fortgeschritten">
-<h4><code class="docutils literal notranslate"><span class="pre">re.finditer</span></code> (fortgeschritten)<a class="headerlink" href="#re-finditer-fortgeschritten" title="Permalink to this heading">#</a></h4>
+<section id="fortgeschritten-re-finditer">
+<h4>🦊 Fortgeschritten: <code class="docutils literal notranslate"><span class="pre">re.finditer</span></code><a class="headerlink" href="#fortgeschritten-re-finditer" title="Permalink to this heading">#</a></h4>
 <p>Angenommen, wir sind sowohl an allen matches in einem string als auch an deren jeweiligen Position interessiert, so können wir die <code class="docutils literal notranslate"><span class="pre">re.finditer</span></code>-Funktion verwenden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1132,7 +1120,7 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 </div>
 </div>
 <p>Wie bei <code class="docutils literal notranslate"><span class="pre">re.findall</span></code> landen alle matches in einer Art Liste (aber siehe Randnotiz unten). Die einzelnen Elemente sind wiederum match-Objekte, auf die wir wie bei <code class="docutils literal notranslate"><span class="pre">re.search</span></code> die Methoden <code class="docutils literal notranslate"><span class="pre">group</span></code> und <code class="docutils literal notranslate"><span class="pre">span</span></code> anwenden können, um auf den jeweiligen match bzw. die Indizes zuzugreifen.</p>
-<p>Kurze Randnotiz, die Du auch gerne überlesen kannst: <code class="docutils literal notranslate"><span class="pre">finditer</span></code> gibt keine normale Liste zurück, sondern eine andere Art von iterierbarem Objekt, das nach einer einzigen Iteration leer (engl. <em>exhausted</em>) ist (überprüf es, indem Du eine neue Code-Zelle einfügst und noch einmal versuchst über <code class="docutils literal notranslate"><span class="pre">all_matches_with_indices</span></code> zu iterieren). Das bietet effizienztechnische Vorteile (wenn’s Dich interessiert: <a class="reference external" href="https://stackoverflow.com/questions/628903/performance-advantages-to-iterators">hier</a> eine Diskussion zum Thema), ist für gewöhnliche Programmierer:innen aber irritierend. 🙈</p>
+<p><code class="docutils literal notranslate"><span class="pre">finditer</span></code> gibt keine normale Liste zurück, sondern eine andere Art von iterierbarem Objekt, das nach einer einzigen Iteration leer (engl. <em>exhausted</em>) ist (überprüf es, indem Du eine neue Code-Zelle einfügst und noch einmal versuchst über <code class="docutils literal notranslate"><span class="pre">all_matches_with_indices</span></code> zu iterieren). Das bietet effizienztechnische Vorteile (wenn’s Dich interessiert: <a class="reference external" href="https://stackoverflow.com/questions/628903/performance-advantages-to-iterators">hier</a> eine Diskussion zum Thema), ist für gewöhnliche Programmierer:innen aber irritierend. 🙈</p>
 </section>
 <section id="re-match-und-re-fullmatch">
 <h4><code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code><a class="headerlink" href="#re-match-und-re-fullmatch" title="Permalink to this heading">#</a></h4>
@@ -1159,7 +1147,7 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2100</span><span class="o">/</span><span class="mf">3433418646.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2065</span><span class="o">/</span><span class="mf">3433418646.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> 
 <span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">answer</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
@@ -1179,7 +1167,11 @@ Die Zahl 51 befindet sich zwischen Index 123 und 125 in der Geburtsanzeige.
 </div>
 </div>
 <p>Je nach Anwendungsfall macht es Sinn, etwas flexibler nur den Anfang eines strings zu matchen (<code class="docutils literal notranslate"><span class="pre">re.match</span></code>), oder strikt den kompletten string (<code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code>). Im Pizzabot wird <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code> eingesetzt, um z. B. den (wenn auch wenig wahrscheinlichen) Input „Ja, wobei nein doch nicht“ korrekt zu „handeln“.</p>
-<p>💡 In diesem Code sehen wir außerdem ein Verhalten Pythons, dem wir zwar schon einmal <em>en passant</em> im Notebook „Input und Output“ begegnet sind, das wir aber noch nicht explizit besprochen haben: Wenn wir uns die bedingte Anweisung <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">re.match(regex,</span> <span class="pre">text)</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">re.fullmatch(regex,</span> <span class="pre">text)</span></code> (vgl. auch Abschnitt zu Miss Sara Sampson im Notebook „Input und Output Teil 2“) angucken, könnte der Eindruck entstehen, dass diese Funktionen die Boolschen Werte <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> zurückgeben, je nachdem ob ein match vorliegt oder nicht. Tatsächlich geben sie aber ein gewöhnliches match-Objekt zurück, wenn sie einen match finden, ansonsten <code class="docutils literal notranslate"><span class="pre">None</span></code>, also <em>kein</em> Objekt. In der bedingten Anweisung oben machen wir uns den Umstand zunutze, dass <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">object</span> <span class="pre">==</span> <span class="pre">None</span></code> (auf das es ja hinausläuft) für Python immer <code class="docutils literal notranslate"><span class="pre">False</span></code> ergibt und alles andere (also, wenn das Objekt <em>nicht</em> <code class="docutils literal notranslate"><span class="pre">None</span></code> ist) immer <code class="docutils literal notranslate"><span class="pre">True</span></code> ergibt. Dieses Verhalten gilt natürlich nicht nur im Zusammenhang mit regulären Ausdrücken. Wir können es produktiv einsetzen, wann immer es Sinn macht, den Ablauf des Codes von der Existenz eines Objekts abhängig zu machen (im Code des Pizzabots kommt es übrigens auch vor).</p>
+<details>
+<summary><b>🔍 Exkurs: (Nicht)Existenz von Objekten als Wahrheitsbedingung</b></summary>
+<p><br>In diesem Code sehen wir außerdem ein Verhalten Pythons, dem wir zwar schon einmal <i>en passant</i> im Notebook „Input und Output“ begegnet sind, das wir aber noch nicht explizit besprochen haben: Wenn wir uns die bedingte Anweisung <code>if re.match(regex, text)</code> bzw. <code>if re.fullmatch(regex, text)</code> (vgl. auch Abschnitt zu Miss Sara Sampson im Notebook „Input und Output Teil 2“) angucken, könnte der Eindruck entstehen, dass diese Funktionen die Boolschen Werte <code>True</code> oder <code>False</code> zurückgeben, je nachdem ob ein match vorliegt oder nicht. Tatsächlich geben sie aber ein gewöhnliches match-Objekt zurück, wenn sie einen match finden, ansonsten <code>None</code>, also <i>kein</i> Objekt. <br><br>In der bedingten Anweisung oben machen wir uns den Umstand zunutze, dass <code>if object == None</code> (auf das es ja hinausläuft) für Python immer <code>False</code> ergibt und alles andere (also, wenn das Objekt <i>nicht</i> <code>None</code> ist) immer <code>True</code> ergibt. Dieses Verhalten gilt natürlich nicht nur im Zusammenhang mit regulären Ausdrücken. Wir können es produktiv einsetzen, wann immer es Sinn macht, den Ablauf des Codes von der Existenz eines Objekts abhängig zu machen (im Code des Pizzabots kommt es übrigens auch vor).</p>
+</details>
+<br>
 <p>Damit kennen wir alle wesentlichen Funktionen zum Matchen regulärer Ausdrücke.</p>
 </section>
 </section>
@@ -1319,8 +1311,9 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 <section id="id1">
 <h2>🔧 Anwendungsfall: Der Pizzabot 🍕🤖<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>Der Anwendungsfall besteht wie erwähnt aus zwei Teilaufgaben. In der RegEx-bezogenen Aufgabe baust Du bereits existierende, aber noch sehr primitive reguläre Ausdrücke aus, um den Pizzabot flexibler und kund:innenfreundlicher werden zu lassen. In der Dokumentationsaufgabe schaust Du Dir den – abgesehen von den mangelhaften regulären Ausdrücken fertigen – Code zum Pizzabot genau an und dokumentierst ihn Schritt für Schritt.</p>
-<section id="id2">
-<h3>RegEx-bezogene Aufgabe<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<section id="regex-bezogene-aufgabe">
+<h3>RegEx-bezogene Aufgabe<a class="headerlink" href="#regex-bezogene-aufgabe" title="Permalink to this heading">#</a></h3>
+<p>Die RegEx-bezogene Aufgabe besteht darin, den Pizzabot flexibler in Bezug auf Input zu machen. Beispielsweise wird die Antwort auf Ja-Nein-Fragen momentan nur nach den strings „Ja“ und „Nein“ (unabhängig von Groß- und Kleinschreibung) abgesucht. Durch Deine regulären Ausdrücke sollen Kund:innen in Zukunft ohne Probleme auch mit „nö“, „ne“, „nope“ etc. antworten können. Ebenfalls soll der Pizzabot mit Rechtschreibfehlern bei Pizzanamen umgehen können (etwa „Margharita“). Letztlich besteht ein großes Manko des Pizzabots noch darin, dass er nur an eine einzige Adresse liefern kann, nämlich an die what3words-Adresse „falschen.fliegen.beliebten“, was übrigens der <a class="reference external" href="https://w3w.co/falschen.fliegen.beliebten">nordöstlichen Ecke der Zentralbibliothek der TU Dresden (SLUB)</a> entspricht. Das musst Du ändern, sodass der Pizzabot in Zukunft weltweit liefern kann, und zwar an jedes beliebige 3 x 3 m große Quadrat auf der Erdoberfläche.</p>
 <p>In der Datei „<a class="reference external" href="http://pizzabot.py">pizzabot.py</a>“ im Ordner „3_Dateien/Module“ befinden sich unter „REGEX PATTERNS“ sechs reguläre Ausdrücke: drei für die verschiedenen Pizzen, die der Bot im Angebot hat, zwei zur Normalisierung und Validierung von Antworten (Input) auf Ja-/Nein-Fragen und einen zur Validierung von what3words-Adressen, an die die Bestellung geliefert werden soll.</p>
 <p>Jeder dieser Ausdrücke dient dazu, den Input von User:innen zu validieren („handelt es sich um eine Pizza im Angebot?“, „handelt es sich um eine gültige Antwort auf die Ja-/Nein-Frage?“, „handelt es sich um eine gültige Lieferadresse?“). Die regulären Ausdrücke für die Pizzen und diejenige für „Ja“ bzw. „Nein“ haben zusätzlich die Aufgabe, den Input zu normalisieren. Will heißen: Die Bestellung einer „Margerita“ (mit Rechtschreibfehler) soll der dem Bot verständlichen Kategorie „Margherita“ zugeordnet werden, ebenso wie ein „jap“ im Code zu „yes“ werden soll, wobei „yes“ dann den weiteren Codeablauf steuert (<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">answer</span> <span class="pre">==</span> <span class="pre">&quot;yes&quot;</span></code>, siehe Code in „pizza_functions.py“).</p>
 <p>Erweiter nun die befindlichen regulären Ausdrücke derart, dass der Pizzabot</p>
@@ -1363,7 +1356,7 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2100</span><span class="o">/</span><span class="mf">1758838895.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2065</span><span class="o">/</span><span class="mf">1758838895.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">reload</span><span class="p">(</span><span class="n">pizzabot</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> 
 <span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">pizzabot</span><span class="o">.</span><span class="n">order_pizza</span><span class="p">()</span>
@@ -1389,8 +1382,9 @@ Der letzte Familienzuwachs ist die Tochter meines Bruders, die am 22 geboren wur
 </div>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">reload</span></code> sorgt dafür, dass jeweils die neuste gespeicherte Version des Moduls <code class="docutils literal notranslate"><span class="pre">pizzabot</span></code> geladen wird. Standardmäßig geschieht dies aus Arbeitsspeichergründen erst nach einem Neustart des Kernels.</p>
 </section>
-<section id="id3">
-<h3>Dokumentationsaufgabe<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<section id="dokumentationsaufgabe">
+<h3>Dokumentationsaufgabe<a class="headerlink" href="#dokumentationsaufgabe" title="Permalink to this heading">#</a></h3>
+<p>Die Dokumentationsaufgabe besteht darin, dass Du Dir den Code, der ja schon fertig ist, genau anschaust und ihn mithilfe von Kommentaren dokumentierst. Auch wenn Du hier nicht selbst programmieren musst, ist Dein Verständnis von Python sehr gefragt. Das Nachvollziehen von Code, den jemand anderes geschrieben hat, ist zuweilen eine mühselige Aufgabe, weil wir alle unseren eigenen Programmierstil pflegen. Gleichzeitig lernen wir dadurch andere, vielleicht effizientere Herangehensweisen und erweitern so unser Programmierrepertoire.</p>
 <p>Öffne die Datei „<a class="reference external" href="http://pizzabot.py">pizzabot.py</a>“ in Sublime Text (vgl. Notebook „Funktionen und Methoden Teil 2“) und versuch Schritt für Schritt nachzuvollziehen, was in der darin befindlichen Funktion <code class="docutils literal notranslate"><span class="pre">order_pizza</span></code> geschieht. Unter anderem werden darin die Funktionen <code class="docutils literal notranslate"><span class="pre">choose_pizza</span></code>, <code class="docutils literal notranslate"><span class="pre">remove_ingredient</span></code>, <code class="docutils literal notranslate"><span class="pre">add_ingredient</span></code>, <code class="docutils literal notranslate"><span class="pre">request_address</span></code> und <code class="docutils literal notranslate"><span class="pre">yn_validator</span></code> aus dem Modul <code class="docutils literal notranslate"><span class="pre">pizza_functions</span></code> importiert und aufgerufen. Öffne parallel auch diese Datei („pizza_function.py“) und versuch zu verstehen, was in den einzelnen Funktionen passiert und wie sie mit <code class="docutils literal notranslate"><span class="pre">order_pizza</span></code> interagieren.</p>
 <p>Konkret sollst Du folgendes tun:</p>
 <ol class="arabic simple">
@@ -1644,11 +1638,7 @@ request_address: None
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-1-inputvalidierung">Beispiel 1: Inputvalidierung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-2-musterbasierte-suche">Beispiel 2: Musterbasierte Suche</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-der-pizzabot">🔧 Anwendungsfall: Der Pizzabot 🍕🤖</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-bezogene-aufgabe">RegEx-bezogene Aufgabe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentationsaufgabe">Dokumentationsaufgabe</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-der-pizzabot">🔧 Anwendungsfall: Der Pizzabot 🍕🤖</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-suchsprache-im-detail">Die Suchsprache im Detail</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#literale-zeichen">Literale Zeichen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sonderzeichen">Sonderzeichen</a><ul class="nav section-nav flex-column">
@@ -1664,7 +1654,7 @@ request_address: None
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-re-modul">Das <code class="docutils literal notranslate"><span class="pre">re</span></code>-Modul</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matchen">Matchen</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-findall-und-re-search"><code class="docutils literal notranslate"><span class="pre">re.findall</span></code> und <code class="docutils literal notranslate"><span class="pre">re.search</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-finditer-fortgeschritten"><code class="docutils literal notranslate"><span class="pre">re.finditer</span></code> (fortgeschritten)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-re-finditer">🦊 Fortgeschritten: <code class="docutils literal notranslate"><span class="pre">re.finditer</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#re-match-und-re-fullmatch"><code class="docutils literal notranslate"><span class="pre">re.match</span></code> und <code class="docutils literal notranslate"><span class="pre">re.fullmatch</span></code></a></li>
 </ul>
 </li>
@@ -1673,8 +1663,8 @@ request_address: None
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🔧 Anwendungsfall: Der Pizzabot 🍕🤖</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">RegEx-bezogene Aufgabe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Dokumentationsaufgabe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regex-bezogene-aufgabe">RegEx-bezogene Aufgabe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentationsaufgabe">Dokumentationsaufgabe</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cheat-sheet">Cheat Sheet</a></li>

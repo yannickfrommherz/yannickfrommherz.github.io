@@ -467,18 +467,13 @@ document.write(`
   <section id="losungen-zu-den-zusatzubungen-zum-notebook-web-scraping">
 <h1>Lösungen zu den Zusatzübungen zum Notebook „Web Scraping“<a class="headerlink" href="#losungen-zu-den-zusatzubungen-zum-notebook-web-scraping" title="Permalink to this heading">#</a></h1>
 <p>☝️ Beachte: Es gibt beim Programmieren fast immer verschiedene Lösungswege. Deine Lösung mag anders aussehen, aber dennoch zum gewünschten Resultat führen. Das richtige Resultat ist das Wichtigste.</p>
-<ol class="arabic">
-<li><p>Der in der Code-Zelle gegebene HTML-Code soll folgende Ausgabe erzeugen:</p>
+<p>✏️ <strong>Übung 1:</strong> Der in der Code-Zelle gegebene HTML-Code soll folgende Ausgabe erzeugen:</p>
 <p><img alt="" src="../../../_images/HTML_Code.png" /></p>
 <p>Aktuell fehlen im <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code>-Element noch einige Tags. Überleg Dir mithilfe des Bildes, welche das sein könnten und an welchen Stellen sie fehlen. Ergänz sie in den bereits gegebenen <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>. Du kannst Dir den vervollständigten Code z. B. auf <a class="reference external" href="https://www.sejda.com/de/html-to-pdf">dieser Website</a> als PDF anzeigen lassen, um ihn mit dem Screenshot abzugleichen.</p>
-</li>
-</ol>
-<ol class="arabic" start="2">
-<li><p>Die Website <a class="reference external" href="https://manova.news">manova.news</a> (ehemals <em>Rubikon</em>, <a class="reference external" href="https://de.wikipedia.org/wiki/Rubikon_(Website)">siehe Wikipedia-Eintrag</a>) versteht sich als Nachrichtenportal, verbreitet aber häufig Verschwörungstheorien. Wir wollen die Sprache der Webseite genauer unter die Lupe nehmen. Dazu konzentrieren wir uns zunächst auf Schlagzeilen bzw. Überschriften in der Rubrik <a class="reference external" href="https://www.manova.news/section/21"><em>Natur und Mitwelt</em></a>.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 2:</strong> Die Website <a class="reference external" href="https://manova.news">manova.news</a> (ehemals <em>Rubikon</em>, <a class="reference external" href="https://de.wikipedia.org/wiki/Rubikon_(Website)">siehe Wikipedia-Eintrag</a>) versteht sich als Nachrichtenportal, verbreitet aber häufig Verschwörungstheorien. Wir wollen die Sprache der Webseite genauer unter die Lupe nehmen. Dazu konzentrieren wir uns zunächst auf Schlagzeilen bzw. Überschriften in der Rubrik <a class="reference external" href="https://www.manova.news/section/21"><em>Natur und Mitwelt</em></a>.</p>
 <p>Verschaff Dir einen Überblick über die Seite und überleg Dir, worauf Du beim Scraping <em>aller</em> Schlagzeilen bzw. Überschriften in dieser Rubrik achten musst. Schau dazu im Quelltext nach. Notier Deine Antwort in der folgenden Code-Zelle.</p>
 <p>Halt außerdem stichpunktartig fest, wie Du beim Abruf- und Extraktionsschritt vorgehen willst.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Worauf muss geachtet werden?</span>
@@ -502,9 +497,8 @@ document.write(`
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>Ruf nun die Seitenquelltexte der gegebenen Rubrik ab und speicher sie in einer Liste. Verwend hier wenn möglich einen regulären Ausdruck. Lass Dir anschließend in der zweiten Code-Zelle zur Kontrolle die ersten 1000 Zeichen des ersten Quelltexts ausgeben.</p></li>
-</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 3:</strong> Ruf nun die Seitenquelltexte der gegebenen Rubrik ab und speicher sie in einer Liste. Verwend hier wenn möglich einen regulären Ausdruck. Lass Dir anschließend in der zweiten Code-Zelle zur Kontrolle die ersten 1000 Zeichen des ersten Quelltexts ausgeben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Abrufschritt mit Nutzung regulärer Ausdrücke</span>
@@ -575,6 +569,9 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=8&quot;&gt;8 gescrapt.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aktuell wird die Seite https://www.manova.news/section/21?page=9&quot;&gt;9 gescrapt.
 </pre></div>
 </div>
 </div>
@@ -665,9 +662,8 @@ document.write(`
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Extrahier nun alle Schlagzeilen bzw. Überschriften der angeteaserten Artikel und lass sie Dir ausgeben.</p></li>
-</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 4:</strong> Extrahier nun alle Schlagzeilen bzw. Überschriften der angeteaserten Artikel und lass sie Dir ausgeben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
@@ -686,7 +682,31 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Impulse für die neue Zeit
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Beratungsresistenten
+Die Fähigkeit zu trauern
+Dammbruch der Desinformation
+Die Anbetung des Toten
+Politischer Zahlenzauber
+Der Biofeudalismus
+Das digitale Dilemma
+Die Macht der Konzerne
+Europa schaut in die Röhre
+Inspiration, Konspiration, Evolution
+Krankmacher am Ohr
+Agrarökologische Wende in Afrika
+Agrarökologische Wende in Afrika
+Klima und Krieg
+Die suizidale Natur
+Der Schatten der Industriegesellschaft
+Das unbeachtete Leid
+Materialismus am Abgrund
+Das Passivrauschen
+Frischer Wind
+Schluss mit Klima-Heuchelei!
+Wellen des Wandels
+Zu Tode reglementiert
+Der Gammelfleisch-Song
+Impulse für die neue Zeit
 Die totgesagte Welt
 Das Maß aller Dinge
 Naturphilosophie des Wassers
@@ -782,7 +802,9 @@ Das  Gewand der Welt
 Die Bauern-Revolution
 Die Tomaten-Krise
 Die Welt ohne uns
-Die 97-Prozent-Lüge
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die 97-Prozent-Lüge
 Die Hitzepanik
 Die kommende Weltregierung
 Erlösung oder Zerstörung
@@ -806,9 +828,7 @@ Alles steht Kopf
 Klima, Kartelle und Korruption
 Die große Zerstörung
 Bumerang der Waffenexporte
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Das Freiluftgefängnis
+Das Freiluftgefängnis
 Die Wärme-Wanze
 Cowboy und Indianer
 Das Egoismus-Virus
@@ -824,24 +844,14 @@ Ständig unter Strom
 Zurück zur Ganzheit
 Ins Blaue hinein
 Mitgefühl als Überlebenskraft
-Die Neue Erde
-Das Bauernopfer
-Die Erddemokratie
-Die Humanitäts-Simulation
-Die Geldmaschine
-Die Latte-macchiato-Klimaschützer
-Die Weißwurst-Klimaschützer
-Hambi 2.0
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic" start="5">
-<li><p>Da Web Scraping die angerufenen Server immer belastet, sollten wir so selten wie möglich Inhalte herunterladen. Wenn wir mehrfach die gleichen Daten für ein größeres Projekt benötigen, sollten wir sie nur einmal herunterladen und anschließend lokal speichern.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 5:</strong> Da Web Scraping die angerufenen Server immer belastet, sollten wir so selten wie möglich Inhalte herunterladen. Wenn wir mehrfach die gleichen Daten für ein größeres Projekt benötigen, sollten wir sie nur einmal herunterladen und anschließend lokal speichern.</p>
 <p>Die Quelltexte der manova-Seiten sind momentan nur in unserem Arbeitsspeicher (in der Variablen <code class="docutils literal notranslate"><span class="pre">all_pages</span></code>). Sobald wir diese Sitzung (also den Kernel) beenden, gehen sie verloren. Um auch in der nächsten Sitzung mit den Daten arbeiten zu können (ohne sie erneut vom Server herunterladen zu müssen), ist es nun Deine Aufgabe, jeden Quelltext in einem separaten HTML-Dokument zu speichern. Wähl als Speicherort das Verzeichnis „3_Dateien/Output“.</p>
 <p>Überprüf abschließend über Deinen Dateimanager, ob die neuen Dateien existieren sowie sinnvoll beschrieben wurden.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Iteration über &#39;all_pages&#39; mithilfe von &#39;range&#39;, um einen Zähler für die Dateibenennung zu erhalten</span>
@@ -857,13 +867,25 @@ Hambi 2.0
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2774</span><span class="o">/</span><span class="mf">217330034.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1">#Anlegen und Öffnen einer neuen Datei mit &#39;i&#39; im Dateinamen und &quot;.html&quot; als Endung</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;../../3_Dateien/Output/manova_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">write_file</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="c1">#Schreiben des über &#39;i&#39; indizierten Quelltexts auf &#39;all_pages&#39; in das geöffnete &#39;write_file&#39;</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../3_Dateien/Output/manova_1.html&#39;
+</pre></div>
 </div>
-<ol class="arabic" start="6">
-<li><p>Nun wollen wir mit den soeben lokal gespeicherten HTML-Dokumenten weiterarbeiten. Lies sie nacheinander ein und extrahier bei jedem angeteaserten Artikel das zugehörige Schlagwort. Beim Artikel im Screenshot unten wäre dies „#WASSERSPEZIAL“ (andere Schlagworte beginnen nicht mit einem Hashtag).</p>
+</div>
+</div>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 6:</strong> Nun wollen wir mit den soeben lokal gespeicherten HTML-Dokumenten weiterarbeiten. Lies sie nacheinander ein und extrahier bei jedem angeteaserten Artikel das zugehörige Schlagwort. Beim Artikel im Screenshot unten wäre dies „#WASSERSPEZIAL“ (andere Schlagworte beginnen nicht mit einem Hashtag).</p>
 <p><img alt="" src="../../../_images/Schlagwort_manova.png" /></p>
 <p>Ermittle, wie häufig jedes Schlagwort auf den gescrapten Seiten zum Einsatz kommt. Lass Dir das Ergebnis in absteigender Reihenfolge ausgeben.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> <span class="c1">#Import von &#39;os&#39;, um über die Dateien im Verzeichnis &quot;3_Dateien/Output&quot; zu iterieren</span>
@@ -905,38 +927,22 @@ Hambi 2.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Natur &amp; Mitwelt kommt 49 Mal vor.
-#Wasserspezial kommt 18 Mal vor.
-Innen- &amp; Außenpolitik kommt 12 Mal vor.
-Indien kommt 11 Mal vor.
-Gesellschaft &amp; Soziales kommt 9 Mal vor.
-Zukunft &amp; Neue Wege kommt 6 Mal vor.
-Körper &amp; Geist kommt 5 Mal vor.
-Aufwind kommt 5 Mal vor.
-The Great WeSet kommt 4 Mal vor.
-Manova-Videos kommt 4 Mal vor.
-Junge Federn kommt 4 Mal vor.
-Natur &amp; Umwelt kommt 4 Mal vor.
-Wirtschaft &amp; Finanzen kommt 2 Mal vor.
-Leuchttürme kommt 2 Mal vor.
-Arm &amp; Reich kommt 2 Mal vor.
-Literatur-Salon kommt 2 Mal vor.
-Podcast kommt 1 Mal vor.
-Österreich kommt 1 Mal vor.
-Der Einheizpodcast kommt 1 Mal vor.
-Kultur &amp; Medien kommt 1 Mal vor.
-Ideologiekritik kommt 1 Mal vor.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/html/parser.py:343: XMLParsedAsHTMLWarning: It looks like you&#39;re parsing an XML document using an HTML parser. If this really is an HTML document (maybe it&#39;s XHTML?), you can ignore or filter this warning. If it&#39;s XML, you should know that using an XML parser will be more reliable. To parse this document as XML, make sure you have the lxml package installed, and pass the keyword argument `features=&quot;xml&quot;` into the BeautifulSoup constructor.
-  self.handle_startendtag(tag, attrs)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2774</span><span class="o">/</span><span class="mf">2308444500.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#Iteration über alle Dateien im angegebenen Verzeichnis</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="c1">#Falls &#39;file&#39; nicht mit &quot;manova&quot; beginnt, überspringen wir die Datei</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../3_Dateien/Output/&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic simple" start="7">
-<li><p>Stell analog zu Übung 6 eine Übersicht über die fleißigsten Autor:innen in dieser Rubrik zusammen. Lass Dir die Namen derer ausgeben, die mehr als einen Artikel verfasst haben.</p></li>
-</ol>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 7:</strong> Stell analog zu Übung 6 eine Übersicht über die fleißigsten Autor:innen in dieser Rubrik zusammen. Lass Dir die Namen derer ausgeben, die mehr als einen Artikel verfasst haben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Erster Teil des Codes analog zu Übung 6, Kommentare s. o.</span>
@@ -983,42 +989,23 @@ Ideologiekritik kommt 1 Mal vor.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Indra Shekhar Singh schrieb 11 Artikel.
-Felix Feistel schrieb 11 Artikel.
-Nicolas Riedl schrieb 8 Artikel.
-Roland Rottenfußer schrieb 8 Artikel.
-Elisa Gratias schrieb 7 Artikel.
-Walter van Rossum schrieb 4 Artikel.
-Uli Fischer schrieb 4 Artikel.
-Vandana Shiva schrieb 4 Artikel.
-Jochen Kirchhoff schrieb 3 Artikel.
-Günter Dedié schrieb 3 Artikel.
-Kerstin Chavent schrieb 3 Artikel.
-Daniel Christian Wahl schrieb 3 Artikel.
-Werner Thiede schrieb 3 Artikel.
-Manovas Weltredaktion schrieb 3 Artikel.
-Nara Petrovič schrieb 2 Artikel.
-Angelika Gutsche schrieb 2 Artikel.
-Chris Veber schrieb 2 Artikel.
-Caroline Raasch schrieb 2 Artikel.
-Roberto J. De Lapuente schrieb 2 Artikel.
-Leila Christa Dregger schrieb 2 Artikel.
-Madita Hampe schrieb 2 Artikel.
-Wilfried Nelles schrieb 2 Artikel.
-Peter Fahr schrieb 2 Artikel.
-Ernst Hellmann schrieb 2 Artikel.
-Tom-Oliver Regenauer schrieb 2 Artikel.
-Flo Osrainik schrieb 2 Artikel.
-Peter Frey schrieb 2 Artikel.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2774</span><span class="o">/</span><span class="mf">3077484288.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">freq_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;manova&quot;</span><span class="p">):</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../3_Dateien/Output/&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic" start="8">
-<li><p>Bislang haben wir nur die Überblicksseiten der Rubrik „Natur und Mitwelt“ gescrapt. Nun wollen wir die eigentlichen Artikeltexte scrapen und daraus ein eigenes Korpus erstellen.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 8:</strong> Bislang haben wir nur die Überblicksseiten der Rubrik „Natur und Mitwelt“ gescrapt. Nun wollen wir die eigentlichen Artikeltexte scrapen und daraus ein eigenes Korpus erstellen.</p>
 <p>Extrahier dazu zunächst alle Links auf den Überblicksseiten, die zu den eigentlichen Artikeln führen. Speichere die <em>vollständigen</em> Links in einer Liste.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Erster Teil des Codes analog zu Übung 6, Kommentare s. o.</span>
@@ -1049,16 +1036,23 @@ Peter Frey schrieb 2 Artikel.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.manova.news//artikel/essen-als-politischer-akt&#39;, &#39;https://www.manova.news//artikel/der-ursprung-des-virus&#39;, &#39;https://www.manova.news//artikel/die-facettenreiche-wahrheit&#39;, &#39;https://www.manova.news//artikel/kreative-wut&#39;, &#39;https://www.manova.news//artikel/das-klima-der-angst&#39;, &#39;https://www.manova.news//artikel/die-ignorierte-notlage&#39;, &#39;https://www.manova.news//artikel/der-dammbruch-von-derna&#39;, &#39;https://www.manova.news//artikel/wider-den-depopulismus&#39;, &#39;https://www.manova.news//artikel/die-bauern-revolution-2&#39;, &#39;https://www.manova.news//artikel/verbrannte-erde-2&#39;, &#39;https://www.manova.news//artikel/der-krisen-abklatsch&#39;, &#39;https://www.manova.news//artikel/hinter-der-wasserwand&#39;, &#39;https://www.manova.news//artikel/das-gewand-der-welt&#39;, &#39;https://www.manova.news//artikel/die-bauern-revolution&#39;, &#39;https://www.manova.news//artikel/die-tomaten-krise&#39;, &#39;https://www.manova.news//artikel/die-welt-ohne-uns&#39;, &#39;https://www.manova.news//artikel/die-97-prozent-luge&#39;, &#39;https://www.manova.news//artikel/die-hitzepanik&#39;, &#39;https://www.manova.news//artikel/die-kommende-weltregierung-2&#39;, &#39;https://www.manova.news//artikel/erlosung-oder-zerstorung&#39;, &#39;https://www.manova.news//artikel/der-puzzlestuck-podcast&#39;, &#39;https://www.manova.news//artikel/missbrauchter-idealismus-2&#39;, &#39;https://www.manova.news//artikel/verregnete-ernten&#39;, &#39;https://www.manova.news//artikel/die-gute-erde&#39;, &#39;https://www.manova.news//artikel/beschranktes-denken&#39;, &#39;https://www.manova.news//artikel/angeschwarzte-landwirte&#39;, &#39;https://www.manova.news//artikel/ohne-waffen-im-krieg&#39;, &#39;https://www.manova.news//artikel/verzweiflung-auf-dem-traktor&#39;, &#39;https://www.manova.news//artikel/heilsamer-kontakt&#39;, &#39;https://www.manova.news//artikel/die-bauernfanger&#39;, &#39;https://www.manova.news//artikel/sklaven-auf-dem-eigenen-hof&#39;, &#39;https://www.manova.news//artikel/verliebt-in-die-fragen&#39;, &#39;https://www.manova.news//artikel/berlin-in-bauernhand&#39;, &#39;https://www.manova.news//artikel/krumm-gearbeitet&#39;, &#39;https://www.manova.news//artikel/der-landwirt-lockdown-3&#39;, &#39;https://www.manova.news//artikel/schiffbruch&#39;, &#39;https://www.manova.news//artikel/der-landwirt-lockdown-2&#39;, &#39;https://www.manova.news//artikel/der-bauern-aufstand&#39;, &#39;https://www.manova.news//artikel/der-landwirt-lockdown&#39;, &#39;https://www.manova.news//artikel/gefahr-von-oben&#39;, &#39;https://www.manova.news//artikel/wie-sag-ich-s-meinem-kind&#39;, &#39;https://www.manova.news//artikel/hitze-als-neuer-kampfbegriff&#39;, &#39;https://www.manova.news//artikel/muschel-und-meer&#39;, &#39;https://www.manova.news//artikel/das-unsichtbare-massensterben&#39;, &#39;https://www.manova.news//artikel/das-gefahrlichste-buch-der-welt&#39;, &#39;https://www.manova.news//artikel/falsche-zuruckhaltung&#39;, &#39;https://www.manova.news//artikel/die-klimarealitat&#39;, &#39;https://www.manova.news//artikel/stilles-wasser&#39;, &#39;https://www.manova.news//artikel/die-scheinkatastrophe&#39;, &#39;https://www.manova.news//artikel/die-weigerung-erwachsen-zu-werden&#39;, &#39;https://www.manova.news//artikel/gute-reime-sind-wie-tassen&#39;, &#39;https://www.manova.news//artikel/die-abschaffung-der-natur&#39;, &#39;https://www.manova.news//artikel/energie-und-todesangst&#39;, &#39;https://www.manova.news//artikel/die-klimawandel-falle&#39;, &#39;https://www.manova.news//artikel/der-falsche-wohlstand&#39;, &#39;https://www.manova.news//artikel/die-hassliche-welt&#39;, &#39;https://www.manova.news//artikel/alles-steht-kopf&#39;, &#39;https://www.manova.news//artikel/klima-kartelle-und-korruption&#39;, &#39;https://www.manova.news//artikel/die-grosse-zerstorung&#39;, &#39;https://www.manova.news//artikel/bumerang-der-waffenexporte&#39;, &#39;https://www.manova.news//artikel/das-bauern-beben&#39;, &#39;https://www.manova.news//artikel/die-power-der-bauern&#39;, &#39;https://www.manova.news//artikel/das-bauernsterben&#39;, &#39;https://www.manova.news//artikel/angriff-aufs-mikrobiom&#39;, &#39;https://www.manova.news//artikel/olregen-ins-feuer&#39;, &#39;https://www.manova.news//artikel/reale-utopien&#39;, &#39;https://www.manova.news//artikel/die-linsenkrise&#39;, &#39;https://www.manova.news//artikel/die-pionier-oasen&#39;, &#39;https://www.manova.news//artikel/die-stadt-der-heuchler&#39;, &#39;https://www.manova.news//artikel/die-klima-eiferer&#39;, &#39;https://www.manova.news//artikel/das-geschaft-mit-der-nahrung&#39;, &#39;https://www.manova.news//artikel/generation-schuldgefuhl&#39;, &#39;https://www.manova.news//artikel/von-kindern-und-kuhen&#39;, &#39;https://www.manova.news//artikel/okodorfer-im-krieg&#39;, &#39;https://www.manova.news//artikel/patient-landwirtschaft&#39;, &#39;https://www.manova.news//artikel/die-unterwanderbewegung-2&#39;, &#39;https://www.manova.news//artikel/zusammen-leben-2&#39;, &#39;https://www.manova.news//artikel/das-alternative-katastrophenszenario&#39;, &#39;https://www.manova.news//artikel/erfullungsgehilfen-unter-waffen&#39;, &#39;https://www.manova.news//artikel/die-angekundigte-hungerkatastrophe&#39;, &#39;https://www.manova.news//artikel/das-freiluftgefangnis&#39;, &#39;https://www.manova.news//artikel/die-warme-wanze&#39;, &#39;https://www.manova.news//artikel/cowboy-und-indianer&#39;, &#39;https://www.manova.news//artikel/das-egoismus-virus&#39;, &#39;https://www.manova.news//artikel/die-geometrie-der-seele&#39;, &#39;https://www.manova.news//artikel/offentlich-private-machenschaften&#39;, &#39;https://www.manova.news//artikel/klima-uber-alles&#39;, &#39;https://www.manova.news//artikel/herzlose-okokrieger&#39;, &#39;https://www.manova.news//artikel/die-entscheidung-6&#39;, &#39;https://www.manova.news//artikel/den-mai-feiern&#39;, &#39;https://www.manova.news//artikel/das-unzerstorbare-leben&#39;, &#39;https://www.manova.news//artikel/die-klimawandel-knute&#39;, &#39;https://www.manova.news//artikel/standig-unter-strom&#39;, &#39;https://www.manova.news//artikel/zuruck-zur-ganzheit&#39;, &#39;https://www.manova.news//artikel/ins-blaue-hinein&#39;, &#39;https://www.manova.news//artikel/mitgefuhl-als-uberlebenskraft&#39;, &#39;https://www.manova.news//artikel/die-neue-erde-2&#39;, &#39;https://www.manova.news//artikel/das-bauernopfer-2&#39;, &#39;https://www.manova.news//artikel/die-erddemokratie&#39;, &#39;https://www.manova.news//artikel/die-humanitats-simulation&#39;, &#39;https://www.manova.news//artikel/impulse-fur-die-neue-zeit&#39;, &#39;https://www.manova.news//artikel/die-totgesagte-welt&#39;, &#39;https://www.manova.news//artikel/das-mass-aller-dinge&#39;, &#39;https://www.manova.news//artikel/naturphilosophie-des-wassers-2&#39;, &#39;https://www.manova.news//artikel/naturphilosophie-des-wassers&#39;, &#39;https://www.manova.news//artikel/das-lebenselixier-2&#39;, &#39;https://www.manova.news//artikel/kostbarer-als-gold&#39;, &#39;https://www.manova.news//artikel/die-ganzheitliche-brunnenvergiftung&#39;, &#39;https://www.manova.news//artikel/bis-zum-letzten-tropfen&#39;, &#39;https://www.manova.news//artikel/das-wasser-ist-nicht-genug&#39;, &#39;https://www.manova.news//artikel/das-geheimnis-des-wassers&#39;, &#39;https://www.manova.news//artikel/unser-schicksal-ist-der-fluss&#39;, &#39;https://www.manova.news//artikel/das-leitmedium&#39;, &#39;https://www.manova.news//artikel/das-achte-weltwunder&#39;, &#39;https://www.manova.news//artikel/die-umwelt-lugner&#39;, &#39;https://www.manova.news//artikel/wir-lassen-sie-verdursten&#39;, &#39;https://www.manova.news//artikel/der-positive-klimawandel&#39;, &#39;https://www.manova.news//artikel/das-blaue-wunder&#39;, &#39;https://www.manova.news//artikel/waldsee&#39;, &#39;https://www.manova.news//artikel/krieg-um-wasser&#39;, &#39;https://www.manova.news//artikel/warme-wasser-und-energie&#39;, &#39;https://www.manova.news//artikel/das-unentbehrliche-element&#39;, &#39;https://www.manova.news//artikel/im-strom-des-lebens&#39;, &#39;https://www.manova.news//artikel/lebensader-und-geldstrom&#39;, &#39;https://www.manova.news//artikel/vor-uns-die-sintflut&#39;, &#39;https://www.manova.news//artikel/die-trockengelegte-idylle&#39;, &#39;https://www.manova.news//artikel/die-seele-des-wassers&#39;, &#39;https://www.manova.news//artikel/spiegel-der-wandlung&#39;, &#39;https://www.manova.news//artikel/die-unbeachtete-klimalosung&#39;, &#39;https://www.manova.news//artikel/das-meer-in-mir&#39;, &#39;https://www.manova.news//artikel/das-lastige-leben&#39;, &#39;https://www.manova.news//artikel/regenerative-kulturen-gestalten-3&#39;, &#39;https://www.manova.news//artikel/regenerative-kulturen-gestalten-2&#39;, &#39;https://www.manova.news//artikel/das-tote-meer&#39;, &#39;https://www.manova.news//artikel/naturzerstorung-durch-klimaschutz&#39;, &#39;https://www.manova.news//artikel/kosmische-gefahrder&#39;, &#39;https://www.manova.news//artikel/unsere-saubere-zukunft&#39;, &#39;https://www.manova.news//artikel/saurer-bauernalltag&#39;, &#39;https://www.manova.news//artikel/die-apfelkrise&#39;, &#39;https://www.manova.news//artikel/die-natur-in-uns&#39;, &#39;https://www.manova.news//artikel/die-geldmaschine&#39;, &#39;https://www.manova.news//artikel/die-latte-macchiato-klimaschutzer&#39;, &#39;https://www.manova.news//artikel/die-weisswurst-klimaschutzer&#39;, &#39;https://www.manova.news//artikel/hambi-2-0&#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2774</span><span class="o">/</span><span class="mf">169507777.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">links</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initialisieren einer Liste, an die wir unten alle Links anhängen</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;manova&quot;</span><span class="p">):</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../3_Dateien/Output/&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<ol class="arabic" start="9">
-<li><p>Lade für unser Korpus in der ersten Code-Zelle den Quelltext sämtlicher Artikel, deren Links Du eben zusammengetragen hast, herunter. Da wir die relevanten Teile davon gleich lokal speichern werden, kannst Du die Quelltexte zwischenzeitlich in Deinem Arbeitsspeicher belassen.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 9:</strong> Lade für unser Korpus in der ersten Code-Zelle den Quelltext sämtlicher Artikel, deren Links Du eben zusammengetragen hast, herunter. Da wir die relevanten Teile davon gleich lokal speichern werden, kannst Du die Quelltexte zwischenzeitlich in Deinem Arbeitsspeicher belassen.</p>
 <p>Extrahier anschließend in der zweiten Code-Zelle aus jedem Quelltext den <strong>Haupttext</strong> des Artikels. Speichere alle Texte in <em>einer</em> XML-Datei im Ordner „3_Dateien/Output“. Das XML-Dokument wird unserem Korpus entsprechen. Leg dessen hierarchische Struktur so an, dass die Artikeltexte voneinander unterschieden werden können.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Abrufschritt</span>
@@ -1076,7 +1070,7 @@ Peter Frey schrieb 2 Artikel.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2803</span><span class="o">/</span><span class="mf">1913393288.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2774</span><span class="o">/</span><span class="mf">1913393288.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Abrufschritt</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span> <span class="c1">#Import des Moduls für die Fortschrittsanzeige</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> 
@@ -1129,7 +1123,7 @@ Peter Frey schrieb 2 Artikel.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2803</span><span class="o">/</span><span class="mf">3516808465.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2774</span><span class="o">/</span><span class="mf">3516808465.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> 
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#Iteration über &#39;source_codes&#39;, mit Fortschrittsanzeige</span>
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">for</span> <span class="n">source_code</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">source_codes</span><span class="p">):</span>
@@ -1141,16 +1135,14 @@ Peter Frey schrieb 2 Artikel.
 </div>
 </div>
 </div>
-<ol class="arabic" start="10">
-<li><p>Auch wenn es beim Web Scraping nur um die Daten<em>beschaffung</em> geht, so bietet folgender vorgegebener Code einen Einblick in die Daten<em>auswertung</em>, die möglich ist, jetzt wo wir unser eigenes Korpus zusammengestellt haben. Der Code lässt sich ausführen, wenn Du die XML-Elemente gleich genannt hast, wie in der Lösung vorgeschlagen. Du kannst ihn natürlich an Deine Namensgebung anpassen.</p>
+<hr class="docutils" />
+<p>✏️ <strong>Übung 10:</strong> Auch wenn es beim Web Scraping nur um die Daten<em>beschaffung</em> geht, so bietet folgender vorgegebener Code einen Einblick in die Daten<em>auswertung</em>, die möglich ist, jetzt wo wir unser eigenes Korpus zusammengestellt haben. Der Code lässt sich ausführen, wenn Du die XML-Elemente gleich genannt hast, wie in der Lösung vorgeschlagen. Du kannst ihn natürlich an Deine Namensgebung anpassen.</p>
 <p>Wir verwenden das im Notebook „Funktionen und Methoden Teil 2“ erstellte Modul <code class="docutils literal notranslate"><span class="pre">keywords</span></code> bzw. die Funktion <code class="docutils literal notranslate"><span class="pre">get_freqs</span></code> daraus. Diese haben wir ja geschrieben, um die Häufigkeit von Wörtern zu berechnen. Da wir es nun mit einer viel größeren Datenmenge zu tun haben, läuft der Code eine Weile. Bau gerne eine Fortschrittsanzeige mit <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> in den Modulcode ein, um die Ausführung im Blick behalten zu können. Bedenk aber, dass Du nach dem Ändern des Modulcodes den Kernel neustarten musst, um das Modul mit dem geänderten Code zu importieren.</p>
 <p>Behalt auch im Hinterkopf, dass wir diesen Code in einem früheren Stadium unserer Programmierkarriere geschrieben haben. Mittlerweile kennen wir vermutlich effizientere Wege, um Wörter auszuzählen. Ungeachtet dessen offenbart sich hier (einmal mehr) der Vorteil von <em>Code Reuse</em> und konkret von Modularisierung, wie er im zweiteiligen Notebook „Funktionen und Methoden“ aufgezeigt wurde.</p>
-</li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Einlesen des eben erstellen XML-Dokuments</span>
-<span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/manova_corpus.xml&quot;</span><span class="p">)</span> <span class="c1">#Achtung: anderer Pfad als im Lehrnotebook</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/manova_corpus.xml&quot;</span><span class="p">)</span> <span class="c1">#Achtung: anderer Pfad als im Notebook</span>
 <span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span> 
 
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#Initialisieren eines leeren strings, an den wir unten die Artikeltexte hängen</span>
@@ -1161,13 +1153,13 @@ Peter Frey schrieb 2 Artikel.
     
 <span class="c1">#Einlesen der Stoppwörter, die wir auch im Notebook &quot;Funktionen und Methoden Teil 2&quot; benutzt haben</span>
 <span class="n">stopwords_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span> <span class="c1">#Achtung: anderer Pfad als im Lehrnotebook</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Koalitionsvertraege/stopwords-de.txt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">h</span><span class="p">:</span> <span class="c1">#Achtung: anderer Pfad als im Notebook</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">h</span><span class="p">:</span>
         <span class="n">stopwords_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
 
 <span class="c1">#Hinzufügen eines Verzeichnis, in dem Python nach Modulen sucht</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Module&quot;</span><span class="p">)</span> <span class="c1">#Achtung: anderer Pfad als im Lehrnotebook</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Module&quot;</span><span class="p">)</span> <span class="c1">#Achtung: anderer Pfad als im Notebook</span>
 
 <span class="c1">#Importieren der Funktion &#39;get_freqs&#39;</span>
 <span class="kn">from</span> <span class="nn">keywords</span> <span class="kn">import</span> <span class="n">get_freqs</span>
@@ -1184,22 +1176,29 @@ Peter Frey schrieb 2 Artikel.
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2803</span><span class="o">/</span><span class="mf">1925421178.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> 
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1">#Berechnen der Worthäufigkeiten</span>
-<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">word_frequencies</span> <span class="o">=</span> <span class="n">get_freqs</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">stopwords_list</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> 
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="c1">#Ausgabe der zehn häufigsten Wörter</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_2774</span><span class="o">/</span><span class="mf">3979008284.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Einlesen des eben erstellen XML-Dokuments</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;../../3_Dateien/Output/manova_corpus.xml&quot;</span><span class="p">)</span> <span class="c1">#Achtung: anderer Pfad als im Notebook</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1">#Initialisieren eines leeren strings, an den wir unten die Artikeltexte hängen</span>
 
-<span class="nn">~/work/yfrommherz.ch/yfrommherz.ch/website/programming/3_Dateien/Module/keywords.py</span> in <span class="ni">get_freqs</span><span class="nt">(text, stopwords)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Takes in text as string and stopwords as list, returns frequency for all types in text, excluding stopwords.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/xml/etree/ElementTree.py</span> in <span class="ni">parse</span><span class="nt">(source, parser)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1195</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1196</span><span class="s2">     tree = ElementTree()</span>
+<span class="ne">-&gt; </span><span class="mi">1197</span><span class="s2">     tree.parse(source, parser)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1198</span><span class="s2">     return tree</span>
+<span class="g g-Whitespace">   </span><span class="mi">1199</span><span class="s2"> </span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tqdm&#39;
+<span class="nn">/opt/hostedtoolcache/Python/3.7.17/x64/lib/python3.7/xml/etree/ElementTree.py</span> in <span class="ni">parse</span><span class="nt">(self, source, parser)</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span><span class="s2">         close_source = False</span>
+<span class="g g-Whitespace">    </span><span class="mi">586</span><span class="s2">         if not hasattr(source, &quot;read&quot;):</span>
+<span class="ne">--&gt; </span><span class="mi">587</span><span class="s2">             source = open(source, &quot;rb&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2">             close_source = True</span>
+<span class="g g-Whitespace">    </span><span class="mi">589</span><span class="s2">         try:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../3_Dateien/Output/manova_corpus.xml&#39;
 </pre></div>
 </div>
 </div>

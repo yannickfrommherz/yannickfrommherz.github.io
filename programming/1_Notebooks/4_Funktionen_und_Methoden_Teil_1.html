@@ -469,7 +469,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-errechnen-von-schlusselwortern">🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-zeichenketten-strings">Operationen bei Zeichenketten / strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-listen">Operationen bei Listen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-list-comprehension">Exkurs: List Comprehension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-list-comprehension">🦊 Fortgeschritten: List Comprehension</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-dictionaries">Operationen bei dictionaries</a></li>
@@ -519,10 +519,14 @@ document.write(`
 <section id="funktionen-vs-methoden">
 <h2>Funktionen vs. Methoden<a class="headerlink" href="#funktionen-vs-methoden" title="Permalink to this heading">#</a></h2>
 <p>Bevor wir uns konkrete Funktionen und Methoden anschauen, folgen ein paar grundsätzliche Bemerkungen. Funktionen haben stets folgende Syntax:</p>
-<p><code class="docutils literal notranslate"><span class="pre">function(object)</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">function</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Anstelle von <em>function</em> steht der Funktionsname, z. B. <code class="docutils literal notranslate"><span class="pre">len</span></code> und bei <em>object</em> wird der Funktion ein Objekt übergeben, etwa ein string. Wie wir bei der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion gesehen haben, können bei einigen Funktionen kommasepariert auch mehrere Objekte angegeben werden. Weiter können je nach Funktion optional kommasepariert Parameter (also eine [von den Standardwerten abweichende] Spezifierung, wie die Funktion ausgeführt werden soll) angegeben werden (z. B. den <code class="docutils literal notranslate"><span class="pre">sep</span></code>-Parameter bei der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion, siehe Notebook „Datentypen“).</p>
 <p>Methoden haben dagegen folgende Syntax:</p>
-<p><code class="docutils literal notranslate"><span class="pre">object.method()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">object</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>An erster Stelle steht das Objekt, auf das die Methode angewendet werden soll (etwa der string bei der <code class="docutils literal notranslate"><span class="pre">startswith</span></code>-Methode vom Notebook „Kontrollstrukturen“). Nach einem Punkt (man spricht deswegen auch von <em>dot notation</em>) steht der Methodenname und direkt anschließend runde Klammern. Oft sind die Klammern leer, da keine (von den Standardwerten abweichenden) optionalen Parameter angegeben werden (können). Bei der <code class="docutils literal notranslate"><span class="pre">startswith</span></code>-Methode wird aber z. B. ein weiterer string erwartet, bei dem überprüft werden soll, ob er am Anfang des ersten strings steht oder nicht (vgl. Notebook „Kontrollstrukturen“ und unten).</p>
 <p>Abgesehen von der Syntax unterscheiden sich Funktionen und Methoden in einem wichtigen Punkt: Methoden sind immer <strong>datentypspezifisch</strong>. Eine Methode funktioniert immer nur für einen einzigen Datentyp (es sei denn, eine gleichnamige Methode mit gleicher Funktionsweise wurde für verschiedene Datentypen definiert). Deshalb schauen wir uns unten Methoden für die Datentypen <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> und <code class="docutils literal notranslate"><span class="pre">dict</span></code> separat an.</p>
 <p>Funktionen hingegen sind <strong>keinem</strong> Datentyp zugeordnet, was aber nicht heißt, dass sie auf sämtliche Objekte angewendet werden können. Die <code class="docutils literal notranslate"><span class="pre">len</span></code>-Funktion etwa funktioniert u. a. bei strings und Listen, nicht aber bei <code class="docutils literal notranslate"><span class="pre">int</span></code>-Objekten (vgl. Notebook „Datentypen“), da in der Funktionsdefinition von <code class="docutils literal notranslate"><span class="pre">len</span></code> nicht festgelegt wurde, wie die Länge eines solchen Objekts berechnet werden soll (es wäre ja auch nicht sinnvoll).
@@ -576,15 +580,22 @@ Koalitionsvertr
 </div>
 <hr class="docutils" />
 <p>✏️ <strong>Übung 2:</strong> Die unten bereitgestellte Liste <code class="docutils literal notranslate"><span class="pre">buzzwords</span></code> enthält heuristisch zusammengetragene Schlagwörter aus der Politik – erweiter die Liste gerne um eigene Begriffe, die Dich interessieren. Um einen ersten inhaltlichen Eindruck der Koalitionsverträge zu bekommen, wollen wir herausfinden, wie oft diese Begriffe in ihnen vorkommen und wie sich ihre Frequenz zwischen den Texten entwickelt. Zu diesem Zweck können wir <code class="docutils literal notranslate"><span class="pre">count</span></code> für strings verwenden (<code class="docutils literal notranslate"><span class="pre">kv18</span></code> und <code class="docutils literal notranslate"><span class="pre">kv21</span></code> sind ja wie gesagt string-Objekte). <code class="docutils literal notranslate"><span class="pre">count</span></code> erlaubt es uns, das Vorkommen einer bestimmten Zeichenkette innerhalb einer anderen Zeichenkette auszuzählen. <code class="docutils literal notranslate"><span class="pre">count</span></code> hat folgende Syntax:</p>
-<p><code class="docutils literal notranslate"><span class="pre">string.count(&quot;to_be_counted&quot;)</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">&quot;Schifffahrtsgesellschaft&quot;.count(&quot;f&quot;)</span></code> ergäbe etwa vier.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;to_be_counted&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So erzeugt</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Schifffahrtsgesellschaft&quot;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>vier als Output.</p>
 <p>Was bei einem Wort funktioniert, geht auch bei langen strings wie bei unseren Koalitionsverträgen.</p>
 <p>Berechne nun, wie oft jeder Begriff  auf <code class="docutils literal notranslate"><span class="pre">buzzwords</span></code> in den beiden Verträgen vorkommt und verwend einen geeigneten Datentyp, um Deine Ergebnisse (separat für jeden Vertrag) abzuspeichern. Lass Dir anschließend für jeden Begriff die beiden Frequenzen sowie einen Trend über die Zeit (z. B. mittels der Emojis 📈, 📉, 🟰) ausgeben. Das Ergebnis für „Corona“ sollte z. B. so aussehen:</p>
 <img src="../3_Dateien/Grafiken_und_Videos/Frequenz_Corona.png">
 <details>
   <summary>💡 Tipp 1 </summary>
-    <br>Zum Abspeichern der Häufigkeiten empfiehlt sich die Nutzung von zwei dictionaries (je eins pro Jahr).<br><br>
+    <br>Zum Abspeichern der Häufigkeiten empfiehlt sich die Nutzung von zwei dictionaries (je eins pro Jahr).<br>
 </details>
+<br>
 <details>
   <summary>💡 Tipp 2 </summary>
     <br>Um die Ausgabe zu erzeugen, kannst Du eine <code>if</code>-<code>elif</code>-<code>else</code>-Struktur nutzen.
@@ -600,9 +611,11 @@ Koalitionsvertr
 <hr class="docutils" />
 <p>An der Syntax hast Du es vermutlich bereits erkannt: Bei <code class="docutils literal notranslate"><span class="pre">count</span></code> handelt es sich um die erste string-Methode, die wir in diesem Notebook kennenlernen.</p>
 <p>Wie wir sehen, unterscheidet sich die Frequenz der Schlagwörter markant. Im Vergleich zu 2018 scheint neben „Corona“ insbesondere „Klima“ an Bedeutung gewonnen zu haben. Alle andere Schlagwörter dagegen kommen seltener vor. Um diese „impressionistischen“ Ergebnisse belastbar zu machen, müssten wir im nächsten Schritt natürlich auch die in Übung 1 festgestellten unterschiedlichen Textlängen berücksichtigen, schließlich sind absolute Frequenzen abhängig von der Gesamttextlänge.</p>
-<p>Dies war bereits ein kleiner Einblick in den Anwendungsfall im Notebook „Funktionen und Methoden Teil 2“. Dort wollen wir einen Schritt weitergehen und für <em>jedes</em> einzelne Wort in den beiden Koalitionsverträgen herausfinden, wie oft es jeweils vorkommt. Anstatt Begriffe wie in Übung 2 als relevant vorauszusetzen, erhalten wir so induktiv einen fundierten Blick auf die Texte und finden vielleicht Wörter, mit deren Vorkommen wir nicht gerechnet hätten. Die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode wird auch da zum Einsatz kommen. Im Folgenden lernen wir alle weiteren wichtigen Funktionen und Methoden für die drei Datentypen <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> und <code class="docutils literal notranslate"><span class="pre">dict</span></code> kennen, die es uns schließlich in Kombination ermöglichen, Schlüsselwörter für die Koalitionsverträge zu errechnen.</p>
-<hr class="docutils" />
-<p>Eine Übersicht aller wichtigen Funktionen und Methoden findet sich in den jeweiligen Cheat Sheets im Ordner „2_Cheat_Sheets“.</p>
+<p>Dies war bereits ein kleiner Einblick in den Anwendungsfall im Notebook „Funktionen und Methoden Teil 2“. Dort wollen wir einen Schritt weitergehen und für <em>jedes</em> einzelne Wort in den beiden Koalitionsverträgen herausfinden, wie oft es jeweils vorkommt. Anstatt Begriffe wie in Übung 2 als relevant vorauszusetzen, erhalten wir so induktiv einen fundierten Blick auf die Texte und finden vielleicht Wörter, mit deren Vorkommen wir nicht gerechnet hätten. Die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode wird auch da zum Einsatz kommen. Im Folgenden lernen wir weitere wichtige Funktionen und Methoden für die drei Datentypen <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> und <code class="docutils literal notranslate"><span class="pre">dict</span></code> kennen, die es uns schließlich in Kombination ermöglichen, Schlüsselwörter für die Koalitionsverträge zu errechnen.</p>
+<details>
+  <summary>❗️ <b>Cheat Sheets</b></summary>
+    <br>Eine Übersicht über wichtige Funktionen und Methoden findest Du in den jeweiligen <b>Cheat Sheets</b> im Ordner "2_Cheat_Sheets". Du musst auf keinen Fall alle Funktionen und Methoden auswendig lernen. Wichtiger ist, dass Du Dir nach und nach ein Repertoire an vielgenutzten Funktionen und Methoden aufbaust sowie ein Gespür dafür entwickelst, was alles mit Python umsetzbar ist. Namen und Syntax der Funktionen und Methoden lassen sich dann recht schnell im Internet suchen oder durch eine KI generieren.
+</details>
 </section>
 <section id="operationen-bei-zeichenketten-strings">
 <h2>Operationen bei Zeichenketten / strings<a class="headerlink" href="#operationen-bei-zeichenketten-strings" title="Permalink to this heading">#</a></h2>
@@ -653,7 +666,7 @@ Koalitionsvertr
 </div>
 </div>
 <hr class="docutils" />
-<p>Zurück zu unserem Anwendungsfall. Bei der Wortzählung soll Groß-/Kleinschreibung keine Rolle spielen („Gesagt“ und „gesagt“ sollen also zusammengezählt werden). Zu diesem Zweck bietet es sich an, sämtliche Zeichen kleinzuschreiben. Dazu verwenden wir die <code class="docutils literal notranslate"><span class="pre">lower</span></code>-Methode, die einen kompletten string in Kleinbuchstaben konvertiert.</p>
+<p>Zurück zu unserem Beispiel. Bei der Wortzählung soll Groß-/Kleinschreibung keine Rolle spielen („Gesagt“ und „gesagt“ sollen also zusammengezählt werden). Zu diesem Zweck bietet es sich an, sämtliche Zeichen kleinzuschreiben. Dazu verwenden wir die <code class="docutils literal notranslate"><span class="pre">lower</span></code>-Methode, die einen kompletten string in Kleinbuchstaben konvertiert.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -681,9 +694,6 @@ Koalitionsvertr
 
 <span class="n">title</span> <span class="o">=</span> <span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="c1">#Wir können die Methode auch nur auf einen Teil des string anwenden.</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wie ein englischsprachiger Titel:&quot;</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">swapped</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">swapcase</span><span class="p">()</span> <span class="c1">#Zur besseren Veranschaulichung kehren wir den Titel um.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Und den Titel umgekehrt:&quot;</span><span class="p">,</span> <span class="n">swapped</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -693,13 +703,11 @@ Koalitionsvertr
 Nur der Anfangsbuchstabe großgeschrieben: Heute wird es schneien. 
 
 Wie ein englischsprachiger Titel: Heute Wird 
-
-Und den Titel umgekehrt: hEUTE wIRD
 </pre></div>
 </div>
 </div>
 </div>
-<p>Als kurze Erinnerung: Strings sind unveränderlich (vgl. Notebook „Datentypen“). Deswegen weisen wir das Resultat einer auf einen string angewandten Methode jeweils einer neuen Variable zu (oder überschreiben die alte, wie oben bei <code class="docutils literal notranslate"><span class="pre">lower</span></code>). Führ den Code unten aus, um Dich selbst davon zu überzeugen, dass das <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekt zwar im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl modifiziert ausgegeben wird, das Objekt an sich aber nicht geändert wird:</p>
+<p>Als kurze Erinnerung: Strings sind <strong>un</strong>veränderlich (vgl. Notebook „Datentypen“). Deswegen weisen wir das Resultat einer auf einen string angewandten Methode jeweils einer neuen Variable zu (oder überschreiben die alte, wie oben bei <code class="docutils literal notranslate"><span class="pre">lower</span></code>). Führ den Code unten aus, um Dich selbst davon zu überzeugen, dass das <code class="docutils literal notranslate"><span class="pre">str</span></code>-Objekt zwar im <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl modifiziert ausgegeben wird, das Objekt an sich aber nicht geändert wird:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">immutability</span> <span class="o">=</span> <span class="s2">&quot;Testwort&quot;</span>
@@ -715,7 +723,7 @@ Testwort
 </div>
 </div>
 </div>
-<p>Zurück zu unserem Anwendungsfall. Als nächstes wollen wir den Satz <em>tokenisieren</em>, also in einzelne Wörter unterteilen. Dafür gibt es die <code class="docutils literal notranslate"><span class="pre">split</span></code>-Methode. Sie nimmt einen string und unterteilt ihn standardmäßig bei jedem whitespace-Zeichen (die wichtigsten darunter: Leerschläge: <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code>, Zeilenumbrüche: <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>, Tabulatoren: <code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>). Die Methode gibt eine Liste mit den unterteilten Einheiten (beim standardmäßigen whitespace: Wörtern) zurück:</p>
+<p>Zurück zu unserem Beispiel. Als nächstes wollen wir den Satz <em>tokenisieren</em>, also in einzelne Wörter unterteilen. Dafür gibt es die <code class="docutils literal notranslate"><span class="pre">split</span></code>-Methode. Sie nimmt einen string und unterteilt ihn standardmäßig bei jedem whitespace-Zeichen (die wichtigsten darunter: Leerschläge: <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">&quot;</span></code>, Zeilenumbrüche: <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>, Tabulatoren: <code class="docutils literal notranslate"><span class="pre">&quot;\t&quot;</span></code>). Die Methode gibt eine Liste mit den unterteilten Einheiten (beim standardmäßigen whitespace: Wörtern) zurück:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
@@ -748,7 +756,7 @@ Testwort
 </div>
 </div>
 <hr class="docutils" />
-<p>Kehren wir zu unserem Anwendungsfall zurück. Bevor wir uns die Wortfrequenzen auszählen lassen können, haben wir noch ein Problem: Beim zweiten „gesagt“ hängt am Ende ein Punkt dran, der nicht zum Wort gehört. Um diesen loszuwerden, können wir die <code class="docutils literal notranslate"><span class="pre">strip</span></code>-Methode verwenden. Sie nimmt einen string und entfernt standardmäßig sämtliche whitespace-Zeichen am Anfang (leading) und Ende (trailing) eines string. Sie ermöglicht aber auch das Entfernen von benutzerdefinierten Zeichen. So können wir den Punkt beim dritten Element (mit dem Index <code class="docutils literal notranslate"><span class="pre">2</span></code>!) auf der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> entfernen:</p>
+<p>Kehren wir zu unserem Beispiel zurück. Bevor wir uns die Wortfrequenzen auszählen lassen können, haben wir noch ein Problem: Beim zweiten „gesagt“ hängt am Ende ein Punkt dran, der nicht zum Wort gehört. Um diesen loszuwerden, können wir die <code class="docutils literal notranslate"><span class="pre">strip</span></code>-Methode verwenden. Sie nimmt einen string und entfernt standardmäßig sämtliche whitespace-Zeichen am Anfang (leading) und Ende (trailing) eines string. Sie ermöglicht aber auch das Entfernen von benutzerdefinierten Zeichen. So können wir den Punkt beim dritten Element (mit dem Index <code class="docutils literal notranslate"><span class="pre">2</span></code>!) auf der Liste <code class="docutils literal notranslate"><span class="pre">words</span></code> entfernen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
@@ -764,20 +772,7 @@ Testwort
 </div>
 <p>Nun haben wir eine Liste mit bereinigten Wörtern.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 5:</strong> Selbstverständlich kann man das Vorkommen eines Wortes auf einer Liste auszählen lassen (das lernen wir bei den Methoden für Listen). Hier wollen wir aber die oben bereits kennengelernte <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode für strings noch einmal anwenden. Dazu müssen wir die Listenelemente wieder zu einem string konkatenieren. Verwend eine Dir bereits bekannte <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methode, um aus <code class="docutils literal notranslate"><span class="pre">words</span></code> wieder einen string zu kreieren. Eine Variable namens <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> soll auf diesen string zeigen.</p>
-<p>Benutz anschließend die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode, um „gesagt“ in <code class="docutils literal notranslate"><span class="pre">sentence_again</span></code> zu zählen. Das Resultat sollte natürlich zwei sein.</p>
-<details>
-  <summary>💡 Tipp </summary>
-  <br>Zum Konkatenieren der Listenelemente kannst Du die <code>join</code>-Methode nutzen (vgl. Notebook "Datentypen").
-</details><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
-</pre></div>
-</div>
-</div>
-</div>
-<hr class="docutils" />
-<p>Nun haben wir einige <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methoden kennengelernt und uns die Frequenz eines einzelnen Wortes auf sehr rudimentäre Art auszählen lassen. In der Regel (und so auch bei unseren Koalitionsverträgen) haben wir es nicht mit so kurzen strings zu tun und wir wollen nicht bloß die Häufigkeit eines einzelnen Wortes erfahren, sondern sämtliche Wortfrequenzen ermitteln. Für ein Schlüsselwörter-Skript fehlen uns noch Kenntnisse im Umgang mit Listen und dictionaries, die wir gleich kennenlernen. Erst besprechen wir noch ein paar weitere <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methoden.</p>
+<p>Damit haben wir einige wichtige <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methoden kennengelernt. In der Regel (und so auch bei unseren Koalitionsverträgen) haben wir es nicht mit so kurzen strings zu tun und wir wollen nicht bloß die Häufigkeit eines einzelnen Wortes erfahren, sondern sämtliche Wortfrequenzen ermitteln. Für ein Schlüsselwörter-Skript fehlen uns noch Kenntnisse im Umgang mit Listen und dictionaries, die wir gleich kennenlernen. Erst besprechen wir aber noch ein paar weitere <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methoden.</p>
 <p>Die bereits bekannte <code class="docutils literal notranslate"><span class="pre">strip</span></code>-Methode gibt es auch in den Ausführungen <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> und <code class="docutils literal notranslate"><span class="pre">lstrip</span></code>, die whitespace-Zeichen (oder das/die benutzerdefinierte(n) Zeiche(n)) nur jeweils am Anfang (<code class="docutils literal notranslate"><span class="pre">lstrip</span></code>) bzw. am Ende (<code class="docutils literal notranslate"><span class="pre">rstrip</span></code>) entfernen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -793,28 +788,7 @@ Rechts entfernt: ...ganz viele komische Zeichen
 </div>
 </div>
 </div>
-<p>Weiter gibt es die Methode <code class="docutils literal notranslate"><span class="pre">find</span></code> zum Finden bestimmter Zeichen(ketten) innerhalb eines string. Die Methode nimmt einen string sowie die zu findende Zeichenkette als Parameter und gibt den Index des ersten Zeichens des ersten Vorkommens der zu findenden Zeichenkette zurück.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Die Freiheit des einen ist die Freiheit des anderen.&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Freiheit&quot;</span><span class="p">))</span>
-
-<span class="c1">#Die &#39;find&#39;-Methode im Einsatz als Indizes bei Indexing und Slicing</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="n">sentence</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Freiheit&quot;</span><span class="p">):</span><span class="n">sentence</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;anderen&quot;</span><span class="p">)])</span> <span class="c1">#Einsatz der durch &#39;find&#39; zurückgegeben Indizes als Slicing-Indizes</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="n">sentence</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Freiheit&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Freiheit&quot;</span><span class="p">))</span> <span class="c1">#Finden des zweiten Vorkommens von &quot;Freiheit&quot;, indem das erste Vorkommen &quot;weggeslict&quot; wird (der Index bezieht sich auf den geslicten Satz und nicht auf &#39;sentence&#39;!)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
-Freiheit des einen ist die Freiheit des 
-26
-</pre></div>
-</div>
-</div>
-</div>
-<p>Da die <code class="docutils literal notranslate"><span class="pre">find</span></code>-Methode nur jeweils den Index des ersten Vorkommens einer Zeichenkette zurückgibt, ist sie von begrenztem Nutzen. Im Notebook „Reguläre Ausdrücke“ lernen wir sinnvollere Funktionen/Methoden kennen, die Python nicht direkt mitliefert, sondern die erst importiert werden müssen.</p>
-<p>Neben dem Finden von bestimmten Zeichen(ketten), können wir auch substrings in strings ersetzen. Dies geht mit der <code class="docutils literal notranslate"><span class="pre">replace</span></code>-Methode, die sogar zwei Parameter in Klammern verlangt: erstens den zu ersetzenden substring und zweitens den substring, der als Ersatz genommen werden soll:</p>
+<p>Sinnvoll ist je nach Anwendungsfall auch das Ersetzen von substrings in strings. Dies geht mit der <code class="docutils literal notranslate"><span class="pre">replace</span></code>-Methode, die sogar zwei Parameter in Klammern verlangt: erstens den zu ersetzenden substring und zweitens den substring, der als Ersatz genommen werden soll:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;New York ist die Hauptstadt der USA.&quot;</span>
@@ -854,42 +828,49 @@ Der Satz fängt mit einem maskulinen Artikel an.
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 6:</strong> Verwend <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methoden, um aus <code class="docutils literal notranslate"><span class="pre">names</span></code> eine Liste mit Namen wie folgt zu kreieren: <code class="docutils literal notranslate"><span class="pre">['Martin</span> <span class="pre">Berger',</span> <span class="pre">'Kirsten</span> <span class="pre">Hauser',</span> <span class="pre">'Michaela</span> <span class="pre">Kircher',</span> <span class="pre">'Fritz</span> <span class="pre">Hofer']</span></code>. Die Namen sollen vollkommen von leading und trailing whitespace bereingt und mit korrekter Groß-/Kleinschreibung vorliegen.</p>
+<p>✏️ <strong>Übung 5:</strong> Verwend <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methoden, um aus <code class="docutils literal notranslate"><span class="pre">names</span></code> eine Liste mit Namen wie folgt zu kreieren:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;Martin Berger&#39;</span><span class="p">,</span> <span class="s1">&#39;Kirsten Hauser&#39;</span><span class="p">,</span> <span class="s1">&#39;Michaela Kircher&#39;</span><span class="p">,</span> <span class="s1">&#39;Fritz Hofer&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Die Namen sollen vollkommen von leading und trailing whitespace bereingt und mit korrekter Groß-/Kleinschreibung vorliegen.</p>
 <details>
   <summary>💡 Tipp</summary>
     <br>Diese Übung erfordert die Kombination mehrerer Methoden. Schau am besten noch einmal in den vorigen Abschnitten nach, welche Methoden sich hierfür anbieten. Du musst zunächst ein strukturelles Merkmal identifizieren, anhand dessen Du den string splitten kannst. Um Groß- und Kleinschreibung dabei ignorieren zu können, empfiehlt sich die Nutzung von <code>lower</code>.
 </details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
+
 <span class="n">names</span> <span class="o">=</span> <span class="s2">&quot;Name: Martin Berger name: Kirsten Hauser NAME: Michaela Kircher nAME: Fritz Hofer&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
+<hr class="docutils" />
+<p>Schlussbemerkung: Es gibt natürlich noch unzählige weitere <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methoden, die hier vorgestellten sollen lediglich einen Grundstock bilden. Wenn Dir mal keine passende Methode einfällt, schau im Internet nach. Es gibt zudem nicht <em>den</em> richtigen Weg, oftmals führen stattdessen mehrere Funktionen und Methoden zum Ziel. So sind viele <code class="docutils literal notranslate"><span class="pre">str</span></code>-Methoden erst mit sogenannten <em>regulären Ausdrücken</em> richtig mächtig. Dieser Thematik widmen wir uns im Notebook „Reguläre Ausdrücke“.</p>
 </section>
 <hr class="docutils" />
 <section id="operationen-bei-listen">
 <h2>Operationen bei Listen<a class="headerlink" href="#operationen-bei-listen" title="Permalink to this heading">#</a></h2>
-<p>Machen wir weiter mit dem Datentyp <code class="docutils literal notranslate"><span class="pre">list</span></code>. Oben hatten wir es ja kurzzeitig mit einer Liste zu tun, die wir dann aber pro forma wieder in einen string konvertiert haben. Wenn man Wörter in einem Text bereinigen will, etwa mit dem Ziel, Schlüsselwörter zu errechnen, ist es tatsächlich aber viel praktischer, mit einer Liste weiterzuarbeiten. Während ein string einfach <em>eine</em> lange Aneinanderkettung von Zeichen ist, liegen uns die Wörter auf einer Liste in <em>diskreten Einheiten</em> vor. Mittels Iteration können wir dann bestimmte Schritte des <em>preprocessing</em> (so nennt sich diese Technik) Wort für Wort vornehmen.</p>
+<p>Machen wir weiter mit dem Datentyp <code class="docutils literal notranslate"><span class="pre">list</span></code>. Wenn man Wörter in einem Text bereinigen will, etwa mit dem Ziel, Schlüsselwörter zu errechnen, ist es sehr praktisch, mit einer Liste statt mit einem string weiterzuarbeiten. Während ein string einfach <em>eine</em> lange Aneinanderkettung von Zeichen ist, liegen uns die Wörter auf einer Liste in <em>diskreten Einheiten</em> vor. Mittels Iteration können wir dann bestimmte Schritte des <em>preprocessing</em> (so nennt sich diese Technik) Wort für Wort vornehmen.</p>
 <p>Das typische Vorgehen beim preprocessing ist also</p>
 <ol class="arabic simple">
 <li><p>einen string in eine Liste mit Wörtern unterteilen (<code class="docutils literal notranslate"><span class="pre">split</span></code>)</p></li>
 <li><p>über die Liste iterieren und preprocessing-Methoden (<code class="docutils literal notranslate"><span class="pre">lower</span></code>, <code class="docutils literal notranslate"><span class="pre">strip</span></code> sowie ggf. andere) Wort für Wort anwenden</p></li>
 <li><p>jedes bereinigte Wort an eine neue Liste anhängen (<code class="docutils literal notranslate"><span class="pre">append</span></code>)</p></li>
 </ol>
-<p><code class="docutils literal notranslate"><span class="pre">append</span></code> sind wir bereits im Notebook „Kontrollstrukturen“ begegnet. Mithilfe dieser Listenmethode können wir ein Element an eine Liste anhängen. Der folgende Code vereint die bisher erlernten Schritte im Hinblick auf unseren Anwendungsfall.</p>
+<p><code class="docutils literal notranslate"><span class="pre">append</span></code> sind wir bereits im Notebook „Kontrollstrukturen“ begegnet. Mithilfe dieser Listenmethode können wir ein Element an eine Liste anhängen. Der folgende Code vereint die bisher erlernten Schritte im Hinblick auf unser Beispiel.</p>
 <p>Wichtig: Die neue Liste mit den bereinigten Wörtern muss erst ins Leben gerufen werden, bevor wir Elemente an sie anhängen können. Das tun wir, indem wir die Variable <code class="docutils literal notranslate"><span class="pre">preprocessed_words</span></code> gleich zu Beginn mit einer leeren Liste initialisieren (mithilfe der entsprechenden Syntax, hier eben eckige Klammern, kann man auch leere Objekte anderer Datentypen initialisieren).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Gesagt ist gesagt.&quot;</span>
 <span class="n">words</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 
-<span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">preprocessed_words</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Initionalisieren einer neuen Liste, an die später die Elemente angehängt werden</span>
 
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
     <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">word</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-    <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="n">preprocessed_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="c1">#Anhängen des Wortes an die Liste</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="p">)</span>
 </pre></div>
@@ -903,8 +884,11 @@ Der Satz fängt mit einem maskulinen Artikel an.
 </div>
 <p>Klappt ausgezeichnet.</p>
 <p>Überleg Dir für einen Augenblick, warum wir bei den strings das Resultat der Methoden <code class="docutils literal notranslate"><span class="pre">lower</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">strip</span></code> einer Variablen zuweisen (besser gesagt: die Variable <code class="docutils literal notranslate"><span class="pre">word</span></code> damit jeweils <em>überschreiben</em>). Das Resultat von <code class="docutils literal notranslate"><span class="pre">append</span></code>, also die Liste mit dem neu angehängten Wort, weisen wir dagegen keiner Variablen zu.</p>
-<p>Genau, das liegt daran, dass string-Objekte unveränderlich und Listenobjekte veränderlich sind. Wollen wir mit einem veränderten string weiterarbeiten, müssen wir ihn einer Variablen zuweisen, denn das originale string-Objekt wird die Veränderung aufgrund seiner Unveränderlichkeit <em>nie</em> übernehmen. Listenobjekte hingegen können wir beliebig verändern, weswegen das Schaffen eines neuen bzw. Überschreiben eines alten Objekts (mittels Variablenzuweisung) nicht nötig ist.</p>
-<p><code class="docutils literal notranslate"><span class="pre">append</span></code> hängt ein Element immer am Ende einer Liste an. Daneben gibt es auch die Methode <code class="docutils literal notranslate"><span class="pre">insert</span></code>, die es uns erlaubt, ein Element an einer bestimmten Position in der Liste, d. h. bei einem bestimmten Index, einzufügen:</p>
+<details>
+    <summary>✅ Antwort</summary>
+<br>Das liegt daran, dass string-Objekte unveränderlich und Listenobjekte veränderlich sind. Wollen wir mit einem veränderten string weiterarbeiten, müssen wir ihn einer Variablen zuweisen, denn das originale string-Objekt wird die Veränderung aufgrund seiner Unveränderlichkeit <i>nie</i> übernehmen. Listenobjekte hingegen können wir beliebig verändern, weswegen das Schaffen eines neuen bzw. Überschreiben eines alten Objekts (mittels Variablenzuweisung) nicht nötig ist.
+</details>
+<p><br><code class="docutils literal notranslate"><span class="pre">append</span></code> hängt ein Element immer am Ende einer Liste an. Daneben gibt es auch die Methode <code class="docutils literal notranslate"><span class="pre">insert</span></code>, die es uns erlaubt, ein Element an einer bestimmten Position in der Liste, d. h. bei einem bestimmten Index, einzufügen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessed_words</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nicht&quot;</span><span class="p">)</span>
@@ -918,9 +902,12 @@ Der Satz fängt mit einem maskulinen Artikel an.
 </div>
 </div>
 </div>
-<p>Schau, was passiert, wenn Du diese Zelle mehrfach ausführst.</p>
-<p>Auch dieses Verhalten geht auf die Veränderlichkeit von Listen zurück. Nach erstmaligem Ausführen referenziert <code class="docutils literal notranslate"><span class="pre">words</span></code> folgende Liste <code class="docutils literal notranslate"><span class="pre">['Gesagt',</span> <span class="pre">'ist',</span> <span class="pre">'nicht',</span> <span class="pre">'gesagt.']</span></code> im Arbeitsspeicher. Bei der nächsten Ausführung wird <code class="docutils literal notranslate"><span class="pre">insert</span></code> auf das nun veränderte <code class="docutils literal notranslate"><span class="pre">words</span></code> angewandt, etc. Dieser und der oben geschilderte Umstand sind fortgeschrittenes theoretisches Wissen, sie zeigen aber, dass die (Un)veränderlichkeit von Objekten durchaus einen Effekt haben kann.</p>
-<p>Es gibt noch eine dritte Methode, um eine Liste zu erweitern. Sie heißt <code class="docutils literal notranslate"><span class="pre">extend</span></code> und wird dann verwendet, wenn wir die Elemente eines iterierbaren Objekts einzeln an eine Liste anhängen wollen. Schau, was passiert, wenn Du den folgenden Code mit <code class="docutils literal notranslate"><span class="pre">extend</span></code> ausführst vs. was passiert, wenn Du stattdessen <code class="docutils literal notranslate"><span class="pre">append</span></code> verwendest. Der Unterschied ist subtil, aber durchaus bedeutend. Welche Methode macht hier mehr Sinn?</p>
+<p>Was passiert, wenn Du diese Zelle mehrfach ausführst?</p>
+<details>
+    <summary>✅ Antwort</summary>
+<br>Auch dieses Verhalten geht auf die Veränderlichkeit von Listen zurück. Nach erstmaligem Ausführen referenziert <code>words</code> folgende Liste <code>['Gesagt', 'ist', 'nicht', 'gesagt.']</code> im Arbeitsspeicher. Bei der nächsten Ausführung wird <code>insert</code> auf das nun veränderte <code>words</code> angewandt, etc. Dieser und der oben geschilderte Umstand sind fortgeschrittenes theoretisches Wissen, sie zeigen aber, dass die (Un)veränderlichkeit von Objekten durchaus einen Effekt haben kann.
+</details>
+<p><br>Es gibt noch eine dritte Methode, um eine Liste zu erweitern. Sie heißt <code class="docutils literal notranslate"><span class="pre">extend</span></code> und wird dann verwendet, wenn wir die Elemente eines iterierbaren Objekts einzeln an eine Liste anhängen wollen. Schau, was passiert, wenn Du den folgenden Code mit <code class="docutils literal notranslate"><span class="pre">extend</span></code> ausführst vs. was passiert, wenn Du stattdessen <code class="docutils literal notranslate"><span class="pre">append</span></code> verwendest. Der Unterschied ist subtil, aber durchaus bedeutend. Welche Methode macht hier mehr Sinn?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shopping_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bananen&quot;</span><span class="p">,</span> <span class="s2">&quot;Orangen&quot;</span><span class="p">,</span> <span class="s2">&quot;Kiwis&quot;</span><span class="p">]</span>
@@ -939,8 +926,11 @@ Der Satz fängt mit einem maskulinen Artikel an.
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">append</span></code> behandelt die Liste <code class="docutils literal notranslate"><span class="pre">vegetables</span></code> einfach als <em>ein</em> Element. Wir wollen aber keine Liste in der Liste, weswegen hier <code class="docutils literal notranslate"><span class="pre">extend</span></code> sinnvoller ist.</p>
-<p>Wie oben erwähnt kann man sich die Häufigkeit eines Worts (genauer gesagt: eines Elements) auf einer Liste auszählen lassen. Die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode für Listen hat den gleichen Namen und die gleiche Funktion wie bei strings:</p>
+<details>
+    <summary>✅ Antwort</summary>
+<br><code>append</code> behandelt die Liste <code>vegetables</code> einfach als <i>ein</i> Element. Wir wollen aber keine Liste in der Liste, weswegen hier <code>extend</code> sinnvoller ist.
+</details>
+<p><br>Wie oben erwähnt kann man sich die Häufigkeit eines Worts (genauer gesagt: eines Elements) auf einer Liste auszählen lassen. Die <code class="docutils literal notranslate"><span class="pre">count</span></code>-Methode für Listen hat den gleichen Namen und die gleiche Funktion wie bei strings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">preprocessed_words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;gesagt&quot;</span><span class="p">))</span>
@@ -987,7 +977,7 @@ Die Liste beinhaltet nun noch: [&#39;Pretoria&#39;, &#39;Buenos Aires&#39;]
 <p>Als erstes wird „Malaga“ zurückgegeben und anschließend von der Liste entfernt, danach „Buenos Aires“ und schließlich „Pretoria“. Dann erhalten wir eine Fehlermeldung, denn Python kann natürlich kein „letztes Element“ auf einer <em>leeren</em> Liste finden. <code class="docutils literal notranslate"><span class="pre">pop</span></code> ist immer dann interessant, wenn wir Elemente an einer bestimmten Position in der Liste entfernen wollen, unabhängig davon, um was für ein Element es sich handelt (da würden wir <code class="docutils literal notranslate"><span class="pre">remove</span></code> benutzen).</p>
 <p>Bemühen wir dafür noch mal das Gesellschaftsspiel-Skript aus dem Notebook „Kontrollstrukturen“. In der Übung dazu hast Du ein Skript geschrieben, bei dem der Beitritt ins Spiel nicht mehr möglich ist (die Iteration wird mit <code class="docutils literal notranslate"><span class="pre">break</span></code> abgebrochen), sobald sechs Teilnehmer:innen im Spiel sind. In der Zelle unten steht die Musterlösung zu jener Aufgabe, neu mit einer längeren Liste an Spielanwärter:innen und einer nicht mehr hardgecodeten Mindest- und Maximalanzahl an Teilnehmer:innen.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 7:</strong> Modifizier den Code nun derart, dass bei sechs Teilnehmer:innen diejenige Person aus dem Spiel „gekickt“ wird, die bereits am längsten daran teilnimmt (bzw. sich bereits am längsten auf der Teilnehmer:innenliste befindet). Im gleichen Zug soll die nächste Person aus <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> ins Spiel gelassen werden. Wie beim letzten Mal auch, möchten wir bei jeder Iteration informiert werden, wer gerade im Spiel ist.</p>
+<p>✏️ <strong>Übung 6:</strong> Modifizier den Code nun derart, dass bei sechs Teilnehmer:innen diejenige Person aus dem Spiel „gekickt“ wird, die bereits am längsten daran teilnimmt (bzw. sich bereits am längsten auf der Teilnehmer:innenliste befindet). Im gleichen Zug soll die nächste Person aus <code class="docutils literal notranslate"><span class="pre">participants_pool</span></code> ins Spiel gelassen werden. Wie beim letzten Mal auch, möchten wir bei jeder Iteration informiert werden, wer gerade im Spiel ist.</p>
 <details>
   <summary>💡 Tipp</summary>
   <br>Um die Person, die am längsten dabei ist, zu entfernen, musst Du lediglich diejenige mit dem Index null auf der Teilnehmer:innenliste aus dem Spiel entfernen. Nutz dazu eine der oben erlernten Listen-Methoden.
@@ -1055,7 +1045,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <p>Der Satz „Ich gehe am Abend noch spazieren.“ enthält also folgende Wort-Bigramme: „Ich gehe“, „gehe am“, „am Abend“, „Abend noch“, „noch spazieren.“. Da Sprachproduktion in vielerlei Hinsicht regelhaft ist, kann man solche Wort-Bigramme u. a. heranziehen, um Texte in bestimmte Textsorten zu klassifizieren (der Annahme folgend, dass bestimmte Wort-Bigramme überdurchschnittlich häufig in bestimmten Textsorten auftreten) oder um Fragen der Autorschaft eines Textes zu klären (der Annahme folgend, dass bestimmte Wort-Bigramme von bestimmten Autor:innen überdurchschnittlich häufig verwendet werden).</p>
 <p>Allgemein formuliert erhalten wir n-gramme, indem wir einen Text (oder sonst eine sequentielle Datei) in kleinere Einheiten unterteilen (oftmals eben Wörter, aber auch Sätze, Phrasen oder Buchstaben etc. sind möglich) und dann <em>n</em> aufeinanderfolgende (also in der Sequenz konsekutiv auftretende) Einheiten als ein n-gram zusammenfassen.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 8:</strong> Deine Aufgabe ist es nun, ein Skript zu schreiben, das den oben im Beispiel verwendeten Satz nimmt und die darin vorkommenden Wort-Bigramme auf der Liste <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> speichert. Neben <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> wirst Du als Zwischenschritt beim Zusammentragen der Wort-Bigramme eine zweite Liste namens <code class="docutils literal notranslate"><span class="pre">current_ngrams</span></code> brauchen. Beide Listen sind bereits im Code gegeben und werden leer initialisiert.</p>
+<p>✏️ <strong>Übung 7:</strong> Deine Aufgabe ist es nun, ein Skript zu schreiben, das den oben im Beispiel verwendeten Satz nimmt und die darin vorkommenden Wort-Bigramme auf der Liste <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> speichert. Neben <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> wirst Du als Zwischenschritt beim Zusammentragen der Wort-Bigramme eine zweite Liste namens <code class="docutils literal notranslate"><span class="pre">current_ngrams</span></code> brauchen. Beide Listen sind bereits im Code gegeben und werden leer initialisiert.</p>
 <p>Wie erwähnt ist dieses Problem dem obigen im Gesellschaftsspiel-Skript sehr ähnlich. Denk daran, so wenig wie möglich zu hardcoden. Konkret: Definier, wo möglich, Variablen, sodass Dein Skript problemlos auch für andere Sätze oder zum Errechnen von Tri-, Quadrigrammen etc. benutzt werden kann.</p>
 <details>
   <summary>💡 Tipp </summary>
@@ -1097,7 +1087,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 </div>
 <p>Die ersten paar Zeilen des Codes sind die gleichen wie in der ersten Variante. Der Unterschied spielt sich in der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ab: In der ersten Variante wird grob formuliert in jeder Iteration ein neues n-gram (<code class="docutils literal notranslate"><span class="pre">current_ngram</span></code>) geschaffen, indem das bisher erste Wort vom letzten n-gram entfernt wird und ein neues hinten angehängt wird. Jedes n-gram wird dann <code class="docutils literal notranslate"><span class="pre">all_ngrams</span></code> angehängt. In der zweiten Variante hier „schieben“ wir hingegen eine Art „Fenster“ über <code class="docutils literal notranslate"><span class="pre">words</span></code>: Mittels Slicing schneiden wir uns eine neue Liste von der Länge <code class="docutils literal notranslate"><span class="pre">n</span></code> aus <code class="docutils literal notranslate"><span class="pre">words</span></code> heraus und rücken bei jeder Iteration den Start- und Endindex für das Slicing um eine Position vor. Die neue Liste fügen wir jeweils mit der uns aus dem Notebook „Datentypen“ bekannten <code class="docutils literal notranslate"><span class="pre">join</span></code>-Methode zu einem string zusammen und hängen diesen als n-gram <code class="docutils literal notranslate"><span class="pre">ngrams</span></code> an. Das Resultat ist natürlich dasselbe wie bei der ersten Variante.</p>
-<p>Zurück zu den Operationen bei Listen: Wie bei strings mit der <code class="docutils literal notranslate"><span class="pre">find</span></code>-Methode kann man auch in Listen nach einem bestimmten Element suchen und kriegt den Index (des ersten Vorkommens) zurück. Bei Listen nennt sich die entsprechende Methode allerdings <code class="docutils literal notranslate"><span class="pre">index</span></code>:</p>
+<p>Zurück zu den Operationen bei Listen: Um Indexing und Slicing auf Listen anwenden zu können, ist die Kenntnis des Index des gesuchten Listenelementes nötig. Da wir die Elemente besonders bei langen Listen nicht immer selbst durchzählen können, nutzen wir dazu die Methode <code class="docutils literal notranslate"><span class="pre">index</span></code>. Sie gibt Dir den Index des <strong>ersten</strong> Vorkommens des gesuchten Elementes zurück.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shopping_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bananen&quot;</span><span class="p">,</span> <span class="s2">&quot;Orangen&quot;</span><span class="p">,</span> <span class="s2">&quot;Kiwis&quot;</span><span class="p">]</span>
@@ -1125,12 +1115,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 </div>
 </div>
-<hr class="docutils" />
-<p>✏️ <strong>Übung 9:</strong> Erinnerst Du Dich an die Übung mit den beiden Einkaufslisten, die zu einer zusammengeführt werden sollten, aus dem Notebook „Datentypen“? Damals haben wir mithilfe von <code class="docutils literal notranslate"><span class="pre">set</span></code> sichergestellt, dass keine doppelten Elemente auf der zusammengeführten Einkaufsliste vorkommen. In dieser Übung wollen wir es etwas manueller machen (zu Übungszwecken sehen wir vom oben verkündeten Code-Reuse-Mantra ab). Iterier über eine der beiden Listen und füg der anderen Liste sämtliche Lebensmittel an, sofern sie nicht bereits auf dieser anderen Liste stehen. Lass Dir anschließend die andere Liste ausgeben. Diese sollte dann einer zusammengeführten Liste entsprechen.</p>
-<details>
-  <summary>💡 Tipp </summary>
-    <br>Zum Überprüfen, ob ein Element auf der anderen Liste <b>nicht</b> vorkommt, kannst Du das Statement <code>if element not in list</code> verwenden.
-</details><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#In diese Zelle kannst Du den Code zur Übung schreiben.</span>
 
@@ -1140,8 +1125,7 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 </div>
 </div>
-<hr class="docutils" />
-<p>Abschließend wollen wir zwei Listenmethoden anschauen, mit denen wir die Elemente auf einer Liste neu sortieren können: <code class="docutils literal notranslate"><span class="pre">sort</span></code> und <code class="docutils literal notranslate"><span class="pre">reverse</span></code>. <code class="docutils literal notranslate"><span class="pre">sort</span></code> sortiert eine Liste standardmäßig in aufsteigender Reihenfolge. Folgende Beispiele mit Zahlen und strings veranschaulichen dies:</p>
+<p>Abschließend wollen wir uns eine Listenmethoden anschauen, mit denen wir die Elemente auf einer Liste neu sortieren können: <code class="docutils literal notranslate"><span class="pre">sort</span></code>. <code class="docutils literal notranslate"><span class="pre">sort</span></code> sortiert eine Liste standardmäßig in aufsteigender Reihenfolge. Folgende Beispiele mit Zahlen und strings veranschaulichen dies:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Beta&quot;</span><span class="p">,</span> <span class="s2">&quot;Gamma&quot;</span><span class="p">,</span> <span class="s2">&quot;Alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;Delta&quot;</span><span class="p">]</span>
@@ -1189,63 +1173,11 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 </div>
 </div>
 </div>
-<p>Wie wir sehen, wurde die Liste im zweiten Schritt wieder standardmäßig alphabetisch sortiert.</p>
-<p>Im Zusammenhang mit <code class="docutils literal notranslate"><span class="pre">sort</span></code> ist auch die Funktion (!) <code class="docutils literal notranslate"><span class="pre">sorted</span></code> interessant. <code class="docutils literal notranslate"><span class="pre">sorted</span></code> nimmt ein iterierbares Objekt (in Klammern, da eine Funktion!) und gibt eine sortierte Liste zurück. Die Funktion akzeptiert also Listen selbst, aber u. a. auch dictionaries oder strings:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.43</span><span class="p">,</span> <span class="mf">1.44</span><span class="p">,</span> <span class="mf">1.42</span><span class="p">,</span> <span class="mf">1.41</span><span class="p">]</span>
-<span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;haben&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;sein&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">}</span>
-<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;abcDEF&quot;</span>
-
-<span class="n">a_list_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
-<span class="n">dictionary_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">string_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">a_list_sorted</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">dictionary_sorted</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">string_sorted</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">dictionary_sorted</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.41, 1.42, 1.43, 1.44] 
- [(&#39;sein&#39;, 35), (&#39;haben&#39;, 28)] 
- [&#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
-&lt;class &#39;list&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>In dieser Zelle lernen wir Folgendes:</p>
-<ul class="simple">
-<li><p>Auch <code class="docutils literal notranslate"><span class="pre">sorted</span></code> sortiert standardmäßig in aufsteigender Reihenfolge. Hier können wir ebenfalls <code class="docutils literal notranslate"><span class="pre">reverse=True</span></code> spezifizieren, um die absteigende Reihenfolge zu erhalten.</p></li>
-<li><p>Bei strings wird jedes einzelne Zeichen als zu sortierendes Element behandelt.</p></li>
-<li><p>Großbuchstaben stehen im Alphabet vor Kleinbuchstaben (das gilt übrigens auch für die Listenmethode <code class="docutils literal notranslate"><span class="pre">sort</span></code>).</p></li>
-<li><p>Der <code class="docutils literal notranslate"><span class="pre">key</span></code>-Parameter kann ebenfalls benutzerdefiniert werden. Im Falle des dictionary geht Python Schlüssel-Werte-Paar (<code class="docutils literal notranslate"><span class="pre">x</span></code>) für Schlüssel-Werte-Paar durch, nimmt den Wert (<code class="docutils literal notranslate"><span class="pre">x[1]</span></code>; <code class="docutils literal notranslate"><span class="pre">x[0]</span></code> wäre der zugehörige Schlüssel) und sortiert nach den Werten. Zur verwendeten <code class="docutils literal notranslate"><span class="pre">items</span></code>-Methode für dictionaries siehe unten.</p></li>
-<li><p>Das Resultat von <code class="docutils literal notranslate"><span class="pre">sorted</span></code> weisen wir <strong>immer</strong> einer Variablen zu, unabhängig von der (Un)veränderlichkeit des betreffenden Objekts. Grund dafür ist, dass Funktionen, im Gegensatz zu Methoden, immer nur Werte zurückgeben, nie aber etwas an den ihnen übergebenen Objekten verändern.</p></li>
-<li><p>Sortieren wir ein dictionary, so erhalten wir eine Liste zurück. Alles andere würde keinen Sinn ergeben, denn dictionaries „speichern“ ihre Schlüssel-Werte-Paare nicht in einer bestimmten Reihenfolge „ab“.</p></li>
-</ul>
-<p>Abschließend schauen wir uns noch <code class="docutils literal notranslate"><span class="pre">reverse</span></code> an. Wie der Name sagt, kehrt diese Methode ganz einfach die Reihenfolge einer Liste um:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;q&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> 
-                   <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
-
-<span class="n">list_of_letters</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">list_of_letters</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;h&#39;, &#39;i&#39;, &#39;j&#39;, &#39;k&#39;, &#39;l&#39;, &#39;m&#39;, &#39;n&#39;, &#39;o&#39;, &#39;p&#39;, &#39;q&#39;, &#39;r&#39;, &#39;s&#39;, &#39;t&#39;, &#39;u&#39;, &#39;v&#39;, &#39;w&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<p>In diesem Beispiel hätte <code class="docutils literal notranslate"><span class="pre">sort</span></code> natürlich den gleichen Effekt gehabt. Soviel zum Thema Listen.</p>
-<p>Bevor wir zu dictionaries übergehen, werfen wir noch einen Blick auf die Technik <em>List Comprehension</em>. Es handelt sich dabei um eine fortgeschrittene Technik, mit der Listen auf sehr elegante Weise erzeugt werden können. Alles, was wir gleich mithilfe einer List Comprehension angehen, kannst Du bereits mithilfe anderer Techniken lösen. Der Vorteil von List Comprehensions besteht darin, dass wir viele Schritte auf eine einzige Zeile Code komprimieren können. Ob Du zukünftig List Comprehension verwendest oder nicht, steht Dir frei. In jedem Fall macht es Sinn, dass Du die Technik gesehen hast und weißt, wozu sie eingesetzt wird.</p>
-<section id="exkurs-list-comprehension">
-<h3>Exkurs: List Comprehension<a class="headerlink" href="#exkurs-list-comprehension" title="Permalink to this heading">#</a></h3>
+<p>Wie wir sehen, wurde die Liste im zweiten Schritt (also bei gleicher Länge) wieder standardmäßig alphabetisch sortiert.</p>
+<p>So viel zum Thema Listen.</p>
+<p>Bevor wir zu dictionaries übergehen, werfen wir optional noch einen Blick auf die Technik <em>List Comprehension</em>. Es handelt sich dabei um eine fortgeschrittene Technik, mit der Listen auf sehr elegante Weise erzeugt werden können. Alles, was wir gleich mithilfe einer List Comprehension angehen, kannst Du bereits mithilfe anderer Techniken lösen. Der Vorteil von List Comprehensions besteht darin, dass wir viele Schritte auf eine einzige Zeile Code komprimieren können. Ob Du zukünftig List Comprehension verwendest oder nicht, steht Dir frei. Es ist aber durchaus sinnvoll, dass Du die Technik gesehen hast und weißt, wozu sie eingesetzt wird.</p>
+<section id="fortgeschritten-list-comprehension">
+<h3>🦊 Fortgeschritten: List Comprehension<a class="headerlink" href="#fortgeschritten-list-comprehension" title="Permalink to this heading">#</a></h3>
 <p>Am Anfang des Abschnitts <em>Operationen bei Listen</em> (s. o.) haben wir die bis dahin erlernten Schritte des preprocessing wie folgt zusammengefasst:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1287,7 +1219,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <p>Das ist eine List Comprehension. Sie verpackt sämtliche Schritte von oben in <em>eine</em> Zeile Code. Das Resultat ist dasselbe.</p>
 <p>Knapp formuliert iterieren wir hier – wie bei einer <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife – Wort für Wort (<code class="docutils literal notranslate"><span class="pre">word[...]</span> <span class="pre">for</span> <span class="pre">word</span></code>) über eine Liste mit (noch unbereinigten) Wörtern (<code class="docutils literal notranslate"><span class="pre">sentence.split()</span></code>) und wenden die Methoden <code class="docutils literal notranslate"><span class="pre">lower</span></code> und <code class="docutils literal notranslate"><span class="pre">strip</span></code> auf jedes Wort an (Methoden können, wie bereits oben gezeigt, einfach aneinander gehängt werden). Das bereinigte Wort wird dann an eine neue Liste angehängt, die, sobald komplett, mit <code class="docutils literal notranslate"><span class="pre">preprocessed_words</span></code> referenziert wird. Dass die bereinigten Wörter nach und nach an diese neue Liste angehängt werden, geht nicht klar aus dem Code hervor (im Gegensatz zur langen Version oben, wo wir ein Wort nach dem anderen mittels <code class="docutils literal notranslate"><span class="pre">append</span></code> an die neue Liste anhängen). Die Kürze des Codes geht hier also auf Kosten der Verständlichkeit.</p>
 <p>Schauen wir uns die einzelnen Bestandteile einer List Comprehension in ihrer grundlegenden Syntax an:</p>
-<p><code class="docutils literal notranslate"><span class="pre">new_list</span> <span class="pre">=</span> <span class="pre">[expression</span> <span class="pre">for</span> <span class="pre">element</span> <span class="pre">in</span> <span class="pre">iterable]</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
+</pre></div>
+</div>
 <p>Eine List Comprehension wird <strong>immer</strong> von eckigen Klammern umrahmt (die eckigen Klammern machen auch deutlich, dass das Resultat der List Comprehension stets eine Liste ist). Innerhalb der Klammern gibt es stets folgende drei Bestandteile:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">iterable</span></code> definiert das Objekt, über das wir iterieren.</p></li>
@@ -1301,7 +1235,9 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <p>List Comprehensions können aber noch mehr. In Kombination mit bedingten Anweisungen können sie auf folgende zwei Arten noch gezielter eingesetzt werden:</p>
 <ol class="arabic">
 <li><p>Wir können einen Filter auf das Objekt anwenden, über das wir iterieren (<code class="docutils literal notranslate"><span class="pre">iterable</span></code>). Wir definieren dazu eine bedingte Anweisung, die bei jedem <code class="docutils literal notranslate"><span class="pre">element</span></code> überprüft, ob die Bedingung zutrifft. Nur wenn die Bedingung zutrifft, wird <code class="docutils literal notranslate"><span class="pre">expression</span></code> auf <code class="docutils literal notranslate"><span class="pre">element</span></code> angewandt und der daraus resultierende Wert an die neue Liste angehängt. Die grundlegende Syntax wird dafür folgendermaßen erweitert:</p>
-<p><code class="docutils literal notranslate"><span class="pre">new_list</span> <span class="pre">=</span> <span class="pre">[expression</span> <span class="pre">for</span> <span class="pre">element</span> <span class="pre">in</span> <span class="pre">iterable</span> <span class="pre">if</span> <span class="pre">condition]</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
+</pre></div>
+</div>
 </li>
 </ol>
 <p>Dies können wir z. B. benutzen, um aus einem string sämtliche kurzen Wörter herauszufiltern, hier am Beispiel des ersten Absatzes des ersten Artikels des deutschen Grundgesetzes:</p>
@@ -1338,34 +1274,31 @@ Aktuelle Teilnehmer:innen:  [&#39;Max&#39;, &#39;Moritz&#39;, &#39;Janine&#39;, 
 <p>Hier entfernen wir mittels <code class="docutils literal notranslate"><span class="pre">strip</span></code> bei <code class="docutils literal notranslate"><span class="pre">expression</span></code> den Punkt am Ende von „unantastbar.“.</p>
 <ol class="arabic" start="2">
 <li><p>Wir können die Anwendung von <code class="docutils literal notranslate"><span class="pre">expression</span></code> an eine bedingte Anweisung knüpfen. Konkret können wir zwei verschiedene <code class="docutils literal notranslate"><span class="pre">expressions</span></code> definieren, die abhängig davon, ob die Bedingung auf das jeweilige <code class="docutils literal notranslate"><span class="pre">element</span></code> zutrifft, angewandt werden. Die grundlegende Syntax sieht so aus:</p>
-<p><code class="docutils literal notranslate"><span class="pre">new_list</span> <span class="pre">=</span> <span class="pre">[expression1</span> <span class="pre">if</span> <span class="pre">condition</span> <span class="pre">else</span> <span class="pre">expression2</span> <span class="pre">for</span> <span class="pre">element</span> <span class="pre">in</span> <span class="pre">iterable]</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression1</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">expression2</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
+</pre></div>
+</div>
 </li>
 </ol>
-<p>Damit können wir z. B. die oben vorgestellte <code class="docutils literal notranslate"><span class="pre">swapcase</span></code>-Methode nachprogrammieren:</p>
+<p>So ist es uns z. B. möglich, die Groß- und Kleinschreibung eines string umzukehren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">swapped_case_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">letter</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">letter</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span> <span class="k">else</span> <span class="n">letter</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">constitution</span><span class="p">]</span>
 
 <span class="n">swapped_case_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">swapped_case_list</span><span class="p">)</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="n">swapped_case_string</span><span class="p">)</span>
-
-<span class="c1">#Überprüfen, ob das Resultat dasselbe wie bei der &#39;swapcase&#39;-Methode ist</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">swapped_case_string</span> <span class="o">==</span> <span class="n">constitution</span><span class="o">.</span><span class="n">swapcase</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dIE wÜRDE DES mENSCHEN IST UNANTASTBAR. sIE ZU ACHTEN UND ZU SCHÜTZEN IST vERPFLICHTUNG ALLER STAATLICHEN gEWALT.
-True
 </pre></div>
 </div>
 </div>
 </div>
 <p>Bei jedem <code class="docutils literal notranslate"><span class="pre">letter</span></code> wird überprüft, ob es sich um einen Großbuchstaben handelt, und wenn ja, wird <code class="docutils literal notranslate"><span class="pre">letter.lower()</span></code> darauf angewandt (<code class="docutils literal notranslate"><span class="pre">expression1</span></code>), andernfalls <code class="docutils literal notranslate"><span class="pre">letter.upper()</span></code> (<code class="docutils literal notranslate"><span class="pre">expression2</span></code>). In jedem Fall wird der modifizierte Buchstabe an die neue Liste <code class="docutils literal notranslate"><span class="pre">swapped_case_list</span></code> angehängt. Mit <code class="docutils literal notranslate"><span class="pre">join</span></code> fügen wir die einzelnen Listenelemente wieder zu einem string zusammen.</p>
-<p>Die beiden Varianten der Einbindung von bedingten Anweisungen in List Comprehensions lassen sich auch miteinander kombinieren. Das führt jedoch zu ziemlich langen, schwierig zu lesenden Codezeilen, weswegen davon i. d. R. abgesehen wird.</p>
+<p>Die beiden Varianten der Einbindung von bedingten Anweisungen in List Comprehensions lassen sich auch miteinander kombinieren. Das führt jedoch zu ziemlich langen, schwierig zu lesenden Codezeilen, weswegen davon i. d. R. abgesehen wird.</p>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 10:</strong> <code class="docutils literal notranslate"><span class="pre">temperatures</span></code> ist eine Liste mit unterschiedlichen Messtemperaturen in Grad Celsius. Sie beinhaltet positive und negative Werte sowie fehlende Werte, die mit „NA“ gekennzeichnet sind (für <em>not available</em>, etwa weil das Thermometer ausfiel). Erstell nun mittels List Comprehension folgende neuen Listen. Überleg Dir jeweils genau, an welcher Stelle in der List Comprehension Du die bedingte Anweisung einbauen musst.</p>
+<p>✏️ <strong>Übung 8:</strong> <code class="docutils literal notranslate"><span class="pre">temperatures</span></code> ist eine Liste mit unterschiedlichen Messtemperaturen in Grad Celsius. Sie beinhaltet positive und negative Werte sowie fehlende Werte, die mit „NA“ gekennzeichnet sind (für <em>not available</em>, etwa weil das Thermometer ausfiel). Erstell nun mittels List Comprehension folgende neuen Listen. Überleg Dir jeweils genau, an welcher Stelle in der List Comprehension Du die bedingte Anweisung einbauen musst.</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">temperatures_preprocessed</span></code> soll eine Liste referenzieren, die nur numerische Werte enthält.</p></li>
 </ol>
@@ -1423,7 +1356,7 @@ True
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1964</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1916</span><span class="o">/</span><span class="mf">387292150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">federal_states</span><span class="p">[</span><span class="s2">&quot;Oberösterreich&quot;</span><span class="p">])</span>
 
 <span class="ne">KeyError</span>: &#39;Oberösterreich&#39;
@@ -1513,8 +1446,11 @@ True
 </div>
 </div>
 <p>Was passiert, wenn Du den <code class="docutils literal notranslate"><span class="pre">pop</span></code>-Befehl noch einmal ausführst?</p>
-<p>Dieses Verhalten liegt wiederum daran, dass dictionaries veränderlich sind (was wie bei Listen der Grund ist, warum wir das Resultat einer dictionary-Methode nicht einer neuen Variablen zuweisen). Wenn wir ein Schlüssel-Werte-Paar einmal entfernt haben, kann es nicht ein zweites Mal entfernt werden, denn es existiert ja nicht mehr. Solltest Du irgendwann auf Fehlermeldungen in diesem Abschnitt stoßen (abgesehen von den Stellen, an denen dies intendiert ist), dann liegt das wahrscheinlich daran, dass Du die Zellen nicht in der richtigen Reihenfolge maximal einmal ausgeführt hast. Du kannst dann einfach noch einmal dort starten, wo das problematische Objekt erstmals initialisiert wird.</p>
-<p>Unser Bundesländer-dictionary war von Anfang an nicht vollständig. Unten haben wir ein zweites dictionary, das die restlichen Bundesländer beinhaltet. Folgendermaßen können wir sie vereinen:</p>
+<details>
+<summary>✅ Antwort</summary>
+<br>Du erhältst eine Fehlermeldung. Dieses Verhalten liegt daran, dass dictionaries veränderlich sind (was wie bei Listen der Grund ist, warum wir das Resultat einer dictionary-Methode nicht einer neuen Variablen zuweisen). Wenn wir ein Schlüssel-Werte-Paar einmal entfernt haben, kann es nicht ein zweites Mal entfernt werden, denn es existiert ja nicht mehr. Solltest Du irgendwann auf Fehlermeldungen in diesem Abschnitt stoßen (abgesehen von den Stellen, an denen dies intendiert ist), dann liegt das wahrscheinlich daran, dass Du die Zellen nicht in der richtigen Reihenfolge maximal einmal ausgeführt hast. Du kannst dann einfach noch einmal dort starten, wo das problematische Objekt erstmals initialisiert wird.
+</details>
+<p><br>Unser Bundesländer-dictionary war von Anfang an nicht vollständig. Unten haben wir ein zweites dictionary, das die restlichen Bundesländer beinhaltet. Folgendermaßen können wir sie vereinen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">federal_states</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Vorarlberg&quot;</span><span class="p">:</span> <span class="s2">&quot;Bregenz&quot;</span><span class="p">,</span> <span class="s2">&quot;Tirol&quot;</span><span class="p">:</span> <span class="s2">&quot;Innsbruck&quot;</span><span class="p">,</span> <span class="s2">&quot;Kärnten&quot;</span><span class="p">:</span> <span class="s2">&quot;Klagenfurt&quot;</span><span class="p">,</span>
@@ -1639,7 +1575,7 @@ Burgenland
 </div>
 </div>
 <hr class="docutils" />
-<p>✏️ <strong>Übung 11:</strong> Eine Funktion zum Sortieren von dictionaries kennst Du bereits von oben. Sortier <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> alphabetisch nach ihren Hauptstädten. Das Resultat sollte eine Liste mit Tupeln bestehend aus Bundesland und Hauptstadt sein.</p>
+<p>✏️ <strong>Übung 9:</strong> Sortier  das dictionary <code class="docutils literal notranslate"><span class="pre">federal_states</span></code> alphabetisch nach den Hauptstädten. Nutz dazu die Funktion (!) <code>sorted</code> und schau selbstständig im Internet nach ihrer Syntax. Das Resultat sollte eine Liste mit Tupeln bestehend aus Bundesland und Hauptstadt sein.</p>
 <details>
   <summary>💡 Tipp</summary>
   <br>In der Sortierfunktion kannst Du für den Zugriff auf die Schlüssel-Werte-Paare die <code>items</code>-Methode verwenden. Außerdem kommt ein griechischer Buchstabe in der Lösung vor.
@@ -1740,7 +1676,7 @@ Gute Arbeit bis hierhin!
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungsfall-errechnen-von-schlusselwortern">🔧 Anwendungsfall: Errechnen von Schlüsselwörtern</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-zeichenketten-strings">Operationen bei Zeichenketten / strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-listen">Operationen bei Listen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exkurs-list-comprehension">Exkurs: List Comprehension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fortgeschritten-list-comprehension">🦊 Fortgeschritten: List Comprehension</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operationen-bei-dictionaries">Operationen bei dictionaries</a></li>
